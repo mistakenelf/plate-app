@@ -1,17 +1,18 @@
 import React from 'react'
+import { StyleRoot } from 'radium';
 import Navigation from '../components/Navigation'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
-function MainLayout({children}) {
+function App({children}) {
   return (
     <MuiThemeProvider muiTheme={getMuiTheme()}>
-      <div>
+      <StyleRoot>
         <Navigation />
         {children}
-      </div>
+      </StyleRoot>
     </MuiThemeProvider>
   )
 }
 
-export default MainLayout
+export default App

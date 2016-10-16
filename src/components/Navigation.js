@@ -49,8 +49,8 @@ export default class Navigation extends Component {
               targetOrigin={{horizontal: 'right', vertical: 'top'}}
               anchorOrigin={{horizontal: 'right', vertical: 'top'}}
             >
-              <Link to="/login"><MenuItem primaryText="Login" /></Link>
-              <Link to="/register"><MenuItem primaryText="Register" /></Link>
+              <MenuItem primaryText="Login" containerElement={ <Link to="/login" /> }></MenuItem>
+              <MenuItem primaryText="Register" containerElement={ <Link to="/register" /> }></MenuItem>
             </IconMenu>
           } />
         <Drawer
@@ -59,8 +59,7 @@ export default class Navigation extends Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({ open }) }
           >
-          <IndexLink to="/"><MenuItem onTouchTap={this.handleClose.bind(this)}>Home</MenuItem></IndexLink>
-          <Link to="/account"><MenuItem onTouchTap={this.handleClose.bind(this)}>Account</MenuItem></Link>
+          <MenuItem containerElement={ <IndexLink to="/" /> } onTouchTap={this.handleClose.bind(this)}>Home</MenuItem>
         </Drawer>
       </div>
     )
