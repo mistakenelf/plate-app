@@ -1,15 +1,12 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router,Route, IndexRoute, browserHistory } from 'react-router'
-import injectTapEventPlugin from 'react-tap-event-plugin'
 import App from './views/App'
 import Home from './views/home/Home'
 import Login from './views/login/Login'
 import Register from './views/register/Register'
 import NotFound from './components/NotFound'
 import './index.css'
-
-injectTapEventPlugin();
 
 render(
   <Router history={browserHistory}>
