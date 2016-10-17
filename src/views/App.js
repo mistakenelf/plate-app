@@ -1,13 +1,13 @@
 import React from 'react'
 import Navigation from '../components/Navigation'
-import AppWrapper from '../components/AppWrapper'
+import Wrapper from '../components/Wrapper'
 
 function App({children}) {
   return (
-    <AppWrapper>
+    <Wrapper>
       <Navigation />
       {children}
-    </AppWrapper>
+    </Wrapper>
   )
 }
 

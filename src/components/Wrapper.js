@@ -6,7 +6,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 
 injectTapEventPlugin();
 
-function AppWrapper({children}) {
+function Wrapper({children}) {
   return (
     <MuiThemeProvider muiTheme={getMuiTheme()}>
       <StyleRoot>
@@ -16,4 +16,4 @@ function AppWrapper({children}) {
   )
 }
 
-export default AppWrapper
+export default Wrapper
