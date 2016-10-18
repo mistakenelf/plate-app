@@ -5,7 +5,7 @@ import App from './views/App'
 import Home from './views/home/Home'
 import Login from './views/login/Login'
 import Register from './views/register/Register'
-import NotFound from './components/NotFound'
+import NotFound from './components/notFound/NotFound'
 import './index.css'
 import * as firebase from 'firebase'
 
