@@ -1,13 +1,13 @@
 import React from 'react'
 import { render } from 'react-dom';
-import AppWrapper from '../../components/AppWrapper'
+import Wrapper from '../../components/Wrapper'
 import Register from './Register'
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
   render(
-    <AppWrapper>
+    <Wrapper>
       <Register/>
-    </AppWrapper>,
-    div)
+    </Wrapper>,
+  div)
 })
