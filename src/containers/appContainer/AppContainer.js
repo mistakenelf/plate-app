@@ -13,12 +13,13 @@ import NotFound from '../../components/notFound/NotFound'
 
 injectTapEventPlugin()
 
+// Initialize Firebase
 const config = {
-  apiKey: "AIzaSyDjNxAdCF1uaRzZSlHxw8CDyYTnfb83c5M",
-  authDomain: "spendy-8eb10.firebaseapp.com",
-  databaseURL: "https://spendy-8eb10.firebaseio.com",
-  storageBucket: "spendy-8eb10.appspot.com",
-  messagingSenderId: "500637043981"
+  apiKey: "AIzaSyDL-jDWSC5lrRfRsngBu2gPTEmL2hO2SXE",
+  authDomain: "plate-a0b1b.firebaseapp.com",
+  databaseURL: "https://plate-a0b1b.firebaseio.com",
+  storageBucket: "plate-a0b1b.appspot.com",
+  messagingSenderId: "1011831735527"
 }
 
 firebase.initializeApp(config)
