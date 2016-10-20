@@ -4,7 +4,7 @@ import { Card, CardTitle, CardText } from 'material-ui/Card'
 
 function Home() {
   return (
-    <Grid smallCellWidth="1" mediumCellWidth="1/2" largeCellWidth="1/4">
+    <Grid smallCellWidth="1" mediumCellWidth="1/2" largeCellWidth="1/4" xlargeCellWidth="1/4">
       <Cell>
         <div style={{padding: 5}}>
           <Card>
