@@ -38,7 +38,7 @@ export default class Navigation extends Component {
     return (
       <div>
         <AppBar
-          title="Spendy"
+          title="Plate"
           style={styles.appBarColor}
           onLeftIconButtonTouchTap={this.handleToggle.bind(this)}
           iconElementRight={
