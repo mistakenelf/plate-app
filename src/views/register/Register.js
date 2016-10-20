@@ -22,7 +22,7 @@ function Register() {
       <Grid smallCellWidth="1" mediumCellWidth="1/2" align="center" style={styles.registerContainer}>
         <Cell>
           <Card style={styles.padTop}>
-            <CardTitle title="Register" subtitle="Welcome To Spendy" />
+            <CardTitle title="Register" subtitle="Welcome To Plate" />
             <CardText>
               <TextField hintText="First Name" fullWidth={true} />
               <br />

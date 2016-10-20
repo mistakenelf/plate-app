@@ -22,7 +22,7 @@ function Login() {
       <Grid smallCellWidth="1" mediumCellWidth="1/2" align="center" style={styles.loginContainer}>
         <Cell>
           <Card style={styles.padTop}>
-            <CardTitle title="Login" subtitle="Welcome To Spendy" />
+            <CardTitle title="Login" subtitle="Welcome To Plate" />
             <CardText>
               <TextField hintText="Username" fullWidth={true} />
               <br />
