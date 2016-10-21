@@ -7,6 +7,8 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import MenuItem from 'material-ui/MenuItem'
 import { indigo500 } from 'material-ui/styles/colors'
 import { IndexLink, Link } from 'react-router'
+import * as firebase from 'firebase'
+import { browserHistory } from 'react-router'
 
 export default class Navigation extends Component {
   constructor(props) {
@@ -25,6 +27,15 @@ export default class Navigation extends Component {
   handleClose() {
     this.setState({
       open: false
+    })
+  }
+
+  logout() {
+    firebase.auth().signOut().then(() => {
+      console.log('Signed out')
+      browserHistory.push('/')
+    }, (error) => {
+      console.log('Log out failed')
     })
   }
 
@@ -51,6 +62,7 @@ export default class Navigation extends Component {
             >
               <MenuItem primaryText="Login" containerElement={ <Link to="/login" /> }></MenuItem>
               <MenuItem primaryText="Register" containerElement={ <Link to="/register" /> }></MenuItem>
+              <MenuItem primaryText="Logout" onClick={this.logout} />
             </IconMenu>
           } />
         <Drawer
