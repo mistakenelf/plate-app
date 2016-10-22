@@ -5,7 +5,7 @@ import IconButton from 'material-ui/IconButton'
 import IconMenu from 'material-ui/IconMenu'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import MenuItem from 'material-ui/MenuItem'
-import { indigo500 } from 'material-ui/styles/colors'
+import { grey50 } from 'material-ui/styles/colors'
 import { IndexLink, Link } from 'react-router'
 
 export default class UnauthenticatedNav extends Component {
@@ -31,7 +31,11 @@ export default class UnauthenticatedNav extends Component {
   render() {
     const styles = {
       appBarColor: {
-        backgroundColor: indigo500
+        backgroundColor: grey50,
+      },
+
+      titleStyle: {
+        color: 'black'
       }
     }
 
@@ -39,6 +43,7 @@ export default class UnauthenticatedNav extends Component {
       <div>
         <AppBar
           title="Plate"
+          titleStyle={styles.titleStyle}
           style={styles.appBarColor}
           onLeftIconButtonTouchTap={this.handleToggle.bind(this)}
           iconElementRight={

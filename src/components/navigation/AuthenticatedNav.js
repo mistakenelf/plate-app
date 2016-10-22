@@ -54,7 +54,7 @@ export default class AuthenticatedNav extends Component {
       <div>
         <AppBar
           title="Plate"
-          titleStyle={styles.titleColor}
+          titleStyle={styles.titleStyle}
           style={styles.appBarColor}
           onLeftIconButtonTouchTap={this.handleToggle.bind(this)}
           iconElementRight={
