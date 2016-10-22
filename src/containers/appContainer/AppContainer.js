@@ -25,9 +25,15 @@ const config = {
 
 firebase.initializeApp(config)
 
+const muiTheme = getMuiTheme({
+  appBar: {
+    textColor: '#000000'
+  }
+})
+
 function AppContainer() {
   return (
-    <MuiThemeProvider muiTheme={getMuiTheme()}>
+    <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
       <StyleRoot>
         <Router history={browserHistory}>
           <Route path="/" component={MainLayout}>

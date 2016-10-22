@@ -43,10 +43,6 @@ export default class AuthenticatedNav extends Component {
     const styles = {
       appBarColor: {
         backgroundColor: grey50,
-      },
-
-      titleStyle: {
-        color: 'black'
       }
     }
 
@@ -54,7 +50,6 @@ export default class AuthenticatedNav extends Component {
       <div>
         <AppBar
           title="Plate"
-          titleStyle={styles.titleColor}
           style={styles.appBarColor}
           onLeftIconButtonTouchTap={this.handleToggle.bind(this)}
           iconElementRight={
