@@ -7,6 +7,13 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import MenuItem from 'material-ui/MenuItem'
 import { indigo500 } from 'material-ui/styles/colors'
 import { IndexLink, Link } from 'react-router'
+import { StyleSheet, css } from 'aphrodite'
+
+const styles = StyleSheet.create({
+  appBarColor: {
+    backgroundColor: indigo500,
+  }
+})
 
 export default class UnauthenticatedNav extends Component {
   constructor(props) {
@@ -29,17 +36,11 @@ export default class UnauthenticatedNav extends Component {
   }
 
   render() {
-    const styles = {
-      appBarColor: {
-        backgroundColor: indigo500,
-      }
-    }
-
     return (
       <div>
         <AppBar
           title="Plate"
-          style={styles.appBarColor}
+          className={css(styles.appBarColor)}
           onLeftIconButtonTouchTap={this.handleToggle.bind(this)}
           iconElementRight={
             <IconMenu

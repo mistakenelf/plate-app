@@ -9,6 +9,13 @@ import { indigo500 } from 'material-ui/styles/colors'
 import { IndexLink, Link } from 'react-router'
 import * as firebase from 'firebase'
 import { browserHistory } from 'react-router'
+import { StyleSheet, css } from 'aphrodite'
+
+const styles = StyleSheet.create({
+  appBarColor: {
+    backgroundColor: indigo500,
+  }
+})
 
 export default class AuthenticatedNav extends Component {
   constructor(props) {
@@ -40,17 +47,11 @@ export default class AuthenticatedNav extends Component {
   }
 
   render() {
-    const styles = {
-      appBarColor: {
-        backgroundColor: indigo500,
-      }
-    }
-
     return (
       <div>
         <AppBar
           title="Plate"
-          style={styles.appBarColor}
+          className={css(styles.appBarColor)}
           onLeftIconButtonTouchTap={this.handleToggle.bind(this)}
           iconElementRight={
             <IconMenu
