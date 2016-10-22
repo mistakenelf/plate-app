@@ -10,6 +10,7 @@ import Home from '../../views/home/Home'
 import Login from '../../views/login/Login'
 import Register from '../../views/register/Register'
 import NotFound from '../../components/notFound/NotFound'
+import Dashboard from '../../views/dashboard/Dashboard'
 
 injectTapEventPlugin()
 
@@ -33,6 +34,7 @@ function AppContainer() {
             <IndexRoute component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/dashboard" component={Dashboard} />
             <Route path="*" component={NotFound} />
           </Route>
         </Router>

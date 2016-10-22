@@ -5,8 +5,8 @@ import IconButton from 'material-ui/IconButton'
 import IconMenu from 'material-ui/IconMenu'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import MenuItem from 'material-ui/MenuItem'
-import { indigo500 } from 'material-ui/styles/colors'
-import { IndexLink } from 'react-router'
+import { grey50 } from 'material-ui/styles/colors'
+import { IndexLink, Link } from 'react-router'
 import * as firebase from 'firebase'
 import { browserHistory } from 'react-router'
 
@@ -42,7 +42,11 @@ export default class AuthenticatedNav extends Component {
   render() {
     const styles = {
       appBarColor: {
-        backgroundColor: indigo500
+        backgroundColor: grey50,
+      },
+
+      titleStyle: {
+        color: 'black'
       }
     }
 
@@ -50,6 +54,7 @@ export default class AuthenticatedNav extends Component {
       <div>
         <AppBar
           title="Plate"
+          titleStyle={styles.titleColor}
           style={styles.appBarColor}
           onLeftIconButtonTouchTap={this.handleToggle.bind(this)}
           iconElementRight={
@@ -70,6 +75,7 @@ export default class AuthenticatedNav extends Component {
           onRequestChange={(open) => this.setState({ open }) }
           >
           <MenuItem containerElement={ <IndexLink to="/" /> } onTouchTap={this.handleClose.bind(this)}>Home</MenuItem>
+          <MenuItem containerElement={ <Link to="/dashboard" /> } onTouchTap={this.handleClose.bind(this)}>Dashboard</MenuItem>
         </Drawer>
       </div>
     )
