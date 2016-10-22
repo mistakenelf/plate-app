@@ -10,6 +10,7 @@ export default class Login extends Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
       if(user) {
+        console.log(user)
         browserHistory.push('/')
       } else {
         console.log('Error logging in')
