@@ -28,8 +28,8 @@ firebase.initializeApp(config)
 const muiTheme = getMuiTheme({
   appBar: {
     textColor: '#000000'
-  },
-});
+  }
+})
 
 function AppContainer() {
   return (
