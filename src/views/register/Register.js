@@ -27,36 +27,21 @@ export default class Register extends Component {
   }
 
   render() {
-    const styles = {
-      registerContainer: {
-        justifyContent: "center"
-      },
-
-      padTop: {
-        marginTop: 50,
-        width: "95%"
-      }
-    }
-
     return (
-      <Grid smallCellWidth="1" mediumCellWidth="1/2" align="center" style={styles.registerContainer}>
-        <Cell>
-          <Card style={styles.padTop}>
-            <CardTitle title="Register" subtitle="Welcome To Plate" />
-            <CardText>
-              <TextField hintText="First Name" id="firstName" fullWidth={true} />
-              <br />
-              <TextField hintText="Last Name" id="lastName" fullWidth={true} />
-              <br />
-              <TextField hintText="Email" id="email" fullWidth={true} />
-              <br />
-              <TextField hintText="Password" id="password" fullWidth={true} type="password" />
-              <br />
-              <RaisedButton label="Register" secondary={true} fullWidth={true} onClick={this.registerUser} />
-            </CardText>
-          </Card>
-        </Cell>
-      </Grid>
+      <Card>
+        <CardTitle title="Register" subtitle="Welcome To Plate" />
+        <CardText>
+          <TextField hintText="First Name" id="firstName" fullWidth={true} />
+          <br />
+          <TextField hintText="Last Name" id="lastName" fullWidth={true} />
+          <br />
+          <TextField hintText="Email" id="email" fullWidth={true} />
+          <br />
+          <TextField hintText="Password" id="password" fullWidth={true} type="password" />
+          <br />
+          <RaisedButton label="Register" secondary={true} fullWidth={true} onClick={this.registerUser} />
+        </CardText>
+      </Card>
     )
   }
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import { StyleRoot } from 'radium'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { Router,Route, IndexRoute, browserHistory } from 'react-router'
@@ -34,17 +33,15 @@ const muiTheme = getMuiTheme({
 function AppContainer() {
   return (
     <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
-      <StyleRoot>
-        <Router history={browserHistory}>
-          <Route path="/" component={MainLayout}>
-            <IndexRoute component={Home} />
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="*" component={NotFound} />
-          </Route>
-        </Router>
-      </StyleRoot>
+      <Router history={browserHistory}>
+        <Route path="/" component={MainLayout}>
+          <IndexRoute component={Home} />
+          <Route path="/login" component={Login} />
+          <Route path="/register" component={Register} />
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="*" component={NotFound} />
+        </Route>
+      </Router>
     </MuiThemeProvider>
   )
 }

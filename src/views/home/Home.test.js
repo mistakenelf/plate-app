@@ -12,9 +12,7 @@ it('renders without crashing', () => {
   const div = document.createElement('div')
   render(
     <MuiThemeProvider muiTheme={getMuiTheme()}>
-      <StyleRoot>
-        <Home />
-      </StyleRoot>
+      <Home />
     </MuiThemeProvider>,
   div)
 })
