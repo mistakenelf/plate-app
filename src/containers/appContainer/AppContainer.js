@@ -10,6 +10,7 @@ import Login from '../../views/login/Login'
 import Register from '../../views/register/Register'
 import NotFound from '../../components/notFound/NotFound'
 import Dashboard from '../../views/dashboard/Dashboard'
+import 'bootstrap/dist/css/bootstrap.css'
 
 injectTapEventPlugin()
 
@@ -24,15 +25,9 @@ const config = {
 
 firebase.initializeApp(config)
 
-const muiTheme = getMuiTheme({
-  appBar: {
-    textColor: '#000000'
-  }
-})
-
 function AppContainer() {
   return (
-    <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
+    <MuiThemeProvider muiTheme={getMuiTheme()}>
       <Router history={browserHistory}>
         <Route path="/" component={MainLayout}>
           <IndexRoute component={Home} />
