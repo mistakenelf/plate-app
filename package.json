@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.6.1"
+    "react-scripts": "0.7.0"
   },
   "dependencies": {
-    "firebase": "^3.5.0",
-    "material-ui": "^0.16.0",
-    "radium": "^0.18.1",
-    "radium-grid": "^2.0.1",
+    "aphrodite": "^1.0.0",
+    "bootstrap": "^3.3.7",
+    "firebase": "^3.5.1",
+    "material-ui": "^0.16.1",
     "react": "^15.3.2",
+    "react-bootstrap": "^0.30.5",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
