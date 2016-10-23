@@ -1,4 +1,5 @@
 import { StyleSheet } from 'aphrodite'
+import background from './bg_7.png'
 
 const styles = StyleSheet.create({
   registerMargin: {
@@ -14,6 +15,11 @@ const styles = StyleSheet.create({
     ':hover': {
       textDecoration: 'none'
     }
+  },
+
+  background: {
+    backgroundImage: `url(${background})`,
+    height: '100vh'
   }
 })
 

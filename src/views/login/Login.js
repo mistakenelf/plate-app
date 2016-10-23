@@ -27,7 +27,7 @@ export default class Login extends Component {
 
   render() {
     return (
-      <Grid fluid>
+      <Grid fluid className={css(styles.background)}>
         <Row>
           <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4}>
             <Card className={css(styles.loginMargin)}>
