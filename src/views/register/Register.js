@@ -9,7 +9,18 @@ import { StyleSheet, css } from 'aphrodite'
 
 const styles = StyleSheet.create({
   registerMargin: {
-    marginTop: 25
+    marginTop: 100
+  },
+
+  alreadyUser: {
+    float: 'right',
+    marginBottom: 10
+  },
+
+  hover:{
+    ':hover': {
+      textDecoration: 'none'
+    }
   }
 })
 
@@ -50,6 +61,9 @@ export default class Register extends Component {
                 <TextField hintText="Password" id="password" fullWidth={true} type="password" />
                 <br />
                 <RaisedButton label="Register" secondary={true} fullWidth={true} onClick={this.registerUser} />
+                <div className={css(styles.alreadyUser)}>
+                  <a href="#" className={css(styles.hover)}>Already a user?</a>
+                </div>
               </CardText>
             </Card>
           </Col>
