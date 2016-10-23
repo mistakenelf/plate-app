@@ -16,7 +16,7 @@ export default class AuthenticatedNav extends Component {
     super(props)
     this.state = {
       open: false
-    };
+    }
   }
 
   handleToggle() {
