@@ -9,7 +9,18 @@ import { StyleSheet, css } from 'aphrodite'
 
 const styles = StyleSheet.create({
   registerMargin: {
-    marginTop: 25
+    marginTop: 100
+  },
+
+  alreadyUser: {
+    float: 'right',
+    marginBottom: 10
+  },
+
+  hover:{
+    ':hover': {
+      textDecoration: 'none'
+    }
   }
 })
 
@@ -36,17 +47,18 @@ export default class Register extends Component {
             <Card className={css(styles.registerMargin)}>
               <CardTitle title="Register" subtitle="Welcome To Plate" />
               <CardText>
-                <form onSubmit={this.registerUser}>
-                  <TextField hintText="First Name" id="firstName" fullWidth={true} required={true} />
-                  <br />
-                  <TextField hintText="Last Name" id="lastName" fullWidth={true} required={true} />
-                  <br />
-                  <TextField hintText="Email" id="email" fullWidth={true} required={true} />
-                  <br />
-                  <TextField hintText="Password" id="password" fullWidth={true} type="password" required={true} />
-                  <br />
-                  <RaisedButton type="submit" label="Register" secondary={true} fullWidth={true} onClick={this.registerUser} />
-                </form>
+                <TextField hintText="First Name" id="firstName" fullWidth={true} />
+                <br />
+                <TextField hintText="Last Name" id="lastName" fullWidth={true} />
+                <br />
+                <TextField hintText="Email" id="email" fullWidth={true} />
+                <br />
+                <TextField hintText="Password" id="password" fullWidth={true} type="password" />
+                <br />
+                <RaisedButton label="Register" secondary={true} fullWidth={true} onClick={this.registerUser} />
+                <div className={css(styles.alreadyUser)}>
+                  <a href="#" className={css(styles.hover)}>Already a user?</a>
+                </div>
               </CardText>
             </Card>
           </Col>
