@@ -1,15 +1,39 @@
 import React from 'react'
-import { grey500 } from 'material-ui/styles/colors'
-import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
+import { Card, CardText, CardTitle } from 'material-ui/Card';
 import { Grid, Row, Col } from 'react-bootstrap'
 import { StyleSheet, css } from 'aphrodite'
 
 const styles = StyleSheet.create({
   menuLayout: {
-    backgroundColor: grey500,
-    height: 200,
-    width: '100%'
+    marginTop: 10
+  },
+
+  cardSize: {
+    height: 250
+  },
+
+  cardTitleGreen: {
+    backgroundColor: '#50AE55'
+  },
+
+  cardBodyGreen: {
+    backgroundColor: '#3C8D40'
+  },
+
+  cardTitleBlue: {
+    backgroundColor: '#03A9F4'
+  },
+
+  cardBodyBlue: {
+    backgroundColor: '#0288D1'
+  },
+
+  cardTitleTeal: {
+    backgroundColor: '#80CBC4'
+  },
+
+  cardBodyTeal:{
+    backgroundColor: '#4DB6AC'
   }
 })
 
@@ -17,24 +41,36 @@ function Dashboard() {
   return (
     <Grid fluid>
       <Row>
-        <Col sm={12}>
-          <Card className={css(styles.menuLayout)}>
-            <CardHeader
-              title="Without Avatar"
-              subtitle="Subtitle"
-              actAsExpander={true}
-              showExpandableButton={true}
-            />
-            <CardActions>
-              <FlatButton label="Action1" />
-              <FlatButton label="Action2" />
-            </CardActions>
-            <CardText expandable={true}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-              Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-              Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-            </CardText>
+        <Col md={3} className={css(styles.menuLayout)}>
+          <Card className={css([styles.cardBodyGreen, styles.cardSize])}>
+            <CardTitle className={css(styles.cardTitleGreen)} title="Card title" subtitle="Card subtitle" />
+              <CardText className={css(styles.cardBodyGreen)}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </CardText>
+          </Card>
+        </Col>
+        <Col md={3} className={css(styles.menuLayout)}>
+          <Card className={css([styles.cardBodyTeal, styles.cardSize])}>
+            <CardTitle className={css(styles.cardTitleTeal)}title="Card title" subtitle="Card subtitle" />
+              <CardText className={css(styles.cardBodyTeal)}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </CardText>
+          </Card>
+        </Col>
+        <Col md={3} className={css(styles.menuLayout)}>
+          <Card className={css([styles.cardBodyBlue, styles.cardSize])}>
+            <CardTitle className={css(styles.cardTitleBlue)} title="Card title" subtitle="Card subtitle" />
+              <CardText className={css(styles.cardBodyBlue)}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </CardText>
+          </Card>
+        </Col>
+        <Col md={3} className={css(styles.menuLayout)}>
+          <Card className={css(styles.cardSize)}>
+            <CardTitle title="Card title" subtitle="Card subtitle" />
+              <CardText>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </CardText>
           </Card>
         </Col>
       </Row>
