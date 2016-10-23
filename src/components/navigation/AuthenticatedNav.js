@@ -5,7 +5,7 @@ import IconButton from 'material-ui/IconButton'
 import IconMenu from 'material-ui/IconMenu'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import MenuItem from 'material-ui/MenuItem'
-import { IndexLink, Link } from 'react-router'
+import { Link } from 'react-router'
 import * as firebase from 'firebase'
 import { browserHistory } from 'react-router'
 import { css } from 'aphrodite'
@@ -33,7 +33,6 @@ export default class AuthenticatedNav extends Component {
 
   logout() {
     firebase.auth().signOut().then(() => {
-      console.log('Signed out')
       browserHistory.push('/')
     }, (error) => {
       console.log('Log out failed')
@@ -64,7 +63,7 @@ export default class AuthenticatedNav extends Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({ open }) }
           >
-          <MenuItem containerElement={ <IndexLink to="/" /> } onTouchTap={this.handleClose.bind(this)}>Home</MenuItem>
+          <MenuItem containerElement={ <Link to="/" /> } onTouchTap={this.handleClose.bind(this)}>Home</MenuItem>
           <MenuItem containerElement={ <Link to="/dashboard" /> } onTouchTap={this.handleClose.bind(this)}>Dashboard</MenuItem>
         </Drawer>
       </div>

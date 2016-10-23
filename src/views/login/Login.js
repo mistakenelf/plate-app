@@ -18,11 +18,8 @@ export default class Login extends Component {
     const promise = firebase.auth().signInWithEmailAndPassword(email, password)
 
     promise
+      .then(browserHistory.push('/'))
       .catch(e => console.log(e.message))
-
-    if(firebase.auth().currentUser) {
-      browserHistory.push('/')
-    }
   }
 
   render() {
