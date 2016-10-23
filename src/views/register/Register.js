@@ -16,11 +16,9 @@ export default class Register extends Component {
 
     const promise = firebase.auth().createUserWithEmailAndPassword(email, password)
 
-    promise.catch(e => console.log(e.message))
-
-    if(firebase.auth().currentUser) {
-      browserHistory.push('/')
-    }
+    promise
+      .then(browserHistory.push('/'))
+      .catch(e => console.log(e.message))
   }
 
   render() {
