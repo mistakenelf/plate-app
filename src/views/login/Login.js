@@ -4,19 +4,14 @@ import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 import { Grid, Row, Col } from 'react-bootstrap'
 import * as firebase from 'firebase'
-import { browserHistory } from 'react-router'
-import { StyleSheet, css } from 'aphrodite'
-
-const styles = StyleSheet.create({
-  loginMargin: {
-    marginTop: 25
-  }
-})
+import { Link, browserHistory } from 'react-router'
+import { css } from 'aphrodite'
+import styles from './styles'
 
 export default class Login extends Component {
   userLogin(e) {
     e.preventDefault()
-    
+
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
 
@@ -45,6 +40,9 @@ export default class Login extends Component {
                   <br />
                   <RaisedButton type="submit" label="Login" secondary={true} fullWidth={true} />
                 </form>
+                <div className={css(styles.nonUser)}>
+                  <Link to="/register" className={css(styles.hover)}>Not already a user?</Link>
+                </div>
               </CardText>
             </Card>
           </Col>

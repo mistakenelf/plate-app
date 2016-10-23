@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
-import AppContainer from './containers/appContainer/AppContainer'
+import App from './containers/app/App'
 import './index.css'
 
 render(
-  <AppContainer />,
+  <App />,
   document.getElementById('root')
 )

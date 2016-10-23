@@ -4,7 +4,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { Router,Route, IndexRoute, browserHistory } from 'react-router'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import * as firebase from 'firebase'
-import MainLayout from '../../layouts/mainLayout/MainLayout'
+import MainLayout from '../../layouts/MainLayout'
+import LoginLayout from '../../layouts/LoginLayout'
 import Home from '../../views/home/Home'
 import Login from '../../views/login/Login'
 import Register from '../../views/register/Register'
@@ -29,12 +30,16 @@ function AppContainer() {
   return (
     <MuiThemeProvider muiTheme={getMuiTheme()}>
       <Router history={browserHistory}>
-        <Route path="/" component={MainLayout}>
-          <IndexRoute component={Home} />
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="*" component={NotFound} />
+        <Route path="/">
+          <Route component={LoginLayout}>
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+          </Route>
+          <Route component={MainLayout}>
+            <IndexRoute component={Home} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="*" component={NotFound} />
+          </Route>
         </Route>
       </Router>
     </MuiThemeProvider>

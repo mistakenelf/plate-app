@@ -4,25 +4,9 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton';
 import * as firebase from 'firebase'
-import { browserHistory } from 'react-router'
-import { StyleSheet, css } from 'aphrodite'
-
-const styles = StyleSheet.create({
-  registerMargin: {
-    marginTop: 100
-  },
-
-  alreadyUser: {
-    float: 'right',
-    marginBottom: 10
-  },
-
-  hover:{
-    ':hover': {
-      textDecoration: 'none'
-    }
-  }
-})
+import { Link, browserHistory } from 'react-router'
+import { css } from 'aphrodite'
+import styles from './styles'
 
 export default class Register extends Component {
   registerUser(e) {
@@ -57,7 +41,7 @@ export default class Register extends Component {
                 <br />
                 <RaisedButton label="Register" secondary={true} fullWidth={true} onClick={this.registerUser} />
                 <div className={css(styles.alreadyUser)}>
-                  <a href="#" className={css(styles.hover)}>Already a user?</a>
+                  <Link to="/login" className={css(styles.hover)}>Already a user?</Link>
                 </div>
               </CardText>
             </Card>
