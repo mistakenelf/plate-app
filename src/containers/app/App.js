@@ -34,11 +34,11 @@ function App() {
           <Route component={FormLayout}>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="*" component={NotFound} />
           </Route>
           <Route component={MainLayout}>
             <IndexRoute component={Home} />
             <Route path="/dashboard" component={Dashboard} />
-            <Route path="*" component={NotFound} />
           </Route>
         </Route>
       </Router>
