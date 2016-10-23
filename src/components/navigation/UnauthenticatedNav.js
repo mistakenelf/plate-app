@@ -5,12 +5,14 @@ import IconButton from 'material-ui/IconButton'
 import IconMenu from 'material-ui/IconMenu'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import MenuItem from 'material-ui/MenuItem'
-  import { IndexLink, Link } from 'react-router'
+import { IndexLink, Link } from 'react-router'
+import { indigo600 } from 'material-ui/styles/colors'
+
 import { StyleSheet, css } from 'aphrodite'
 
 const styles = StyleSheet.create({
   appBarColor: {
-    backgroundColor: '#6147A4',
+    backgroundColor: indigo600,
   }
 })
 
