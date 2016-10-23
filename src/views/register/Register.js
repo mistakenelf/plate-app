@@ -14,23 +14,18 @@ const styles = StyleSheet.create({
 })
 
 export default class Register extends Component {
-  componentDidMount() {
-    firebase.auth().onAuthStateChanged(user => {
-      if(user) {
-        browserHistory.push('/')
-      } else {
-        console.log('Error logging in')
-      }
-    })
-  }
-
-  registerUser() {
+  registerUser(e) {
+    e.preventDefault()
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
 
     const promise = firebase.auth().createUserWithEmailAndPassword(email, password)
 
     promise.catch(e => console.log(e.message))
+
+    if(firebase.auth().currentUser) {
+      browserHistory.push('/')
+    }
   }
 
   render() {
