@@ -26,7 +26,7 @@ const config = {
 
 firebase.initializeApp(config)
 
-function AppContainer() {
+function App() {
   return (
     <MuiThemeProvider muiTheme={getMuiTheme()}>
       <Router history={browserHistory}>
@@ -46,4 +46,4 @@ function AppContainer() {
   )
 }
 
-export default AppContainer
+export default App
