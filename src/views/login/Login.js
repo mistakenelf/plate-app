@@ -14,18 +14,9 @@ const styles = StyleSheet.create({
 })
 
 export default class Login extends Component {
-  componentDidMount() {
-    firebase.auth().onAuthStateChanged(user => {
-      if(user) {
-        console.log(user)
-        browserHistory.push('/')
-      } else {
-        console.log('Error logging in')
-      }
-    })
-  }
-
-  userLogin() {
+  userLogin(e) {
+    e.preventDefault()
+    
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
 
@@ -33,6 +24,10 @@ export default class Login extends Component {
 
     promise
       .catch(e => console.log(e.message))
+
+    if(firebase.auth().currentUser) {
+      browserHistory.push('/')
+    }
   }
 
   render() {
@@ -43,11 +38,13 @@ export default class Login extends Component {
             <Card className={css(styles.loginMargin)}>
               <CardTitle title="Login" subtitle="Welcome To Plate" />
               <CardText>
-                <TextField hintText="Email" id="email" fullWidth={true} />
-                <br />
-                <TextField hintText="Password" id="password" fullWidth={true} type="password" />
-                <br />
-                <RaisedButton label="Login" secondary={true} fullWidth={true} onClick={this.userLogin} />
+                <form onSubmit={this.userLogin}>
+                  <TextField hintText="Email" id="email" fullWidth={true} required={true} />
+                  <br />
+                  <TextField hintText="Password" id="password" fullWidth={true} type="password" required={true} />
+                  <br />
+                  <RaisedButton type="submit" label="Login" secondary={true} fullWidth={true} />
+                </form>
               </CardText>
             </Card>
           </Col>
