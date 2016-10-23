@@ -5,7 +5,7 @@ import { Router,Route, IndexRoute, browserHistory } from 'react-router'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import * as firebase from 'firebase'
 import MainLayout from '../../layouts/MainLayout'
-import LoginLayout from '../../layouts/LoginLayout'
+import FormLayout from '../../layouts/FormLayout'
 import Home from '../../views/home/Home'
 import Login from '../../views/login/Login'
 import Register from '../../views/register/Register'
@@ -31,7 +31,7 @@ function App() {
     <MuiThemeProvider muiTheme={getMuiTheme()}>
       <Router history={browserHistory}>
         <Route path="/">
-          <Route component={LoginLayout}>
+          <Route component={FormLayout}>
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
           </Route>
