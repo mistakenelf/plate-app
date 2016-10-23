@@ -6,15 +6,8 @@ import IconMenu from 'material-ui/IconMenu'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import MenuItem from 'material-ui/MenuItem'
 import { IndexLink, Link } from 'react-router'
-import { indigo600 } from 'material-ui/styles/colors'
-
-import { StyleSheet, css } from 'aphrodite'
-
-const styles = StyleSheet.create({
-  appBarColor: {
-    backgroundColor: indigo600,
-  }
-})
+import { css } from 'aphrodite'
+import styles from './styles'
 
 export default class UnauthenticatedNav extends Component {
   constructor(props) {
