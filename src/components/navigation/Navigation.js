@@ -13,7 +13,7 @@ export default class Navigation extends Component {
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged(firebaseUser => {
-      if(firebaseUser) {
+      if (firebaseUser) {
         this.setState({
           loggedIn: true
         })
@@ -26,7 +26,7 @@ export default class Navigation extends Component {
   }
 
   render() {
-    if(this.state.loggedIn) {
+    if (this.state.loggedIn) {
       return (
         <AuthenticatedNav />
       )

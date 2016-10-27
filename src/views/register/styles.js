@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
 
-  hover:{
+  hover: {
     ':hover': {
       textDecoration: 'none'
     }

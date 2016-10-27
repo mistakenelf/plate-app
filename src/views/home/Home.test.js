@@ -13,5 +13,5 @@ it('renders without crashing', () => {
     <MuiThemeProvider muiTheme={getMuiTheme()}>
       <Home />
     </MuiThemeProvider>,
-  div)
+    div)
 })

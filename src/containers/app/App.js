@@ -1,7 +1,7 @@
 import React from 'react'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import { Router,Route, IndexRoute, browserHistory } from 'react-router'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import * as firebase from 'firebase'
 import MainLayout from '../../layouts/MainLayout'

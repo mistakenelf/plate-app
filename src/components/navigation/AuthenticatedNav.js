@@ -22,7 +22,7 @@ export default class AuthenticatedNav extends Component {
   handleToggle() {
     this.setState({
       open: !this.state.open
-    });
+    })
   }
 
   handleClose() {
@@ -51,9 +51,9 @@ export default class AuthenticatedNav extends Component {
               iconButtonElement={
                 <IconButton><MoreVertIcon /></IconButton>
               }
-              targetOrigin={{horizontal: 'right', vertical: 'top'}}
-              anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-            >
+              targetOrigin={{ horizontal: 'right', vertical: 'top' }}
+              anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+              >
               <MenuItem primaryText="Logout" onClick={this.logout} />
             </IconMenu>
           } />
@@ -61,10 +61,10 @@ export default class AuthenticatedNav extends Component {
           docked={false}
           width={200}
           open={this.state.open}
-          onRequestChange={(open) => this.setState({ open }) }
+          onRequestChange={(open) => this.setState({ open })}
           >
-          <MenuItem containerElement={ <Link to="/" /> } onTouchTap={this.handleClose.bind(this)}>Home</MenuItem>
-          <MenuItem containerElement={ <Link to="/dashboard" /> } onTouchTap={this.handleClose.bind(this)}>Dashboard</MenuItem>
+          <MenuItem containerElement={<Link to="/" />} onTouchTap={this.handleClose.bind(this)}>Home</MenuItem>
+          <MenuItem containerElement={<Link to="/dashboard" />} onTouchTap={this.handleClose.bind(this)}>Dashboard</MenuItem>
         </Drawer>
       </div>
     )

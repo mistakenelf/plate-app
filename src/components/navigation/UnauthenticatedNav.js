@@ -14,13 +14,13 @@ export default class UnauthenticatedNav extends Component {
     super(props)
     this.state = {
       open: false
-    };
+    }
   }
 
   handleToggle() {
     this.setState({
       open: !this.state.open
-    });
+    })
   }
 
   handleClose() {
@@ -41,20 +41,20 @@ export default class UnauthenticatedNav extends Component {
               iconButtonElement={
                 <IconButton><MoreVertIcon /></IconButton>
               }
-              targetOrigin={{horizontal: 'right', vertical: 'top'}}
-              anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-            >
-              <MenuItem primaryText="Login" containerElement={ <Link to="/login" /> }></MenuItem>
-              <MenuItem primaryText="Register" containerElement={ <Link to="/register" /> }></MenuItem>
+              targetOrigin={{ horizontal: 'right', vertical: 'top' }}
+              anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+              >
+              <MenuItem primaryText="Login" containerElement={<Link to="/login" />}></MenuItem>
+              <MenuItem primaryText="Register" containerElement={<Link to="/register" />}></MenuItem>
             </IconMenu>
           } />
         <Drawer
           docked={false}
           width={200}
           open={this.state.open}
-          onRequestChange={(open) => this.setState({ open }) }
+          onRequestChange={(open) => this.setState({ open })}
           >
-          <MenuItem containerElement={ <IndexLink to="/" /> } onTouchTap={this.handleClose.bind(this)}>Home</MenuItem>
+          <MenuItem containerElement={<IndexLink to="/" />} onTouchTap={this.handleClose.bind(this)}>Home</MenuItem>
         </Drawer>
       </div>
     )
