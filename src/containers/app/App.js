@@ -11,6 +11,7 @@ import Login from '../../views/login/Login'
 import Register from '../../views/register/Register'
 import NotFound from '../../components/notFound/NotFound'
 import Dashboard from '../../views/dashboard/Dashboard'
+import Workspace from '../../views/workspace/Workspace'
 import 'bootstrap/dist/css/bootstrap.css'
 
 injectTapEventPlugin()
@@ -38,11 +39,13 @@ function App() {
           <Route component={MainLayout}>
             <IndexRoute component={Home} />
             <Route path="/dashboard" component={Dashboard} />
+            <Route path="/workspace" component={Workspace} />
           </Route>
           <Route component={FormLayout}>
             <Route path="*" component={NotFound} />
           </Route>
         </Route>
+
       </Router>
     </MuiThemeProvider>
   )
