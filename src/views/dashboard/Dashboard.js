@@ -13,7 +13,8 @@ function Dashboard() {
             <CardTitle className={css(styles.cardTitleGreen)} title="Card title" subtitle="Card subtitle" />
             <CardText className={css(styles.cardBodyGreen)}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </CardText>
+              <a href="/workspace">Go to workspace</a>
+            </CardText>
           </Card>
         </Col>
         <Col md={3} className={css(styles.menuLayout)}>

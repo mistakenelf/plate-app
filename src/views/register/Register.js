@@ -11,6 +11,7 @@ import styles from './styles'
 export default class Register extends Component {
   registerUser(e) {
     e.preventDefault()
+
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
 
@@ -29,18 +30,20 @@ export default class Register extends Component {
             <Card className={css(styles.registerMargin)}>
               <CardTitle title="Register" subtitle="Welcome To Plate" />
               <CardText>
-                <TextField hintText="First Name" id="firstName" fullWidth={true} />
-                <br />
-                <TextField hintText="Last Name" id="lastName" fullWidth={true} />
-                <br />
-                <TextField hintText="Email" id="email" fullWidth={true} />
-                <br />
-                <TextField hintText="Password" id="password" fullWidth={true} type="password" />
-                <br />
-                <RaisedButton label="Register" secondary={true} fullWidth={true} onClick={this.registerUser} />
-                <div className={css(styles.alreadyUser)}>
-                  <Link to="/login" className={css(styles.hover)}>Already a user?</Link>
-                </div>
+                <form onSubmit={this.registerUser.bind(this)}>
+                  <TextField hintText="First Name" id="firstName" fullWidth={true} required/>
+                  <br />
+                  <TextField hintText="Last Name" id="lastName" fullWidth={true} required/>
+                  <br />
+                  <TextField hintText="Email" id="email" fullWidth={true} required/>
+                  <br />
+                  <TextField hintText="Password" id="password" fullWidth={true} type="password" required/>
+                  <br />
+                  <RaisedButton type="submit" label="Register" secondary={true} fullWidth={true}/>
+                  <div className={css(styles.alreadyUser)}>
+                    <Link to="/login" className={css(styles.hover)}>Already a user?</Link>
+                  </div>
+                </form>
               </CardText>
             </Card>
           </Col>
