@@ -6,7 +6,7 @@ import Home from '../pages/home/Home'
 import Login from '../pages/login/Login'
 import Register from '../pages/register/Register'
 import NotFound from '../components/notFound/NotFound'
-import Dashboard from '../pages/dashboard/Dashboard'
+import DashboardContainer from '../containers/DashboardContainer'
 import Workspace from '../pages/workspace/Workspace'
 
 const routes = (
@@ -17,7 +17,7 @@ const routes = (
     </Route>
     <Route component={MainLayout}>
       <IndexRoute component={Home} />
-      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/dashboard" component={DashboardContainer} />
       <Route path="/workspace" component={Workspace} />
     </Route>
     <Route component={FormLayout}>

@@ -3,11 +3,11 @@ import { Grid, Row } from 'react-bootstrap'
 import AccountCard from './AccountCard'
 import TasksCard from './TasksCard'
 
-function Dashboard() {
+function Dashboard({tasks}) {
   return (
     <Grid fluid>
       <Row>
-        <TasksCard />
+        <TasksCard tasks={tasks}/>
         <AccountCard />
       </Row>
     </Grid>

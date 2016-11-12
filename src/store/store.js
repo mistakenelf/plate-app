@@ -1,7 +1,7 @@
 import { createStore } from 'redux'
 import { browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
-import rootReducer from './reducers'
+import rootReducer from '../reducers'
 
 const tasks = [
   { "id": 1, "taskName": "Get redux setup" },

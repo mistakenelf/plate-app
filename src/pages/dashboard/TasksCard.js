@@ -8,8 +8,8 @@ import { css } from 'aphrodite'
 import styles from './styles'
 
 export default class TasksCard extends Component {
-  constructor() {
-    super() 
+  constructor(props) {
+    super(props) 
 
     this.state = {
       open: false
@@ -44,7 +44,13 @@ export default class TasksCard extends Component {
         <Card>
           <CardTitle title="Your Tasks" subtitle="Manage your tasks" />
           <CardText>
-            Your tasks will appear here
+            <ul>
+              {this.props.tasks.map((task) => {
+                return (
+                  <li key={task.id}>{task.taskName}</li>
+                )
+              })}
+            </ul>
           </CardText>
           <CardActions>
             <RaisedButton label="Create New Task" fullWidth={true} secondary={true} onTouchTap={this.handleOpen} />
