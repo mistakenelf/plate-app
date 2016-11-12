@@ -45,7 +45,6 @@ function App() {
             <Route path="*" component={NotFound} />
           </Route>
         </Route>
-
       </Router>
     </MuiThemeProvider>
   )
