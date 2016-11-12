@@ -4,8 +4,8 @@ import { syncHistoryWithStore } from 'react-router-redux'
 import rootReducer from './reducers'
 
 const tasks = [
-  { taskName: "Get redux setup" },
-  { taskName: "Start using firebase" }
+  { "id": 1, "taskName": "Get redux setup" },
+  { "id": 2, "taskName": "Start using firebase" }
 ]
 
 const defaultState = {
