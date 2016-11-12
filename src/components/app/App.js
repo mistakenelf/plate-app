@@ -6,6 +6,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 import * as firebase from 'firebase'
 import routes from '../../routes/routes'
 import 'bootstrap/dist/css/bootstrap.css'
+import './App.css'
 
 injectTapEventPlugin()
 
