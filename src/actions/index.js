@@ -1,11 +1,11 @@
-function addTask(task) {
+export function addTask(task) {
   return {
     type: 'ADD_TASK',
     task
   }
 }
 
-function removeTask(id, task) {
+export function removeTask(id, task) {
   return {
     type: 'REMOVE_TASK',
     id,
