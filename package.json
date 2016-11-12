@@ -6,9 +6,9 @@
     "react-scripts": "0.7.0"
   },
   "dependencies": {
-    "aphrodite": "^1.0.0",
+    "aphrodite": "^1.1.0",
     "bootstrap": "^3.3.7",
-    "firebase": "^3.5.3",
+    "firebase": "^3.6.0",
     "material-ui": "^0.16.1",
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.6",
