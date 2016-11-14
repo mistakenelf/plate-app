@@ -4,6 +4,7 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton';
 import * as firebase from 'firebase'
+import Alert from 'react-s-alert'
 import { Link, browserHistory } from 'react-router'
 import { css } from 'aphrodite'
 import styles from './styles'
@@ -18,8 +19,19 @@ export default class Register extends Component {
     const promise = firebase.auth().createUserWithEmailAndPassword(email, password)
 
     promise
-      .then(browserHistory.push('/'))
-      .catch(e => console.log(e.message))
+      .then(() => browserHistory.push('/'))
+
+      .then(() => 
+        Alert.success('Thank your for registering on Plate', {
+          position: 'top-right'
+        })
+      )
+
+      .catch(e => 
+        Alert.error(e.message, {
+          position: 'top-right'
+        })
+      )
   }
 
   render() {

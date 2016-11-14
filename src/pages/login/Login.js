@@ -5,6 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import { Grid, Row, Col } from 'react-bootstrap'
 import * as firebase from 'firebase'
 import { Link, browserHistory } from 'react-router'
+import Alert from 'react-s-alert'
 import { css } from 'aphrodite'
 import styles from './styles'
 
@@ -18,8 +19,17 @@ export default class Login extends Component {
     const promise = firebase.auth().signInWithEmailAndPassword(email, password)
 
     promise
-      .then(browserHistory.push('/'))
-      .catch(e => console.log(e.message))
+      .then(() => browserHistory.push('/'))
+      .then(() => 
+        Alert.success('Welcome To Plate', {
+            position: 'top-right',
+        })
+      )
+      .catch((e) => 
+        Alert.error(e.message, {
+          position: 'top-right'
+        })
+      )
   }
 
   render() {
