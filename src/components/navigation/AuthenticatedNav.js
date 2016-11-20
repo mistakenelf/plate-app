@@ -1,39 +1,11 @@
 import * as firebase from 'firebase'
 
-import React, { Component } from 'react'
+import { Link, browserHistory } from 'react-router'
+import { MenuItem, Nav, NavDropdown, Navbar } from 'react-bootstrap'
 
-import AppBar from 'material-ui/AppBar'
-import Drawer from 'material-ui/Drawer'
-import IconButton from 'material-ui/IconButton'
-import IconMenu from 'material-ui/IconMenu'
-import { Link } from 'react-router'
-import MenuItem from 'material-ui/MenuItem'
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
-import { browserHistory } from 'react-router'
-import { css } from 'aphrodite'
-import styles from './styles'
+import React from 'react'
 
-export default class AuthenticatedNav extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      open: false
-    }
-  }
-
-  handleToggle() {
-    this.setState({
-      open: !this.state.open
-    })
-  }
-
-  handleClose() {
-    this.setState({
-      open: false
-    })
-  }
-
-  logout() {
+function logout() {
     firebase.auth().signOut().then(() => {
       browserHistory.push('/')
     }, (error) => {
@@ -41,42 +13,25 @@ export default class AuthenticatedNav extends Component {
     })
   }
 
-  render() {
-    return (
-      <div>
-        <AppBar
-          title="Plate"
-          className={css(styles.appBarColor)}
-          onLeftIconButtonTouchTap={this.handleToggle.bind(this)}
-          iconElementRight={
-            <IconMenu
-              iconButtonElement={
-                <IconButton><MoreVertIcon /></IconButton>
-              }
-              targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-              anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-              >
-              <MenuItem primaryText="Logout" onClick={this.logout} />
-            </IconMenu>
-          } />
-        <Drawer
-          docked={false}
-          width={200}
-          open={this.state.open}
-          onRequestChange={(open) => this.setState({ open })}
-          >
-          <MenuItem
-            containerElement={<Link to="/" />}
-            onTouchTap={this.handleClose.bind(this)}>
-            Home
-          </MenuItem>
-          <MenuItem
-            containerElement={<Link to="/dashboard" />}
-            onTouchTap={this.handleClose.bind(this)}>
-            Dashboard
-          </MenuItem>
-        </Drawer>
-      </div>
-    )
-  }
+function AuthenticatedNav() {
+  return (
+    <Navbar inverse collapseOnSelect fluid fixedTop>
+      <Navbar.Header>
+        <Navbar.Brand>
+          <Link to="/">Plate</Link>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+      </Navbar.Header>
+      <Navbar.Collapse>
+        <Nav pullRight>
+          <NavDropdown eventKey={3} title="Logout" id="basic-nav-dropdown">
+            <MenuItem onClick={logout} eventKey={3.1}>Logout</MenuItem>
+          </NavDropdown>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  )
 }
+
+export default AuthenticatedNav
+

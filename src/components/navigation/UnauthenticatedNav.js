@@ -1,73 +1,32 @@
-import { IndexLink, Link } from 'react-router'
-import React, { Component } from 'react'
+import { MenuItem, Nav, NavDropdown, Navbar } from 'react-bootstrap'
 
-import AppBar from 'material-ui/AppBar'
-import Drawer from 'material-ui/Drawer'
-import IconButton from 'material-ui/IconButton'
-import IconMenu from 'material-ui/IconMenu'
-import MenuItem from 'material-ui/MenuItem'
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
-import { css } from 'aphrodite'
-import styles from './styles'
+import { Link } from 'react-router'
+import { LinkContainer } from 'react-router-bootstrap'
+import React from 'react'
 
-export default class UnauthenticatedNav extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      open: false
-    }
-  }
-
-  handleToggle() {
-    this.setState({
-      open: !this.state.open
-    })
-  }
-
-  handleClose() {
-    this.setState({
-      open: false
-    })
-  }
-
-  render() {
-    return (
-      <div>
-        <AppBar
-          title="Plate"
-          className={css(styles.appBarColor)}
-          onLeftIconButtonTouchTap={this.handleToggle.bind(this)}
-          iconElementRight={
-            <IconMenu
-              iconButtonElement={
-                <IconButton><MoreVertIcon /></IconButton>
-              }
-              targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-              anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-              >
-              <MenuItem
-                primaryText="Login"
-                containerElement={<Link to="/login" />}>
-              </MenuItem>
-              <MenuItem
-                primaryText="Register"
-                containerElement={<Link to="/register" />}>
-              </MenuItem>
-            </IconMenu>
-          } />
-        <Drawer
-          docked={false}
-          width={200}
-          open={this.state.open}
-          onRequestChange={(open) => this.setState({ open })}
-          >
-          <MenuItem
-            containerElement={<IndexLink to="/" />}
-            onTouchTap={this.handleClose.bind(this)}>
-            Home
-          </MenuItem>
-        </Drawer>
-      </div>
-    )
-  }
+function UnauthenticatedNav() {
+  return (
+    <Navbar inverse collapseOnSelect fluid fixedTop>
+      <Navbar.Header>
+        <Navbar.Brand>
+          <Link to="/">Plate</Link>
+        </Navbar.Brand>
+        <Navbar.Toggle />
+      </Navbar.Header>
+      <Navbar.Collapse>
+        <Nav pullRight>
+          <NavDropdown eventKey={3} title="Login/Register" id="basic-nav-dropdown">
+            <LinkContainer to="/Login">
+              <MenuItem eventKey={3.1}>Login</MenuItem>
+            </LinkContainer>
+            <LinkContainer to="/register">
+              <MenuItem eventKey={3.2}>Register</MenuItem>
+            </LinkContainer>
+          </NavDropdown>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  )
 }
+
+export default UnauthenticatedNav
