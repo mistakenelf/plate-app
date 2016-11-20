@@ -1,17 +1,13 @@
 import Home from './Home'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import React from 'react'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import injectTapEventPlugin from 'react-tap-event-plugin'
+import TestWrapper from '../../components/testWrapper/TestWrapper'
 import { render } from 'react-dom'
-
-injectTapEventPlugin()
 
 it('renders without crashing', () => {
   const div = document.createElement('div')
   render(
-    <MuiThemeProvider muiTheme={getMuiTheme()}>
+    <TestWrapper>
       <Home />
-    </MuiThemeProvider>,
+    </TestWrapper>,
     div)
 })
