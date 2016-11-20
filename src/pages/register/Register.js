@@ -5,18 +5,18 @@ import { Col, Grid, Row } from 'react-bootstrap'
 import { Link, browserHistory } from 'react-router'
 import React, { Component } from 'react'
 
-import Alert from 'react-s-alert'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 import { css } from 'aphrodite'
 import styles from './styles'
+import { toastr } from 'react-redux-toastr'
 
 export default class Register extends Component {
   registerUser(e) {
     e.preventDefault()
 
-    const email = document.getElementById("email").value
-    const password = document.getElementById("password").value
+    const email = document.getElementById('email').value
+    const password = document.getElementById('password').value
 
     const promise = firebase.auth().createUserWithEmailAndPassword(email, password)
 
@@ -24,15 +24,11 @@ export default class Register extends Component {
       .then(() => browserHistory.push('/'))
 
       .then(() =>
-        Alert.success('Thank your for registering on Plate', {
-          position: 'top-right'
-        })
+        toastr.success('Success', 'Thank you for registering for Plate')
       )
 
       .catch(e =>
-        Alert.error(e.message, {
-          position: 'top-right'
-        })
+        toastr.error('Errors Occured', e.message)
       )
   }
 

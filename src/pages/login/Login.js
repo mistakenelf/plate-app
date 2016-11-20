@@ -5,11 +5,11 @@ import { Col, Grid, Row } from 'react-bootstrap'
 import { Link, browserHistory } from 'react-router'
 import React, { Component } from 'react'
 
-import Alert from 'react-s-alert'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 import { css } from 'aphrodite'
 import styles from './styles'
+import { toastr } from 'react-redux-toastr'
 
 export default class Login extends Component {
   userLogin(e) {
@@ -23,14 +23,10 @@ export default class Login extends Component {
     promise
       .then(() => browserHistory.push('/'))
       .then(() =>
-        Alert.success('Welcome To Plate', {
-          position: 'top-right',
-        })
+        toastr.success('Success', 'Welcome To Plate')
       )
       .catch((e) =>
-        Alert.error(e.message, {
-          position: 'top-right'
-        })
+        toastr.error('Errors Occured', e.message)
       )
   }
 

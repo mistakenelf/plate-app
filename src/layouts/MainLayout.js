@@ -1,15 +1,22 @@
 import 'react-s-alert/dist/s-alert-default.css'
 
-import Alert from 'react-s-alert'
 import Navigation from '../components/navigation/Navigation'
 import React from 'react'
+import ReduxToastr from 'react-redux-toastr'
 
 function MainLayout({ children }) {
   return (
     <div>
       <Navigation />
       {children}
-      <Alert offset={50} stack={{ limit: 3 }} />
+      <ReduxToastr
+        timeOut={4000}
+        newestOnTop={false}
+        preventDuplicates={true}
+        position="top-right"
+        transitionIn="fadeIn"
+        transitionOut="fadeOut"
+        progressBar />
     </div>
   )
 }
