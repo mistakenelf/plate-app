@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
-import { Card, CardTitle, CardText } from 'material-ui/Card'
-import TextField from 'material-ui/TextField'
-import RaisedButton from 'material-ui/RaisedButton'
-import { Grid, Row, Col } from 'react-bootstrap'
 import * as firebase from 'firebase'
+
+import { Card, CardText, CardTitle } from 'material-ui/Card'
+import { Col, Grid, Row } from 'react-bootstrap'
 import { Link, browserHistory } from 'react-router'
+import React, { Component } from 'react'
+
 import Alert from 'react-s-alert'
+import RaisedButton from 'material-ui/RaisedButton'
+import TextField from 'material-ui/TextField'
 import { css } from 'aphrodite'
 import styles from './styles'
 
@@ -47,8 +49,9 @@ export default class Login extends Component {
                   <br />
                   <RaisedButton type="submit" label="Login" secondary={true} fullWidth={true} />
                 </form>
+                <br />
                 <div className={css(styles.nonUser)}>
-                  <Link to="/register" className={css(styles.hover)}>Not already a user?</Link>
+                  <Link to="/forgotPassword" className={css(styles.hover)}>Forgot Your Password?</Link>
                 </div>
               </CardText>
             </Card>
