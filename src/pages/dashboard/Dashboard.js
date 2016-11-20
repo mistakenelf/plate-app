@@ -22,6 +22,7 @@ function Dashboard({ tasks, ...otherProps }) {
         </Col>
       </Row>
       <Row>
+        <h1 style={{textAlign: 'center'}}>Current Tasks</h1>
         {tasks.map((task, index) => {
           return (
             <TaskCard key={index} task={task} {...otherProps} />
