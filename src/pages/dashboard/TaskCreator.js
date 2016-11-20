@@ -49,7 +49,7 @@ export default class TaskCreator extends Component {
         <Card>
           <CardTitle title="Task Tracker" />
           <CardText>
-            <h4>You have {this.props.tasks.length}tasks remaining</h4>
+            <h4>You have {this.props.tasks.length} tasks remaining</h4>
           </CardText>
           <CardActions>
             <RaisedButton
