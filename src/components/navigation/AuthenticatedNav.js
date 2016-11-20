@@ -3,15 +3,16 @@ import * as firebase from 'firebase'
 import { Link, browserHistory } from 'react-router'
 import { MenuItem, Nav, NavDropdown, Navbar } from 'react-bootstrap'
 
+import { LinkContainer } from 'react-router-bootstrap'
 import React from 'react'
 
 function logout() {
-    firebase.auth().signOut().then(() => {
-      browserHistory.push('/')
-    }, (error) => {
-      console.log('Log out failed')
-    })
-  }
+  firebase.auth().signOut().then(() => {
+    browserHistory.push('/')
+  }, (error) => {
+    console.log('Log out failed')
+  })
+}
 
 function AuthenticatedNav() {
   return (
@@ -23,6 +24,11 @@ function AuthenticatedNav() {
         <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
+        <Nav>
+          <LinkContainer to="/Login">
+            <MenuItem eventKey={2}>Dashboard</MenuItem>
+          </LinkContainer>
+        </Nav>
         <Nav pullRight>
           <NavDropdown eventKey={3} title="Logout" id="basic-nav-dropdown">
             <MenuItem onClick={logout} eventKey={3.1}>Logout</MenuItem>

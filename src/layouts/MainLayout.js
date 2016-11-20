@@ -11,7 +11,7 @@ function MainLayout({ children }) {
         timeOut={4000}
         newestOnTop={false}
         preventDuplicates={true}
-        position="top-right"
+        position="bottom-center"
         transitionIn="fadeIn"
         transitionOut="fadeOut"
         progressBar />
