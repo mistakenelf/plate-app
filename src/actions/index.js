@@ -5,3 +5,14 @@ export function removeTask(id, task) {
     task
   }
 }
+
+let taskId = 0
+
+export function addTask(taskName, taskDescription) {
+  return {
+    type: 'ADD_TASK',
+    id: taskId++,
+    taskName,
+    taskDescription
+  }
+}

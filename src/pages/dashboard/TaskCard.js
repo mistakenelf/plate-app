@@ -13,7 +13,7 @@ function TaskCard({ task, ...otherProps }) {
       <Card>
         <CardTitle subtitle={task.taskName} />
         <CardText>
-          {task.description}
+          {task.taskDescription}
           <br />
           <br />
           <RaisedButton

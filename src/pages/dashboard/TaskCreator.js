@@ -5,8 +5,10 @@ import { Col } from 'react-bootstrap'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import RaisedButton from 'material-ui/RaisedButton'
+import TextField from 'material-ui/TextField'
 import { css } from 'aphrodite'
 import styles from './styles'
+import { toastr } from 'react-redux-toastr'
 
 export default class TaskCreator extends Component {
   constructor(props) {
@@ -23,12 +25,34 @@ export default class TaskCreator extends Component {
     })
   }
 
+
   handleClose = () => {
     this.setState({
       open: false
     })
   }
 
+  submitTask = () => {
+    const taskName = document.querySelector('#taskName').value
+
+    if(taskName === '' ) {
+      toastr.error('Error', 'Please enter a task name')
+      return
+    }
+
+    const taskDescription = document.querySelector('#taskDescription').value
+
+    if(taskDescription === '' ) {
+      toastr.error('Error', 'Please enter a task description')
+      return
+    }
+
+    this.props.addTask(taskName, taskDescription)
+
+    this.setState({
+      open: false
+    })
+  }
 
   render() {
     const actions = [
@@ -40,7 +64,7 @@ export default class TaskCreator extends Component {
       <FlatButton
         label="Submit"
         primary={true}
-        onTouchTap={this.handleClose}
+        onTouchTap={this.submitTask}
         />,
     ]
 
@@ -65,7 +89,9 @@ export default class TaskCreator extends Component {
           modal={true}
           open={this.state.open}
           >
-          This will be where you create a new task
+          <TextField hintText="Task Name" id="taskName" />
+          <br />
+          <TextField floatingLabelText="Task Description" id="taskDescription" multiLine={true} rows={6} />
         </Dialog>
       </Col>
     )

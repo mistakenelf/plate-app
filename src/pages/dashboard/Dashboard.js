@@ -11,7 +11,7 @@ function Dashboard({ tasks, ...otherProps }) {
   return (
     <Grid fluid>
       <Row>
-        <TaskCreator tasks={tasks} />
+        <TaskCreator tasks={tasks} addTask={otherProps.addTask} />
         <AccountCard />
         <InfoCard />
       </Row>
@@ -25,7 +25,7 @@ function Dashboard({ tasks, ...otherProps }) {
         <h1 style={{textAlign: 'center'}}>Current Tasks</h1>
         {tasks.map((task, index) => {
           return (
-            <TaskCard key={index} task={task} {...otherProps} />
+            <TaskCard key={index} task={task} {...otherProps}/>
           )
         })}
       </Row>
