@@ -1,5 +1,3 @@
-import 'react-s-alert/dist/s-alert-default.css'
-
 import Navigation from '../components/navigation/Navigation'
 import React from 'react'
 import ReduxToastr from 'react-redux-toastr'

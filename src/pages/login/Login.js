@@ -26,7 +26,7 @@ export default class Login extends Component {
         toastr.success('Success', 'Welcome To Plate')
       )
       .catch((e) =>
-        toastr.error('Errors Occured', e.message)
+        toastr.error('Error', e.message)
       )
   }
 

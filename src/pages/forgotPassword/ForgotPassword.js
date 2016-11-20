@@ -4,12 +4,12 @@ import { Card, CardText, CardTitle } from 'material-ui/Card'
 import { Col, Grid, Row } from 'react-bootstrap'
 import React, { Component } from 'react'
 
-import Alert from 'react-s-alert'
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 import { browserHistory } from 'react-router'
 import { css } from 'aphrodite'
 import styles from './styles'
+import { toastr } from 'react-redux-toastr'
 
 export default class ForgotPassword extends Component {
   forgotPassword(e) {
@@ -22,14 +22,10 @@ export default class ForgotPassword extends Component {
     promise
       .then(() => browserHistory.push('/'))
       .then(() =>
-        Alert.success('Email has been sent', {
-          position: 'top-right',
-        })
+        toastr.success('Success', 'Reset password email has been sent')
       )
       .catch((e) =>
-        Alert.error(e.message, {
-          position: 'top-right'
-        })
+        toastr.error('Error', e.message)
       )
   }
 

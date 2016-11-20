@@ -28,7 +28,7 @@ export default class Register extends Component {
       )
 
       .catch(e =>
-        toastr.error('Errors Occured', e.message)
+        toastr.error('Error', e.message)
       )
   }
 
