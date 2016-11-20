@@ -6,7 +6,7 @@ import { Link, browserHistory } from 'react-router'
 import React, { Component } from 'react'
 
 import Alert from 'react-s-alert'
-import RaisedButton from 'material-ui/RaisedButton';
+import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 import { css } from 'aphrodite'
 import styles from './styles'
