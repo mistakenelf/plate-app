@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
+import 'react-redux-toastr/lib/css/react-redux-toastr.css'
 
 import * as firebase from 'firebase'
 
