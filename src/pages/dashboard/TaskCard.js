@@ -8,7 +8,6 @@ import { red500 } from 'material-ui/styles/colors'
 import styles from './styles'
 
 function TaskCard({ task, ...otherProps }) {
-  console.log(typeof otherProps.removeTask)
   return (
     <Col md={3} lg={3} className={css(styles.paddingTop)}>
       <Card>
