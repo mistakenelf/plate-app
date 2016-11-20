@@ -1,10 +1,11 @@
-import React from 'react'
 import { Grid, Row } from 'react-bootstrap'
-import Header from './Header'
-import Goals from './Goals'
+
 import Features from './Features'
-import Pricing from './Pricing'
 import Footer from './Footer'
+import Goals from './Goals'
+import Header from './Header'
+import Pricing from './Pricing'
+import React from 'react'
 
 function Home() {
   return (

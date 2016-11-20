@@ -22,12 +22,12 @@ export default class Login extends Component {
 
     promise
       .then(() => browserHistory.push('/'))
-      .then(() => 
+      .then(() =>
         Alert.success('Welcome To Plate', {
-            position: 'top-right',
+          position: 'top-right',
         })
       )
-      .catch((e) => 
+      .catch((e) =>
         Alert.error(e.message, {
           position: 'top-right'
         })

@@ -10,7 +10,7 @@ import styles from './styles'
 
 export default class TaskCreator extends Component {
   constructor(props) {
-    super(props) 
+    super(props)
 
     this.state = {
       open: false
@@ -18,11 +18,11 @@ export default class TaskCreator extends Component {
   }
 
   handleOpen = () => {
-    this.setState({open: true});
+    this.setState({ open: true });
   };
 
   handleClose = () => {
-    this.setState({open: false});
+    this.setState({ open: false });
   };
 
 
@@ -32,12 +32,12 @@ export default class TaskCreator extends Component {
         label="Cancel"
         primary={true}
         onTouchTap={this.handleClose}
-      />,
+        />,
       <FlatButton
         label="Submit"
         primary={true}
         onTouchTap={this.handleClose}
-      />,
+        />,
     ]
 
     return (
@@ -45,10 +45,14 @@ export default class TaskCreator extends Component {
         <Card>
           <CardTitle title="Task Tracker" />
           <CardText>
-            <h4>You have {this.props.tasks.length} tasks remaining</h4>
+            <h4>You have {this.props.tasks.length}tasks remaining</h4>
           </CardText>
           <CardActions>
-            <RaisedButton label="Create New Task" fullWidth={true} secondary={true} onTouchTap={this.handleOpen} />
+            <RaisedButton
+              label="Create New Task"
+              fullWidth={true} secondary={true}
+              onTouchTap={this.handleOpen}
+              />
           </CardActions>
         </Card>
         <Dialog
@@ -56,7 +60,7 @@ export default class TaskCreator extends Component {
           actions={actions}
           modal={true}
           open={this.state.open}
-        >
+          >
           This will be where you create a new task
         </Dialog>
       </Col>

@@ -1,8 +1,9 @@
+import { Card, CardText, CardTitle } from 'material-ui/Card'
+import { Col, Grid, Row } from 'react-bootstrap'
+
 import React from 'react'
-import { Grid, Row, Col } from 'react-bootstrap'
-import { Card, CardTitle, CardText } from 'material-ui/Card'
-import styles from './styles'
 import { css } from 'aphrodite'
+import styles from './styles'
 
 function NotFound() {
   return (

@@ -5,6 +5,7 @@ import { Col, Grid, Row } from 'react-bootstrap'
 import React, { Component } from 'react'
 
 import Alert from 'react-s-alert'
+import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 import { browserHistory } from 'react-router'
 import { css } from 'aphrodite'
@@ -20,12 +21,12 @@ export default class ForgotPassword extends Component {
 
     promise
       .then(() => browserHistory.push('/'))
-      .then(() => 
+      .then(() =>
         Alert.success('Email has been sent', {
-            position: 'top-right',
+          position: 'top-right',
         })
       )
-      .catch((e) => 
+      .catch((e) =>
         Alert.error(e.message, {
           position: 'top-right'
         })
@@ -37,11 +38,13 @@ export default class ForgotPassword extends Component {
       <Grid fluid>
         <Row>
           <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4}>
-            <Card className={css(styles.loginMargin)}>
+            <Card className={css(styles.forgotFormMargin)}>
               <CardTitle title="Forgot Password" subtitle="Please enter your email" />
               <CardText>
                 <form onSubmit={this.forgotPassword}>
                   <TextField hintText="Email" id="email" fullWidth={true} required={true} />
+                  <br />
+                  <RaisedButton type="submit" label="Login" secondary={true} fullWidth={true} />
                 </form>
               </CardText>
             </Card>

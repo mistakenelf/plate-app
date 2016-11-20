@@ -1,10 +1,11 @@
-import React from 'react'
-import { render } from 'react-dom'
-import injectTapEventPlugin from 'react-tap-event-plugin'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Register from './Register'
 import * as firebase from 'firebase'
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import React from 'react'
+import Register from './Register'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+import { render } from 'react-dom'
 
 // Initialize Firebase
 const config = {

@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
 import * as firebase from 'firebase'
+
+import React, { Component } from 'react'
+
 import AuthenticatedNav from './AuthenticatedNav'
 import UnauthenticatedNav from './UnauthenticatedNav'
 

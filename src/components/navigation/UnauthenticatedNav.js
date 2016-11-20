@@ -1,11 +1,12 @@
+import { IndexLink, Link } from 'react-router'
 import React, { Component } from 'react'
+
 import AppBar from 'material-ui/AppBar'
 import Drawer from 'material-ui/Drawer'
 import IconButton from 'material-ui/IconButton'
 import IconMenu from 'material-ui/IconMenu'
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import MenuItem from 'material-ui/MenuItem'
-import { IndexLink, Link } from 'react-router'
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import { css } from 'aphrodite'
 import styles from './styles'
 
@@ -44,8 +45,14 @@ export default class UnauthenticatedNav extends Component {
               targetOrigin={{ horizontal: 'right', vertical: 'top' }}
               anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
               >
-              <MenuItem primaryText="Login" containerElement={<Link to="/login" />}></MenuItem>
-              <MenuItem primaryText="Register" containerElement={<Link to="/register" />}></MenuItem>
+              <MenuItem
+                primaryText="Login"
+                containerElement={<Link to="/login" />}>
+              </MenuItem>
+              <MenuItem
+                primaryText="Register"
+                containerElement={<Link to="/register" />}>
+              </MenuItem>
             </IconMenu>
           } />
         <Drawer
@@ -54,7 +61,11 @@ export default class UnauthenticatedNav extends Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({ open })}
           >
-          <MenuItem containerElement={<IndexLink to="/" />} onTouchTap={this.handleClose.bind(this)}>Home</MenuItem>
+          <MenuItem
+            containerElement={<IndexLink to="/" />}
+            onTouchTap={this.handleClose.bind(this)}>
+            Home
+          </MenuItem>
         </Drawer>
       </div>
     )

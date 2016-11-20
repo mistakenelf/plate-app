@@ -1,15 +1,18 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import { Router } from 'react-router'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import injectTapEventPlugin from 'react-tap-event-plugin'
-import * as firebase from 'firebase'
-import store, { history } from './store/store'
-import routes from './routes/routes'
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
+
+import * as firebase from 'firebase'
+
+import store, { history } from './store/store'
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import { Provider } from 'react-redux'
+import React from 'react'
+import { Router } from 'react-router'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+import { render } from 'react-dom'
+import routes from './routes/routes'
 
 injectTapEventPlugin()
 

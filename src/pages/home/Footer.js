@@ -1,5 +1,5 @@
-import React from 'react'
 import { Col } from 'react-bootstrap'
+import React from 'react'
 import { css } from 'aphrodite'
 import styles from './styles'
 

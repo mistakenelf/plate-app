@@ -1,9 +1,9 @@
-import React from 'react'
-import { render } from 'react-dom'
-import injectTapEventPlugin from 'react-tap-event-plugin'
-import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import NotFound from './NotFound'
+import React from 'react'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+import { render } from 'react-dom'
 
 injectTapEventPlugin()
 

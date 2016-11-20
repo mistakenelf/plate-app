@@ -1,12 +1,14 @@
+import * as firebase from 'firebase'
+
 import React, { Component } from 'react'
+
 import AppBar from 'material-ui/AppBar'
 import Drawer from 'material-ui/Drawer'
 import IconButton from 'material-ui/IconButton'
 import IconMenu from 'material-ui/IconMenu'
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
-import MenuItem from 'material-ui/MenuItem'
 import { Link } from 'react-router'
-import * as firebase from 'firebase'
+import MenuItem from 'material-ui/MenuItem'
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import { browserHistory } from 'react-router'
 import { css } from 'aphrodite'
 import styles from './styles'
@@ -63,8 +65,16 @@ export default class AuthenticatedNav extends Component {
           open={this.state.open}
           onRequestChange={(open) => this.setState({ open })}
           >
-          <MenuItem containerElement={<Link to="/" />} onTouchTap={this.handleClose.bind(this)}>Home</MenuItem>
-          <MenuItem containerElement={<Link to="/dashboard" />} onTouchTap={this.handleClose.bind(this)}>Dashboard</MenuItem>
+          <MenuItem
+            containerElement={<Link to="/" />}
+            onTouchTap={this.handleClose.bind(this)}>
+            Home
+          </MenuItem>
+          <MenuItem
+            containerElement={<Link to="/dashboard" />}
+            onTouchTap={this.handleClose.bind(this)}>
+            Dashboard
+          </MenuItem>
         </Drawer>
       </div>
     )
