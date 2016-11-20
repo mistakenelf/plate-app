@@ -15,8 +15,9 @@ const styles = StyleSheet.create({
 
   footer: {
     width: "100%",
-    height: 200,
-    marginTop: 50,
+    height: 100,
+    marginTop: 150,
+    position: "fixed",
     backgroundColor: "black",
     color: "white"
   }
