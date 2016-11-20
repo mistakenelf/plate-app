@@ -11,15 +11,6 @@ const styles = StyleSheet.create({
 
   promotionPadding: {
     marginTop: 50
-  },
-
-  footer: {
-    width: "100%",
-    height: 100,
-    marginTop: 150,
-    position: "fixed",
-    backgroundColor: "black",
-    color: "white"
   }
 })
 
