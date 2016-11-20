@@ -44,7 +44,7 @@ export default class ForgotPassword extends Component {
                 <form onSubmit={this.forgotPassword}>
                   <TextField hintText="Email" id="email" fullWidth={true} required={true} />
                   <br />
-                  <RaisedButton type="submit" label="Login" secondary={true} fullWidth={true} />
+                  <RaisedButton type="submit" label="Forgot Password" secondary={true} fullWidth={true} />
                 </form>
               </CardText>
             </Card>
