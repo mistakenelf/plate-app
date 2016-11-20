@@ -7,7 +7,7 @@ import React from 'react'
 import TaskCard from './TaskCard'
 import TaskCreator from './TaskCreator'
 
-function Dashboard({ tasks }) {
+function Dashboard({ tasks, ...otherProps }) {
   return (
     <Grid fluid>
       <Row>
@@ -24,7 +24,7 @@ function Dashboard({ tasks }) {
       <Row>
         {tasks.map((task, index) => {
           return (
-            <TaskCard key={index} task={task} />
+            <TaskCard key={index} task={task} {...otherProps} />
           )
         })}
       </Row>
