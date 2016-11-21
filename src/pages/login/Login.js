@@ -1,22 +1,19 @@
 import * as firebase from 'firebase'
 
-import { Card, CardText, CardTitle } from 'material-ui/Card'
-import { Col, Grid, Row } from 'react-bootstrap'
+import { Button, Col, ControlLabel, FormControl, FormGroup, Grid, Panel, Row } from 'react-bootstrap'
 import { Link, browserHistory } from 'react-router'
 import React, { Component } from 'react'
 
-import RaisedButton from 'material-ui/RaisedButton'
-import TextField from 'material-ui/TextField'
+import { StyleSheet } from 'aphrodite'
 import { css } from 'aphrodite'
-import styles from './styles'
 import { toastr } from 'react-redux-toastr'
 
 export default class Login extends Component {
   userLogin(e) {
     e.preventDefault()
 
-    const email = document.getElementById("email").value
-    const password = document.getElementById("password").value
+    const email = document.getElementById('email').value
+    const password = document.getElementById('password').value
 
     const promise = firebase.auth().signInWithEmailAndPassword(email, password)
 
@@ -35,25 +32,31 @@ export default class Login extends Component {
       <Grid fluid>
         <Row>
           <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4}>
-            <Card className={css(styles.loginMargin)}>
-              <CardTitle title="Login" subtitle="Welcome To Plate" />
-              <CardText>
-                <form onSubmit={this.userLogin}>
-                  <TextField hintText="Email" id="email" fullWidth={true} required={true} />
-                  <br />
-                  <TextField hintText="Password" id="password" fullWidth={true} type="password" required={true} />
-                  <br />
-                  <RaisedButton type="submit" label="Login" secondary={true} fullWidth={true} />
-                </form>
-                <br />
-                <div className={css(styles.nonUser)}>
-                  <Link to="/forgotPassword" className={css(styles.hover)}>Forgot Your Password?</Link>
-                </div>
-              </CardText>
-            </Card>
+            <Panel header={<h3>Login</h3>} bsStyle="primary" className={css(styles.loginMargin)}>
+              <form onSubmit={this.userLogin}>
+                <FormGroup>
+                  <ControlLabel>Email:</ControlLabel>
+                  <FormControl type="email" id="email" placeholder="Email" required />
+                </FormGroup>
+                <FormGroup>
+                  <ControlLabel>Password:</ControlLabel>
+                  <FormControl type="password" id="password" placeholder="Password" required />
+                </FormGroup>
+                <FormGroup>
+                  <Button type="submit" bsStyle="primary" bsSize="large" block>Login</Button>
+                </FormGroup>
+              </form>
+              <Link to="/forgotPassword">Forgot Password?</Link>
+            </Panel>
           </Col>
         </Row>
       </Grid>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  loginMargin: {
+    marginTop: "25%"
+  }
+})
