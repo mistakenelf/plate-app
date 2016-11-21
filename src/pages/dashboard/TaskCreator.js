@@ -1,11 +1,6 @@
-import { Card, CardActions, CardText, CardTitle } from 'material-ui/Card'
+import { Button, Col, ControlLabel, FormControl, FormGroup, Modal, Panel } from 'react-bootstrap'
 import React, { Component } from 'react'
 
-import { Col } from 'react-bootstrap'
-import Dialog from 'material-ui/Dialog'
-import FlatButton from 'material-ui/FlatButton'
-import RaisedButton from 'material-ui/RaisedButton'
-import TextField from 'material-ui/TextField'
 import { css } from 'aphrodite'
 import styles from './styles'
 import { toastr } from 'react-redux-toastr'
@@ -15,34 +10,33 @@ export default class TaskCreator extends Component {
     super(props)
 
     this.state = {
-      open: false
+      showModal: false
     }
   }
 
-  handleOpen = () => {
+  showTaskCreator = () => {
     this.setState({
-      open: true
+      showModal: true
     })
   }
 
-
-  handleClose = () => {
+  closeTaskCreator = () => {
     this.setState({
-      open: false
+      showModal: false
     })
   }
 
   submitTask = () => {
     const taskName = document.querySelector('#taskName').value
 
-    if(taskName === '' ) {
+    if (taskName === '') {
       toastr.error('Error', 'Please enter a task name')
       return
     }
 
     const taskDescription = document.querySelector('#taskDescription').value
 
-    if(taskDescription === '' ) {
+    if (taskDescription === '') {
       toastr.error('Error', 'Please enter a task description')
       return
     }
@@ -50,49 +44,40 @@ export default class TaskCreator extends Component {
     this.props.addTask(taskName, taskDescription)
 
     this.setState({
-      open: false
+      showModal: false
     })
   }
 
   render() {
-    const actions = [
-      <FlatButton
-        label="Cancel"
-        primary={true}
-        onTouchTap={this.handleClose}
-        />,
-      <FlatButton
-        label="Submit"
-        primary={true}
-        onTouchTap={this.submitTask}
-        />,
-    ]
-
     return (
       <Col md={4} lg={4} className={css(styles.paddingTop)}>
-        <Card>
-          <CardTitle title="Task Tracker" />
-          <CardText>
-            <h4>You have {this.props.tasks.length} tasks remaining</h4>
-          </CardText>
-          <CardActions>
-            <RaisedButton
-              label="Create New Task"
-              fullWidth={true} secondary={true}
-              onTouchTap={this.handleOpen}
-              />
-          </CardActions>
-        </Card>
-        <Dialog
-          title="Create New Task"
-          actions={actions}
-          modal={true}
-          open={this.state.open}
-          >
-          <TextField hintText="Task Name" id="taskName" />
-          <br />
-          <TextField floatingLabelText="Task Description" id="taskDescription" multiLine={true} rows={6} />
-        </Dialog>
+        <Panel header={<h3>Task Creator</h3>} bsStyle="primary">
+          <h2>You have {this.props.tasks.length} tasks remaining</h2>
+          <Modal show={this.state.showModal} bsSize="large" aria-labelledby="contained-modal-title-lg">
+            <Modal.Header closeButton>
+              <Modal.Title id="contained-modal-title-lg">Modal heading</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <form onSubmit={this.userLogin}>
+                <FormGroup>
+                  <ControlLabel>Task Name:</ControlLabel>
+                  <FormControl type="text" id="taskName" placeholder="Task Name" required />
+                </FormGroup>
+                <FormGroup>
+                  <ControlLabel>Task Description:</ControlLabel>
+                  <FormControl type="text" rows={6} componentClass="textarea" id="taskDescription" placeholder="Task Description" required />
+                </FormGroup>
+              </form>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={this.closeTaskCreator}>Close</Button>
+              <Button bsStyle="primary" onClick={this.submitTask}>Add Task</Button>
+            </Modal.Footer>
+          </Modal>
+          <FormGroup>
+            <Button type="submit" bsStyle="success" onClick={this.showTaskCreator} bsSize="large" block>Add Task</Button>
+          </FormGroup>
+        </Panel>
       </Col>
     )
   }
