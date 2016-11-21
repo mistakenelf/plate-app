@@ -16,14 +16,16 @@ function Dashboard({ tasks, ...otherProps }) {
       </Row>
       <br />
       <Row>
-        <Well bsSize="small" style={{fontSize: "40px", textAlign: "center"}}>
-          Current Tasks
-        </Well>
-        {tasks.map((task, index) => {
-          return (
-            <TaskCard key={index} task={task} {...otherProps}/>
-          )
-        })}
+        <Col sm={12}>
+          <Well bsSize="small" style={{ fontSize: "40px", textAlign: "center" }}>
+            Current Tasks
+          </Well>
+          {tasks.map((task, index) => {
+            return (
+              <TaskCard key={index} task={task} {...otherProps} />
+            )
+          })}
+        </Col>
       </Row>
     </Grid>
   )
