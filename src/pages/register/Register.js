@@ -1,14 +1,11 @@
 import * as firebase from 'firebase'
 
-import { Card, CardText, CardTitle } from 'material-ui/Card'
-import { Col, Grid, Row } from 'react-bootstrap'
+import { Button, Col, ControlLabel, FormControl, FormGroup, Grid, Panel, Row } from 'react-bootstrap'
 import { Link, browserHistory } from 'react-router'
 import React, { Component } from 'react'
 
-import RaisedButton from 'material-ui/RaisedButton'
-import TextField from 'material-ui/TextField'
+import { StyleSheet } from 'aphrodite'
 import { css } from 'aphrodite'
-import styles from './styles'
 import { toastr } from 'react-redux-toastr'
 
 export default class Register extends Component {
@@ -34,31 +31,42 @@ export default class Register extends Component {
 
   render() {
     return (
-      <Grid fluid className={css(styles.background)}>
+      <Grid fluid>
         <Row>
           <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4}>
-            <Card className={css(styles.registerMargin)}>
-              <CardTitle title="Register" subtitle="Welcome To Plate" />
-              <CardText>
-                <form onSubmit={this.registerUser.bind(this)}>
-                  <TextField hintText="First Name" id="firstName" fullWidth={true} required />
-                  <br />
-                  <TextField hintText="Last Name" id="lastName" fullWidth={true} required />
-                  <br />
-                  <TextField hintText="Email" id="email" fullWidth={true} required />
-                  <br />
-                  <TextField hintText="Password" id="password" fullWidth={true} type="password" required />
-                  <br />
-                  <RaisedButton type="submit" label="Register" secondary={true} fullWidth={true} />
-                  <div className={css(styles.alreadyUser)}>
-                    <Link to="/login" className={css(styles.hover)}>Already a user?</Link>
-                  </div>
-                </form>
-              </CardText>
-            </Card>
+            <Panel header={<h3>Login</h3>} bsStyle="primary" className={css(styles.registerMargin)}>
+              <form onSubmit={this.registerUser}>
+                <FormGroup>
+                  <ControlLabel>First Name:</ControlLabel>
+                  <FormControl type="text" id="firstName" placeholder="First Name" required />
+                </FormGroup>
+                <FormGroup>
+                  <ControlLabel>Last Name:</ControlLabel>
+                  <FormControl type="text" id="lastName" placeholder="Last Name" required />
+                </FormGroup>
+                <FormGroup>
+                  <ControlLabel>Email:</ControlLabel>
+                  <FormControl type="email" id="email" placeholder="Email" required />
+                </FormGroup>
+                <FormGroup>
+                  <ControlLabel>Password:</ControlLabel>
+                  <FormControl type="password" id="password" placeholder="Password" required />
+                </FormGroup>
+                <FormGroup>
+                  <Button type="submit" bsStyle="primary" bsSize="large" block>Register</Button>
+                </FormGroup>
+              </form>
+              <Link to="/login">Already A Member?</Link>
+            </Panel>
           </Col>
         </Row>
       </Grid>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  registerMargin: {
+    marginTop: "25%"
+  }
+})
