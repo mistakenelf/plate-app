@@ -25,7 +25,7 @@ function AuthenticatedNav() {
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav>
-          <LinkContainer to="/Login">
+          <LinkContainer to="/dashboard">
             <MenuItem eventKey={2}>Dashboard</MenuItem>
           </LinkContainer>
         </Nav>
