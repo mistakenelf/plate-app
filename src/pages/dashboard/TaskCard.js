@@ -1,31 +1,18 @@
-import { Card, CardText, CardTitle } from 'material-ui/Card'
+import { Button, Col, FormGroup, Panel } from 'react-bootstrap'
 
-import { Col } from 'react-bootstrap'
-import RaisedButton from 'material-ui/RaisedButton'
 import React from 'react'
 import { css } from 'aphrodite'
-import { red500 } from 'material-ui/styles/colors'
 import styles from './styles'
 
 function TaskCard({ task, ...otherProps }) {
   return (
     <Col md={3} lg={3} className={css(styles.paddingTop)}>
-      <Card>
-        <CardTitle subtitle={task.taskName} />
-        <CardText>
-          {task.taskDescription}
-          <br />
-          <br />
-          <RaisedButton
-            type="button"
-            backgroundColor={red500}
-            labelColor="white"
-            label="Delete"
-            onClick={() => otherProps.removeTask(task.id)}
-            fullWidth={true}
-            />
-        </CardText>
-      </Card>
+      <Panel header={<h3>{task.taskName}</h3>}>
+        <h3>{task.taskDescription}</h3>
+        <FormGroup>
+          <Button type="submit" bsStyle="danger" onClick={() => otherProps.removeTask(task.id)} block>Delete</Button>
+        </FormGroup>
+      </Panel>
     </Col>
   )
 }

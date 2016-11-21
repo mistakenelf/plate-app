@@ -74,8 +74,9 @@ export default class TaskCreator extends Component {
               <Button bsStyle="primary" onClick={this.submitTask}>Add Task</Button>
             </Modal.Footer>
           </Modal>
+          <br />
           <FormGroup>
-            <Button type="submit" bsStyle="success" onClick={this.showTaskCreator} bsSize="large" block>Add Task</Button>
+            <Button type="submit" bsStyle="success" onClick={this.showTaskCreator} block>Add Task</Button>
           </FormGroup>
         </Panel>
       </Col>

@@ -1,7 +1,6 @@
-import { Col, Grid, Row } from 'react-bootstrap'
+import { Col, Grid, Row, Well } from 'react-bootstrap'
 
 import AccountCard from './AccountCard'
-import Divider from 'material-ui/Divider'
 import InfoCard from './InfoCard'
 import React from 'react'
 import TaskCard from './TaskCard'
@@ -17,12 +16,9 @@ function Dashboard({ tasks, ...otherProps }) {
       </Row>
       <br />
       <Row>
-        <Col sm={12} lg={12} md={12}>
-          <Divider />
-        </Col>
-      </Row>
-      <Row>
-        <h1 style={{textAlign: 'center'}}>Current Tasks</h1>
+        <Well bsSize="small" style={{fontSize: "40px", textAlign: "center"}}>
+          Current Tasks
+        </Well>
         {tasks.map((task, index) => {
           return (
             <TaskCard key={index} task={task} {...otherProps}/>
