@@ -8,6 +8,12 @@ import { StyleSheet } from 'aphrodite'
 import { css } from 'aphrodite'
 import { toastr } from 'react-redux-toastr'
 
+const styles = StyleSheet.create({
+  loginMargin: {
+    marginTop: '25%'
+  }
+})
+
 export default class Login extends Component {
   userLogin(e) {
     e.preventDefault()
@@ -54,9 +60,3 @@ export default class Login extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  loginMargin: {
-    marginTop: '25%'
-  }
-})

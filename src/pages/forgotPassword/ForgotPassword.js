@@ -8,6 +8,12 @@ import { browserHistory } from 'react-router'
 import { css } from 'aphrodite'
 import { toastr } from 'react-redux-toastr'
 
+const styles = StyleSheet.create({
+  forgotPasswordMargin: {
+    marginTop: '25%'
+  }
+})
+
 export default class ForgotPassword extends Component {
   forgotPassword(e) {
     e.preventDefault()
@@ -48,9 +54,3 @@ export default class ForgotPassword extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  forgotPasswordMargin: {
-    marginTop: '25%'
-  }
-})
