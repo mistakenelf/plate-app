@@ -67,6 +67,6 @@ export default class Register extends Component {
 
 const styles = StyleSheet.create({
   registerMargin: {
-    marginTop: "25%"
+    marginTop: '25%'
   }
 })

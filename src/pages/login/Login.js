@@ -57,6 +57,6 @@ export default class Login extends Component {
 
 const styles = StyleSheet.create({
   loginMargin: {
-    marginTop: "25%"
+    marginTop: '25%'
   }
 })
