@@ -1,15 +1,15 @@
-import { Grid, Row } from 'react-bootstrap'
+import { Box, Flex } from 'reflexbox'
 
 import Header from './Header'
 import React from 'react'
 
 function Home() {
   return (
-    <Grid fluid>
-      <Row>
+    <Flex>
+      <Box col={12}>
         <Header />
-      </Row>
-    </Grid>
+      </Box>
+    </Flex>
   )
 }
 

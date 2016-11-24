@@ -1,9 +1,7 @@
 import { Button, Panel, PanelFooter, PanelHeader, Text } from 'rebass'
 import React, { PropTypes } from 'react'
 
-import { Col } from 'react-bootstrap'
-import { css } from 'aphrodite'
-import styles from './styles'
+import { Box } from 'reflexbox'
 
 const propTypes = {
   task: PropTypes.object
@@ -11,7 +9,7 @@ const propTypes = {
 
 function TaskCard({ task, ...otherProps }) {
   return (
-    <Col md={3} lg={3} className={css(styles.paddingTop)}>
+    <Box p={2} sm={12} md={4} lg={3} col={12}>
       <Panel theme='info'>
         <PanelHeader
           inverted
@@ -34,7 +32,7 @@ function TaskCard({ task, ...otherProps }) {
           </Button>
         </PanelFooter>
       </Panel>
-    </Col>
+    </Box>
   )
 }
 

@@ -1,13 +1,11 @@
 import { Panel, PanelHeader, Text } from 'rebass'
 
-import { Col } from 'react-bootstrap'
+import { Box } from 'reflexbox'
 import React from 'react'
-import { css } from 'aphrodite'
-import styles from './styles'
 
 function InfoCard() {
   return (
-    <Col md={4} lg={4} className={css(styles.paddingTop)}>
+    <Box p={2} sm={12} md={4} lg={4} col={12}>
       <Panel theme='info'>
         <PanelHeader
           inverted
@@ -19,7 +17,7 @@ function InfoCard() {
           {Date()}
         </Text>
       </Panel>
-    </Col>
+    </Box>
   )
 }
 

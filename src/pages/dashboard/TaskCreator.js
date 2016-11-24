@@ -12,9 +12,7 @@ import {
 } from 'rebass'
 import React, { Component, PropTypes } from 'react'
 
-import { Col } from 'react-bootstrap'
-import { css } from 'aphrodite'
-import styles from './styles'
+import { Box } from 'reflexbox'
 import { toastr } from 'react-redux-toastr'
 
 export default class TaskCreator extends Component {
@@ -69,7 +67,7 @@ export default class TaskCreator extends Component {
 
   render() {
     return (
-      <Col md={4} lg={4} className={css(styles.paddingTop)}>
+      <Box p={2} sm={12} md={4} lg={4} col={12}>
         <Panel theme='info'>
           <PanelHeader
             inverted
@@ -121,7 +119,7 @@ export default class TaskCreator extends Component {
             </Panel>
           </form>
         </Overlay>
-      </Col>
+      </Box>
     )
   }
 }

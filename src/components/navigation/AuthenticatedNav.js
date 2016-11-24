@@ -37,7 +37,7 @@ export default class AuthenticatedNav extends Component {
     return (
       <Toolbar>
         <NavItem is={Link} to={'/'}>
-          PLATE
+          Plate
         </NavItem>
         <NavItem is={Link} to={'/dashboard'}>
           Dashboard
