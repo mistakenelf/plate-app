@@ -63,10 +63,28 @@ export default class TaskCreator extends Component {
   }
 
   render() {
+    const styles = {
+      formMargin: {
+        marginTop: '5%'
+      },
+
+      panelTheme: {
+        backgroundColor: '#3F51B5',
+        color: 'white'
+      },
+
+      addTaskButton: {
+        backgroundColor: '#E91E63',
+        color: 'white',
+        width: '100%'
+      }
+    }
+
     return (
       <Box p={2} sm={12} md={4} lg={4} col={12}>
         <Panel theme='info'>
           <PanelHeader
+            style={styles.panelTheme}
             inverted
             theme='default'
             >
@@ -76,7 +94,7 @@ export default class TaskCreator extends Component {
             You have {this.props.tasks.length} tasks remaining
           </Text>
           <PanelFooter>
-            <Button type='submit' style={{ width: '100%' }} onClick={this.showTaskCreator}>Add Task</Button>
+            <Button type='submit' style={styles.addTaskButton} onClick={this.showTaskCreator}>Add Task</Button>
           </PanelFooter>
         </Panel>
         <Overlay
@@ -87,7 +105,7 @@ export default class TaskCreator extends Component {
               <PanelHeader>
                 Create New Task!
                 <Space auto />
-                <Close onClick={this.closeTaskCreator} />
+                <Close type='button' onClick={this.closeTaskCreator} />
               </PanelHeader>
               <Input
                 label='Task Name'
