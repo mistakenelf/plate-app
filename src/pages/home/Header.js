@@ -1,13 +1,22 @@
+import { Banner, Heading } from 'rebass'
+
 import { Col } from 'react-bootstrap'
 import React from 'react'
-import { css } from 'aphrodite'
-import styles from './styles'
+import heroImage from '../../assets/images/background.png'
 
 function Header() {
   return (
-    <Col sm={12} className={css(styles.hero)}>
-      <h1 style={{ color: 'white', textAlign: 'center', paddingTop: 100 }}>Welcome To Plate</h1>
-    </Col>
+    <Banner
+      align="center"
+      backgroundImage={heroImage}
+    >
+      <Heading
+        level={2}
+        size={0}
+      >
+        Plate
+      </Heading>
+    </Banner>
   )
 }
 
