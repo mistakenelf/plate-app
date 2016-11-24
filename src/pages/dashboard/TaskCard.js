@@ -7,11 +7,25 @@ const propTypes = {
   task: PropTypes.object
 }
 
+const styles = {
+  panelTheme: {
+    backgroundColor: '#3F51B5',
+    color: 'white'
+  },
+
+  removeTaskButton: {
+    backgroundColor: '#E91E63',
+    color: 'white',
+    width: '100%'
+  }
+}
+
 function TaskCard({ task, ...otherProps }) {
   return (
     <Box p={2} sm={12} md={4} lg={3} col={12}>
       <Panel theme='info'>
         <PanelHeader
+          style={styles.panelTheme}
           inverted
           theme='default'
           >
@@ -25,7 +39,7 @@ function TaskCard({ task, ...otherProps }) {
           <Button
             type='submit'
             backgroundColor='error'
-            style={{width: '100%'}}
+            style={styles.removeTaskButton}
             onClick={() => otherProps.removeTask(task.id)}
             >
           Delete

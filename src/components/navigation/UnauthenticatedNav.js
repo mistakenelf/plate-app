@@ -1,4 +1,12 @@
-import { Arrow, Dropdown, DropdownMenu, NavItem, Space, Toolbar } from 'rebass'
+import {
+  Arrow,
+  Dropdown,
+  DropdownMenu,
+  Fixed,
+  NavItem,
+  Space,
+  Toolbar,
+} from 'rebass'
 import React, { Component } from 'react'
 
 import { Link } from 'react-router'
@@ -25,36 +33,43 @@ export default class AuthenticatedNav extends Component {
   }
 
   render() {
+    const navColor = {
+      backgroundColor: 'white',
+      color: 'black'
+    }
+
     return (
-      <Toolbar>
-        <NavItem is={Link} to={'/'}>
-          Plate
-        </NavItem>
-        <Space
-          auto
-          x={1}
-          />
-        <NavItem is='a'>
-          <Dropdown
-            onClick={this.toggleDropdown.bind(this)}
-            >
-            Login/Register
-            <Arrow direction='down' />
-            <DropdownMenu
-              open={this.state.dropdownOpen}
-              right
-              onDismiss={this.toggleDropdown.bind(this)}
+      <Fixed top left right zIndex={1}>
+        <Toolbar style={navColor}>
+          <NavItem is={Link} to={'/'}>
+            Plate
+          </NavItem>
+          <Space
+            auto
+            x={1}
+            />
+          <NavItem is='a'>
+            <Dropdown
+              onClick={this.toggleDropdown.bind(this)}
               >
-              <NavItem is={Link} to={'/login'}>
-                Login
-              </NavItem>
-              <NavItem is={Link} to={'/register'}>
-                Register
-              </NavItem>
-            </DropdownMenu>
-          </Dropdown>
-        </NavItem>
-      </Toolbar>
+              Login/Register
+              <Arrow direction='down' />
+              <DropdownMenu
+                open={this.state.dropdownOpen}
+                right
+                onDismiss={this.toggleDropdown.bind(this)}
+                >
+                <NavItem is={Link} to={'/login'}>
+                  Login
+                </NavItem>
+                <NavItem is={Link} to={'/register'}>
+                  Register
+                </NavItem>
+              </DropdownMenu>
+            </Dropdown>
+          </NavItem>
+        </Toolbar>
+      </Fixed>
     )
   }
 }

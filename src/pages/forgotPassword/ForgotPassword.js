@@ -44,17 +44,31 @@ export default class ForgotPassword extends Component {
   }
 
   render() {
-    const formMargin = {
-      marginTop: '5%'
+    const styles = {
+      formMargin: {
+        marginTop: '5%'
+      },
+
+      panelTheme: {
+        backgroundColor: '#3F51B5',
+        color: 'white'
+      },
+
+      forgotPasswordButton: {
+        backgroundColor: '#E91E63',
+        color: 'white',
+        width: '100%'
+      }
     }
 
     return (
       <div>
-        <Flex justify='center' style={formMargin}>
+        <Flex justify='center' style={styles.formMargin}>
           <Box p={2} sm={12} md={6} lg={4} col={12}>
             <form onSubmit={this.forgotPassword}>
               <Panel theme='info'>
                 <PanelHeader
+                  style={styles.panelTheme}
                   inverted
                   theme='default'
                   >
@@ -70,7 +84,7 @@ export default class ForgotPassword extends Component {
                   type='email'
                   />
                 <PanelFooter>
-                  <Button type='submit' style={{ width: '100%' }}>Forgot Password</Button>
+                  <Button type='submit' style={styles.forgotPasswordButton}>Forgot Password</Button>
                 </PanelFooter>
                 <br />
                 <Text is={Link} to={'/login'}>

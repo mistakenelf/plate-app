@@ -44,18 +44,32 @@ export default class Login extends Component {
   }
 
   render() {
-    const formMargin = {
-      marginTop: '5%'
+    const styles = {
+      formMargin: {
+        marginTop: '5%'
+      },
+
+      panelTheme: {
+        backgroundColor: '#3F51B5',
+        color: 'white'
+      },
+
+      loginButton: {
+        backgroundColor: '#E91E63',
+        color: 'white',
+        width: '100%'
+      }
     }
 
     return (
       <div>
-        <Flex justify='center' style={formMargin}>
+        <Flex justify='center' style={styles.formMargin}>
           <Box p={2} sm={12} md={6} lg={4} col={12}>
             <form onSubmit={this.userLogin}>
               <Panel theme='info'>
                 <PanelHeader
                   inverted
+                  style={styles.panelTheme}
                   theme='default'
                   >
                   Login
@@ -79,7 +93,7 @@ export default class Login extends Component {
                   type='password'
                   />
                 <PanelFooter>
-                  <Button type='submit' style={{ width: '100%' }}>Login</Button>
+                  <Button type='submit' style={styles.loginButton}>Login</Button>
                 </PanelFooter>
                 <br />
                 <Text is={Link} to={'/forgotPassword'}>
