@@ -13,7 +13,6 @@ import {
 import React, { Component, PropTypes } from 'react'
 
 import { Box } from 'reflexbox'
-import { toastr } from 'react-redux-toastr'
 
 export default class TaskCreator extends Component {
   static propTypes = {
@@ -47,14 +46,12 @@ export default class TaskCreator extends Component {
     const taskName = document.querySelector('#taskName').value
 
     if (taskName === '') {
-      toastr.error('Error', 'Please enter a task name')
       return
     }
 
     const taskDescription = document.querySelector('#taskDescription').value
 
     if (taskDescription === '') {
-      toastr.error('Error', 'Please enter a task description')
       return
     }
 
