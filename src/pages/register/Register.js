@@ -12,8 +12,19 @@ import {
 import { Link, browserHistory } from 'react-router'
 import React, { Component } from 'react'
 
+import ErrorMessage from '../../components/errorMessage/ErrorMessage'
+
 export default class Register extends Component {
-  registerUser(e) {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      errorState: 'none',
+      errorMessage: ''
+    }
+  }
+
+  registerUser = (e) => {
     e.preventDefault()
 
     const email = document.getElementById('email').value
@@ -25,69 +36,86 @@ export default class Register extends Component {
       .then(() => browserHistory.push('/'))
 
       .catch(e =>
-        console.log(e.message)
+        this.setState({
+          errorState: 'initial',
+          errorMessage: e.message
+        })
       )
   }
 
   render() {
+    const formMargin = {
+      marginTop: '5%'
+    }
+
     return (
-      <Flex justify='center'>
-        <Box p={2} sm={12} md={6} lg={4} col={12}>
-          <form onSubmit={this.registerUser}>
-            <Panel theme='info'>
-              <PanelHeader
-                inverted
-                theme='default'
-                >
-                Register
+      <div>
+        <Flex justify='center' style={formMargin}>
+          <Box p={2} sm={12} md={6} lg={4} col={12}>
+            <form onSubmit={this.registerUser}>
+              <Panel theme='info'>
+                <PanelHeader
+                  inverted
+                  theme='default'
+                  >
+                  Register
               </PanelHeader>
-              <Input
-                label='First Name'
-                id='firstName'
-                name='firstName'
-                placeholder='Please enter your first name'
-                rounded
-                required
-                type='text'
-                />
-              <Input
-                label='Last Name'
-                id='lastName'
-                name='lastName'
-                placeholder='Please enter your last name'
-                rounded
-                required
-                type='text'
-                />
-              <Input
-                label='Email'
-                id='email'
-                name='email'
-                placeholder='Please enter your email'
-                rounded
-                required
-                type='email'
-                />
-              <Input
-                label='Password'
-                id='password'
-                name='password'
-                placeholder='Please enter your password'
-                rounded
-                required
-                type='password'
-                />
-              <PanelFooter>
-                <Button type='submit' style={{ width: '100%' }}>Register</Button>
-              </PanelFooter>
-              <br />
-              <Text is={Link} to={'/login'}>
-                Already A Member?
+                <Input
+                  label='First Name'
+                  id='firstName'
+                  name='firstName'
+                  placeholder='Please enter your first name'
+                  rounded
+                  required
+                  type='text'
+                  />
+                <Input
+                  label='Last Name'
+                  id='lastName'
+                  name='lastName'
+                  placeholder='Please enter your last name'
+                  rounded
+                  required
+                  type='text'
+                  />
+                <Input
+                  label='Email'
+                  id='email'
+                  name='email'
+                  placeholder='Please enter your email'
+                  rounded
+                  required
+                  type='email'
+                  />
+                <Input
+                  label='Password'
+                  id='password'
+                  name='password'
+                  placeholder='Please enter your password'
+                  rounded
+                  required
+                  type='password'
+                  />
+                <PanelFooter>
+                  <Button type='submit' style={{ width: '100%' }}>Register</Button>
+                </PanelFooter>
+                <br />
+                <Text is={Link} to={'/login'}>
+                  Already A Member?
               </Text>
-            </Panel>
-          </form>
-        </Box>
-      </Flex>
+              </Panel>
+            </form>
+          </Box>
+        </Flex>
+        <Flex justify='center' wrap>
+          <Box p={2} sm={12} md={6} lg={4} col={12}>
+            <ErrorMessage
+              open={this.state.errorState}
+              message={this.state.errorMessage}
+              />
+          </Box>
+        </Flex>
+      </div>
     )
   }
 }
