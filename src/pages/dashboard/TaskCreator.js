@@ -1,11 +1,28 @@
-import { Button, Col, ControlLabel, FormControl, FormGroup, Modal, Panel } from 'react-bootstrap'
-import React, { Component } from 'react'
+import {
+  Button,
+  Close,
+  Input,
+  Overlay,
+  Panel,
+  PanelFooter,
+  PanelHeader,
+  Space,
+  Text,
+  Textarea,
+} from 'rebass'
+import React, { Component, PropTypes } from 'react'
 
+import { Col } from 'react-bootstrap'
 import { css } from 'aphrodite'
 import styles from './styles'
 import { toastr } from 'react-redux-toastr'
 
 export default class TaskCreator extends Component {
+  static propTypes = {
+    tasks: PropTypes.array,
+    addTask: PropTypes.func
+  }
+
   constructor(props) {
     super(props)
 
@@ -26,7 +43,9 @@ export default class TaskCreator extends Component {
     })
   }
 
-  submitTask = () => {
+  submitTask = (e) => {
+    e.preventDefault()
+
     const taskName = document.querySelector('#taskName').value
 
     if (taskName === '') {
@@ -51,34 +70,57 @@ export default class TaskCreator extends Component {
   render() {
     return (
       <Col md={4} lg={4} className={css(styles.paddingTop)}>
-        <Panel header={<h3>Task Creator</h3>} bsStyle="primary">
-          <h2>You have {this.props.tasks.length} tasks remaining</h2>
-          <Modal show={this.state.showModal} bsSize="large" aria-labelledby="contained-modal-title-lg">
-            <Modal.Header closeButton>
-              <Modal.Title id="contained-modal-title-lg">Modal heading</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <form onSubmit={this.userLogin}>
-                <FormGroup>
-                  <ControlLabel>Task Name:</ControlLabel>
-                  <FormControl type="text" id="taskName" placeholder="Task Name" required />
-                </FormGroup>
-                <FormGroup>
-                  <ControlLabel>Task Description:</ControlLabel>
-                  <FormControl type="text" rows={6} componentClass="textarea" id="taskDescription" placeholder="Task Description" required />
-                </FormGroup>
-              </form>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button onClick={this.closeTaskCreator}>Close</Button>
-              <Button bsStyle="primary" onClick={this.submitTask}>Add Task</Button>
-            </Modal.Footer>
-          </Modal>
-          <br />
-          <FormGroup>
-            <Button type="submit" bsStyle="success" onClick={this.showTaskCreator} block>Add Task</Button>
-          </FormGroup>
+        <Panel theme='info'>
+          <PanelHeader
+            inverted
+            theme='default'
+            >
+            Task Creator
+          </PanelHeader>
+          <Text>
+            You have {this.props.tasks.length} tasks remaining
+          </Text>
+          <PanelFooter>
+            <Button type='submit' style={{ width: '100%' }} onClick={this.showTaskCreator}>Add Task</Button>
+          </PanelFooter>
         </Panel>
+        <Overlay
+          open={this.state.showModal}
+          onDismiss={this.closeTaskCreator}>
+          <form onSubmit={this.submitTask}>
+            <Panel theme='success'>
+              <PanelHeader>
+                Create New Task!
+                <Space auto />
+                <Close onClick={this.closeTaskCreator} />
+              </PanelHeader>
+              <Input
+                label='Task Name'
+                id='taskName'
+                name='taskName'
+                placeholder='Enter the name of the task'
+                rounded
+                required
+                type='text'
+                />
+              <Textarea
+                placeholder='Please enter a description of the task'
+                label='Description'
+                name='taskDescription'
+                id='taskDescription'
+                required
+                rounded
+                />
+              <PanelFooter>
+                <Space auto />
+                <Button
+                  type='submit'
+                  theme='success'
+                  children='Create Task' />
+              </PanelFooter>
+            </Panel>
+          </form>
+        </Overlay>
       </Col>
     )
   }

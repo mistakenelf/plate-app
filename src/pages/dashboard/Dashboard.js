@@ -1,10 +1,15 @@
-import { Col, Grid, Row, Well } from 'react-bootstrap'
+import { Col, Grid, Row } from 'react-bootstrap'
+import React, { PropTypes } from 'react'
 
 import AccountCard from './AccountCard'
+import { Divider } from 'rebass'
 import InfoCard from './InfoCard'
-import React from 'react'
 import TaskCard from './TaskCard'
 import TaskCreator from './TaskCreator'
+
+const propTypes = {
+  tasks: PropTypes.array,
+}
 
 function Dashboard({ tasks, ...otherProps }) {
   return (
@@ -17,18 +22,19 @@ function Dashboard({ tasks, ...otherProps }) {
       <br />
       <Row>
         <Col sm={12}>
-          <Well bsSize="small" style={{ fontSize: "40px", textAlign: "center" }}>
-            Current Tasks
-          </Well>
-          {tasks.map((task, index) => {
-            return (
-              <TaskCard key={index} task={task} {...otherProps} />
-            )
-          })}
+          <h1 style={{textAlign: 'center'}}>Current Tasks</h1>
+          <Divider />
         </Col>
+        {tasks.map((task, index) => {
+          return (
+            <TaskCard key={index} task={task} {...otherProps} />
+          )
+        })}
       </Row>
     </Grid>
   )
 }
+
+Dashboard.propTypes = propTypes
 
 export default Dashboard

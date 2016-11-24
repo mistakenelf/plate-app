@@ -1,20 +1,43 @@
-import { Button, Col, FormGroup, Panel } from 'react-bootstrap'
+import { Button, Panel, PanelFooter, PanelHeader, Text } from 'rebass'
+import React, { PropTypes } from 'react'
 
-import React from 'react'
+import { Col } from 'react-bootstrap'
 import { css } from 'aphrodite'
 import styles from './styles'
+
+const propTypes = {
+  task: PropTypes.object
+}
 
 function TaskCard({ task, ...otherProps }) {
   return (
     <Col md={3} lg={3} className={css(styles.paddingTop)}>
-      <Panel header={<h3>{task.taskName}</h3>}>
-        <h3>{task.taskDescription}</h3>
-        <FormGroup>
-          <Button type="submit" bsStyle="danger" onClick={() => otherProps.removeTask(task.id)} block>Delete</Button>
-        </FormGroup>
+      <Panel theme='info'>
+        <PanelHeader
+          inverted
+          theme='default'
+          >
+          {task.taskName}
+        </PanelHeader>
+        <Text>
+          <h4>{task.taskDescription}</h4>
+          <br />
+        </Text>
+        <PanelFooter>
+          <Button
+            type='submit'
+            backgroundColor='error'
+            style={{width: '100%'}}
+            onClick={() => otherProps.removeTask(task.id)}
+            >
+          Delete
+          </Button>
+        </PanelFooter>
       </Panel>
     </Col>
   )
 }
+
+TaskCard.propTypes = propTypes
 
 export default TaskCard

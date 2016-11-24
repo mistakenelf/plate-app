@@ -10,14 +10,14 @@ import React from 'react'
 import Register from '../pages/register/Register'
 
 const routes = (
-  <Route path="/">
+  <Route path='/'>
     <Route component={MainLayout}>
       <IndexRoute component={Home} />
-      <Route path="/dashboard" component={DashboardContainer} />
-      <Route path="/forgotPassword" component={ForgotPassword} />
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
-      <Route path="*" component={NotFound} />
+      <Route path='/dashboard' component={DashboardContainer} />
+      <Route path='/forgotPassword' component={ForgotPassword} />
+      <Route path='/login' component={Login} />
+      <Route path='/register' component={Register} />
+      <Route path='*' component={NotFound} />
     </Route>
   </Route>
 )

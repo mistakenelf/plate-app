@@ -1,43 +1,69 @@
 import * as firebase from 'firebase'
 
+import { Arrow, Dropdown, DropdownMenu, NavItem, Space, Toolbar } from 'rebass'
 import { Link, browserHistory } from 'react-router'
-import { MenuItem, Nav, NavDropdown, Navbar } from 'react-bootstrap'
+import React, { Component } from 'react'
 
-import { LinkContainer } from 'react-router-bootstrap'
-import React from 'react'
+export default class AuthenticatedNav extends Component {
+  constructor() {
+    super()
 
-function logout() {
-  firebase.auth().signOut().then(() => {
-    browserHistory.push('/')
-  }, (error) => {
-    console.log('Log out failed')
-  })
+    this.state = {
+      dropdownOpen: false
+    }
+  }
+
+  logout() {
+    firebase.auth().signOut().then(() => {
+      browserHistory.push('/')
+    }, (error) => {
+      console.log('Log out failed')
+    })
+  }
+
+  toggleDropdown() {
+    if (this.state.dropdownOpen === false) {
+      this.setState({
+        dropdownOpen: true
+      })
+    } else {
+      this.setState({
+        dropdownOpen: false
+      })
+    }
+  }
+
+  render() {
+    return (
+      <Toolbar>
+        <NavItem is={Link} to={'/'}>
+          PLATE
+        </NavItem>
+        <NavItem is={Link} to={'/dashboard'}>
+          Dashboard
+        </NavItem>
+        <Space
+          auto
+          x={1}
+          />
+        <NavItem is='a'>
+          <Dropdown
+            onClick={this.toggleDropdown.bind(this)}
+            >
+            Logout
+            <Arrow direction='down' />
+            <DropdownMenu
+              open={this.state.dropdownOpen}
+              right
+              onDismiss={this.toggleDropdown.bind(this)}
+              >
+              <NavItem is='a' onClick={this.logout}>
+                Logout
+              </NavItem>
+            </DropdownMenu>
+          </Dropdown>
+        </NavItem>
+      </Toolbar>
+    )
+  }
 }
-
-function AuthenticatedNav() {
-  return (
-    <Navbar inverse collapseOnSelect fluid fixedTop>
-      <Navbar.Header>
-        <Navbar.Brand>
-          <Link to="/">Plate</Link>
-        </Navbar.Brand>
-        <Navbar.Toggle />
-      </Navbar.Header>
-      <Navbar.Collapse>
-        <Nav>
-          <LinkContainer to="/dashboard">
-            <MenuItem eventKey={2}>Dashboard</MenuItem>
-          </LinkContainer>
-        </Nav>
-        <Nav pullRight>
-          <NavDropdown eventKey={3} title="Logout" id="basic-nav-dropdown">
-            <MenuItem onClick={logout} eventKey={3.1}>Logout</MenuItem>
-          </NavDropdown>
-        </Nav>
-      </Navbar.Collapse>
-    </Navbar>
-  )
-}
-
-export default AuthenticatedNav
-

@@ -1,8 +1,10 @@
 import * as firebase from 'firebase'
 
-import { Button, Col, ControlLabel, FormControl, FormGroup, Grid, Panel, Row } from 'react-bootstrap'
+import { Button, Input, Panel, PanelFooter, PanelHeader, Text } from 'rebass'
+import { Col, Grid, Row } from 'react-bootstrap'
 import React, { Component } from 'react'
 
+import { Link } from 'react-router'
 import { StyleSheet } from 'aphrodite'
 import { browserHistory } from 'react-router'
 import { css } from 'aphrodite'
@@ -10,7 +12,7 @@ import { toastr } from 'react-redux-toastr'
 
 const styles = StyleSheet.create({
   forgotPasswordMargin: {
-    marginTop: '25%'
+    marginTop: '10%'
   }
 })
 
@@ -36,18 +38,33 @@ export default class ForgotPassword extends Component {
     return (
       <Grid fluid>
         <Row>
-          <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4}>
-            <Panel header={<h2>Forgot Password</h2>} bsStyle="primary" className={css(styles.forgotPasswordMargin)}>
-              <form onSubmit={this.forgotPassword}>
-                <FormGroup>
-                  <ControlLabel>Email:</ControlLabel>
-                  <FormControl type="email" id="email" placeholder="Email" required />
-                </FormGroup>
-                <FormGroup>
-                  <Button type="submit" bsStyle="primary" bsSize="large" block>Forgot Password</Button>
-                </FormGroup>
-              </form>
-            </Panel>
+          <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4} className={css(styles.forgotPasswordMargin)}>
+            <form onSubmit={this.registerUser}>
+              <Panel theme='info'>
+                <PanelHeader
+                  inverted
+                  theme='default'
+                  >
+                  Register
+                </PanelHeader>
+                <Input
+                  label='Email'
+                  id='email'
+                  name='email'
+                  placeholder='Please enter your email'
+                  rounded
+                  required
+                  type='email'
+                  />
+                <PanelFooter>
+                  <Button type='submit' style={{ width: '100%' }}>Forgot Password</Button>
+                </PanelFooter>
+                <br />
+                <Text is={Link} to={'/login'}>
+                  Remember It Now?
+                </Text>
+              </Panel>
+            </form>
           </Col>
         </Row>
       </Grid>

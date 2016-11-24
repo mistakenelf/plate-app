@@ -11,9 +11,9 @@ function MainLayout({ children }) {
         timeOut={4000}
         newestOnTop={false}
         preventDuplicates={true}
-        position="bottom-center"
-        transitionIn="fadeIn"
-        transitionOut="fadeOut"
+        position='bottom-center'
+        transitionIn='fadeIn'
+        transitionOut='fadeOut'
         progressBar />
     </div>
   )

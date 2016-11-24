@@ -1,20 +1,33 @@
-import { Col, Grid, Panel, Row } from 'react-bootstrap'
+import { Col, Grid, Row } from 'react-bootstrap'
+import { Panel, PanelHeader, Text } from 'rebass'
 
 import React from 'react'
+import { StyleSheet } from 'aphrodite'
 import { css } from 'aphrodite'
-import styles from './styles'
+
+const styles = StyleSheet.create({
+  notFoundMargin: {
+    marginTop: '10%',
+  }
+})
 
 function NotFound() {
   return (
-    <Grid fluid className={css(styles.background)}>
+    <Grid fluid>
       <Row>
-        <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4}>
-          <Panel header={<h3>Not Found</h3>} bsStyle="danger" className={css(styles.notFoundMargin)}>
-            <h4>
+        <Col xs={12} sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4} className={css(styles.notFoundMargin)}>
+          <Panel theme='info'>
+            <PanelHeader
+              inverted
+              theme='error'
+              >
+              Page Not Found
+            </PanelHeader>
+            <Text>
               The page you are looking for has either been moved, or does
               not exist anymore. Please contact your administrator if you
               think this is an error. Thanks, Plate Team.
-            </h4>
+            </Text>
           </Panel>
         </Col>
       </Row>
@@ -23,5 +36,6 @@ function NotFound() {
 }
 
 export default NotFound
+
 
 

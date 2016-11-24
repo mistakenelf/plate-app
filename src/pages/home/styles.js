@@ -3,8 +3,7 @@ import { StyleSheet } from 'aphrodite'
 const styles = StyleSheet.create({
   hero: {
     height: 500,
-    width: "100%",
-    marginTop: "-20px",
+    width: '100%',
     backgroundColor: 'blue',
   },
 
