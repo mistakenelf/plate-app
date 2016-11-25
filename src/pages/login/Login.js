@@ -62,56 +62,50 @@ export default class Login extends Component {
     }
 
     return (
-      <div>
-        <Flex justify='center' style={styles.formMargin}>
-          <Box p={2} sm={12} md={6} lg={4} col={12}>
-            <form onSubmit={this.userLogin}>
-              <Panel theme='info'>
-                <PanelHeader
-                  inverted
-                  style={styles.panelTheme}
-                  theme='default'
-                  >
-                  Login
-                </PanelHeader>
-                <Input
-                  label='Email'
-                  id='email'
-                  name='email'
-                  placeholder='Please enter your email'
-                  rounded
-                  required
-                  type='email'
-                  />
-                <Input
-                  label='Password'
-                  id='password'
-                  name='password'
-                  placeholder='Please enter your password'
-                  rounded
-                  required
-                  type='password'
-                  />
-                <PanelFooter>
-                  <Button type='submit' style={styles.loginButton}>Login</Button>
-                </PanelFooter>
-                <br />
-                <Text is={Link} to={'/forgotPassword'}>
-                  Forgot password?
-                </Text>
-              </Panel>
-            </form>
-          </Box>
-        </Flex>
-        <Flex justify='center' wrap>
-          <Box p={2} sm={12} md={6} lg={4} col={12}>
-            <ErrorMessage
-              open={this.state.errorState}
-              message={this.state.errorMessage}
-              />
-          </Box>
-        </Flex>
-      </div>
+      <Flex justify='center' style={styles.formMargin}>
+        <Box p={2} sm={12} md={6} lg={4} col={12}>
+          <form onSubmit={this.userLogin}>
+            <Panel theme='info'>
+              <PanelHeader
+                inverted
+                style={styles.panelTheme}
+                theme='default'
+                >
+                Login
+              </PanelHeader>
+              <ErrorMessage
+                open={this.state.errorState}
+                message={this.state.errorMessage}
+                />
+              <Input
+                label='Email'
+                id='email'
+                name='email'
+                placeholder='Please enter your email'
+                rounded
+                required
+                type='email'
+                />
+              <Input
+                label='Password'
+                id='password'
+                name='password'
+                placeholder='Please enter your password'
+                rounded
+                required
+                type='password'
+                />
+              <PanelFooter>
+                <Button type='submit' style={styles.loginButton}>Login</Button>
+              </PanelFooter>
+              <br />
+              <Text is={Link} to={'/forgotPassword'}>
+                Forgot password?
+              </Text>
+            </Panel>
+          </form>
+        </Box>
+      </Flex>
     )
   }
 }

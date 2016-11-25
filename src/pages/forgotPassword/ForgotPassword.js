@@ -62,47 +62,41 @@ export default class ForgotPassword extends Component {
     }
 
     return (
-      <div>
-        <Flex justify='center' style={styles.formMargin}>
-          <Box p={2} sm={12} md={6} lg={4} col={12}>
-            <form onSubmit={this.forgotPassword}>
-              <Panel theme='info'>
-                <PanelHeader
-                  style={styles.panelTheme}
-                  inverted
-                  theme='default'
-                  >
-                  Forgot Password
-              </PanelHeader>
-                <Input
-                  label='Email'
-                  id='email'
-                  name='email'
-                  placeholder='Please enter your email'
-                  rounded
-                  required
-                  type='email'
-                  />
-                <PanelFooter>
-                  <Button type='submit' style={styles.forgotPasswordButton}>Forgot Password</Button>
-                </PanelFooter>
-                <br />
-                <Text is={Link} to={'/login'}>
-                  Remember It Now?
-              </Text>
-              </Panel>
-            </form>
-          </Box>
-        </Flex>
-        <Flex justify='center' wrap>
-          <Box p={2} sm={12} md={6} lg={4} col={12}>
-            <ErrorMessage
-              open={this.state.errorState}
-              message={this.state.errorMessage}
-              />
-          </Box>
-        </Flex>
-      </div>
+      <Flex justify='center' style={styles.formMargin}>
+        <Box p={2} sm={12} md={6} lg={4} col={12}>
+          <form onSubmit={this.forgotPassword}>
+            <Panel theme='info'>
+              <PanelHeader
+                style={styles.panelTheme}
+                inverted
+                theme='default'
+                >
+                Forgot Password
+            </PanelHeader>
+              <ErrorMessage
+                open={this.state.errorState}
+                message={this.state.errorMessage}
+                />
+              <Input
+                label='Email'
+                id='email'
+                name='email'
+                placeholder='Please enter your email'
+                rounded
+                required
+                type='email'
+                />
+              <PanelFooter>
+                <Button type='submit' style={styles.forgotPasswordButton}>Forgot Password</Button>
+              </PanelFooter>
+              <br />
+              <Text is={Link} to={'/login'}>
+                Remember It Now?
+            </Text>
+            </Panel>
+          </form>
+        </Box>
+      </Flex>
     )
   }
 }
