@@ -12,7 +12,6 @@ const propTypes = {
 }
 
 function Dashboard({ plates, ...otherProps }) {
-  console.log(plates)
   return (
     <div>
       <Flex wrap>

@@ -41,14 +41,14 @@ export default class AuthenticatedNav extends Component {
     return (
       <Fixed top left right zIndex={1}>
         <Toolbar style={navColor}>
-          <NavItem is={Link} to={'/'}>
+          <NavItem is={Link} to='/'>
             Plate
           </NavItem>
           <Space
             auto
             x={1}
             />
-          <NavItem is='a'>
+          <NavItem>
             <Dropdown
               onClick={this.toggleDropdown.bind(this)}
               >
@@ -59,10 +59,10 @@ export default class AuthenticatedNav extends Component {
                 right
                 onDismiss={this.toggleDropdown.bind(this)}
                 >
-                <NavItem is={Link} to={'/login'}>
+                <NavItem is={Link} to='/login'>
                   Login
                 </NavItem>
-                <NavItem is={Link} to={'/register'}>
+                <NavItem is={Link} to='/register'>
                   Register
                 </NavItem>
               </DropdownMenu>
