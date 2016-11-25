@@ -12,7 +12,8 @@ function ErrorMessage({open, message}) {
       textAlign: 'center',
       color: 'white',
       padding: 10,
-      borderRadius: 5
+      borderRadius: 5,
+      marginBottom: 10
     }
   }
 
