@@ -34,8 +34,8 @@ export default class AuthenticatedNav extends Component {
 
   render() {
     const navColor = {
-      backgroundColor: 'white',
-      color: 'black'
+      backgroundColor: '#3F51B5',
+      color: 'white'
     }
 
     return (
