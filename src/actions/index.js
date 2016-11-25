@@ -1,18 +1,18 @@
-export function removeTask(id, task) {
+export function removePlate(id, plate) {
   return {
-    type: 'REMOVE_TASK',
+    type: 'REMOVE_PLATE',
     id,
-    task
+    plate
   }
 }
 
-let taskId = 0
+let plateId = 0
 
-export function addTask(taskName, taskDescription) {
+export function addPlate(plateName, plateDescription) {
   return {
-    type: 'ADD_TASK',
-    id: taskId++,
-    taskName,
-    taskDescription
+    type: 'ADD_PLATE',
+    id: plateId++,
+    plateName,
+    plateDescription
   }
 }

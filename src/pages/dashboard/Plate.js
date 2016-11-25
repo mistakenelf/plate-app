@@ -1,10 +1,16 @@
-import { Button, Panel, PanelFooter, PanelHeader, Text } from 'rebass'
+import {
+  Button,
+  Panel,
+  PanelFooter,
+  PanelHeader,
+  Text,
+} from 'rebass'
 import React, { PropTypes } from 'react'
 
 import { Box } from 'reflexbox'
 
 const propTypes = {
-  task: PropTypes.object
+  plate: PropTypes.object
 }
 
 const styles = {
@@ -13,14 +19,14 @@ const styles = {
     color: 'white'
   },
 
-  removeTaskButton: {
+  removePlateButton: {
     backgroundColor: '#E91E63',
     color: 'white',
     width: '100%'
   }
 }
 
-function TaskCard({ task, ...otherProps }) {
+function Plate({ plate, ...otherProps }) {
   return (
     <Box p={2} sm={12} md={4} lg={3} col={12}>
       <Panel theme='info'>
@@ -29,20 +35,20 @@ function TaskCard({ task, ...otherProps }) {
           inverted
           theme='default'
           >
-          {task.taskName}
+          {plate.plateName}
         </PanelHeader>
         <Text>
-          <h4>{task.taskDescription}</h4>
+          <h4>{plate.plateDescription}</h4>
           <br />
         </Text>
         <PanelFooter>
           <Button
             type='submit'
             backgroundColor='error'
-            style={styles.removeTaskButton}
-            onClick={() => otherProps.removeTask(task.id)}
+            style={styles.removePlateButton}
+            onClick={() => otherProps.removePlate(plate.id)}
             >
-          Delete
+          Remove Plate
           </Button>
         </PanelFooter>
       </Panel>
@@ -50,6 +56,6 @@ function TaskCard({ task, ...otherProps }) {
   )
 }
 
-TaskCard.propTypes = propTypes
+Plate.propTypes = propTypes
 
-export default TaskCard
+export default Plate

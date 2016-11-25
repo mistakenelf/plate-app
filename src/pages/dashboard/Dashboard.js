@@ -2,33 +2,34 @@ import { Box, Flex } from 'reflexbox'
 import React, { PropTypes } from 'react'
 
 import AccountCard from './AccountCard'
+import CreatePlate from './CreatePlate'
 import { Divider } from 'rebass'
 import InfoCard from './InfoCard'
-import TaskCard from './TaskCard'
-import TaskCreator from './TaskCreator'
+import Plate from './Plate'
 
 const propTypes = {
-  tasks: PropTypes.array
+  plates: PropTypes.array
 }
 
-function Dashboard({ tasks, ...otherProps }) {
+function Dashboard({ plates, ...otherProps }) {
+  console.log(plates)
   return (
     <div>
       <Flex wrap>
-        <TaskCreator tasks={tasks} addTask={otherProps.addTask} />
+        <CreatePlate plates={plates} addPlate={otherProps.addPlate} />
         <AccountCard />
         <InfoCard />
       </Flex>
       <Flex>
         <Box col={12}>
-          <h1 style={{textAlign: 'center'}}>Current Tasks</h1>
+          <h1 style={{textAlign: 'center'}}>Current Plates</h1>
           <Divider />
         </Box>
       </Flex>
       <Flex wrap>
-        {tasks.map((task, index) => {
+        {plates.map((plate, index) => {
           return (
-            <TaskCard key={index} task={task} {...otherProps} />
+            <Plate key={index} plate={plate} {...otherProps} />
           )
         })}
       </Flex>

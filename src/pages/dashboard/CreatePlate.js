@@ -14,7 +14,7 @@ import React, { Component, PropTypes } from 'react'
 
 import { Box } from 'reflexbox'
 
-export default class TaskCreator extends Component {
+export default class CreatePlate extends Component {
   static propTypes = {
     tasks: PropTypes.array,
     addTask: PropTypes.func
@@ -28,34 +28,34 @@ export default class TaskCreator extends Component {
     }
   }
 
-  showTaskCreator = () => {
+  showPlateCreator = () => {
     this.setState({
       showModal: true
     })
   }
 
-  closeTaskCreator = () => {
+  closePlateCreator = () => {
     this.setState({
       showModal: false
     })
   }
 
-  submitTask = (e) => {
+  submitPlate = (e) => {
     e.preventDefault()
 
-    const taskName = document.querySelector('#taskName').value
+    const plateName = document.querySelector('#plateName').value
 
-    if (taskName === '') {
+    if (plateName === '') {
       return
     }
 
-    const taskDescription = document.querySelector('#taskDescription').value
+    const plateDescription = document.querySelector('#plateDescription').value
 
-    if (taskDescription === '') {
+    if (plateDescription === '') {
       return
     }
 
-    this.props.addTask(taskName, taskDescription)
+    this.props.addPlate(plateName, plateDescription)
 
     this.setState({
       showModal: false
@@ -73,7 +73,7 @@ export default class TaskCreator extends Component {
         color: 'white'
       },
 
-      addTaskButton: {
+      addPlateButton: {
         backgroundColor: '#E91E63',
         color: 'white',
         width: '100%'
@@ -88,39 +88,39 @@ export default class TaskCreator extends Component {
             inverted
             theme='default'
             >
-            Task Creator
+            Create A Plate
           </PanelHeader>
           <Text>
-            You have {this.props.tasks.length} tasks remaining
+            You have {this.props.plates.length} plates created
           </Text>
           <PanelFooter>
-            <Button type='submit' style={styles.addTaskButton} onClick={this.showTaskCreator}>Add Task</Button>
+            <Button type='submit' style={styles.addPlateButton} onClick={this.showPlateCreator}>Create Plate</Button>
           </PanelFooter>
         </Panel>
         <Overlay
           open={this.state.showModal}
-          onDismiss={this.closeTaskCreator}>
-          <form onSubmit={this.submitTask}>
+          onDismiss={this.closePlateCreator}>
+          <form onSubmit={this.submitPlate}>
             <Panel theme='success'>
               <PanelHeader>
-                Create New Task!
+                Create A New Plate!
                 <Space auto />
-                <Close type='button' onClick={this.closeTaskCreator} />
+                <Close type='button' onClick={this.closePlateCreator} />
               </PanelHeader>
               <Input
-                label='Task Name'
-                id='taskName'
-                name='taskName'
-                placeholder='Enter the name of the task'
+                label='Name'
+                id='plateName'
+                name='plateName'
+                placeholder='Enter the name of your plate'
                 rounded
                 required
                 type='text'
                 />
               <Textarea
-                placeholder='Please enter a description of the task'
+                placeholder='Please enter a description of your plate'
                 label='Description'
-                name='taskDescription'
-                id='taskDescription'
+                name='plateDescription'
+                id='plateDescription'
                 required
                 rounded
                 />
@@ -129,7 +129,7 @@ export default class TaskCreator extends Component {
                 <Button
                   type='submit'
                   theme='success'
-                  children='Create Task' />
+                  children='Create Plate' />
               </PanelFooter>
             </Panel>
           </form>

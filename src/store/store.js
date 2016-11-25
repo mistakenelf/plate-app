@@ -3,10 +3,10 @@ import { createStore } from 'redux'
 import rootReducer from '../reducers'
 import { syncHistoryWithStore } from 'react-router-redux'
 
-let tasks = []
+let plates = []
 
 const defaultState = {
-  tasks
+  plates
 }
 
 const store = createStore(rootReducer, defaultState)

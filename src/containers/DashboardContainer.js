@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 
 function mapStateToProps(state) {
   return {
-    tasks: state.tasks
+    plates: state.plates
   }
 }
 
