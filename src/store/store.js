@@ -3,13 +3,7 @@ import { createStore } from 'redux'
 import rootReducer from '../reducers'
 import { syncHistoryWithStore } from 'react-router-redux'
 
-let plates = []
-
-const defaultState = {
-  plates
-}
-
-const store = createStore(rootReducer, defaultState,
+const store = createStore(rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
