@@ -17,7 +17,7 @@ export default class AuthenticatedNav extends Component {
   render() {
     const { activeItem } = this.state
     return (
-      <Menu size='tiny' fixed='top' fluid>
+      <Menu size='small' fixed='top' color='violet' inverted fluid>
         <Menu.Item header><Icon name='grid layout' />Plate</Menu.Item>
         <Menu.Item name='home' as={Link} to='/' active={activeItem === 'home'} onClick={this.handleItemClick} />
         <Menu.Menu position='right'>

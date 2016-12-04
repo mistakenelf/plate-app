@@ -1,6 +1,6 @@
 import * as firebase from 'firebase'
 
-import { Button, Icon, Menu } from 'semantic-ui-react'
+import { Icon, Menu } from 'semantic-ui-react'
 import { Link, browserHistory } from 'react-router'
 import React, { Component } from 'react'
 
@@ -26,14 +26,12 @@ export default class AuthenticatedNav extends Component {
   render() {
     const { activeItem } = this.state
     return (
-      <Menu size='tiny' fixed='top' fluid>
+      <Menu size='small' fixed='top' color='violet' inverted fluid>
         <Menu.Item header><Icon name='grid layout' />Plate</Menu.Item>
         <Menu.Item name='home' as={Link} to='/' active={activeItem === 'home'} onClick={this.handleItemClick} />
         <Menu.Item name='dashboard' as={Link} to='/dashboard' active={activeItem === 'dashboard'} onClick={this.handleItemClick} />
         <Menu.Menu position='right'>
-          <Menu.Item>
-            <Button primary onClick={this.logout}>Logout</Button>
-          </Menu.Item>
+          <Menu.Item onClick={this.logout} name='Logout' />
         </Menu.Menu>
       </Menu>
     )
