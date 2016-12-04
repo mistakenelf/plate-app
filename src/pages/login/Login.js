@@ -43,44 +43,42 @@ export default class Login extends Component {
 
   render() {
     return (
-      <Grid verticalAlign='middle' padded columns={2}>
-        <Grid.Row >
-          <Grid.Column>
-            <Card>
-              <Card.Content header='Login' />
-              <Card.Content extra>
-                <Form onSubmit={this.userLogin}>
-                  <ErrorMessage
-                    open={this.state.errorState}
-                    message={this.state.errorMessage}
-                    />
-                    <br />
-                  <Form.Field>
-                    <input
-                      id='email'
-                      name='email'
-                      placeholder='Please enter your email'
-                      required
-                      type='email'
-                      />
-                    </Form.Field>
-                  <Form.Field>
+      <Grid centered padded>
+        <Grid.Column computer={8} largeScreen={4} tablet={10} mobile={16}>
+          <Card style={{width: '100%'}}>
+            <Card.Content header='Login' />
+            <Card.Content extra>
+              <Form onSubmit={this.userLogin}>
+                <ErrorMessage
+                  open={this.state.errorState}
+                  message={this.state.errorMessage}
+                  />
+                  <br />
+                <Form.Field>
                   <input
-                    id='password'
-                    name='password'
-                    placeholder='Please enter your password'
+                    id='email'
+                    name='email'
+                    placeholder='Please enter your email'
                     required
-                    type='password'
+                    type='email'
                     />
                   </Form.Field>
-                  <Button type='submit' loading={this.state.loading} primary fluid>LOGIN</Button>
-                </Form>
-                <br />
-                <Link to='/forgotPassword'>Forgot Your Password?</Link>
-              </Card.Content>
-            </Card>
-          </Grid.Column>
-        </Grid.Row>
+                <Form.Field>
+                <input
+                  id='password'
+                  name='password'
+                  placeholder='Please enter your password'
+                  required
+                  type='password'
+                  />
+                </Form.Field>
+                <Button type='submit' loading={this.state.loading} primary fluid>LOGIN</Button>
+              </Form>
+              <br />
+              <Link to='/forgotPassword'>Forgot Your Password?</Link>
+            </Card.Content>
+          </Card>
+        </Grid.Column>
       </Grid>
     )
   }
