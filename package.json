@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.7.0"
+    "react-scripts": "0.8.1"
   },
   "dependencies": {
     "firebase": "^3.6.2",
@@ -14,7 +14,8 @@
     "react-router-redux": "^4.0.7",
     "rebass": "^0.3.3",
     "redux": "^3.6.0",
-    "reflexbox": "^2.2.3"
+    "reflexbox": "^2.2.3",
+    "semantic-ui-react": "^0.61.10"
   },
   "scripts": {
     "start": "react-scripts start",
