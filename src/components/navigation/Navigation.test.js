@@ -1,6 +1,6 @@
 import Navigation from './Navigation'
 import React from 'react'
-import TestWrapper from '../TestWrapper/TestWrapper'
+import TestWrapper from '../testWrapper/TestWrapper'
 import { render } from 'react-dom'
 
 it('renders without crashing', () => {
