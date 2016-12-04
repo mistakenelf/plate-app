@@ -1,4 +1,4 @@
-import { Dropdown, Menu } from 'semantic-ui-react'
+import { Dropdown, Icon, Menu } from 'semantic-ui-react'
 import React, { Component } from 'react'
 
 import { Link } from 'react-router'
@@ -18,7 +18,7 @@ export default class AuthenticatedNav extends Component {
     const { activeItem } = this.state
     return (
       <Menu size='tiny' fixed='top' fluid>
-        <Menu.Item header>Plate</Menu.Item>
+        <Menu.Item header><Icon name='grid layout' />Plate</Menu.Item>
         <Menu.Item name='home' as={Link} to='/' active={activeItem === 'home'} onClick={this.handleItemClick} />
         <Menu.Menu position='right'>
           <Menu.Item as={Dropdown} text='Login/Register'>
