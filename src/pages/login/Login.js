@@ -1,14 +1,6 @@
 import * as firebase from 'firebase'
 
-import { Box, Flex } from 'reflexbox'
-import {
-  Button,
-  Input,
-  Panel,
-  PanelFooter,
-  PanelHeader,
-  Text,
-} from 'rebass'
+import { Button, Card, Form, Grid } from 'semantic-ui-react'
 import { Link, browserHistory } from 'react-router'
 import React, { Component } from 'react'
 
@@ -20,12 +12,17 @@ export default class Login extends Component {
 
     this.state = {
       errorState: 'none',
-      errorMessage: ''
+      errorMessage: '',
+      loading: false
     }
   }
 
   userLogin = (e) => {
     e.preventDefault()
+
+    this.setState({
+      loading: true
+    })
 
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
@@ -38,7 +35,8 @@ export default class Login extends Component {
       .catch((e) =>
         this.setState({
           errorState: 'initial',
-          errorMessage: e.message
+          errorMessage: e.message,
+          loading: false
         })
       )
   }
@@ -49,11 +47,6 @@ export default class Login extends Component {
         marginTop: '5%'
       },
 
-      panelTheme: {
-        backgroundColor: '#3F51B5',
-        color: 'white'
-      },
-
       loginButton: {
         backgroundColor: '#E91E63',
         color: 'white',
@@ -62,50 +55,45 @@ export default class Login extends Component {
     }
 
     return (
-      <Flex justify='center' style={styles.formMargin}>
-        <Box p={2} sm={12} md={6} lg={4} col={12}>
-          <form onSubmit={this.userLogin}>
-            <Panel theme='info'>
-              <PanelHeader
-                inverted
-                style={styles.panelTheme}
-                theme='default'
-                >
-                Login
-              </PanelHeader>
-              <ErrorMessage
-                open={this.state.errorState}
-                message={this.state.errorMessage}
-                />
-              <Input
-                label='Email'
-                id='email'
-                name='email'
-                placeholder='Please enter your email'
-                rounded
-                required
-                type='email'
-                />
-              <Input
-                label='Password'
-                id='password'
-                name='password'
-                placeholder='Please enter your password'
-                rounded
-                required
-                type='password'
-                />
-              <PanelFooter>
-                <Button type='submit' style={styles.loginButton}>Login</Button>
-              </PanelFooter>
-              <br />
-              <Text is={Link} to={'/forgotPassword'}>
-                Forgot password?
-              </Text>
-            </Panel>
-          </form>
-        </Box>
-      </Flex>
+      <Grid verticalAlign='middle' padded columns={2}>
+        <Grid.Row >
+          <Grid.Column>
+            <Card>
+              <Card.Content header='Login' />
+              <Card.Content extra>
+                <Form onSubmit={this.userLogin}>
+                  <ErrorMessage
+                    open={this.state.errorState}
+                    message={this.state.errorMessage}
+                    />
+                    <br />
+                  <Form.Field>
+                    <input
+                      id='email'
+                      name='email'
+                      placeholder='Please enter your email'
+                      required
+                      type='email'
+                      />
+                    </Form.Field>
+                  <Form.Field>
+                  <input
+                    id='password'
+                    name='password'
+                    placeholder='Please enter your password'
+                    required
+                    type='password'
+                    />
+                  </Form.Field>
+                  <Button type='submit' loading={this.state.loading} primary fluid>LOGIN</Button>
+                </Form>
+                <br />
+                <Link to='/forgotPassword'>Forgot Your Password?</Link>
+              </Card.Content>
+            </Card>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     )
   }
 }

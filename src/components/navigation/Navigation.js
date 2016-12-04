@@ -8,6 +8,7 @@ import UnauthenticatedNav from './UnauthenticatedNav'
 export default class Navigation extends Component {
   constructor() {
     super()
+
     this.state = {
       loggedIn: false
     }

@@ -1,14 +1,6 @@
 import * as firebase from 'firebase'
 
-import {
-  Arrow,
-  Dropdown,
-  DropdownMenu,
-  Fixed,
-  NavItem,
-  Space,
-  Toolbar,
-} from 'rebass'
+import { Button, Menu } from 'semantic-ui-react'
 import { Link, browserHistory } from 'react-router'
 import React, { Component } from 'react'
 
@@ -17,9 +9,11 @@ export default class AuthenticatedNav extends Component {
     super()
 
     this.state = {
-      dropdownOpen: false
+      activeItem: 'home'
     }
   }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   logout() {
     firebase.auth().signOut().then(() => {
@@ -29,56 +23,19 @@ export default class AuthenticatedNav extends Component {
     })
   }
 
-  toggleDropdown() {
-    if (this.state.dropdownOpen === false) {
-      this.setState({
-        dropdownOpen: true
-      })
-    } else {
-      this.setState({
-        dropdownOpen: false
-      })
-    }
-  }
-
   render() {
-    const navColor = {
-      backgroundColor: '#3F51B5',
-      color: 'white'
-    }
-
+    const { activeItem } = this.state
     return (
-      <Fixed top left right zIndex={1}>
-        <Toolbar style={navColor}>
-          <NavItem is={Link} to='/'>
-            Plate
-          </NavItem>
-          <NavItem is={Link} to='/dashboard'>
-            Dashboard
-          </NavItem>
-          <Space
-            auto
-            x={1}
-            />
-          <NavItem>
-            <Dropdown
-              onClick={this.toggleDropdown.bind(this)}
-              >
-              Logout
-              <Arrow direction='down' />
-              <DropdownMenu
-                open={this.state.dropdownOpen}
-                right
-                onDismiss={this.toggleDropdown.bind(this)}
-                >
-                <NavItem onClick={this.logout}>
-                  Logout
-                </NavItem>
-              </DropdownMenu>
-            </Dropdown>
-          </NavItem>
-        </Toolbar>
-      </Fixed>
+      <Menu size='tiny' fixed='top' fluid>
+        <Menu.Item header>Plate</Menu.Item>
+        <Menu.Item name='home' as={Link} to='/' active={activeItem === 'home'} onClick={this.handleItemClick} />
+        <Menu.Item name='dashboard' as={Link} to='/dashboard' active={activeItem === 'dashboard'} onClick={this.handleItemClick} />
+        <Menu.Menu position='right'>
+          <Menu.Item>
+            <Button primary onClick={this.logout}>Logout</Button>
+          </Menu.Item>
+        </Menu.Menu>
+      </Menu>
     )
   }
 }

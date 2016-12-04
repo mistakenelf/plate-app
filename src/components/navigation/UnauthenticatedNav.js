@@ -1,12 +1,4 @@
-import {
-  Arrow,
-  Dropdown,
-  DropdownMenu,
-  Fixed,
-  NavItem,
-  Space,
-  Toolbar,
-} from 'rebass'
+import { Button, Dropdown, Menu } from 'semantic-ui-react'
 import React, { Component } from 'react'
 
 import { Link } from 'react-router'
@@ -16,60 +8,27 @@ export default class AuthenticatedNav extends Component {
     super()
 
     this.state = {
-      dropdownOpen: false
+      activeItem: 'home'
     }
   }
 
-  toggleDropdown() {
-    if (this.state.dropdownOpen === false) {
-      this.setState({
-        dropdownOpen: true
-      })
-    } else {
-      this.setState({
-        dropdownOpen: false
-      })
-    }
-  }
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
-    const navColor = {
-      backgroundColor: '#3F51B5',
-      color: 'white'
-    }
-
+    const { activeItem } = this.state
     return (
-      <Fixed top left right zIndex={1}>
-        <Toolbar style={navColor}>
-          <NavItem is={Link} to='/'>
-            Plate
-          </NavItem>
-          <Space
-            auto
-            x={1}
-            />
-          <NavItem>
-            <Dropdown
-              onClick={this.toggleDropdown.bind(this)}
-              >
-              Login/Register
-              <Arrow direction='down' />
-              <DropdownMenu
-                open={this.state.dropdownOpen}
-                right
-                onDismiss={this.toggleDropdown.bind(this)}
-                >
-                <NavItem is={Link} to='/login'>
-                  Login
-                </NavItem>
-                <NavItem is={Link} to='/register'>
-                  Register
-                </NavItem>
-              </DropdownMenu>
-            </Dropdown>
-          </NavItem>
-        </Toolbar>
-      </Fixed>
+      <Menu size='tiny' fixed='top' fluid>
+        <Menu.Item header>Plate</Menu.Item>
+        <Menu.Item name='home' as={Link} to='/' active={activeItem === 'home'} onClick={this.handleItemClick} />
+        <Menu.Menu position='right'>
+          <Menu.Item as={Dropdown} text='Login/Register'>
+            <Dropdown.Menu>
+              <Dropdown.Item as={Link} to='/login'>Login</Dropdown.Item>
+              <Dropdown.Item as={Link} to='/register'>Register</Dropdown.Item>
+            </Dropdown.Menu>
+          </Menu.Item>
+        </Menu.Menu>
+      </Menu>
     )
   }
 }
