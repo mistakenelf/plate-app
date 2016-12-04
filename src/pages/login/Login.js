@@ -72,10 +72,10 @@ export default class Login extends Component {
                   type='password'
                   />
                 </Form.Field>
-                <Button type='submit' loading={this.state.loading} primary fluid>LOGIN</Button>
+                <Button type='submit' loading={this.state.loading} color='pink' fluid>Login</Button>
               </Form>
               <br />
-              <Link to='/forgotPassword'>Forgot Your Password?</Link>
+              <Link to='/forgotPassword'>Forgot your password?</Link>
             </Card.Content>
           </Card>
         </Grid.Column>

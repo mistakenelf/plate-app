@@ -46,7 +46,7 @@ export default class SignUp extends Component {
       <Grid centered padded>
         <Grid.Column computer={8} largeScreen={5} tablet={10} mobile={16}>
           <Card style={{ width: '100%' }}>
-            <Card.Content header='Login' />
+            <Card.Content header='Sign Up' />
             <Card.Content extra>
               <Form onSubmit={this.signUp}>
                 <ErrorMessage
@@ -90,7 +90,7 @@ export default class SignUp extends Component {
                     type='password'
                     />
                 </Form.Field>
-                <Button type='submit' loading={this.state.loading} primary fluid>Sign Up</Button>
+                <Button type='submit' loading={this.state.loading} color='pink' fluid>Sign Up</Button>
               </Form>
               <br />
               <Link to='/login'>Already a member?</Link>

@@ -63,10 +63,10 @@ export default class ForgotPassword extends Component {
                     type='email'
                     />
                 </Form.Field>
-                <Button type='submit' loading={this.state.loading} primary fluid>FORGOT PASSWORD</Button>
+                <Button type='submit' loading={this.state.loading} color='pink' fluid>Forgot Password</Button>
               </Form>
               <br />
-              <Link to='/login'>Remember It Now?</Link>
+              <Link to='/login'>Remember it now?</Link>
             </Card.Content>
           </Card>
         </Grid.Column>
