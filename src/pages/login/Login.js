@@ -42,18 +42,6 @@ export default class Login extends Component {
   }
 
   render() {
-    const styles = {
-      formMargin: {
-        marginTop: '5%'
-      },
-
-      loginButton: {
-        backgroundColor: '#E91E63',
-        color: 'white',
-        width: '100%'
-      }
-    }
-
     return (
       <Grid verticalAlign='middle' padded columns={2}>
         <Grid.Row >
