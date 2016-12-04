@@ -1,15 +1,11 @@
-import { Box, Flex } from 'reflexbox'
-
-import Header from './Header'
+import { Grid } from 'semantic-ui-react'
 import React from 'react'
 
 function Home() {
   return (
-    <Flex>
-      <Box col={12}>
-        <Header />
-      </Box>
-    </Flex>
+    <Grid padded>
+      <h1>Home</h1>
+    </Grid>
   )
 }
 
