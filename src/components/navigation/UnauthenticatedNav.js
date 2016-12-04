@@ -21,10 +21,10 @@ export default class AuthenticatedNav extends Component {
         <Menu.Item header><Icon name='grid layout' />Plate</Menu.Item>
         <Menu.Item name='home' as={Link} to='/' active={activeItem === 'home'} onClick={this.handleItemClick} />
         <Menu.Menu position='right'>
-          <Menu.Item as={Dropdown} text='Login/Register'>
+          <Menu.Item as={Dropdown} text='Login/SignUp'>
             <Dropdown.Menu>
               <Dropdown.Item as={Link} to='/login'>Login</Dropdown.Item>
-              <Dropdown.Item as={Link} to='/register'>Register</Dropdown.Item>
+              <Dropdown.Item as={Link} to='/signup'>SignUp</Dropdown.Item>
             </Dropdown.Menu>
           </Menu.Item>
         </Menu.Menu>

@@ -16,7 +16,7 @@ const routes = (
       <Route path='/dashboard' component={DashboardContainer} />
       <Route path='/forgotPassword' component={ForgotPassword} />
       <Route path='/login' component={Login} />
-      <Route path='/register' component={SignUp} />
+      <Route path='/signup' component={SignUp} />
       <Route path='*' component={NotFound} />
     </Route>
   </Route>
