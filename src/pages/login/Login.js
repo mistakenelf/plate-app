@@ -58,7 +58,7 @@ export default class Login extends Component {
           <Card style={{width: '100%'}}>
             <Card.Content header='Login' />
             <Card.Content extra>
-              <Form onSubmit={this.userLogin}>
+              <Form method='post' onSubmit={this.userLogin}>
                 <ErrorMessage
                   open={this.state.errorState}
                   message={this.state.errorMessage}
@@ -82,6 +82,7 @@ export default class Login extends Component {
                   type='password'
                   />
                 </Form.Field>
+                <input type="hidden" name="csrf_token" value="******" />
                 <Button type='submit' loading={this.state.loading} color='pink' fluid>Login</Button>
               </Form>
               <br />
