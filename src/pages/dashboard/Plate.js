@@ -1,4 +1,4 @@
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Card, Icon } from 'semantic-ui-react'
 import React, { PropTypes } from 'react'
 
 const propTypes = {
@@ -9,12 +9,12 @@ function Plate({ plate, ...otherProps }) {
   return (
     <Card style={{ width: '100%' }}>
       <Card.Content>
-        <Image floated='right' size='mini' src='http://semantic-ui.com/images/avatar/large/steve.jpg' />
+        <Icon size='big' name='food' style={{ float: 'right' }} />
         <Card.Header>
           {plate.plateName}
         </Card.Header>
         <Card.Meta>
-          Friends of Elliot
+          {Date()}
         </Card.Meta>
         <Card.Description>
           {plate.plateDescription}
@@ -22,8 +22,8 @@ function Plate({ plate, ...otherProps }) {
       </Card.Content>
       <Card.Content extra>
         <div className='ui two buttons'>
-          <Button basic color='green'>Launch</Button>
-          <Button basic color='red' onClick={() => otherProps.removePlate(plate.id)}>Remove</Button>
+          <Button basic color='green'>Fill</Button>
+          <Button basic color='red' onClick={() => otherProps.removePlate(plate.id)}>Wash</Button>
         </div>
       </Card.Content>
     </Card>

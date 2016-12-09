@@ -18,7 +18,7 @@ function Dashboard({ plates, ...otherProps }) {
       <Grid.Row>
         {plates.map((plate, index) => {
           return (
-            <Grid.Column computer={4} largeScreen={4} tablet={4} mobile={16} style={{ paddingBottom: 10 }}>
+            <Grid.Column key={index} computer={4} largeScreen={4} tablet={8} mobile={16} style={{ paddingBottom: 10 }}>
               <Plate key={index} plate={plate} {...otherProps} />
             </Grid.Column>
           )

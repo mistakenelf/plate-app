@@ -12,7 +12,7 @@ export function addPlate(plateName, plateDescription) {
   return {
     type: 'ADD_PLATE',
     id: plateId++,
-    plateName,
-    plateDescription
+    plateName: plateName || 'Default plate name',
+    plateDescription: plateDescription || 'This is a newly created plate. Please edit this description'
   }
 }
