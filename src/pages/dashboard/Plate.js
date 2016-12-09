@@ -1,6 +1,8 @@
 import { Button, Card, Confirm, Icon } from 'semantic-ui-react'
 import React, { Component, PropTypes } from 'react'
 
+import { Link } from 'react-router'
+
 export default class Plate extends Component {
   static propTypes = {
     plate: PropTypes.object,
@@ -52,7 +54,7 @@ export default class Plate extends Component {
         </Card.Content>
         <Card.Content extra>
           <div className='ui two buttons'>
-            <Button basic color='green'>Fill</Button>
+            <Button as={Link} to={`/dashboard/${this.props.plate.id}`} basic color='green'>Fill</Button>
             <Button basic color='red' onClick={this.washPlate}>Wash</Button>
           </div>
         </Card.Content>
