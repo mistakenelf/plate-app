@@ -46,7 +46,7 @@ export default class Plate extends Component {
             {this.props.plate.plateName}
           </Card.Header>
           <Card.Meta>
-            {Date()}
+            Created On: {Date()}
           </Card.Meta>
           <Card.Description>
             {this.props.plate.plateDescription}
