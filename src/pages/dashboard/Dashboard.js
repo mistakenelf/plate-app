@@ -12,17 +12,17 @@ function Dashboard({ plates, ...otherProps }) {
     <Grid padded>
       <Grid.Row>
         <Grid.Column>
-          <Button fluid onClick={() => otherProps.addPlate()}>Add New Plate</Button>
+          <Button fluid color='pink' onClick={() => otherProps.addPlate()}>Add New Plate</Button>
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
-        <Grid.Column computer={4} largeScreen={4} tablet={4} mobile={16} style={{ paddingBottom: 10 }}>
         {plates.map((plate, index) => {
           return (
-            <Plate key={index} plate={plate} {...otherProps} />
+            <Grid.Column computer={4} largeScreen={4} tablet={4} mobile={16} style={{ paddingBottom: 10 }}>
+              <Plate key={index} plate={plate} {...otherProps} />
+            </Grid.Column>
           )
         })}
-        </Grid.Column>
       </Grid.Row>
     </Grid>
   )
