@@ -1,10 +1,6 @@
-import { Box, Flex } from 'reflexbox'
+import { Button, Grid } from 'semantic-ui-react'
 import React, { PropTypes } from 'react'
 
-import AccountCard from './AccountCard'
-import CreatePlate from './CreatePlate'
-import { Divider } from 'rebass'
-import InfoCard from './InfoCard'
 import Plate from './Plate'
 
 const propTypes = {
@@ -13,26 +9,22 @@ const propTypes = {
 
 function Dashboard({ plates, ...otherProps }) {
   return (
-    <div>
-      <Flex wrap>
-        <CreatePlate plates={plates} addPlate={otherProps.addPlate} />
-        <AccountCard />
-        <InfoCard />
-      </Flex>
-      <Flex>
-        <Box col={12}>
-          <h1 style={{textAlign: 'center'}}>Current Plates</h1>
-          <Divider />
-        </Box>
-      </Flex>
-      <Flex wrap>
+    <Grid padded>
+      <Grid.Row>
+        <Grid.Column>
+          <Button fluid onClick={() => otherProps.addPlate()}>Add New Plate</Button>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row>
+        <Grid.Column computer={4} largeScreen={4} tablet={4} mobile={16} style={{ paddingBottom: 10 }}>
         {plates.map((plate, index) => {
           return (
             <Plate key={index} plate={plate} {...otherProps} />
           )
         })}
-      </Flex>
-    </div>
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
   )
 }
 
