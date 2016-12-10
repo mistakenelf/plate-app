@@ -13,6 +13,7 @@ function Dashboard({ plates, ...otherProps }) {
       <Grid.Row>
         <Grid.Column>
           <Button fluid color='pink' onClick={() => otherProps.addPlate()}>Add New Plate</Button>
+          <Button fluid color='red' onClick={() => otherProps.removeAllPlates()}>Remove All Plates</Button>
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
