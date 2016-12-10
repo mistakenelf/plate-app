@@ -16,3 +16,12 @@ export function addPlate(plateName, plateDescription) {
     plateDescription: plateDescription || 'This is a newly created plate. Please edit this description'
   }
 }
+
+export function removeAllPlates() {
+
+  plateId = 0
+
+  return {
+    type: 'REMOVE_ALL_PLATES'
+  }
+}
