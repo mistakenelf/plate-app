@@ -1,4 +1,10 @@
-import { Button, Card, Confirm, Icon } from 'semantic-ui-react'
+import {
+  Button,
+  Card,
+  Header,
+  Icon,
+  Modal,
+} from 'semantic-ui-react'
 import React, { Component, PropTypes } from 'react'
 
 import { Link } from 'react-router'
@@ -54,18 +60,38 @@ export default class Plate extends Component {
         </Card.Content>
         <Card.Content extra>
           <div className='ui two buttons'>
-            <Button as={Link} to={`/dashboard/${this.props.plate.id}`} basic color='green'>Fill</Button>
-            <Button basic color='red' onClick={this.washPlate}>Wash</Button>
+            <Button
+              as={Link}
+              to={`/dashboard/${this.props.plate.id}`}
+              basic
+              color='green'
+              >
+            Fill
+            </Button>
+            <Modal
+              trigger={<Button basic color='red' onClick={this.washPlate}>Wash</Button>}
+              basic
+              size='small'
+              open={this.state.open}
+            >
+              <Header icon='archive' content='Wash This Plate' />
+              <Modal.Content>
+                <p>
+                  Are you sure you want to wash this plate? It will be ran
+                  though an industrial dishwasher and nothing will be left.
+                </p>
+              </Modal.Content>
+              <Modal.Actions>
+                <Button onClick={this.handleCancel} basic color='red' inverted>
+                  <Icon name='remove' /> No
+                </Button>
+                <Button onClick={this.handleConfirm} color='green' inverted>
+                  <Icon name='checkmark' /> Yes
+                </Button>
+              </Modal.Actions>
+            </Modal>
           </div>
         </Card.Content>
-        <Confirm
-          open={this.state.open}
-          onCancel={this.handleCancel}
-          onConfirm={this.handleConfirm}
-          content='Are you sure you want to wash this plate? All data will be lost and is not recoverable!'
-          cancelButton='Leave It Dirty'
-          confirmButton='Wash It'
-        />
       </Card>
     )
   }
