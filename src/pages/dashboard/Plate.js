@@ -82,7 +82,7 @@ export default class Plate extends Component {
                 </p>
               </Modal.Content>
               <Modal.Actions>
-                <Button onClick={this.handleCancel} basic color='red' inverted>
+                <Button onClick={this.handleCancel} color='red' inverted>
                   <Icon name='remove' /> No
                 </Button>
                 <Button onClick={this.handleConfirm} color='green' inverted>
