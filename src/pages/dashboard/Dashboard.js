@@ -1,5 +1,6 @@
 import {
   Button,
+  Card,
   Form,
   Grid,
   Header,
@@ -60,7 +61,7 @@ export default class extends Component {
               open={this.state.modalOpen}
               onClose={this.handleClose}
               size='small'
-            >
+              >
               <Header icon='browser' content='Add New Plate' />
               <Modal.Content>
                 <Form onSubmit={this.confirmPlate}>
@@ -72,14 +73,14 @@ export default class extends Component {
                     id='plateName'
                     placeholder='Give your plate a name'
                     required
-                  />
+                    />
                   <Form.TextArea
                     name='plateDescription'
                     id='plateDescription'
                     label='Plate Description'
                     placeholder='Leave a description of your new plate'
                     required
-                  />
+                    />
                   <Button color='red' onClick={this.cancelPlate} inverted>
                     <Icon name='remove' />Cancel
                   </Button>
@@ -91,22 +92,50 @@ export default class extends Component {
             </Modal>
           </Grid.Column>
         </Grid.Row>
-        <Grid.Row>
-          {this.props.plates.map((plate, index) => {
-            return (
-              <Grid.Column
-                key={index}
-                computer={4}
-                largeScreen={4}
-                tablet={8}
-                mobile={16}
-                style={{ paddingBottom: 10 }}
+        {this.props.plates.length > 0
+          ?
+          <Grid.Row>
+            {this.props.plates.map((plate, index) => {
+              return (
+                <Grid.Column
+                  key={index}
+                  computer={4}
+                  largeScreen={4}
+                  tablet={8}
+                  mobile={16}
+                  style={{ paddingBottom: 10 }}
+                  >
+                  <Plate key={index} plate={plate} removePlate={this.props.removePlate} />
+                </Grid.Column>
+              )
+            })}
+          </Grid.Row>
+
+          :
+          <Grid.Row centered>
+            <Grid.Column
+              textAlign='center'
+              computer={4}
+              largeScreen={4}
+              tablet={8}
+              mobile={16}
               >
-                <Plate key={index} plate={plate} removePlate={this.props.removePlate} />
-              </Grid.Column>
-            )
-          })}
-        </Grid.Row>
+              <Card style={{ width: '100%' }}>
+                <Card.Content>
+                  <Card.Header>
+                    No Plates Added
+                  </Card.Header>
+                  <Card.Meta>
+                    Create a plate to get started
+                  </Card.Meta>
+                  <Card.Description>
+                    You currently have no plates. Please add a new plate to get starting
+                  </Card.Description>
+                </Card.Content>
+              </Card>
+            </Grid.Column>
+          </Grid.Row>
+        }
       </Grid>
     )
   }
