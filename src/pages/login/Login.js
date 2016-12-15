@@ -30,16 +30,6 @@ export default class Login extends Component {
     const promise = firebase.auth().signInWithEmailAndPassword(email, password)
 
     promise
-      .then(() => {
-        const cred = new PasswordCredential({
-          id: email,
-          password: password,
-          name: 'test'
-        })
-
-        navigator.credentials.store(cred)
-      })
-
       .then(() => browserHistory.push('/'))
 
       .catch((e) =>
