@@ -9,5 +9,6 @@ it('renders without crashing', () => {
     <TestWrapper>
       <Navigation />
     </TestWrapper>,
-    div)
+    div
+  )
 })

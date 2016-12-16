@@ -1,15 +1,14 @@
 import * as firebase from 'firebase'
 
-import { Button, Card, Form, Grid } from 'semantic-ui-react'
+import { Card, Grid } from 'semantic-ui-react'
 import { Link, browserHistory } from 'react-router'
 import React, { Component } from 'react'
 
-import ErrorMessage from '../../components/errorMessage/ErrorMessage'
+import SignUpForm from './SignUpForm'
 
 export default class SignUp extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       errorState: 'none',
       errorMessage: '',
@@ -48,50 +47,12 @@ export default class SignUp extends Component {
           <Card style={{ width: '100%' }}>
             <Card.Content header='Sign Up' />
             <Card.Content extra>
-              <Form onSubmit={this.signUp}>
-                <ErrorMessage
-                  open={this.state.errorState}
-                  message={this.state.errorMessage}
-                  />
-                <br />
-                <Form.Field>
-                  <input
-                    id='firstName'
-                    name='firstName'
-                    placeholder='Please enter your first name'
-                    required
-                    type='text'
-                    />
-                </Form.Field>
-                <Form.Field>
-                  <input
-                    id='lastName'
-                    name='lastName'
-                    placeholder='Please enter your last name'
-                    required
-                    type='text'
-                    />
-                </Form.Field>
-                <Form.Field>
-                  <input
-                    id='email'
-                    name='email'
-                    placeholder='Please enter your email'
-                    required
-                    type='email'
-                    />
-                </Form.Field>
-                <Form.Field>
-                  <input
-                    id='password'
-                    name='password'
-                    placeholder='Please enter your password'
-                    required
-                    type='password'
-                    />
-                </Form.Field>
-                <Button type='submit' loading={this.state.loading} color='pink' fluid>Sign Up</Button>
-              </Form>
+              <SignUpForm
+                signUp={this.signUp}
+                errorState={this.state.errorState}
+                errorMessage={this.state.errorMessage}
+                loading={this.state.loading}
+              />
               <br />
               <Link to='/login'>Already a member?</Link>
             </Card.Content>

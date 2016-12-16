@@ -17,7 +17,6 @@ export default class Plate extends Component {
 
   constructor(props) {
     super(props)
-
     this.state = {
       open: false
     }
@@ -65,7 +64,7 @@ export default class Plate extends Component {
               to={`/dashboard/${this.props.plate.id}`}
               basic
               color='green'
-              >
+            >
             Fill
             </Button>
             <Modal

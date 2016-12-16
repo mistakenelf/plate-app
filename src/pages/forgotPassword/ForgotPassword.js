@@ -1,16 +1,15 @@
 import * as firebase from 'firebase'
 
-import { Button, Card, Form, Grid } from 'semantic-ui-react'
+import { Card, Grid } from 'semantic-ui-react'
 import React, { Component } from 'react'
 
-import ErrorMessage from '../../components/errorMessage/ErrorMessage'
+import ForgotPasswordForm from './ForgotPasswordForm'
 import { Link } from 'react-router'
 import { browserHistory } from 'react-router'
 
 export default class ForgotPassword extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       errorState: 'none',
       errorMessage: '',
@@ -48,23 +47,12 @@ export default class ForgotPassword extends Component {
           <Card style={{ width: '100%' }}>
             <Card.Content header='Forgot Password' />
             <Card.Content extra>
-              <Form onSubmit={this.forgotPassword}>
-                <ErrorMessage
-                  open={this.state.errorState}
-                  message={this.state.errorMessage}
-                  />
-                <br />
-                <Form.Field>
-                  <input
-                    id='email'
-                    name='email'
-                    placeholder='Please enter your email'
-                    required
-                    type='email'
-                    />
-                </Form.Field>
-                <Button type='submit' loading={this.state.loading} color='pink' fluid>Forgot Password</Button>
-              </Form>
+              <ForgotPasswordForm
+                forgotPassword={this.forgotPassword}
+                errorState={this.state.errorState}
+                errorMessage={this.state.errorMessage}
+                loading={this.state.loading}
+              />
               <br />
               <Link to='/login'>Remember it now?</Link>
             </Card.Content>

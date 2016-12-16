@@ -1,7 +1,7 @@
 import { Message } from 'semantic-ui-react'
 import React from 'react'
 
-function ErrorMessage({open, message}) {
+function ErrorMessage({ open, message }) {
   const styles = {
     messageDisplay: {
       display: open,
@@ -12,9 +12,7 @@ function ErrorMessage({open, message}) {
   return (
     <div style={styles.messageDisplay}>
       <Message negative>
-        <p>
-          {message}
-        </p>
+        <p>{message}</p>
       </Message>
     </div>
   )

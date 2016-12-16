@@ -1,14 +1,8 @@
-import {
-  Button,
-  Card,
-  Form,
-  Grid,
-  Header,
-  Icon,
-  Modal,
-} from 'semantic-ui-react'
 import React, { Component, PropTypes } from 'react'
 
+import AddPlateModal from './AddPlateModal'
+import { Grid } from 'semantic-ui-react'
+import NoPlatesCard from './NoPlatesCard'
 import Plate from './Plate'
 
 export default class extends Component {
@@ -20,7 +14,6 @@ export default class extends Component {
 
   constructor(props) {
     super(props)
-
     this.state = {
       modalOpen: false
     }
@@ -52,44 +45,22 @@ export default class extends Component {
   }
 
   render() {
+    const styles = {
+      columnPadding: {
+        paddingBottom: 10
+      }
+    }
+
     return (
       <Grid padded>
         <Grid.Row>
           <Grid.Column>
-            <Modal
-              trigger={<Button fluid color='pink' onClick={this.handleOpen}>Add New Plate</Button>}
-              open={this.state.modalOpen}
-              onClose={this.handleClose}
-              size='small'
-              >
-              <Header icon='browser' content='Add New Plate' />
-              <Modal.Content>
-                <Form onSubmit={this.confirmPlate}>
-                  <Form.Field
-                    name='plateName'
-                    label='Plate Name'
-                    control='input'
-                    type='text'
-                    id='plateName'
-                    placeholder='Give your plate a name'
-                    required
-                    />
-                  <Form.TextArea
-                    name='plateDescription'
-                    id='plateDescription'
-                    label='Plate Description'
-                    placeholder='Leave a description of your new plate'
-                    required
-                    />
-                  <Button color='red' onClick={this.cancelPlate} inverted>
-                    <Icon name='remove' />Cancel
-                  </Button>
-                  <Button type='submit' color='green' inverted>
-                    <Icon name='checkmark' />Confirm
-                  </Button>
-                </Form>
-              </Modal.Content>
-            </Modal>
+            <AddPlateModal
+              handleOpen={this.handleOpen}
+              modalOpen={this.state.modalOpen}
+              confirmPlate={this.confirmPlate}
+              cancelPlate={this.cancelPlate}
+            />
           </Grid.Column>
         </Grid.Row>
         {this.props.plates.length > 0
@@ -103,14 +74,17 @@ export default class extends Component {
                   largeScreen={4}
                   tablet={8}
                   mobile={16}
-                  style={{ paddingBottom: 10 }}
-                  >
-                  <Plate key={index} plate={plate} removePlate={this.props.removePlate} />
+                  style={styles.columnPadding}
+                >
+                  <Plate
+                    key={index}
+                    plate={plate}
+                    removePlate={this.props.removePlate}
+                  />
                 </Grid.Column>
               )
             })}
           </Grid.Row>
-
           :
           <Grid.Row centered>
             <Grid.Column
@@ -120,19 +94,7 @@ export default class extends Component {
               tablet={8}
               mobile={16}
               >
-              <Card style={{ width: '100%' }}>
-                <Card.Content>
-                  <Card.Header>
-                    No Plates Added
-                  </Card.Header>
-                  <Card.Meta>
-                    Create a plate to get started
-                  </Card.Meta>
-                  <Card.Description>
-                    You currently have no plates. Please add a new plate to get starting
-                  </Card.Description>
-                </Card.Content>
-              </Card>
+              <NoPlatesCard />
             </Grid.Column>
           </Grid.Row>
         }

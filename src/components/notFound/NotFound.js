@@ -2,12 +2,22 @@ import { Card, Grid, Icon } from 'semantic-ui-react'
 
 import React from 'react'
 
+const styles = {
+  cardStyle: {
+    width: '100%',
+    textAlign: 'center'
+  },
+  centerIcon: {
+    textAlign: 'center'
+  }
+}
+
 function NotFound() {
   return (
     <Grid centered padded>
       <Grid.Column computer={8} largeScreen={4} tablet={10} mobile={16}>
-        <Card style={{ width: '100%', textAlign: 'center' }}>
-          <div style={{ textAlign: 'center'}}>
+        <Card style={styles.cardStyle}>
+          <div style={styles.centerIcon}>
             <Icon name='warning' size='massive' color='red' />
           </div>
           <Card.Content extra>

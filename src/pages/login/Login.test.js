@@ -4,5 +4,8 @@ import { render } from 'react-dom'
 
 it('renders without crashing', () => {
   const div = document.createElement('div')
-  render(<Login />, div)
+  render(
+    <Login />,
+    div
+  )
 })
