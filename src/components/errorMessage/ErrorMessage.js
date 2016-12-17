@@ -1,5 +1,11 @@
+import React, { PropTypes } from 'react'
+
 import { Message } from 'semantic-ui-react'
-import React from 'react'
+
+const propTypes = {
+  open: PropTypes.string,
+  message: PropTypes.string
+}
 
 function ErrorMessage({ open, message }) {
   const styles = {
@@ -17,5 +23,7 @@ function ErrorMessage({ open, message }) {
     </div>
   )
 }
+
+ErrorMessage.propTypes = propTypes
 
 export default ErrorMessage
