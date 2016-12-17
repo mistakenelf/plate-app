@@ -17,17 +17,17 @@ const propTypes = {
 function AddPlateModal({ handleOpen, modalOpen, confirmPlate, cancelPlate }) {
   return (
     <Modal
-      trigger={<Button fluid color='grey' onClick={handleOpen}>CREATE NEW PLATE</Button>}
+      trigger={<Button fluid color='grey' onClick={handleOpen}>GRAB A NEW PLATE</Button>}
       open={modalOpen}
       onClose={cancelPlate}
       size='small'
     >
-      <Header icon='browser' content='Add New Plate' />
+      <Header icon='browser' content='Create a new plate' />
       <Modal.Content>
         <Form onSubmit={confirmPlate}>
           <Form.Field
             name='plateName'
-            label='Plate Name'
+            label='Name'
             control='input'
             type='text'
             id='plateName'
@@ -37,7 +37,7 @@ function AddPlateModal({ handleOpen, modalOpen, confirmPlate, cancelPlate }) {
           <Form.TextArea
             name='plateDescription'
             id='plateDescription'
-            label='Plate Description'
+            label='Description'
             placeholder='Leave a description of your new plate'
             required
             />
