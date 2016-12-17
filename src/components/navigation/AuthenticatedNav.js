@@ -12,7 +12,11 @@ export default class AuthenticatedNav extends Component {
     }
   }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  handleItemClick = (e, { name }) => {
+    this.setState({
+      activeItem: name
+    })
+  }
 
   logout() {
     firebase.auth().signOut().then(() => {
@@ -25,7 +29,7 @@ export default class AuthenticatedNav extends Component {
   render() {
     const { activeItem } = this.state
     return (
-      <Menu size='small' fixed='top' color='violet' inverted fluid>
+      <Menu size='small' fixed='top' color='teal' inverted fluid>
         <Menu.Item header><Icon name='grid layout' />Plate</Menu.Item>
         <Menu.Item
           name='home'

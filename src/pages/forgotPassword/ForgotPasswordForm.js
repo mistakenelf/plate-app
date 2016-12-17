@@ -27,7 +27,7 @@ function ForgotPasswordForm({ forgotPassword, errorState, errorMessage, loading 
           type='email'
         />
       </Form.Field>
-      <Button type='submit' loading={loading} color='pink' fluid>Forgot Password</Button>
+      <Button type='submit' loading={loading} color='grey' fluid>Forgot Password</Button>
     </Form>
   )
 }

@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 
-import AddPlateModal from './AddPlateModal'
+import AddPlateModal from '../../components/addPlateModal/AddPlateModal'
 import { Grid } from 'semantic-ui-react'
-import NoPlatesCard from './NoPlatesCard'
-import Plate from './Plate'
+import NoPlatesFound from '../../components/noPlatesFound/NoPlatesFound'
+import Plate from '../../components/plate/Plate'
 
 export default class extends Component {
   static propTypes = {
@@ -94,7 +94,7 @@ export default class extends Component {
               tablet={8}
               mobile={16}
               >
-              <NoPlatesCard />
+              <NoPlatesFound />
             </Grid.Column>
           </Grid.Row>
         }

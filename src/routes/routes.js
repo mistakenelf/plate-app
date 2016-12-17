@@ -8,7 +8,7 @@ import MainLayout from '../layouts/MainLayout'
 import NotFound from '../components/notFound/NotFound'
 import PlateFiller from '../pages/plateFiller/PlateFiller'
 import React from 'react'
-import SignUp from '../pages/signup/SignUp'
+import Register from '../pages/register/Register'
 
 const routes = (
   <Route path='/'>
@@ -17,7 +17,7 @@ const routes = (
       <Route path='/dashboard' component={DashboardContainer} />
       <Route path='/forgotPassword' component={ForgotPassword} />
       <Route path='/login' component={Login} />
-      <Route path='/signup' component={SignUp} />
+      <Route path='/register' component={Register} />
       <Route path='/dashboard/:id' component={PlateFiller} />
       <Route path='*' component={NotFound} />
     </Route>

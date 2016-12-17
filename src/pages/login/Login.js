@@ -41,16 +41,10 @@ export default class Login extends Component {
   }
 
   render() {
-    const styles = {
-      cardStyle: {
-        width: '100%'
-      }
-    }
-
     return (
       <Grid centered padded>
         <Grid.Column computer={8} largeScreen={5} tablet={10} mobile={16}>
-          <Card style={styles.cardStyle}>
+          <Card fluid raised>
             <Card.Content header='Login' />
             <Card.Content extra>
               <LoginForm

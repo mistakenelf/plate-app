@@ -4,20 +4,38 @@ import React, { PropTypes } from 'react'
 import ErrorMessage from '../../components/errorMessage/ErrorMessage'
 
 const propTypes = {
-  userLogin: PropTypes.func,
+  register: PropTypes.func,
   errorState: PropTypes.string,
   errorMessage: PropTypes.string,
   loading: PropTypes.bool
 }
 
-function LoginForm({ userLogin, errorState, errorMessage, loading }) {
+function RegisterForm({ register, errorState, errorMessage, loading }) {
   return (
-    <Form method='post' onSubmit={userLogin}>
+    <Form onSubmit={register}>
       <ErrorMessage
         open={errorState}
         message={errorMessage}
       />
       <br />
+      <Form.Field>
+        <input
+          id='firstName'
+          name='firstName'
+          placeholder='Please enter your first name'
+          required
+          type='text'
+        />
+      </Form.Field>
+      <Form.Field>
+        <input
+          id='lastName'
+          name='lastName'
+          placeholder='Please enter your last name'
+          required
+          type='text'
+        />
+      </Form.Field>
       <Form.Field>
         <input
           id='email'
@@ -36,11 +54,11 @@ function LoginForm({ userLogin, errorState, errorMessage, loading }) {
           type='password'
         />
       </Form.Field>
-      <Button type='submit' color='grey' loading={loading} fluid>Login</Button>
+      <Button type='submit' loading={loading} color='grey' fluid>Sign Up</Button>
     </Form>
   )
 }
 
-LoginForm.propTypes = propTypes
+RegisterForm.propTypes = propTypes
 
-export default LoginForm
+export default RegisterForm

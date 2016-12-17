@@ -11,7 +11,7 @@ function ErrorMessage({ open, message }) {
 
   return (
     <div style={styles.messageDisplay}>
-      <Message negative>
+      <Message color='red'>
         <p>{message}</p>
       </Message>
     </div>
