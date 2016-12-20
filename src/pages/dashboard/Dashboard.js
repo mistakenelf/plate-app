@@ -1,9 +1,12 @@
+import * as firebase from 'firebase'
+
 import React, { Component, PropTypes } from 'react'
 
 import AddPlateModal from '../../components/addPlateModal/AddPlateModal'
 import { Grid } from 'semantic-ui-react'
 import NoPlatesFound from '../../components/noPlatesFound/NoPlatesFound'
 import Plate from '../../components/plate/Plate'
+import { browserHistory } from 'react-router'
 
 export default class extends Component {
   static propTypes = {
@@ -17,6 +20,14 @@ export default class extends Component {
     this.state = {
       modalOpen: false
     }
+  }
+
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(firebaseUser => {
+      if (!firebaseUser) {
+        browserHistory.push('/login')
+      }
+    })
   }
 
   handleOpen = () => {
