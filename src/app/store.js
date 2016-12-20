@@ -1,6 +1,6 @@
 import { browserHistory } from 'react-router'
 import { createStore } from 'redux'
-import rootReducer from '../reducers'
+import rootReducer from './rootReducer'
 import { syncHistoryWithStore } from 'react-router-redux'
 
 const store = createStore(rootReducer,

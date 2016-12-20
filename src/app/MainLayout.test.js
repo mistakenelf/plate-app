@@ -1,4 +1,4 @@
-import MainLayout from './MainLayout'
+import MainLayout from '../app/MainLayout'
 import React from 'react'
 import TestWrapper from '../components/testWrapper/TestWrapper'
 import { render } from 'react-dom'

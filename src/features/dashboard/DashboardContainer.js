@@ -1,6 +1,6 @@
-import * as actions from '../actions'
+import * as actions from './actions'
 
-import Dashboard from '../pages/dashboard/Dashboard'
+import Dashboard from './Dashboard'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 

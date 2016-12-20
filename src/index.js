@@ -2,13 +2,13 @@ import './index.css'
 
 import * as firebase from 'firebase'
 
-import store, { history } from './store/store'
+import store, { history } from './app/store'
 
 import { Provider } from 'react-redux'
 import React from 'react'
 import { Router } from 'react-router'
 import { render } from 'react-dom'
-import routes from './routes/routes'
+import routes from './app/routes'
 
 // Initialize Firebase
 const config = {

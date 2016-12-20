@@ -2,10 +2,10 @@ import * as firebase from 'firebase'
 
 import React, { Component, PropTypes } from 'react'
 
-import AddPlateModal from '../../components/addPlateModal/AddPlateModal'
+import AddPlateModal from './components/addPlateModal/AddPlateModal'
 import { Grid } from 'semantic-ui-react'
-import NoPlatesFound from '../../components/noPlatesFound/NoPlatesFound'
-import Plate from '../../components/plate/Plate'
+import NoPlatesFound from './components/noPlatesFound/NoPlatesFound'
+import Plate from './components/plate/Plate'
 import { browserHistory } from 'react-router'
 
 export default class extends Component {

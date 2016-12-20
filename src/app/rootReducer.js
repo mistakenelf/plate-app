@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import plates from './plates'
+import plates from '../features/dashboard/reducers'
 import { routerReducer } from 'react-router-redux'
 
 const rootReducer = combineReducers({

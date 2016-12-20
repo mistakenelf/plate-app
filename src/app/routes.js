@@ -1,14 +1,14 @@
 import { IndexRoute, Route } from 'react-router'
 
-import DashboardContainer from '../containers/DashboardContainer'
-import ForgotPassword from '../pages/forgotPassword/ForgotPassword'
-import Home from '../pages/home/Home'
-import Login from '../pages/login/Login'
-import MainLayout from '../layouts/MainLayout'
+import DashboardContainer from '../features/dashboard/DashboardContainer'
+import ForgotPassword from '../features/forgotPassword/ForgotPassword'
+import Home from '../features/home/Home'
+import Login from '../features/login/Login'
+import MainLayout from './MainLayout'
 import NotFound from '../components/notFound/NotFound'
-import PlateFiller from '../pages/plateFiller/PlateFiller'
+import PlateFiller from '../features/plateFiller/PlateFiller'
 import React from 'react'
-import Register from '../pages/register/Register'
+import Register from '../features/register/Register'
 
 const routes = (
   <Route path='/'>
