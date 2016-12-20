@@ -870,14 +870,14 @@ babel-register@^6.16.0, babel-register@^6.18.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.2"
 
-babel-runtime@6.11.6, babel-runtime@^6.0.0, babel-runtime@^6.9.0, babel-runtime@^6.9.1:
+babel-runtime@6.11.6, babel-runtime@^6.9.1:
   version "6.11.6"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.11.6.tgz#6db707fef2d49c49bfa3cb64efdb436b518b8222"
   dependencies:
     core-js "^2.4.0"
     regenerator-runtime "^0.9.5"
 
-babel-runtime@^6.11.6, babel-runtime@^6.20.0:
+babel-runtime@^6.0.0, babel-runtime@^6.11.6, babel-runtime@^6.20.0, babel-runtime@^6.9.0:
   version "6.20.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.20.0.tgz#87300bdcf4cd770f09bf0048c64204e17806d16f"
   dependencies:
@@ -4619,9 +4619,9 @@ sax@^1.1.4, sax@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.1.tgz#7b8e656190b228e81a66aea748480d828cd2d37a"
 
-semantic-ui-react@^0.62.4:
-  version "0.62.4"
-  resolved "https://registry.yarnpkg.com/semantic-ui-react/-/semantic-ui-react-0.62.4.tgz#516511d2e82e8e858ad28b244ec34dac393c3625"
+semantic-ui-react@^0.63.0:
+  version "0.63.0"
+  resolved "https://registry.yarnpkg.com/semantic-ui-react/-/semantic-ui-react-0.63.0.tgz#cccccd140f0fda16525af6a329af2cb4df4cc379"
   dependencies:
     classnames "^2.1.5"
     debug "^2.4.1"
