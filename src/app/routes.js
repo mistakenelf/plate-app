@@ -1,6 +1,6 @@
 import { IndexRoute, Route } from 'react-router'
 
-import DashboardContainer from '../features/dashboard/DashboardContainer'
+import Dashboard from '../features/dashboard/Dashboard'
 import ForgotPassword from '../features/forgotPassword/ForgotPassword'
 import Home from '../features/home/Home'
 import Login from '../features/login/Login'
@@ -14,7 +14,7 @@ const routes = (
   <Route path='/'>
     <Route component={MainLayout}>
       <IndexRoute component={Home} />
-      <Route path='/dashboard' component={DashboardContainer} />
+      <Route path='/dashboard' component={Dashboard} />
       <Route path='/forgotPassword' component={ForgotPassword} />
       <Route path='/login' component={Login} />
       <Route path='/register' component={Register} />

@@ -1,6 +1,6 @@
 import * as firebase from 'firebase'
 
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 
 import AddPlateModal from './components/addPlateModal/AddPlateModal'
 import { Grid } from 'semantic-ui-react'
@@ -9,16 +9,12 @@ import Plate from './components/plate/Plate'
 import { browserHistory } from 'react-router'
 
 export default class extends Component {
-  static propTypes = {
-    plates: PropTypes.array,
-    addPlate: PropTypes.func,
-    removePlate: PropTypes.func
-  }
-
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
-      modalOpen: false
+      modalOpen: false,
+      plates: [],
+      plateId: 0
     }
   }
 
@@ -46,7 +42,23 @@ export default class extends Component {
       modalOpen: false
     })
 
-    this.props.addPlate(plateName, plateDescription)
+    this.addPlate(plateName, plateDescription)
+  }
+
+  addPlate = (plateName, plateDescription) => {
+    const newPlate = {
+      id: this.state.plateId++,
+      plateName,
+      plateDescription
+    }
+
+    this.state.plates.push(newPlate)
+  }
+
+  removePlate = (id) => {
+    this.setState({
+      plates: this.state.plates.filter(plate => plate.id !== id)
+    })
   }
 
   cancelPlate = () => {
@@ -74,10 +86,10 @@ export default class extends Component {
             />
           </Grid.Column>
         </Grid.Row>
-        {this.props.plates.length > 0
+        {this.state.plates.length > 0
           ?
           <Grid.Row>
-            {this.props.plates.map((plate, index) => {
+            {this.state.plates.map((plate, index) => {
               return (
                 <Grid.Column
                   key={index}
@@ -90,7 +102,7 @@ export default class extends Component {
                   <Plate
                     key={index}
                     plate={plate}
-                    removePlate={this.props.removePlate}
+                    removePlate={this.removePlate}
                   />
                 </Grid.Column>
               )

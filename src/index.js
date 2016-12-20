@@ -2,11 +2,9 @@ import './index.css'
 
 import * as firebase from 'firebase'
 
-import store, { history } from './app/store'
+import { Router, browserHistory } from 'react-router'
 
-import { Provider } from 'react-redux'
 import React from 'react'
-import { Router } from 'react-router'
 import { render } from 'react-dom'
 import routes from './app/routes'
 
@@ -22,8 +20,6 @@ const config = {
 firebase.initializeApp(config)
 
 render(
-  <Provider store={store}>
-    <Router history={history} routes={routes} />
-  </Provider>,
+  <Router history={browserHistory} routes={routes} />,
   document.getElementById('root')
 )
