@@ -1,4 +1,4 @@
-import Navigation from '../components/navigation/Navigation'
+import Navigation from '../navigation/Navigation'
 import React from 'react'
 
 function MainLayout({ children }) {
