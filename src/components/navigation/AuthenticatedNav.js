@@ -20,9 +20,10 @@ export default class AuthenticatedNav extends Component {
 
   logout() {
     firebase.auth().signOut()
-      .then(() => {
-        browserHistory.push('/')
-      })
+
+    .then(() => {
+      browserHistory.push('/')
+    })
   }
 
   render() {
