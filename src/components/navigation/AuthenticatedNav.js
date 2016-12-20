@@ -19,11 +19,10 @@ export default class AuthenticatedNav extends Component {
   }
 
   logout() {
-    firebase.auth().signOut().then(() => {
-      browserHistory.push('/')
-    }, (error) => {
-      console.log('Log out failed')
-    })
+    firebase.auth().signOut()
+      .then(() => {
+        browserHistory.push('/')
+      })
   }
 
   render() {
