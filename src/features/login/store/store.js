@@ -1,6 +1,6 @@
-import { observer } from 'mobx-react'
+import { observable } from 'mobx'
 
-const store = observer({
+const store = observable({
   errorState: 'none',
   errorMessage: '',
   loading: false,

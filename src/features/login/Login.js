@@ -5,23 +5,14 @@ import { Link, browserHistory } from 'react-router'
 import React, { Component } from 'react'
 
 import LoginForm from './LoginForm'
+import { observer } from 'mobx-react'
+import store from './store/store'
 
-export default class Login extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      errorState: 'none',
-      errorMessage: '',
-      loading: false
-    }
-  }
-
+const Login = observer(class Login extends Component {
   userLogin = (e) => {
     e.preventDefault()
 
-    this.setState({
-      loading: true
-    })
+    store.loading = true
 
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
@@ -29,15 +20,14 @@ export default class Login extends Component {
     const promise = firebase.auth().signInWithEmailAndPassword(email, password)
 
     promise
+      .then(() => store.loading = false)
       .then(() => browserHistory.push('/'))
 
-      .catch((e) =>
-        this.setState({
-          errorState: 'initial',
-          errorMessage: e.message,
-          loading: false
-        })
-      )
+      .catch((e) => {
+        store.errorState = 'initial'
+        store.errorMessage = e.message
+        store.loading = false
+      })
   }
 
   render() {
@@ -49,9 +39,9 @@ export default class Login extends Component {
             <Card.Content extra>
               <LoginForm
                 userLogin={this.userLogin}
-                errorState={this.state.errorState}
-                errorMessage={this.state.errorMessage}
-                loading={this.state.loading}
+                errorState={store.errorState}
+                errorMessage={store.errorMessage}
+                loading={store.loading}
               />
               <br />
               <Link to='/forgotPassword'>Forgot your password?</Link>
@@ -61,4 +51,6 @@ export default class Login extends Component {
       </Grid>
     )
   }
-}
+})
+
+export default Login
