@@ -4,7 +4,7 @@ import { Card, Grid } from 'semantic-ui-react'
 import { Link, browserHistory } from 'react-router'
 import React, { Component } from 'react'
 
-import LoginForm from './LoginForm'
+import LoginForm from './components/LoginForm'
 import { observer } from 'mobx-react'
 import store from './store/store'
 
@@ -21,6 +21,7 @@ const Login = observer(class Login extends Component {
 
     promise
       .then(() => store.loading = false)
+      .then(() => store.errorState = 'none')
       .then(() => browserHistory.push('/'))
 
       .catch((e) => {

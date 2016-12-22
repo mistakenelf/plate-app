@@ -1,7 +1,7 @@
 import { Button, Form } from 'semantic-ui-react'
 import React, { PropTypes } from 'react'
 
-import ErrorMessage from '../../components/errorMessage/ErrorMessage'
+import ErrorMessage from '../../../components/errorMessage/ErrorMessage'
 
 const propTypes = {
   userLogin: PropTypes.func,

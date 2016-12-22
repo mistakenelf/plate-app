@@ -1,11 +1,11 @@
-import LoginForm from './LoginForm'
+import Login from '../Login'
 import React from 'react'
 import { render } from 'react-dom'
 
 it('renders without crashing', () => {
   const div = document.createElement('div')
   render(
-    <LoginForm />,
+    <Login />,
     div
   )
 })
