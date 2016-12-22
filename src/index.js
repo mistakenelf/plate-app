@@ -6,7 +6,7 @@ import { Router, browserHistory } from 'react-router'
 
 import React from 'react'
 import { render } from 'react-dom'
-import routes from './app/routes'
+import routes from './routes/routes'
 
 // Initialize Firebase
 const config = {
