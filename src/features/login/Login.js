@@ -34,7 +34,7 @@ const Login = observer(class Login extends Component {
   render() {
     return (
       <Grid centered padded>
-        <Grid.Column computer={8} largeScreen={5} tablet={10} mobile={16}>
+        <Grid.Column computer={5} largeScreen={5} tablet={10} mobile={16}>
           <Card fluid raised>
             <Card.Content header='Login' />
             <Card.Content extra>
