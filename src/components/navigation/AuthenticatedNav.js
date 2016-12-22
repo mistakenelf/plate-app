@@ -1,8 +1,10 @@
 import * as firebase from 'firebase'
 
-import { Icon, Menu } from 'semantic-ui-react'
 import { Link, browserHistory } from 'react-router'
 import React, { Component } from 'react'
+
+import { Menu } from 'semantic-ui-react'
+import logo from './plateLogo.png'
 
 export default class AuthenticatedNav extends Component {
   constructor() {
@@ -29,8 +31,8 @@ export default class AuthenticatedNav extends Component {
   render() {
     const { activeItem } = this.state
     return (
-      <Menu size='small' fixed='top' color='teal' inverted fluid>
-        <Menu.Item header><Icon name='grid layout' />Plate</Menu.Item>
+      <Menu size='large' fixed='top' color='teal' inverted fluid>
+        <Menu.Item header><img src={logo} alt='plate-logo' /></Menu.Item>
         <Menu.Item
           name='home'
           as={Link}
