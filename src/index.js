@@ -4,7 +4,6 @@ import * as firebase from 'firebase'
 
 import { Router, browserHistory } from 'react-router'
 
-import DevTools from 'mobx-react-devtools';
 import React from 'react'
 import { render } from 'react-dom'
 import routes from './app/routes'
@@ -23,7 +22,6 @@ firebase.initializeApp(config)
 render(
   <div>
     <Router history={browserHistory} routes={routes} />
-    <DevTools />
   </div>,
   document.getElementById('root')
 )
