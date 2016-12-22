@@ -3492,9 +3492,9 @@ mobx-react-devtools@^4.2.10:
   version "4.2.10"
   resolved "https://registry.yarnpkg.com/mobx-react-devtools/-/mobx-react-devtools-4.2.10.tgz#79274bd8d44ba04d950728738a144541fa2a6012"
 
-mobx-react@^4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-4.0.3.tgz#40eb31d25e0b8d63048eda2376cc56bfabd14f75"
+mobx-react@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-4.0.4.tgz#5d979d8b67b7bfd3f093b5b06a50ed5b552c3410"
   dependencies:
     hoist-non-react-statics "^1.2.0"
 
