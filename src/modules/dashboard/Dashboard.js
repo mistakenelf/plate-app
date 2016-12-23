@@ -2,22 +2,15 @@ import * as firebase from 'firebase'
 
 import React, { Component } from 'react'
 
-import AddPlateModal from './components/addPlateModal/AddPlateModal'
+import AddPlateModal from './components/AddPlateModal'
 import { Grid } from 'semantic-ui-react'
-import NoPlatesFound from './components/noPlatesFound/NoPlatesFound'
-import Plate from './components/plate/Plate'
+import NoPlatesFound from './components/NoPlatesFound'
+import Plate from './components/Plate'
 import { browserHistory } from 'react-router'
+import { observer } from 'mobx-react'
+import store from './store/store'
 
-export default class extends Component {
-  constructor() {
-    super()
-    this.state = {
-      modalOpen: false,
-      plates: [],
-      plateId: 0
-    }
-  }
-
+const Dashboard = observer(class Dashboard extends Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged(firebaseUser => {
       if (!firebaseUser) {
@@ -27,9 +20,7 @@ export default class extends Component {
   }
 
   handleOpen = () => {
-    this.setState({
-      modalOpen: true
-    })
+    store.addPlateModalOpen = true
   }
 
   confirmPlate = (e) => {
@@ -38,33 +29,27 @@ export default class extends Component {
     const plateName = document.querySelector('#plateName').value
     const plateDescription = document.querySelector('#plateDescription').value
 
-    this.setState({
-      modalOpen: false
-    })
+    store.addPlateModalOpen = false
 
     this.addPlate(plateName, plateDescription)
   }
 
   addPlate = (plateName, plateDescription) => {
     const newPlate = {
-      id: this.state.plateId++,
+      id: store.plateId++,
       plateName,
       plateDescription
     }
 
-    this.state.plates.push(newPlate)
+    store.plates.push(newPlate)
   }
 
   removePlate = (id) => {
-    this.setState({
-      plates: this.state.plates.filter(plate => plate.id !== id)
-    })
+    store.plates = store.plates.filter(plate => plate.id !== id)
   }
 
   cancelPlate = () => {
-    this.setState({
-      modalOpen: false
-    })
+    store.addPlateModalOpen = false
   }
 
   render() {
@@ -80,16 +65,16 @@ export default class extends Component {
           <Grid.Column>
             <AddPlateModal
               handleOpen={this.handleOpen}
-              modalOpen={this.state.modalOpen}
+              modalOpen={store.addPlateModalOpen}
               confirmPlate={this.confirmPlate}
               cancelPlate={this.cancelPlate}
             />
           </Grid.Column>
         </Grid.Row>
-        {this.state.plates.length > 0
+        {store.plates.length > 0
           ?
           <Grid.Row>
-            {this.state.plates.map((plate, index) => {
+            {store.plates.map((plate, index) => {
               return (
                 <Grid.Column
                   key={index}
@@ -124,4 +109,6 @@ export default class extends Component {
       </Grid>
     )
   }
-}
+})
+
+export default Dashboard

@@ -4,24 +4,15 @@ import { Card, Grid } from 'semantic-ui-react'
 import { Link, browserHistory } from 'react-router'
 import React, { Component } from 'react'
 
-import RegisterForm from './RegisterForm'
+import RegisterForm from './components/RegisterForm'
+import { observer } from 'mobx-react'
+import store from './store/store'
 
-export default class Register extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      errorState: 'none',
-      errorMessage: '',
-      loading: false
-    }
-  }
-
+const Register = observer(class Register extends Component {
   register = (e) => {
     e.preventDefault()
 
-    this.setState({
-      loading: true
-    })
+    store.loading = true
 
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
@@ -29,15 +20,15 @@ export default class Register extends Component {
     const promise = firebase.auth().createUserWithEmailAndPassword(email, password)
 
     promise
+      .then(() => store.loading = false)
+      .then(() => store.errorState = 'none')
       .then(() => browserHistory.push('/'))
 
-      .catch(e =>
-        this.setState({
-          errorState: 'initial',
-          errorMessage: e.message,
-          loading: false
-        })
-      )
+      .catch(e => {
+        store.errorState = 'initial'
+        store.errorMessage = e.message
+        store.loading = false
+      })
   }
 
   render() {
@@ -49,9 +40,9 @@ export default class Register extends Component {
             <Card.Content extra>
               <RegisterForm
                 register={this.register}
-                errorState={this.state.errorState}
-                errorMessage={this.state.errorMessage}
-                loading={this.state.loading}
+                errorState={store.errorState}
+                errorMessage={store.errorMessage}
+                loading={store.loading}
               />
               <br />
               <Link to='/login'>Already a member?</Link>
@@ -61,4 +52,6 @@ export default class Register extends Component {
       </Grid>
     )
   }
-}
+})
+
+export default Register

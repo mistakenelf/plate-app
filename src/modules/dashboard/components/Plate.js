@@ -8,38 +8,27 @@ import {
 import React, { Component, PropTypes } from 'react'
 
 import { Link } from 'react-router'
+import { observer } from 'mobx-react'
+import store from '../store/store'
 
-export default class Plate extends Component {
+const Plate = observer(class Plate extends Component {
   static propTypes = {
     plate: PropTypes.object,
     removePlate: PropTypes.func
   }
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      open: false
-    }
-  }
-
   washPlate = () => {
-    this.setState({
-      open: true
-    })
+    store.washPlateModalOpen = true
   }
 
   handleConfirm = () => {
-    this.setState({
-      open: false
-    })
+    store.washPlateModalOpen = false
 
     this.props.removePlate(this.props.plate.id)
   }
 
   handleCancel = () => {
-    this.setState({
-      open: false
-    })
+    store.washPlateModalOpen = false
   }
 
   render() {
@@ -71,7 +60,7 @@ export default class Plate extends Component {
               trigger={<Button basic color='red' onClick={this.washPlate}>Wash</Button>}
               basic
               size='small'
-              open={this.state.open}
+              open={store.washPlateModalOpen}
             >
               <Header icon='archive' content='Wash This Plate' />
               <Modal.Content>
@@ -94,4 +83,6 @@ export default class Plate extends Component {
       </Card>
     )
   }
-}
+})
+
+export default Plate

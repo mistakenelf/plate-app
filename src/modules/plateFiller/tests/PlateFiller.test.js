@@ -1,4 +1,4 @@
-import PlateFiller from './PlateFiller'
+import PlateFiller from '../PlateFiller'
 import React from 'react'
 import { render } from 'react-dom'
 

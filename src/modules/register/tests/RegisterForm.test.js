@@ -1,11 +1,11 @@
 import React from 'react'
-import Register from './Register'
+import RegisterForm from '../components/RegisterForm'
 import { render } from 'react-dom'
 
 it('renders without crashing', () => {
   const div = document.createElement('div')
   render(
-    <Register />,
+    <RegisterForm />,
     div
   )
 })

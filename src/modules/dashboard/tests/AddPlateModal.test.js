@@ -1,4 +1,4 @@
-import AddPlateModal from './AddPlateModal'
+import AddPlateModal from '../components/AddPlateModal'
 import React from 'react'
 import { render } from 'react-dom'
 
