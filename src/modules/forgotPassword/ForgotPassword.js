@@ -3,41 +3,32 @@ import * as firebase from 'firebase'
 import { Card, Grid } from 'semantic-ui-react'
 import React, { Component } from 'react'
 
-import ForgotPasswordForm from './ForgotPasswordForm'
+import ForgotPasswordForm from './components/ForgotPasswordForm'
 import { Link } from 'react-router'
 import { browserHistory } from 'react-router'
+import { observer } from 'mobx-react'
+import store from './store/store'
 
-export default class ForgotPassword extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      errorState: 'none',
-      errorMessage: '',
-      loading: false
-    }
-  }
-
+const ForgotPassword = observer(class ForgotPassword extends Component {
   forgotPassword = (e) => {
     e.preventDefault()
 
-    this.setState({
-      loading: true
-    })
+    store.loading = true
 
     const email = document.getElementById('email').value
 
     const promise = firebase.auth().sendPasswordResetEmail(email)
 
     promise
+      .then(() => store.loading = false)
+      .then(() => store.errorState = 'none')
       .then(() => browserHistory.push('/login'))
 
-      .catch((e) =>
-        this.setState({
-          errorState: 'initial',
-          errorMessage: e.message,
-          loading: false
-        })
-      )
+      .catch((e) => {
+        store.errorState = 'initial'
+        store.errorMessage = e.message
+        store.loading = false
+      })
   }
 
   render() {
@@ -49,9 +40,9 @@ export default class ForgotPassword extends Component {
             <Card.Content extra>
               <ForgotPasswordForm
                 forgotPassword={this.forgotPassword}
-                errorState={this.state.errorState}
-                errorMessage={this.state.errorMessage}
-                loading={this.state.loading}
+                errorState={store.errorState}
+                errorMessage={store.errorMessage}
+                loading={store.loading}
               />
               <br />
               <Link to='/login'>Remember it now?</Link>
@@ -61,4 +52,6 @@ export default class ForgotPassword extends Component {
       </Grid>
     )
   }
-}
+})
+
+export default ForgotPassword
