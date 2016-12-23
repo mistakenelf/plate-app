@@ -21,7 +21,7 @@ export default class AuthenticatedNav extends Component {
   render() {
     const { activeItem } = this.state
     return (
-      <Menu size='large' fixed='top' color='teal' inverted fluid>
+      <Menu size='mini' fixed='top' color='teal' inverted fluid>
         <Menu.Item header><img src={logo} alt='plate-logo' /></Menu.Item>
         <Menu.Item
           name='home'
