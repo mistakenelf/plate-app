@@ -2,33 +2,24 @@ import * as firebase from 'firebase'
 
 import React, { Component } from 'react'
 
-import AuthenticatedNav from './AuthenticatedNav'
-import UnauthenticatedNav from './UnauthenticatedNav'
+import AuthenticatedNav from './components/AuthenticatedNav'
+import UnauthenticatedNav from './components/UnauthenticatedNav'
+import { observer } from 'mobx-react'
+import store from './store/store'
 
-export default class Navigation extends Component {
-  constructor() {
-    super()
-    this.state = {
-      loggedIn: false
-    }
-  }
-
+const Navigation = observer(class Navigation extends Component {
   componentDidMount() {
     firebase.auth().onAuthStateChanged(firebaseUser => {
       if (firebaseUser) {
-        this.setState({
-          loggedIn: true
-        })
+        store.loggedIn = true
       } else {
-        this.setState({
-          loggedIn: false
-        })
+        store.loggedIn = false
       }
     })
   }
 
   render() {
-    if (this.state.loggedIn) {
+    if (store.loggedIn) {
       return (
         <AuthenticatedNav />
       )
@@ -38,4 +29,6 @@ export default class Navigation extends Component {
       )
     }
   }
-}
+})
+
+export default Navigation

@@ -2,24 +2,16 @@ import { Dropdown, Menu } from 'semantic-ui-react'
 import React, { Component } from 'react'
 
 import { Link } from 'react-router'
-import logo from './plateLogo.png'
+import logo from '../assets/plateLogo.png'
+import { observer } from 'mobx-react'
+import store from '../store/store'
 
-export default class AuthenticatedNav extends Component {
-  constructor() {
-    super()
-    this.state = {
-      activeItem: 'home'
-    }
-  }
-
+const UnauthenticatedNav =  observer(class AuthenticatedNav extends Component {
   handleItemClick = (e, { name }) => {
-    this.setState({
-      activeItem: name
-    })
+    store.activeItem = name
   }
 
   render() {
-    const { activeItem } = this.state
     return (
       <Menu size='mini' fixed='top' color='teal' inverted fluid>
         <Menu.Item header><img src={logo} alt='plate-logo' /></Menu.Item>
@@ -27,7 +19,7 @@ export default class AuthenticatedNav extends Component {
           name='home'
           as={Link}
           to='/'
-          active={activeItem === 'home'}
+          active={store.activeItem === 'home'}
           onClick={this.handleItemClick}
         />
         <Menu.Menu position='right'>
@@ -41,4 +33,6 @@ export default class AuthenticatedNav extends Component {
       </Menu>
     )
   }
-}
+})
+
+export default UnauthenticatedNav

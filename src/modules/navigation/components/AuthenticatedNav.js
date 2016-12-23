@@ -4,9 +4,9 @@ import { Link, browserHistory } from 'react-router'
 import React, { Component } from 'react'
 
 import { Menu } from 'semantic-ui-react'
-import logo from './plateLogo.png'
+import logo from '../assets/plateLogo.png'
 import { observer } from 'mobx-react'
-import store from './store/store'
+import store from '../store/store'
 
 const AuthenticatedNav = observer(class AuthenticatedNav extends Component {
   handleItemClick = (e, { name }) => {

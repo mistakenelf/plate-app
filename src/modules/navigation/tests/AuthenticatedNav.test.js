@@ -1,4 +1,4 @@
-import AuthenticatedNav from '../AuthenticatedNav'
+import AuthenticatedNav from '../components/AuthenticatedNav'
 import React from 'react'
 import { render } from 'react-dom'
 
