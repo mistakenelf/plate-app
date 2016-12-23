@@ -9,10 +9,10 @@ function NoPlatesFound() {
           No Plates Found
         </Card.Header>
         <Card.Meta>
-          Create a plate to get started
+          Grab a Plate to get started
         </Card.Meta>
         <Card.Description>
-          You currently have no plates. Please add a new plate to get started
+          All Plates have been wiped clean, Grab A new Plate to get started.
         </Card.Description>
       </Card.Content>
     </Card>
