@@ -5,19 +5,12 @@ import React, { Component } from 'react'
 
 import { Menu } from 'semantic-ui-react'
 import logo from './plateLogo.png'
+import { observer } from 'mobx-react'
+import store from './store/store'
 
-export default class AuthenticatedNav extends Component {
-  constructor() {
-    super()
-    this.state = {
-      activeItem: 'home'
-    }
-  }
-
+const AuthenticatedNav = observer(class AuthenticatedNav extends Component {
   handleItemClick = (e, { name }) => {
-    this.setState({
-      activeItem: name
-    })
+    store.activeItem = name
   }
 
   logout() {
@@ -29,7 +22,6 @@ export default class AuthenticatedNav extends Component {
   }
 
   render() {
-    const { activeItem } = this.state
     return (
       <Menu size='tiny' fixed='top' color='teal' inverted fluid>
         <Menu.Item header><img src={logo} alt='plate-logo' /></Menu.Item>
@@ -37,13 +29,13 @@ export default class AuthenticatedNav extends Component {
           name='home'
           as={Link}
           to='/'
-          active={activeItem === 'home'}
+          active={store.activeItem === 'home'}
           onClick={this.handleItemClick}
         />
         <Menu.Item
           name='dashboard'
           as={Link} to='/dashboard'
-          active={activeItem === 'dashboard'}
+          active={store.activeItem === 'dashboard'}
           onClick={this.handleItemClick}
         />
         <Menu.Menu position='right'>
@@ -52,4 +44,6 @@ export default class AuthenticatedNav extends Component {
       </Menu>
     )
   }
-}
+})
+
+export default AuthenticatedNav
