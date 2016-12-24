@@ -1,4 +1,4 @@
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Input } from 'semantic-ui-react'
 import React, { PropTypes } from 'react'
 
 import ErrorMessage from '../../../components/errorMessage/ErrorMessage'
@@ -12,31 +12,35 @@ const propTypes = {
 
 function LoginForm({ userLogin, errorState, errorMessage, loading }) {
   return (
-    <Form method='post' onSubmit={userLogin}>
+    <Form method='post' onSubmit={userLogin} size='large'>
       <ErrorMessage
         open={errorState}
         message={errorMessage}
       />
       <br />
       <Form.Field>
-        <input
-          id='email'
-          name='email'
-          placeholder='Please enter your email'
+        <Input
           required
+          fluid
+          icon='user'
+          iconPosition='left'
+          name='email'
+          placeholder='E-mail address'
           type='email'
         />
       </Form.Field>
       <Form.Field>
-        <input
-          id='password'
+        <Input
+          required
+          fluid
+          icon='lock'
+          iconPosition='left'
           name='password'
           placeholder='Please enter your password'
-          required
           type='password'
         />
       </Form.Field>
-      <Button type='submit' color='grey' loading={loading} fluid>Login</Button>
+      <Button type='submit' size='large' color='grey' loading={loading} fluid>LOGIN</Button>
     </Form>
   )
 }
