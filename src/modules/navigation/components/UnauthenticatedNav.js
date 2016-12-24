@@ -23,7 +23,7 @@ const UnauthenticatedNav =  observer(class AuthenticatedNav extends Component {
           onClick={this.handleItemClick}
         />
         <Menu.Menu position='right'>
-          <Menu.Item as={Dropdown} text='Login/Register'>
+          <Menu.Item as={Dropdown} text='Account'>
             <Dropdown.Menu>
               <Dropdown.Item as={Link} to='/login'>Login</Dropdown.Item>
               <Dropdown.Item as={Link} to='/register'>Register</Dropdown.Item>
