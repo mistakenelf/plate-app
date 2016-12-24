@@ -13,8 +13,8 @@ const UnauthenticatedNav =  observer(class AuthenticatedNav extends Component {
 
   render() {
     return (
-      <Menu size='mini' fixed='top' color='teal' inverted fluid>
-        <Menu.Item header><img src={logo} alt='plate-logo' /></Menu.Item>
+      <Menu size='small' fixed='top' color='teal' inverted fluid>
+        <Menu.Item><img src={logo} alt='plate-logo' /></Menu.Item>
         <Menu.Item
           name='home'
           as={Link}
