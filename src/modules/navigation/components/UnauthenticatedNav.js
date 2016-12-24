@@ -13,15 +13,8 @@ const UnauthenticatedNav =  observer(class AuthenticatedNav extends Component {
 
   render() {
     return (
-      <Menu size='small' fixed='top' color='teal' borderless inverted fluid>
-        <Menu.Item><img src={logo} alt='plate-logo' /></Menu.Item>
-        <Menu.Item
-          name='home'
-          as={Link}
-          to='/'
-          active={store.activeItem === 'home'}
-          onClick={this.handleItemClick}
-        />
+      <Menu size='large' fixed='top' color='teal' borderless inverted fluid>
+        <Menu.Item><img src={logo} alt='plate-logo' onClick={this.props.toggleSidebar} /></Menu.Item>
         <Menu.Menu position='right'>
           <Menu.Item as={Dropdown} text='Account'>
             <Dropdown.Menu>

@@ -21,11 +21,11 @@ const Navigation = observer(class Navigation extends Component {
   render() {
     if (store.loggedIn) {
       return (
-        <AuthenticatedNav />
+        <AuthenticatedNav toggleSidebar={this.props.toggleSidebar} />
       )
     } else {
       return (
-        <UnauthenticatedNav />
+        <UnauthenticatedNav toggleSidebar={this.props.toggleSidebar} />
       )
     }
   }
