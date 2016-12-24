@@ -36,7 +36,7 @@ function LoginForm({ userLogin, errorState, errorMessage, loading }) {
           icon='lock'
           iconPosition='left'
           name='password'
-          placeholder='Please enter your password'
+          placeholder='Password'
           type='password'
         />
       </Form.Field>

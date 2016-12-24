@@ -1,4 +1,4 @@
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Input } from 'semantic-ui-react'
 import React, { PropTypes } from 'react'
 
 import ErrorMessage from '../../../components/errorMessage/ErrorMessage'
@@ -12,49 +12,57 @@ const propTypes = {
 
 function RegisterForm({ register, errorState, errorMessage, loading }) {
   return (
-    <Form onSubmit={register}>
+    <Form method='post' onSubmit={register} size='large'>
       <ErrorMessage
         open={errorState}
         message={errorMessage}
       />
       <br />
       <Form.Field>
-        <input
-          id='firstName'
+        <Input
+          required
+          fluid
+          icon='smile'
+          iconPosition='left'
           name='firstName'
-          placeholder='Please enter your first name'
-          required
+          placeholder='First Name'
           type='text'
         />
       </Form.Field>
       <Form.Field>
-        <input
-          id='lastName'
+        <Input
+          required
+          fluid
+          icon='thumbs outline up'
+          iconPosition='left'
           name='lastName'
-          placeholder='Please enter your last name'
-          required
+          placeholder='Last Name'
           type='text'
         />
       </Form.Field>
       <Form.Field>
-        <input
-          id='email'
-          name='email'
-          placeholder='Please enter your email'
+        <Input
           required
+          fluid
+          icon='user'
+          iconPosition='left'
+          name='email'
+          placeholder='E-mail address'
           type='email'
         />
       </Form.Field>
       <Form.Field>
-        <input
-          id='password'
-          name='password'
-          placeholder='Please enter your password'
+        <Input
           required
+          fluid
+          icon='lock'
+          iconPosition='left'
+          name='password'
+          placeholder='Password'
           type='password'
         />
       </Form.Field>
-      <Button type='submit' loading={loading} color='grey' fluid>Sign Up</Button>
+      <Button type='submit' size='large' loading={loading} color='grey' fluid>REGISTER</Button>
     </Form>
   )
 }

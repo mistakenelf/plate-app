@@ -1,4 +1,4 @@
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Input } from 'semantic-ui-react'
 import React, { PropTypes } from 'react'
 
 import ErrorMessage from '../../../components/errorMessage/ErrorMessage'
@@ -12,22 +12,24 @@ const propTypes = {
 
 function ForgotPasswordForm({ forgotPassword, errorState, errorMessage, loading }) {
   return (
-    <Form onSubmit={forgotPassword}>
+    <Form method='post' onSubmit={forgotPassword} size='large'>
       <ErrorMessage
         open={errorState}
         message={errorMessage}
         />
       <br />
       <Form.Field>
-        <input
-          id='email'
-          name='email'
-          placeholder='Please enter your email'
+        <Input
           required
+          fluid
+          icon='user'
+          iconPosition='left'
+          name='email'
+          placeholder='E-mail address'
           type='email'
         />
       </Form.Field>
-      <Button type='submit' loading={loading} color='grey' fluid>Forgot Password</Button>
+      <Button type='submit' loading={loading} size='large' color='grey' fluid>FORGOT PASSWORD</Button>
     </Form>
   )
 }

@@ -1,6 +1,6 @@
 import * as firebase from 'firebase'
 
-import { Card, Grid } from 'semantic-ui-react'
+import { Card, Grid, Header, Message } from 'semantic-ui-react'
 import React, { Component } from 'react'
 
 import ForgotPasswordForm from './components/ForgotPasswordForm'
@@ -15,7 +15,7 @@ const ForgotPassword = observer(class ForgotPassword extends Component {
 
     store.loading = true
 
-    const email = document.getElementById('email').value
+    const email = document.getElementsByName('email')[0].value
 
     const promise = firebase.auth().sendPasswordResetEmail(email)
 
@@ -34,9 +34,13 @@ const ForgotPassword = observer(class ForgotPassword extends Component {
   render() {
     return (
       <Grid centered padded>
-        <Grid.Column computer={5} largeScreen={5} tablet={10} mobile={16}>
+        <Grid.Column computer={5} largeScreen={5} tablet={10} mobile={16} textAlign='center'>
           <Card fluid raised>
-            <Card.Content header='Forgot Password' />
+            <Card.Content>
+              <Header as='h2' color='grey'>
+                Forgot your password
+              </Header>
+            </Card.Content>
             <Card.Content extra>
               <ForgotPasswordForm
                 forgotPassword={this.forgotPassword}
@@ -44,8 +48,9 @@ const ForgotPassword = observer(class ForgotPassword extends Component {
                 errorMessage={store.errorMessage}
                 loading={store.loading}
               />
-              <br />
+            <Message>
               <Link to='/login'>Remember it now?</Link>
+            </Message>
             </Card.Content>
           </Card>
         </Grid.Column>

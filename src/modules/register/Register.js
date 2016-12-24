@@ -1,6 +1,6 @@
 import * as firebase from 'firebase'
 
-import { Card, Grid } from 'semantic-ui-react'
+import { Card, Grid, Header, Message } from 'semantic-ui-react'
 import { Link, browserHistory } from 'react-router'
 import React, { Component } from 'react'
 
@@ -14,8 +14,8 @@ const Register = observer(class Register extends Component {
 
     store.loading = true
 
-    const email = document.getElementById('email').value
-    const password = document.getElementById('password').value
+    const email = document.getElementsByName('email')[0].value
+    const password = document.getElementsByName('password')[0].value
 
     const promise = firebase.auth().createUserWithEmailAndPassword(email, password)
 
@@ -34,9 +34,13 @@ const Register = observer(class Register extends Component {
   render() {
     return (
       <Grid centered padded>
-        <Grid.Column computer={5} largeScreen={5} tablet={10} mobile={16}>
+        <Grid.Column computer={5} largeScreen={5} tablet={10} mobile={16} textAlign='center'>
           <Card fluid raised>
-            <Card.Content header='Register' />
+            <Card.Content>
+              <Header as='h2' color='grey'>
+                Register for a new account today
+              </Header>
+            </Card.Content>
             <Card.Content extra>
               <RegisterForm
                 register={this.register}
@@ -44,8 +48,9 @@ const Register = observer(class Register extends Component {
                 errorMessage={store.errorMessage}
                 loading={store.loading}
               />
-              <br />
-              <Link to='/login'>Already a member?</Link>
+              <Message>
+                <Link to='/login'>Already a member?</Link>
+              </Message>
             </Card.Content>
           </Card>
         </Grid.Column>
