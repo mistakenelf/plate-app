@@ -23,10 +23,15 @@ const AuthenticatedNav = observer(class AuthenticatedNav extends Component {
 
   render() {
     return (
-      <Menu size='large' fixed='top' color='teal' borderless inverted fluid>
-        <Menu.Item onClick={this.props.toggleSidebar}><img src={logo} alt='plate-logo' /></Menu.Item>
+      <Menu size='large' fixed='top' color='teal' inverted fluid>
+        <Menu.Item onClick={this.props.toggleSidebar}>
+          <img src={logo} alt='plate-logo' />
+          <span style={{fontSize: 30}}>late</span>
+        </Menu.Item>
         <Menu.Menu position='right'>
-          <Menu.Item onClick={this.logout} name='Logout' />
+          <Menu.Item onClick={this.logout}>
+            <span style={{fontSize: 20}}>Logout</span>
+          </Menu.Item>
         </Menu.Menu>
       </Menu>
     )

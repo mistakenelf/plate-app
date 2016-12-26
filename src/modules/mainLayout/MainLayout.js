@@ -20,19 +20,35 @@ const MainLayout = observer(class MainLayout extends Component {
     })
   }
 
-  toggleSidebar = () => {
-    store.sidebarOpen = !store.sidebarOpen
+  openSidebar = () => {
+    store.sidebarOpen = true
+  }
+
+  closeSidebar = () => {
+    store.sidebarOpen = false
   }
   
   render() {
     return (
       <div>
-        <Sidebar as={Menu} animation='overlay' width='thin' visible={store.sidebarOpen} icon='labeled' color='grey' vertical inverted>
-          { store.loggedIn ? <AuthenticatedMenu toggleSidebar={this.toggleSidebar} /> : <UnauthenticatedMenu toggleSidebar={this.toggleSidebar} /> }
+        <Sidebar 
+          as={Menu} 
+          animation='overlay' 
+          width='thin' 
+          visible={store.sidebarOpen} 
+          icon='labeled' 
+          color='teal' 
+          vertical 
+          inverted
+        >
+          {store.loggedIn 
+            ? <AuthenticatedMenu toggleSidebar={this.closeSidebar} /> 
+            : <UnauthenticatedMenu toggleSidebar={this.closeSidebar} /> 
+          }
         </Sidebar>
         <Sidebar.Pusher>
           <div>
-            <Navigation toggleSidebar={this.toggleSidebar} />
+            <Navigation toggleSidebar={this.openSidebar} />
             {this.props.children}
           </div>
         </Sidebar.Pusher>
