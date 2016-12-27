@@ -17,7 +17,7 @@ const propTypes = {
 function AddPlateModal({ handleOpen, modalOpen, confirmPlate, cancelPlate }) {
   return (
     <Modal
-      trigger={<Button fluid color='grey' onClick={handleOpen}>GRAB A NEW PLATE</Button>}
+      trigger={<Button fluid color='grey' size='large' onClick={handleOpen}>GRAB A NEW PLATE</Button>}
       open={modalOpen}
       onClose={cancelPlate}
       size='small'
