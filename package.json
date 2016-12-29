@@ -13,7 +13,7 @@
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-router": "^3.0.0",
-    "semantic-ui-react": "^0.63.1"
+    "semantic-ui-react": "^0.63.2"
   },
   "scripts": {
     "start": "react-scripts start",
