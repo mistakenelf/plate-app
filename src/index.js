@@ -1,4 +1,5 @@
 import './index.css'
+import './firebase'
 
 import { Router, browserHistory } from 'react-router'
 
