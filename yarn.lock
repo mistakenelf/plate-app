@@ -2168,9 +2168,9 @@ find-up@^1.0.0, find-up@^1.1.2:
     path-exists "^2.0.0"
     pinkie-promise "^2.0.0"
 
-firebase@^3.6.4:
-  version "3.6.4"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.6.4.tgz#5c5b91d20f439b6f0a7aebe1b27c2db1a463e308"
+firebase@^3.6.5:
+  version "3.6.5"
+  resolved "http://dfwprdnpm.sial.com:4873/firebase/-/firebase-3.6.5.tgz#e321da57c9c5b66e436432a3e15f1cf6d3b2f9a9"
   dependencies:
     dom-storage "2.0.2"
     faye-websocket "0.9.3"
@@ -4676,9 +4676,9 @@ sax@^1.1.4, sax@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.1.tgz#7b8e656190b228e81a66aea748480d828cd2d37a"
 
-semantic-ui-react@^0.63.5:
-  version "0.63.5"
-  resolved "https://registry.yarnpkg.com/semantic-ui-react/-/semantic-ui-react-0.63.5.tgz#352d5b1fc848b7f84536a7b6923420638cb966b3"
+semantic-ui-react@^0.63.6:
+  version "0.63.6"
+  resolved "http://dfwprdnpm.sial.com:4873/semantic-ui-react/-/semantic-ui-react-0.63.6.tgz#f11ed4ae3df526c98ba626b819c031ac502716ee"
   dependencies:
     classnames "^2.1.5"
     debug "^2.4.5"
