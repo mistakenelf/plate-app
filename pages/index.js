@@ -1,6 +1,5 @@
 import { Component } from 'react'
-import Layout from '../components/layout/Layout'
-import firebase from 'firebase'
+import Layout from '../modules/layout/Layout'
 
 export default class extends Component {
    render() {

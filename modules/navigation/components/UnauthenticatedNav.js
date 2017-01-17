@@ -16,14 +16,6 @@ const UnauthenticatedNav =  observer(class AuthenticatedNav extends Component {
           <img src='/static/plateLogo.png' alt='plate-logo' />
           <span style={{fontSize: 30}}>late</span>
         </Menu.Item>
-        <Menu.Menu position='right'>
-          <Menu.Item text='Account' as={Dropdown} style={{fontSize: 20}}>
-            <Dropdown.Menu>
-              <Dropdown.Item to='/login'>Login</Dropdown.Item>
-              <Dropdown.Item to='/register'>Register</Dropdown.Item>
-            </Dropdown.Menu>
-          </Menu.Item>
-        </Menu.Menu>
       </Menu>
     )
   }
