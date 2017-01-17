@@ -3532,9 +3532,9 @@ mobx-react@^4.1.0:
   dependencies:
     hoist-non-react-statics "^1.2.0"
 
-mobx@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/mobx/-/mobx-3.0.0.tgz#6d9fb326d51bac9994dd8fe6762ace6ba2bef2ac"
+mobx@^3.0.1:
+  version "3.0.1"
+  resolved "http://dfwprdnpm.sial.com:4873/mobx/-/mobx-3.0.1.tgz#b1273871efee368010e2f1e027cde97eed879700"
 
 moment@2.x.x:
   version "2.17.1"
@@ -4323,9 +4323,9 @@ react-dom@^15.4.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
-react-router@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/react-router/-/react-router-3.0.0.tgz#3f313e4dbaf57048c48dd0a8c3cac24d93667dff"
+react-router@^3.0.1:
+  version "3.0.1"
+  resolved "http://dfwprdnpm.sial.com:4873/react-router/-/react-router-3.0.1.tgz#a4bf86441bd796e86a1c41d61397b604e2e4b98f"
   dependencies:
     history "^3.0.0"
     hoist-non-react-statics "^1.2.0"
@@ -4676,9 +4676,9 @@ sax@^1.1.4, sax@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.1.tgz#7b8e656190b228e81a66aea748480d828cd2d37a"
 
-semantic-ui-react@^0.63.6:
-  version "0.63.6"
-  resolved "http://dfwprdnpm.sial.com:4873/semantic-ui-react/-/semantic-ui-react-0.63.6.tgz#f11ed4ae3df526c98ba626b819c031ac502716ee"
+semantic-ui-react@^0.64.0:
+  version "0.64.0"
+  resolved "http://dfwprdnpm.sial.com:4873/semantic-ui-react/-/semantic-ui-react-0.64.0.tgz#95cc9c13205d62f69b9c01e72ec8300a592d9cac"
   dependencies:
     classnames "^2.1.5"
     debug "^2.4.5"
