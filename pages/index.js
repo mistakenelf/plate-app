@@ -1,9 +1,13 @@
-import '../firebase/index'
-
+import { Component } from 'react'
 import Layout from '../components/layout/Layout'
+import firebase from 'firebase'
 
-export default () => (
-  <Layout>
-    <h1>test</h1>
-  </Layout>
-)
+export default class extends Component {
+   render() {
+    return (
+      <Layout>
+        <h1>test</h1>
+      </Layout>
+    )
+  }
+}

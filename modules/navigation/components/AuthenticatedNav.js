@@ -1,8 +1,7 @@
-import * as firebase from 'firebase'
-
 import React, { Component } from 'react'
 
 import { Menu } from 'semantic-ui-react'
+import Router from 'next/router'
 import { observer } from 'mobx-react'
 import store from '../store/store'
 
@@ -12,11 +11,8 @@ const AuthenticatedNav = observer(class AuthenticatedNav extends Component {
   }
 
   logout() {
-    firebase.auth().signOut()
-
-    .then(() => {
-      browserHistory.push('/')
-    })
+    store.loggedIn = false
+    Router.push('/')
   }
 
   render() {
