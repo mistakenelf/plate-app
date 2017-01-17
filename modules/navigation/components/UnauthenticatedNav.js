@@ -19,8 +19,8 @@ const UnauthenticatedNav =  observer(class AuthenticatedNav extends Component {
         <Menu.Menu position='right'>
           <Menu.Item text='Account' as={Dropdown} style={{fontSize: 20}}>
             <Dropdown.Menu>
-              <Dropdown.Item as={Link} to='/login'>Login</Dropdown.Item>
-              <Dropdown.Item as={Link} to='/register'>Register</Dropdown.Item>
+              <Dropdown.Item to='/login'>Login</Dropdown.Item>
+              <Dropdown.Item to='/register'>Register</Dropdown.Item>
             </Dropdown.Menu>
           </Menu.Item>
         </Menu.Menu>

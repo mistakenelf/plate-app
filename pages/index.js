@@ -1,5 +1,9 @@
-import Navigation from '../components/navigation/navigation'
+import '../firebase/index'
+
+import Layout from '../components/layout/Layout'
 
 export default () => (
-  <Navigation />
+  <Layout>
+    <h1>test</h1>
+  </Layout>
 )
