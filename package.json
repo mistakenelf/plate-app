@@ -2,22 +2,19 @@
   "name": "plate",
   "version": "0.1.0",
   "private": true,
-  "devDependencies": {
-    "react-scripts": "^0.8.5"
-  },
   "dependencies": {
-    "firebase": "^3.6.5",
+    "babel-jest": "^18.0.0",
+    "firebase": "^3.6.6",
+    "jest-cli": "^18.1.0",
     "mobx": "^3.0.1",
     "mobx-react": "^4.1.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-router": "^3.0.1",
+    "next": "2.0.0-beta.17",
     "semantic-ui-react": "^0.64.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "jest",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   }
 }
