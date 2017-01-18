@@ -1,7 +1,5 @@
 import { Card, Grid, Icon } from 'semantic-ui-react'
 
-import React from 'react'
-
 const styles = {
   centerAlign: {
     textAlign: 'center'

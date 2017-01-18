@@ -21,7 +21,7 @@ const MainLayout = observer(class MainLayout extends Component {
     return (
       <div>
         <style jsx global>{`
-          body {
+          html {
             margin: 0;
             padding: 5px;
             padding-top: 30px;

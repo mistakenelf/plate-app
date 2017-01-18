@@ -1,6 +1,5 @@
-import React, { PropTypes } from 'react'
-
 import { Message } from 'semantic-ui-react'
+import { PropTypes } from 'react'
 
 const propTypes = {
   open: PropTypes.string,

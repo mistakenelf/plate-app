@@ -1,8 +1,8 @@
 import Layout from '../modules/layout/Layout'
-import Login from '../modules/login/Login'
+import Register from '../modules/register/Register'
 
 export default () => (
   <Layout>
-    <Login />
+    <Register />
   </Layout>
 )

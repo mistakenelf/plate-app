@@ -1,8 +1,9 @@
 import { observable } from 'mobx'
 
 const store = observable({
-  activeItem: 'home',
-  loggedIn: true
+  errorState: 'none',
+  errorMessage: '',
+  loading: false,
 })
 
 export default store
