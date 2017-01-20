@@ -1,14 +1,5 @@
 {
   "database": {
     "rules": "database.rules.json"
-  },
-  "hosting": {
-    "public": ".next/dist",
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
   }
 }
