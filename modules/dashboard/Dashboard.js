@@ -1,12 +1,12 @@
+import { inject, observer } from 'mobx-react'
+
 import AddPlateModal from './components/AddPlateModal'
 import { Component } from 'react'
 import { Grid } from 'semantic-ui-react'
 import NoPlatesFound from './components/NoPlatesFound'
 import Plate from './components/Plate'
-import { observer } from 'mobx-react'
-import store from './store/store'
 
-@observer
+@inject('store') @observer
 class Dashboard extends Component {
   handleOpen = () => {
     store.addPlateModalOpen = true

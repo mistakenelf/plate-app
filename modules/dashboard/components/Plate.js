@@ -9,9 +9,9 @@ import { Component, PropTypes } from 'react'
 
 import Link from 'next/prefetch'
 import { observer } from 'mobx-react'
-import store from '../store/store'
 
-const Plate = observer(class Plate extends Component {
+@observer
+class Plate extends Component {
   static propTypes = {
     plate: PropTypes.object,
     removePlate: PropTypes.func
@@ -81,6 +81,6 @@ const Plate = observer(class Plate extends Component {
       </Card>
     )
   }
-})
+}
 
 export default Plate
