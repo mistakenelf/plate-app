@@ -8,7 +8,8 @@ import UnauthenticatedMenu from './components/UnauthenticatedMenu'
 import { observer } from 'mobx-react'
 import store from './store/store'
 
-const MainLayout = observer(class MainLayout extends Component {
+@observer
+class Layout extends Component {
   openSidebar = () => {
     store.sidebarOpen = true
   }
@@ -66,6 +67,6 @@ const MainLayout = observer(class MainLayout extends Component {
       </div>
     )
   }
-})
+}
 
-export default MainLayout
+export default Layout

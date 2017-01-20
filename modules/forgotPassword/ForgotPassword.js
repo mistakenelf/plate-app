@@ -7,7 +7,8 @@ import Router from 'next/router'
 import { observer } from 'mobx-react'
 import store from './store/store'
 
-const ForgotPassword = observer(class ForgotPassword extends Component {
+@observer
+class ForgotPassword extends Component {
   forgotPassword = (e) => {
     e.preventDefault()
 
@@ -42,6 +43,6 @@ const ForgotPassword = observer(class ForgotPassword extends Component {
       </Grid>
     )
   }
-})
+}
 
 export default ForgotPassword

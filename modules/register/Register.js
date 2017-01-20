@@ -7,7 +7,8 @@ import Router from 'next/router'
 import { observer } from 'mobx-react'
 import store from './store/store'
 
-const Register = observer(class Register extends Component {
+@observer
+class Register extends Component {
   register = (e) => {
     e.preventDefault()
 
@@ -42,6 +43,6 @@ const Register = observer(class Register extends Component {
       </Grid>
     )
   }
-})
+}
 
 export default Register

@@ -6,7 +6,8 @@ import Plate from './components/Plate'
 import { observer } from 'mobx-react'
 import store from './store/store'
 
-const Dashboard = observer(class Dashboard extends Component {
+@observer
+class Dashboard extends Component {
   handleOpen = () => {
     store.addPlateModalOpen = true
   }
@@ -97,6 +98,6 @@ const Dashboard = observer(class Dashboard extends Component {
       </Grid>
     )
   }
-})
+}
 
 export default Dashboard

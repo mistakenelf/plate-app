@@ -7,7 +7,8 @@ import Router from 'next/router'
 import { observer } from 'mobx-react'
 import store from './store/store'
 
-const Login = observer(class Login extends Component {
+@observer
+class Login extends Component {
   userLogin = (e) => {
     e.preventDefault()
 
@@ -42,6 +43,6 @@ const Login = observer(class Login extends Component {
       </Grid>
     )
   }
-})
+}
 
 export default Login
