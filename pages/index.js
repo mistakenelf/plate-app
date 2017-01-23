@@ -1,13 +1,26 @@
+import '../components/tap_events'
+
 import { Component } from 'react'
-import Home from '../modules/home/Home'
-import Layout from '../modules/layout/Layout'
+import Head from 'next/head'
+import Layout from '../components/layout/Layout'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import Navigation from '../components/navigation/Navigation'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
 export default class extends Component {
-   render() {
+  static async getInitialProps({ req }) {
+    return req
+      ? { userAgent: req.headers['user-agent'] }
+      : { userAgent: navigator.userAgent }
+  }
+
+  render() {
     return (
-      <Layout>
-        <Home />
-      </Layout>
+      <MuiThemeProvider muiTheme={getMuiTheme({userAgent: this.props.userAgent})}>
+        <Layout>
+          <h1>Hello World</h1>
+        </Layout>
+      </MuiThemeProvider>
     )
   }
 }

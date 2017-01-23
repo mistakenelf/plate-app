@@ -1,0 +1,33 @@
+import '../tap_events'
+
+import { Component } from 'react'
+import Head from 'next/head'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import Navigation from '../navigation/Navigation'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+
+export default ({ children }) => (
+  <div>
+    <style jsx global>{`
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Roboto, sans-serif;
+        background-color: #EFEFEF;
+      }
+    `}</style>
+    <Head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+      <meta name="theme-color" content="#00B5AD" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <link rel="shortcut icon" href="/static/plateLogo.png" />
+      <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
+    </Head>
+    <Navigation />
+    {children}
+  </div>
+)
