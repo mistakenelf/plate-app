@@ -1,5 +1,5 @@
-import Layout from '../components/layout/Layout'
-import Register from '../components/register/Register'
+import Layout from '../modules/layout/Layout'
+import Register from '../modules/register/Register'
 
 export default () => (
   <Layout>

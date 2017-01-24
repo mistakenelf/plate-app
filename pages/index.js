@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import Head from 'next/head'
-import Layout from '../components/layout/Layout'
-import Navigation from '../components/navigation/Navigation'
+import Layout from '../modules/layout/Layout'
+import Navigation from '../modules/navigation/Navigation'
 
 export default class extends Component {
   static async getInitialProps({ req }) {
