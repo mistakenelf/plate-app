@@ -1,38 +1,35 @@
 import React, { Component } from 'react'
-import { observer } from 'mobx-react'
+
 import AppBar from 'material-ui/AppBar'
-import MenuItem from 'material-ui/MenuItem'
 import Drawer from 'material-ui/Drawer'
 import IconButton from 'material-ui/IconButton'
+import MenuItem from 'material-ui/MenuItem'
+import { observer } from 'mobx-react'
 import store from './store/store'
 
-const Navigation = observer(class Navigation extends Component {
+function activateDrawer() {
+  store.menuActive = true
+}
 
-  activateDrawer = () => {
-    store.menuActive = true
-  }
+function closeDrawer() {
+  store.menuActive = false
+}
 
-  render() {
-    return (
-      <div>
-        <AppBar
-          title="Plate"
-          onRightIconButtonTouchTap={this.activateDrawer}
-          iconClassNameRight="muidocs-icon-navigation-expand-more"
-        />
-        <Drawer open={store.menuActive}>
-          <MenuItem>Register</MenuItem>
-          <MenuItem>Login</MenuItem>
-        </Drawer>
-      </div>
-    )
-  }
-
-})
-
-export default Navigation
-
-
-
-
-
+export default observer(() =>
+  <div>
+    <AppBar
+      title='Plate'
+      onLeftIconButtonTouchTap={activateDrawer}
+      iconClassNameRight='muidocs-icon-navigation-expand-more'
+    />
+    <Drawer
+      open={store.menuActive}
+      onRequestChange={closeDrawer}
+      docked={false}
+      width={200}
+    >
+      <MenuItem>Register</MenuItem>
+      <MenuItem>Login</MenuItem>
+    </Drawer>
+  </div>
+)
