@@ -1,6 +1,6 @@
-import React from 'react'
 import UnauthenticatedNav from './components/UnauthenticatedNav'
+import store from './store/store'
 
 export default () => (
-  <UnauthenticatedNav />
+  <UnauthenticatedNav store={store} />
 )
