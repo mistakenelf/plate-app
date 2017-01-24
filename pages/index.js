@@ -1,7 +1,6 @@
 import { Component } from 'react'
 import Head from 'next/head'
 import Layout from '../modules/layout/Layout'
-import Navigation from '../modules/navigation/Navigation'
 
 export default class extends Component {
   static async getInitialProps({ req }) {
