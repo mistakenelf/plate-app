@@ -1,12 +1,18 @@
 import { Component } from 'react'
-import Home from '../modules/home/Home'
-import Layout from '../modules/layout/Layout'
+import Head from 'next/head'
+import Layout from '../components/layout/Layout'
 
 export default class extends Component {
-   render() {
+  static async getInitialProps({ req }) {
+    return req
+      ? { userAgent: req.headers['user-agent'] }
+      : { userAgent: navigator.userAgent }
+  }
+
+  render() {
     return (
-      <Layout>
-        <Home />
+      <Layout userAgent={this.props.userAgent}>
+        <h1>Hello World</h1>
       </Layout>
     )
   }

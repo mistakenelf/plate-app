@@ -1,24 +1,22 @@
-import { Dropdown, Menu } from 'semantic-ui-react'
-import React, { Component } from 'react'
-
+import AppBar from 'material-ui/AppBar'
+import { Component } from 'react'
+import Drawer from 'material-ui/Drawer'
+import IconButton from 'material-ui/IconButton'
+import Link from 'next/prefetch'
+import MenuItem from 'material-ui/MenuItem'
 import { observer } from 'mobx-react'
-import store from '../store/store'
 
-const UnauthenticatedNav =  observer(class AuthenticatedNav extends Component {
-  handleItemClick = (e, { name }) => {
-    store.activeItem = name
-  }
-
-  render() {
-    return (
-      <Menu size='large' fixed='top' color='teal' inverted fluid>
-        <Menu.Item onClick={this.props.toggleSidebar}>
-          <img src='/static/plateLogo.png' alt='plate-logo' />
-          <span style={{fontSize: 30}}>late</span>
-        </Menu.Item>
-      </Menu>
-    )
-  }
-})
-
-export default UnauthenticatedNav
+export default observer(({ store }) =>
+  <div>
+    <style jsx>{`
+      a {
+        text-decoration: none;
+      }
+    `}</style>
+    <AppBar
+      title='Plate'
+      onLeftIconButtonTouchTap={store.openModal}
+      style={{backgroundColor: 'white'}}
+    />
+  </div>
+)
