@@ -3,11 +3,17 @@ import '../../config/tap_events'
 import { Component } from 'react'
 import Head from 'next/head'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Navigation from '../navigation/Navigation'
+import Navigation from '../../modules/navigation/Navigation'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
 export default ({ children, userAgent }) => (
-  <MuiThemeProvider muiTheme={getMuiTheme({userAgent: userAgent})}>
+  <MuiThemeProvider muiTheme={getMuiTheme({
+    userAgent: userAgent,
+    appBar: {
+      textColor: 'black',
+    }
+  }
+  )}>
     <div>
       <style jsx global>{`
         * {
@@ -17,7 +23,7 @@ export default ({ children, userAgent }) => (
         body {
           margin: 0;
           font-family: Roboto, sans-serif;
-          background-color: #EFEFEF;
+          background-color: 'white';
         }
       `}</style>
       <Head>
