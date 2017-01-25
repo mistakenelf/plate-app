@@ -1,8 +1,10 @@
-export default ({ open, closeModal }) => (
+import { inject, observer } from 'mobx-react'
+
+export default inject('store')(observer(({ store }) => (
   <div>
-    {open
+    {store.modalOpen
      ? <div className="modal">
-          <h1 style={{color: 'white', textAlign: 'center'}} onTouchTap={closeModal}>Close</h1>
+          <h1 style={{color: 'white', textAlign: 'center'}} onTouchTap={store.closeModal}>Close</h1>
           <h1 style={{color: 'white', textAlign: 'center'}}>Login</h1>
           <h1 style={{color: 'white', textAlign: 'center'}}>Register</h1>
        </div>
@@ -25,4 +27,4 @@ export default ({ open, closeModal }) => (
       }
     `}</style>
   </div>
-)
+)))
