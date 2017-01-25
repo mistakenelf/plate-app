@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import Head from 'next/head'
-import Layout from '../modules/layout/Layout'
+import Layout from '../components/layout/Layout'
 
 export default class extends Component {
   static async getInitialProps({ req }) {
