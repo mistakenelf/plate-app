@@ -1,6 +1,5 @@
 import UnauthenticatedNav from './components/UnauthenticatedNav'
-import store from '../../store/store'
 
-export default () => (
+export default ({ store }) => (
   <UnauthenticatedNav store={store} />
 )

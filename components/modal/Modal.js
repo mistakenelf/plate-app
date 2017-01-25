@@ -1,8 +1,10 @@
 export default ({ open, closeModal }) => (
   <div>
     {open
-     ? <div className="modal" onClick={closeModal}  />
-     : <div className="modal" style={{display: 'none'}}  />
+     ? <div className="modal">
+          <h1 style={{color: 'white', textAlign: 'center'}} onTouchTap={closeModal}>Close</h1>
+       </div>
+     : <div className="modal" style={{display: 'none'}} />
     }
     <style jsx>{`
       .modal {

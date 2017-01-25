@@ -2,11 +2,14 @@ import '../../config/tap_events'
 
 import { Component } from 'react'
 import Head from 'next/head'
+import Modal from '../modal/Modal'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Navigation from '../../modules/navigation/Navigation'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import { observer } from 'mobx-react'
+import store from '../../store/store'
 
-export default ({ children, userAgent }) => (
+export default observer(({ children, userAgent }) => (
   <MuiThemeProvider muiTheme={getMuiTheme({
     userAgent: userAgent,
     appBar: {
@@ -34,8 +37,9 @@ export default ({ children, userAgent }) => (
         <link rel="shortcut icon" href="/static/plateLogo.png" />
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
       </Head>
-      <Navigation />
+      <Modal open={store.modalOpen} closeModal={store.closeModal} />
+      <Navigation store={store} />
       {children}
     </div>
   </MuiThemeProvider>
-)
+))
