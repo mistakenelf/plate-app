@@ -6,7 +6,7 @@ import Link from 'next/prefetch'
 import MenuItem from 'material-ui/MenuItem'
 import { observer } from 'mobx-react'
 
-export default observer(({ store }) =>
+export default ({ store }) => (
   <div>
     <style jsx>{`
       a {
