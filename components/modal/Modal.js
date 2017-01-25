@@ -1,5 +1,9 @@
 export default ({ open, closeModal }) => (
   <div>
+    {open
+     ? <div className="modal" onClick={closeModal}  />
+     : <div className="modal" style={{display: 'none'}}  />
+    }
     <style jsx>{`
       .modal {
         height: 100vh;
@@ -9,9 +13,5 @@ export default ({ open, closeModal }) => (
         position: absolute;
       }
     `}</style>
-    {open
-     ? <div className="modal" onClick={closeModal}  />
-     : <div className="modal" style={{display: 'none'}}  />
-    }
   </div>
 )
