@@ -2,13 +2,12 @@ import { inject, observer } from 'mobx-react'
 
 export default inject('store')(observer(({ store }) => (
   <div>
-    {store.modalOpen
-     ? <div className="modal fadeIn">
-          <h1 style={{color: 'white', textAlign: 'center', cursor: 'pointer'}} onTouchTap={store.closeModal}>Close</h1>
-          <h1 style={{color: 'white', textAlign: 'center', cursor: 'pointer'}}>Login</h1>
-          <h1 style={{color: 'white', textAlign: 'center', cursor: 'pointer'}}>Register</h1>
-       </div>
-     : <div className="modal" style={{display: 'none'}} />
+    {store.modalOpen &&
+      <div className='modal fadeIn'>
+        <h1 style={{color: 'white', textAlign: 'center', cursor: 'pointer'}} onTouchTap={store.closeModal}>Close</h1>
+        <h1 style={{color: 'white', textAlign: 'center', cursor: 'pointer'}}>Login</h1>
+        <h1 style={{color: 'white', textAlign: 'center', cursor: 'pointer'}}>Register</h1>
+      </div>
     }
     <style jsx>{`
       .modal {
@@ -24,15 +23,8 @@ export default inject('store')(observer(({ store }) => (
         align-items: center;
         justify-content: space-between;
         flex-direction: column;
-        -webkit-animation-duration: 1s;
-        animation-duration: 1s;
-        -webkit-animation-fill-mode: both;
+        animation-duration: 500ms;
         animation-fill-mode: both;
-      }
-
-      @-webkit-keyframes fadeIn {
-        0% {opacity: 0;}
-        100% {opacity: 0.8;}
       }
 
       @keyframes fadeIn {
@@ -41,13 +33,7 @@ export default inject('store')(observer(({ store }) => (
       }
 
       .fadeIn {
-        -webkit-animation-name: fadeIn;
         animation-name: fadeIn;
-      }
-
-      @-webkit-keyframes fadeOut {
-        0% {opacity: 0.8;}
-        100% {opacity: 0;}
       }
 
       @keyframes fadeOut {
@@ -56,10 +42,8 @@ export default inject('store')(observer(({ store }) => (
       }
 
       .fadeOut {
-        -webkit-animation-name: fadeOut;
         animation-name: fadeOut;
       }
-
     `}</style>
   </div>
 )))
