@@ -4,9 +4,9 @@ export default inject('store')(observer(({ store }) => (
   <div>
     {store.modalOpen
      ? <div className="modal fadeIn">
-          <h1 style={{color: 'white', textAlign: 'center'}} onTouchTap={store.closeModal}>Close</h1>
-          <h1 style={{color: 'white', textAlign: 'center'}}>Login</h1>
-          <h1 style={{color: 'white', textAlign: 'center'}}>Register</h1>
+          <h1 style={{color: 'white', textAlign: 'center', cursor: 'pointer'}} onTouchTap={store.closeModal}>Close</h1>
+          <h1 style={{color: 'white', textAlign: 'center', cursor: 'pointer'}}>Login</h1>
+          <h1 style={{color: 'white', textAlign: 'center', cursor: 'pointer'}}>Register</h1>
        </div>
      : <div className="modal" style={{display: 'none'}} />
     }
