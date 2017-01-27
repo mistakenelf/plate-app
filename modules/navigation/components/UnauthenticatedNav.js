@@ -1,18 +1,21 @@
 import { inject, observer } from 'mobx-react'
 
 import AppBar from 'material-ui/AppBar'
+import FlatButton from 'material-ui/FlatButton'
 
 export default inject('store')(observer(({ store }) => (
   <div>
+    <AppBar
+      title='Plate'
+      iconElementRight={<FlatButton label='Register Now!' />}
+      onRightIconButtonTouchTap={store.openModal}
+      showMenuIconButton={false}
+      style={{backgroundColor: 'white'}}
+    />
     <style jsx>{`
       a {
         text-decoration: none;
       }
     `}</style>
-    <AppBar
-      title='Plate'
-      onLeftIconButtonTouchTap={store.openModal}
-      style={{backgroundColor: 'white'}}
-    />
   </div>
 )))
