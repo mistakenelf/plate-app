@@ -6,7 +6,7 @@ import Register from '../../modules/register/Register'
 export default inject('store')(observer(({ store }) => (
   <div>
     {store.modalOpen &&
-      <div className='modal fadeIn'>
+      <div className='modal fadeIn' onTouchTap={store.closeModal}>
         <h1 style={{color: 'white', textAlign: 'right', cursor: 'pointer', marginRight: 10}} onTouchTap={store.closeModal}>X</h1>
         <Grid col={12}>
           <Register />
