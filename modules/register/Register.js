@@ -22,6 +22,10 @@ export default () => (
     <style jsx>{`
       .register-form {
         padding: 20px;
+        padding-top: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
         border-radius: 10px;
         width: 500px;
         height: 500px;
