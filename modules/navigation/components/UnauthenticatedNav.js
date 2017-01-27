@@ -7,7 +7,7 @@ export default inject('store')(observer(({ store }) => (
   <div>
     <AppBar
       title='Plate'
-      iconElementRight={<FlatButton label='Menu' />}
+      iconElementRight={<FlatButton label='Register Now!' />}
       onRightIconButtonTouchTap={store.openModal}
       showMenuIconButton={false}
       style={{backgroundColor: 'white'}}
