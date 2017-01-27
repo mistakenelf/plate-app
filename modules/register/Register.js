@@ -1,26 +1,24 @@
-import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton'
+import TextField from 'material-ui/TextField'
 
 export default () => (
-  <div className="register-form">
+  <div className='register-form'>
     <h1 style={{textAlign: 'center'}}>Sign Up Now</h1>
     <h1 style={{textAlign: 'center'}}>to Begin Serving Plates</h1>
-    <p style={{textAlign: 'center', marginTop: 20}}>Plate makes task management more simplified 
+    <p style={{textAlign: 'center', marginTop: 20}}>Plate makes task management more simplified
     for your every day routine, it's free too!</p>
 
-    <div className="text-fields">
+    <div className='text-fields'>
       <TextField
-        hintText="Email"
-      /><br /><br />
-
+        hintText='Email'
+      />
+      <br /><br />
       <TextField
-        hintText="Password"
-      /><br />
-
-      <RaisedButton backgroundColor="#FFD54F" label="Register Now!" primary={true} style={{marginTop: 50}} />
-
+        hintText='Password'
+      />
+      <br />
+      <RaisedButton backgroundColor='green' label='Register Now!' primary style={{marginTop: 50}} />
     </div>
-    
     <style jsx>{`
       .register-form {
         padding: 20px;
@@ -36,7 +34,6 @@ export default () => (
         margin-top: 50px;
         text-align: center;
       }
-
     `}</style>
   </div>
 )

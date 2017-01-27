@@ -1,4 +1,5 @@
 import { inject, observer } from 'mobx-react'
+
 import { Grid } from 'reflexbox'
 import Register from '../../modules/register/Register'
 
