@@ -1765,9 +1765,9 @@ find-up@^1.0.0, find-up@^1.1.2:
     path-exists "^2.0.0"
     pinkie-promise "^2.0.0"
 
-firebase@^3.6.6:
-  version "3.6.6"
-  resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.6.6.tgz#3062036e6f47e78a23f300cd168eda1bc02a5908"
+firebase@^3.6.7:
+  version "3.6.7"
+  resolved "https://registry.yarnpkg.com/firebase/-/firebase-3.6.7.tgz#7708dc6ddaa313415bbc5213116c597b21567ab2"
   dependencies:
     dom-storage "2.0.2"
     faye-websocket "0.9.3"
@@ -3037,9 +3037,9 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-next@2.0.0-beta.18:
-  version "2.0.0-beta.18"
-  resolved "https://registry.yarnpkg.com/next/-/next-2.0.0-beta.18.tgz#8ab5076f032b0ddbe13bddaa510d8332bec3ce7b"
+next@2.0.0-beta.19:
+  version "2.0.0-beta.19"
+  resolved "https://registry.yarnpkg.com/next/-/next-2.0.0-beta.19.tgz#740ff5322f7bed8f57f1dba6c64d623296e9c350"
   dependencies:
     accepts "1.3.3"
     ansi-html "0.0.7"
@@ -3076,7 +3076,7 @@ next@2.0.0-beta.18:
     send "0.14.1"
     source-map-support "0.4.10"
     strip-ansi "3.0.1"
-    styled-jsx "0.5.0"
+    styled-jsx "0.5.1"
     url "0.11.0"
     uuid "3.0.1"
     webpack "2.2.0-rc.6"
@@ -3453,11 +3453,11 @@ public-encrypt@^4.0.0:
     parse-asn1 "^5.0.0"
     randombytes "^2.0.1"
 
-punycode@1.3.2, punycode@^1.2.4:
+punycode@1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.3.2.tgz#9653a036fb7c1ee42342f2325cceefea3926c48d"
 
-punycode@^1.4.1:
+punycode@^1.2.4, punycode@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
 
@@ -3800,10 +3800,13 @@ rsvp@3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-3.2.1.tgz#07cb4a5df25add9e826ebc67dcc9fd89db27d84a"
 
+<<<<<<< HEAD
 ruled@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ruled/-/ruled-1.0.1.tgz#8301a1accc9d2e14b6502fca7033582335c2c0f4"
 
+=======
+>>>>>>> de122628d4b5284309f89ca1db2527de081d693b
 run-async@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/run-async/-/run-async-0.1.0.tgz#c8ad4a5e110661e402a7d21b530e009f25f8e389"
@@ -4083,9 +4086,9 @@ strip-json-comments@~1.0.1, strip-json-comments@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-1.0.4.tgz#1e15fbcac97d3ee99bf2d73b4c656b082bbafb91"
 
-styled-jsx@0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-0.5.0.tgz#e9d59c4dc38ae491335426ea4f6f656b27489575"
+styled-jsx@0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/styled-jsx/-/styled-jsx-0.5.1.tgz#40bc6a77334d66c4483bcfc8b7de274e5e57bbce"
   dependencies:
     babel-plugin-syntax-jsx "^6.18.0"
     babel-traverse "^6.21.0"
@@ -4268,12 +4271,15 @@ uid-number@~0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
 
+<<<<<<< HEAD
 understyle@^1.2.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/understyle/-/understyle-1.3.0.tgz#df3f9a9be96779d718c3da9598fad1c2f90f24ee"
   dependencies:
     object-assign "^4.1.0"
 
+=======
+>>>>>>> de122628d4b5284309f89ca1db2527de081d693b
 uniq@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/uniq/-/uniq-1.0.1.tgz#b31c5ae8254844a3a8281541ce2b04b865a734ff"
