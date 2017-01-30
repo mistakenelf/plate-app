@@ -1,6 +1,8 @@
+import { inject, observer } from 'mobx-react'
+
 import { Button } from 'semantic-ui-react'
 
-export default () => (
+export default inject('store')(observer(({ store }) => (
   <div>
     <div className='banner'>
       <div className='header-main'>
@@ -16,7 +18,7 @@ export default () => (
         </h5>
       </div>
       <center>
-        <Button primary style={{marginTop: '80px'}} size='large'>Register Now!</Button>
+        <Button primary style={{marginTop: '80px'}} size='large' onClick={store.openModal}>Register Now!</Button>
       </center>
     </div>
     <style jsx>{`
@@ -52,4 +54,4 @@ export default () => (
       }
     `}</style>
   </div>
-)
+)))
