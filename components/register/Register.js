@@ -11,7 +11,7 @@ export default inject('store')(observer(({ store }) => (
       <div className='register-form'>
         <h1>Sign Up Now</h1>
         <h1>to Begin Serving Plates</h1>
-        <p style={{marginTop: 20 }}>Plate makes task management more simplified
+        <p style={{marginTop: 20}}>Plate makes task management more simplified
           for your every day routine, it's free too!</p>
         <div className='text-fields'>
           <h3>register</h3>

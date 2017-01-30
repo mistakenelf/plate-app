@@ -13,7 +13,6 @@ export default ({ children, userAgent }) => (
         }
         body {
           margin: 0;
-          margin-top: 70px;
           font-family: Roboto, sans-serif;
           background-color: 'white';
         }
@@ -24,7 +23,7 @@ export default ({ children, userAgent }) => (
         <meta name='theme-color' content='#00B5AD' />
         <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
         <link rel='shortcut icon' href='/static/plateLogo.png' />
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css"></link>
+        <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css' />
         <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' />
       </Head>
       <Navigation />

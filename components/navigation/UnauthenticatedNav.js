@@ -5,7 +5,7 @@ import { Menu } from 'semantic-ui-react'
 import Register from '../register/Register'
 
 export default inject('store')(observer(({ store }) => (
-  <div className="nav-bar">
+  <div className='nav-bar'>
     <Menu pointing fixed='top'>
       <Link href='/'>
         <a>

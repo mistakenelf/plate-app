@@ -1,4 +1,4 @@
-import { Header, Button } from 'semantic-ui-react'
+import { Button, Header } from 'semantic-ui-react'
 
 export default () => (
   <div>
@@ -12,18 +12,15 @@ export default () => (
         to begin managing your tasks!
       </Header>
       <center>
-        <Button primary style={{marginTop: '80px'}} size="large">Register Now!</Button>
+        <Button primary style={{marginTop: '80px'}} size='large'>Register Now!</Button>
       </center>
-      <style jsx>{`
-        .header-style {
-          text-align: 'center';
-        }
-        .banner {
-          background-image: url('/static/plateHeader.png');
-          height: 500px;
-          padding-top: 80px;
-        }
-        `}</style>
     </div>
+    <style jsx>{`
+      .banner {
+        background-image: url('/static/plateHeader.png');
+        height: 500px;
+        padding-top: 80px;
+      }
+      `}</style>
   </div>
 )
