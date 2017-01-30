@@ -31,11 +31,16 @@ export default inject('store')(observer(({ store }) => (
         margin-left: auto;
         margin-right: auto;
         text-align: center;
+        width: 500px;
       }
       .text-fields {
         margin-top: 50px;
         text-align: center;
       }
+      @media only screen and (max-width: 660px) {
+        .register-form {
+          width: 300px;
+        }
     `}</style>
   </div>
 )))
