@@ -5,7 +5,7 @@ import { Menu } from 'semantic-ui-react'
 import Register from '../register/Register'
 
 export default inject('store')(observer(({ store }) => (
-  <div>
+  <div className="nav-bar">
     <Menu pointing fixed='top'>
       <Link href='/'>
         <a>
@@ -25,6 +25,10 @@ export default inject('store')(observer(({ store }) => (
     <style jsx>{`
       .logo-text {
         font-size: 20px;
+      }
+      .nav-bar {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
       }
     `}</style>
   </div>
