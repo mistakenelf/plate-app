@@ -21,6 +21,6 @@ export default () => (
         height: 500px;
         padding-top: 80px;
       }
-      `}</style>
+    `}</style>
   </div>
 )
