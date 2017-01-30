@@ -6,7 +6,7 @@ export default inject('store')(observer(({ store }) => (
   <div>
     <Dimmer active={store.modalOpen}
       onClickOutside={store.closeModal}
-      style={{position: 'fixed'}}
+      page
       >
       <div className='register-form'>
         <h1>Sign Up Now</h1>
