@@ -1,20 +1,32 @@
 import { inject, observer } from 'mobx-react'
 
-import AppBar from 'material-ui/AppBar'
-import FlatButton from 'material-ui/FlatButton'
+import Link from 'next/prefetch'
+import { Menu } from 'semantic-ui-react'
 
 export default inject('store')(observer(({ store }) => (
-  <div>
-    <AppBar
-      title='Plate'
-      iconElementRight={<FlatButton label='Register Now!' />}
-      onRightIconButtonTouchTap={store.openModal}
-      showMenuIconButton={false}
-      style={{backgroundColor: 'white'}}
-    />
+  <div className='nav-bar'>
+    <Menu pointing fixed='top'>
+      <Link href='/'>
+        <a>
+          <Menu.Item link>
+            <img src='/static/plateLogo.png' />
+            <span className='logo-text'>late</span>
+          </Menu.Item>
+        </a>
+      </Link>
+      <Menu.Menu position='right'>
+        <Menu.Item link onClick={store.openMenu}>
+          <span>MENU</span>
+        </Menu.Item>
+      </Menu.Menu>
+    </Menu>
     <style jsx>{`
-      a {
-        text-decoration: none;
+      .logo-text {
+        font-size: 20px;
+      }
+      .nav-bar {
+        margin-bottom: 0px;
+        padding-bottom: 0px;
       }
     `}</style>
   </div>

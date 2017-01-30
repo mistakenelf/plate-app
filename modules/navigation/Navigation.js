@@ -1,5 +1,9 @@
+import GlobalMenu from './components/GlobalMenu'
 import UnauthenticatedNav from './components/UnauthenticatedNav'
 
 export default () => (
-  <UnauthenticatedNav />
+  <div>
+    <UnauthenticatedNav />
+    <GlobalMenu />
+  </div>
 )

@@ -1,18 +1,8 @@
-import { Component } from 'react'
+import Home from '../modules/home/Home'
 import Layout from '../components/layout/Layout'
 
-export default class extends Component {
-  static async getInitialProps ({ req }) {
-    return req
-      ? { userAgent: req.headers['user-agent'] }
-      : { userAgent: navigator.userAgent }
-  }
-
-  render () {
-    return (
-      <Layout userAgent={this.props.userAgent}>
-        <h1>Hello World</h1>
-      </Layout>
-    )
-  }
-}
+export default () => (
+  <Layout>
+    <Home />
+  </Layout>
+)
