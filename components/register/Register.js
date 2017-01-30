@@ -1,6 +1,5 @@
-import { inject, observer } from 'mobx-react'
-
 import { Button, Dimmer, Divider, Input } from 'semantic-ui-react'
+import { inject, observer } from 'mobx-react'
 
 export default inject('store')(observer(({ store }) => (
   <div>
@@ -37,7 +36,7 @@ export default inject('store')(observer(({ store }) => (
       }
       @media only screen and (max-width: 660px) {
         .register-form {
-          width: 300px;
+          width: 95%;
           padding-right: 10px;
           padding-left: 10px;
           padding-top: 20px;
