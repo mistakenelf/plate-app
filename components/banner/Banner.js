@@ -1,4 +1,4 @@
-import { Button, Header } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 
 export default () => (
   <div>
