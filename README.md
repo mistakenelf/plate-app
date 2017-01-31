@@ -1,4 +1,4 @@
-# Plate
+# <img src=https://github.com/knipferrc/plate/blob/master/static/plateLogo.png width="50" height="50" />
 
 [![Standard - JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
