@@ -3733,9 +3733,9 @@ sax@^1.1.4:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.1.tgz#7b8e656190b228e81a66aea748480d828cd2d37a"
 
-semantic-ui-react@^0.64.4:
-  version "0.64.4"
-  resolved "https://registry.yarnpkg.com/semantic-ui-react/-/semantic-ui-react-0.64.4.tgz#95b29fd3d4885e05f7aa3cb1497ebe73c99df027"
+semantic-ui-react@^0.64.5:
+  version "0.64.5"
+  resolved "http://dfwprdnpm.sial.com:4873/semantic-ui-react/-/semantic-ui-react-0.64.5.tgz#c3e48d1916f0f59e576ec7224b02fa2fd53b6912"
   dependencies:
     classnames "^2.1.5"
     debug "^2.4.5"
