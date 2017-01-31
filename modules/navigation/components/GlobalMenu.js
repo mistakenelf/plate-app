@@ -1,6 +1,7 @@
 import { inject, observer } from 'mobx-react'
 
 import { Dimmer } from 'semantic-ui-react'
+import Link from 'next/prefetch'
 
 export default inject('store')(observer(({ store }) => (
   <div>
@@ -9,9 +10,27 @@ export default inject('store')(observer(({ store }) => (
       page
     >
       <div className='menu-items'>
-        <h1>Home</h1>
-        <h1>Login</h1>
-        <h1>Dashboard</h1>
+        <h1 onClick={store.closeMenu}>
+          <Link href='/'>
+            <a>
+              Home
+            </a>
+          </Link>
+        </h1>
+        <h1 onClick={store.closeMenu}>
+          <Link href='/login'>
+            <a>
+              Login
+            </a>
+          </Link>
+        </h1>
+        <h1 onClick={store.closeMenu}>
+          <Link href='/dashboard'>
+            <a>
+              Dashboard
+            </a>
+          </Link>
+        </h1>
       </div>
     </Dimmer>
     <style jsx>{`
@@ -20,6 +39,10 @@ export default inject('store')(observer(({ store }) => (
         flex-direction: column;
         justify-content: center;
         align-items: center;
+      }
+
+      a {
+        color: inherit;
       }
     `}</style>
   </div>
