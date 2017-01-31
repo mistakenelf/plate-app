@@ -9,28 +9,30 @@ export default inject('store')(observer(({ store }) => (
       onClickOutside={store.closeMenu}
       page
     >
-      <div className='menu-items'>
-        <h1 onClick={store.closeMenu}>
-          <Link href='/'>
-            <a>
-              Home
-            </a>
-          </Link>
-        </h1>
-        <h1 onClick={store.closeMenu}>
-          <Link href='/login'>
-            <a>
-              Login
-            </a>
-          </Link>
-        </h1>
-        <h1 onClick={store.closeMenu}>
-          <Link href='/dashboard'>
-            <a>
-              Dashboard
-            </a>
-          </Link>
-        </h1>
+      <div className='fade fadeIn'>
+        <div className='menu-items'>
+          <h1 onClick={store.closeMenu}>
+            <Link href='/'>
+              <a>
+                Home
+              </a>
+            </Link>
+          </h1>
+          <h1 onClick={store.closeMenu}>
+            <Link href='/login'>
+              <a>
+                Login
+              </a>
+            </Link>
+          </h1>
+          <h1 onClick={store.closeMenu}>
+            <Link href='/dashboard'>
+              <a>
+                Dashboard
+              </a>
+            </Link>
+          </h1>
+        </div>
       </div>
     </Dimmer>
     <style jsx>{`
@@ -44,6 +46,21 @@ export default inject('store')(observer(({ store }) => (
       a {
         color: inherit;
       }
+
+      .fade {
+        animation-duration: 500ms;
+        animation-fill-mode: both;
+      }
+
+      @keyframes fadeIn {
+        0% {opacity: 0;}
+        100% {opacity: 0.8;}
+      }
+
+      .fadeIn {
+        animation-name: fadeIn;
+      }
+
     `}</style>
   </div>
 )))
