@@ -47,6 +47,10 @@ export default inject('store')(observer(({ store }) => (
         color: inherit;
       }
 
+      a:hover {
+        color: #00ffff;
+      }
+
       .fade {
         animation-duration: 500ms;
         animation-fill-mode: both;
