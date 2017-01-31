@@ -13,8 +13,9 @@ export default ({ children, userAgent }) => (
         }
         body {
           margin: 0;
+          padding-top: 30px;
           font-family: Roboto, sans-serif;
-          background-color: 'white';
+          background-color: white;
         }
       `}</style>
       <Head>
