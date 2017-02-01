@@ -1,47 +1,160 @@
 exports[`Login snapshot renders without crashing!" 1`] = `
-<div
-  data-jsx={2978445754}>
-  <div>
+<div>
+  <div
+    className="nav-bar"
+    data-jsx={2548831492}>
     <div
-      className="nav-bar"
-      data-jsx={2548831492}>
-      <div
-        className="ui top fixed pointing menu">
-        <a
-          data-jsx={2548831492}
-          href="/"
-          onClick={[Function]}>
-          <div
-            className="link item"
-            onClick={[Function]}>
-            <img
-              data-jsx={2548831492}
-              src="/static/plateLogo.png" />
-            <span
-              className="logo-text"
-              data-jsx={2548831492}>
-              late
-            </span>
-          </div>
-        </a>
+      className="ui top fixed pointing menu">
+      <a
+        data-jsx={2548831492}
+        href="/"
+        onClick={[Function]}>
         <div
-          className="right menu">
-          <a
-            className="link item"
-            onClick={[Function]}>
-            <span
-              data-jsx={2548831492}>
-              MENU
-            </span>
-          </a>
+          className="link item"
+          onClick={[Function]}>
+          <img
+            data-jsx={2548831492}
+            src="/static/plateLogo.png" />
+          <span
+            className="logo-text"
+            data-jsx={2548831492}>
+            late
+          </span>
         </div>
+      </a>
+      <div
+        className="right menu">
+        <a
+          className="link item"
+          onClick={[Function]}>
+          <span
+            data-jsx={2548831492}>
+            MENU
+          </span>
+        </a>
       </div>
     </div>
     <div
       data-jsx={1706063930} />
   </div>
-  <h1>
-    Login page
-  </h1>
+  <div
+    className="login-form"
+    data-jsx={1816327275}>
+    <div
+      className="ui centered grid">
+      <div
+        className="row">
+        <div
+          className="eight wide computer sixteen wide mobile sixteen wide tablet column">
+          <h3
+            data-jsx={1816327275}>
+            Login Into Your Account
+          </h3>
+          <form
+            className="ui form"
+            onSubmit={[Function]}>
+            <div
+              className="field">
+              <input
+                data-jsx={1816327275}
+                id="email"
+                name="email"
+                placeholder="email"
+                required={true}
+                type="text" />
+            </div>
+            <div
+              className="field">
+              <input
+                data-jsx={1816327275}
+                id="password"
+                name="password"
+                placeholder="password"
+                required={true}
+                type="password" />
+            </div>
+            <button
+              className="ui primary button"
+              onClick={[Function]}
+              tabIndex={undefined}
+              type="submit">
+              Login
+            </button>
+            <p
+              data-jsx={1816327275}>
+              <a
+                className="link"
+                data-jsx={1816327275}
+                href="#">
+                Forgot Password?
+              </a>
+            </p>
+          </form>
+        </div>
+        <div
+          className="computer only one wide computer column">
+          <div
+            className="ui vertical divider">
+            or
+          </div>
+        </div>
+        <div
+          className="seven wide computer sixteen wide mobile column">
+          <div
+            className="buttons"
+            data-jsx={1816327275}>
+            <button
+              className="ui facebook button"
+              onClick={[Function]}
+              style={
+                Object {
+                  "marginBottom": "15px",
+                  "width": "300px",
+                }
+              }
+              tabIndex={undefined}>
+              <i
+                aria-hidden="true"
+                className="facebook icon" />
+               Sign in with Facebook
+            </button>
+            <br
+              data-jsx={1816327275} />
+            <button
+              className="ui google plus button"
+              onClick={[Function]}
+              style={
+                Object {
+                  "marginBottom": "15px",
+                  "width": "300px",
+                }
+              }
+              tabIndex={undefined}>
+              <i
+                aria-hidden="true"
+                className="google plus icon" />
+               Sign in with Google Plus
+            </button>
+            <br
+              data-jsx={1816327275} />
+            <button
+              className="ui twitter button"
+              onClick={[Function]}
+              style={
+                Object {
+                  "width": "300px",
+                }
+              }
+              tabIndex={undefined}>
+              <i
+                aria-hidden="true"
+                className="twitter icon" />
+               Sign in with Twitter
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
