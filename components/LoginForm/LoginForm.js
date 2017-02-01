@@ -1,5 +1,6 @@
 import { Button, Divider, Form, Grid, Icon } from 'semantic-ui-react'
 
+import Router from 'next/router'
 import { auth } from '../../lib/db'
 
 const login = (e) => {
@@ -8,7 +9,10 @@ const login = (e) => {
   const email = document.getElementById('email').value
   const password = document.getElementById('password').value
 
-  auth.signInWithEmailAndPassword(email, password)
+  const promise = auth.signInWithEmailAndPassword(email, password)
+
+  promise
+    .then(() => Router.push('/'))
 }
 
 export default () => (
