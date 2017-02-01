@@ -64,7 +64,6 @@ export default inject('store')(observer(({ store }) => (
       .fadeIn {
         animation-name: fadeIn;
       }
-
     `}</style>
   </div>
 )))
