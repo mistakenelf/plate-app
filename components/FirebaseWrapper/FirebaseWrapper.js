@@ -1,4 +1,3 @@
-import { Button, Dimmer, Divider, Form, Icon } from 'semantic-ui-react'
 import { inject, observer } from 'mobx-react'
 
 import { Component } from 'react'
