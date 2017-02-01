@@ -1,3 +1,4 @@
+import FirebaseWrapper from '../FirebaseWrapper/FirebaseWrapper'
 import Head from 'next/head'
 import Navigation from '../Navigation/Navigation'
 import { Provider } from 'mobx-react'
@@ -5,7 +6,7 @@ import store from '../../store/store'
 
 export default ({ children }) => (
   <Provider store={store}>
-    <div>
+    <FirebaseWrapper>
       <style jsx global>{`
         * {
           margin: 0;
@@ -29,6 +30,6 @@ export default ({ children }) => (
       </Head>
       <Navigation />
       {children}
-    </div>
+    </FirebaseWrapper>
   </Provider>
 )
