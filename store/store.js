@@ -4,6 +4,7 @@ class Store {
   @observable modalOpen = false
   @observable menuOpen = false
   @observable loading = false
+  @observable loggedIn = false;
 
   @action openModal = () => {
     this.modalOpen = true
@@ -27,6 +28,14 @@ class Store {
 
   @action stopLoading = () => {
     this.loading = false
+  }
+
+  @action doLogin = () => {
+    this.loggedIn = true
+  }
+
+  @action doLogout = () => {
+    this.loggedIn = false
   }
 
 }
