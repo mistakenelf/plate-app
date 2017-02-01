@@ -2,6 +2,11 @@ import { inject, observer } from 'mobx-react'
 
 import { Dimmer } from 'semantic-ui-react'
 import Link from 'next/prefetch'
+import { auth } from '../../lib/db'
+
+const logout = () => {
+  auth.signOut()
+}
 
 export default inject('store')(observer(({ store }) => (
   <div>
@@ -22,6 +27,13 @@ export default inject('store')(observer(({ store }) => (
             <Link href='/login'>
               <a>
                 Login
+              </a>
+            </Link>
+          </h1>
+          <h1 onClick={store.closeMenu}>
+            <Link href='#'>
+              <a onClick={logout}>
+                Logout
               </a>
             </Link>
           </h1>
