@@ -1,7 +1,7 @@
 import { inject, observer } from 'mobx-react'
 
 import { Button } from 'semantic-ui-react'
-import Register from '../../../components/register/Register'
+import Register from '../Register/Register'
 
 export default inject('store')(observer(({ store }) => (
   <div>

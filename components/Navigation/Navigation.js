@@ -1,5 +1,6 @@
 import { inject, observer } from 'mobx-react'
 
+import GlobalMenu from '../GlobalMenu/GlobalMenu'
 import Link from 'next/prefetch'
 import { Menu } from 'semantic-ui-react'
 
@@ -20,6 +21,7 @@ export default inject('store')(observer(({ store }) => (
         </Menu.Item>
       </Menu.Menu>
     </Menu>
+    <GlobalMenu />
     <style jsx>{`
       .logo-text {
         font-size: 20px;

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Navigation from '../../modules/navigation/Navigation'
+import Navigation from '../Navigation/Navigation'
 import { Provider } from 'mobx-react'
 import store from '../../store/store'
 

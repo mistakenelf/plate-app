@@ -1,8 +1,8 @@
-import Layout from '../components/layout/Layout'
-import Login from '../modules/login/Login'
+import Layout from '../components/Layout/Layout'
+import LoginForm from '../components/LoginForm/LoginForm'
 
 export default () => (
   <Layout>
-    <Login />
+    <LoginForm />
   </Layout>
 )

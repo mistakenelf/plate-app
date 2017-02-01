@@ -1,8 +1,8 @@
-import Home from '../modules/home/Home'
-import Layout from '../components/layout/Layout'
+import Banner from '../components/Banner/Banner'
+import Layout from '../components/Layout/Layout'
 
 export default () => (
   <Layout>
-    <Home />
+    <Banner />
   </Layout>
 )
