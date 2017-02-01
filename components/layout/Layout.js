@@ -3,7 +3,7 @@ import Navigation from '../../modules/navigation/Navigation'
 import { Provider } from 'mobx-react'
 import store from '../../store/store'
 
-export default ({ children, userAgent }) => (
+export default ({ children }) => (
   <Provider store={store}>
     <div>
       <style jsx global>{`
