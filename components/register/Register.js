@@ -11,9 +11,9 @@ export default inject('store')(observer(({ store }) => (
         <h1>Sign Up Now <br />
         to Begin Serving Plates</h1>
         <p style={{marginTop: 20}}>Create endless tasks for free!</p>
-        <Input placeholder='Username' size='large' style={{marginBottom: '10px'}} />
+        <Input placeholder='username' size='large' style={{marginBottom: '10px'}} />
         <br />
-        <Input placeholder='Password' size='large' style={{marginBottom: '20px'}} />
+        <Input type='password' placeholder='password' size='large' style={{marginBottom: '20px'}} />
         <br />
         <Divider />
         <Button primary>Register Now!</Button>
