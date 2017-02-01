@@ -1,19 +1,30 @@
 import { Button, Divider, Form, Grid, Icon } from 'semantic-ui-react'
 
+import { auth } from '../../lib/db'
+
+const login = (e) => {
+  e.preventDefault()
+
+  const email = document.getElementById('email').value
+  const password = document.getElementById('password').value
+
+  auth.signInWithEmailAndPassword(email, password)
+}
+
 export default () => (
   <div className='login-form'>
     <Grid centered>
       <Grid.Row>
         <Grid.Column computer={8} tablet={16} mobile={16}>
           <h3>Login Into Your Account</h3>
-          <Form>
-            <Form.Field>
-              <input type='text' name='username' id='username' placeholder='username' required />
-            </Form.Field>
+          <Form onSubmit={login}>
             <Form.Field>
               <input type='text' name='email' id='email' placeholder='email' required />
             </Form.Field>
-            <Button type='submit' primary>Register Now!</Button>
+            <Form.Field>
+              <input type='password' name='password' id='password' placeholder='password' required />
+            </Form.Field>
+            <Button type='submit' primary>Login</Button>
             <p><a href='#' className='link'>Forgot Password?</a></p>
           </Form>
         </Grid.Column>
