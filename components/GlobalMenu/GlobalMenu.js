@@ -4,8 +4,9 @@ import { Dimmer } from 'semantic-ui-react'
 import Link from 'next/prefetch'
 import { auth } from '../../lib/db'
 
-const logout = () => {
+const logout = (closeMenu) => {
   auth.signOut()
+  closeMenu()
 }
 
 export default inject('store')(observer(({ store }) => (
@@ -30,13 +31,11 @@ export default inject('store')(observer(({ store }) => (
               </a>
             </Link>
           </h1>
-          <h1 onClick={store.closeMenu}>
-            <Link href='#'>
-              <a onClick={logout}>
-                Logout
-              </a>
-            </Link>
-          </h1>
+          {store.loggedIn &&
+            <h1 onClick={() => logout(store.closeMenu)}>
+              Logout
+            </h1>
+          }
           <h1 onClick={store.closeMenu}>
             <Link href='/dashboard'>
               <a>
