@@ -9,13 +9,16 @@ export default class extends Component {
   register = (e) => {
     e.preventDefault()
 
+    this.props.store.startLoading()
+
     const username = document.getElementById('username').value
     const password = document.getElementById('password').value
 
     const promise = auth.createUserWithEmailAndPassword(username, password)
 
     promise
-      .then(this.props.store.closeModal)
+      .then(() => this.props.store.closeModal())
+      .then(() => this.props.store.stopLoading())
   }
 
   render () {
@@ -29,7 +32,7 @@ export default class extends Component {
             <h1>Sign Up Now <br />
             to Begin Serving Plates</h1>
             <p style={{marginTop: 20}}>Create endless tasks for free!</p>
-            <Form method='post' onSubmit={this.register}>
+            <Form method='post' onSubmit={this.register} loading={this.props.store.loading}>
               <Form.Field>
                 <input type='text' name='username' id='username' placeholder='username' required />
               </Form.Field>
