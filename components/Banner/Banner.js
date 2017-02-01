@@ -18,9 +18,11 @@ export default inject('store')(observer(({ store }) => (
           to begin managing your tasks!
         </h5>
       </div>
-      <center>
-        <Button primary style={{marginTop: '80px'}} size='large' onClick={store.openModal}>Register Now!</Button>
-      </center>
+      {store.loggedIn === false &&
+        <center>
+          <Button primary style={{marginTop: '80px'}} size='large' onClick={store.openModal}>Register Now!</Button>
+        </center>
+      }
     </div>
     <Register />
     <style jsx>{`
