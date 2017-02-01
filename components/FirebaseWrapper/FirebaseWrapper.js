@@ -5,13 +5,12 @@ import { auth } from '../../lib/db'
 
 @inject('store') @observer
 export default class extends Component {
-
   componentDidMount () {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        this.props.store.doLogin
+        this.props.store.loggedIn = true
       } else {
-        this.props.store.doLogout
+        this.props.store.loggedIn = false
       }
     })
   }
