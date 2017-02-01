@@ -29,15 +29,6 @@ class Store {
   @action stopLoading = () => {
     this.loading = false
   }
-
-  @action doLogin = () => {
-    this.loggedIn = true
-  }
-
-  @action doLogout = () => {
-    this.loggedIn = false
-  }
-
 }
 
 export default new Store()
