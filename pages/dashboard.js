@@ -1,7 +1,10 @@
 import Layout from '../components/Layout/Layout'
+import ReactTextEditor from 'react-text-editor'
 
 export default () => (
   <Layout>
-    <h1>Dashboard</h1>
+    <div style={{margin: 50}}>
+      <ReactTextEditor />
+    </div>
   </Layout>
 )
