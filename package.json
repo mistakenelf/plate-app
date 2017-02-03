@@ -10,7 +10,7 @@
     "mobx-react": "^4.1.0",
     "next": "2.0.0-beta.18",
     "react-test-renderer": "^15.4.2",
-    "react-text-editor": "^0.0.10",
+    "react-text-editor": "^0.0.12",
     "semantic-ui-react": "^0.64.7"
   },
   "scripts": {
