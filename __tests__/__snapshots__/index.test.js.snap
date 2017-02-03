@@ -4,7 +4,7 @@ exports[`Home page snapshot renders without crashing!" 1`] = `
     className="nav-bar"
     data-jsx={2548831492}>
     <div
-      className="ui top fixed pointing menu">
+      className="ui pointing top fixed menu">
       <a
         data-jsx={2548831492}
         href="/"

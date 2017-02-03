@@ -4,7 +4,7 @@ exports[`Dashboard snapshot renders without crashing!" 1`] = `
     className="nav-bar"
     data-jsx={2548831492}>
     <div
-      className="ui top fixed pointing menu">
+      className="ui pointing top fixed menu">
       <a
         data-jsx={2548831492}
         href="/"
@@ -37,8 +37,89 @@ exports[`Dashboard snapshot renders without crashing!" 1`] = `
     <div
       data-jsx={1706063930} />
   </div>
-  <h1>
-    Dashboard
-  </h1>
+  <div
+    style={
+      Object {
+        "margin": 50,
+      }
+    }>
+    <div
+      style={
+        Object {
+          "border": "6px solid black",
+          "height": 500,
+          "width": "50%",
+        }
+      }>
+      <div
+        className="DraftEditor-root">
+        <div
+          className="DraftEditor-editorContainer">
+          <div
+            aria-activedescendant={undefined}
+            aria-autocomplete={undefined}
+            aria-describedby={null}
+            aria-expanded={undefined}
+            aria-haspopup={undefined}
+            aria-label={undefined}
+            aria-owns={undefined}
+            className="public-DraftEditor-content"
+            contentEditable={true}
+            data-testid={undefined}
+            onBeforeInput={[Function]}
+            onBlur={[Function]}
+            onCompositionEnd={[Function]}
+            onCompositionStart={[Function]}
+            onCopy={[Function]}
+            onCut={[Function]}
+            onDragEnd={[Function]}
+            onDragEnter={[Function]}
+            onDragLeave={[Function]}
+            onDragOver={[Function]}
+            onDragStart={[Function]}
+            onDrop={[Function]}
+            onFocus={[Function]}
+            onInput={[Function]}
+            onKeyDown={[Function]}
+            onKeyPress={[Function]}
+            onKeyUp={[Function]}
+            onMouseUp={[Function]}
+            onPaste={[Function]}
+            onSelect={[Function]}
+            role="textbox"
+            spellCheck={false}
+            style={
+              Object {
+                "outline": "none",
+                "whiteSpace": "pre-wrap",
+                "wordWrap": "break-word",
+              }
+            }
+            suppressContentEditableWarning={true}
+            tabIndex={undefined}>
+            <div
+              data-contents="true">
+              <div
+                className=""
+                data-block={true}
+                data-editor="brv5t"
+                data-offset-key="7hiqj-0-0">
+                <div
+                  className="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
+                  data-offset-key="7hiqj-0-0">
+                  <span
+                    data-offset-key="7hiqj-0-0"
+                    style={Object {}}>
+                    <br
+                      data-text="true" />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
