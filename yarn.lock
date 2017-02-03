@@ -3505,9 +3505,9 @@ react-test-renderer@^15.4.2:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-react-text-editor@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/react-text-editor/-/react-text-editor-0.0.9.tgz#e343127baccec8f56f3e720e7d373f1bf4c351f0"
+react-text-editor@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/react-text-editor/-/react-text-editor-0.0.10.tgz#915d78d973db00bb667c3ef40f3664d744a24f4b"
   dependencies:
     draft-js "^0.10.0"
 
