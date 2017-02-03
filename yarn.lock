@@ -1347,6 +1347,14 @@ domain-browser@^1.1.1:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
 
+draft-js@^0.10.0:
+  version "0.10.0"
+  resolved "http://dfwprdnpm.sial.com:4873/draft-js/-/draft-js-0.10.0.tgz#29d16191012b932fdab28a9b37ec1538f421abf6"
+  dependencies:
+    fbjs "^0.8.7"
+    immutable "~3.7.4"
+    object-assign "^4.1.0"
+
 ecc-jsbn@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
@@ -1684,7 +1692,7 @@ fb-watchman@^1.8.0, fb-watchman@^1.9.0:
   dependencies:
     bser "1.0.2"
 
-fbjs@^0.8.1, fbjs@^0.8.4, fbjs@^0.8.8:
+fbjs@^0.8.1, fbjs@^0.8.4, fbjs@^0.8.7, fbjs@^0.8.8:
   version "0.8.8"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.8.tgz#02f1b6e0ea0d46c24e0b51a2d24df069563a5ad6"
   dependencies:
@@ -2086,6 +2094,10 @@ ieee754@^1.1.4:
 ignore@^3.0.9, ignore@^3.2.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-3.2.2.tgz#1c51e1ef53bab6ddc15db4d9ac4ec139eceb3410"
+
+immutable@~3.7.4:
+  version "3.7.6"
+  resolved "http://dfwprdnpm.sial.com:4873/immutable/-/immutable-3.7.6.tgz#13b4d3cb12befa15482a26fe1b2ebae640071e4b"
 
 imurmurhash@^0.1.4:
   version "0.1.4"
@@ -3410,11 +3422,11 @@ public-encrypt@^4.0.0:
     parse-asn1 "^5.0.0"
     randombytes "^2.0.1"
 
-punycode@1.3.2:
+punycode@1.3.2, punycode@^1.2.4:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.3.2.tgz#9653a036fb7c1ee42342f2325cceefea3926c48d"
 
-punycode@^1.2.4, punycode@^1.4.1:
+punycode@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-1.4.1.tgz#c0d5a63b2718800ad8e1eb0fa5269c84dd41845e"
 
@@ -3489,6 +3501,12 @@ react-test-renderer@^15.4.2:
   dependencies:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
+
+react-text-editor@^0.0.2:
+  version "0.0.2"
+  resolved "http://dfwprdnpm.sial.com:4873/react-text-editor/-/react-text-editor-0.0.2.tgz#339181304e705704ee6fb12c17288a259b87d685"
+  dependencies:
+    draft-js "^0.10.0"
 
 react@15.4.2:
   version "15.4.2"
