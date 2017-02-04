@@ -2,6 +2,7 @@ import { Button, Divider, Form, Grid, Icon } from 'semantic-ui-react'
 
 import Router from 'next/router'
 import { auth } from '../../lib/db'
+import firebase from 'firebase'
 
 const login = (e) => {
   e.preventDefault()
@@ -10,6 +11,15 @@ const login = (e) => {
   const password = document.getElementById('password').value
 
   const promise = auth.signInWithEmailAndPassword(email, password)
+
+  promise
+    .then(() => Router.push('/dashboard'))
+}
+
+const loginWithGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider()
+
+  const promise = auth.signInWithPopup(provider)
 
   promise
     .then(() => Router.push('/dashboard'))
@@ -41,7 +51,7 @@ export default () => (
               <Icon name='facebook' /> Sign in with Facebook
             </Button>
             <br />
-            <Button color='google plus' style={{marginBottom: '15px', width: '300px'}}>
+            <Button color='google plus' onClick={loginWithGoogle} style={{marginBottom: '15px', width: '300px'}}>
               <Icon name='google plus' /> Sign in with Google Plus
             </Button>
             <br />
