@@ -2,6 +2,7 @@ import { Button, Dimmer, Divider, Form, Icon, Message } from 'semantic-ui-react'
 import { inject, observer } from 'mobx-react'
 
 import { Component } from 'react'
+import Router from 'next/router'
 import { auth } from '../../lib/db'
 
 @inject('store') @observer
@@ -20,6 +21,7 @@ export default class extends Component {
       .then(() => this.props.store.closeModal())
       .then(() => this.props.store.stopLoading())
       .then(() => this.props.store.showRegisterMessage())
+      .then(() => Router.push('/dashboard'))
   }
 
   render () {
