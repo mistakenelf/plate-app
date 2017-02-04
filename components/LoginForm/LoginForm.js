@@ -12,7 +12,7 @@ const login = (e) => {
   const promise = auth.signInWithEmailAndPassword(email, password)
 
   promise
-    .then(() => Router.push('/'))
+    .then(() => Router.push('/dashboard'))
 }
 
 export default () => (
