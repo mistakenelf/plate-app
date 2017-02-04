@@ -25,6 +25,15 @@ const loginWithGoogle = () => {
     .then(() => Router.push('/dashboard'))
 }
 
+const loginWithFacebook = () => {
+  const provider = new firebase.auth.FacebookAuthProvider()
+
+  const promise = auth.signInWithPopup(provider)
+
+  promise
+    .then(() => Router.push('/dashboard'))
+}
+
 export default () => (
   <div className='login-form'>
     <Grid centered>
@@ -47,7 +56,7 @@ export default () => (
         </Grid.Column>
         <Grid.Column computer={7} mobile={16}>
           <div className='buttons'>
-            <Button color='facebook' style={{marginBottom: '15px', width: '300px'}}>
+            <Button color='facebook' onClick={loginWithFacebook} style={{marginBottom: '15px', width: '300px'}}>
               <Icon name='facebook' /> Sign in with Facebook
             </Button>
             <br />
