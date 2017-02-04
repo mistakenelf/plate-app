@@ -2,11 +2,13 @@ import { inject, observer } from 'mobx-react'
 
 import { Dimmer } from 'semantic-ui-react'
 import Link from 'next/prefetch'
+import Router from 'next/router'
 import { auth } from '../../lib/db'
 
 const logout = (closeMenu) => {
   auth.signOut()
   closeMenu()
+  Router.push('/')
 }
 
 export default inject('store')(observer(({ store }) => (
