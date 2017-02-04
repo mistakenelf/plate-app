@@ -4,7 +4,9 @@ class Store {
   @observable modalOpen = false
   @observable menuOpen = false
   @observable loading = false
-  @observable loggedIn = false;
+  @observable loggedIn = false
+  @observable registerMessage = false
+  @observable registerMessageHidden = true
 
   @action openModal = () => {
     this.modalOpen = true
@@ -28,6 +30,16 @@ class Store {
 
   @action stopLoading = () => {
     this.loading = false
+  }
+
+  @action showRegisterMessage = () => {
+    this.registerMessage = true
+    this.registerMessageHidden = false
+  }
+
+  @action hideRegisterMessage = () => {
+    this.registerMessage = false
+    this.registerMessageHidden = true
   }
 }
 
