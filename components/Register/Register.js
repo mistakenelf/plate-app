@@ -1,4 +1,4 @@
-import { Button, Dimmer, Divider, Form, Icon, Message } from 'semantic-ui-react'
+import { Button, Dimmer, Divider, Form, Icon } from 'semantic-ui-react'
 import { inject, observer } from 'mobx-react'
 
 import { Component } from 'react'
@@ -27,17 +27,6 @@ export default class extends Component {
   render () {
     return (
       <div>
-        <Message
-          floating='true'
-          success='true'
-          visible={this.props.store.registerMessage}
-          hidden={this.props.store.registerMessageHidden}
-          onDismiss={this.props.store.hideRegisterMessage}
-          header='Welcome to plate!'
-          content='Please enter your dashboard space to begin adding plates.'
-          positioning='bottom center'
-        />
-
         <Dimmer active={this.props.store.modalOpen}
           onClickOutside={this.props.store.closeModal}
           page
