@@ -14,10 +14,14 @@ export default class extends Component {
 
     const username = document.getElementById('email').value
     const password = document.getElementById('password').value
+    const displayID = document.getElementById('username').value
 
     const promise = auth.createUserWithEmailAndPassword(username, password)
 
     promise
+      .then((user) => user.updateProfile({
+        displayName: displayID
+      }))
       .then(() => this.props.store.closeModal())
       .then(() => this.props.store.stopLoading())
       .then(() => this.props.store.showRegisterMessage())
