@@ -40,13 +40,15 @@ export default inject('store')(observer(({ store }) => (
               Logout
             </h1>
           }
-          <h1 onClick={store.closeMenu}>
-            <Link href='/dashboard'>
-              <a>
-                Dashboard
-              </a>
-            </Link>
-          </h1>
+          {store.loggedIn &&
+            <h1 onClick={store.closeMenu}>
+              <Link href='/dashboard'>
+                <a>
+                  Dashboard
+                </a>
+              </Link>
+            </h1>
+          }
         </div>
       </div>
     </Dimmer>
