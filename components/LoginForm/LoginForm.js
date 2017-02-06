@@ -44,7 +44,7 @@ export default class extends Component {
 
   render() {
     return (
-      <div className='container'>
+      <div>
         <Message
           floating='true'
           negative='true'
@@ -92,9 +92,6 @@ export default class extends Component {
             </Grid.Row>
           </Grid>
           <style jsx>{`
-            .container {
-              margin-top: 150px;
-            }
             .login-form {
               background-color: #F7F7F7;
               border-radius: 10px;
