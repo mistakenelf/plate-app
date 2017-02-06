@@ -10,13 +10,17 @@ export default inject('store')(observer(class extends Component {
   login = (e) => {
     e.preventDefault()
 
+    this.props.store.loading = true
+
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
 
     const promise = auth.signInWithEmailAndPassword(email, password)
     promise
       .then(() => Router.push('/dashboard'))
+      .then(() => { this.props.store.loading = false })
       .catch(() => {
+        this.props.store.loading = false
         this.props.store.showLoginMessage()
       })
   }
@@ -37,7 +41,7 @@ export default inject('store')(observer(class extends Component {
       .then(() => Router.push('/dashboard'))
   }
 
-  render() {
+  render () {
     return (
       <div className='login-form'>
         <Grid centered>
@@ -60,7 +64,7 @@ export default inject('store')(observer(class extends Component {
                 <Form.Field>
                   <input type='password' name='password' id='password' placeholder='password' required />
                 </Form.Field>
-                <Button type='submit' primary>Login</Button>
+                <Button type='submit' loading={this.props.store.loading} primary>Login</Button>
                 <p><a href='#' className='link'>Forgot Password?</a></p>
               </Form>
             </Grid.Column>
