@@ -2079,13 +2079,9 @@ https-browserify@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-0.0.1.tgz#3f91365cabe60b77ed0ebba24b454e3e09d95a82"
 
-iconv-lite@0.4.13:
+iconv-lite@0.4.13, iconv-lite@~0.4.13:
   version "0.4.13"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.13.tgz#1f88aba4ab0b1508e8312acc39345f36e992e2f2"
-
-iconv-lite@~0.4.13:
-  version "0.4.15"
-  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.15.tgz#fe265a218ac6a57cfe854927e9d04c19825eddeb"
 
 ieee754@^1.1.4:
   version "1.1.8"
@@ -3500,12 +3496,6 @@ react-test-renderer@^15.4.2:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-react-text-editor@^0.0.12:
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/react-text-editor/-/react-text-editor-0.0.12.tgz#3f0c7eb297a516d48db57eb22c1a3ac6f1588fb9"
-  dependencies:
-    draft-js "^0.10.0"
-
 react@15.4.2:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.4.2.tgz#41f7991b26185392ba9bae96c8889e7e018397ef"
@@ -4085,6 +4075,12 @@ test-exclude@^3.3.0:
 text-table@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
+
+texty@^0.0.13:
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/texty/-/texty-0.0.13.tgz#fc3ba31434ddc4be937e91ae2d00e4fa93be3301"
+  dependencies:
+    draft-js "^0.10.0"
 
 thenify-all@^1.0.0:
   version "1.6.0"
