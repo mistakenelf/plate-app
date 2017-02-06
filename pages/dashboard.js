@@ -3,8 +3,6 @@ import Layout from '../components/Layout/Layout'
 
 export default () => (
   <Layout>
-    <div style={{margin: 50}}>
-      <Dashboard />
-    </div>
+    <Dashboard />
   </Layout>
 )

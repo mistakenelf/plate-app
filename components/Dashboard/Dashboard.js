@@ -18,6 +18,7 @@ export default class extends Component {
           header={'Hello, ' + this.props.store.displayUserName}
           content='This is your dashboard where you can add new plates.'
         />
+        <h1>Dashboard</h1>
       </div>
     )
   }
