@@ -43,80 +43,22 @@ exports[`Dashboard snapshot renders without crashing!" 1`] = `
         "margin": 50,
       }
     }>
-    <div
-      style={
-        Object {
-          "border": "6px solid black",
-          "height": 500,
-          "width": "50%",
-        }
-      }>
+    <div>
       <div
-        className="DraftEditor-root">
+        className="ui floating hidden success message">
+        <i
+          aria-hidden="true"
+          className="close icon"
+          onClick={[Function]} />
         <div
-          className="DraftEditor-editorContainer">
+          className="content">
           <div
-            aria-activedescendant={undefined}
-            aria-autocomplete={undefined}
-            aria-describedby={null}
-            aria-expanded={undefined}
-            aria-haspopup={undefined}
-            aria-label={undefined}
-            aria-owns={undefined}
-            className="public-DraftEditor-content"
-            contentEditable={true}
-            data-testid={undefined}
-            onBeforeInput={[Function]}
-            onBlur={[Function]}
-            onCompositionEnd={[Function]}
-            onCompositionStart={[Function]}
-            onCopy={[Function]}
-            onCut={[Function]}
-            onDragEnd={[Function]}
-            onDragEnter={[Function]}
-            onDragLeave={[Function]}
-            onDragOver={[Function]}
-            onDragStart={[Function]}
-            onDrop={[Function]}
-            onFocus={[Function]}
-            onInput={[Function]}
-            onKeyDown={[Function]}
-            onKeyPress={[Function]}
-            onKeyUp={[Function]}
-            onMouseUp={[Function]}
-            onPaste={[Function]}
-            onSelect={[Function]}
-            role="textbox"
-            spellCheck={false}
-            style={
-              Object {
-                "outline": "none",
-                "whiteSpace": "pre-wrap",
-                "wordWrap": "break-word",
-              }
-            }
-            suppressContentEditableWarning={true}
-            tabIndex={undefined}>
-            <div
-              data-contents="true">
-              <div
-                className=""
-                data-block={true}
-                data-editor="brv5t"
-                data-offset-key="7hiqj-0-0">
-                <div
-                  className="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                  data-offset-key="7hiqj-0-0">
-                  <span
-                    data-offset-key="7hiqj-0-0"
-                    style={Object {}}>
-                    <br
-                      data-text="true" />
-                  </span>
-                </div>
-              </div>
-            </div>
+            className="header">
+            Hello, 
           </div>
+          <p>
+            This is your dashboard where you can add new plates.
+          </p>
         </div>
       </div>
     </div>

@@ -16,6 +16,8 @@ export default class extends Component {
     const password = document.getElementById('password').value
     const displayID = document.getElementById('username').value
 
+    this.props.store.displayUserName = displayID
+
     const promise = auth.createUserWithEmailAndPassword(username, password)
 
     promise
@@ -26,6 +28,7 @@ export default class extends Component {
       .then(() => this.props.store.stopLoading())
       .then(() => this.props.store.showRegisterMessage())
       .then(() => Router.push('/dashboard'))
+      .catch(() => this.props.store.stopLoading())
   }
 
   render () {
