@@ -37,7 +37,7 @@ export default inject('store')(observer(({ store }) => (
           }
           {store.loggedIn &&
             <h1 onClick={() => logout(store.closeMenu)}>
-              Logout
+              <a>Logout</a>
             </h1>
           }
           {store.loggedIn &&
@@ -62,10 +62,12 @@ export default inject('store')(observer(({ store }) => (
 
       a {
         color: inherit;
+        cursor: pointer;
       }
 
       a:hover {
         color: #00ffff;
+        cursor: pointer;
       }
 
       .fade {
