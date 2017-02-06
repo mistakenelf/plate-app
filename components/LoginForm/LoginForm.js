@@ -46,8 +46,8 @@ export default class extends Component {
     return (
       <div>
         <Message
-          floating='true'
-          negative='true'
+          floating
+          negative
           visible={this.props.store.loginMessage}
           hidden={this.props.store.loginMessageHidden}
           onDismiss={this.props.store.hideLoginMessage}

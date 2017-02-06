@@ -15,7 +15,7 @@ export default class extends Component {
     return (
       <div>
         <Message
-          floating='true'
+          floating
           success='true'
           visible={this.props.store.registerMessage}
           hidden={this.props.store.registerMessageHidden}
