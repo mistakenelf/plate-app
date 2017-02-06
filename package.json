@@ -6,7 +6,7 @@
     "babel-jest": "^18.0.0",
     "firebase": "^3.6.8",
     "jest-cli": "^18.1.0",
-    "mobx": "^3.0.2",
+    "mobx": "^3.1.0",
     "mobx-react": "^4.1.0",
     "next": "2.0.0-beta.18",
     "react-test-renderer": "^15.4.2",
