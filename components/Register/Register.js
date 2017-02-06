@@ -34,7 +34,7 @@ export default class extends Component {
         <Dimmer active={this.props.store.modalOpen}
           onClickOutside={this.props.store.closeModal}
           page
-          >
+        >
           <div className='register-form'>
             <Icon name='add user' size='huge' />
             <h3 style={{marginTop: '10px', marginBottom: '0px'}}>Register</h3>
@@ -43,18 +43,15 @@ export default class extends Component {
               <Form.Field>
                 <input type='text' name='username' id='username' placeholder='username' required />
               </Form.Field>
-
               <Form.Field>
                 <input type='text' name='email' id='email' placeholder='email' required />
               </Form.Field>
-
               <Form.Field>
                 <input type='password' name='password' id='password' placeholder='password' required />
               </Form.Field>
               <Form.Field>
                 <input type='password' name='confirmPassword' id='confirmPassword' placeholder='confirm password' required />
               </Form.Field>
-
               <Divider />
               <Button type='submit' primary>Register Now!</Button>
             </Form>
