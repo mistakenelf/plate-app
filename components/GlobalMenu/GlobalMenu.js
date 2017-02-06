@@ -26,13 +26,15 @@ export default inject('store')(observer(({ store }) => (
               </a>
             </Link>
           </h1>
-          <h1 onClick={store.closeMenu}>
-            <Link href='/login'>
-              <a>
-                Login
-              </a>
-            </Link>
-          </h1>
+          {!store.loggedIn &&
+            <h1 onClick={store.closeMenu}>
+              <Link href='/login'>
+                <a>
+                  Login
+                </a>
+              </Link>
+            </h1>
+          }
           {store.loggedIn &&
             <h1 onClick={() => logout(store.closeMenu)}>
               Logout
