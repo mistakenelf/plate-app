@@ -14,7 +14,7 @@ export default ({ children }) => (
         }
         body {
           margin: 0;
-          padding-top: 70px;
+          padding-top: 40px;
           font-family: Roboto, sans-serif;
           background-color: white;
         }
