@@ -7,6 +7,8 @@ class Store {
   @observable loggedIn = false
   @observable registerMessage = false
   @observable registerMessageHidden = true
+  @observable loginMessage = false
+  @observable loginMessageHidden = true
   @observable displayUserName = ''
 
   @action openModal = () => {
@@ -41,6 +43,16 @@ class Store {
   @action hideRegisterMessage = () => {
     this.registerMessage = false
     this.registerMessageHidden = true
+  }
+
+  @action showLoginMessage = () => {
+    this.loginMessage = true
+    this.loginMessageHidden = false
+  }
+
+  @action hideLoginMessage = () => {
+    this.loginMessage = false
+    this.loginMessageHidden = true
   }
 }
 
