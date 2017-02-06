@@ -37,31 +37,27 @@ exports[`Dashboard snapshot renders without crashing!" 1`] = `
     <div
       data-jsx={1706063930} />
   </div>
-  <div
-    style={
-      Object {
-        "margin": 50,
-      }
-    }>
-    <div>
+  <div>
+    <div
+      className="ui floating hidden success message">
+      <i
+        aria-hidden="true"
+        className="close icon"
+        onClick={[Function]} />
       <div
-        className="ui floating hidden success message">
-        <i
-          aria-hidden="true"
-          className="close icon"
-          onClick={[Function]} />
+        className="content">
         <div
-          className="content">
-          <div
-            className="header">
-            Hello, 
-          </div>
-          <p>
-            This is your dashboard where you can add new plates.
-          </p>
+          className="header">
+          Hello, 
         </div>
+        <p>
+          This is your dashboard where you can add new plates.
+        </p>
       </div>
     </div>
+    <h1>
+      Dashboard
+    </h1>
   </div>
 </div>
 `;

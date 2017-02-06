@@ -39,7 +39,7 @@ exports[`Login snapshot renders without crashing!" 1`] = `
   </div>
   <div
     className="login-form"
-    data-jsx={1403343223}>
+    data-jsx={3406753779}>
     <div
       className="ui centered grid">
       <div
@@ -64,7 +64,7 @@ exports[`Login snapshot renders without crashing!" 1`] = `
         <div
           className="eight wide computer sixteen wide mobile sixteen wide tablet column">
           <h3
-            data-jsx={1403343223}>
+            data-jsx={3406753779}>
             Login Into Your Account
           </h3>
           <form
@@ -73,7 +73,7 @@ exports[`Login snapshot renders without crashing!" 1`] = `
             <div
               className="field">
               <input
-                data-jsx={1403343223}
+                data-jsx={3406753779}
                 id="email"
                 name="email"
                 placeholder="email"
@@ -83,7 +83,7 @@ exports[`Login snapshot renders without crashing!" 1`] = `
             <div
               className="field">
               <input
-                data-jsx={1403343223}
+                data-jsx={3406753779}
                 id="password"
                 name="password"
                 placeholder="password"
@@ -98,10 +98,10 @@ exports[`Login snapshot renders without crashing!" 1`] = `
               Login
             </button>
             <p
-              data-jsx={1403343223}>
+              data-jsx={3406753779}>
               <a
                 className="link"
-                data-jsx={1403343223}
+                data-jsx={3406753779}
                 href="#">
                 Forgot Password?
               </a>
@@ -119,7 +119,7 @@ exports[`Login snapshot renders without crashing!" 1`] = `
           className="seven wide computer sixteen wide mobile sixteen wide tablet column">
           <div
             className="buttons"
-            data-jsx={1403343223}>
+            data-jsx={3406753779}>
             <button
               className="ui facebook button"
               onClick={[Function]}
@@ -136,7 +136,7 @@ exports[`Login snapshot renders without crashing!" 1`] = `
                Sign in with Facebook
             </button>
             <br
-              data-jsx={1403343223} />
+              data-jsx={3406753779} />
             <button
               className="ui google plus button"
               onClick={[Function]}
@@ -153,7 +153,7 @@ exports[`Login snapshot renders without crashing!" 1`] = `
                Sign in with Google Plus
             </button>
             <br
-              data-jsx={1403343223} />
+              data-jsx={3406753779} />
             <button
               className="ui twitter button"
               onClick={[Function]}
