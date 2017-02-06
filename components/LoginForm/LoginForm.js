@@ -16,7 +16,6 @@ export default class extends Component {
     const password = document.getElementById('password').value
 
     const promise = auth.signInWithEmailAndPassword(email, password)
-
     promise
       .then(() => Router.push('/dashboard'))
       .catch(() => {
@@ -28,7 +27,6 @@ export default class extends Component {
     const provider = new firebase.auth.GoogleAuthProvider()
 
     const promise = auth.signInWithPopup(provider)
-
     promise
       .then(() => Router.push('/dashboard'))
   }
@@ -37,7 +35,6 @@ export default class extends Component {
     const provider = new firebase.auth.FacebookAuthProvider()
 
     const promise = auth.signInWithPopup(provider)
-
     promise
       .then(() => Router.push('/dashboard'))
   }
@@ -92,7 +89,7 @@ export default class extends Component {
         <style jsx>{`
           .login-form {
             border-radius: 10px;
-            padding: 10px 10px 0px 10px;
+            padding: 50px 10px 0px 10px;
             display: flex;
             justify-content: center;
           }
