@@ -1,0 +1,91 @@
+exports[`Banner snapshot renders without crashing!" 1`] = `
+<div>
+  <div
+    className="nav-bar"
+    data-jsx={2548831492}>
+    <div
+      className="ui pointing top fixed menu">
+      <a
+        data-jsx={2548831492}
+        href="/"
+        onClick={[Function]}>
+        <div
+          className="link item"
+          onClick={[Function]}>
+          <img
+            data-jsx={2548831492}
+            src="/static/plateLogo.png" />
+          <span
+            className="logo-text"
+            data-jsx={2548831492}>
+            late
+          </span>
+        </div>
+      </a>
+      <div
+        className="right menu">
+        <a
+          className="link item"
+          onClick={[Function]}>
+          <span
+            data-jsx={2548831492}>
+            MENU
+          </span>
+        </a>
+      </div>
+    </div>
+    <div
+      data-jsx={1706063930} />
+  </div>
+  <div
+    data-jsx={1531263508}>
+    <div
+      className="banner"
+      data-jsx={1531263508}>
+      <div
+        className="header-main"
+        data-jsx={1531263508}>
+        <h1
+          data-jsx={1531263508}>
+          Task Management in the Most Simplistic Form, 
+          <br
+            data-jsx={1531263508} />
+          Welcome to 
+          <i
+            data-jsx={1531263508}>
+            Plate
+          </i>
+          !
+        </h1>
+      </div>
+      <div
+        className="header-secondary"
+        data-jsx={1531263508}>
+        <h5
+          data-jsx={1531263508}>
+          Create multiple plates and customize your very own task layout.
+          <br
+            data-jsx={1531263508} />
+           Register now to begin managing your tasks!
+        </h5>
+      </div>
+      <center
+        data-jsx={1531263508}>
+        <button
+          className="ui large primary button"
+          onClick={[Function]}
+          style={
+            Object {
+              "marginTop": "80px",
+            }
+          }
+          tabIndex={undefined}>
+          Register Now!
+        </button>
+      </center>
+    </div>
+    <div
+      data-jsx={2307247641} />
+  </div>
+</div>
+`;
