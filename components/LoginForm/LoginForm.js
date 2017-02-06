@@ -6,9 +6,7 @@ import Router from 'next/router'
 import { auth } from '../../lib/db'
 import firebase from 'firebase'
 
-@inject('store') @observer
-export default class extends Component {
-
+export default inject('store')(observer(class extends Component {
   login = (e) => {
     e.preventDefault()
 
@@ -104,4 +102,4 @@ export default class extends Component {
       </div>
     )
   }
-}
+}))

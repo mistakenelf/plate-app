@@ -3,8 +3,7 @@ import { inject, observer } from 'mobx-react'
 import { Component } from 'react'
 import { auth } from '../../lib/db'
 
-@inject('store') @observer
-export default class extends Component {
+export default inject('store')(observer(class extends Component {
   componentDidMount () {
     auth.onAuthStateChanged((user) => {
       if (user) {
@@ -18,8 +17,8 @@ export default class extends Component {
   render () {
     return (
       <div>
-       {this.props.children}
+        {this.props.children}
       </div>
     )
   }
-}
+}))

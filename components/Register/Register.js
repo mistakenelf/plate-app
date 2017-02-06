@@ -5,8 +5,7 @@ import { Component } from 'react'
 import Router from 'next/router'
 import { auth } from '../../lib/db'
 
-@inject('store') @observer
-export default class extends Component {
+export default inject('store')(observer(class extends Component {
   register = (e) => {
     e.preventDefault()
 
@@ -87,4 +86,4 @@ export default class extends Component {
       </div>
     )
   }
-}
+}))
