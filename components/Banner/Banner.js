@@ -20,7 +20,14 @@ export default inject('store')(observer(({ store }) => (
       </div>
       {store.loggedIn === false &&
         <center>
-          <Button primary style={{marginTop: '80px'}} size='large' onClick={store.openModal}>Register Now!</Button>
+          <Button
+            primary
+            size='large'
+            style={{ marginTop: 80 }}
+            onClick={store.openModal}
+          >
+            Register Now!
+          </Button>
         </center>
       }
     </div>

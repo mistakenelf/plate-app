@@ -39,8 +39,8 @@ export default inject('store')(observer(class extends Component {
         >
           <div className='register-form'>
             <Icon name='add user' size='huge' />
-            <h3 style={{marginTop: '10px', marginBottom: '0px'}}>Register</h3>
-            <h5 style={{marginTop: '5px', marginBottom: '25px'}}>Sign up for free.</h5>
+            <h3 style={{ marginTop: '10px', marginBottom: '0px' }}>Register</h3>
+            <h5 style={{ marginTop: '5px', marginBottom: '25px' }}>Sign up for free.</h5>
             <Form method='post' onSubmit={this.register} loading={this.props.store.loading}>
               <Form.Field>
                 <input type='text' name='username' id='username' placeholder='username' required />
