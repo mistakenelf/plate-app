@@ -3,6 +3,6 @@ import Unauthorized from '../components/Unauthorized/Unauthorized'
 
 export default () => (
   <Layout>
-      <Unauthorized />
+    <Unauthorized />
   </Layout>
 )
