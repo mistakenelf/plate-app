@@ -2,6 +2,7 @@ import { Button, Divider, Form, Grid, Icon, Message } from 'semantic-ui-react'
 import { inject, observer } from 'mobx-react'
 
 import { Component } from 'react'
+import Link from 'next/prefetch'
 import Router from 'next/router'
 import { auth } from '../../lib/db'
 import firebase from 'firebase'
@@ -65,7 +66,9 @@ export default inject('store')(observer(class extends Component {
                   <input type='password' name='password' id='password' placeholder='password' required />
                 </Form.Field>
                 <Button type='submit' loading={this.props.store.loading} primary>Login</Button>
-                <p><a href='#' className='link'>Forgot Password?</a></p>
+                <Link href='/forgotPassword'>
+                  <p><a className='link'>Forgot Password?</a></p>
+                </Link>
               </Form>
             </Grid.Column>
             <Grid.Column computer={1} only='computer'>
@@ -97,6 +100,9 @@ export default inject('store')(observer(class extends Component {
           }
           .link {
             margin-top: 10px;
+            padding-top: 10px;
+          }
+          p {
             padding-top: 10px;
           }
           .buttons {
