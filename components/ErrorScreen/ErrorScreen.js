@@ -21,7 +21,7 @@ export default () => {
           margin-left: auto;
           margin-right: auto;
           margin-top: 80px;
-          width: 50%;
+          width: 70%;
           height: 300px;
           background-color: #eceff1;
           border-radius: 5px;
