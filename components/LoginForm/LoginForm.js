@@ -66,8 +66,9 @@ export default inject('store')(observer(class extends Component {
                   <input type='password' name='password' id='password' placeholder='password' required />
                 </Form.Field>
                 <Button type='submit' loading={this.props.store.loading} primary>Login</Button>
+                <br />
                 <Link href='/forgotPassword'>
-                  <p><a className='link'>Forgot Password?</a></p>
+                  <a className='link'>Forgot Password?</a>
                 </Link>
               </Form>
             </Grid.Column>
