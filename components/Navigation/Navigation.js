@@ -4,7 +4,7 @@ import GlobalMenu from '../GlobalMenu/GlobalMenu'
 import Link from 'next/prefetch'
 import { Menu } from 'semantic-ui-react'
 
-export default inject('store')(observer(({ store }) => (
+export default inject('GlobalStore')(observer(({ GlobalStore }) => (
   <div className='nav-bar'>
     <Menu pointing fixed='top'>
       <Link href='/'>
@@ -16,7 +16,7 @@ export default inject('store')(observer(({ store }) => (
         </a>
       </Link>
       <Menu.Menu position='right'>
-        <Menu.Item link onClick={store.openMenu}>
+        <Menu.Item link onClick={GlobalStore.openMenu}>
           <span>MENU</span>
         </Menu.Item>
       </Menu.Menu>

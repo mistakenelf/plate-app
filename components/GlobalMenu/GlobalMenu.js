@@ -3,7 +3,7 @@ import { inject, observer } from 'mobx-react'
 import { Dimmer } from 'semantic-ui-react'
 import Link from 'next/prefetch'
 import Router from 'next/router'
-import { auth } from '../../lib/db'
+import { auth } from '../../utils/db'
 
 const logout = (closeMenu) => {
   auth.signOut()
@@ -11,23 +11,23 @@ const logout = (closeMenu) => {
   Router.push('/')
 }
 
-export default inject('store')(observer(({ store }) => (
+export default inject('GlobalStore')(observer(({ GlobalStore }) => (
   <div>
-    <Dimmer active={store.menuOpen}
-      onClickOutside={store.closeMenu}
+    <Dimmer active={GlobalStore.menuOpen}
+      onClickOutside={GlobalStore.closeMenu}
       page
     >
       <div className='fade fadeIn'>
         <div className='menu-items'>
-          <h1 onClick={store.closeMenu}>
+          <h1 onClick={GlobalStore.closeMenu}>
             <Link href='/'>
               <a>
                 Home
               </a>
             </Link>
           </h1>
-          {!store.loggedIn &&
-            <h1 onClick={store.closeMenu}>
+          {!GlobalStore.loggedIn &&
+            <h1 onClick={GlobalStore.closeMenu}>
               <Link href='/login'>
                 <a>
                   Login
@@ -35,13 +35,13 @@ export default inject('store')(observer(({ store }) => (
               </Link>
             </h1>
           }
-          {store.loggedIn &&
-            <h1 onClick={() => logout(store.closeMenu)}>
+          {GlobalStore.loggedIn &&
+            <h1 onClick={() => logout(GlobalStore.closeMenu)}>
               <a>Logout</a>
             </h1>
           }
-          {store.loggedIn &&
-            <h1 onClick={store.closeMenu}>
+          {GlobalStore.loggedIn &&
+            <h1 onClick={GlobalStore.closeMenu}>
               <Link href='/dashboard'>
                 <a>
                   Dashboard

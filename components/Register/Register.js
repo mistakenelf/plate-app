@@ -3,19 +3,19 @@ import { inject, observer } from 'mobx-react'
 
 import { Component } from 'react'
 import Router from 'next/router'
-import { auth } from '../../lib/db'
+import { auth } from '../../utils/db'
 
-export default inject('store')(observer(class extends Component {
+export default inject('GlobalStore')(observer(class extends Component {
   register = (e) => {
     e.preventDefault()
 
-    this.props.store.startLoading()
+    this.props.GlobalStore.startLoading()
 
     const username = document.getElementById('email').value
     const password = document.getElementById('password').value
     const displayID = document.getElementById('username').value
 
-    this.props.store.displayUserName = displayID
+    this.props.GlobalStore.displayUserName = displayID
 
     const promise = auth.createUserWithEmailAndPassword(username, password)
 
@@ -23,25 +23,25 @@ export default inject('store')(observer(class extends Component {
       .then((user) => user.updateProfile({
         displayName: displayID
       }))
-      .then(() => this.props.store.closeModal())
-      .then(() => this.props.store.stopLoading())
-      .then(() => this.props.store.showRegisterMessage())
+      .then(() => this.props.GlobalStore.closeModal())
+      .then(() => this.props.GlobalStore.stopLoading())
+      .then(() => this.props.GlobalStore.showRegisterMessage())
       .then(() => Router.push('/dashboard'))
-      .catch(() => this.props.store.stopLoading())
+      .catch(() => this.props.GlobalStore.stopLoading())
   }
 
   render () {
     return (
       <div>
-        <Dimmer active={this.props.store.modalOpen}
-          onClickOutside={this.props.store.closeModal}
+        <Dimmer active={this.props.GlobalStore.modalOpen}
+          onClickOutside={this.props.GlobalStore.closeModal}
           page
         >
           <div className='register-form'>
             <Icon name='add user' size='huge' />
             <h3 style={{ marginTop: '10px', marginBottom: '0px' }}>Register</h3>
             <h5 style={{ marginTop: '5px', marginBottom: '25px' }}>Sign up for free.</h5>
-            <Form method='post' onSubmit={this.register} loading={this.props.store.loading}>
+            <Form method='post' onSubmit={this.register} loading={this.props.GlobalStore.loading}>
               <Form.Field>
                 <input type='text' name='username' id='username' placeholder='username' required />
               </Form.Field>

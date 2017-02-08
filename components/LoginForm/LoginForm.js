@@ -4,14 +4,14 @@ import { inject, observer } from 'mobx-react'
 import { Component } from 'react'
 import Link from 'next/prefetch'
 import Router from 'next/router'
-import { auth } from '../../lib/db'
+import { auth } from '../../utils/db'
 import firebase from 'firebase'
 
-export default inject('store')(observer(class extends Component {
+export default inject('GlobalStore')(observer(class extends Component {
   login = (e) => {
     e.preventDefault()
 
-    this.props.store.loading = true
+    this.props.GlobalStore.loading = true
 
     const email = document.getElementById('email').value
     const password = document.getElementById('password').value
@@ -19,10 +19,10 @@ export default inject('store')(observer(class extends Component {
     const promise = auth.signInWithEmailAndPassword(email, password)
     promise
       .then(() => Router.push('/dashboard'))
-      .then(() => { this.props.store.loading = false })
+      .then(() => { this.props.GlobalStore.loading = false })
       .catch(() => {
-        this.props.store.loading = false
-        this.props.store.showLoginMessage()
+        this.props.GlobalStore.loading = false
+        this.props.GlobalStore.showLoginMessage()
       })
   }
 
@@ -49,9 +49,9 @@ export default inject('store')(observer(class extends Component {
           <Message
             floating
             negative
-            visible={this.props.store.loginMessage}
-            hidden={this.props.store.loginMessageHidden}
-            onDismiss={this.props.store.hideLoginMessage}
+            visible={this.props.GlobalStore.loginMessage}
+            hidden={this.props.GlobalStore.loginMessageHidden}
+            onDismiss={this.props.GlobalStore.hideLoginMessage}
             header='Are you sure you are registered?'
             content='We did not seem to find an account with that email'
           />
@@ -65,7 +65,7 @@ export default inject('store')(observer(class extends Component {
                 <Form.Field>
                   <input type='password' name='password' id='password' placeholder='password' required />
                 </Form.Field>
-                <Button type='submit' loading={this.props.store.loading} primary>Login</Button>
+                <Button type='submit' loading={this.props.GlobalStore.loading} primary>Login</Button>
                 <br />
                 <Link href='/forgotPassword'>
                   <a className='link'>Forgot Password?</a>

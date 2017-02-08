@@ -1,8 +1,7 @@
 import { Button, Form, Grid } from 'semantic-ui-react'
-import { inject, observer } from 'mobx-react'
 
 import Router from 'next/router'
-import { auth } from '../../lib/db'
+import { auth } from '../../utils/db'
 
 const retrievePassword = (e) => {
   e.preventDefault()
@@ -14,10 +13,9 @@ const retrievePassword = (e) => {
   promise
     .then(() => Router.push('/login'))
     .catch(() => console.log('user does not exist with this email'))
-
 }
 
-export default inject('store')(observer(({ store }) => (
+export default () => (
   <Grid textAlign='left'>
     <Grid.Row centered>
       <Grid.Column width={16} computer={8} widescreen={8} tablet={10} mobile={14}>
@@ -42,4 +40,4 @@ export default inject('store')(observer(({ store }) => (
     }
   `}</style>
   </Grid>
-)))
+)

@@ -2,9 +2,9 @@ import { inject, observer } from 'mobx-react'
 
 import ErrorScreen from '../ErrorScreen/ErrorScreen'
 
-export default inject('store')(observer(({ store, children }) => (
+export default inject('GlobalStore')(observer(({ GlobalStore, children }) => (
   <div>
-    {store.loggedIn
+    {GlobalStore.loggedIn
       ? children
       : <ErrorScreen />
     }
