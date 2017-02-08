@@ -11,7 +11,7 @@ const logout = (closeMenu) => {
   Router.push('/')
 }
 
-export default inject('GlobalStore')(observer(({ GlobalStore }) => (
+export default inject('GlobalStore', 'AuthStore')(observer(({ GlobalStore, AuthStore }) => (
   <div>
     <Dimmer active={GlobalStore.menuOpen}
       onClickOutside={GlobalStore.closeMenu}
@@ -26,7 +26,7 @@ export default inject('GlobalStore')(observer(({ GlobalStore }) => (
               </a>
             </Link>
           </h1>
-          {!GlobalStore.loggedIn &&
+          {!AuthStore.user &&
             <h1 onClick={GlobalStore.closeMenu}>
               <Link href='/login'>
                 <a>
@@ -35,12 +35,12 @@ export default inject('GlobalStore')(observer(({ GlobalStore }) => (
               </Link>
             </h1>
           }
-          {GlobalStore.loggedIn &&
+          {AuthStore.user &&
             <h1 onClick={() => logout(GlobalStore.closeMenu)}>
               <a>Logout</a>
             </h1>
           }
-          {GlobalStore.loggedIn &&
+          {AuthStore.user &&
             <h1 onClick={GlobalStore.closeMenu}>
               <Link href='/dashboard'>
                 <a>

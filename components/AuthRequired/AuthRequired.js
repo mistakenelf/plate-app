@@ -1,12 +1,12 @@
 import { inject, observer } from 'mobx-react'
 
-import ErrorScreen from '../ErrorScreen/ErrorScreen'
+import Loading from '../Loading/Loading'
 
-export default inject('GlobalStore')(observer(({ GlobalStore, children }) => (
+export default inject('AuthStore')(observer(({ AuthStore, children }) => (
   <div>
-    {GlobalStore.loggedIn
+    {AuthStore.user
       ? children
-      : <ErrorScreen />
+      : <Loading />
     }
   </div>
 )))
