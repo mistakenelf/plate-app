@@ -1,20 +1,5 @@
 import { Button, Form, Grid } from 'semantic-ui-react'
 
-import Router from 'next/router'
-import { auth } from '../../utils/db'
-
-const retrievePassword = (e) => {
-  e.preventDefault()
-
-  const email = document.getElementById('email').value
-
-  const promise = auth.sendPasswordResetEmail(email)
-
-  promise
-    .then(() => Router.push('/login'))
-    .catch(() => console.log('user does not exist with this email'))
-}
-
 export default () => (
   <Grid textAlign='left'>
     <Grid.Row centered>
@@ -25,7 +10,7 @@ export default () => (
             Enter the email associated with your account and a link will be sent
             to your email with instructions on resetting your password.
           </p>
-          <Form onSubmit={retrievePassword}>
+          <Form onSubmit={() => console.log('submitted')}>
             <Form.Field>
               <input type='text' name='email' id='email' placeholder='email' required />
             </Form.Field>

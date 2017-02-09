@@ -1,54 +1,38 @@
-import { inject, observer } from 'mobx-react'
-
 import { Dimmer } from 'semantic-ui-react'
 import Link from 'next/prefetch'
-import Router from 'next/router'
-import { auth } from '../../utils/db'
 
-const logout = (closeMenu) => {
-  auth.signOut()
-  closeMenu()
-  Router.push('/')
-}
-
-export default inject('GlobalStore', 'AuthStore')(observer(({ GlobalStore, AuthStore }) => (
+export default () => (
   <div>
-    <Dimmer active={GlobalStore.menuOpen}
-      onClickOutside={GlobalStore.closeMenu}
+    <Dimmer active={false}
+      onClickOutside={() => console.log('closing')}
       page
     >
       <div className='fade fadeIn'>
         <div className='menu-items'>
-          <h1 onClick={GlobalStore.closeMenu}>
+          <h1 onClick={() => console.log('closing')}>
             <Link href='/'>
               <a>
                 Home
               </a>
             </Link>
           </h1>
-          {!AuthStore.user &&
-            <h1 onClick={GlobalStore.closeMenu}>
-              <Link href='/login'>
-                <a>
-                  Login
+          <h1 onClick={() => console.log('closing')}>
+            <Link href='/login'>
+              <a>
+                Login
+              </a>
+            </Link>
+          </h1>
+          <h1 onClick={() => console.log('closing')}>
+            <a>Logout</a>
+          </h1>
+          <h1 onClick={() => console.log('close menu')}>
+            <Link href='/dashboard'>
+              <a>
+                Dashboard
                 </a>
-              </Link>
-            </h1>
-          }
-          {AuthStore.user &&
-            <h1 onClick={() => logout(GlobalStore.closeMenu)}>
-              <a>Logout</a>
-            </h1>
-          }
-          {AuthStore.user &&
-            <h1 onClick={GlobalStore.closeMenu}>
-              <Link href='/dashboard'>
-                <a>
-                  Dashboard
-                </a>
-              </Link>
-            </h1>
-          }
+            </Link>
+          </h1>
         </div>
       </div>
     </Dimmer>
@@ -85,4 +69,4 @@ export default inject('GlobalStore', 'AuthStore')(observer(({ GlobalStore, AuthS
       }
     `}</style>
   </div>
-)))
+)

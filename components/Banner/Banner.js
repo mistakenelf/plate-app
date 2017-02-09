@@ -1,9 +1,7 @@
-import { inject, observer } from 'mobx-react'
-
 import { Button } from 'semantic-ui-react'
 import Register from '../Register/Register'
 
-export default inject('GlobalStore')(observer(({ GlobalStore }) => (
+export default () => (
   <div>
     <div className='banner'>
       <div className='header-main'>
@@ -18,13 +16,12 @@ export default inject('GlobalStore')(observer(({ GlobalStore }) => (
           to begin managing your tasks!
         </h5>
       </div>
-      {GlobalStore.loggedIn === false &&
         <center>
           <Button
             primary
             size='large'
             style={{ marginTop: 80 }}
-            onClick={GlobalStore.openModal}
+            onClick={() => console.log('clicked')}
           >
             Register Now!
           </Button>
@@ -65,4 +62,4 @@ export default inject('GlobalStore')(observer(({ GlobalStore }) => (
       }
     `}</style>
   </div>
-)))
+)

@@ -1,10 +1,8 @@
-import { inject, observer } from 'mobx-react'
-
 import GlobalMenu from '../GlobalMenu/GlobalMenu'
 import Link from 'next/prefetch'
 import { Menu } from 'semantic-ui-react'
 
-export default inject('GlobalStore')(observer(({ GlobalStore }) => (
+export default () => (
   <div className='nav-bar'>
     <Menu pointing fixed='top'>
       <Link href='/'>
@@ -16,7 +14,7 @@ export default inject('GlobalStore')(observer(({ GlobalStore }) => (
         </a>
       </Link>
       <Menu.Menu position='right'>
-        <Menu.Item link onClick={GlobalStore.openMenu}>
+        <Menu.Item link>
           <span>MENU</span>
         </Menu.Item>
       </Menu.Menu>
@@ -32,4 +30,4 @@ export default inject('GlobalStore')(observer(({ GlobalStore }) => (
       }
     `}</style>
   </div>
-)))
+)

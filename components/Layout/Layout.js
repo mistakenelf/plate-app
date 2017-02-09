@@ -3,6 +3,18 @@ import Navigation from '../Navigation/Navigation'
 
 export default ({ children }) => (
   <div>
+    <style jsx global>{`
+      * {
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding-top: 40px;
+        font-family: Roboto, sans-serif;
+        background-color: white;
+      }
+    `}</style>
     <Head>
       <meta charset='utf-8' />
       <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no' />
