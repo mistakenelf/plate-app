@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Navigation from '../Navigation/Navigation'
 
-export default ({ children }) => (
+export default ({ children, open, openMenu, closeMenu }) => (
   <div>
     <style jsx global>{`
       * {
@@ -10,7 +10,6 @@ export default ({ children }) => (
       }
       body {
         margin: 0;
-        padding-top: 40px;
         font-family: Roboto, sans-serif;
         background-color: white;
       }
@@ -24,7 +23,11 @@ export default ({ children }) => (
       <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.2/semantic.min.css' />
       <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' />
     </Head>
-    <Navigation />
+    <Navigation
+      open={open}
+      openMenu={openMenu}
+      closeMenu={closeMenu}
+    />
     {children}
   </div>
 )

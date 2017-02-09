@@ -2,7 +2,7 @@ import GlobalMenu from '../GlobalMenu/GlobalMenu'
 import Link from 'next/prefetch'
 import { Menu } from 'semantic-ui-react'
 
-export default () => (
+export default ({ open, openMenu, closeMenu }) => (
   <div className='nav-bar'>
     <Menu pointing fixed='top'>
       <Link href='/'>
@@ -14,12 +14,12 @@ export default () => (
         </a>
       </Link>
       <Menu.Menu position='right'>
-        <Menu.Item link>
+        <Menu.Item link onClick={openMenu}>
           <span>MENU</span>
         </Menu.Item>
       </Menu.Menu>
     </Menu>
-    <GlobalMenu />
+    <GlobalMenu open={open} closeMenu={closeMenu}/>
     <style jsx>{`
       .logo-text {
         font-size: 20px;

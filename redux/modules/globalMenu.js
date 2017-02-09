@@ -5,19 +5,21 @@ export const constants = {
 }
 
 // Actions
-export const openMenu = () => dispatch => {
-  return dispatch({
-    type: constants.GLOBAL_MENU_OPEN,
-    open: true
-  })
+export const actions = {
+  openMenu () {
+    return {
+      type: constants.GLOBAL_MENU_OPEN,
+      open: true
+    }
+  },
+  closeMenu () {
+    return {
+      type: constants.GLOBAL_MENU_CLOSED,
+      open: false
+    }
+  }
 }
 
-export const closeMenu = () => dispatch => {
-  return dispatch({
-    type: constants.GLOBAL_MENU_CLOSED,
-    open: false
-  })
-}
 
 // Reducer
 export const initialState = {

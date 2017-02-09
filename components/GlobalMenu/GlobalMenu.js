@@ -1,32 +1,32 @@
 import { Dimmer } from 'semantic-ui-react'
 import Link from 'next/prefetch'
 
-export default () => (
+export default ({ open, closeMenu }) => (
   <div>
-    <Dimmer active={false}
-      onClickOutside={() => console.log('closing')}
+    <Dimmer active={open}
+      onClickOutside={closeMenu}
       page
     >
       <div className='fade fadeIn'>
         <div className='menu-items'>
-          <h1 onClick={() => console.log('closing')}>
+          <h1 onClick={closeMenu}>
             <Link href='/'>
               <a>
                 Home
               </a>
             </Link>
           </h1>
-          <h1 onClick={() => console.log('closing')}>
+          <h1 onClick={closeMenu}>
             <Link href='/login'>
               <a>
                 Login
               </a>
             </Link>
           </h1>
-          <h1 onClick={() => console.log('closing')}>
+          <h1 onClick={closeMenu}>
             <a>Logout</a>
           </h1>
-          <h1 onClick={() => console.log('close menu')}>
+          <h1 onClick={closeMenu}>
             <Link href='/dashboard'>
               <a>
                 Dashboard
