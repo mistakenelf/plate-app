@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import globalMenuOpen from './modules/globalMenu'
+import layout from './modules/layout'
 
 export default combineReducers({
-  globalMenuOpen
+  layout
 })

@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import Layout from '../components/Layout/Layout'
-import { actions } from '../redux/modules/globalMenu'
+import { actions } from '../redux/modules/layout'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -16,7 +16,7 @@ class LayoutContainer extends Component {
   }
 }
 
-function mapStateToProps ({ globalMenuOpen: { open } }) {
+function mapStateToProps ({ layout: { open } }) {
   return {
     open: open
   }
