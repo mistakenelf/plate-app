@@ -1,9 +1,10 @@
+import rootReducer, { client } from '../redux/rootReducer'
+
+import { ApolloProvider } from 'react-apollo'
 import { Component } from 'react'
 import LayoutContainer from '../containers/LayoutContainer'
 import LoginForm from '../components/LoginForm/LoginForm'
-import { Provider } from 'react-redux'
 import { initStore } from '../redux/createStore'
-import rootReducer from '../redux/rootReducer'
 
 export default class extends Component {
   static getInitialProps ({ req }) {
@@ -19,11 +20,11 @@ export default class extends Component {
 
   render () {
     return (
-      <Provider store={this.store}>
+      <ApolloProvider store={this.store} client={client}>
         <LayoutContainer>
           <LoginForm />
         </LayoutContainer>
-      </Provider>
+      </ApolloProvider>
     )
   }
 }
