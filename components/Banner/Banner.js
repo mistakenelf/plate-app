@@ -16,17 +16,16 @@ export default () => (
           to begin managing your tasks!
         </h5>
       </div>
-        <center>
-          <Button
-            primary
-            size='large'
-            style={{ marginTop: 80 }}
-            onClick={() => console.log('clicked')}
-          >
-            Register Now!
-          </Button>
-        </center>
-      }
+      <center>
+        <Button
+          primary
+          size='large'
+          style={{ marginTop: 80 }}
+          onClick={() => console.log('clicked')}
+        >
+          Register Now!
+        </Button>
+      </center>
     </div>
     <Register />
     <style jsx>{`
