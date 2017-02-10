@@ -6,9 +6,9 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production next start"
+    "start": "NODE_ENV=production node server.js"
   },
   "standard": {
     "parser": "babel-eslint"
@@ -17,6 +17,7 @@
     "apollo-client": "^0.8.4",
     "babel-eslint": "^7.1.1",
     "babel-jest": "^18.0.0",
+    "express": "^4.14.1",
     "graphql": "^0.9.1",
     "graphql-tag": "^1.2.4",
     "immutable": "^3.8.1",
