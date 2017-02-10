@@ -20,6 +20,7 @@
     "graphql": "^0.9.1",
     "graphql-tag": "^1.2.4",
     "immutable": "^3.8.1",
+    "isomorphic-fetch": "^2.2.1",
     "jest-cli": "^18.1.0",
     "next": "2.0.0-beta.24",
     "react": "^15.4.2",
