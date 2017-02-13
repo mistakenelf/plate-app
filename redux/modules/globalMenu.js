@@ -3,8 +3,8 @@ import { fromJS } from 'immutable'
 
 // Constants
 export const constants = {
-  GLOBAL_MENU_OPEN: 'Global Menu/GLOBAL_MENU_OPEN',
-  GLOBAL_MENU_CLOSED: 'Global Menu/GLOBAL_MENU_CLOSED',
+  GLOBAL_MENU_OPEN: 'GlobalMenu/GLOBAL_MENU_OPEN',
+  GLOBAL_MENU_CLOSED: 'GlobalMenu/GLOBAL_MENU_CLOSED',
   FETCH_SUCCESS: 'Requests/FETCH_SUCCESS'
 }
 
