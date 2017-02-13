@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "apollo-client": "^0.8.5",
+    "auth0-lock": "^10.11.0",
     "babel-eslint": "^7.1.1",
     "babel-jest": "^18.0.0",
     "express": "^4.14.1",
