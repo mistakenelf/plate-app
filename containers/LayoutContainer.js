@@ -5,33 +5,26 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 class LayoutContainer extends Component {
-  constructor (props) {
-    super(props)
-    props.fetchRequests()
-  }
-
   render () {
-    const { open, openMenu, closeMenu } = this.props
+    const { menuOpen, openMenu, closeMenu } = this.props
     return (
-      <Layout open={open} openMenu={openMenu} closeMenu={closeMenu}>
+      <Layout menuOpen={menuOpen} openMenu={openMenu} closeMenu={closeMenu}>
         {this.props.children}
       </Layout>
     )
   }
 }
 
-const mapStateToProps = ({ globalMenu: { open, requests } }) => {
+const mapStateToProps = ({ globalMenu: { menuOpen } }) => {
   return {
-    open,
-    requests
+    menuOpen
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     openMenu: actions.openMenu,
-    closeMenu: actions.closeMenu,
-    fetchRequests: actions.fetchRequests
+    closeMenu: actions.closeMenu
   }, dispatch)
 }
 

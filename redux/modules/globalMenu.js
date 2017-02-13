@@ -1,10 +1,7 @@
-import fetch from 'isomorphic-fetch'
-
 // Constants
 export const constants = {
   GLOBAL_MENU_OPEN: 'GlobalMenu/GLOBAL_MENU_OPEN',
-  GLOBAL_MENU_CLOSED: 'GlobalMenu/GLOBAL_MENU_CLOSED',
-  FETCH_SUCCESS: 'Requests/FETCH_SUCCESS'
+  GLOBAL_MENU_CLOSED: 'GlobalMenu/GLOBAL_MENU_CLOSED'
 }
 
 // Actions
@@ -12,35 +9,20 @@ export const actions = {
   openMenu () {
     return {
       type: constants.GLOBAL_MENU_OPEN,
-      open: true
+      menuOpen: true
     }
   },
   closeMenu () {
     return {
       type: constants.GLOBAL_MENU_CLOSED,
-      open: false
-    }
-  },
-  fetchRequests () {
-    return async (dispatch, getState) => {
-      const response = await fetch('http://localhost:3000/api/requests')
-        .catch((error) => console.log(error))
-      const requests = await response.json()
-      dispatch(actions.fetchSuccess(requests))
-    }
-  },
-  fetchSuccess (requests) {
-    return {
-      type: constants.FETCH_SUCCESS,
-      requests
+      menuOpen: false
     }
   }
 }
 
 // Initial State
 export const initialState = {
-  open: false,
-  requests: []
+  menuOpen: false
 }
 
 // Reducer
@@ -49,17 +31,12 @@ export default (state = initialState, action) => {
     case constants.GLOBAL_MENU_OPEN:
       return {
         ...state,
-        open: action.open
+        menuOpen: action.menuOpen
       }
     case constants.GLOBAL_MENU_CLOSED:
       return {
         ...state,
-        open: action.open
-      }
-    case constants.FETCH_SUCCESS:
-      return {
-        ...state,
-        open: action.open
+        menuOpen: action.menuOpen
       }
     default:
       return state

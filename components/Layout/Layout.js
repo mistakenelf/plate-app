@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Navigation from '../Navigation/Navigation'
 
-export default ({ children, open, openMenu, closeMenu }) => (
+export default ({ children, menuOpen, openMenu, closeMenu }) => (
   <div>
     <style jsx global>{`
       * {
@@ -24,7 +24,7 @@ export default ({ children, open, openMenu, closeMenu }) => (
       <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' />
     </Head>
     <Navigation
-      open={open}
+      menuOpen={menuOpen}
       openMenu={openMenu}
       closeMenu={closeMenu}
     />
