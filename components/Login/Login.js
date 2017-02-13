@@ -1,6 +1,7 @@
 import { Button, Form, Grid } from 'semantic-ui-react'
 
 import Link from 'next/prefetch'
+import Message from '../Message/Message'
 
 export default () => (
   <Grid padded centered>
@@ -12,6 +13,11 @@ export default () => (
           <Form.Input type='password' name='password' placeholder='password' label='Password' />
           <Button primary fluid>Login</Button>
         </Form>
+      </Grid.Column>
+    </Grid.Row>
+    <Grid.Row>
+      <Grid.Column mobile={16} tablet={10} computer={6} largeScreen={6}>
+        <Message message='Error processing your request' />
       </Grid.Column>
     </Grid.Row>
     <Grid.Row>
