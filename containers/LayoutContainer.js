@@ -27,7 +27,7 @@ const mapStateToProps = ({ globalMenu: { open, requests } }) => {
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     openMenu: actions.openMenu,
     closeMenu: actions.closeMenu,
