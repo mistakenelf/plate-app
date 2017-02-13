@@ -23,7 +23,8 @@ export const actions = {
   },
   fetchRequests () {
     return async (dispatch, getState) => {
-      const response = await fetch('/api/requests')
+      const response = await fetch('http://localhost:3000/api/requests')
+        .catch((error) => console.log(error))
       const requests = await response.json()
       dispatch(actions.fetchSuccess(requests))
     }
