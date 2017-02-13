@@ -9,7 +9,7 @@ export default ({ children, open, openMenu, closeMenu }) => (
         box-sizing: border-box;
       }
       body {
-        margin: 0;
+        margin-top: 60px;
         font-family: Roboto, sans-serif;
         background-color: white;
       }

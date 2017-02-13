@@ -1,5 +1,5 @@
 import { Button } from 'semantic-ui-react'
-import Register from '../Register/Register'
+import Link from 'next/prefetch'
 
 export default () => (
   <div>
@@ -17,17 +17,17 @@ export default () => (
         </h5>
       </div>
       <center>
-        <Button
-          primary
-          size='large'
-          style={{ marginTop: 80 }}
-          onClick={() => console.log('clicked')}
-        >
-          Register Now!
-        </Button>
+        <Link href='/register'>
+          <Button
+            primary
+            size='large'
+            style={{ marginTop: 80 }}
+          >
+            Register Now!
+          </Button>
+        </Link>
       </center>
     </div>
-    <Register />
     <style jsx>{`
       .banner {
         background-image: url('/static/plateHeader.png');

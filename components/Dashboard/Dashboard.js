@@ -1,5 +1,5 @@
 export default () => (
-  <div style={{marginTop: 60}}>
+  <div>
     <h1>Dashboard</h1>
   </div>
 )
