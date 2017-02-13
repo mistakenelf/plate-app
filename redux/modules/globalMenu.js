@@ -1,9 +1,10 @@
 import fetch from 'isomorphic-fetch'
+import { fromJS } from 'immutable'
 
 // Constants
 export const constants = {
-  GLOBAL_MENU_OPEN: 'Menu/GLOBAL_MENU_OPEN',
-  GLOBAL_MENU_CLOSED: 'Menu/GLOBAL_MENU_CLOSED',
+  GLOBAL_MENU_OPEN: 'Global Menu/GLOBAL_MENU_OPEN',
+  GLOBAL_MENU_CLOSED: 'Global Menu/GLOBAL_MENU_CLOSED',
   FETCH_SUCCESS: 'Requests/FETCH_SUCCESS'
 }
 
@@ -28,7 +29,6 @@ export const actions = {
       dispatch(actions.fetchSuccess(requests))
     }
   },
-
   fetchSuccess (requests) {
     return {
       type: constants.FETCH_SUCCESS,
@@ -37,32 +37,29 @@ export const actions = {
   }
 }
 
-
-// Reducer
+// Initial State
 export const initialState = {
   open: false,
   requests: []
 }
 
+// Reducer
 export default (state = initialState, action) => {
+  state = fromJS(state)
   switch (action.type) {
     case constants.GLOBAL_MENU_OPEN:
-      return {
-        ...state,
-        open: action.open
-      }
+      return state
+        .set('open', action.open)
+        .toJS()
     case constants.GLOBAL_MENU_CLOSED:
-      return {
-        ...state,
-        open: action.open
-      }
+      return state
+        .set('open', action.open)
+        .toJS()
     case constants.FETCH_SUCCESS:
-      return {
-        ...state,
-        requests: action.requests || []
-      }
+      return state
+        .set('requests', action.requests || [])
+        .toJS()
     default:
       return state
   }
 }
-
