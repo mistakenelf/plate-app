@@ -1,5 +1,5 @@
-export default ({ open, message }) => (
-  <div className='message' style={{display: open ? 'flex' : 'none'}}>
+export default ({ message }) => (
+  <div className='message'>
     <h4>
       {message}
     </h4>

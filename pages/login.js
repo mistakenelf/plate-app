@@ -1,9 +1,9 @@
 import LayoutContainer from '../containers/LayoutContainer'
-import LoginForm from '../components/LoginForm/LoginForm'
+import LoginFormContainer from '../containers/LoginFormContainer'
 import withData from '../lib/withData'
 
 export default withData(() => (
   <LayoutContainer>
-    <LoginForm />
+    <LoginFormContainer />
   </LayoutContainer>
 ))

@@ -1,5 +1,4 @@
 import fetch from 'isomorphic-fetch'
-import { fromJS } from 'immutable'
 
 // Constants
 export const constants = {
@@ -45,20 +44,22 @@ export const initialState = {
 
 // Reducer
 export default (state = initialState, action) => {
-  state = fromJS(state)
   switch (action.type) {
     case constants.GLOBAL_MENU_OPEN:
-      return state
-        .set('open', action.open)
-        .toJS()
+      return {
+        ...state,
+        open: action.open
+      }
     case constants.GLOBAL_MENU_CLOSED:
-      return state
-        .set('open', action.open)
-        .toJS()
+      return {
+        ...state,
+        open: action.open
+      }
     case constants.FETCH_SUCCESS:
-      return state
-        .set('requests', action.requests || [])
-        .toJS()
+      return {
+        ...state,
+        open: action.open
+      }
     default:
       return state
   }
