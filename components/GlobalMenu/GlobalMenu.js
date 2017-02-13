@@ -24,6 +24,13 @@ export default ({ open, closeMenu }) => (
             </Link>
           </h1>
           <h1 onClick={closeMenu}>
+            <Link href='/register'>
+              <a>
+                Register
+              </a>
+            </Link>
+          </h1>
+          <h1 onClick={closeMenu}>
             <a>Logout</a>
           </h1>
           <h1 onClick={closeMenu}>
