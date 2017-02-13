@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import Layout from '../components/Layout/Layout'
-import { actions } from '../redux/modules/layout'
+import { actions } from '../redux/modules/globalMenu'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
@@ -9,6 +9,7 @@ class LayoutContainer extends Component {
     super(props)
     props.fetchRequests()
   }
+
   render () {
     const { open, openMenu, closeMenu } = this.props
     return (
@@ -19,14 +20,14 @@ class LayoutContainer extends Component {
   }
 }
 
-function mapStateToProps ({ layout: { open, requests } }) {
+const mapStateToProps = ({ globalMenu: { open, requests } }) => {
   return {
     open,
     requests
   }
 }
 
-function mapDispatchToProps (dispatch, ownProps) {
+const mapDispatchToProps = (dispatch, ownProps) => {
   return bindActionCreators({
     openMenu: actions.openMenu,
     closeMenu: actions.closeMenu,
