@@ -1,5 +1,6 @@
 exports[`Dashboard snapshot renders without crashing!" 1`] = `
-<div>
+<div
+  data-jsx={4290012279}>
   <div
     className="nav-bar"
     data-jsx={2548831492}>
@@ -24,37 +25,20 @@ exports[`Dashboard snapshot renders without crashing!" 1`] = `
       </a>
       <div
         className="right menu">
-        <a
+        <div
           className="link item"
           onClick={[Function]}>
           <span
             data-jsx={2548831492}>
             MENU
           </span>
-        </a>
+        </div>
       </div>
     </div>
     <div
       data-jsx={2779333434} />
   </div>
   <div>
-    <div
-      className="ui floating hidden success message">
-      <i
-        aria-hidden="true"
-        className="close icon"
-        onClick={[Function]} />
-      <div
-        className="content">
-        <div
-          className="header">
-          Hello, 
-        </div>
-        <p>
-          This is your dashboard where you can add new plates.
-        </p>
-      </div>
-    </div>
     <h1>
       Dashboard
     </h1>

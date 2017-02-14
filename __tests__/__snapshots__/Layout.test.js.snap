@@ -1,5 +1,6 @@
 exports[`Layout snapshot renders without crashing!" 1`] = `
-<div>
+<div
+  data-jsx={4290012279}>
   <div
     className="nav-bar"
     data-jsx={2548831492}>
@@ -24,14 +25,14 @@ exports[`Layout snapshot renders without crashing!" 1`] = `
       </a>
       <div
         className="right menu">
-        <a
+        <div
           className="link item"
           onClick={[Function]}>
           <span
             data-jsx={2548831492}>
             MENU
           </span>
-        </a>
+        </div>
       </div>
     </div>
     <div
