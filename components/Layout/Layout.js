@@ -10,7 +10,6 @@ export default ({ children, menuOpen, openMenu, closeMenu }) => (
       }
       body {
         padding-top: 60px;
-        font-family: Roboto, sans-serif;
         background-color: white;
       }
     `}</style>
@@ -20,8 +19,7 @@ export default ({ children, menuOpen, openMenu, closeMenu }) => (
       <meta name='theme-color' content='#00B5AD' />
       <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
       <link rel='shortcut icon' href='/static/plateLogo.png' />
-      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.min.css' />
-      <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' />
+      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.css' />
     </Head>
     <Navigation
       menuOpen={menuOpen}
