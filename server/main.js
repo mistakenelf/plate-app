@@ -1,32 +1,45 @@
 const express = require('express')
 const next = require('next')
-const graphqlHTTP = require('express-graphql')
-const { buildSchema } = require('graphql')
+const bodyParser = require('body-parser')
+const { graphqlExpress, graphiqlExpress } = require('graphql-server-express')
+const { makeExecutableSchema } = require('graphql-tools')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-const schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`)
+const typeDefs = [`
+type Query {
+  hello: String
+}
 
-const root = {
-  hello: () => {
-    return 'hello world'
+schema {
+  query: Query
+}`]
+
+const resolvers = {
+  Query: {
+    hello (root) {
+      return 'world'
+    }
   }
 }
+
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers
+})
 
 app.prepare()
   .then(() => {
     const server = express()
 
-    server.use('/graphql', graphqlHTTP({
-      schema: schema,
-      rootValue: root,
-      graphiql: dev
+    server.use('/graphql', bodyParser.json(), graphqlExpress({
+      schema
+    }))
+
+    server.use('/graphiql', graphiqlExpress({
+      endpointURL: '/graphql'
     }))
 
     server.get('*', (req, res) => {
