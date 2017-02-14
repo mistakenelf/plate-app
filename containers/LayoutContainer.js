@@ -3,6 +3,8 @@ import Layout from '../components/Layout/Layout'
 import { actions } from '../redux/modules/globalMenu'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
+import gql from 'graphql-tag'
+import { graphql } from 'react-apollo'
 
 class LayoutContainer extends Component {
   render () {
@@ -28,7 +30,15 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch)
 }
 
+const MyQuery = gql`query { hello }`
+
+const ContainerWithData = graphql(MyQuery, {
+  props: ({ data: { hello } }) => ({
+    hello
+  })
+})(LayoutContainer)
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(LayoutContainer)
+)(ContainerWithData)
