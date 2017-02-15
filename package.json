@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "dev": "node server/main.js",
+    "dev": "NODE_ENV=development node server/main.js",
     "build": "next build",
     "start": "NODE_ENV=production node server/main.js"
   },
