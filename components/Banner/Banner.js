@@ -1,5 +1,4 @@
-import { Button } from 'semantic-ui-react'
-import Link from 'next/prefetch'
+import RaisedButton from 'material-ui/RaisedButton'
 
 export default () => (
   <div>
@@ -16,16 +15,12 @@ export default () => (
           to begin managing your tasks!
         </h5>
       </div>
+      <br />
       <center>
-        <Link href='/register'>
-          <Button
-            primary
-            size='large'
-            style={{ marginTop: 80 }}
-          >
-            Register Now!
-          </Button>
-        </Link>
+        <RaisedButton
+          primary
+          label='Register'
+        />
       </center>
     </div>
     <style jsx>{`
