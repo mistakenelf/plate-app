@@ -9,7 +9,8 @@ export default ({ children, menuOpen, openMenu, closeMenu }) => (
         box-sizing: border-box;
       }
       body {
-        background-color: white;
+        margin: 0;
+        font-family: 'Fira Sans', sans-serif;
       }
     `}</style>
     <Head>
@@ -18,6 +19,7 @@ export default ({ children, menuOpen, openMenu, closeMenu }) => (
       <meta name='theme-color' content='#00B5AD' />
       <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
       <link rel='shortcut icon' href='/static/plateLogo.png' />
+      <link href='https://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' />
     </Head>
     <Navigation
       menuOpen={menuOpen}

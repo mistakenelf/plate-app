@@ -18,7 +18,7 @@ export default () => (
       <br />
       <center>
         <RaisedButton
-          primary
+          secondary
           label='Register'
         />
       </center>

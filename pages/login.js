@@ -1,8 +1,8 @@
 import LayoutContainer from '../containers/LayoutContainer'
 import LoginFormContainer from '../containers/LoginFormContainer'
-import withData from '../lib/withData'
+import pageDecorator from '../lib/pageDecorator'
 
-export default withData(() => (
+export default pageDecorator(() => (
   <LayoutContainer>
     <LoginFormContainer />
   </LayoutContainer>
