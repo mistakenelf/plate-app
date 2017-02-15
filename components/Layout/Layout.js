@@ -18,7 +18,6 @@ export default ({ children, menuOpen, openMenu, closeMenu }) => (
       <meta name='theme-color' content='#00B5AD' />
       <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
       <link rel='shortcut icon' href='/static/plateLogo.png' />
-      <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.7/semantic.css' />
     </Head>
     <Navigation
       menuOpen={menuOpen}
