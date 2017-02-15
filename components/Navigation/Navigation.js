@@ -1,33 +1,22 @@
-import GlobalMenu from '../GlobalMenu/GlobalMenu'
+import AppBar from 'material-ui/AppBar'
+import Drawer from 'material-ui/Drawer'
 import Link from 'next/prefetch'
-import { Menu } from 'semantic-ui-react'
+import MenuItem from 'material-ui/MenuItem'
 
 export default ({ menuOpen, openMenu, closeMenu }) => (
-  <div className='nav-bar'>
-    <Menu pointing fixed='top'>
-      <Link href='/'>
-        <a>
-          <Menu.Item link>
-            <img src='/static/plateLogo.png' />
-            <span className='logo-text'>late</span>
-          </Menu.Item>
-        </a>
-      </Link>
-      <Menu.Menu position='right'>
-        <Menu.Item link onClick={openMenu}>
-          <span>MENU</span>
-        </Menu.Item>
-      </Menu.Menu>
-    </Menu>
-    <GlobalMenu open={menuOpen} closeMenu={closeMenu} />
-    <style jsx>{`
-      .logo-text {
-        font-size: 20px;
-      }
-      .nav-bar {
-        margin-bottom: 0px;
-        padding-bottom: 0px;
-      }
-    `}</style>
+  <div>
+    <AppBar
+      title='Plate'
+      onLeftIconButtonTouchTap={() => openMenu()}
+    />
+    <Drawer
+      docked={false}
+      width={200}
+      open={menuOpen}
+      onRequestChange={() => closeMenu()}
+    >
+      <Link href='/login'><a><MenuItem onTouchTap={() => closeMenu()}>Login</MenuItem></a></Link>
+      <Link href='/register'><a><MenuItem onTouchTap={() => closeMenu()}>Register</MenuItem></a></Link>
+    </Drawer>
   </div>
 )

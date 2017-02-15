@@ -9,7 +9,6 @@ export default ({ children, menuOpen, openMenu, closeMenu }) => (
         box-sizing: border-box;
       }
       body {
-        padding-top: 60px;
         background-color: white;
       }
     `}</style>
