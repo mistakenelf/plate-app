@@ -2,7 +2,7 @@ import AppBar from 'material-ui/AppBar'
 import Drawer from 'material-ui/Drawer'
 import IconButton from 'material-ui/IconButton'
 import IconMenu from 'material-ui/IconMenu'
-import Link from 'next/prefetch'
+import Link from 'next/link'
 import MenuItem from 'material-ui/MenuItem'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import { indigo500 } from 'material-ui/styles/colors'
@@ -16,8 +16,8 @@ export default ({ open, openDrawer, closeDrawer }) => {
       targetOrigin={{ horizontal: 'right', vertical: 'top' }}
       anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
     >
-      <Link href='/login'><a><MenuItem>Login</MenuItem></a></Link>
-      <Link href='/register'><a><MenuItem>Register</MenuItem></a></Link>
+      <Link prefetch href='/login'><a><MenuItem>Login</MenuItem></a></Link>
+      <Link prefetch href='/register'><a><MenuItem>Register</MenuItem></a></Link>
     </IconMenu>
   )
 
@@ -35,7 +35,7 @@ export default ({ open, openDrawer, closeDrawer }) => {
         open={open}
         onRequestChange={() => closeDrawer()}
       >
-        <Link href='/'><a><MenuItem onTouchTap={() => closeDrawer()}>Home</MenuItem></a></Link>
+        <Link prefetch href='/'><a><MenuItem onTouchTap={() => closeDrawer()}>Home</MenuItem></a></Link>
       </Drawer>
       <style jsx global>{`
         a {
