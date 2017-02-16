@@ -28,6 +28,7 @@
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "material-ui": "^0.17.0",
+    "mobile-detect": "^1.3.5",
     "mongoose": "^4.8.3",
     "next": "2.0.0-beta.27",
     "react": "^15.4.2",
