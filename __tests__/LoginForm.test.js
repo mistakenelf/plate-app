@@ -1,25 +1,28 @@
 /* global it, expect, describe */
 
-import Layout from '../components/Layout/Layout'
+import '../lib/tap_events'
+
 import LoginForm from '../components/LoginForm/LoginForm'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import { render } from 'react-dom'
 import renderer from 'react-test-renderer'
 
 it('renders without crashing', () => {
   const div = document.createElement('div')
   render(
-    <Layout>
+    <MuiThemeProvider muiTheme={getMuiTheme()}>
       <LoginForm />
-    </Layout>,
+    </MuiThemeProvider>,
     div)
 })
 
 describe('LoginForm snapshot', () => {
   it('renders without crashing!"', () => {
     const component = renderer.create(
-      <Layout>
+      <MuiThemeProvider muiTheme={getMuiTheme()}>
         <LoginForm />
-      </Layout>
+      </MuiThemeProvider>
     )
     const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
