@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Navigation from '../Navigation/Navigation'
 
-export default ({ children, menuOpen, openMenu, closeMenu }) => (
+export default ({ children, open, openDrawer, closeDrawer }) => (
   <div>
     <style jsx global>{`
       * {
@@ -22,9 +22,9 @@ export default ({ children, menuOpen, openMenu, closeMenu }) => (
       <link href='https://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' />
     </Head>
     <Navigation
-      menuOpen={menuOpen}
-      openMenu={openMenu}
-      closeMenu={closeMenu}
+      open={open}
+      openDrawer={openDrawer}
+      closeDrawer={closeDrawer}
     />
     {children}
   </div>

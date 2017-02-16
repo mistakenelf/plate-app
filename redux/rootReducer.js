@@ -1,7 +1,7 @@
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
 
 import { combineReducers } from 'redux'
-import globalMenu from './modules/globalMenu'
+import drawer from './modules/drawer'
 import loginForm from './modules/loginForm'
 
 export const client = new ApolloClient({
@@ -9,7 +9,7 @@ export const client = new ApolloClient({
 })
 
 export default combineReducers({
-  globalMenu,
+  drawer,
   loginForm,
   apollo: client.reducer()
 })
