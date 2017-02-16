@@ -10,7 +10,7 @@ const forgotPassword = (e) => {
 }
 
 export default () => (
-  <Container fluid>
+  <Container fluid style={{marginTop: 20}}>
     <Row>
       <Col sm={12} md={8} lg={4} offset={{ md: 2, lg: 4 }}>
         <Card>
