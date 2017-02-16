@@ -15,8 +15,8 @@ export default ({ messageOpen, showMessage, hideMessage }) => (
       <Col sm={12} md={8} lg={6} offset={{ md: 2, lg: 3 }}>
         <h3>Login</h3>
         <form onSubmit={login}>
-          <TextField hintText='email' type='text' fullWidth />
-          <TextField hintText='password' type='password' fullWidth />
+          <TextField hintText='email' id='email' type='text' fullWidth />
+          <TextField hintText='password' id='password' type='password' fullWidth />
           <RaisedButton
             secondary
             fullWidth

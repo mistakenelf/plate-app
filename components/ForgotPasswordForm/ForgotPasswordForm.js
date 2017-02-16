@@ -14,7 +14,7 @@ export default () => (
       <Col sm={12} md={8} lg={6} offset={{ md: 2, lg: 3 }}>
         <h3>Forgot Password</h3>
         <form onSubmit={forgotPassword}>
-          <TextField hintText='email' type='text' fullWidth />
+          <TextField hintText='email' id='email' type='text' fullWidth />
           <RaisedButton
             secondary
             fullWidth
