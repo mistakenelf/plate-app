@@ -12,7 +12,7 @@ const register = (e) => {
 export default () => (
   <Container fluid style={{marginTop: 20}}>
     <Row>
-      <Col sm={12} md={8} lg={4} offset={{ md: 2, lg: 4 }}>
+      <Col sm={12} md={12} lg={4} offset={{ lg: 4 }}>
         <Card>
           <CardText>
             <h3>Register</h3>

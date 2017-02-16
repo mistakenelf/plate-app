@@ -1,5 +1,3 @@
-import RaisedButton from 'material-ui/RaisedButton'
-
 export default () => (
   <div>
     <div className='banner'>
@@ -15,13 +13,6 @@ export default () => (
           to begin managing your tasks!
         </h5>
       </div>
-      <br />
-      <center>
-        <RaisedButton
-          secondary
-          label='Register'
-        />
-      </center>
     </div>
     <style jsx>{`
       .banner {

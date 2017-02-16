@@ -11,6 +11,7 @@ export default ({ children, open, openDrawer, closeDrawer }) => (
       body {
         margin: 0;
         font-family: 'Fira Sans', sans-serif;
+        height: 100%;
       }
     `}</style>
     <Head>
