@@ -17,7 +17,7 @@
     "parser": "babel-eslint"
   },
   "dependencies": {
-    "apollo-client": "^0.8.5",
+    "apollo-client": "^0.8.6",
     "auth0-lock": "^10.11.0",
     "body-parser": "^1.16.1",
     "express": "^4.14.1",
@@ -28,7 +28,7 @@
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "material-ui": "^0.17.0",
-    "mongoose": "^4.8.2",
+    "mongoose": "^4.8.3",
     "next": "2.0.0-beta.26",
     "react": "^15.4.2",
     "react-apollo": "^0.10.1",
