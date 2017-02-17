@@ -1,5 +1,4 @@
 import { Card, CardText } from 'material-ui/Card'
-import { Col, Container, Row } from 'react-grid-system'
 
 import Link from 'next/link'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -11,9 +10,9 @@ const login = (e) => {
 }
 
 export default ({ messageOpen, showMessage, hideMessage }) => (
-  <Container fluid style={{marginTop: 20}}>
-    <Row>
-      <Col xs={12} sm={12} md={12} lg={4} xl={4} offset={{ lg: 4 }}>
+  <div className='container-fluid' style={{marginTop: 20}}>
+    <div className='row'>
+      <div className='col-sm-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4'>
         <Card>
           <CardText>
             <h3>Login</h3>
@@ -30,7 +29,7 @@ export default ({ messageOpen, showMessage, hideMessage }) => (
             <Link prefetch href='/forgotPassword'><a>Forgot Password?</a></Link>
           </CardText>
         </Card>
-      </Col>
-    </Row>
-  </Container>
+      </div>
+    </div>
+  </div>
 )

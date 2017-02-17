@@ -1,5 +1,4 @@
 import { Card, CardText } from 'material-ui/Card'
-import { Col, Container, Row } from 'react-grid-system'
 
 import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
@@ -10,9 +9,9 @@ const forgotPassword = (e) => {
 }
 
 export default () => (
-  <Container fluid style={{marginTop: 20}}>
-    <Row>
-      <Col sm={12} md={8} lg={4} offset={{ md: 2, lg: 4 }}>
+  <div className='container-fluid' style={{marginTop: 20}}>
+    <div className='row'>
+      <div className='col-sm-12 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4'>
         <Card>
           <CardText>
             <h3>Forgot Password</h3>
@@ -27,7 +26,7 @@ export default () => (
             </form>
           </CardText>
         </Card>
-      </Col>
-    </Row>
-  </Container>
+      </div>
+    </div>
+  </div>
 )
