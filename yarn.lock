@@ -1744,8 +1744,8 @@ eslint-config-standard@7.0.0-beta.0:
   resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-7.0.0-beta.0.tgz#79f93e10f415f34f118d40a33b4842a5c32e2b74"
 
 eslint-plugin-promise@~3.4.0:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-3.4.1.tgz#6911a9010bf84e17d82e19e0ab0f80ab3ad6db4c"
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-3.4.2.tgz#1be2793eafe2d18b5b123b8136c269f804fe7122"
 
 eslint-plugin-react@~6.9.0:
   version "6.9.0"
