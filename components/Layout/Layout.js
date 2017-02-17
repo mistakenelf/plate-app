@@ -15,7 +15,7 @@ export default ({ children, open, openDrawer, closeDrawer }) => (
       }
     `}</style>
     <Head>
-      <meta charset='utf-8' />
+      <meta charSet='utf-8' />
       <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no' />
       <meta name='theme-color' content='#00B5AD' />
       <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
