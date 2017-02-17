@@ -10,6 +10,7 @@ export default ({ children, open, openDrawer, closeDrawer }) => (
       }
       body {
         font-family: 'Fira Sans', sans-serif;
+        padding-bottom: 20px;
       }
     `}</style>
     <Head>
