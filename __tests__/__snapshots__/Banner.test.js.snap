@@ -1,0 +1,36 @@
+exports[`Banner snapshot renders without crashing!" 1`] = `
+<div
+  data-jsx={1531263508}>
+  <div
+    className="banner"
+    data-jsx={1531263508}>
+    <div
+      className="header-main"
+      data-jsx={1531263508}>
+      <h1
+        data-jsx={1531263508}>
+        Task Management in the Most Simplistic Form, 
+        <br
+          data-jsx={1531263508} />
+        Welcome to 
+        <i
+          data-jsx={1531263508}>
+          Plate
+        </i>
+        !
+      </h1>
+    </div>
+    <div
+      className="header-secondary"
+      data-jsx={1531263508}>
+      <h5
+        data-jsx={1531263508}>
+        Create multiple plates and customize your very own task layout.
+        <br
+          data-jsx={1531263508} />
+         Register now to begin managing your tasks!
+      </h5>
+    </div>
+  </div>
+</div>
+`;
