@@ -17,8 +17,12 @@ export default ({ messageOpen, showMessage, hideMessage }) => (
           <CardText>
             <h3>Login</h3>
             <form onSubmit={login}>
-              <TextField hintText='email' id='email' type='text' fullWidth />
-              <TextField hintText='password' id='password' type='password' fullWidth />
+              <div className='text-field-email'>
+                <TextField hintText='email' id='email' type='text' fullWidth />
+              </div>
+              <div className='text-field-password'>
+                <TextField hintText='password' id='password' type='password' fullWidth />
+              </div>
               <RaisedButton
                 secondary
                 fullWidth
@@ -26,10 +30,23 @@ export default ({ messageOpen, showMessage, hideMessage }) => (
                 type='submit'
               />
             </form>
-            <Link prefetch href='/forgotPassword'><a>Forgot Password?</a></Link>
+            <div className='forgot-password'>
+              <Link prefetch href='/forgotPassword'><a>Forgot Password?</a></Link>
+            </div>
           </CardText>
         </Card>
       </div>
     </div>
+    <style jsx>{`
+      .text-field-email {
+        margin-bottom: 15px;
+      }
+      .text-field-password {
+        margin-bottom: 15px;
+      }
+      .forgot-password {
+        margin-top: 15px;
+      }
+    `}</style>
   </div>
 )
