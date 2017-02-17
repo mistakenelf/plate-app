@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default ({ children, open, openDrawer, closeDrawer }) => (
+export default ({ children }) => (
   <div>
     <style jsx global>{`
       * {
@@ -8,7 +8,6 @@ export default ({ children, open, openDrawer, closeDrawer }) => (
         box-sizing: border-box;
       }
       body {
-        margin: 0;
         background-color: #3F51B5;
         font-family: 'Fira Sans', sans-serif;
       }
