@@ -2,5 +2,6 @@
 {
   "editor.fontSize": 12,
   "editor.tabSize": 2,
-  "eslint.enable": false
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true
 }
