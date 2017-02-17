@@ -4,6 +4,7 @@ import getReducer from './reducer'
 
 let reduxStore = null
 
+// Initialize our redux store with middleware
 export const initStore = (client, initialState) => {
   let store
   if (!process.browser || !reduxStore) {

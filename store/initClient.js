@@ -2,6 +2,8 @@ import ApolloClient, { createNetworkInterface } from 'apollo-client'
 
 let apolloClient = null
 
+
+// Cretae a new ApolloClient
 function createClient (headers) {
   return new ApolloClient({
     ssrMode: !process.browser,
@@ -16,6 +18,8 @@ function createClient (headers) {
   })
 }
 
+// Initialize the new ApolloClient taking
+// server vs client into account
 export const initClient = (headers) => {
   if (!process.browser) {
     return createClient(headers)
