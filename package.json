@@ -17,7 +17,7 @@
     "parser": "babel-eslint"
   },
   "dependencies": {
-    "apollo-client": "^0.8.6",
+    "apollo-client": "^0.8.7",
     "auth0-lock": "^10.11.0",
     "body-parser": "^1.16.1",
     "express": "^4.14.1",
