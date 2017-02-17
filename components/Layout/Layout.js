@@ -9,7 +9,6 @@ export default ({ children, open, openDrawer, closeDrawer }) => (
         box-sizing: border-box;
       }
       body {
-        margin: 0;
         font-family: 'Fira Sans', sans-serif;
       }
     `}</style>
