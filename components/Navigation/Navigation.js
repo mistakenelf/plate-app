@@ -35,11 +35,14 @@ export default ({ open, openDrawer, closeDrawer }) => {
         open={open}
         onRequestChange={() => closeDrawer()}
       >
-        <Link prefetch href='/'><a><MenuItem onTouchTap={() => closeDrawer()}>Home</MenuItem></a></Link>
+        <Link prefetch href='/'><a className='sidebar-text'><MenuItem onTouchTap={() => closeDrawer()}>Home</MenuItem></a></Link>
       </Drawer>
       <style jsx global>{`
         a {
           text-decoration: none;
+        }
+        .sidebar-text {
+          text-align: center;
         }
       `}</style>
     </div>
