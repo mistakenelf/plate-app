@@ -1,23 +1,18 @@
-import { applyMiddleware, compose, createStore } from 'redux'
+import createMiddleware from './middleware'
+import { createStore } from 'redux'
+import getReducer from './reducer'
 
-import thunkMiddleware from 'redux-thunk'
+let reduxStore = null
 
-let store = null
-
-export const initStore = (rootReducer, initialState, isServer) => {
-  if (isServer && typeof window === 'undefined') {
-    return createStore(rootReducer, initialState, applyMiddleware(thunkMiddleware))
-  } else {
-    if (!store) {
-      store = createStore(
-        rootReducer,
-        initialState,
-        compose(
-          applyMiddleware(thunkMiddleware),
-          window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-          )
-        )
+export const initStore = (client, initialState) => {
+  let store
+  if (!process.browser || !reduxStore) {
+    const middleware = createMiddleware(client.middleware())
+    store = createStore(getReducer(client), initialState, middleware)
+    if (!process.browser) {
+      return store
     }
-    return store
+    reduxStore = store
   }
+  return reduxStore
 }
