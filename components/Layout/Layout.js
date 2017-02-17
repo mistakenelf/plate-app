@@ -20,6 +20,7 @@ export default ({ children, open, openDrawer, closeDrawer }) => (
       <link rel='shortcut icon' href='/static/plateLogo.png' />
       <link href='https://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' />
       <link href='/static/flexboxgrid.css' rel='stylesheet' />
+      <link rel='manifest' href='/static/manifest.json' />
     </Head>
     <Navigation
       open={open}

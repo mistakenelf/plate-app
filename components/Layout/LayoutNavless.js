@@ -9,6 +9,7 @@ export default ({ children, open, openDrawer, closeDrawer }) => (
       }
       body {
         margin: 0;
+        background-color: #3F51B5;
         font-family: 'Fira Sans', sans-serif;
       }
     `}</style>
@@ -20,6 +21,7 @@ export default ({ children, open, openDrawer, closeDrawer }) => (
       <link rel='shortcut icon' href='/static/plateLogo.png' />
       <link href='https://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' />
       <link href='/static/flexboxgrid.css' rel='stylesheet' />
+      <link rel='manifest' href='/static/manifest.json' />
     </Head>
     {children}
   </div>
