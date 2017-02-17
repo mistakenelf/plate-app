@@ -18,7 +18,7 @@ export default ({ messageOpen, showMessage, hideMessage }) => (
             <h3>Login</h3>
             <form onSubmit={login}>
               <div className='text-field-email'>
-                <TextField hintText='email' id='email' type='text' fullWidth />
+                <TextField hintText='email' id='email' type='text' autoComplete='off' fullWidth />
               </div>
               <div className='text-field-password'>
                 <TextField hintText='password' id='password' type='password' fullWidth />

@@ -1,9 +1,9 @@
-import LayoutContainer from '../containers/LayoutContainer'
+import LayoutNavless from '../components/Layout/LayoutNavless'
 import RegisterForm from '../components/RegisterForm/RegisterForm'
 import pageDecorator from '../lib/pageDecorator'
 
 export default pageDecorator(() => (
-  <LayoutContainer>
+  <LayoutNavless>
     <RegisterForm />
-  </LayoutContainer>
+  </LayoutNavless>
 ))
