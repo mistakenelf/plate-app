@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import LoginForm from '../components/LoginForm/LoginForm'
-import { actions } from '../redux/modules/loginForm'
+import { actions } from '../store/modules/loginForm'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
