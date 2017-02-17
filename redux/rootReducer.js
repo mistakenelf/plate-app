@@ -5,7 +5,7 @@ import drawer from './modules/drawer'
 import loginForm from './modules/loginForm'
 
 export const client = new ApolloClient({
-  networkInterface: createNetworkInterface({ uri: '/graphql' })
+  networkInterface: createNetworkInterface({ uri: 'http://localhost:3000/graphql' })
 })
 
 export default combineReducers({

@@ -13,7 +13,7 @@ const login = (e) => {
 export default ({ messageOpen, showMessage, hideMessage }) => (
   <Container fluid style={{marginTop: 20}}>
     <Row>
-      <Col sm={12} md={8} lg={4} offset={{ md: 2, lg: 4 }}>
+      <Col xs={12} sm={12} md={12} lg={4} xl={4} offset={{ lg: 4 }}>
         <Card>
           <CardText>
             <h3>Login</h3>
