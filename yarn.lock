@@ -3406,9 +3406,9 @@ mongodb@2.2.24:
     mongodb-core "2.1.8"
     readable-stream "2.1.5"
 
-mongoose@^4.8.3:
-  version "4.8.3"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.8.3.tgz#69bc529f49bbd2067f07bd2c04e5e66e6ae4b079"
+mongoose@^4.8.4:
+  version "4.8.4"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-4.8.4.tgz#091ca76f404355120a0b497bad6cc2b7d21c83ae"
   dependencies:
     async "2.1.4"
     bson "~1.0.4"
@@ -4038,9 +4038,9 @@ react-addons-transition-group@^15.0.0:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-react-apollo@^0.11.1:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-0.11.1.tgz#b168dbff1f88b43763c205b446a17d662ad9d749"
+react-apollo@^0.11.2:
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-0.11.2.tgz#39c134b5a18854e73a15a40a7fa2aeda27212da7"
   dependencies:
     graphql-anywhere "^2.0.0"
     hoist-non-react-statics "^1.2.0"
