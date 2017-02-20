@@ -1,3 +1,4 @@
+import FlatButton from 'material-ui/FlatButton'
 import Link from 'next/link'
 import TextField from 'material-ui/TextField'
 
@@ -36,11 +37,12 @@ export default ({ messageOpen, showMessage, hideMessage }) => (
               required
             />
           </div>
-          <button type='submit' className='submit-button'>
-            <div className='button-text'>
-              <h3>Login</h3>
-            </div>
-          </button>
+          <FlatButton
+            type='submit'
+            label='Login'
+            labelStyle={{ color: 'white' }}
+            style={{ border: '1px solid white' }}
+          />
         </form>
         <div className='forgot-password'>
           <Link prefetch href='/forgotPassword'><a>Forgot Password?</a></Link>
@@ -63,19 +65,6 @@ export default ({ messageOpen, showMessage, hideMessage }) => (
       }
       .full-height {
         height: 90vh;
-      }
-      .submit-button {
-        background: none;
-        border: 1px solid white;
-        border-radius: 3px;
-        left: 150px;
-        top: 80px;
-        width: 30%;
-        height: 30px;
-        margin-top: 30px;
-      }
-      .button-text {
-        color: white;
       }
     `}</style>
   </div>
