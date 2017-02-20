@@ -5,7 +5,6 @@ import IconMenu from 'material-ui/IconMenu'
 import Link from 'next/link'
 import MenuItem from 'material-ui/MenuItem'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
-import { indigo500 } from 'material-ui/styles/colors'
 
 export default ({ open, openDrawer, closeDrawer }) => {
   const elementRight = (
@@ -27,7 +26,7 @@ export default ({ open, openDrawer, closeDrawer }) => {
         title='Plate'
         onLeftIconButtonTouchTap={() => openDrawer()}
         iconElementRight={elementRight}
-        style={{ backgroundColor: indigo500 }}
+        style={{ backgroundColor: '#343f53' }}
       />
       <Drawer
         docked={false}
