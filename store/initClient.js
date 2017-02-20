@@ -8,7 +8,7 @@ function createClient (headers) {
     ssrMode: !process.browser,
     dataIdFromObject: result => result.id || null,
     networkInterface: createNetworkInterface({
-      uri: 'https://localhost:3000/graphql',
+      uri: 'http://localhost:3000/graphql',
       opts: {
         credentials: 'same-origin'
         // Pass headers here if your graphql server requires them
