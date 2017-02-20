@@ -8,7 +8,7 @@ export default ({ children }) => (
         box-sizing: border-box;
       }
       body {
-        background-color: #3F51B5;
+        background-image: url('/static/loginBackground.png');
         font-family: 'Fira Sans', sans-serif;
       }
     `}</style>
