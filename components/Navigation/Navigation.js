@@ -39,6 +39,11 @@ export default ({ open, openDrawer, closeDrawer }) => {
             <MenuItem onTouchTap={() => closeDrawer()}>Home</MenuItem>
           </a>
         </Link>
+        <Link prefetch href='/dashboard'>
+          <a className='sidebar-text'>
+            <MenuItem onTouchTap={() => closeDrawer()}>Dashboard</MenuItem>
+          </a>
+        </Link>
       </Drawer>
       <style jsx global>{`
         a {
