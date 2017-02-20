@@ -26,7 +26,7 @@ export default ({ open, openDrawer, closeDrawer }) => {
         title='Plate'
         onLeftIconButtonTouchTap={() => openDrawer()}
         iconElementRight={elementRight}
-        style={{ backgroundColor: '#343f53' }}
+        style={{ backgroundColor: '#343f53', position: 'fixed', height: 60, top: 0 }}
       />
       <Drawer
         docked={false}
