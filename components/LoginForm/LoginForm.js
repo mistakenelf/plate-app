@@ -1,7 +1,4 @@
-import { Card, CardText } from 'material-ui/Card'
-
 import Link from 'next/link'
-import RaisedButton from 'material-ui/RaisedButton'
 import TextField from 'material-ui/TextField'
 
 const login = (e) => {
@@ -16,10 +13,10 @@ export default ({ messageOpen, showMessage, hideMessage }) => (
         <h3 style={{color: 'white', marginBottom: '50px'}}>Login</h3>
         <form onSubmit={login}>
           <div className='text-field-email'>
-            <TextField hintText='email' id='email' type='text' autoComplete='off' fullWidth />
+            <TextField hintText='email' id='email' hintStyle={{ color: 'white' }} type='text' autoComplete='off' fullWidth />
           </div>
           <div className='text-field-password'>
-            <TextField hintText='password' id='password' type='password' fullWidth />
+            <TextField hintText='password' id='password' hintStyle={{ color: 'white' }} type='password' fullWidth />
           </div>
           <button type='button' className='submit-button'>
             <div className='button-text'>
