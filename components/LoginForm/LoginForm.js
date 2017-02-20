@@ -10,15 +10,33 @@ export default ({ messageOpen, showMessage, hideMessage }) => (
   <div className='container-fluid'>
     <div className='row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg'>
       <div className='col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4'>
-        <h3 style={{color: 'white', marginBottom: '50px'}}>Login</h3>
+        <h1 style={{ color: 'white', marginBottom: '50px' }}>Login</h1>
         <form onSubmit={login}>
           <div className='text-field-email'>
-            <TextField hintText='email' id='email' hintStyle={{ color: 'white' }} type='text' autoComplete='off' fullWidth />
+            <TextField
+              hintText='email'
+              id='email'
+              hintStyle={{ color: 'white' }}
+              type='text'
+              inputStyle={{ color: 'white' }}
+              autoComplete={'off'}
+              fullWidth
+              required
+            />
           </div>
           <div className='text-field-password'>
-            <TextField hintText='password' id='password' hintStyle={{ color: 'white' }} type='password' fullWidth />
+            <TextField
+              hintText='password'
+              id='password'
+              autoComplete={'off'}
+              inputStyle={{ color: 'white' }}
+              hintStyle={{ color: 'white' }}
+              type='password'
+              fullWidth
+              required
+            />
           </div>
-          <button type='button' className='submit-button'>
+          <button type='submit' className='submit-button'>
             <div className='button-text'>
               <h3>Login</h3>
             </div>
