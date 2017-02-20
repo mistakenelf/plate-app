@@ -10,9 +10,6 @@
     "build": "next build",
     "start": "NODE_ENV=production node server/main.js"
   },
-  "now": {
-    "alias": "plate.now.sh"
-  },
   "standard": {
     "parser": "babel-eslint"
   },
