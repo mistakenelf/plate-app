@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "apollo-client": "^0.8.7",
-    "auth0-lock": "^10.11.0",
     "body-parser": "^1.16.1",
     "express": "^4.14.1",
     "graphql": "^0.9.1",
@@ -30,7 +29,6 @@
     "react": "^15.4.2",
     "react-apollo": "^0.11.2",
     "react-dom": "^15.4.2",
-    "react-grid-system": "^2.4.1",
     "react-redux": "^5.0.2",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
