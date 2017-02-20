@@ -2,14 +2,13 @@ import ApolloClient, { createNetworkInterface } from 'apollo-client'
 
 let apolloClient = null
 
-
 // Cretae a new ApolloClient
 function createClient (headers) {
   return new ApolloClient({
     ssrMode: !process.browser,
     dataIdFromObject: result => result.id || null,
     networkInterface: createNetworkInterface({
-      uri: 'http://localhost:3000/graphql',
+      uri: 'https://localhost:3000/graphql',
       opts: {
         credentials: 'same-origin'
         // Pass headers here if your graphql server requires them
