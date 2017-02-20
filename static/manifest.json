@@ -8,6 +8,7 @@
       "type": "image/png"
     }
   ],
+  "start_url": "plate.now.sh",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "white",
