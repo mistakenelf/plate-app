@@ -8,7 +8,7 @@ export default ({ children }) => (
         box-sizing: border-box;
       }
       body {
-        background-image: url('/static/loginBackground.png');
+        background-image: url('/static/plateGradient.png');
         font-family: 'Fira Sans', sans-serif;
       }
     `}</style>
