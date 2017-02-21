@@ -1,7 +1,0 @@
-exports[`Dashboard snapshot renders without crashing!" 1`] = `
-<div>
-  <h1>
-    Dashboard
-  </h1>
-</div>
-`;

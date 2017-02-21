@@ -1,20 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Banner snapshot renders without crashing!" 1`] = `
 <div
-  data-jsx={4276731949}>
+  data-jsx={4276731949}
+>
   <div
     className="banner"
-    data-jsx={4276731949}>
+    data-jsx={4276731949}
+  >
     <div
       className="header-main"
-      data-jsx={4276731949}>
+      data-jsx={4276731949}
+    >
       <h1
-        data-jsx={4276731949}>
+        data-jsx={4276731949}
+      >
         Task Management in the Most Simplistic Form, 
         <br
-          data-jsx={4276731949} />
+          data-jsx={4276731949}
+        />
         Welcome to 
         <i
-          data-jsx={4276731949}>
+          data-jsx={4276731949}
+        >
           Plate
         </i>
         !
@@ -22,12 +30,15 @@ exports[`Banner snapshot renders without crashing!" 1`] = `
     </div>
     <div
       className="header-secondary"
-      data-jsx={4276731949}>
+      data-jsx={4276731949}
+    >
       <h5
-        data-jsx={4276731949}>
+        data-jsx={4276731949}
+      >
         Create multiple plates and customize your very own task layout.
         <br
-          data-jsx={4276731949} />
+          data-jsx={4276731949}
+        />
          Register now to begin managing your tasks!
       </h5>
     </div>
