@@ -1,9 +1,11 @@
-import LayoutNavless from '../components/Layout/LayoutNavless'
-import LoginFormContainer from '../containers/LoginFormContainer'
+import Header from '../components/Header/Header'
+import LayoutNavless from '../components/Layouts/LayoutNavless'
+import LoginForm from '../components/LoginForm/LoginForm'
 import pageDecorator from '../lib/pageDecorator'
 
 export default pageDecorator(() => (
   <LayoutNavless>
-    <LoginFormContainer />
+    <Header />
+    <LoginForm />
   </LayoutNavless>
 ))

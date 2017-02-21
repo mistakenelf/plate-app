@@ -1,9 +1,11 @@
 import ForgotPasswordForm from '../components/ForgotPasswordForm/ForgotPasswordForm'
-import LayoutNavless from '../components/Layout/LayoutNavless'
+import Header from '../components/Header/Header'
+import LayoutNavless from '../components/Layouts/LayoutNavless'
 import pageDecorator from '../lib/pageDecorator'
 
 export default pageDecorator(() => (
   <LayoutNavless>
+    <Header />
     <ForgotPasswordForm />
   </LayoutNavless>
 ))

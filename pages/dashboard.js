@@ -2,11 +2,13 @@ import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card'
 
 import AddPlateButton from '../components/AddPlateButton/AddPlateButton'
 import FlatButton from 'material-ui/FlatButton'
-import LayoutContainer from '../containers/LayoutContainer'
+import Header from '../components/Header/Header'
+import MainLayoutContainer from '../containers/MainLayoutContainer'
 import pageDecorator from '../lib/pageDecorator'
 
 export default pageDecorator((props) => (
-  <LayoutContainer>
+  <MainLayoutContainer>
+    <Header />
     <div className='container-fluid' style={{ paddingTop: 5 }}>
       <div className='row'>
         <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12' style={{ marginBottom: 10 }}>
@@ -56,5 +58,5 @@ export default pageDecorator((props) => (
         </div>
       </div>
     </div>
-  </LayoutContainer>
+  </MainLayoutContainer>
 ))
