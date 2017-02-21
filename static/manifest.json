@@ -8,8 +8,9 @@
       "type": "image/png"
     }
   ],
+  "start_url": "../login",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "white",
+  "background_color": "#343f53",
   "theme_color": "#343f53"
 }
