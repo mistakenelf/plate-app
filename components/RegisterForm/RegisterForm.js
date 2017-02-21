@@ -10,7 +10,7 @@ export default () => (
   <div className='container-fluid'>
     <div className='row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg'>
       <div className='col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4'>
-        <h3 style={{ color: 'white', marginBottom: 50 }}>Register</h3>
+        <h1 className='header-text'>Register</h1>
         <form onSubmit={register}>
           <div className='text-field-email'>
             <TextField
@@ -54,6 +54,10 @@ export default () => (
       }
       .text-field-password {
         margin-bottom: 15px;
+      }
+      .header-text {
+        color: white;
+        margin-bottom: 50px;
       }
     `}</style>
   </div>

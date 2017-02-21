@@ -3,7 +3,7 @@
   "name": "Plate",
   "icons": [
     {
-      "src": "plateLogo.png",
+      "src": "img/plateLogo.png",
       "sizes": "192x192",
       "type": "image/png"
     }

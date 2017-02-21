@@ -6,7 +6,7 @@ export default ({ children }) => (
         box-sizing: border-box;
       }
       body {
-        background-image: url('/static/plateGradient.png');
+        background-image: url('/static/img/plateGradient.png');
         font-family: 'Fira Sans', sans-serif;
       }
     `}</style>

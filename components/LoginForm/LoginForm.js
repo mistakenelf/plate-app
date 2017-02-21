@@ -11,7 +11,7 @@ export default ({ messageOpen, showMessage, hideMessage }) => (
   <div className='container-fluid'>
     <div className='row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg'>
       <div className='col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4'>
-        <h1 style={{ color: 'white', marginBottom: 50 }}>Login</h1>
+        <h1 className='header-text'>Login</h1>
         <form onSubmit={login}>
           <div className='text-field-email'>
             <TextField
@@ -65,6 +65,10 @@ export default ({ messageOpen, showMessage, hideMessage }) => (
       }
       .full-height {
         height: 90vh;
+      }
+      .header-text {
+        color: white;
+        margin-bottom: 50px;
       }
     `}</style>
   </div>

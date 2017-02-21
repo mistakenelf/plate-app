@@ -16,7 +16,7 @@ export default () => (
     </div>
     <style jsx>{`
       .banner {
-        background-image: url('/static/plateGradient.png');
+        background-image: url('/static/img/plateGradient.png');
         height: 500px;
         padding-top: 80px;
       }
