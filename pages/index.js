@@ -6,7 +6,7 @@ import pageDecorator from '../lib/pageDecorator'
 
 export default pageDecorator(() => (
   <MainLayoutContainer>
-    <Header />
+    <Header title='Home' />
     <Banner />
     <AdvertisementCards />
   </MainLayoutContainer>

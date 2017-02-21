@@ -8,7 +8,7 @@ import pageDecorator from '../lib/pageDecorator'
 
 export default pageDecorator((props) => (
   <MainLayoutContainer>
-    <Header />
+    <Header title='Dashboard' />
     <div className='container-fluid' style={{ paddingTop: 5 }}>
       <div className='row'>
         <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12' style={{ marginBottom: 10 }}>

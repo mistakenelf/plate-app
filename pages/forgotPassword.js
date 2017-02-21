@@ -5,7 +5,7 @@ import pageDecorator from '../lib/pageDecorator'
 
 export default pageDecorator(() => (
   <LayoutNavless>
-    <Header />
+    <Header title='Forgot Password' />
     <ForgotPasswordForm />
   </LayoutNavless>
 ))
