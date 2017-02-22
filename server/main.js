@@ -8,25 +8,12 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-const typeDefs = [`
-type Query {
-  hello: String
-}
+const Schema = require('./schemas/schema')
+const resolvers = require('./resolvers/resolver')
 
-schema {
-  query: Query
-}`]
-
-const resolvers = {
-  Query: {
-    hello (root) {
-      return 'world'
-    }
-  }
-}
 
 const schema = makeExecutableSchema({
-  typeDefs,
+  typeDefs: Schema,
   resolvers
 })
 
