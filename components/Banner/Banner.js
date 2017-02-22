@@ -1,3 +1,6 @@
+import Link from 'next/link'
+import RaisedButton from 'material-ui/RaisedButton'
+
 export default () => (
   <div>
     <div className='banner'>
@@ -12,6 +15,11 @@ export default () => (
           Create multiple plates and customize your very own task layout.<br /> Register now
           to begin managing your tasks!
         </h5>
+      </div>
+      <div className='register-button'>
+        <Link href='/register'>
+          <RaisedButton label='Register Now' primary />
+        </Link>
       </div>
     </div>
     <style jsx>{`
@@ -30,6 +38,11 @@ export default () => (
         color: white;
         font-style: italic;
         margin-top: 30px;
+      }
+      .register-button {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
       }
       @media only screen and (max-width: 660px) {
         .banner {
