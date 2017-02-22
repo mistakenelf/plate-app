@@ -8,12 +8,12 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-const Schema = require('./schemas/schema')
-const resolvers = require('./resolvers/resolver')
+const Plate = require('./schemas/plate')
+const resolvers = require('./resolvers/plate')
 
 
 const schema = makeExecutableSchema({
-  typeDefs: Schema,
+  typeDefs: Plate,
   resolvers
 })
 

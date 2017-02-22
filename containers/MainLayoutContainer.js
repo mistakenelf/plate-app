@@ -30,11 +30,11 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch)
 }
 
-const MyQuery = gql`query { testString }`
+const MyQuery = gql`query { name }`
 
 const ContainerWithData = graphql(MyQuery, {
-  props: ({ data: { testString } }) => ({
-    testString
+  props: ({ data: { name } }) => ({
+    name
   })
 })(MainLayoutContainer)
 
