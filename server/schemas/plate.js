@@ -1,10 +1,17 @@
-const Plates = `
-type Query {
-  name: String
-}
+const {
+  GraphQLString,
+  GraphQLObjectType
+} = require('graphql')
 
-schema {
-  query: Query
-}
-`
-module.exports = [Plates]
+const Plate = new GraphQLObjectType({
+  name: 'Plate',
+  description: 'A new plate',
+  fields: () => ({
+    name: {
+      type: GraphQLString,
+      resolve: () => 'Plate Name'
+    }
+  })
+})
+
+module.exports = Plate
