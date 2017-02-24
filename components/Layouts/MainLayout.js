@@ -1,4 +1,3 @@
-import Footer from '../Footer/Footer'
 import Navigation from '../Navigation/Navigation'
 
 export default ({ children, open, openDrawer, closeDrawer }) => (
@@ -20,6 +19,5 @@ export default ({ children, open, openDrawer, closeDrawer }) => (
       closeDrawer={closeDrawer}
     />
     {children}
-    <Footer />
   </div>
 )
