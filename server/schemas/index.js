@@ -4,6 +4,7 @@ const {
 } = require('graphql')
 
 const PlateType = require('./plate')
+const UserType = require('./user')
 
 const query = new GraphQLObjectType({
   name: 'Query',
@@ -12,6 +13,10 @@ const query = new GraphQLObjectType({
     plate: {
       type: PlateType,
       resolve: () => 'Plate Name'
+    },
+    user: {
+      type: UserType,
+      resolve: () => 'Tyler Knipfer'
     }
   })
 })

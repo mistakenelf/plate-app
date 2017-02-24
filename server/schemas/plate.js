@@ -10,6 +10,10 @@ const Plate = new GraphQLObjectType({
     name: {
       type: GraphQLString,
       resolve: () => 'Plate Name'
+    },
+    description: {
+      type: GraphQLString,
+      resolve: () => 'This is a description of a plate'
     }
   })
 })
