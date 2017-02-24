@@ -1,5 +1,5 @@
 import Add from 'material-ui/svg-icons/content/add'
-import Dialog from 'material-ui/Dialog'
+import AddPlateDialog from '../AddPlateDialog/AddPlateDialog'
 import RaisedButton from 'material-ui/RaisedButton'
 import { fullWhite } from 'material-ui/styles/colors'
 
@@ -13,13 +13,10 @@ export default ({ open, openDialog, closeDialog }) => (
       fullWidth
       onTouchTap={openDialog}
     />
-    <Dialog
-      title="Dialog With Actions"
-      modal={false}
+    <AddPlateDialog
       open={open}
-      onRequestClose={closeDialog}
-    >
-      Test Dialog
-    </Dialog>
+      openDialog={openDialog}
+      closeDialog={closeDialog}
+    />
   </div>
 )

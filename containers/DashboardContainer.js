@@ -10,7 +10,6 @@ import { connect } from 'react-redux'
 class DashboardContainer extends Component {
   render () {
     const { newPlateDialogOpen, openDialog, closeDialog } = this.props
-    console.log(newPlateDialogOpen)
     return (
       <div className='container-fluid' style={{ paddingTop: 5 }}>
         <div className='row'>
