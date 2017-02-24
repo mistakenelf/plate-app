@@ -23,6 +23,7 @@
     "graphql-tools": "^0.10.0",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.4",
     "material-ui": "^0.17.0",
     "mongodb": "^2.2.24",
     "next": "2.0.0-beta.32",
