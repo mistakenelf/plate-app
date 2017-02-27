@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import MainLayout from '../components/Layouts/MainLayout'
-import { actions } from '../store/modules/drawer'
+import { actions } from '../redux/modules/drawer'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import gql from 'graphql-tag'
