@@ -1,6 +1,7 @@
 const express = require('express')
 const next = require('next')
-const graphqlHTTP = require('express-graphql')
+const bodyParser = require('body-parser')
+const { graphqlExpress, graphiqlExpress } = require('graphql-server-express')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -12,10 +13,14 @@ app.prepare()
   .then(() => {
     const server = express()
 
-    server.use('/graphql', graphqlHTTP({
-      schema,
-      graphiql: true
+    server.use('/graphql', bodyParser.json(), graphqlExpress({
+      schema
     }))
+
+    server.use('/graphiql', graphiqlExpress({
+      endpointURL: '/graphql'
+    }))
+
 
     server.get('*', (req, res) => {
       return handle(req, res)
