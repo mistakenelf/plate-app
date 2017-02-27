@@ -21,7 +21,6 @@ app.prepare()
       endpointURL: '/graphql'
     }))
 
-
     server.get('*', (req, res) => {
       return handle(req, res)
     })
