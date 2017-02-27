@@ -12,7 +12,6 @@ export default ({ open, openDialog, closeDialog }) => {
     <FlatButton
       label='Submit'
       primary
-      keyboardFocused
     />
   ]
 
