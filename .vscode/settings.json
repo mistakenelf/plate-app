@@ -4,5 +4,6 @@
   "editor.tabSize": 2,
   "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
-  "eslint.enable": false
+  "eslint.enable": false,
+  "javascript.validate.enable": false
 }

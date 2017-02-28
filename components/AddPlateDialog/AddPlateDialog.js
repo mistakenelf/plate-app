@@ -1,8 +1,16 @@
+// @flow
+
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import TextField from 'material-ui/TextField'
 
-export default ({ open, openDialog, closeDialog }) => {
+type Props = {
+  open?: boolean,
+  openDialog?: Function,
+  closeDialog?: Function
+}
+
+export default ({ open, openDialog, closeDialog }: Props) => {
   const actions = [
     <FlatButton
       label='Cancel'
