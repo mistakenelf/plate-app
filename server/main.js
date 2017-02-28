@@ -1,7 +1,8 @@
-const express = require('express')
+const Koa = require('koa')
+const Router = require('koa-router')
 const next = require('next')
-const bodyParser = require('body-parser')
-const { graphqlExpress, graphiqlExpress } = require('graphql-server-express')
+const koaBody = require('koa-bodyparser')
+const { graphqlKoa, graphiqlKoa } = require('graphql-server-koa')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -11,22 +12,37 @@ const schema = require('./schemas')
 
 app.prepare()
   .then(() => {
-    const server = express()
+    const server = new Koa()
+    const router = new Router()
 
-    server.use('/graphql', bodyParser.json(), graphqlExpress({
+    server.use(koaBody())
+
+    router.post('/graphql', graphqlKoa({
       schema
     }))
 
-    server.use('/graphiql', graphiqlExpress({
-      endpointURL: '/graphql'
+    router.get('/graphql', graphqlKoa({
+      schema
     }))
 
-    server.get('*', (req, res) => {
-      return handle(req, res)
+    router.get('/graphiql', graphiqlKoa({
+      endpointURL: './graphql'
+    }))
+
+    router.get('*', async ctx => {
+      await handle(ctx.req, ctx.res)
+      ctx.respond = false
     })
 
-    server.listen(3000, (err) => {
-      if (err) throw err
-      console.log('> Ready on http://localhost:3000')
+    server.use(async (ctx, next) => {
+      // Koa doesn't seems to set the default statusCode.
+      // So, this middleware does that
+      ctx.res.statusCode = 200
+      await next()
     })
+
+    server.use(router.routes())
+    server.use(router.allowedMethods())
+
+    server.listen(3000)
   })
