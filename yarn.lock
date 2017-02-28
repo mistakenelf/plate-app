@@ -68,8 +68,8 @@ accepts@^1.2.2:
     negotiator "0.6.1"
 
 acorn-dynamic-import@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/acorn-dynamic-import/-/acorn-dynamic-import-2.0.1.tgz#23f671eb6e650dab277fef477c321b1178a8cca2"
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/acorn-dynamic-import/-/acorn-dynamic-import-2.0.2.tgz#c752bd210bef679501b6c6cb7fc84f8f47158cc4"
   dependencies:
     acorn "^4.0.3"
 
@@ -1166,8 +1166,8 @@ chalk@^1.0.0, chalk@^1.1.0, chalk@^1.1.1, chalk@^1.1.3:
     supports-color "^2.0.0"
 
 change-emitter@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/change-emitter/-/change-emitter-0.1.2.tgz#6b88ca4d5d864e516f913421b11899a860aee8db"
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/change-emitter/-/change-emitter-0.1.3.tgz#731c9360913855f613dd256568d50f854a8806ac"
 
 chokidar@^1.4.3:
   version "1.6.1"
@@ -1319,6 +1319,10 @@ cookies@~0.6.1:
   dependencies:
     depd "~1.1.0"
     keygrip "~1.0.1"
+
+copy-to@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/copy-to/-/copy-to-2.0.1.tgz#2680fbb8068a48d08656b6098092bdafc906f4a5"
 
 core-js@^1.0.0:
   version "1.2.7"
@@ -2181,9 +2185,9 @@ graphql-server-module-graphiql@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/graphql-server-module-graphiql/-/graphql-server-module-graphiql-0.6.0.tgz#e37634b05f000731981e8ed13103f9a5861e5da0"
 
-graphql-tag@^1.1.1, graphql-tag@^1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-1.2.4.tgz#90c59bea41378513fd7213dc92537fcd20e4570f"
+graphql-tag@^1.1.1, graphql-tag@^1.2.4, graphql-tag@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-1.3.0.tgz#b80b80af028dad6d11b09cb8a8f51e1c08ad7fbb"
 
 graphql@^0.9.1:
   version "0.9.1"
@@ -2337,13 +2341,9 @@ hyphenate-style-name@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.2.tgz#31160a36930adaf1fc04c6074f7eb41465d4ec4b"
 
-iconv-lite@0.4.13:
+iconv-lite@0.4.13, iconv-lite@~0.4.13:
   version "0.4.13"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.13.tgz#1f88aba4ab0b1508e8312acc39345f36e992e2f2"
-
-iconv-lite@~0.4.13:
-  version "0.4.15"
-  resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.15.tgz#fe265a218ac6a57cfe854927e9d04c19825eddeb"
 
 ieee754@^1.1.4:
   version "1.1.8"
@@ -2984,11 +2984,12 @@ kind-of@^3.0.2:
   dependencies:
     is-buffer "^1.0.2"
 
-koa-bodyparser@next:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/koa-bodyparser/-/koa-bodyparser-3.2.0.tgz#b916de17e2039fe82650481973d7c294f10b5719"
+koa-bodyparser@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/koa-bodyparser/-/koa-bodyparser-4.0.0.tgz#2a44a720a938b1f355e508d3660059abf3e080dc"
   dependencies:
     co-body "^4.2.0"
+    copy-to "^2.0.1"
 
 koa-compose@^3.0.0:
   version "3.2.1"
@@ -4016,7 +4017,7 @@ read-pkg@^1.0.0:
     normalize-package-data "^2.3.2"
     path-type "^1.0.0"
 
-readable-stream@2.1.5, readable-stream@^2.0.1, readable-stream@^2.0.5, readable-stream@~2.1.4:
+readable-stream@2.1.5, readable-stream@~2.1.4:
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.1.5.tgz#66fa8b720e1438b364681f2ad1a63c618448c9d0"
   dependencies:
@@ -4028,7 +4029,7 @@ readable-stream@2.1.5, readable-stream@^2.0.1, readable-stream@^2.0.5, readable-
     string_decoder "~0.10.x"
     util-deprecate "~1.0.1"
 
-"readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.2, readable-stream@^2.1.0, readable-stream@^2.2.2:
+"readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.5, readable-stream@^2.1.0, readable-stream@^2.2.2:
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.3.tgz#9cf49463985df016c8ae8813097a9293a9b33729"
   dependencies:
