@@ -1,11 +1,11 @@
 import Header from '../components/Header/Header'
-import LayoutNavless from '../components/Layouts/LayoutNavless'
+import NavlessLayout from '../layouts/NavlessLayout/NavlessLayout'
 import RegisterForm from '../components/RegisterForm/RegisterForm'
 import pageDecorator from '../lib/pageDecorator'
 
 export default pageDecorator(() => (
-  <LayoutNavless>
+  <NavlessLayout>
     <Header title='Register' />
     <RegisterForm />
-  </LayoutNavless>
+  </NavlessLayout>
 ))

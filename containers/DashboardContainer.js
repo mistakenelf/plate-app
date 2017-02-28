@@ -3,7 +3,7 @@ import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card'
 import AddPlateButton from '../components/AddPlateButton/AddPlateButton'
 import { Component } from 'react'
 import FlatButton from 'material-ui/FlatButton'
-import { actions } from '../redux/modules/dashboard'
+import { actions } from '../store/modules/dashboard'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 

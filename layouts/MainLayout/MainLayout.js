@@ -1,4 +1,4 @@
-import Navigation from '../Navigation/Navigation'
+import Navigation from '../../components/Navigation/Navigation'
 
 export default ({ children, open, openDrawer, closeDrawer }) => (
   <div>
