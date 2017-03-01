@@ -16,7 +16,7 @@
     "parser": "babel-eslint"
   },
   "dependencies": {
-    "apollo-client": "^0.9.0",
+    "apollo-client": "^0.10.0",
     "graphql": "^0.9.1",
     "graphql-server-koa": "^0.6.0",
     "graphql-tag": "^1.2.4",
