@@ -35,8 +35,6 @@ app.prepare()
     })
 
     server.use(async (ctx, next) => {
-      // Koa doesn't seems to set the default statusCode.
-      // So, this middleware does that
       ctx.res.statusCode = 200
       await next()
     })
@@ -44,5 +42,8 @@ app.prepare()
     server.use(router.routes())
     server.use(router.allowedMethods())
 
-    server.listen(3000)
+    server.listen(3000, (err) => {
+      if (err) throw err
+      console.log('> Ready on http://localhost:3000')
+    })
   })
