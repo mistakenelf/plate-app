@@ -1,5 +1,5 @@
+import FlatButton from 'material-ui/FlatButton'
 import Link from 'next/link'
-import RaisedButton from 'material-ui/RaisedButton'
 
 export default () => (
   <div>
@@ -17,8 +17,12 @@ export default () => (
         </h5>
       </div>
       <div className='register-button'>
-        <Link href='/register'>
-          <RaisedButton label='Register Now' primary />
+        <Link prefetch href='/register'>
+          <FlatButton
+            label='Register Now'
+            labelStyle={{ color: 'white' }}
+            style={{ border: '1px solid white', margin: 10 }}
+          />
         </Link>
       </div>
     </div>
