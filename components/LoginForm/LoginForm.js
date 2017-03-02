@@ -1,4 +1,4 @@
-import FlatButton from 'material-ui/FlatButton'
+import BorderedButton from '../BorderedButton/BorderedButton'
 import Link from 'next/link'
 import TextField from 'material-ui/TextField'
 
@@ -37,11 +37,9 @@ export default ({ messageOpen, showMessage, hideMessage }) => (
               required
             />
           </div>
-          <FlatButton
+          <BorderedButton
             type='submit'
             label='Login'
-            labelStyle={{ color: 'white' }}
-            style={{ border: '1px solid white' }}
           />
         </form>
         <div className='forgot-password'>

@@ -1,4 +1,4 @@
-import FlatButton from 'material-ui/FlatButton'
+import BorderedButton from '../BorderedButton/BorderedButton'
 import TextField from 'material-ui/TextField'
 
 const register = (e) => {
@@ -36,11 +36,9 @@ export default () => (
               required
             />
           </div>
-          <FlatButton
+          <BorderedButton
             type='submit'
             label='Register'
-            labelStyle={{ color: 'white' }}
-            style={{ border: '1px solid white' }}
           />
         </form>
       </div>

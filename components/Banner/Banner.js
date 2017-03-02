@@ -1,4 +1,4 @@
-import FlatButton from 'material-ui/FlatButton'
+import BorderedButton from '../BorderedButton/BorderedButton'
 import Link from 'next/link'
 
 export default () => (
@@ -18,10 +18,9 @@ export default () => (
       </div>
       <div className='register-button'>
         <Link prefetch href='/register'>
-          <FlatButton
-            label='Register Now'
-            labelStyle={{ color: 'white' }}
-            style={{ border: '1px solid white', margin: 10 }}
+          <BorderedButton
+            type='button'
+            label='Register'
           />
         </Link>
       </div>
