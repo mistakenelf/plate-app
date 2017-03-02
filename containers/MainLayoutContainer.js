@@ -1,10 +1,11 @@
+import { compose, graphql } from 'react-apollo'
+
 import { Component } from 'react'
 import MainLayout from '../layouts/MainLayout/MainLayout'
 import { actions } from '../store/modules/drawer'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import gql from 'graphql-tag'
-import { graphql } from 'react-apollo'
 
 class MainLayoutContainer extends Component {
   render () {
@@ -30,20 +31,14 @@ const mapDispatchToProps = (dispatch) => {
   }, dispatch)
 }
 
-const MyQuery = gql`query Plate {
+const MyQuery = gql`query {
   plate {
     name,
     description
   }
 }`
 
-const ContainerWithData = graphql(MyQuery, {
-  props: ({ data: { name, description } }) => ({
-    name
-  })
-})(MainLayoutContainer)
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ContainerWithData)
+export default compose(
+  graphql(MyQuery, { props: ({ data: { plate: { name, description } } }) => ({ name, description }) }),
+  connect(mapStateToProps, mapDispatchToProps)
+)(MainLayoutContainer)
