@@ -30,6 +30,7 @@ export default ({ open, openDialog, closeDialog }: Props) => {
       open={open}
       actions={actions}
       onRequestClose={closeDialog}
+      contentStyle={{ width: '95%' }}
     >
       <TextField
         hintText='Name' fullWidth
