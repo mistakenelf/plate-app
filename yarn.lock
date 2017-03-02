@@ -25,10 +25,6 @@
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@types/http-assert/-/http-assert-1.2.0.tgz#0b82993036e86c6ff2944e033b73b57e85ccdcab"
 
-"@types/isomorphic-fetch@0.0.30":
-  version "0.0.30"
-  resolved "https://registry.yarnpkg.com/@types/isomorphic-fetch/-/isomorphic-fetch-0.0.30.tgz#a21717624cde9a48c2db53a4e500fc5c32a99bbc"
-
 "@types/isomorphic-fetch@0.0.33":
   version "0.0.33"
   resolved "https://registry.yarnpkg.com/@types/isomorphic-fetch/-/isomorphic-fetch-0.0.33.tgz#3ea1b86f8b73e6a7430d01d4dbd5b1f63fd72718"
@@ -157,7 +153,7 @@ anymatch@^1.3.0:
     arrify "^1.0.0"
     micromatch "^2.1.5"
 
-apollo-client@^0.10.0:
+apollo-client@^0.10.0, "apollo-client@^0.9.0 || ^0.10.0":
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-0.10.0.tgz#ab3c0e7f9c9f97e2678f245c4378fe84d21808b3"
   dependencies:
@@ -170,20 +166,6 @@ apollo-client@^0.10.0:
     "@types/async" "^2.0.31"
     "@types/graphql" "^0.8.0"
     "@types/isomorphic-fetch" "0.0.33"
-
-apollo-client@^0.9.0:
-  version "0.9.0"
-  resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-0.9.0.tgz#31b7ccdfc2e80b3eef2efe677027db0f14b8f05f"
-  dependencies:
-    graphql-anywhere "^2.1.0"
-    graphql-tag "^1.1.1"
-    redux "^3.4.0"
-    symbol-observable "^1.0.2"
-    whatwg-fetch "^2.0.0"
-  optionalDependencies:
-    "@types/async" "^2.0.31"
-    "@types/graphql" "^0.8.0"
-    "@types/isomorphic-fetch" "0.0.30"
 
 append-transform@^0.4.0:
   version "0.4.0"
@@ -666,7 +648,7 @@ babel-plugin-transform-es2015-modules-amd@^6.22.0:
     babel-runtime "^6.22.0"
     babel-template "^6.22.0"
 
-babel-plugin-transform-es2015-modules-commonjs@6.22.0:
+babel-plugin-transform-es2015-modules-commonjs@6.22.0, babel-plugin-transform-es2015-modules-commonjs@^6.22.0:
   version "6.22.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-es2015-modules-commonjs/-/babel-plugin-transform-es2015-modules-commonjs-6.22.0.tgz#6ca04e22b8e214fb50169730657e7a07dc941145"
   dependencies:
@@ -674,15 +656,6 @@ babel-plugin-transform-es2015-modules-commonjs@6.22.0:
     babel-runtime "^6.22.0"
     babel-template "^6.22.0"
     babel-types "^6.22.0"
-
-babel-plugin-transform-es2015-modules-commonjs@^6.22.0:
-  version "6.23.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-es2015-modules-commonjs/-/babel-plugin-transform-es2015-modules-commonjs-6.23.0.tgz#cba7aa6379fb7ec99250e6d46de2973aaffa7b92"
-  dependencies:
-    babel-plugin-transform-strict-mode "^6.22.0"
-    babel-runtime "^6.22.0"
-    babel-template "^6.23.0"
-    babel-types "^6.23.0"
 
 babel-plugin-transform-es2015-modules-systemjs@^6.22.0:
   version "6.23.0"
@@ -3944,11 +3917,11 @@ react-addons-transition-group@^15.0.0:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-react-apollo@^0.13.0:
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-0.13.0.tgz#7f3b22078ba7c5f91af10cc2acda0660604f9a66"
+react-apollo@^0.13.1:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/react-apollo/-/react-apollo-0.13.1.tgz#09507b3141b4686cbeb485619c77b820c963f1f8"
   dependencies:
-    apollo-client "^0.9.0"
+    apollo-client "^0.9.0 || ^0.10.0"
     graphql-anywhere "^2.0.0"
     graphql-tag "^1.2.4"
     hoist-non-react-statics "^1.2.0"
