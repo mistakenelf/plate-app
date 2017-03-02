@@ -12,11 +12,11 @@ const query = new GraphQLObjectType({
   fields: () => ({
     plate: {
       type: PlateType,
-      resolve: () => 'Plate Name'
+      resolve: () => PlateType
     },
     user: {
       type: UserType,
-      resolve: () => 'Tyler Knipfer'
+      resolve: () => UserType
     }
   })
 })
