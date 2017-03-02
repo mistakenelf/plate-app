@@ -18,10 +18,12 @@ export default () => (
       </div>
       <div className='register-button'>
         <Link prefetch href='/register'>
-          <BorderedButton
-            type='button'
-            label='Register'
-          />
+          <a>
+            <BorderedButton
+              type='button'
+              label='Register'
+            />
+          </a>
         </Link>
       </div>
     </div>
