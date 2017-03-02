@@ -1,15 +1,17 @@
-import FlatButton from 'material-ui/FlatButton'
+import BackArrow from 'material-ui/svg-icons/navigation/arrow-back'
+import IconButton from 'material-ui/IconButton'
 import Link from 'next/link'
 
 export default () => (
   <Link prefetch href='/'>
     <a>
-      <FlatButton
-        type='submit'
-        label='Home'
-        labelStyle={{ color: 'white' }}
-        style={{ border: '1px solid white', margin: 10 }}
-      />
+      <IconButton
+        iconStyle={{ color: 'white' }}
+        tooltip='Back Home'
+        tooltipPosition='bottom-center'
+      >
+        <BackArrow />
+      </IconButton>
     </a>
   </Link>
 )
