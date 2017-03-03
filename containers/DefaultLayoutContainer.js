@@ -1,19 +1,19 @@
 import { compose, graphql } from 'react-apollo'
 
 import { Component } from 'react'
-import MainLayout from '../layouts/MainLayout/MainLayout'
+import DefaultLayout from '../layouts/DefaultLayout/DefaultLayout'
 import { actions } from '../store/modules/drawer'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import gql from 'graphql-tag'
 
-class MainLayoutContainer extends Component {
+class DefaultLayoutContainer extends Component {
   render () {
     const { open, openDrawer, closeDrawer } = this.props
     return (
-      <MainLayout open={open} openDrawer={openDrawer} closeDrawer={closeDrawer}>
+      <DefaultLayout open={open} openDrawer={openDrawer} closeDrawer={closeDrawer}>
         {this.props.children}
-      </MainLayout>
+      </DefaultLayout>
     )
   }
 }
@@ -41,4 +41,4 @@ const MyQuery = gql`query {
 export default compose(
   graphql(MyQuery, { props: ({ data: { plate: { name, description } } }) => ({ name, description }) }),
   connect(mapStateToProps, mapDispatchToProps)
-)(MainLayoutContainer)
+)(DefaultLayoutContainer)
