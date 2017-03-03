@@ -6,6 +6,9 @@ import {BottomNavigationItem} from 'material-ui/BottomNavigation'
 import DoneAll from 'material-ui/svg-icons/action/done-all'
 import RaisedButton from 'material-ui/RaisedButton'
 
+// @flow
+
+
 type Props = {
   open?: boolean,
   openDialog?: Function,
