@@ -1,3 +1,5 @@
+// @flow
+
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation'
 
 import Add from 'material-ui/svg-icons/content/add'
@@ -13,14 +15,15 @@ type Props = {
 }
 
 export default ({open, openDialog, closeDialog}: Props) => (
-  <Paper zDepth={1}>
-    <BottomNavigation>
+  <Paper zDepth={1} style={{ display: 'flex', alignItems: 'center', height: 70, marginBottom: 10, backgroundColor: '#a4c639' }}>
+    <BottomNavigation style={{ backgroundColor: '#a4c639' }}>
       <BottomNavigationItem
         label='Remove All'
         icon={<Block />}
       />
       <BottomNavigationItem
         label='Mark All Complete'
+        labelStyle
         icon={<DoneAll />}
       />
       <BottomNavigationItem
