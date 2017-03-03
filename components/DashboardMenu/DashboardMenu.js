@@ -1,13 +1,12 @@
-import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
+// @flow
+
+import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar'
 
 import AddPlateDialog from '../AddPlateDialog/AddPlateDialog'
 import Block from 'material-ui/svg-icons/content/block'
-import {BottomNavigationItem} from 'material-ui/BottomNavigation'
 import DoneAll from 'material-ui/svg-icons/action/done-all'
+import IconButton from 'material-ui/IconButton'
 import RaisedButton from 'material-ui/RaisedButton'
-
-// @flow
-
 
 type Props = {
   open?: boolean,
@@ -15,23 +14,25 @@ type Props = {
   closeDialog?: Function
 }
 
-export default ({open, openDialog, closeDialog}: Props) => (
+export default ({ open, openDialog, closeDialog }: Props) => (
   <div className='toolbar'>
     <Toolbar>
       <ToolbarGroup>
         <ToolbarTitle text='Manage Plates' />
       </ToolbarGroup>
       <ToolbarGroup>
-        <BottomNavigationItem
-          label='Remove All'
-          icon={<Block />}
-        />
-        <BottomNavigationItem
-          label='Mark All Complete'
-          icon={<DoneAll />}
-        />
+        <IconButton tooltip='Remove all plates'>
+          <Block />
+        </IconButton>
+        <IconButton tooltip='Mark all plates as done'>
+          <DoneAll />
+        </IconButton>
         <ToolbarSeparator />
-        <RaisedButton label='Create Plate' onTouchTap={openDialog} primary />
+        <RaisedButton
+          primary
+          label='Create Plate'
+          onTouchTap={openDialog}
+        />
       </ToolbarGroup>
     </Toolbar>
     <AddPlateDialog
