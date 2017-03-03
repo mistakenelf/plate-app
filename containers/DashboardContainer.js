@@ -1,7 +1,7 @@
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card'
 
-import AddPlateButton from '../components/AddPlateButton/AddPlateButton'
 import { Component } from 'react'
+import DashboardMenu from '../components/DashboardMenu/DashboardMenu'
 import FlatButton from 'material-ui/FlatButton'
 import { actions } from '../store/modules/dashboard'
 import { bindActionCreators } from 'redux'
@@ -14,7 +14,7 @@ class DashboardContainer extends Component {
       <div className='container-fluid' style={{ paddingTop: 5 }}>
         <div className='row'>
           <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12' style={{ marginBottom: 10 }}>
-            <AddPlateButton
+            <DashboardMenu
               open={newPlateDialogOpen}
               openDialog={openDialog}
               closeDialog={closeDialog}
