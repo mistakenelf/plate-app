@@ -1,14 +1,14 @@
 // @flow
 
-import { Card, CardActions, CardHeader, CardText } from "material-ui/Card";
+import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 
-import { Component } from "react";
-import DashboardMenu from "../components/DashboardMenu/DashboardMenu";
-import FlatButton from "material-ui/FlatButton";
-import React from "react";
-import { actions } from "../store/modules/dashboard";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
+import { Component } from 'react';
+import DashboardMenu from '../components/DashboardMenu/DashboardMenu';
+import FlatButton from 'material-ui/FlatButton';
+import React from 'react';
+import { actions } from '../store/modules/dashboard';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 type Props = {
   newPlateDialogOpen?: boolean,
@@ -16,7 +16,7 @@ type Props = {
   closeNewPlateDialog?: Function,
   removePlatesDialogOpen?: boolean,
   openRemovePlatesDialog?: Function,
-  closeRemovePlatesDialog?: Function
+  closeRemovePlatesDialog?: Function,
 };
 
 class DashboardContainer extends Component {
@@ -29,7 +29,7 @@ class DashboardContainer extends Component {
       closeNewPlateDialog,
       removePlatesDialogOpen,
       openRemovePlatesDialog,
-      closeRemovePlatesDialog
+      closeRemovePlatesDialog,
     } = this.props;
 
     return (
@@ -104,7 +104,7 @@ const mapStateToProps = (
 ) => {
   return {
     newPlateDialogOpen,
-    removePlatesDialogOpen
+    removePlatesDialogOpen,
   };
 };
 
@@ -114,7 +114,7 @@ const mapDispatchToProps = dispatch => {
       openNewPlateDialog: actions.openNewPlateDialog,
       closeNewPlateDialog: actions.closeNewPlateDialog,
       openRemovePlatesDialog: actions.openRemovePlatesDialog,
-      closeRemovePlatesDialog: actions.closeRemovePlatesDialog
+      closeRemovePlatesDialog: actions.closeRemovePlatesDialog,
     },
     dispatch
   );

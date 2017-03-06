@@ -1,14 +1,14 @@
-const Koa = require("koa");
-const Router = require("koa-router");
-const next = require("next");
-const koaBody = require("koa-bodyparser");
-const { graphqlKoa, graphiqlKoa } = require("graphql-server-koa");
+const Koa = require('koa');
+const Router = require('koa-router');
+const next = require('next');
+const koaBody = require('koa-bodyparser');
+const { graphqlKoa, graphiqlKoa } = require('graphql-server-koa');
 
-const dev = process.env.NODE_ENV !== "production";
+const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-const schema = require("./schemas");
+const schema = require('./schemas');
 
 app.prepare().then(() => {
   const server = new Koa();
@@ -17,27 +17,27 @@ app.prepare().then(() => {
   server.use(koaBody());
 
   router.post(
-    "/graphql",
+    '/graphql',
     graphqlKoa({
-      schema
+      schema,
     })
   );
 
   router.get(
-    "/graphql",
+    '/graphql',
     graphqlKoa({
-      schema
+      schema,
     })
   );
 
   router.get(
-    "/graphiql",
+    '/graphiql',
     graphiqlKoa({
-      endpointURL: "./graphql"
+      endpointURL: './graphql',
     })
   );
 
-  router.get("*", async ctx => {
+  router.get('*', async ctx => {
     await handle(ctx.req, ctx.res);
     ctx.respond = false;
   });
@@ -52,6 +52,6 @@ app.prepare().then(() => {
 
   server.listen(3000, err => {
     if (err) throw err;
-    console.log("> Ready on http://localhost:3000");
+    console.log('> Ready on http://localhost:3000');
   });
 });

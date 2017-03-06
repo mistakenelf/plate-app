@@ -5,20 +5,20 @@ import {
   ToolbarGroup,
   ToolbarSeparator,
   ToolbarTitle,
-} from "material-ui/Toolbar";
+} from 'material-ui/Toolbar';
 
-import AddPlateDialog from "../AddPlateDialog/AddPlateDialog";
-import Block from "material-ui/svg-icons/content/block";
-import Divider from "material-ui/Divider";
-import DoneAll from "material-ui/svg-icons/action/done-all";
-import IconButton from "material-ui/IconButton";
-import IconMenu from "material-ui/IconMenu";
-import MenuItem from "material-ui/MenuItem";
+import AddPlateDialog from '../AddPlateDialog/AddPlateDialog';
+import Block from 'material-ui/svg-icons/content/block';
+import Divider from 'material-ui/Divider';
+import DoneAll from 'material-ui/svg-icons/action/done-all';
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
 import NavigationExpandMoreIcon
-  from "material-ui/svg-icons/navigation/expand-more";
-import RaisedButton from "material-ui/RaisedButton";
-import React from "react";
-import RemovePlatesDialog from "../RemovePlatesDialog/RemovePlatesDialog";
+  from 'material-ui/svg-icons/navigation/expand-more';
+import RaisedButton from 'material-ui/RaisedButton';
+import React from 'react';
+import RemovePlatesDialog from '../RemovePlatesDialog/RemovePlatesDialog';
 
 type Props = {
   isNewPlateDialogOpen?: boolean,
@@ -26,7 +26,7 @@ type Props = {
   closeNewPlateDialog?: Function,
   isRemovePlatesDialogOpen?: boolean,
   openRemovePlatesDialog?: Function,
-  closeRemovePlatesDialog?: Function
+  closeRemovePlatesDialog?: Function,
 };
 
 export default (
@@ -36,7 +36,7 @@ export default (
     closeNewPlateDialog,
     isRemovePlatesDialogOpen,
     openRemovePlatesDialog,
-    closeRemovePlatesDialog
+    closeRemovePlatesDialog,
   }: Props
 ) => (
   <div>

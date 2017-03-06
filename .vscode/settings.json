@@ -5,8 +5,5 @@
   "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
   "javascript.validate.enable": false,
-  "editor.minimap.enabled": true,
-  "prettier.parser": "flow",
-  "prettier.singleQuote": true,
-  "prettier.trailingComma": "none"
+  "editor.minimap.enabled": true
 }

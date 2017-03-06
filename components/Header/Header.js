@@ -1,9 +1,9 @@
 // @flow
 
-import Head from "next/head";
-import NProgress from "nprogress";
-import React from "react";
-import Router from "next/router";
+import Head from 'next/head';
+import NProgress from 'nprogress';
+import React from 'react';
+import Router from 'next/router';
 
 Router.onRouteChangeStart = url => {
   NProgress.start();
@@ -13,7 +13,7 @@ Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
 type Props = {
-  title?: string
+  title?: string,
 };
 
 export default ({ title }: Props) => (

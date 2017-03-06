@@ -1,19 +1,19 @@
 // @flow
 
-import BorderedButton from "../BorderedButton/BorderedButton";
-import Link from "next/link";
-import React from "react";
-import TextField from "material-ui/TextField";
+import BorderedButton from '../BorderedButton/BorderedButton';
+import Link from 'next/link';
+import React from 'react';
+import TextField from 'material-ui/TextField';
 
 type Props = {
   messageOpen?: boolean,
   showMessage?: Function,
-  hideMessage?: Function
+  hideMessage?: Function,
 };
 
 const login = e => {
   e.preventDefault();
-  console.log("submitted");
+  console.log('submitted');
 };
 
 export default ({ messageOpen, showMessage, hideMessage }: Props) => (
@@ -28,10 +28,10 @@ export default ({ messageOpen, showMessage, hideMessage }: Props) => (
             <TextField
               hintText="email"
               id="email"
-              hintStyle={{ color: "white" }}
+              hintStyle={{ color: 'white' }}
               type="text"
-              inputStyle={{ color: "white" }}
-              autoComplete={"off"}
+              inputStyle={{ color: 'white' }}
+              autoComplete={'off'}
               fullWidth
               required
             />
@@ -40,9 +40,9 @@ export default ({ messageOpen, showMessage, hideMessage }: Props) => (
             <TextField
               hintText="password"
               id="password"
-              autoComplete={"off"}
-              inputStyle={{ color: "white" }}
-              hintStyle={{ color: "white" }}
+              autoComplete={'off'}
+              inputStyle={{ color: 'white' }}
+              hintStyle={{ color: 'white' }}
               type="password"
               fullWidth
               required

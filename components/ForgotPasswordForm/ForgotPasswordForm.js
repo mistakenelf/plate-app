@@ -1,10 +1,10 @@
-import BorderedButton from "../BorderedButton/BorderedButton";
-import React from "react";
-import TextField from "material-ui/TextField";
+import BorderedButton from '../BorderedButton/BorderedButton';
+import React from 'react';
+import TextField from 'material-ui/TextField';
 
 const forgotPassword = e => {
   e.preventDefault();
-  console.log("submitted");
+  console.log('submitted');
 };
 
 export default () => (
@@ -19,10 +19,10 @@ export default () => (
             <TextField
               hintText="email"
               id="email"
-              hintStyle={{ color: "white" }}
+              hintStyle={{ color: 'white' }}
               type="text"
-              inputStyle={{ color: "white" }}
-              autoComplete={"off"}
+              inputStyle={{ color: 'white' }}
+              autoComplete={'off'}
               fullWidth
               required
             />

@@ -1,7 +1,7 @@
 // Constants
 export const constants = {
-  DRAWER_OPEN: "Drawer/DRAWER_OPEN",
-  DRAWER_CLOSED: "Drawer/DRAWER_CLOSED"
+  DRAWER_OPEN: 'Drawer/DRAWER_OPEN',
+  DRAWER_CLOSED: 'Drawer/DRAWER_CLOSED',
 };
 
 // Actions
@@ -9,20 +9,20 @@ export const actions = {
   openDrawer() {
     return {
       type: constants.DRAWER_OPEN,
-      open: true
+      open: true,
     };
   },
   closeDrawer() {
     return {
       type: constants.DRAWER_CLOSED,
-      open: false
+      open: false,
     };
-  }
+  },
 };
 
 // Initial State
 export const initialState = {
-  open: false
+  open: false,
 };
 
 // Reducer
@@ -31,12 +31,12 @@ export default (state = initialState, action) => {
     case constants.DRAWER_OPEN:
       return {
         ...state,
-        open: action.open
+        open: action.open,
       };
     case constants.DRAWER_CLOSED:
       return {
         ...state,
-        open: action.open
+        open: action.open,
       };
     default:
       return state;

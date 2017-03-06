@@ -24,10 +24,15 @@
     "node": true
   },
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": false,
+        "singleQuote": true
+      }
+    ],
     "react/display-name": [
       0
-    ],
-    "comma-dangle": "off"
+    ]
   }
 }

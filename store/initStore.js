@@ -1,6 +1,6 @@
-import createMiddleware from "./middleware";
-import { createStore } from "redux";
-import getReducer from "./reducer";
+import createMiddleware from './middleware';
+import { createStore } from 'redux';
+import getReducer from './reducer';
 
 let reduxStore = null;
 
