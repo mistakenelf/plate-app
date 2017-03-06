@@ -13,10 +13,11 @@ class DashboardContainer extends Component {
       newPlateDialogOpen,
       openNewPlateDialog,
       closeNewPlateDialog,
+      removePlatesDialogOpen,
       openRemovePlatesDialog,
       closeRemovePlatesDialog
     } = this.props;
-
+    console.log(removePlatesDialogOpen)
     return (
       <div className="container-fluid" style={{ paddingTop: 5 }}>
         <div className="row">
@@ -28,6 +29,9 @@ class DashboardContainer extends Component {
               isNewPlateDialogOpen={newPlateDialogOpen}
               openNewPlateDialog={openNewPlateDialog}
               closeNewPlateDialog={closeNewPlateDialog}
+              isRemovePlatesDialogOpen={removePlatesDialogOpen}
+              openRemovePlatesDialog={openRemovePlatesDialog}
+              closeRemovePlatesDialog={closeRemovePlatesDialog}
             />
           </div>
         </div>
