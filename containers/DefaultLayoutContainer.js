@@ -1,22 +1,34 @@
-import { compose, graphql } from 'react-apollo';
+// @flow
 
-import { Component } from 'react';
-import DefaultLayout from '../layouts/DefaultLayout/DefaultLayout';
-import { actions } from '../store/modules/drawer';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import gql from 'graphql-tag';
+import { compose, graphql } from "react-apollo";
+
+import { Component } from "react";
+import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
+import React from "react";
+import { actions } from "../store/modules/drawer";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import gql from "graphql-tag";
+
+type Props = {
+  children?: Element<any>,
+  open?: boolean,
+  openDrawer?: Function,
+  closeDrawer?: Function
+};
 
 class DefaultLayoutContainer extends Component {
+  props: Props;
+
   render() {
-    const { open, openDrawer, closeDrawer } = this.props;
+    const { children, open, openDrawer, closeDrawer } = this.props;
     return (
       <DefaultLayout
         open={open}
         openDrawer={openDrawer}
         closeDrawer={closeDrawer}
       >
-        {this.props.children}
+        {children}
       </DefaultLayout>
     );
   }

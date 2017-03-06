@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-import dashboard from './modules/dashboard';
-import drawer from './modules/drawer';
+import { combineReducers } from "redux";
+import dashboard from "./modules/dashboard";
+import drawer from "./modules/drawer";
 
 // Root reducer for our redux store and
 // apollo's store

@@ -1,8 +1,9 @@
 // @flow
 
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import TextField from 'material-ui/TextField';
+import Dialog from "material-ui/Dialog";
+import FlatButton from "material-ui/FlatButton";
+import React from "react";
+import TextField from "material-ui/TextField";
 
 type Props = {
   open?: boolean,
@@ -23,7 +24,7 @@ export default ({ open, openDialog, closeDialog }: Props) => {
       open={open}
       actions={actions}
       onRequestClose={closeDialog}
-      contentStyle={{ width: '95%' }}
+      contentStyle={{ width: "95%" }}
     >
       <TextField hintText="Name" fullWidth /><br />
       <TextField

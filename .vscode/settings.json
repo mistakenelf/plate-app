@@ -4,7 +4,6 @@
   "editor.tabSize": 2,
   "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
-  "eslint.enable": false,
   "javascript.validate.enable": false,
   "editor.minimap.enabled": true,
   "prettier.parser": "flow",

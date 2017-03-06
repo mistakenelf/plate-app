@@ -1,8 +1,9 @@
 // @flow
 
-import Dialog from 'material-ui/Dialog';
-import ErrorIcon from 'material-ui/svg-icons/alert/error';
-import FlatButton from 'material-ui/FlatButton';
+import Dialog from "material-ui/Dialog";
+import ErrorIcon from "material-ui/svg-icons/alert/error";
+import FlatButton from "material-ui/FlatButton";
+import React from "react";
 
 type Props = {
   open?: boolean,
@@ -22,7 +23,7 @@ export default ({ open, openDialog, closeDialog }: Props) => {
         open={open}
         actions={actions}
         onRequestClose={closeDialog}
-        contentStyle={{ width: '50%' }}
+        contentStyle={{ width: "50%" }}
       >
         <div className="error-icon">
           <ErrorIcon />

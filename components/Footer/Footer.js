@@ -1,7 +1,11 @@
+import React from "react";
+
 export default () => (
   <div>
     <div className="footer-main">
-      <div className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl">
+      <div
+        className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl"
+      >
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <h2>Plate</h2>
           <br />
@@ -25,7 +29,9 @@ export default () => (
         </div>
       </div>
     </div>
-    <div className="footer-copyright row full-height middle-xs middle-sm middle-md middle-lg middle-xl">
+    <div
+      className="footer-copyright row full-height middle-xs middle-sm middle-md middle-lg middle-xl"
+    >
       <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
         This is the copyright area.
       </div>

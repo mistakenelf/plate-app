@@ -1,6 +1,14 @@
-import Navigation from '../../components/Navigation/Navigation';
+import Navigation from "../../components/Navigation/Navigation";
+import React from "react";
 
-export default ({ children, open, openDrawer, closeDrawer }) => (
+type Props = {
+  children?: Element<any>,
+  open?: boolean,
+  openDrawer?: Function,
+  closeDrawer?: Function
+};
+
+export default ({ children, open, openDrawer, closeDrawer }: Props) => (
   <div>
     <style jsx global>
       {

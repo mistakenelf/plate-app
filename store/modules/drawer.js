@@ -1,7 +1,7 @@
 // Constants
 export const constants = {
-  DRAWER_OPEN: 'Drawer/DRAWER_OPEN',
-  DRAWER_CLOSED: 'Drawer/DRAWER_CLOSED'
+  DRAWER_OPEN: "Drawer/DRAWER_OPEN",
+  DRAWER_CLOSED: "Drawer/DRAWER_CLOSED"
 };
 
 // Actions

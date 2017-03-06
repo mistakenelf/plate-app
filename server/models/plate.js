@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const plateSchema = new Schema({
@@ -6,6 +6,6 @@ const plateSchema = new Schema({
   description: String
 });
 
-const Plate = mongoose.model('Plate', plateSchema);
+const Plate = mongoose.model("Plate", plateSchema);
 
 module.exports = Plate;

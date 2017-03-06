@@ -1,4 +1,10 @@
-export default ({ children }) => (
+import React from "react";
+
+type Props = {
+  children?: Element<any>
+};
+
+export default ({ children }: Props) => (
   <div>
     <style jsx global>
       {

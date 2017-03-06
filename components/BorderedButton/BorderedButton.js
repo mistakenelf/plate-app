@@ -1,11 +1,19 @@
-import FlatButton from 'material-ui/FlatButton';
+// @flow
 
-export default ({ type, label }) => (
+import FlatButton from "material-ui/FlatButton";
+import React from "react";
+
+type Props = {
+  type?: string,
+  label?: string
+};
+
+export default ({ type, label }: Props) => (
   <div className="bordered-button">
     <FlatButton
       type={type}
       label={label}
-      labelStyle={{ color: 'white', width: '100%' }}
+      labelStyle={{ color: "white", width: "100%" }}
     />
     <style jsx>
       {

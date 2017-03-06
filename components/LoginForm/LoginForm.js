@@ -1,15 +1,26 @@
-import BorderedButton from '../BorderedButton/BorderedButton';
-import Link from 'next/link';
-import TextField from 'material-ui/TextField';
+// @flow
+
+import BorderedButton from "../BorderedButton/BorderedButton";
+import Link from "next/link";
+import React from "react";
+import TextField from "material-ui/TextField";
+
+type Props = {
+  messageOpen?: boolean,
+  showMessage?: Function,
+  hideMessage?: Function
+};
 
 const login = e => {
   e.preventDefault();
-  console.log('submitted');
+  console.log("submitted");
 };
 
-export default ({ messageOpen, showMessage, hideMessage }) => (
+export default ({ messageOpen, showMessage, hideMessage }: Props) => (
   <div className="container-fluid">
-    <div className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg">
+    <div
+      className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg"
+    >
       <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
         <h1 className="header-text">Login</h1>
         <form onSubmit={login}>
@@ -17,10 +28,10 @@ export default ({ messageOpen, showMessage, hideMessage }) => (
             <TextField
               hintText="email"
               id="email"
-              hintStyle={{ color: 'white' }}
+              hintStyle={{ color: "white" }}
               type="text"
-              inputStyle={{ color: 'white' }}
-              autoComplete={'off'}
+              inputStyle={{ color: "white" }}
+              autoComplete={"off"}
               fullWidth
               required
             />
@@ -29,9 +40,9 @@ export default ({ messageOpen, showMessage, hideMessage }) => (
             <TextField
               hintText="password"
               id="password"
-              autoComplete={'off'}
-              inputStyle={{ color: 'white' }}
-              hintStyle={{ color: 'white' }}
+              autoComplete={"off"}
+              inputStyle={{ color: "white" }}
+              hintStyle={{ color: "white" }}
               type="password"
               fullWidth
               required

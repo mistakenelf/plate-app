@@ -1,9 +1,9 @@
 // Constants
 export const constants = {
-  NEW_PLATE_DIALOG_OPEN: 'Dashboard/NEW_PLATE_DIALOG_OPEN',
-  NEW_PLATE_DIALOG_CLOSED: 'Dashboard/NEW_PLATE_DIALOG_CLOSED',
-  REMOVE_PLATES_DIALOG_OPEN: 'Dashboard/REMOVE_PLATES_DIALOG_OPEN',
-  REMOVE_PLATES_DIALOG_CLOSED: 'Dashboard/REMOVE_PLATES_DIALOG_CLOSED'
+  NEW_PLATE_DIALOG_OPEN: "Dashboard/NEW_PLATE_DIALOG_OPEN",
+  NEW_PLATE_DIALOG_CLOSED: "Dashboard/NEW_PLATE_DIALOG_CLOSED",
+  REMOVE_PLATES_DIALOG_OPEN: "Dashboard/REMOVE_PLATES_DIALOG_OPEN",
+  REMOVE_PLATES_DIALOG_CLOSED: "Dashboard/REMOVE_PLATES_DIALOG_CLOSED"
 };
 
 // Actions
@@ -57,12 +57,12 @@ export default (state = initialState, action) => {
       return {
         ...state,
         removePlatesDialogOpen: action.removePlatesDialogOpen
-      }
+      };
     case constants.REMOVE_PLATES_DIALOG_CLOSED:
       return {
         ...state,
         removePlatesDialogOpen: action.removePlatesDialogOpen
-      }
+      };
     default:
       return state;
   }
