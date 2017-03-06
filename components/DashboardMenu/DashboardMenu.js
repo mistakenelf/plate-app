@@ -55,7 +55,7 @@ export default ({ open, openDialog, closeDialog }: Props) => (
               </IconButton>
             }
           >
-            <MenuItem primaryText="Create Plate" />
+            <MenuItem primaryText="Create Plate" onTouchTap={openDialog} />
             <MenuItem primaryText="Mark All Complete" />
             <MenuItem primaryText="Remove All" />
           </IconMenu>
