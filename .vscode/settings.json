@@ -6,5 +6,8 @@
   "editor.fontLigatures": true,
   "eslint.enable": false,
   "javascript.validate.enable": false,
-   "editor.minimap.enabled": true
+  "editor.minimap.enabled": true,
+  "prettier.parser": "flow",
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "none"
 }

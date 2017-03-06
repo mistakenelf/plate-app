@@ -1,10 +1,10 @@
 const {
   GraphQLObjectType,
   GraphQLSchema
-} = require('graphql')
+} = require('graphql');
 
-const PlateType = require('./plate')
-const UserType = require('./user')
+const PlateType = require('./plate');
+const UserType = require('./user');
 
 const query = new GraphQLObjectType({
   name: 'Query',
@@ -19,10 +19,10 @@ const query = new GraphQLObjectType({
       resolve: () => UserType
     }
   })
-})
+});
 
 const schema = new GraphQLSchema({
   query
-})
+});
 
-module.exports = schema
+module.exports = schema;

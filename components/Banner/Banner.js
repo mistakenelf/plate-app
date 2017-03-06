@@ -1,33 +1,35 @@
-import BorderedButton from '../BorderedButton/BorderedButton'
-import Link from 'next/link'
+import BorderedButton from '../BorderedButton/BorderedButton';
+import Link from 'next/link';
 
 export default () => (
   <div>
-    <div className='banner'>
-      <div className='header-main'>
+    <div className="banner">
+      <div className="header-main">
         <h1>
           Task Management in the Most Simplistic Form, <br />
           Welcome to <i>Plate</i>!
         </h1>
       </div>
-      <div className='header-secondary'>
+      <div className="header-secondary">
         <h5>
-          Create multiple plates and customize your very own task layout.<br /> Register now
+          Create multiple plates and customize your very own task layout.
+          <br />
+          {' '}
+          Register now
           to begin managing your tasks!
         </h5>
       </div>
-      <div className='register-button'>
-        <Link prefetch href='/register'>
+      <div className="register-button">
+        <Link prefetch href="/register">
           <a>
-            <BorderedButton
-              type='button'
-              label='Register'
-            />
+            <BorderedButton type="button" label="Register" />
           </a>
         </Link>
       </div>
     </div>
-    <style jsx>{`
+    <style jsx>
+      {
+        `
       .banner {
         background-image: url('/static/img/plateGradient.png');
         height: 500px;
@@ -63,6 +65,8 @@ export default () => (
            font-size: 1.0em;
          }
       }
-    `}</style>
+    `
+      }
+    </style>
   </div>
-)
+);

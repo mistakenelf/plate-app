@@ -1,7 +1,7 @@
 const {
   GraphQLString,
   GraphQLObjectType
-} = require('graphql')
+} = require('graphql');
 
 const Plate = new GraphQLObjectType({
   name: 'Plate',
@@ -16,6 +16,6 @@ const Plate = new GraphQLObjectType({
       resolve: () => 'This is a description of a plate'
     }
   })
-})
+});
 
-module.exports = Plate
+module.exports = Plate;

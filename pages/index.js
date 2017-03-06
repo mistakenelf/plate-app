@@ -1,13 +1,13 @@
-import Banner from '../components/Banner/Banner'
-import DefaultLayoutContainer from '../containers/DefaultLayoutContainer'
-import Header from '../components/Header/Header'
-import HomeDetails from '../components/HomeDetails/HomeDetails'
-import pageDecorator from '../lib/pageDecorator'
+import Banner from '../components/Banner/Banner';
+import DefaultLayoutContainer from '../containers/DefaultLayoutContainer';
+import Header from '../components/Header/Header';
+import HomeDetails from '../components/HomeDetails/HomeDetails';
+import pageDecorator from '../lib/pageDecorator';
 
 export default pageDecorator(() => (
   <DefaultLayoutContainer>
-    <Header title='Home' />
+    <Header title="Home" />
     <Banner />
     <HomeDetails />
   </DefaultLayoutContainer>
-))
+));

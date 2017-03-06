@@ -1,49 +1,48 @@
-import BorderedButton from '../BorderedButton/BorderedButton'
-import TextField from 'material-ui/TextField'
+import BorderedButton from '../BorderedButton/BorderedButton';
+import TextField from 'material-ui/TextField';
 
-const register = (e) => {
-  e.preventDefault()
-  console.log('submitted')
-}
+const register = e => {
+  e.preventDefault();
+  console.log('submitted');
+};
 
 export default () => (
-  <div className='container-fluid'>
-    <div className='row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg'>
-      <div className='col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4'>
-        <h1 className='header-text'>Register</h1>
+  <div className="container-fluid">
+    <div className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg">
+      <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <h1 className="header-text">Register</h1>
         <form onSubmit={register}>
-          <div className='text-field-email'>
+          <div className="text-field-email">
             <TextField
-              hintText='email'
-              id='email'
+              hintText="email"
+              id="email"
               hintStyle={{ color: 'white' }}
-              type='text'
+              type="text"
               inputStyle={{ color: 'white' }}
               autoComplete={'off'}
               fullWidth
               required
             />
           </div>
-          <div className='text-field-password'>
+          <div className="text-field-password">
             <TextField
-              hintText='password'
-              id='password'
+              hintText="password"
+              id="password"
               hintStyle={{ color: 'white' }}
-              type='password'
+              type="password"
               inputStyle={{ color: 'white' }}
               autoComplete={'off'}
               fullWidth
               required
             />
           </div>
-          <BorderedButton
-            type='submit'
-            label='Register'
-          />
+          <BorderedButton type="submit" label="Register" />
         </form>
       </div>
     </div>
-    <style jsx>{`
+    <style jsx>
+      {
+        `
       .full-height {
         height: 90vh;
       }
@@ -57,6 +56,8 @@ export default () => (
         color: white;
         margin-bottom: 50px;
       }
-    `}</style>
+    `
+      }
+    </style>
   </div>
-)
+);

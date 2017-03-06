@@ -1,32 +1,36 @@
-import AppBar from 'material-ui/AppBar'
-import Drawer from 'material-ui/Drawer'
-import IconButton from 'material-ui/IconButton'
-import IconMenu from 'material-ui/IconMenu'
-import Link from 'next/link'
-import MenuItem from 'material-ui/MenuItem'
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
+import AppBar from 'material-ui/AppBar';
+import Drawer from 'material-ui/Drawer';
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
+import Link from 'next/link';
+import MenuItem from 'material-ui/MenuItem';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 export default ({ open, openDrawer, closeDrawer }) => {
   const elementRight = (
     <IconMenu
-      iconButtonElement={
-        <IconButton><MoreVertIcon /></IconButton>
-      }
+      iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
       targetOrigin={{ horizontal: 'right', vertical: 'top' }}
       anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
     >
-      <Link prefetch href='/login'><a><MenuItem>Login</MenuItem></a></Link>
-      <Link prefetch href='/register'><a><MenuItem>Register</MenuItem></a></Link>
+      <Link prefetch href="/login"><a><MenuItem>Login</MenuItem></a></Link>
+      <Link prefetch href="/register">
+        <a><MenuItem>Register</MenuItem></a>
+      </Link>
     </IconMenu>
-  )
-
+  );
   return (
     <div>
       <AppBar
-        title='Plate'
+        title="Plate"
         onLeftIconButtonTouchTap={() => openDrawer()}
         iconElementRight={elementRight}
-        style={{ backgroundColor: '#343f53', position: 'fixed', height: 60, top: 0 }}
+        style={{
+          backgroundColor: '#343f53',
+          position: 'fixed',
+          height: 60,
+          top: 0
+        }}
       />
       <Drawer
         docked={false}
@@ -34,25 +38,29 @@ export default ({ open, openDrawer, closeDrawer }) => {
         open={open}
         onRequestChange={() => closeDrawer()}
       >
-        <Link prefetch href='/'>
-          <a className='sidebar-text'>
+        <Link prefetch href="/">
+          <a className="sidebar-text">
             <MenuItem onTouchTap={() => closeDrawer()}>Home</MenuItem>
           </a>
         </Link>
-        <Link prefetch href='/dashboard'>
-          <a className='sidebar-text'>
+        <Link prefetch href="/dashboard">
+          <a className="sidebar-text">
             <MenuItem onTouchTap={() => closeDrawer()}>Dashboard</MenuItem>
           </a>
         </Link>
       </Drawer>
-      <style jsx global>{`
+      <style jsx global>
+        {
+          `
         a {
           text-decoration: none;
         }
         .sidebar-text {
           text-align: center;
         }
-      `}</style>
+      `
+        }
+      </style>
     </div>
-  )
-}
+  );
+};

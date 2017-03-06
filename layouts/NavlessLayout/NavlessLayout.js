@@ -1,6 +1,8 @@
 export default ({ children }) => (
   <div>
-    <style jsx global>{`
+    <style jsx global>
+      {
+        `
       * {
         margin: 0;
         box-sizing: border-box;
@@ -9,7 +11,9 @@ export default ({ children }) => (
         background-image: url('/static/img/plateGradient.png');
         font-family: 'Fira Sans', sans-serif;
       }
-    `}</style>
+    `
+      }
+    </style>
     {children}
   </div>
-)
+);
