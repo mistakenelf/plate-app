@@ -5,6 +5,8 @@
 #### Plugin's Used
 - Editor Config https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
 - Prettier - https://github.com/esbenp/prettier-vscode
+- ESLint - https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+- Prettier ESLint - https://marketplace.visualstudio.com/items?itemName=RobinMalfait.prettier-eslint-vscode
 - Sort-imports https://marketplace.visualstudio.com/items?itemName=peterjuras.sort-imports
 
 #### NodeJS
