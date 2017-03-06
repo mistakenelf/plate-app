@@ -17,7 +17,7 @@ class DashboardContainer extends Component {
       openRemovePlatesDialog,
       closeRemovePlatesDialog
     } = this.props;
-    console.log(removePlatesDialogOpen)
+
     return (
       <div className="container-fluid" style={{ paddingTop: 5 }}>
         <div className="row">
