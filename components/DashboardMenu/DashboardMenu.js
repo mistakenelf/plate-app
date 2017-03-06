@@ -9,6 +9,7 @@ import {
 
 import AddPlateDialog from '../AddPlateDialog/AddPlateDialog';
 import Block from 'material-ui/svg-icons/content/block';
+import Divider from 'material-ui/Divider';
 import DoneAll from 'material-ui/svg-icons/action/done-all';
 import IconButton from 'material-ui/IconButton';
 import IconMenu from 'material-ui/IconMenu';
@@ -23,7 +24,7 @@ type Props = {
   closeDialog?: Function
 };
 
-export default ({ open, openDialog, closeDialog }: Props) => (
+export default ({ isNewPlateDialogOpen, openNewPlateDialog, closeNewPlateDialog }: Props) => (
   <div>
     <div className="toolbar-desktop">
       <Toolbar>
@@ -38,7 +39,7 @@ export default ({ open, openDialog, closeDialog }: Props) => (
             <DoneAll />
           </IconButton>
           <ToolbarSeparator />
-          <RaisedButton primary label="Create Plate" onTouchTap={openDialog} />
+          <RaisedButton primary label="Create Plate" onTouchTap={openNewPlateDialog} />
         </ToolbarGroup>
       </Toolbar>
     </div>
@@ -55,17 +56,19 @@ export default ({ open, openDialog, closeDialog }: Props) => (
               </IconButton>
             }
           >
-            <MenuItem primaryText="Create Plate" onTouchTap={openDialog} />
+            <MenuItem primaryText="Create Plate" onTouchTap={openNewPlateDialog} />
+            <Divider />
             <MenuItem primaryText="Mark All Complete" />
+            <Divider />
             <MenuItem primaryText="Remove All" />
           </IconMenu>
         </ToolbarGroup>
       </Toolbar>
     </div>
     <AddPlateDialog
-      open={open}
-      openDialog={openDialog}
-      closeDialog={closeDialog}
+      open={isNewPlateDialogOpen}
+      openDialog={openNewPlateDialog}
+      closeDialog={closeNewPlateDialog}
     />
     <style jsx>
       {

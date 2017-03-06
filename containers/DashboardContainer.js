@@ -9,7 +9,14 @@ import { connect } from 'react-redux';
 
 class DashboardContainer extends Component {
   render() {
-    const { newPlateDialogOpen, openDialog, closeDialog } = this.props;
+    const {
+      newPlateDialogOpen,
+      openNewPlateDialog,
+      closeNewPlateDialog,
+      openRemovePlatesDialog,
+      closeRemovePlatesDialog
+    } = this.props;
+
     return (
       <div className="container-fluid" style={{ paddingTop: 5 }}>
         <div className="row">
@@ -18,9 +25,9 @@ class DashboardContainer extends Component {
             style={{ marginBottom: 10 }}
           >
             <DashboardMenu
-              open={newPlateDialogOpen}
-              openDialog={openDialog}
-              closeDialog={closeDialog}
+              isNewPlateDialogOpen={newPlateDialogOpen}
+              openNewPlateDialog={openNewPlateDialog}
+              closeNewPlateDialog={closeNewPlateDialog}
             />
           </div>
         </div>
@@ -74,17 +81,20 @@ class DashboardContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ dashboard: { newPlateDialogOpen } }) => {
+const mapStateToProps = ({ dashboard: { newPlateDialogOpen, removePlatesDialogOpen } }) => {
   return {
-    newPlateDialogOpen
+    newPlateDialogOpen,
+    removePlatesDialogOpen
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      openDialog: actions.openDialog,
-      closeDialog: actions.closeDialog
+      openNewPlateDialog: actions.openNewPlateDialog,
+      closeNewPlateDialog: actions.closeNewPlateDialog,
+      openRemovePlatesDialog: actions.openRemovePlatesDialog,
+      closeRemovePlatesDialog: actions.closeRemovePlatesDialog
     },
     dispatch
   );
