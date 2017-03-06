@@ -4,7 +4,7 @@
 
 #### Plugin's Used
 - Editor Config https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
-- JavaScript Standard Style https://marketplace.visualstudio.com/items?itemName=chenxsan.vscode-standardjs
+- Prettier - https://github.com/esbenp/prettier-vscode
 - Sort-imports https://marketplace.visualstudio.com/items?itemName=peterjuras.sort-imports
 
 #### NodeJS
