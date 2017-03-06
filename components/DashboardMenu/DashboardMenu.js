@@ -17,14 +17,18 @@ import MenuItem from 'material-ui/MenuItem';
 import NavigationExpandMoreIcon
   from 'material-ui/svg-icons/navigation/expand-more';
 import RaisedButton from 'material-ui/RaisedButton';
+import RemovePlatesDialog from '../RemovePlatesDialog/RemovePlatesDialog';
 
 type Props = {
-  open?: boolean,
-  openDialog?: Function,
-  closeDialog?: Function
+  isNewPlateDialogOpen?: boolean,
+  openNewPlateDialog?: Function,
+  closeNewPlateDialog?: Function,
+  isRemovePlatesDialogOpen?: boolean,
+  openRemovePlatesDialog?: Function,
+  closeRemovePlatesDialog?: Function
 };
 
-export default ({ isNewPlateDialogOpen, openNewPlateDialog, closeNewPlateDialog }: Props) => (
+export default ({ isNewPlateDialogOpen, openNewPlateDialog, closeNewPlateDialog, isRemovePlatesDialogOpen, openRemovePlatesDialog, closeRemovePlatesDialog }: Props) => (
   <div>
     <div className="toolbar-desktop">
       <Toolbar>
@@ -32,7 +36,7 @@ export default ({ isNewPlateDialogOpen, openNewPlateDialog, closeNewPlateDialog 
           <ToolbarTitle text="Manage Plates" />
         </ToolbarGroup>
         <ToolbarGroup>
-          <IconButton tooltip="Remove all plates">
+          <IconButton tooltip="Remove all plates" onTouchTap={openRemovePlatesDialog}>
             <Block />
           </IconButton>
           <IconButton tooltip="Mark all plates as done">
@@ -60,7 +64,7 @@ export default ({ isNewPlateDialogOpen, openNewPlateDialog, closeNewPlateDialog 
             <Divider />
             <MenuItem primaryText="Mark All Complete" />
             <Divider />
-            <MenuItem primaryText="Remove All" />
+            <MenuItem primaryText="Remove All" onTouchTap={openRemovePlatesDialog} />
           </IconMenu>
         </ToolbarGroup>
       </Toolbar>
@@ -69,6 +73,11 @@ export default ({ isNewPlateDialogOpen, openNewPlateDialog, closeNewPlateDialog 
       open={isNewPlateDialogOpen}
       openDialog={openNewPlateDialog}
       closeDialog={closeNewPlateDialog}
+    />
+    <RemovePlatesDialog
+      open={isRemovePlatesDialogOpen}
+      openDialog={openRemovePlatesDialog}
+      closeDialog={closeRemovePlatesDialog}
     />
     <style jsx>
       {
