@@ -28,7 +28,16 @@ type Props = {
   closeRemovePlatesDialog?: Function
 };
 
-export default ({ isNewPlateDialogOpen, openNewPlateDialog, closeNewPlateDialog, isRemovePlatesDialogOpen, openRemovePlatesDialog, closeRemovePlatesDialog }: Props) => (
+export default (
+  {
+    isNewPlateDialogOpen,
+    openNewPlateDialog,
+    closeNewPlateDialog,
+    isRemovePlatesDialogOpen,
+    openRemovePlatesDialog,
+    closeRemovePlatesDialog
+  }: Props
+) => (
   <div>
     <div className="toolbar-desktop">
       <Toolbar>
@@ -36,14 +45,21 @@ export default ({ isNewPlateDialogOpen, openNewPlateDialog, closeNewPlateDialog,
           <ToolbarTitle text="Manage Plates" />
         </ToolbarGroup>
         <ToolbarGroup>
-          <IconButton tooltip="Remove all plates" onTouchTap={openRemovePlatesDialog}>
+          <IconButton
+            tooltip="Remove all plates"
+            onTouchTap={openRemovePlatesDialog}
+          >
             <Block />
           </IconButton>
           <IconButton tooltip="Mark all plates as done">
             <DoneAll />
           </IconButton>
           <ToolbarSeparator />
-          <RaisedButton primary label="Create Plate" onTouchTap={openNewPlateDialog} />
+          <RaisedButton
+            primary
+            label="Create Plate"
+            onTouchTap={openNewPlateDialog}
+          />
         </ToolbarGroup>
       </Toolbar>
     </div>
@@ -60,11 +76,17 @@ export default ({ isNewPlateDialogOpen, openNewPlateDialog, closeNewPlateDialog,
               </IconButton>
             }
           >
-            <MenuItem primaryText="Create Plate" onTouchTap={openNewPlateDialog} />
+            <MenuItem
+              primaryText="Create Plate"
+              onTouchTap={openNewPlateDialog}
+            />
             <Divider />
             <MenuItem primaryText="Mark All Complete" />
             <Divider />
-            <MenuItem primaryText="Remove All" onTouchTap={openRemovePlatesDialog} />
+            <MenuItem
+              primaryText="Remove All"
+              onTouchTap={openRemovePlatesDialog}
+            />
           </IconMenu>
         </ToolbarGroup>
       </Toolbar>
