@@ -1,7 +1,7 @@
 // @flow
 
 import Dialog from 'material-ui/Dialog';
-import ErrorIcon from 'material-ui/svg-icons/alert/error'
+import ErrorIcon from 'material-ui/svg-icons/alert/error';
 import FlatButton from 'material-ui/FlatButton';
 
 type Props = {
@@ -32,7 +32,9 @@ export default ({ open, openDialog, closeDialog }: Props) => {
           <p>Are you sure you want to remove all plates?</p>
         </div>
       </Dialog>
-      <style jsx>{`
+      <style jsx>
+        {
+          `
         .error-icon {
           display: flex;
           justify-content: center;
@@ -41,7 +43,9 @@ export default ({ open, openDialog, closeDialog }: Props) => {
           display: flex;
           justify-content: center;
         }
-      `}</style>
+      `
+        }
+      </style>
     </div>
   );
 };
