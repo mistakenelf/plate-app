@@ -4,6 +4,6 @@
   "editor.tabSize": 2,
   "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
-  "javascript.validate.enable": false,
-  "editor.minimap.enabled": true
+  "editor.minimap.enabled": true,
+  "editor.dragAndDrop": true
 }
