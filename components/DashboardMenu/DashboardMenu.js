@@ -37,7 +37,7 @@ export default (
     isRemovePlatesDialogOpen,
     openRemovePlatesDialog,
     closeRemovePlatesDialog,
-  }: Props
+  }: Props,
 ) => (
   <div>
     <div className="toolbar-desktop">

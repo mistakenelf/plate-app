@@ -46,7 +46,7 @@ const mapDispatchToProps = dispatch => {
       openDrawer: actions.openDrawer,
       closeDrawer: actions.closeDrawer,
     },
-    dispatch
+    dispatch,
   );
 };
 
@@ -64,5 +64,5 @@ export default compose(
       description,
     }),
   }),
-  connect(mapStateToProps, mapDispatchToProps)
+  connect(mapStateToProps, mapDispatchToProps),
 )(DefaultLayoutContainer);

@@ -20,21 +20,21 @@ app.prepare().then(() => {
     '/graphql',
     graphqlKoa({
       schema,
-    })
+    }),
   );
 
   router.get(
     '/graphql',
     graphqlKoa({
       schema,
-    })
+    }),
   );
 
   router.get(
     '/graphiql',
     graphiqlKoa({
       endpointURL: './graphql',
-    })
+    }),
   );
 
   router.get('*', async ctx => {

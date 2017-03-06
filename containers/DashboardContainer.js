@@ -100,7 +100,7 @@ class DashboardContainer extends Component {
 }
 
 const mapStateToProps = (
-  { dashboard: { newPlateDialogOpen, removePlatesDialogOpen } }
+  { dashboard: { newPlateDialogOpen, removePlatesDialogOpen } },
 ) => {
   return {
     newPlateDialogOpen,
@@ -116,7 +116,7 @@ const mapDispatchToProps = dispatch => {
       openRemovePlatesDialog: actions.openRemovePlatesDialog,
       closeRemovePlatesDialog: actions.closeRemovePlatesDialog,
     },
-    dispatch
+    dispatch,
   );
 };
 
