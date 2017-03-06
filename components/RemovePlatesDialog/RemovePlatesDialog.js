@@ -1,6 +1,7 @@
 // @flow
 
 import Dialog from 'material-ui/Dialog';
+import ErrorIcon from 'material-ui/svg-icons/alert/error'
 import FlatButton from 'material-ui/FlatButton';
 
 type Props = {
@@ -15,16 +16,32 @@ export default ({ open, openDialog, closeDialog }: Props) => {
     <FlatButton label="Ok" primary onTouchTap={closeDialog} />
   ];
   return (
-    <Dialog
-      title="Remove All Plates"
-      modal={false}
-      open={open}
-      actions={actions}
-      onRequestClose={closeDialog}
-      contentStyle={{ width: '95%' }}
-    >
-      <p>Are you sure you want to remove all plates?</p>
-      <br />
-    </Dialog>
+    <div>
+      <Dialog
+        modal={false}
+        open={open}
+        actions={actions}
+        onRequestClose={closeDialog}
+        contentStyle={{ width: '50%' }}
+      >
+        <div className="error-icon">
+          <ErrorIcon />
+        </div>
+        <br />
+        <div className="dialog-body">
+          <p>Are you sure you want to remove all plates?</p>
+        </div>
+      </Dialog>
+      <style jsx>{`
+        .error-icon {
+          display: flex;
+          justify-content: center;
+        }
+        .dialog-body {
+          display: flex;
+          justify-content: center;
+        }
+      `}</style>
+    </div>
   );
 };
