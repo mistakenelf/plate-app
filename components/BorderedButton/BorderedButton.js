@@ -5,7 +5,7 @@ import React from 'react';
 
 type Props = {
   type?: string,
-  label?: string,
+  label?: string
 };
 
 export default ({ type, label }: Props) => (

@@ -1,6 +1,6 @@
 const {
   GraphQLObjectType,
-  GraphQLSchema,
+  GraphQLSchema
 } = require('graphql');
 
 const PlateType = require('./plate');
@@ -12,17 +12,17 @@ const query = new GraphQLObjectType({
   fields: () => ({
     plate: {
       type: PlateType,
-      resolve: () => PlateType,
+      resolve: () => PlateType
     },
     user: {
       type: UserType,
-      resolve: () => UserType,
-    },
-  }),
+      resolve: () => UserType
+    }
+  })
 });
 
 const schema = new GraphQLSchema({
-  query,
+  query
 });
 
 module.exports = schema;

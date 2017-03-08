@@ -8,13 +8,13 @@ import React from 'react';
 type Props = {
   open?: boolean,
   openDialog?: Function,
-  closeDialog?: Function,
+  closeDialog?: Function
 };
 
 export default ({ open, openDialog, closeDialog }: Props) => {
   const actions = [
     <FlatButton label="Cancel" primary onTouchTap={closeDialog} />,
-    <FlatButton label="Ok" primary onTouchTap={closeDialog} />,
+    <FlatButton label="Ok" primary onTouchTap={closeDialog} />
   ];
   return (
     <div>
@@ -23,7 +23,7 @@ export default ({ open, openDialog, closeDialog }: Props) => {
         open={open}
         actions={actions}
         onRequestClose={closeDialog}
-        contentStyle={{ width: '50%' }}
+        contentStyle={{ width: '95%' }}
       >
         <div className="error-icon">
           <ErrorIcon />

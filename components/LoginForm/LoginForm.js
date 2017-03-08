@@ -8,7 +8,7 @@ import TextField from 'material-ui/TextField';
 type Props = {
   messageOpen?: boolean,
   showMessage?: Function,
-  hideMessage?: Function,
+  hideMessage?: Function
 };
 
 const login = e => {

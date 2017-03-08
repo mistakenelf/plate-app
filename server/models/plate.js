@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const plateSchema = new Schema({
   name: String,
-  description: String,
+  description: String
 });
 
 const Plate = mongoose.model('Plate', plateSchema);

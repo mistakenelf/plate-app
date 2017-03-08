@@ -26,7 +26,7 @@ type Props = {
   closeNewPlateDialog?: Function,
   isRemovePlatesDialogOpen?: boolean,
   openRemovePlatesDialog?: Function,
-  closeRemovePlatesDialog?: Function,
+  closeRemovePlatesDialog?: Function
 };
 
 export default (
@@ -36,8 +36,8 @@ export default (
     closeNewPlateDialog,
     isRemovePlatesDialogOpen,
     openRemovePlatesDialog,
-    closeRemovePlatesDialog,
-  }: Props,
+    closeRemovePlatesDialog
+  }: Props
 ) => (
   <div>
     <div className="toolbar-desktop">

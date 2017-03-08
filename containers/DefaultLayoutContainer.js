@@ -14,7 +14,7 @@ type Props = {
   children?: Element<any>,
   open?: boolean,
   openDrawer?: Function,
-  closeDrawer?: Function,
+  closeDrawer?: Function
 };
 
 class DefaultLayoutContainer extends Component {
@@ -36,7 +36,7 @@ class DefaultLayoutContainer extends Component {
 
 const mapStateToProps = ({ drawer: { open } }) => {
   return {
-    open,
+    open
   };
 };
 
@@ -44,9 +44,9 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
       openDrawer: actions.openDrawer,
-      closeDrawer: actions.closeDrawer,
+      closeDrawer: actions.closeDrawer
     },
-    dispatch,
+    dispatch
   );
 };
 
@@ -61,8 +61,8 @@ export default compose(
   graphql(MyQuery, {
     props: ({ data: { plate: { name, description } } }) => ({
       name,
-      description,
-    }),
+      description
+    })
   }),
-  connect(mapStateToProps, mapDispatchToProps),
+  connect(mapStateToProps, mapDispatchToProps)
 )(DefaultLayoutContainer);

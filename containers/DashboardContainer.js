@@ -16,7 +16,7 @@ type Props = {
   closeNewPlateDialog?: Function,
   removePlatesDialogOpen?: boolean,
   openRemovePlatesDialog?: Function,
-  closeRemovePlatesDialog?: Function,
+  closeRemovePlatesDialog?: Function
 };
 
 class DashboardContainer extends Component {
@@ -29,7 +29,7 @@ class DashboardContainer extends Component {
       closeNewPlateDialog,
       removePlatesDialogOpen,
       openRemovePlatesDialog,
-      closeRemovePlatesDialog,
+      closeRemovePlatesDialog
     } = this.props;
 
     return (
@@ -100,11 +100,11 @@ class DashboardContainer extends Component {
 }
 
 const mapStateToProps = (
-  { dashboard: { newPlateDialogOpen, removePlatesDialogOpen } },
+  { dashboard: { newPlateDialogOpen, removePlatesDialogOpen } }
 ) => {
   return {
     newPlateDialogOpen,
-    removePlatesDialogOpen,
+    removePlatesDialogOpen
   };
 };
 
@@ -114,9 +114,9 @@ const mapDispatchToProps = dispatch => {
       openNewPlateDialog: actions.openNewPlateDialog,
       closeNewPlateDialog: actions.closeNewPlateDialog,
       openRemovePlatesDialog: actions.openRemovePlatesDialog,
-      closeRemovePlatesDialog: actions.closeRemovePlatesDialog,
+      closeRemovePlatesDialog: actions.closeRemovePlatesDialog
     },
-    dispatch,
+    dispatch
   );
 };
 

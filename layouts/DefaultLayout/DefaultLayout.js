@@ -5,7 +5,7 @@ type Props = {
   children?: Element<any>,
   open?: boolean,
   openDrawer?: Function,
-  closeDrawer?: Function,
+  closeDrawer?: Function
 };
 
 export default ({ children, open, openDrawer, closeDrawer }: Props) => (

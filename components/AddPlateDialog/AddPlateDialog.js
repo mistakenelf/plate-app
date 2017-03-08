@@ -8,13 +8,13 @@ import TextField from 'material-ui/TextField';
 type Props = {
   open?: boolean,
   openDialog?: Function,
-  closeDialog?: Function,
+  closeDialog?: Function
 };
 
 export default ({ open, openDialog, closeDialog }: Props) => {
   const actions = [
     <FlatButton label="Cancel" primary onTouchTap={closeDialog} />,
-    <FlatButton label="Submit" primary />,
+    <FlatButton label="Submit" primary />
   ];
 
   return (

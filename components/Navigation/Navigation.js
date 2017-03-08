@@ -12,7 +12,7 @@ import React from 'react';
 type Props = {
   open?: boolean,
   openDrawer?: Function,
-  closeDrawer?: Function,
+  closeDrawer?: Function
 };
 
 export default ({ open, openDrawer, closeDrawer }: Props) => {
@@ -38,7 +38,7 @@ export default ({ open, openDrawer, closeDrawer }: Props) => {
           backgroundColor: '#343f53',
           position: 'fixed',
           height: 60,
-          top: 0,
+          top: 0
         }}
       />
       <Drawer

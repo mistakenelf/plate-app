@@ -8,6 +8,6 @@ export default function getReducer(client) {
   return combineReducers({
     drawer,
     dashboard,
-    apollo: client.reducer(),
+    apollo: client.reducer()
   });
 }

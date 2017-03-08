@@ -13,7 +13,7 @@ Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
 type Props = {
-  title?: string,
+  title?: string
 };
 
 export default ({ title }: Props) => (
