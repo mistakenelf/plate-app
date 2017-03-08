@@ -1,5 +1,6 @@
-import Navigation from '../../components/Navigation/Navigation';
-import React from 'react';
+import Footer from "../../components/Footer/Footer";
+import Navigation from "../../components/Navigation/Navigation";
+import React from "react";
 
 type Props = {
   children?: Element<any>,
@@ -20,12 +21,13 @@ export default ({ children, open, openDrawer, closeDrawer }: Props) => (
       body {
         font-family: 'Fira Sans', sans-serif;
         margin-top: 60px;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
       }
     `
       }
     </style>
     <Navigation open={open} openDrawer={openDrawer} closeDrawer={closeDrawer} />
     {children}
+    <Footer />
   </div>
 );
