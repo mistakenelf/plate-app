@@ -4,9 +4,7 @@ import React from "react";
 export default () => (
   <div>
     <div className="footer-main">
-      <div
-        className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl"
-      >
+      <div className="row">
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <h3>Plate</h3>
           <div className="divider-style">
