@@ -47,6 +47,9 @@ export default () => (
         </div>
       </div>
     </div>
+    <div className="copyright">
+      Copyright info, etc. will go here!
+    </div>
     <style jsx>
       {
         `
@@ -78,6 +81,12 @@ export default () => (
           opacity: 0.2;
           margin-top: 10px;
           margin-bottom: 10px;
+        }
+        .copyright {
+          color: white;
+          background-color: #343F53;
+          padding: 5px;
+          font-size: .2em;
         }
         a::before,
         a::after {
