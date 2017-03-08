@@ -1,4 +1,5 @@
-import React from 'react';
+import Divider from "material-ui/Divider";
+import React from "react";
 
 export default () => (
   <div>
@@ -7,8 +8,10 @@ export default () => (
         className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl"
       >
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-          <h2>Plate</h2>
-          <br />
+          <h3>Plate</h3>
+          <div className="divider-style">
+            <Divider />
+          </div>
           <p>
             Plate is the easiest way to manage your tasks<br />
             Check out our resources to learn more about<br />
@@ -16,24 +19,25 @@ export default () => (
           </p>
         </div>
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+          <h3>Quick Links</h3>
+          <div className="divider-style">
+            <Divider />
+          </div>
           <ul>
-            <li>Test</li>
-            <li>Test</li>
+            <li>Register</li>
+            <li>Login</li>
           </ul>
         </div>
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+          <h3>Get In Touch</h3>
+          <div className="divider-style">
+            <Divider />
+          </div>
           <ul>
-            <li>Test</li>
-            <li>Test</li>
+            <li>About Us</li>
+            <li>Contact Us</li>
           </ul>
         </div>
-      </div>
-    </div>
-    <div
-      className="footer-copyright row full-height middle-xs middle-sm middle-md middle-lg middle-xl"
-    >
-      <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-        This is the copyright area.
       </div>
     </div>
     <style jsx>
@@ -41,7 +45,7 @@ export default () => (
         `
         .footer-main {
           color: white;
-          background-color: #50475C;
+          background-color: #1E2532;
           height: 250px;
           padding: 30px;
         }
@@ -50,11 +54,17 @@ export default () => (
         }
         .footer-main ul {
           list-style-type: none;
+          color: #bdbdbd;
         }
-        .footer-copyright {
-          color: white;
-          background-color: #343F53;
-          padding: 20px;
+
+        .footer-main ul li {
+          margin-bottom: 5px;
+        }
+
+        .divider-style {
+          opacity: 0.2;
+          margin-top: 10px;
+          margin-bottom: 10px;
         }
       `
       }
