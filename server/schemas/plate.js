@@ -3,17 +3,25 @@ const {
   GraphQLObjectType
 } = require("graphql");
 
+const PlateModel = require("../models/plate");
+
 const Plate = new GraphQLObjectType({
   name: "Plate",
   description: "A new plate",
   fields: () => ({
     name: {
       type: GraphQLString,
-      resolve: () => "Plate Name"
+      resolve: () =>
+        PlateModel.find((err, plate) => {
+          console.log(plate.name);
+        })
     },
     description: {
       type: GraphQLString,
-      resolve: () => "This is a description of a plate"
+      resolve: () =>
+        PlateModel.find((err, plate) => {
+          console.log(plate.description);
+        })
     }
   })
 });

@@ -9,6 +9,7 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 
 const schema = require("./schemas");
+const db = require("./lib/dbConnect");
 
 app.prepare().then(() => {
   const server = express();

@@ -9,3 +9,6 @@ node_modules
 .env
 npm-debug.log
 yarn-error.log
+
+# secrets
+server/lib/dbConnect.js
