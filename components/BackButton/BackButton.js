@@ -1,11 +1,16 @@
+// @flow
+
 import BackArrow from "material-ui/svg-icons/navigation/arrow-back";
 import IconButton from "material-ui/IconButton";
-import Link from "next/link";
 import React from "react";
 
-export default () => (
-  <Link prefetch href="/">
-    <a>
+type Props = {
+  url: Object
+};
+
+export default ({ url }: Props) => (
+  <div>
+    <a onClick={() => url.back() || url.push("/")}>
       <IconButton
         iconStyle={{ color: "white" }}
         tooltip="Back"
@@ -14,5 +19,5 @@ export default () => (
         <BackArrow />
       </IconButton>
     </a>
-  </Link>
+  </div>
 );
