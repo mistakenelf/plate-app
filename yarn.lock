@@ -3802,9 +3802,9 @@ prettier@^0.19.0:
     jest-validate "19.0.0"
     minimist "1.2.0"
 
-prettier@^0.21.0:
-  version "0.21.0"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-0.21.0.tgz#5187ab95fdd9ca63dccf6217ed03b434d72771f8"
+prettier@^0.22.0:
+  version "0.22.0"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-0.22.0.tgz#7b37c4480d0858180407e5a8e13f0f47da7385d2"
   dependencies:
     ast-types "0.9.4"
     babel-code-frame "6.22.0"
