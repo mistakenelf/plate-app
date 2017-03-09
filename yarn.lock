@@ -1744,7 +1744,7 @@ eslint-plugin-react@^6.10.0:
     jsx-ast-utils "^1.3.4"
     object.assign "^4.0.4"
 
-eslint@^3.13.1, eslint@^3.17.1:
+eslint@^3.17.0, eslint@^3.17.1:
   version "3.17.1"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-3.17.1.tgz#b80ae12d9c406d858406fccda627afce33ea10ea"
   dependencies:
@@ -2030,14 +2030,6 @@ flat-cache@^1.2.1:
 flow-bin@^0.41.0:
   version "0.41.0"
   resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.41.0.tgz#8badac9a19da45004997e599bd316518db489b2e"
-
-flow-parser@0.38.0:
-  version "0.38.0"
-  resolved "https://registry.yarnpkg.com/flow-parser/-/flow-parser-0.38.0.tgz#a631c46170c5b42400d905a75cfc83ce8db29424"
-  dependencies:
-    ast-types "0.8.18"
-    colors ">=0.6.2"
-    minimist ">=0.2.0"
 
 flow-parser@0.40.0:
   version "0.40.0"
@@ -3144,6 +3136,13 @@ lodash@^4.0.0, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.2.0, lodash@^4.2.1, lod
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
+loglevel-colored-level-prefix@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/loglevel-colored-level-prefix/-/loglevel-colored-level-prefix-1.0.0.tgz#6a40218fdc7ae15fc76c3d0f3e676c465388603e"
+  dependencies:
+    chalk "^1.1.3"
+    loglevel "^1.4.1"
+
 loglevel@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/loglevel/-/loglevel-1.4.1.tgz#95b383f91a3c2756fd4ab093667e4309161f2bcd"
@@ -3788,33 +3787,18 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier-eslint@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/prettier-eslint/-/prettier-eslint-4.2.0.tgz#62c42a3e4c7ef11e4c0d133d0e3af1bccdd18b43"
+prettier-eslint@^4.2.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/prettier-eslint/-/prettier-eslint-4.2.1.tgz#b941168e7fb307358806cb729280961e4e7c9f4b"
   dependencies:
     common-tags "^1.4.0"
     dlv "^1.1.0"
-    eslint "^3.13.1"
+    eslint "^3.17.0"
     indent-string "^3.1.0"
-    loglevel "^1.4.1"
-    prettier "^0.19.0"
+    loglevel-colored-level-prefix "^1.0.0"
+    prettier "^0.22.0"
     pretty-format "^19.0.0"
     require-relative "^0.8.7"
-
-prettier@^0.19.0:
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-0.19.0.tgz#8b473989a51c76649ea1e2eb7ea3f055cc4b8422"
-  dependencies:
-    ast-types "0.9.4"
-    babel-code-frame "6.22.0"
-    babylon "6.15.0"
-    chalk "1.1.3"
-    esutils "2.0.2"
-    flow-parser "0.38.0"
-    get-stdin "5.0.1"
-    glob "7.1.1"
-    jest-validate "19.0.0"
-    minimist "1.2.0"
 
 prettier@^0.22.0:
   version "0.22.0"
