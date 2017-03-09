@@ -8,7 +8,7 @@ export default () => (
     <a>
       <IconButton
         iconStyle={{ color: "white" }}
-        tooltip="Back Home"
+        tooltip="Back"
         tooltipPosition="bottom-center"
       >
         <BackArrow />

@@ -1,4 +1,4 @@
-import BackHomeButton from "../components/BackHomeButton/BackHomeButton";
+import BackButton from "../components/BackButton/BackButton";
 import Header from "../components/Header/Header";
 import NavlessLayout from "../layouts/NavlessLayout/NavlessLayout";
 import React from "react";
@@ -8,7 +8,7 @@ import pageDecorator from "../lib/pageDecorator";
 export default pageDecorator(() => (
   <NavlessLayout>
     <Header title="Register" />
-    <BackHomeButton />
+    <BackButton />
     <RegisterForm />
   </NavlessLayout>
 ));
