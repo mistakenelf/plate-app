@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export default () => (
   <div className="home-details">
@@ -6,7 +6,7 @@ export default () => (
       <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
         <h2>Easily create tasks</h2><br />
         <p>
-          {' '}
+          {" "}
           Create and manage tasks without any pain.<br />
           Our interface provides the most simplistic way for creatings tasks
         </p>

@@ -1,6 +1,6 @@
-import BorderedButton from '../BorderedButton/BorderedButton';
-import Link from 'next/link';
-import React from 'react';
+import BorderedButton from "../BorderedButton/BorderedButton";
+import Link from "next/link";
+import React from "react";
 
 export default () => (
   <div>
@@ -13,9 +13,10 @@ export default () => (
       </div>
       <div className="header-secondary">
         <h5>
+          {" "}
           Create multiple plates and customize your very own task layout.
           <br />
-          {' '}
+          {" "}
           Register now
           to begin managing your tasks!
         </h5>

@@ -1,14 +1,12 @@
 // @flow
 
-import { compose, graphql } from "react-apollo";
-
 import { Component } from "react";
-import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
+import HomeLayout from "../layouts/HomeLayout/HomeLayout";
 import React from "react";
 import { actions } from "../store/modules/drawer";
 import { bindActionCreators } from "redux";
+import { compose } from "react-apollo";
 import { connect } from "react-redux";
-import gql from "graphql-tag";
 
 type Props = {
   children?: Element<any>,
@@ -17,19 +15,15 @@ type Props = {
   closeDrawer?: Function
 };
 
-class DefaultLayoutContainer extends Component {
+class HomeLayoutContainer extends Component {
   props: Props;
 
   render() {
     const { children, open, openDrawer, closeDrawer } = this.props;
     return (
-      <DefaultLayout
-        open={open}
-        openDrawer={openDrawer}
-        closeDrawer={closeDrawer}
-      >
+      <HomeLayout open={open} openDrawer={openDrawer} closeDrawer={closeDrawer}>
         {children}
-      </DefaultLayout>
+      </HomeLayout>
     );
   }
 }
@@ -50,19 +44,6 @@ const mapDispatchToProps = dispatch => {
   );
 };
 
-const MyQuery = gql`query {
-  plate {
-    name,
-    description
-  }
-}`;
-
-export default compose(
-  graphql(MyQuery, {
-    props: ({ data: { plate: { name, description } } }) => ({
-      name,
-      description
-    })
-  }),
-  connect(mapStateToProps, mapDispatchToProps)
-)(DefaultLayoutContainer);
+export default compose(connect(mapStateToProps, mapDispatchToProps))(
+  HomeLayoutContainer
+);

@@ -1,7 +1,7 @@
 // @flow
 
-import FlatButton from 'material-ui/FlatButton';
-import React from 'react';
+import FlatButton from "material-ui/FlatButton";
+import React from "react";
 
 type Props = {
   type?: string,
@@ -13,7 +13,7 @@ export default ({ type, label }: Props) => (
     <FlatButton
       type={type}
       label={label}
-      labelStyle={{ color: 'white', width: '100%' }}
+      labelStyle={{ color: "white", width: "100%" }}
     />
     <style jsx>
       {

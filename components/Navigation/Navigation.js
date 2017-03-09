@@ -1,13 +1,13 @@
 // @flow
 
-import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer';
-import IconButton from 'material-ui/IconButton';
-import IconMenu from 'material-ui/IconMenu';
-import Link from 'next/link';
-import MenuItem from 'material-ui/MenuItem';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import React from 'react';
+import AppBar from "material-ui/AppBar";
+import Drawer from "material-ui/Drawer";
+import IconButton from "material-ui/IconButton";
+import IconMenu from "material-ui/IconMenu";
+import Link from "next/link";
+import MenuItem from "material-ui/MenuItem";
+import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
+import React from "react";
 
 type Props = {
   open?: boolean,
@@ -19,8 +19,8 @@ export default ({ open, openDrawer, closeDrawer }: Props) => {
   const elementRight = (
     <IconMenu
       iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-      targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-      anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+      targetOrigin={{ horizontal: "right", vertical: "top" }}
+      anchorOrigin={{ horizontal: "right", vertical: "top" }}
     >
       <Link prefetch href="/login"><a><MenuItem>Login</MenuItem></a></Link>
       <Link prefetch href="/register">
@@ -35,8 +35,8 @@ export default ({ open, openDrawer, closeDrawer }: Props) => {
         onLeftIconButtonTouchTap={openDrawer}
         iconElementRight={elementRight}
         style={{
-          backgroundColor: '#343f53',
-          position: 'fixed',
+          backgroundColor: "#343f53",
+          position: "fixed",
           height: 60,
           top: 0
         }}

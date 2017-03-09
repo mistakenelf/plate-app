@@ -1,10 +1,10 @@
-import BackHomeButton from '../components/BackHomeButton/BackHomeButton';
+import BackHomeButton from "../components/BackHomeButton/BackHomeButton";
 import ForgotPasswordForm
-  from '../components/ForgotPasswordForm/ForgotPasswordForm';
-import Header from '../components/Header/Header';
-import NavlessLayout from '../layouts/NavlessLayout/NavlessLayout';
-import React from 'react';
-import pageDecorator from '../lib/pageDecorator';
+  from "../components/ForgotPasswordForm/ForgotPasswordForm";
+import Header from "../components/Header/Header";
+import NavlessLayout from "../layouts/NavlessLayout/NavlessLayout";
+import React from "react";
+import pageDecorator from "../lib/pageDecorator";
 
 export default pageDecorator(() => (
   <NavlessLayout>

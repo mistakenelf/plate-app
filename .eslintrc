@@ -28,7 +28,7 @@
       "error",
       {
         "trailingComma": "none",
-        "singleQuote": true
+        "singleQuote": false
       }
     ],
     "react/display-name": [
