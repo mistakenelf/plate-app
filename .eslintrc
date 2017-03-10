@@ -33,6 +33,9 @@
     ],
     "react/display-name": [
       0
+    ],
+    "no-unused-vars": [
+      "error"
     ]
   }
 }
