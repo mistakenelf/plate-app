@@ -1,5 +1,5 @@
 import Divider from "material-ui/Divider";
-import FooterContainer from "../../containers/FooterContainer";
+import FooterMobile from "./FooterMobile";
 import Link from "next/link";
 import React from "react";
 
@@ -53,7 +53,7 @@ export default () => (
         <div
           className="footer-color col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
         >
-          <FooterContainer />
+          <FooterMobile />
         </div>
       </div>
     </div>
