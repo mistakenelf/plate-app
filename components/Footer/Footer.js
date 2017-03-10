@@ -1,4 +1,5 @@
 import Divider from "material-ui/Divider";
+import FooterMobile from "./FooterMobile";
 import Link from "next/link";
 import React from "react";
 
@@ -47,6 +48,13 @@ export default () => (
         </div>
       </div>
     </div>
+    <div className="footer-mobile">
+      <div className="row">
+        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <FooterMobile />
+        </div>
+      </div>
+    </div>
     <div className="copyright">
       Copyright info, etc. will go here!
     </div>
@@ -76,6 +84,9 @@ export default () => (
         }
         .footer-links:hover {
           color: #ffffff;
+        }
+        .footer-mobile {
+          background-color: black;
         }
         .divider-style {
           opacity: 0.2;
@@ -113,6 +124,22 @@ export default () => (
         a:focus::after {
           opacity: 1;
           transform: translateX(0px);
+        }
+
+        @media only screen
+        and (min-device-width : 320px)
+        and (max-device-width : 600px) {
+          .footer-main {
+            display: none;
+          }
+        }
+
+        @media only screen
+        and (min-device-width : 601px)
+        and (max-device-width : 2600px) {
+          .footer-mobile {
+            display: none;
+          }
         }
       `
       }
