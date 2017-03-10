@@ -1,4 +1,4 @@
-import BorderedButton from "../BorderedButton/BorderedButton";
+import BorderedButton from "../../components/BorderedButton/BorderedButton";
 import React from "react";
 import TextField from "material-ui/TextField";
 

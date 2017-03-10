@@ -1,8 +1,7 @@
 // @flow
 
 import BackButton from "../components/BackButton/BackButton";
-import ForgotPasswordForm
-  from "../components/ForgotPasswordForm/ForgotPasswordForm";
+import ForgotPasswordForm from "../forms/ForgotPasswordForm/ForgotPasswordForm";
 import Header from "../components/Header/Header";
 import NavlessLayout from "../layouts/NavlessLayout/NavlessLayout";
 import React from "react";

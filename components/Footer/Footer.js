@@ -50,7 +50,9 @@ export default () => (
     </div>
     <div className="footer-mobile">
       <div className="row">
-        <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+        <div
+          className="footer-color col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
+        >
           <FooterMobile />
         </div>
       </div>
@@ -61,6 +63,9 @@ export default () => (
     <style jsx>
       {
         `
+        .footer-color {
+          background-color: #1E2532;
+        }
         .footer-main {
           color: white;
           background-color: #1E2532;

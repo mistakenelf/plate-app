@@ -1,22 +1,14 @@
-// @flow
-
-import BorderedButton from "../BorderedButton/BorderedButton";
+import BorderedButton from "../../components/BorderedButton/BorderedButton";
 import Link from "next/link";
 import React from "react";
 import TextField from "material-ui/TextField";
-
-type Props = {
-  messageOpen?: boolean,
-  showMessage?: Function,
-  hideMessage?: Function
-};
 
 const login = e => {
   e.preventDefault();
   console.log("submitted");
 };
 
-export default ({ messageOpen, showMessage, hideMessage }: Props) => (
+export default () => (
   <div className="container-fluid">
     <div
       className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg"

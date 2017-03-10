@@ -5,7 +5,7 @@ import NProgress from "nprogress";
 import React from "react";
 import Router from "next/router";
 
-Router.onRouteChangeStart = url => {
+Router.onRouteChangeStart = () => {
   NProgress.start();
 };
 
