@@ -128,14 +128,14 @@ export default () => (
 
         @media only screen
         and (min-device-width : 320px)
-        and (max-device-width : 600px) {
+        and (max-device-width : 1030px) {
           .footer-main {
             display: none;
           }
         }
 
         @media only screen
-        and (min-device-width : 601px)
+        and (min-device-width : 1031px)
         and (max-device-width : 2600px) {
           .footer-mobile {
             display: none;
