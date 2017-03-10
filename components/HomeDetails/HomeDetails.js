@@ -12,7 +12,7 @@ export default () => (
         </p>
       </div>
       <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6col-xl-6">
-        <img src="/static/img/test.png" width="550" height="250" />
+        <img src="/static/img/test.png" />
       </div>
     </div>
     <div className="initial-row row full-height">
@@ -24,7 +24,7 @@ export default () => (
         </p>
       </div>
       <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6col-xl-6">
-        <img src="/static/img/test.png" width="550" height="250" />
+        <img src="/static/img/test.png" />
       </div>
     </div>
     <div className="initial-row row full-height">
@@ -36,7 +36,7 @@ export default () => (
         </p>
       </div>
       <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6col-xl-6">
-        <img src="/static/img/test.png" width="550" height="250" />
+        <img src="/static/img/test.png" />
       </div>
     </div>
     <style jsx>
@@ -51,6 +51,10 @@ export default () => (
       }
       h2 {
         font-weight: normal;
+      }
+      img {
+        width: 100%;
+        height: auto;
       }
     `
       }
