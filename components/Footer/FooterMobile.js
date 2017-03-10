@@ -1,8 +1,6 @@
 import { List, ListItem } from "material-ui/List";
 
 import Divider from "material-ui/Divider";
-import ExpandLessIcon from "material-ui/svg-icons/navigation/expand-less";
-import ExpandMoreIcon from "material-ui/svg-icons/navigation/expand-more";
 import React from "react";
 
 export default () => (
@@ -10,8 +8,7 @@ export default () => (
     <List>
       <ListItem
         primaryText="Quick Links"
-        style={{ color: "#bdbdbd" }}
-        rightIcon={<ExpandMoreIcon />}
+        style={{ textColor: "white", color: "#bdbdbd" }}
         primaryTogglesNestedList
         nestedItems={[
           <ListItem
