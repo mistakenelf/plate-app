@@ -5,13 +5,47 @@ import Link from "next/link";
 import React from "react";
 import TextField from "material-ui/TextField";
 
+type Props = {
+  handleSubmit?: Function,
+  label?: string,
+  meta?: Object,
+  input?: Object
+};
+
+const validate = values => {
+  const errors = {};
+  if (!values.email) {
+    errors.email = "Required";
+  }
+  if (!values.password) {
+    errors.password = "Required";
+  } else if (
+    values.email &&
+    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+  ) {
+    errors.email = "Invalid email address";
+  }
+  return errors;
+};
+
 const login = () => {
   console.log("submitted");
 };
 
-type Props = {
-  handleSubmit?: Function
-};
+const renderTextField = (
+  { input, label, meta: { touched, error }, ...custom }: Props
+) => (
+  <TextField
+    hintStyle={{ color: "white" }}
+    inputStyle={{ color: "white" }}
+    hintText={label}
+    autoComplete={"off"}
+    errorText={touched && error}
+    fullWidth
+    {...input}
+    {...custom}
+  />
+);
 
 const LoginForm = ({ handleSubmit }: Props) => (
   <div className="container-fluid">
@@ -21,40 +55,18 @@ const LoginForm = ({ handleSubmit }: Props) => (
       <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
         <h1 className="header-text">Login</h1>
         <form onSubmit={handleSubmit(login)}>
-          <div className="text-field-email">
-            <TextField
-              hintStyle={{ color: "white" }}
-              inputStyle={{ color: "white" }}
-              autoComplete={"off"}
-              id="email"
-              fullWidth
-              required
-            >
-              <Field
-                name="email"
-                component="input"
-                type="email"
-                placeholder="Email"
-              />
-            </TextField>
-          </div>
-          <div className="text-field-password">
-            <TextField
-              autoComplete={"off"}
-              inputStyle={{ color: "white" }}
-              hintStyle={{ color: "white" }}
-              id="password"
-              fullWidth
-              required
-            >
-              <Field
-                name="password"
-                component="input"
-                type="password"
-                placeholder="Password"
-              />
-            </TextField>
-          </div>
+          <Field
+            name="email"
+            component={renderTextField}
+            type="email"
+            label="Email"
+          />
+          <Field
+            name="password"
+            component={renderTextField}
+            type="password"
+            label="Password"
+          />
           <BorderedButton type="submit" label="Login" />
         </form>
         <div className="forgot-password">
@@ -94,5 +106,6 @@ const LoginForm = ({ handleSubmit }: Props) => (
 );
 
 export default reduxForm({
-  form: "loginForm"
+  form: "loginForm",
+  validate
 })(LoginForm);
