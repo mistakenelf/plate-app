@@ -12,6 +12,10 @@ type Props = {
   input?: Object
 };
 
+const login = () => {
+  console.log("submitted");
+};
+
 const validate = values => {
   const errors = {};
   if (!values.email) {
@@ -26,10 +30,6 @@ const validate = values => {
     errors.email = "Invalid email address";
   }
   return errors;
-};
-
-const login = () => {
-  console.log("submitted");
 };
 
 const renderTextField = (
