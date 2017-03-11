@@ -1,44 +1,71 @@
+import { Field, reduxForm } from "redux-form";
+
 import BorderedButton from "../../components/BorderedButton/BorderedButton";
 import React from "react";
 import TextField from "material-ui/TextField";
 
-const register = e => {
-  e.preventDefault();
+type Props = {
+  handleSubmit?: Function,
+  label?: string,
+  meta?: Object,
+  input?: Object
+};
+
+const register = () => {
   console.log("submitted");
 };
 
-export default () => (
+const validate = values => {
+  const errors = {};
+  if (!values.email) {
+    errors.email = "Required";
+  }
+  if (!values.password) {
+    errors.password = "Required";
+  } else if (
+    values.email &&
+    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+  ) {
+    errors.email = "Invalid email address";
+  }
+  return errors;
+};
+
+const renderTextField = (
+  { input, label, meta: { touched, error }, ...custom }: Props
+) => (
+  <TextField
+    hintStyle={{ color: "white" }}
+    inputStyle={{ color: "white" }}
+    hintText={label}
+    autoComplete={"off"}
+    errorText={touched && error}
+    fullWidth
+    {...input}
+    {...custom}
+  />
+);
+
+const RegisterForm = ({ handleSubmit }: Props) => (
   <div className="container-fluid">
     <div
       className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg"
     >
       <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
         <h1 className="header-text">Register</h1>
-        <form onSubmit={register}>
-          <div className="text-field-email">
-            <TextField
-              hintText="email"
-              id="email"
-              hintStyle={{ color: "white" }}
-              type="text"
-              inputStyle={{ color: "white" }}
-              autoComplete={"off"}
-              fullWidth
-              required
-            />
-          </div>
-          <div className="text-field-password">
-            <TextField
-              hintText="password"
-              id="password"
-              hintStyle={{ color: "white" }}
-              type="password"
-              inputStyle={{ color: "white" }}
-              autoComplete={"off"}
-              fullWidth
-              required
-            />
-          </div>
+        <form onSubmit={handleSubmit(register)}>
+          <Field
+            name="email"
+            component={renderTextField}
+            type="email"
+            label="Email"
+          />
+          <Field
+            name="password"
+            component={renderTextField}
+            type="password"
+            label="Password"
+          />
           <BorderedButton type="submit" label="Register" />
         </form>
       </div>
@@ -64,3 +91,8 @@ export default () => (
     </style>
   </div>
 );
+
+export default reduxForm({
+  form: "registerForm",
+  validate
+})(RegisterForm);
