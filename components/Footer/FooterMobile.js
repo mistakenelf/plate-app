@@ -11,11 +11,13 @@ export default () => (
         style={{ textColor: "white", color: "#bdbdbd" }}
         primaryTogglesNestedList
         nestedItems={[
-          <ListItem
-            key={1}
-            primaryText="Register"
-            style={{ color: "#bdbdbd" }}
-          />,
+          (
+            <ListItem
+              key={1}
+              primaryText="Register"
+              style={{ color: "#bdbdbd" }}
+            />
+          ),
           <ListItem key={2} primaryText="Login" style={{ color: "#bdbdbd" }} />
         ]}
       />
@@ -27,16 +29,20 @@ export default () => (
         style={{ color: "#bdbdbd" }}
         primaryTogglesNestedList
         nestedItems={[
-          <ListItem
-            key={1}
-            primaryText="Register"
-            style={{ color: "#bdbdbd" }}
-          />,
-          <ListItem
-            key={2}
-            primaryText="Contact Us"
-            style={{ color: "#bdbdbd" }}
-          />
+          (
+            <ListItem
+              key={1}
+              primaryText="Register"
+              style={{ color: "#bdbdbd" }}
+            />
+          ),
+          (
+            <ListItem
+              key={2}
+              primaryText="Contact Us"
+              style={{ color: "#bdbdbd" }}
+            />
+          )
         ]}
       />
     </List>
@@ -44,7 +50,7 @@ export default () => (
       {
         `
         .footer-mobile-main {
-          background-color: #1E2532;
+          background-color: #2E3644;
           margin: 30px;
         }
 
