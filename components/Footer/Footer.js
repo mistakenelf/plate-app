@@ -49,13 +49,7 @@ export default () => (
       </div>
     </div>
     <div className="footer-mobile">
-      <div className="row">
-        <div
-          className="footer-color col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
-        >
-          <FooterMobile />
-        </div>
-      </div>
+      <FooterMobile />
     </div>
     <div className="copyright">
       Copyright info, etc. will go here!
@@ -63,8 +57,9 @@ export default () => (
     <style jsx>
       {
         `
-        .footer-color {
+        .footer-mobile {
           background-color: #1E2532;
+          padding: 30px;
         }
         .footer-main {
           color: white;
@@ -89,9 +84,6 @@ export default () => (
         }
         .footer-links:hover {
           color: #ffffff;
-        }
-        .footer-mobile {
-          background-color: black;
         }
         .divider-style {
           opacity: 0.2;
