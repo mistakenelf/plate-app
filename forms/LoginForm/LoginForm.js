@@ -57,12 +57,14 @@ const LoginForm = ({ handleSubmit }: Props) => (
         <form onSubmit={handleSubmit(login)}>
           <Field
             name="email"
+            id="email"
             component={renderTextField}
             type="email"
             label="Email"
           />
           <Field
             name="password"
+            id="password"
             component={renderTextField}
             type="password"
             label="Password"
