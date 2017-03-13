@@ -1,16 +1,10 @@
-// @flow
-
 import BackArrow from "material-ui/svg-icons/navigation/arrow-back";
 import IconButton from "material-ui/IconButton";
 import React from "react";
 
-type Props = {
-  url: Object
-};
-
-export default ({ url }: Props) => (
+export default () => (
   <div>
-    <a onClick={() => url.back() || url.push("/")}>
+    <a onClick={() => window.history.back()}>
       <IconButton
         iconStyle={{ color: "white" }}
         tooltip="Back"
