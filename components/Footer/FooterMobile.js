@@ -49,18 +49,18 @@ export default () => (
     <style jsx>
       {
         `
-        .footer-mobile-main {
-          background-color: #2E3644;
-        }
-        .footer-mobile-main svg {
-          color: white;
-        }
-        .divider-style {
-          opacity: 0.1;
-          margin-top: 5px;
-          margin-bottom: 5px;
-        }
-    `
+          .footer-mobile-main {
+            background-color: #2E3644;
+          }
+          .footer-mobile-main svg {
+            color: white;
+          }
+          .divider-style {
+            opacity: 0.1;
+            margin-top: 5px;
+            margin-bottom: 5px;
+          }
+      `
       }
     </style>
   </div>
