@@ -1,3 +1,5 @@
+// @flow
+
 import { Field, reduxForm } from "redux-form";
 
 import BorderedButton from "../../components/BorderedButton/BorderedButton";
