@@ -1,4 +1,4 @@
-import Footer from "../../components/Footer/Footer";
+import FooterContainer from "../../containers/FooterContainer";
 import Navigation from "../../components/Navigation/Navigation";
 import React from "react";
 
@@ -28,6 +28,6 @@ export default ({ children, open, openDrawer, closeDrawer }: Props) => (
     </style>
     <Navigation open={open} openDrawer={openDrawer} closeDrawer={closeDrawer} />
     {children}
-    <Footer />
+    <FooterContainer />
   </div>
 );
