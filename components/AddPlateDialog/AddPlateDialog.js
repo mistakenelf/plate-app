@@ -13,7 +13,7 @@ type Props = {
 export default ({ open, closeDialog }: Props) => {
   const actions = [
     <FlatButton label="Cancel" primary onTouchTap={closeDialog} />,
-    <FlatButton label="Submit" primary />
+    <FlatButton label="Add Plate" primary />
   ];
 
   return (
@@ -33,7 +33,6 @@ export default ({ open, closeDialog }: Props) => {
         rowsMax={4}
         multiLine
       />
-      <br />
     </Dialog>
   );
 };
