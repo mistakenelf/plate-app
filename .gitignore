@@ -11,4 +11,4 @@ npm-debug.log
 yarn-error.log
 
 # secrets
-server/DBConnect.js
+server/connect.js

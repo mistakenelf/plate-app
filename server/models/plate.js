@@ -6,4 +6,4 @@ const PlateSchema = new Schema({
   description: String
 });
 
-module.exports = mongoose.model("plate", PlateSchema);
+module.exports = mongoose.model("plate", PlateSchema, "plate");

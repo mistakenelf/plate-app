@@ -10,7 +10,7 @@ const handle = app.getRequestHandler();
 
 const schema = require("./schemas");
 
-require("./DBConnect");
+require("./connect");
 
 app.prepare().then(() => {
   const server = express();

@@ -11,17 +11,17 @@ const Plate = new GraphQLObjectType({
   fields: () => ({
     name: {
       type: GraphQLString,
-      resolve: () =>
-        PlateModel.find((err, plate) => {
-          console.log(plate.name);
-        })
+      resolve: () => {
+        return PlateModel.findOne({}, "-_id name").then(plate => plate.name);
+      }
     },
     description: {
       type: GraphQLString,
-      resolve: () =>
-        PlateModel.find((err, plate) => {
-          console.log(plate.description);
-        })
+      resolve: () => {
+        return PlateModel.findOne({}, "-_id description").then(
+          plate => plate.description
+        );
+      }
     }
   })
 });
