@@ -1,16 +1,9 @@
-// @flow
-
 import Divider from "material-ui/Divider";
 import FooterMobile from "./FooterMobile";
 import Link from "next/link";
 import React from "react";
 
-type Props = {
-  open?: boolean,
-  toggleLink?: Function
-};
-
-export default ({ open, toggleLink }: Props) => (
+export default () => (
   <div>
     <div className="footer-main">
       <div className="row">
@@ -56,7 +49,7 @@ export default ({ open, toggleLink }: Props) => (
       </div>
     </div>
     <div className="footer-mobile">
-      <FooterMobile open={open} toggleLink={toggleLink} />
+      <FooterMobile />
     </div>
     <div className="copyright">
       Copyright © 2017 Plate
