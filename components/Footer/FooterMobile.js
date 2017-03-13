@@ -8,7 +8,7 @@ export default () => (
     <List>
       <ListItem
         primaryText="Quick Links"
-        style={{ textColor: "white", color: "#bdbdbd" }}
+        style={{ color: "#bdbdbd" }}
         primaryTogglesNestedList
         nestedItems={[
           <ListItem
