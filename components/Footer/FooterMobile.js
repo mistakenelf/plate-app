@@ -46,9 +46,6 @@ export default () => (
         .footer-mobile-main {
           background-color: #2E3644;
         }
-        .footer-mobile-main svg {
-          color: white;
-        }
         .divider-style {
           opacity: 0.1;
           margin-top: 5px;
