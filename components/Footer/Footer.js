@@ -52,7 +52,7 @@ export default () => (
       <FooterMobile />
     </div>
     <div className="copyright">
-      Copyright info, etc. will go here!
+      Copyright © 2017 Plate
     </div>
     <style jsx>
       {
