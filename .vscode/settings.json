@@ -6,6 +6,5 @@
   "editor.fontLigatures": true,
   "editor.minimap.enabled": true,
   "editor.dragAndDrop": true,
-  "editor.formatOnSave": true,
-  "javascript.validate.enable": false
+  "editor.formatOnSave": true
 }
