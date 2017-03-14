@@ -3778,14 +3778,15 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier-eslint@^4.2.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/prettier-eslint/-/prettier-eslint-4.2.1.tgz#b941168e7fb307358806cb729280961e4e7c9f4b"
+prettier-eslint@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/prettier-eslint/-/prettier-eslint-4.3.0.tgz#61887b92d281583eeb8494d6422084f4c9ba1cd9"
   dependencies:
     common-tags "^1.4.0"
     dlv "^1.1.0"
     eslint "^3.17.0"
     indent-string "^3.1.0"
+    lodash.merge "^4.6.0"
     loglevel-colored-level-prefix "^1.0.0"
     prettier "^0.22.0"
     pretty-format "^19.0.0"
