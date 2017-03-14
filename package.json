@@ -19,7 +19,7 @@
     "graphql-server-express": "^0.6.0",
     "isomorphic-fetch": "^2.2.1",
     "material-ui": "^0.17.1",
-    "mongoose": "^4.8.6",
+    "mongoose": "^4.9.0",
     "next": "2.0.0-beta.37",
     "nprogress": "^0.2.0",
     "react": "^15.4.2",
