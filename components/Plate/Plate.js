@@ -28,4 +28,4 @@ const Plate = ({ name, description }) => (
 
 Plate.propTypes = propTypes;
 
-export default plate;
+export default Plate;
