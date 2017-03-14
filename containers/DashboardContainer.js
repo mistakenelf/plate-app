@@ -1,9 +1,20 @@
+// @flow
+
+import { gql, graphql } from "react-apollo";
+
 import { Component } from "react";
 import DashboardMenu from "../components/DashboardMenu/DashboardMenu";
 import Plate from "../components/Plate/Plate";
 import React from "react";
 
+type Props = {
+  loading?: boolean,
+  plates?: Array
+};
+
 class DashboardContainer extends Component {
+  props: Props;
+
   state = {
     newPlateDialogOpen: false,
     removePlatesDialogOpen: false
@@ -34,8 +45,10 @@ class DashboardContainer extends Component {
   };
 
   render() {
+    const { loading, plates } = this.props;
     return (
       <div className="container-fluid" style={{ paddingTop: 5 }}>
+        {loading && <p>Loading...</p>}
         <div className="row">
           <div
             className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
@@ -52,16 +65,36 @@ class DashboardContainer extends Component {
           </div>
         </div>
         <div className="row">
-          <div
-            className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
-            style={{ marginBottom: 10 }}
-          >
-            <Plate />
-          </div>
+          {plates.map((plate, index) => {
+            return (
+              <div
+                key={index}
+                className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
+                style={{ marginBottom: 10 }}
+              >
+                <Plate name={plate.name} description={plate.description} />
+              </div>
+            );
+          })}
         </div>
       </div>
     );
   }
 }
 
-export default DashboardContainer;
+const Query = gql`
+  query {
+    plates {
+      id
+      name
+      description
+    }
+  }
+`;
+
+export default graphql(Query, {
+  props: ({ data: { loading, plates } }) => ({
+    loading,
+    plates
+  })
+})(DashboardContainer);
