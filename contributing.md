@@ -10,7 +10,7 @@
 - Sort-imports https://marketplace.visualstudio.com/items?itemName=peterjuras.sort-imports
 
 #### NodeJS
-- You must install the latest version of node to run this project because of Koa 2's async await.   
+- Install the latest version of node   
 
 - https://nodejs.org/en/
 
