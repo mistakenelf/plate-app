@@ -1,5 +1,4 @@
-// @flow
-
+import React, { PropTypes } from "react";
 import {
   Toolbar,
   ToolbarGroup,
@@ -17,19 +16,18 @@ import MenuItem from "material-ui/MenuItem";
 import NavigationExpandMoreIcon
   from "material-ui/svg-icons/navigation/expand-more";
 import RaisedButton from "material-ui/RaisedButton";
-import React from "react";
 import RemovePlatesDialog from "../RemovePlatesDialog/RemovePlatesDialog";
 
-type Props = {
-  newPlateDialogOpen?: boolean,
-  openNewPlateDialog?: Function,
-  closeNewPlateDialog?: Function,
-  removePlatesDialogOpen?: boolean,
-  openRemovePlatesDialog?: Function,
-  closeRemovePlatesDialog?: Function
+const propTypes = {
+  newPlateDialogOpen: PropTypes.bool,
+  openNewPlateDialog: PropTypes.func,
+  closeNewPlateDialog: PropTypes.func,
+  removePlatesDialogOpen: PropTypes.bool,
+  openRemovePlatesDialog: PropTypes.func,
+  closeRemovePlatesDialog: PropTypes.func
 };
 
-export default (
+const DashboardMenu = (
   {
     newPlateDialogOpen,
     openNewPlateDialog,
@@ -37,7 +35,7 @@ export default (
     removePlatesDialogOpen,
     openRemovePlatesDialog,
     closeRemovePlatesDialog
-  }: Props
+  }
 ) => (
   <div>
     <div className="toolbar-desktop">
@@ -124,3 +122,7 @@ export default (
     </style>
   </div>
 );
+
+DashboardMenu.propTypes = propTypes;
+
+export default DashboardMenu;

@@ -1,8 +1,7 @@
-// @flow
+import React, { PropTypes } from "react";
 
 import Head from "next/head";
 import NProgress from "nprogress";
-import React from "react";
 import Router from "next/router";
 
 Router.onRouteChangeStart = () => {
@@ -12,11 +11,11 @@ Router.onRouteChangeStart = () => {
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
-type Props = {
-  title?: string
+const propTypes = {
+  title: PropTypes.string
 };
 
-export default ({ title }: Props) => (
+const Header = ({ title }) => (
   <Head>
     <title>Plate - {title}</title>
     <meta charSet="utf-8" />
@@ -39,3 +38,7 @@ export default ({ title }: Props) => (
     <link rel="manifest" href="/static/manifest.json" />
   </Head>
 );
+
+Header.propTypes = propTypes;
+
+export default Header;

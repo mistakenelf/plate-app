@@ -1,22 +1,19 @@
-// @flow
+import React, { PropTypes } from "react";
 
 import { Component } from "react";
 import DefaultLayout from "../layouts/DefaultLayout/DefaultLayout";
-import React from "react";
 import { actions } from "../store/modules/drawer";
 import { bindActionCreators } from "redux";
 import { compose } from "react-apollo";
 import { connect } from "react-redux";
 
-type Props = {
-  children?: Element<any>,
-  open?: boolean,
-  openDrawer?: Function,
-  closeDrawer?: Function
-};
-
 class DefaultLayoutContainer extends Component {
-  props: Props;
+  static propTypes = {
+    children: PropTypes.node,
+    open: PropTypes.bool,
+    openDrawer: PropTypes.func,
+    closeDrawer: PropTypes.func
+  };
 
   render() {
     const { children, open, openDrawer, closeDrawer } = this.props;

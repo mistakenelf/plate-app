@@ -1,10 +1,10 @@
-import React from "react";
+import React, { PropTypes } from "react";
 
-type Props = {
-  children?: Element<any>
+const propTypes = {
+  children: PropTypes.node
 };
 
-export default ({ children }: Props) => (
+const NavlessLayout = ({ children }) => (
   <div>
     <style jsx global>
       {
@@ -23,3 +23,7 @@ export default ({ children }: Props) => (
     {children}
   </div>
 );
+
+NavlessLayout.propTypes = propTypes;
+
+export default NavlessLayout;

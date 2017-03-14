@@ -1,4 +1,4 @@
-// @flow
+import React, { PropTypes } from "react";
 
 import AppBar from "material-ui/AppBar";
 import Drawer from "material-ui/Drawer";
@@ -7,15 +7,14 @@ import IconMenu from "material-ui/IconMenu";
 import Link from "next/link";
 import MenuItem from "material-ui/MenuItem";
 import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
-import React from "react";
 
-type Props = {
-  open?: boolean,
-  openDrawer?: Function,
-  closeDrawer?: Function
+const propTypes = {
+  open: PropTypes.bool,
+  openDrawer: PropTypes.func,
+  closeDrawer: PropTypes.func
 };
 
-export default ({ open, openDrawer, closeDrawer }: Props) => {
+const Navigation = ({ open, openDrawer, closeDrawer }) => {
   const elementRight = (
     <IconMenu
       iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
@@ -73,3 +72,7 @@ export default ({ open, openDrawer, closeDrawer }: Props) => {
     </div>
   );
 };
+
+Navigation.propTypes = propTypes;
+
+export default Navigation;

@@ -1,15 +1,14 @@
-// @flow
+import React, { PropTypes } from "react";
 
 import Dialog from "material-ui/Dialog";
 import ErrorIcon from "material-ui/svg-icons/alert/error";
 import FlatButton from "material-ui/FlatButton";
 import IconButton from "material-ui/IconButton";
-import React from "react";
 import { red500 } from "material-ui/styles/colors";
 
-type Props = {
-  open?: boolean,
-  closeDialog?: Function
+const propTypes = {
+  open: PropTypes.bool,
+  closeDialog: PropTypes.func
 };
 
 const styles = {
@@ -25,7 +24,7 @@ const styles = {
   }
 };
 
-export default ({ open, closeDialog }: Props) => {
+const RemovePlatesDialog = ({ open, closeDialog }) => {
   const actions = [
     <FlatButton label="Cancel" primary onTouchTap={closeDialog} />,
     <FlatButton label="Remove All" primary onTouchTap={closeDialog} />
@@ -58,3 +57,7 @@ export default ({ open, closeDialog }: Props) => {
     </div>
   );
 };
+
+RemovePlatesDialog.propTypes = propTypes;
+
+export default RemovePlatesDialog;

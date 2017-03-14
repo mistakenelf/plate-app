@@ -1,19 +1,15 @@
-// @flow
-
+import React, { PropTypes } from "react";
 import { gql, graphql } from "react-apollo";
 
 import { Component } from "react";
 import DashboardMenu from "../components/DashboardMenu/DashboardMenu";
 import Plate from "../components/Plate/Plate";
-import React from "react";
-
-type Props = {
-  loading?: boolean,
-  plates?: Array
-};
 
 class DashboardContainer extends Component {
-  props: Props;
+  static propTypes = {
+    loading: PropTypes.bool,
+    plates: PropTypes.array
+  };
 
   state = {
     newPlateDialogOpen: false,
@@ -46,9 +42,13 @@ class DashboardContainer extends Component {
 
   render() {
     const { loading, plates } = this.props;
+
+    if (loading) {
+      return <p>Loading...</p>;
+    }
+
     return (
       <div className="container-fluid" style={{ paddingTop: 5 }}>
-        {loading && <p>Loading...</p>}
         <div className="row">
           <div
             className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"

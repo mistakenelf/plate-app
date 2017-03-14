@@ -3,9 +3,6 @@
     "development": {
       "presets": [
         "next/babel"
-      ],
-      "plugins": [
-        "transform-flow-strip-types"
       ]
     },
     "production": {
