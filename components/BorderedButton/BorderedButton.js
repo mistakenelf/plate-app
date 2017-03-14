@@ -2,12 +2,12 @@ import React, { PropTypes } from "react";
 
 import FlatButton from "material-ui/FlatButton";
 
-const propTypes = {
+const Props = {
   type: PropTypes.string,
   label: PropTypes.string
 };
 
-const BorderedButton = ({ type, label }) => (
+export default ({ type, label }: Props) => (
   <div className="bordered-button">
     <FlatButton
       type={type}
@@ -27,7 +27,3 @@ const BorderedButton = ({ type, label }) => (
     </style>
   </div>
 );
-
-BorderedButton.propTypes = propTypes;
-
-export default BorderedButton;

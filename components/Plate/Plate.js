@@ -3,12 +3,12 @@ import React, { PropTypes } from "react";
 
 import FlatButton from "material-ui/FlatButton";
 
-const propTypes = {
+const Props = {
   name: PropTypes.string,
   description: PropTypes.string
 };
 
-const Plate = ({ name, description }) => (
+export default ({ name, description }: Props) => (
   <Card>
     <CardHeader
       title={name}
@@ -25,7 +25,3 @@ const Plate = ({ name, description }) => (
     </CardText>
   </Card>
 );
-
-Plate.propTypes = propTypes;
-
-export default Plate;

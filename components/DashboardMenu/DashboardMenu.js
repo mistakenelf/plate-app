@@ -18,7 +18,7 @@ import NavigationExpandMoreIcon
 import RaisedButton from "material-ui/RaisedButton";
 import RemovePlatesDialog from "../RemovePlatesDialog/RemovePlatesDialog";
 
-const propTypes = {
+const Props = {
   newPlateDialogOpen: PropTypes.bool,
   openNewPlateDialog: PropTypes.func,
   closeNewPlateDialog: PropTypes.func,
@@ -27,7 +27,7 @@ const propTypes = {
   closeRemovePlatesDialog: PropTypes.func
 };
 
-const DashboardMenu = (
+export default (
   {
     newPlateDialogOpen,
     openNewPlateDialog,
@@ -35,7 +35,7 @@ const DashboardMenu = (
     removePlatesDialogOpen,
     openRemovePlatesDialog,
     closeRemovePlatesDialog
-  }
+  }: Props
 ) => (
   <div>
     <div className="toolbar-desktop">
@@ -122,7 +122,3 @@ const DashboardMenu = (
     </style>
   </div>
 );
-
-DashboardMenu.propTypes = propTypes;
-
-export default DashboardMenu;

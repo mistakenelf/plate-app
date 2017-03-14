@@ -6,7 +6,7 @@ import FlatButton from "material-ui/FlatButton";
 import IconButton from "material-ui/IconButton";
 import { red500 } from "material-ui/styles/colors";
 
-const propTypes = {
+const Props = {
   open: PropTypes.bool,
   closeDialog: PropTypes.func
 };
@@ -24,11 +24,12 @@ const styles = {
   }
 };
 
-const RemovePlatesDialog = ({ open, closeDialog }) => {
+export default ({ open, closeDialog }: Props) => {
   const actions = [
     <FlatButton label="Cancel" primary onTouchTap={closeDialog} />,
     <FlatButton label="Remove All" primary onTouchTap={closeDialog} />
   ];
+
   return (
     <div>
       <Dialog
@@ -57,7 +58,3 @@ const RemovePlatesDialog = ({ open, closeDialog }) => {
     </div>
   );
 };
-
-RemovePlatesDialog.propTypes = propTypes;
-
-export default RemovePlatesDialog;

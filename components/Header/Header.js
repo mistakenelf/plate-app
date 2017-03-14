@@ -11,11 +11,11 @@ Router.onRouteChangeStart = () => {
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
-const propTypes = {
+const Props = {
   title: PropTypes.string
 };
 
-const Header = ({ title }) => (
+export default ({ title }: Props) => (
   <Head>
     <title>Plate - {title}</title>
     <meta charSet="utf-8" />
@@ -38,7 +38,3 @@ const Header = ({ title }) => (
     <link rel="manifest" href="/static/manifest.json" />
   </Head>
 );
-
-Header.propTypes = propTypes;
-
-export default Header;

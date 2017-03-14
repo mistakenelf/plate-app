@@ -3,14 +3,14 @@ import React, { PropTypes } from "react";
 import Footer from "../../components/Footer/Footer";
 import Navigation from "../../components/Navigation/Navigation";
 
-const propTypes = {
+const Props = {
   children: PropTypes.node,
   open: PropTypes.bool,
   openDrawer: PropTypes.func,
   closeDrawer: PropTypes.func
 };
 
-const HomeLayout = ({ children, open, openDrawer, closeDrawer }) => (
+export default ({ children, open, openDrawer, closeDrawer }: Props) => (
   <div>
     <style jsx global>
       {
@@ -32,7 +32,3 @@ const HomeLayout = ({ children, open, openDrawer, closeDrawer }) => (
     <Footer />
   </div>
 );
-
-HomeLayout.propTypes = propTypes;
-
-export default HomeLayout;
