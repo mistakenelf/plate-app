@@ -5,7 +5,7 @@ import BorderedButton from "../../components/BorderedButton/BorderedButton";
 import Link from "next/link";
 import TextField from "material-ui/TextField";
 
-const Props = {
+const propTypes = {
   handleSubmit: PropTypes.func,
   label: PropTypes.string,
   meta: PropTypes.object,
@@ -32,8 +32,8 @@ const validate = values => {
   return errors;
 };
 
-const renderTextField = (
-  { input, label, meta: { touched, error }, ...custom }: Props
+const RenderTextField = (
+  { input, label, meta: { touched, error }, ...custom }
 ) => (
   <TextField
     hintStyle={{ color: "white" }}
@@ -47,7 +47,7 @@ const renderTextField = (
   />
 );
 
-const LoginForm = ({ handleSubmit }: Props) => (
+const LoginForm = ({ handleSubmit }) => (
   <div className="container-fluid">
     <div
       className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg"
@@ -58,14 +58,14 @@ const LoginForm = ({ handleSubmit }: Props) => (
           <Field
             name="email"
             id="email"
-            component={renderTextField}
+            component={RenderTextField}
             type="email"
             label="Email"
           />
           <Field
             name="password"
             id="password"
-            component={renderTextField}
+            component={RenderTextField}
             type="password"
             label="Password"
           />
@@ -106,6 +106,9 @@ const LoginForm = ({ handleSubmit }: Props) => (
     </style>
   </div>
 );
+
+RenderTextField.propTypes = propTypes;
+LoginForm.propTypes = propTypes;
 
 export default reduxForm({
   form: "loginForm",

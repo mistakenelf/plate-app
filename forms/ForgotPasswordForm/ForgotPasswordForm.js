@@ -4,7 +4,7 @@ import React, { PropTypes } from "react";
 import BorderedButton from "../../components/BorderedButton/BorderedButton";
 import TextField from "material-ui/TextField";
 
-const Props = {
+const propTypes = {
   handleSubmit: PropTypes.func,
   label: PropTypes.string,
   meta: PropTypes.object,
@@ -29,8 +29,8 @@ const validate = values => {
   return errors;
 };
 
-const renderTextField = (
-  { input, label, meta: { touched, error }, ...custom }: Props
+const RenderTextField = (
+  { input, label, meta: { touched, error }, ...custom }
 ) => (
   <TextField
     hintStyle={{ color: "white" }}
@@ -44,7 +44,7 @@ const renderTextField = (
   />
 );
 
-const ForgotPasswordForm = ({ handleSubmit }: Props) => (
+const ForgotPasswordForm = ({ handleSubmit }) => (
   <div className="container-fluid">
     <div
       className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg"
@@ -56,7 +56,7 @@ const ForgotPasswordForm = ({ handleSubmit }: Props) => (
             <Field
               name="email"
               id="email"
-              component={renderTextField}
+              component={RenderTextField}
               type="email"
               label="Email"
             />
@@ -83,6 +83,9 @@ const ForgotPasswordForm = ({ handleSubmit }: Props) => (
     </style>
   </div>
 );
+
+RenderTextField.propTypes = propTypes;
+ForgotPasswordForm.propTypes = propTypes;
 
 export default reduxForm({
   form: "forgotPasswordForm",

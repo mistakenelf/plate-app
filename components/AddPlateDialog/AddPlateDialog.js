@@ -4,12 +4,12 @@ import Dialog from "material-ui/Dialog";
 import FlatButton from "material-ui/FlatButton";
 import TextField from "material-ui/TextField";
 
-const Props = {
+const propTypes = {
   open: PropTypes.bool,
   closeDialog: PropTypes.func
 };
 
-export default ({ open, closeDialog }: Props) => {
+const AddPlateDialog = ({ open, closeDialog }) => {
   const actions = [
     <FlatButton label="Cancel" primary onTouchTap={closeDialog} />,
     <FlatButton label="Add Plate" primary />
@@ -35,3 +35,7 @@ export default ({ open, closeDialog }: Props) => {
     </Dialog>
   );
 };
+
+AddPlateDialog.propTypes = propTypes;
+
+export default AddPlateDialog;

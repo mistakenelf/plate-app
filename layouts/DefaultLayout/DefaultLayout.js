@@ -2,14 +2,14 @@ import React, { PropTypes } from "react";
 
 import Navigation from "../../components/Navigation/Navigation";
 
-const Props = {
+const propTypes = {
   children: PropTypes.node,
   open: PropTypes.bool,
   openDrawer: PropTypes.func,
   closeDrawer: PropTypes.func
 };
 
-export default ({ children, open, openDrawer, closeDrawer }: Props) => (
+const DefaultLayout = ({ children, open, openDrawer, closeDrawer }) => (
   <div>
     <style jsx global>
       {
@@ -30,3 +30,7 @@ export default ({ children, open, openDrawer, closeDrawer }: Props) => (
     {children}
   </div>
 );
+
+DefaultLayout.propTypes = propTypes;
+
+export default DefaultLayout;
