@@ -1,5 +1,4 @@
 import { combineReducers } from "redux";
-import dashboard from "./modules/dashboard";
 import drawer from "./modules/drawer";
 import { reducer as formReducer } from "redux-form";
 
@@ -8,7 +7,6 @@ import { reducer as formReducer } from "redux-form";
 export default function getReducer(client) {
   return combineReducers({
     drawer,
-    dashboard,
     form: formReducer,
     apollo: client.reducer()
   });

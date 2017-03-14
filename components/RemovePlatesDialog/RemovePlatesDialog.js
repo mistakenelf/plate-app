@@ -39,7 +39,7 @@ export default ({ open, closeDialog }: Props) => {
         onRequestClose={closeDialog}
         contentStyle={{ width: "95%" }}
       >
-        <div className="container">
+        <div className="center-container">
           <IconButton iconStyle={styles.largeIcon} style={styles.large}>
             <ErrorIcon />
           </IconButton>
@@ -49,7 +49,7 @@ export default ({ open, closeDialog }: Props) => {
       <style jsx>
         {
           `
-        .container {
+        .center-container {
           text-align: center;
         }
       `

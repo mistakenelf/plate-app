@@ -21,20 +21,20 @@ import React from "react";
 import RemovePlatesDialog from "../RemovePlatesDialog/RemovePlatesDialog";
 
 type Props = {
-  isNewPlateDialogOpen?: boolean,
+  newPlateDialogOpen?: boolean,
   openNewPlateDialog?: Function,
   closeNewPlateDialog?: Function,
-  isRemovePlatesDialogOpen?: boolean,
+  removePlatesDialogOpen?: boolean,
   openRemovePlatesDialog?: Function,
   closeRemovePlatesDialog?: Function
 };
 
 export default (
   {
-    isNewPlateDialogOpen,
+    newPlateDialogOpen,
     openNewPlateDialog,
     closeNewPlateDialog,
-    isRemovePlatesDialogOpen,
+    removePlatesDialogOpen,
     openRemovePlatesDialog,
     closeRemovePlatesDialog
   }: Props
@@ -93,12 +93,12 @@ export default (
       </Toolbar>
     </div>
     <AddPlateDialog
-      open={isNewPlateDialogOpen}
+      open={newPlateDialogOpen}
       openDialog={openNewPlateDialog}
       closeDialog={closeNewPlateDialog}
     />
     <RemovePlatesDialog
-      open={isRemovePlatesDialogOpen}
+      open={removePlatesDialogOpen}
       openDialog={openRemovePlatesDialog}
       closeDialog={closeRemovePlatesDialog}
     />
