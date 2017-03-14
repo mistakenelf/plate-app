@@ -3,7 +3,6 @@
   "extends": [
     "plugin:react/recommended",
     "prettier",
-    "prettier/flowtype",
     "prettier/react"
   ],
   "plugins": [
