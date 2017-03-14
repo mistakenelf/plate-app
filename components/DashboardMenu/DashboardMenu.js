@@ -8,6 +8,7 @@ import {
 
 import AddPlateDialog from "../AddPlateDialog/AddPlateDialog";
 import Block from "material-ui/svg-icons/content/block";
+import DashBoardSearch from "../DashboardSearch/DashboardSearch";
 import Divider from "material-ui/Divider";
 import DoneAll from "material-ui/svg-icons/action/done-all";
 import IconButton from "material-ui/IconButton";
@@ -42,6 +43,9 @@ const DashboardMenu = (
       <Toolbar>
         <ToolbarGroup>
           <ToolbarTitle text="Manage Plates" />
+        </ToolbarGroup>
+        <ToolbarGroup>
+          <DashBoardSearch />
         </ToolbarGroup>
         <ToolbarGroup>
           <IconButton
