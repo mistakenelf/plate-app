@@ -6,13 +6,24 @@ import TextField from "material-ui/TextField";
 
 const propTypes = {
   open: PropTypes.bool,
-  closeDialog: PropTypes.func
+  closeDialog: PropTypes.func,
+  addPlate: PropTypes.func
 };
 
-const AddPlateDialog = ({ open, closeDialog }) => {
+const confirmAddPlate = addPlate => {
+  const plateName = document.getElementById("plateName").value;
+  const plateDescription = document.getElementById("plateDescription").value;
+  addPlate(plateName, plateDescription);
+};
+
+const AddPlateDialog = ({ open, closeDialog, addPlate }) => {
   const actions = [
     <FlatButton label="Cancel" primary onTouchTap={closeDialog} />,
-    <FlatButton label="Add Plate" primary />
+    <FlatButton
+      label="Add Plate"
+      primary
+      onTouchTap={() => confirmAddPlate(addPlate)}
+    />
   ];
 
   return (
@@ -24,9 +35,10 @@ const AddPlateDialog = ({ open, closeDialog }) => {
       onRequestClose={closeDialog}
       contentStyle={{ width: "95%" }}
     >
-      <TextField hintText="Name" fullWidth /><br />
+      <TextField hintText="Name" fullWidth id="plateName" /><br />
       <TextField
         hintText="Description"
+        id="plateDescription"
         fullWidth
         rows={4}
         rowsMax={4}
