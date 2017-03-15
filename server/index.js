@@ -8,9 +8,9 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-const schema = require("./api");
-
 require("./connect");
+
+const schema = require("./graphql");
 
 app.prepare().then(() => {
   const server = express();

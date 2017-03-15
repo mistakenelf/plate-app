@@ -4,13 +4,12 @@ const {
   GraphQLID
 } = require("graphql");
 
-const PlateType = new GraphQLObjectType({
+module.exports = new GraphQLObjectType({
   name: "Plate",
-  description: "A new plate",
-  fields: () => ({
+  fields: {
     id: {
       type: GraphQLID,
-      resolve: ({ _id }) => {
+      resolve({ _id }) {
         return _id.toString();
       }
     },
@@ -20,7 +19,5 @@ const PlateType = new GraphQLObjectType({
     description: {
       type: GraphQLString
     }
-  })
+  }
 });
-
-module.exports = PlateType;

@@ -7,7 +7,7 @@ import Plate from "../components/Plate/Plate";
 class DashboardContainer extends Component {
   static propTypes = {
     loading: PropTypes.bool,
-    plates: PropTypes.array,
+    allPlates: PropTypes.array,
     addPlate: PropTypes.func,
     refetch: PropTypes.func,
     removePlate: PropTypes.func
@@ -43,7 +43,7 @@ class DashboardContainer extends Component {
   };
 
   render() {
-    const { loading, refetch, plates, addPlate, removePlate } = this.props;
+    const { loading, refetch, allPlates, addPlate, removePlate } = this.props;
 
     if (loading) {
       return <p>Loading...</p>;
@@ -69,7 +69,7 @@ class DashboardContainer extends Component {
           </div>
         </div>
         <div className="row">
-          {plates.map((plate, index) => {
+          {allPlates.map((plate, index) => {
             return (
               <div
                 key={index}
@@ -94,7 +94,7 @@ class DashboardContainer extends Component {
 
 const Query = gql`
   query {
-    plates {
+    allPlates {
       id
       name
       description
@@ -121,9 +121,9 @@ const removePlateMutation = gql`
 
 export default compose(
   graphql(Query, {
-    props: ({ data: { loading, refetch, plates } }) => ({
+    props: ({ data: { loading, refetch, allPlates } }) => ({
       loading,
-      plates,
+      allPlates,
       refetch
     })
   }),

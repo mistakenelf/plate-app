@@ -7,9 +7,9 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
-    "dev": "NODE_ENV=development node server/main.js",
+    "dev": "NODE_ENV=development node server/index.js",
     "build": "NODE_ENV=production next build",
-    "start": "NODE_ENV=production node server/main.js"
+    "start": "NODE_ENV=production node server/index.js"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
