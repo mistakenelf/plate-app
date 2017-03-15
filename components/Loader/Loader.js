@@ -9,6 +9,7 @@ export default () => (
         `
         .loader {
           display: flex;
+          height: 100vh;
           justify-content: center;
           align-items: center;
         }
