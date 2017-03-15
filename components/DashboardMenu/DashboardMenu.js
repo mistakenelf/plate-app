@@ -25,7 +25,8 @@ const propTypes = {
   closeNewPlateDialog: PropTypes.func,
   removePlatesDialogOpen: PropTypes.bool,
   openRemovePlatesDialog: PropTypes.func,
-  closeRemovePlatesDialog: PropTypes.func
+  closeRemovePlatesDialog: PropTypes.func,
+  addPlate: PropTypes.func
 };
 
 const DashboardMenu = (
@@ -35,7 +36,8 @@ const DashboardMenu = (
     closeNewPlateDialog,
     removePlatesDialogOpen,
     openRemovePlatesDialog,
-    closeRemovePlatesDialog
+    closeRemovePlatesDialog,
+    addPlate
   }
 ) => (
   <div>
@@ -98,6 +100,7 @@ const DashboardMenu = (
       open={newPlateDialogOpen}
       openDialog={openNewPlateDialog}
       closeDialog={closeNewPlateDialog}
+      addPlate={addPlate}
     />
     <RemovePlatesDialog
       open={removePlatesDialogOpen}
