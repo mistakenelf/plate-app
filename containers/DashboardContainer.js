@@ -108,7 +108,8 @@ export default compose(
     props: ({ data: { loading, plates } }) => ({
       loading,
       plates
-    })
+    }),
+    options: { pollInterval: 10000 }
   }),
   graphql(addPlateMutation, {
     props: ({ mutate }) => ({
