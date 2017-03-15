@@ -3,7 +3,8 @@ const {
   GraphQLSchema,
   GraphQLList,
   GraphQLNonNull,
-  GraphQLString
+  GraphQLString,
+  GraphQLID
 } = require("graphql");
 
 const PlateType = require("./plate/PlateType");
@@ -45,6 +46,17 @@ const mutation = new GraphQLObjectType({
             err ? reject(err) : resolve(res);
           });
         });
+      }
+    },
+    removePlate: {
+      type: PlateType,
+      args: {
+        id: {
+          type: new GraphQLNonNull(GraphQLID)
+        }
+      },
+      resolve: (root, { id }) => {
+        return PlateModel.findByIdAndRemove(id);
       }
     }
   })
