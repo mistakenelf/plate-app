@@ -10,10 +10,11 @@ const propTypes = {
   addPlate: PropTypes.func
 };
 
-const confirmAddPlate = addPlate => {
+const confirmAddPlate = (addPlate, closeDialog) => {
   const plateName = document.getElementById("plateName").value;
   const plateDescription = document.getElementById("plateDescription").value;
   addPlate(plateName, plateDescription);
+  closeDialog();
 };
 
 const AddPlateDialog = ({ open, closeDialog, addPlate }) => {
@@ -22,7 +23,7 @@ const AddPlateDialog = ({ open, closeDialog, addPlate }) => {
     <FlatButton
       label="Add Plate"
       primary
-      onTouchTap={() => confirmAddPlate(addPlate)}
+      onTouchTap={() => confirmAddPlate(addPlate, closeDialog)}
     />
   ];
 
