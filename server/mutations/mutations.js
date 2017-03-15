@@ -22,10 +22,13 @@ const Mutation = new GraphQLObjectType({
         }
       },
       resolve: (root, { name, description }) => {
-        var newPlate = new PlateModel({ name: name, description: description });
+        const NewPlate = new PlateModel({
+          name,
+          description
+        });
 
         return new Promise((resolve, reject) => {
-          newPlate.save((err, res) => {
+          NewPlate.save((err, res) => {
             err ? reject(err) : resolve(res);
           });
         });
