@@ -1,7 +1,6 @@
-import React, { PropTypes } from "react";
+import React, { Component, PropTypes } from "react";
 import { compose, gql, graphql } from "react-apollo";
 
-import { Component } from "react";
 import DashboardMenu from "../components/DashboardMenu/DashboardMenu";
 import Plate from "../components/Plate/Plate";
 
@@ -10,7 +9,8 @@ class DashboardContainer extends Component {
     loading: PropTypes.bool,
     plates: PropTypes.array,
     addPlate: PropTypes.func,
-    refetch: PropTypes.func
+    refetch: PropTypes.func,
+    removePlate: PropTypes.func
   };
 
   state = {
@@ -43,7 +43,7 @@ class DashboardContainer extends Component {
   };
 
   render() {
-    const { loading, refetch, plates, addPlate } = this.props;
+    const { loading, refetch, plates, addPlate, removePlate } = this.props;
 
     if (loading) {
       return <p>Loading...</p>;
@@ -76,7 +76,13 @@ class DashboardContainer extends Component {
                 className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
                 style={{ marginBottom: 10 }}
               >
-                <Plate name={plate.name} description={plate.description} />
+                <Plate
+                  plateId={plate.id}
+                  name={plate.name}
+                  description={plate.description}
+                  removePlate={removePlate}
+                  refetch={refetch}
+                />
               </div>
             );
           })}
@@ -105,6 +111,14 @@ const addPlateMutation = gql`
   }
 `;
 
+const removePlateMutation = gql`
+  mutation removePlate($id: ID!) {
+    removePlate(id: $id) {
+      id
+    }
+  }
+`;
+
 export default compose(
   graphql(Query, {
     props: ({ data: { loading, refetch, plates } }) => ({
@@ -117,6 +131,11 @@ export default compose(
     props: ({ mutate }) => ({
       addPlate: (name, description) =>
         mutate({ variables: { name, description } })
+    })
+  }),
+  graphql(removePlateMutation, {
+    props: ({ mutate }) => ({
+      removePlate: id => mutate({ variables: { id } })
     })
   })
 )(DashboardContainer);

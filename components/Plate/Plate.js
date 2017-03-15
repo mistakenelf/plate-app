@@ -5,10 +5,18 @@ import FlatButton from "material-ui/FlatButton";
 
 const propTypes = {
   name: PropTypes.string,
-  description: PropTypes.string
+  description: PropTypes.string,
+  plateId: PropTypes.string,
+  removePlate: PropTypes.func,
+  refetch: PropTypes.func
 };
 
-const Plate = ({ name, description }) => (
+const deletePlate = (plateId, removePlate, refetch) => {
+  removePlate(plateId);
+  refetch();
+};
+
+const Plate = ({ plateId, name, description, removePlate, refetch }) => (
   <Card>
     <CardHeader
       title={name}
@@ -17,7 +25,10 @@ const Plate = ({ name, description }) => (
       showExpandableButton
     />
     <CardActions>
-      <FlatButton label="Wash Plate" />
+      <FlatButton
+        label="Wash Plate"
+        onTouchTap={() => deletePlate(plateId, removePlate, refetch)}
+      />
       <FlatButton label="Fill Plate" />
     </CardActions>
     <CardText expandable>
