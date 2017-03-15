@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from "react";
 import { compose, gql, graphql } from "react-apollo";
 
 import DashboardMenu from "../components/DashboardMenu/DashboardMenu";
+import Loader from "../components/Loader/Loader";
 import Plate from "../components/Plate/Plate";
 
 class DashboardContainer extends Component {
@@ -46,9 +47,8 @@ class DashboardContainer extends Component {
     const { loading, refetch, allPlates, addPlate, removePlate } = this.props;
 
     if (loading) {
-      return <p>Loading...</p>;
+      return <Loader />;
     }
-
     return (
       <div className="container-fluid" style={{ paddingTop: 5 }}>
         <div className="row">
