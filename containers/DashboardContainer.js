@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react";
-import { gql, graphql } from "react-apollo";
+import { compose, gql, graphql } from "react-apollo";
 
 import { Component } from "react";
 import DashboardMenu from "../components/DashboardMenu/DashboardMenu";
@@ -8,7 +8,8 @@ import Plate from "../components/Plate/Plate";
 class DashboardContainer extends Component {
   static propTypes = {
     loading: PropTypes.bool,
-    plates: PropTypes.array
+    plates: PropTypes.array,
+    addPlate: PropTypes.func
   };
 
   state = {
@@ -41,7 +42,7 @@ class DashboardContainer extends Component {
   };
 
   render() {
-    const { loading, plates } = this.props;
+    const { loading, plates, addPlate } = this.props;
 
     if (loading) {
       return <p>Loading...</p>;
@@ -61,6 +62,7 @@ class DashboardContainer extends Component {
               removePlatesDialogOpen={this.state.removePlatesDialogOpen}
               openRemovePlatesDialog={this.openRemovePlatesDialog}
               closeRemovePlatesDialog={this.closeRemovePlatesDialog}
+              addPlate={addPlate}
             />
           </div>
         </div>
@@ -92,9 +94,26 @@ const Query = gql`
   }
 `;
 
-export default graphql(Query, {
-  props: ({ data: { loading, plates } }) => ({
-    loading,
-    plates
+const addPlateMutation = gql`
+  mutation addPlate($name: String!, $description: String!) {
+    addPlate(name: $name, description: $description) {
+      name
+      description
+    }
+  }
+`;
+
+export default compose(
+  graphql(Query, {
+    props: ({ data: { loading, plates } }) => ({
+      loading,
+      plates
+    })
+  }),
+  graphql(addPlateMutation, {
+    props: ({ mutate }) => ({
+      addPlate: (name, description) =>
+        mutate({ variables: { name, description } })
+    })
   })
-})(DashboardContainer);
+)(DashboardContainer);
