@@ -7,23 +7,25 @@ import TextField from "material-ui/TextField";
 const propTypes = {
   open: PropTypes.bool,
   closeDialog: PropTypes.func,
-  addPlate: PropTypes.func
+  addPlate: PropTypes.func,
+  refetch: PropTypes.func
 };
 
-const confirmAddPlate = (addPlate, closeDialog) => {
+const confirmAddPlate = (addPlate, closeDialog, refetch) => {
   const plateName = document.getElementById("plateName").value;
   const plateDescription = document.getElementById("plateDescription").value;
   addPlate(plateName, plateDescription);
   closeDialog();
+  refetch();
 };
 
-const AddPlateDialog = ({ open, closeDialog, addPlate }) => {
+const AddPlateDialog = ({ open, closeDialog, addPlate, refetch }) => {
   const actions = [
     <FlatButton label="Cancel" primary onTouchTap={closeDialog} />,
     <FlatButton
       label="Add Plate"
       primary
-      onTouchTap={() => confirmAddPlate(addPlate, closeDialog)}
+      onTouchTap={() => confirmAddPlate(addPlate, closeDialog, refetch)}
     />
   ];
 

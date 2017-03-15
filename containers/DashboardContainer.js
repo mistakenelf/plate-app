@@ -9,7 +9,8 @@ class DashboardContainer extends Component {
   static propTypes = {
     loading: PropTypes.bool,
     plates: PropTypes.array,
-    addPlate: PropTypes.func
+    addPlate: PropTypes.func,
+    refetch: PropTypes.func
   };
 
   state = {
@@ -42,7 +43,7 @@ class DashboardContainer extends Component {
   };
 
   render() {
-    const { loading, plates, addPlate } = this.props;
+    const { loading, refetch, plates, addPlate } = this.props;
 
     if (loading) {
       return <p>Loading...</p>;
@@ -63,6 +64,7 @@ class DashboardContainer extends Component {
               openRemovePlatesDialog={this.openRemovePlatesDialog}
               closeRemovePlatesDialog={this.closeRemovePlatesDialog}
               addPlate={addPlate}
+              refetch={refetch}
             />
           </div>
         </div>
@@ -105,11 +107,11 @@ const addPlateMutation = gql`
 
 export default compose(
   graphql(Query, {
-    props: ({ data: { loading, plates } }) => ({
+    props: ({ data: { loading, refetch, plates } }) => ({
       loading,
-      plates
-    }),
-    options: { pollInterval: 10000 }
+      plates,
+      refetch
+    })
   }),
   graphql(addPlateMutation, {
     props: ({ mutate }) => ({

@@ -1,15 +1,28 @@
 const {
   GraphQLObjectType,
-  GraphQLString,
-  GraphQLNonNull
+  GraphQLSchema,
+  GraphQLList,
+  GraphQLNonNull,
+  GraphQLString
 } = require("graphql");
 
-const PlateType = require("../schemas/Plate");
-const PlateModel = require("../models/Plate");
+const PlateType = require("./plate/PlateType");
+const PlateModel = require("./plate/PlateModel");
 
-const Mutation = new GraphQLObjectType({
+const query = new GraphQLObjectType({
+  name: "Query",
+  description: "Root Query",
+  fields: () => ({
+    plates: {
+      type: new GraphQLList(PlateType),
+      resolve: () => PlateModel.find()
+    }
+  })
+});
+
+const mutation = new GraphQLObjectType({
   name: "Mutation",
-  description: "Function to insert data",
+  description: "Root Mutation",
   fields: () => ({
     addPlate: {
       type: PlateType,
@@ -37,4 +50,7 @@ const Mutation = new GraphQLObjectType({
   })
 });
 
-module.exports = Mutation;
+module.exports = new GraphQLSchema({
+  query,
+  mutation
+});
