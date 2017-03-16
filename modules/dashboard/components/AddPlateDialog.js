@@ -1,3 +1,4 @@
+import { Field, reduxForm } from "redux-form";
 import React, { PropTypes } from "react";
 
 import Dialog from "material-ui/Dialog";
@@ -8,25 +9,56 @@ const propTypes = {
   open: PropTypes.bool,
   closeDialog: PropTypes.func,
   addPlate: PropTypes.func,
-  refetch: PropTypes.func
+  refetch: PropTypes.func,
+  handleSubmit: PropTypes.func,
+  label: PropTypes.string,
+  meta: PropTypes.object,
+  input: PropTypes.object
 };
 
+const validate = values => {
+  const errors = {};
+  if (!values.name) {
+    errors.name = "Please enter a plate name";
+  }
+  if (!values.description) {
+    errors.description = "Please enter a plate description";
+  }
+  return errors;
+};
+
+const RenderTextField = (
+  { input, label, meta: { touched, error }, ...custom }
+) => (
+  <TextField
+    hintText={label}
+    autoComplete={"off"}
+    errorText={touched && error}
+    fullWidth
+    {...input}
+    {...custom}
+  />
+);
+
 const confirmAddPlate = (addPlate, closeDialog, refetch) => {
-  const plateName = document.getElementById("plateName").value;
-  const plateDescription = document.getElementById("plateDescription").value;
+  const plateName = document.getElementById("name").value;
+  const plateDescription = document.getElementById("description").value;
   addPlate(plateName, plateDescription);
   closeDialog();
   refetch();
 };
 
-const AddPlateDialog = ({ open, closeDialog, addPlate, refetch }) => {
+const AddPlateDialog = (
+  { open, closeDialog, addPlate, refetch, handleSubmit }
+) => {
   const actions = [
-    <FlatButton label="Cancel" primary onTouchTap={closeDialog} />,
     <FlatButton
-      label="Add Plate"
-      primary
-      onTouchTap={() => confirmAddPlate(addPlate, closeDialog, refetch)}
-    />
+      label="Cancel"
+      type="button"
+      secondary
+      onTouchTap={closeDialog}
+    />,
+    <FlatButton label="Add Plate" form="plateForm" primary type="submit" />
   ];
 
   return (
@@ -38,19 +70,37 @@ const AddPlateDialog = ({ open, closeDialog, addPlate, refetch }) => {
       onRequestClose={closeDialog}
       contentStyle={{ width: "95%" }}
     >
-      <TextField hintText="Name" fullWidth id="plateName" /><br />
-      <TextField
-        hintText="Description"
-        id="plateDescription"
-        fullWidth
-        rows={4}
-        rowsMax={4}
-        multiLine
-      />
+      <form
+        id="plateForm"
+        onSubmit={handleSubmit(() =>
+          confirmAddPlate(addPlate, closeDialog, refetch))}
+      >
+        <Field
+          name="name"
+          id="name"
+          component={RenderTextField}
+          type="text"
+          label="Name"
+        />
+        <Field
+          name="description"
+          id="description"
+          component={RenderTextField}
+          type="text"
+          label="Description"
+          rows={4}
+          rowsMax={4}
+          multiLine
+        />
+      </form>
     </Dialog>
   );
 };
 
+RenderTextField.propTypes = propTypes;
 AddPlateDialog.propTypes = propTypes;
 
-export default AddPlateDialog;
+export default reduxForm({
+  form: "addPlateForm",
+  validate
+})(AddPlateDialog);
