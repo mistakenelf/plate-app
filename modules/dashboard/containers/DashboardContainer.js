@@ -18,7 +18,8 @@ class DashboardContainer extends Component {
     searchText: PropTypes.string,
     doSearch: PropTypes.func,
     platesArray: PropTypes.array,
-    populatePlates: PropTypes.func
+    populatePlates: PropTypes.func,
+    filterSearch: PropTypes.func
   };
 
   componentDidMount() {
@@ -34,12 +35,14 @@ class DashboardContainer extends Component {
       removePlate,
       searchText,
       doSearch,
+      filterSearch,
       platesArray
     } = this.props;
 
     if (loading) {
       return <Loader />;
     }
+
     return (
       <div className="container-fluid" style={{ paddingTop: 5 }}>
         <div className="row">
@@ -52,51 +55,29 @@ class DashboardContainer extends Component {
               refetch={refetch}
               searchText={searchText}
               doSearch={doSearch}
+              filterSearch={filterSearch}
             />
           </div>
         </div>
         <div className="row">
-          {searchText === ""
-            ? allPlates.map((plate, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
-                    style={{ marginBottom: 10 }}
-                  >
-                    <Plate
-                      plateId={plate.id}
-                      name={plate.name}
-                      description={plate.description}
-                      removePlate={removePlate}
-                      refetch={refetch}
-                    />
-                  </div>
-                );
-              })
-            : allPlates
-                .filter(plate => searchText !== "")
-                .map((plate, index) => {
-                  if (searchText === plate.name) {
-                    return (
-                      <div
-                        key={index}
-                        className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
-                        style={{ marginBottom: 10 }}
-                      >
-                        <Plate
-                          plateId={plate.id}
-                          name={plate.name}
-                          description={plate.description}
-                          removePlate={removePlate}
-                          refetch={refetch}
-                        />
-                      </div>
-                    );
-                  } else {
-                    return <h3>No Results Found...</h3>;
-                  }
-                })}
+          {searchText === "" &&
+            allPlates.map((plate, index) => {
+              return (
+                <div
+                  key={index}
+                  className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
+                  style={{ marginBottom: 10 }}
+                >
+                  <Plate
+                    plateId={plate.id}
+                    name={plate.name}
+                    description={plate.description}
+                    removePlate={removePlate}
+                    refetch={refetch}
+                  />
+                </div>
+              );
+            })}
         </div>
       </div>
     );
@@ -114,7 +95,8 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
       doSearch: actions.doSearch,
-      populatePlates: actions.populatePlates
+      populatePlates: actions.populatePlates,
+      filterSearch: actions.filterSearch
     },
     dispatch
   );

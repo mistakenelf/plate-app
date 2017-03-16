@@ -24,7 +24,8 @@ class DashboardMenu extends Component {
     addPlate: PropTypes.func,
     refetch: PropTypes.func,
     searchText: PropTypes.string,
-    doSearch: PropTypes.func
+    doSearch: PropTypes.func,
+    filterSearch: PropTypes.func
   };
 
   state = {
@@ -57,7 +58,13 @@ class DashboardMenu extends Component {
   };
 
   render() {
-    const { addPlate, refetch, searchText, doSearch } = this.props;
+    const {
+      addPlate,
+      refetch,
+      searchText,
+      doSearch,
+      filterSearch
+    } = this.props;
 
     return (
       <div>
@@ -67,7 +74,11 @@ class DashboardMenu extends Component {
               <ToolbarTitle text="Manage Plates" />
             </ToolbarGroup>
             <ToolbarGroup>
-              <DashBoardSearch searchText={searchText} doSearch={doSearch} />
+              <DashBoardSearch
+                searchText={searchText}
+                doSearch={doSearch}
+                filterSearch={filterSearch}
+              />
             </ToolbarGroup>
             <ToolbarGroup>
               <IconButton

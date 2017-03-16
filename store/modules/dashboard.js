@@ -1,7 +1,8 @@
 // Constants
 export const constants = {
   SEARCH_TEXT: "Dashboard/SEARCH_TEXT",
-  POPULATE_PLATES: "Dashboard/POPULATE_PLATES"
+  POPULATE_PLATES: "Dashboard/POPULATE_PLATES",
+  FILTER_SEARCH: "Dashboard/FILTER_SEARCH"
 };
 
 // Actions
@@ -16,6 +17,12 @@ export const actions = {
     return {
       type: constants.POPULATE_PLATES,
       plates: plates
+    };
+  },
+  filterSearch(searchText) {
+    return {
+      type: constants.FILTER_SEARCH,
+      searchText: searchText
     };
   }
 };
@@ -38,6 +45,13 @@ export default (state = initialState, action) => {
       return {
         ...state,
         platesArray: action.plates
+      };
+    case constants.FILTER_SEARCH:
+      return {
+        ...state,
+        platesArray: [
+          ...state.platesArray.filter(plate => plate.name === action.searchText)
+        ]
       };
     default:
       return state;
