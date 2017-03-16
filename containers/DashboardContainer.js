@@ -14,35 +14,6 @@ class DashboardContainer extends Component {
     removePlate: PropTypes.func
   };
 
-  state = {
-    newPlateDialogOpen: false,
-    removePlatesDialogOpen: false
-  };
-
-  openNewPlateDialog = () => {
-    this.setState({
-      newPlateDialogOpen: true
-    });
-  };
-
-  closeNewPlateDialog = () => {
-    this.setState({
-      newPlateDialogOpen: false
-    });
-  };
-
-  openRemovePlatesDialog = () => {
-    this.setState({
-      removePlatesDialogOpen: true
-    });
-  };
-
-  closeRemovePlatesDialog = () => {
-    this.setState({
-      removePlatesDialogOpen: false
-    });
-  };
-
   render() {
     const { loading, refetch, allPlates, addPlate, removePlate } = this.props;
 
@@ -56,16 +27,7 @@ class DashboardContainer extends Component {
             className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
             style={{ marginBottom: 10 }}
           >
-            <DashboardMenu
-              newPlateDialogOpen={this.state.newPlateDialogOpen}
-              openNewPlateDialog={this.openNewPlateDialog}
-              closeNewPlateDialog={this.closeNewPlateDialog}
-              removePlatesDialogOpen={this.state.removePlatesDialogOpen}
-              openRemovePlatesDialog={this.openRemovePlatesDialog}
-              closeRemovePlatesDialog={this.closeRemovePlatesDialog}
-              addPlate={addPlate}
-              refetch={refetch}
-            />
+            <DashboardMenu addPlate={addPlate} refetch={refetch} />
           </div>
         </div>
         <DashboardView

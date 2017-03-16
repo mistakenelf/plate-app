@@ -1,4 +1,4 @@
-import React, { PropTypes } from "react";
+import React, { Component, PropTypes } from "react";
 import {
   Toolbar,
   ToolbarGroup,
@@ -19,120 +19,136 @@ import NavigationExpandMoreIcon
 import RaisedButton from "material-ui/RaisedButton";
 import RemovePlatesDialog from "../RemovePlatesDialog/RemovePlatesDialog";
 
-const propTypes = {
-  newPlateDialogOpen: PropTypes.bool,
-  openNewPlateDialog: PropTypes.func,
-  closeNewPlateDialog: PropTypes.func,
-  removePlatesDialogOpen: PropTypes.bool,
-  openRemovePlatesDialog: PropTypes.func,
-  closeRemovePlatesDialog: PropTypes.func,
-  addPlate: PropTypes.func,
-  refetch: PropTypes.func
-};
+class DashboardMenu extends Component {
+  static propTypes = {
+    addPlate: PropTypes.func,
+    refetch: PropTypes.func
+  };
 
-const DashboardMenu = (
-  {
-    newPlateDialogOpen,
-    openNewPlateDialog,
-    closeNewPlateDialog,
-    removePlatesDialogOpen,
-    openRemovePlatesDialog,
-    closeRemovePlatesDialog,
-    addPlate,
-    refetch
-  }
-) => (
-  <div>
-    <div className="toolbar-desktop">
-      <Toolbar>
-        <ToolbarGroup>
-          <ToolbarTitle text="Manage Plates" />
-        </ToolbarGroup>
-        <ToolbarGroup>
-          <DashBoardSearch />
-        </ToolbarGroup>
-        <ToolbarGroup>
-          <IconButton
-            tooltip="Remove all plates"
-            onTouchTap={openRemovePlatesDialog}
-          >
-            <Block />
-          </IconButton>
-          <IconButton tooltip="Mark all plates as done">
-            <DoneAll />
-          </IconButton>
-          <ToolbarSeparator />
-          <RaisedButton
-            primary
-            label="Create Plate"
-            onTouchTap={openNewPlateDialog}
-          />
-        </ToolbarGroup>
-      </Toolbar>
-    </div>
-    <div className="toolbar-mobile">
-      <Toolbar>
-        <ToolbarGroup>
-          <ToolbarTitle text="Manage Plates" />
-        </ToolbarGroup>
-        <ToolbarGroup>
-          <IconMenu
-            iconButtonElement={
-              <IconButton touch>
-                <NavigationExpandMoreIcon />
+  state = {
+    newPlateDialogOpen: false,
+    removePlatesDialogOpen: false
+  };
+
+  openNewPlateDialog = () => {
+    this.setState({
+      newPlateDialogOpen: true
+    });
+  };
+
+  closeNewPlateDialog = () => {
+    this.setState({
+      newPlateDialogOpen: false
+    });
+  };
+
+  openRemovePlatesDialog = () => {
+    this.setState({
+      removePlatesDialogOpen: true
+    });
+  };
+
+  closeRemovePlatesDialog = () => {
+    this.setState({
+      removePlatesDialogOpen: false
+    });
+  };
+
+  render() {
+    const { addPlate, refetch } = this.props;
+
+    return (
+      <div>
+        <div className="toolbar-desktop">
+          <Toolbar>
+            <ToolbarGroup>
+              <ToolbarTitle text="Manage Plates" />
+            </ToolbarGroup>
+            <ToolbarGroup>
+              <DashBoardSearch />
+            </ToolbarGroup>
+            <ToolbarGroup>
+              <IconButton
+                tooltip="Remove all plates"
+                onTouchTap={this.openRemovePlatesDialog}
+              >
+                <Block />
               </IconButton>
+              <IconButton tooltip="Mark all plates as done">
+                <DoneAll />
+              </IconButton>
+              <ToolbarSeparator />
+              <RaisedButton
+                primary
+                label="Create Plate"
+                onTouchTap={this.openNewPlateDialog}
+              />
+            </ToolbarGroup>
+          </Toolbar>
+        </div>
+        <div className="toolbar-mobile">
+          <Toolbar>
+            <ToolbarGroup>
+              <ToolbarTitle text="Manage Plates" />
+            </ToolbarGroup>
+            <ToolbarGroup>
+              <IconMenu
+                iconButtonElement={
+                  <IconButton touch>
+                    <NavigationExpandMoreIcon />
+                  </IconButton>
+                }
+              >
+                <MenuItem
+                  primaryText="Create Plate"
+                  onTouchTap={this.openNewPlateDialog}
+                />
+                <Divider />
+                <MenuItem primaryText="Mark All Complete" />
+                <Divider />
+                <MenuItem
+                  primaryText="Remove All"
+                  onTouchTap={this.openRemovePlatesDialog}
+                />
+              </IconMenu>
+            </ToolbarGroup>
+          </Toolbar>
+        </div>
+        <AddPlateDialog
+          open={this.state.newPlateDialogOpen}
+          openDialog={this.openNewPlateDialog}
+          closeDialog={this.closeNewPlateDialog}
+          addPlate={addPlate}
+          refetch={refetch}
+        />
+        <RemovePlatesDialog
+          open={this.state.removePlatesDialogOpen}
+          openDialog={this.openRemovePlatesDialog}
+          closeDialog={this.closeRemovePlatesDialog}
+        />
+        <style jsx>
+          {
+            `
+          @media only screen
+            and (min-device-width : 320px)
+            and (max-device-width : 600px) {
+              .toolbar-desktop {
+                display: none;
+              }
             }
-          >
-            <MenuItem
-              primaryText="Create Plate"
-              onTouchTap={openNewPlateDialog}
-            />
-            <Divider />
-            <MenuItem primaryText="Mark All Complete" />
-            <Divider />
-            <MenuItem
-              primaryText="Remove All"
-              onTouchTap={openRemovePlatesDialog}
-            />
-          </IconMenu>
-        </ToolbarGroup>
-      </Toolbar>
-    </div>
-    <AddPlateDialog
-      open={newPlateDialogOpen}
-      openDialog={openNewPlateDialog}
-      closeDialog={closeNewPlateDialog}
-      addPlate={addPlate}
-      refetch={refetch}
-    />
-    <RemovePlatesDialog
-      open={removePlatesDialogOpen}
-      openDialog={openRemovePlatesDialog}
-      closeDialog={closeRemovePlatesDialog}
-    />
-    <style jsx>
-      {
+          @media only screen
+            and (min-device-width : 601px)
+            and (max-device-width : 2600px) {
+              .toolbar-mobile {
+                display: none;
+              }
+            }
         `
-      @media only screen
-        and (min-device-width : 320px)
-        and (max-device-width : 600px) {
-          .toolbar-desktop {
-            display: none;
           }
-        }
-      @media only screen
-        and (min-device-width : 601px)
-        and (max-device-width : 2600px) {
-          .toolbar-mobile {
-            display: none;
-          }
-        }
-    `
-      }
-    </style>
-  </div>
-);
-
-DashboardMenu.propTypes = propTypes;
+        </style>
+      </div>
+    );
+  }
+}
 
 export default DashboardMenu;
