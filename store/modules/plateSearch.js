@@ -15,7 +15,7 @@ export const actions = {
 
 // Initial State
 export const initialState = {
-  searchText: null
+  searchText: ""
 };
 
 // Reducer
