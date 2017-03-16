@@ -16,8 +16,14 @@ class DashboardContainer extends Component {
     refetch: PropTypes.func,
     removePlate: PropTypes.func,
     searchText: PropTypes.string,
-    doSearch: PropTypes.func
+    doSearch: PropTypes.func,
+    platesArray: PropTypes.array,
+    populatePlates: PropTypes.func
   };
+
+  componentDidMount() {
+    this.props.populatePlates(this.props.allPlates);
+  }
 
   render() {
     const {
@@ -27,13 +33,13 @@ class DashboardContainer extends Component {
       addPlate,
       removePlate,
       searchText,
-      doSearch
+      doSearch,
+      platesArray
     } = this.props;
 
     if (loading) {
       return <Loader />;
     }
-
     return (
       <div className="container-fluid" style={{ paddingTop: 5 }}>
         <div className="row">
@@ -97,16 +103,18 @@ class DashboardContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ dashboard: { searchText } }) => {
+const mapStateToProps = ({ dashboard: { searchText, platesArray } }) => {
   return {
-    searchText
+    searchText,
+    platesArray
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      doSearch: actions.doSearch
+      doSearch: actions.doSearch,
+      populatePlates: actions.populatePlates
     },
     dispatch
   );
