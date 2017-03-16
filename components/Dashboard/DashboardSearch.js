@@ -10,7 +10,6 @@ const propTypes = {
 
 const searchPlate = (searchText, doSearch) => {
   doSearch(document.getElementById("searchPlateText").value);
-  console.log(searchText);
 };
 
 const DashboardSearch = ({ searchText, doSearch }) => (
