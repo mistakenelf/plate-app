@@ -32,6 +32,7 @@ class DashboardContainer extends Component {
     if (loading) {
       return <Loader />;
     }
+
     return (
       <div className="container-fluid" style={{ paddingTop: 5 }}>
         <DashboardView
