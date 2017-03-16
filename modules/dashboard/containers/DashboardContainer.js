@@ -69,23 +69,28 @@ class DashboardContainer extends Component {
                 );
               })
             : allPlates
-                .filter(plate => searchText === plate.name)
+                .filter(plate => searchText !== "")
                 .map((plate, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
-                      style={{ marginBottom: 10 }}
-                    >
-                      <Plate
-                        plateId={plate.id}
-                        name={plate.name}
-                        description={plate.description}
-                        removePlate={removePlate}
-                        refetch={refetch}
-                      />
-                    </div>
-                  );
+                  console.log("hello");
+                  if (searchText === plate.name) {
+                    return (
+                      <div
+                        key={index}
+                        className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
+                        style={{ marginBottom: 10 }}
+                      >
+                        <Plate
+                          plateId={plate.id}
+                          name={plate.name}
+                          description={plate.description}
+                          removePlate={removePlate}
+                          refetch={refetch}
+                        />
+                      </div>
+                    );
+                  } else {
+                    return <h3>No Results Found...</h3>;
+                  }
                 })}
         </div>
       </div>
