@@ -30,24 +30,43 @@ const DashboardView = (
       </div>
     </div>
     <div className="row">
-      {searchText === null &&
-        allPlates.map((plate, index) => {
-          return (
-            <div
-              key={index}
-              className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
-              style={{ marginBottom: 10 }}
-            >
-              <Plate
-                plateId={plate.id}
-                name={plate.name}
-                description={plate.description}
-                removePlate={removePlate}
-                refetch={refetch}
-              />
-            </div>
-          );
-        })}
+      {searchText === ""
+        ? allPlates.map((plate, index) => {
+            return (
+              <div
+                key={index}
+                className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
+                style={{ marginBottom: 10 }}
+              >
+                <Plate
+                  plateId={plate.id}
+                  name={plate.name}
+                  description={plate.description}
+                  removePlate={removePlate}
+                  refetch={refetch}
+                />
+              </div>
+            );
+          })
+        : allPlates
+            .filter(plate => searchText === plate.name)
+            .map((plate, index) => {
+              return (
+                <div
+                  key={index}
+                  className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
+                  style={{ marginBottom: 10 }}
+                >
+                  <Plate
+                    plateId={plate.id}
+                    name={plate.name}
+                    description={plate.description}
+                    removePlate={removePlate}
+                    refetch={refetch}
+                  />
+                </div>
+              );
+            })}
     </div>
   </div>
 );
