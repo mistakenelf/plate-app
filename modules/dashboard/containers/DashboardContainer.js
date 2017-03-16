@@ -4,7 +4,7 @@ import { compose, gql, graphql } from "react-apollo";
 import DashboardMenu from "../components/DashboardMenu";
 import Loader from "../../../components/Loader/Loader";
 import Plate from "../components/Plate";
-import { actions } from "../../../store/modules/plateSearch";
+import { actions } from "../../../store/modules/dashboard";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
@@ -71,7 +71,6 @@ class DashboardContainer extends Component {
             : allPlates
                 .filter(plate => searchText !== "")
                 .map((plate, index) => {
-                  console.log("hello");
                   if (searchText === plate.name) {
                     return (
                       <div
@@ -98,7 +97,7 @@ class DashboardContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ plateSearch: { searchText } }) => {
+const mapStateToProps = ({ dashboard: { searchText } }) => {
   return {
     searchText
   };

@@ -1,14 +1,14 @@
 import { combineReducers } from "redux";
+import dashboard from "./modules/dashboard";
 import drawer from "./modules/drawer";
 import { reducer as formReducer } from "redux-form";
-import plateSearch from "./modules/plateSearch";
 
 // Root reducer for our redux store and
 // apollo's store
 export default function getReducer(client) {
   return combineReducers({
     drawer,
-    plateSearch,
+    dashboard,
     form: formReducer,
     apollo: client.reducer()
   });
