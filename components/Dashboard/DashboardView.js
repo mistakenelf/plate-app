@@ -8,7 +8,7 @@ const propTypes = {
   refetch: PropTypes.func
 };
 
-const PlateView = ({ allPlates, removePlate, refetch }) => (
+const DashboardView = ({ allPlates, removePlate, refetch }) => (
   <div className="row">
     {allPlates.map((plate, index) => {
       return (
@@ -30,6 +30,6 @@ const PlateView = ({ allPlates, removePlate, refetch }) => (
   </div>
 );
 
-PlateView.propTypes = propTypes;
+DashboardView.propTypes = propTypes;
 
-export default PlateView;
+export default DashboardView;
