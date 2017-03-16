@@ -70,7 +70,6 @@ class DashboardContainer extends Component {
         </div>
         <PlateView
           allPlates={allPlates}
-          loading={loading}
           removePlate={removePlate}
           refetch={refetch}
         />

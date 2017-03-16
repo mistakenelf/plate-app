@@ -3,7 +3,6 @@ import React, { PropTypes } from "react";
 import Plate from "../Plate/Plate";
 
 const propTypes = {
-  loading: PropTypes.bool,
   allPlates: PropTypes.array,
   removePlate: PropTypes.func,
   refetch: PropTypes.func
