@@ -9,7 +9,7 @@ const propTypes = {
 };
 
 const searchPlate = (searchText, doSearch) => {
-  doSearch(searchText);
+  doSearch(document.getElementById("searchPlateText").value);
   console.log(searchText);
 };
 
