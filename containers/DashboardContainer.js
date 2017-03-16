@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from "react";
 import { compose, gql, graphql } from "react-apollo";
 
-import DashboardMenu from "../components/DashboardMenu/DashboardMenu";
+import DashboardMenu from "../components/Dashboard/DashboardMenu";
+import DashboardView from "../components/Dashboard/DashboardView";
 import Loader from "../components/Loader/Loader";
-import PlateView from "../components/PlateView/PlateView";
 
 class DashboardContainer extends Component {
   static propTypes = {
@@ -68,7 +68,7 @@ class DashboardContainer extends Component {
             />
           </div>
         </div>
-        <PlateView
+        <DashboardView
           allPlates={allPlates}
           removePlate={removePlate}
           refetch={refetch}
