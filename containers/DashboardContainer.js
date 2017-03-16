@@ -3,6 +3,9 @@ import { compose, gql, graphql } from "react-apollo";
 
 import DashboardView from "../components/Dashboard/DashboardView";
 import Loader from "../components/Loader/Loader";
+import { actions } from "../store/modules/plateSearch";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
 class DashboardContainer extends Component {
   static propTypes = {
@@ -10,11 +13,21 @@ class DashboardContainer extends Component {
     allPlates: PropTypes.array,
     addPlate: PropTypes.func,
     refetch: PropTypes.func,
-    removePlate: PropTypes.func
+    removePlate: PropTypes.func,
+    searchText: PropTypes.string,
+    doSearch: PropTypes.func
   };
 
   render() {
-    const { loading, refetch, allPlates, addPlate, removePlate } = this.props;
+    const {
+      loading,
+      refetch,
+      allPlates,
+      addPlate,
+      removePlate,
+      searchText,
+      doSearch
+    } = this.props;
 
     if (loading) {
       return <Loader />;
@@ -26,11 +39,28 @@ class DashboardContainer extends Component {
           allPlates={allPlates}
           removePlate={removePlate}
           refetch={refetch}
+          searchText={searchText}
+          doSearch={doSearch}
         />
       </div>
     );
   }
 }
+
+const mapStateToProps = ({ plateSearch: { searchText } }) => {
+  return {
+    searchText
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      doSearch: actions.doSearch
+    },
+    dispatch
+  );
+};
 
 const Query = gql`
   query {
@@ -77,5 +107,6 @@ export default compose(
     props: ({ mutate }) => ({
       removePlate: id => mutate({ variables: { id } })
     })
-  })
+  }),
+  connect(mapStateToProps, mapDispatchToProps)
 )(DashboardContainer);

@@ -22,7 +22,9 @@ import RemovePlatesDialog from "../RemovePlatesDialog/RemovePlatesDialog";
 class DashboardMenu extends Component {
   static propTypes = {
     addPlate: PropTypes.func,
-    refetch: PropTypes.func
+    refetch: PropTypes.func,
+    searchText: PropTypes.string,
+    doSearch: PropTypes.func
   };
 
   state = {
@@ -55,7 +57,7 @@ class DashboardMenu extends Component {
   };
 
   render() {
-    const { addPlate, refetch } = this.props;
+    const { addPlate, refetch, searchText, doSearch } = this.props;
 
     return (
       <div>
@@ -65,7 +67,7 @@ class DashboardMenu extends Component {
               <ToolbarTitle text="Manage Plates" />
             </ToolbarGroup>
             <ToolbarGroup>
-              <DashBoardSearch />
+              <DashBoardSearch searchText={searchText} doSearch={doSearch} />
             </ToolbarGroup>
             <ToolbarGroup>
               <IconButton
