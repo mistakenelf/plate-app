@@ -58,7 +58,7 @@ export default () => (
           padding-top: 80px;
           padding-right: 40px;
           padding-left: 40px;
-          height: 400px;
+          height: 450px;
         }
          .header-main h1 {
            font-size: 1.5em;

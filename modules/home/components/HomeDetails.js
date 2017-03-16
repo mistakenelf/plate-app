@@ -62,6 +62,12 @@ export default () => (
             margin-bottom: 350px;
           }
         }
+        @media only screen
+        and (min-device-width : 768px) {
+          .initial-row {
+            margin-bottom: 150px;
+          }
+        }
     `
       }
     </style>
