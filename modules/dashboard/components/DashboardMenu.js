@@ -6,7 +6,7 @@ import {
   ToolbarTitle,
 } from "material-ui/Toolbar";
 
-import AddPlateDialog from "../AddPlateDialog/AddPlateDialog";
+import AddPlateDialog from "./AddPlateDialog";
 import Block from "material-ui/svg-icons/content/block";
 import DashBoardSearch from "./DashboardSearch";
 import Divider from "material-ui/Divider";
@@ -17,7 +17,7 @@ import MenuItem from "material-ui/MenuItem";
 import NavigationExpandMoreIcon
   from "material-ui/svg-icons/navigation/expand-more";
 import RaisedButton from "material-ui/RaisedButton";
-import RemovePlatesDialog from "../RemovePlatesDialog/RemovePlatesDialog";
+import RemovePlatesDialog from "./RemovePlatesDialog";
 
 class DashboardMenu extends Component {
   static propTypes = {

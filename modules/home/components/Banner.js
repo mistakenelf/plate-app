@@ -1,4 +1,4 @@
-import BorderedButton from "../BorderedButton/BorderedButton";
+import BorderedButton from "../../../components/BorderedButton/BorderedButton";
 import Link from "next/link";
 import React from "react";
 

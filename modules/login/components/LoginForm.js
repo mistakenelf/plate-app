@@ -1,7 +1,8 @@
 import { Field, reduxForm } from "redux-form";
 import React, { PropTypes } from "react";
 
-import BorderedButton from "../../components/BorderedButton/BorderedButton";
+import BorderedButton from "../../../components/BorderedButton/BorderedButton";
+import Link from "next/link";
 import TextField from "material-ui/TextField";
 
 const propTypes = {
@@ -11,7 +12,7 @@ const propTypes = {
   input: PropTypes.object
 };
 
-const register = () => {
+const login = () => {
   console.log("submitted");
 };
 
@@ -46,14 +47,14 @@ const RenderTextField = (
   />
 );
 
-const RegisterForm = ({ handleSubmit }) => (
+const LoginForm = ({ handleSubmit }) => (
   <div className="container-fluid">
     <div
       className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg"
     >
       <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-        <h1 className="header-text">Register</h1>
-        <form onSubmit={handleSubmit(register)}>
+        <h1 className="header-text">Login</h1>
+        <form onSubmit={handleSubmit(login)}>
           <Field
             name="email"
             id="email"
@@ -68,36 +69,48 @@ const RegisterForm = ({ handleSubmit }) => (
             type="password"
             label="Password"
           />
-          <BorderedButton type="submit" label="Register" />
+          <BorderedButton type="submit" label="Login" />
         </form>
+        <div className="forgot-password">
+          <Link prefetch href="/forgotPassword">
+            <a>Forgot Password?</a>
+          </Link>
+        </div>
       </div>
     </div>
     <style jsx>
       {
         `
-      .full-height {
-        height: 90vh;
-      }
-      .text-field-email {
-        margin-bottom: 15px;
-      }
-      .text-field-password {
-        margin-bottom: 15px;
-      }
-      .header-text {
-        color: white;
-        margin-bottom: 50px;
-      }
-    `
+          .text-field-email {
+            margin-bottom: 15px;
+          }
+          .text-field-password {
+            margin-bottom: 15px;
+          }
+          .forgot-password {
+            margin-top: 15px;
+          }
+          .forgot-password a {
+            color: white;
+            text-decoration: none;
+          }
+          .full-height {
+            height: 90vh;
+          }
+          .header-text {
+            color: white;
+            margin-bottom: 50px;
+          }
+        `
       }
     </style>
   </div>
 );
 
 RenderTextField.propTypes = propTypes;
-RegisterForm.propTypes = propTypes;
+LoginForm.propTypes = propTypes;
 
 export default reduxForm({
-  form: "registerForm",
+  form: "loginForm",
   validate
-})(RegisterForm);
+})(LoginForm);

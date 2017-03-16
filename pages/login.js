@@ -1,14 +1,5 @@
-import BackButton from "../components/BackButton/BackButton";
-import Header from "../components/Header/Header";
-import LoginForm from "../forms/LoginForm/LoginForm";
-import NavlessLayout from "../layouts/NavlessLayout/NavlessLayout";
+import Login from "../modules/login";
 import React from "react";
 import pageDecorator from "../lib/pageDecorator";
 
-export default pageDecorator(() => (
-  <NavlessLayout>
-    <Header title="Login" />
-    <BackButton />
-    <LoginForm />
-  </NavlessLayout>
-));
+export default pageDecorator(() => <Login />);
