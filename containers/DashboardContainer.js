@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from "react";
 import { compose, gql, graphql } from "react-apollo";
 
-import DashboardMenu from "../components/Dashboard/DashboardMenu";
 import DashboardView from "../components/Dashboard/DashboardView";
 import Loader from "../components/Loader/Loader";
 
@@ -22,15 +21,8 @@ class DashboardContainer extends Component {
     }
     return (
       <div className="container-fluid" style={{ paddingTop: 5 }}>
-        <div className="row">
-          <div
-            className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
-            style={{ marginBottom: 10 }}
-          >
-            <DashboardMenu addPlate={addPlate} refetch={refetch} />
-          </div>
-        </div>
         <DashboardView
+          addPlate={addPlate}
           allPlates={allPlates}
           removePlate={removePlate}
           refetch={refetch}
