@@ -3,7 +3,7 @@ import { compose, gql, graphql } from "react-apollo";
 
 import DashboardMenu from "../components/DashboardMenu/DashboardMenu";
 import Loader from "../components/Loader/Loader";
-import Plate from "../components/Plate/Plate";
+import PlateView from "../components/PlateView/PlateView";
 
 class DashboardContainer extends Component {
   static propTypes = {
@@ -68,25 +68,12 @@ class DashboardContainer extends Component {
             />
           </div>
         </div>
-        <div className="row">
-          {allPlates.map((plate, index) => {
-            return (
-              <div
-                key={index}
-                className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
-                style={{ marginBottom: 10 }}
-              >
-                <Plate
-                  plateId={plate.id}
-                  name={plate.name}
-                  description={plate.description}
-                  removePlate={removePlate}
-                  refetch={refetch}
-                />
-              </div>
-            );
-          })}
-        </div>
+        <PlateView
+          allPlates={allPlates}
+          loading={loading}
+          removePlate={removePlate}
+          refetch={refetch}
+        />
       </div>
     );
   }
