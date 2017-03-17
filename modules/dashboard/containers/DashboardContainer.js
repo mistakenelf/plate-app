@@ -16,14 +16,8 @@ class DashboardContainer extends Component {
     refetch: PropTypes.func,
     removePlate: PropTypes.func,
     searchText: PropTypes.string,
-    doSearch: PropTypes.func,
-    platesArray: PropTypes.array,
-    populatePlates: PropTypes.func
+    doSearch: PropTypes.func
   };
-
-  componentDidMount() {
-    this.props.populatePlates(this.props.allPlates);
-  }
 
   render() {
     const {
@@ -80,18 +74,16 @@ class DashboardContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ dashboard: { searchText, platesArray } }) => {
+const mapStateToProps = ({ dashboard: { searchText } }) => {
   return {
-    searchText,
-    platesArray
+    searchText
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      doSearch: actions.doSearch,
-      populatePlates: actions.populatePlates
+      doSearch: actions.doSearch
     },
     dispatch
   );

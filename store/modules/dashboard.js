@@ -1,7 +1,6 @@
 // Constants
 export const constants = {
-  SEARCH_TEXT: "Dashboard/SEARCH_TEXT",
-  POPULATE_PLATES: "Dashboard/POPULATE_PLATES"
+  SEARCH_TEXT: "Dashboard/SEARCH_TEXT"
 };
 
 // Actions
@@ -11,19 +10,12 @@ export const actions = {
       type: constants.SEARCH_TEXT,
       searchText: searchText
     };
-  },
-  populatePlates(plates) {
-    return {
-      type: constants.POPULATE_PLATES,
-      plates: plates
-    };
   }
 };
 
 // Initial State
 export const initialState = {
-  searchText: "",
-  platesArray: []
+  searchText: ""
 };
 
 // Reducer
@@ -33,11 +25,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         searchText: action.searchText
-      };
-    case constants.POPULATE_PLATES:
-      return {
-        ...state,
-        platesArray: action.plates
       };
     default:
       return state;
