@@ -1,43 +1,63 @@
 import { Card, CardActions, CardHeader, CardText } from "material-ui/Card";
-import React, { PropTypes } from "react";
+import React, { Component, PropTypes } from "react";
 
 import FlatButton from "material-ui/FlatButton";
 import Link from "next/link";
+import RemovePlateDialog from "./RemovePlateDialog";
 
-const deletePlate = (plateId, removePlate, refetch) => {
-  removePlate(plateId);
-  refetch();
-};
+export default class Plate extends Component {
+  static propTypes = {
+    name: PropTypes.string,
+    description: PropTypes.string,
+    plateId: PropTypes.string,
+    removePlate: PropTypes.func,
+    refetch: PropTypes.func
+  };
 
-const Plate = ({ plateId, name, description, removePlate, refetch }) => (
-  <Card>
-    <CardHeader
-      title={name}
-      subtitle="Subtitle"
-      actAsExpander
-      showExpandableButton
-    />
-    <CardActions>
-      <FlatButton
-        label="Wash Plate"
-        onTouchTap={() => deletePlate(plateId, removePlate, refetch)}
-      />
-      <Link prefetch href={`/plateFiller?id=${plateId}`}>
-        <a><FlatButton label="Fill Plate" /></a>
-      </Link>
-    </CardActions>
-    <CardText expandable>
-      {description}
-    </CardText>
-  </Card>
-);
+  state = {
+    open: false
+  };
 
-Plate.propTypes = {
-  name: PropTypes.string,
-  description: PropTypes.string,
-  plateId: PropTypes.string,
-  removePlate: PropTypes.func,
-  refetch: PropTypes.func
-};
+  handleOpen = () => {
+    this.setState({
+      open: true
+    });
+  };
 
-export default Plate;
+  handleClose = () => {
+    this.setState({
+      open: false
+    });
+  };
+
+  render() {
+    const { name, plateId, description, removePlate, refetch } = this.props;
+
+    return (
+      <Card>
+        <CardHeader
+          title={name}
+          subtitle="Subtitle"
+          actAsExpander
+          showExpandableButton
+        />
+        <CardActions>
+          <FlatButton label="Wash Plate" onTouchTap={this.handleOpen} />
+          <Link prefetch href={`/plateFiller?id=${plateId}`}>
+            <a><FlatButton label="Fill Plate" /></a>
+          </Link>
+        </CardActions>
+        <CardText expandable>
+          {description}
+        </CardText>
+        <RemovePlateDialog
+          open={this.state.open}
+          handleClose={this.handleClose}
+          removePlate={removePlate}
+          refetch={refetch}
+          plateId={plateId}
+        />
+      </Card>
+    );
+  }
+}

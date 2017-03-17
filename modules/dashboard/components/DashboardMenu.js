@@ -17,7 +17,7 @@ import MenuItem from "material-ui/MenuItem";
 import NavigationExpandMoreIcon
   from "material-ui/svg-icons/navigation/expand-more";
 import RaisedButton from "material-ui/RaisedButton";
-import RemovePlatesDialog from "./RemovePlatesDialog";
+import RemoveAllPlatesDialog from "./RemoveAllPlatesDialog";
 
 class DashboardMenu extends Component {
   static propTypes = {
@@ -128,7 +128,7 @@ class DashboardMenu extends Component {
           addPlate={addPlate}
           refetch={refetch}
         />
-        <RemovePlatesDialog
+        <RemoveAllPlatesDialog
           open={this.state.removePlatesDialogOpen}
           openDialog={this.openRemovePlatesDialog}
           closeDialog={this.closeRemovePlatesDialog}
