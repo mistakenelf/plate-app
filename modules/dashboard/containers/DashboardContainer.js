@@ -99,7 +99,7 @@ const mapDispatchToProps = dispatch => {
   );
 };
 
-const Query = gql`
+const AllPlatesQuery = gql`
   query {
     allPlates {
       id
@@ -135,7 +135,7 @@ const removeAllPlatesMutation = gql`
 `;
 
 export default compose(
-  graphql(Query, {
+  graphql(AllPlatesQuery, {
     props: ({ data: { loading, refetch, allPlates } }) => ({
       loading,
       allPlates,
