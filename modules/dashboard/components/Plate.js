@@ -42,9 +42,13 @@ export default class Plate extends Component {
           showExpandableButton
         />
         <CardActions>
-          <FlatButton label="Wash Plate" onTouchTap={this.handleOpen} />
+          <FlatButton
+            label="Wash Plate"
+            secondary
+            onTouchTap={this.handleOpen}
+          />
           <Link prefetch href={`/plateFiller?id=${plateId}`}>
-            <a><FlatButton label="Fill Plate" /></a>
+            <a><FlatButton primary label="Fill Plate" /></a>
           </Link>
         </CardActions>
         <CardText expandable>
