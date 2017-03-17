@@ -18,7 +18,8 @@ class DashboardContainer extends Component {
     removePlate: PropTypes.func,
     searchText: PropTypes.string,
     doSearch: PropTypes.func,
-    removeAllPlates: PropTypes.func
+    removeAllPlates: PropTypes.func,
+    platesByName: PropTypes.array
   };
 
   render() {
@@ -30,7 +31,8 @@ class DashboardContainer extends Component {
       removePlate,
       searchText,
       doSearch,
-      removeAllPlates
+      removeAllPlates,
+      platesByName
     } = this.props;
 
     if (loading) {
@@ -109,6 +111,16 @@ const AllPlatesQuery = gql`
   }
 `;
 
+const PlatesByNameQuery = gql`
+  query allPlatesByName($name: String!) {
+    platesByName(name: $name) {
+      id
+      name
+      description
+    }
+  }
+`;
+
 const addPlateMutation = gql`
   mutation addPlate($name: String!, $description: String!) {
     addPlate(name: $name, description: $description) {
@@ -135,10 +147,21 @@ const removeAllPlatesMutation = gql`
 `;
 
 export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
   graphql(AllPlatesQuery, {
     props: ({ data: { loading, refetch, allPlates } }) => ({
       loading,
       allPlates,
+      refetch
+    })
+  }),
+  graphql(PlatesByNameQuery, {
+    options: {
+      variables: { name: "Alex" }
+    },
+    props: ({ data: { loading, refetch, platesByName } }) => ({
+      loading,
+      platesByName,
       refetch
     })
   }),
@@ -157,6 +180,5 @@ export default compose(
     props: ({ mutate }) => ({
       removeAllPlates: () => mutate({ variables: {} })
     })
-  }),
-  connect(mapStateToProps, mapDispatchToProps)
+  })
 )(DashboardContainer);
