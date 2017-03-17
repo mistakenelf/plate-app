@@ -18,8 +18,7 @@ class DashboardContainer extends Component {
     searchText: PropTypes.string,
     doSearch: PropTypes.func,
     platesArray: PropTypes.array,
-    populatePlates: PropTypes.func,
-    filterSearch: PropTypes.func
+    populatePlates: PropTypes.func
   };
 
   componentDidMount() {
@@ -34,9 +33,7 @@ class DashboardContainer extends Component {
       addPlate,
       removePlate,
       searchText,
-      doSearch,
-      filterSearch,
-      platesArray
+      doSearch
     } = this.props;
 
     if (loading) {
@@ -55,7 +52,6 @@ class DashboardContainer extends Component {
               refetch={refetch}
               searchText={searchText}
               doSearch={doSearch}
-              filterSearch={filterSearch}
             />
           </div>
         </div>
@@ -95,8 +91,7 @@ const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
       doSearch: actions.doSearch,
-      populatePlates: actions.populatePlates,
-      filterSearch: actions.filterSearch
+      populatePlates: actions.populatePlates
     },
     dispatch
   );
