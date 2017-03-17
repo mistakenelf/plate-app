@@ -8,12 +8,6 @@ import Link from "next/link";
 import MenuItem from "material-ui/MenuItem";
 import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
 
-const propTypes = {
-  open: PropTypes.bool,
-  openDrawer: PropTypes.func,
-  closeDrawer: PropTypes.func
-};
-
 const Navigation = ({ open, openDrawer, closeDrawer }) => {
   const elementRight = (
     <IconMenu
@@ -73,6 +67,10 @@ const Navigation = ({ open, openDrawer, closeDrawer }) => {
   );
 };
 
-Navigation.propTypes = propTypes;
+Navigation.propTypes = {
+  open: PropTypes.bool,
+  openDrawer: PropTypes.func,
+  closeDrawer: PropTypes.func
+};
 
 export default Navigation;

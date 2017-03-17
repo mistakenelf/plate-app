@@ -4,13 +4,6 @@ import React, { PropTypes } from "react";
 import BorderedButton from "../../../components/BorderedButton/BorderedButton";
 import TextField from "material-ui/TextField";
 
-const propTypes = {
-  handleSubmit: PropTypes.func,
-  label: PropTypes.string,
-  meta: PropTypes.object,
-  input: PropTypes.object
-};
-
 const forgotPassword = e => {
   e.preventDefault();
   console.log("submitted");
@@ -84,8 +77,15 @@ const ForgotPasswordForm = ({ handleSubmit }) => (
   </div>
 );
 
-RenderTextField.propTypes = propTypes;
-ForgotPasswordForm.propTypes = propTypes;
+RenderTextField.propTypes = {
+  label: PropTypes.string,
+  meta: PropTypes.object,
+  input: PropTypes.object
+};
+
+ForgotPasswordForm.propTypes = {
+  handleSubmit: PropTypes.func
+};
 
 export default reduxForm({
   form: "forgotPasswordForm",

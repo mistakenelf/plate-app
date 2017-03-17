@@ -2,11 +2,6 @@ import React, { PropTypes } from "react";
 
 import TextField from "material-ui/TextField";
 
-const propTypes = {
-  searchText: PropTypes.string,
-  doSearch: PropTypes.func
-};
-
 const searchPlate = (searchText, doSearch) => {
   const input = document.getElementById("searchPlateText").value;
   doSearch(input);
@@ -25,6 +20,9 @@ const DashboardSearch = ({ searchText, doSearch }) => (
   </div>
 );
 
-DashboardSearch.propTypes = propTypes;
+DashboardSearch.propTypes = {
+  searchText: PropTypes.string,
+  doSearch: PropTypes.func
+};
 
 export default DashboardSearch;

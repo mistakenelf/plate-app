@@ -4,14 +4,6 @@ import React, { PropTypes } from "react";
 import FlatButton from "material-ui/FlatButton";
 import Link from "next/link";
 
-const propTypes = {
-  name: PropTypes.string,
-  description: PropTypes.string,
-  plateId: PropTypes.string,
-  removePlate: PropTypes.func,
-  refetch: PropTypes.func
-};
-
 const deletePlate = (plateId, removePlate, refetch) => {
   removePlate(plateId);
   refetch();
@@ -40,6 +32,12 @@ const Plate = ({ plateId, name, description, removePlate, refetch }) => (
   </Card>
 );
 
-Plate.propTypes = propTypes;
+Plate.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.string,
+  plateId: PropTypes.string,
+  removePlate: PropTypes.func,
+  refetch: PropTypes.func
+};
 
 export default Plate;

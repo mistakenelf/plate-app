@@ -4,13 +4,6 @@ import React, { PropTypes } from "react";
 import BorderedButton from "../../../components/BorderedButton/BorderedButton";
 import TextField from "material-ui/TextField";
 
-const propTypes = {
-  handleSubmit: PropTypes.func,
-  label: PropTypes.string,
-  meta: PropTypes.object,
-  input: PropTypes.object
-};
-
 const register = () => {
   console.log("submitted");
 };
@@ -94,8 +87,15 @@ const RegisterForm = ({ handleSubmit }) => (
   </div>
 );
 
-RenderTextField.propTypes = propTypes;
-RegisterForm.propTypes = propTypes;
+RenderTextField.propTypes = {
+  label: PropTypes.string,
+  meta: PropTypes.object,
+  input: PropTypes.object
+};
+
+RegisterForm.propTypes = {
+  handleSubmit: PropTypes.func
+};
 
 export default reduxForm({
   form: "registerForm",

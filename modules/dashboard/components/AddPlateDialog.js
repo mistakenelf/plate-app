@@ -5,17 +5,6 @@ import Dialog from "material-ui/Dialog";
 import FlatButton from "material-ui/FlatButton";
 import TextField from "material-ui/TextField";
 
-const propTypes = {
-  open: PropTypes.bool,
-  closeDialog: PropTypes.func,
-  addPlate: PropTypes.func,
-  refetch: PropTypes.func,
-  handleSubmit: PropTypes.func,
-  label: PropTypes.string,
-  meta: PropTypes.object,
-  input: PropTypes.object
-};
-
 const validate = values => {
   const errors = {};
   if (!values.name) {
@@ -97,8 +86,19 @@ const AddPlateDialog = (
   );
 };
 
-RenderTextField.propTypes = propTypes;
-AddPlateDialog.propTypes = propTypes;
+RenderTextField.propTypes = {
+  label: PropTypes.string,
+  meta: PropTypes.object,
+  input: PropTypes.object
+};
+
+AddPlateDialog.propTypes = {
+  open: PropTypes.bool,
+  closeDialog: PropTypes.func,
+  addPlate: PropTypes.func,
+  refetch: PropTypes.func,
+  handleSubmit: PropTypes.func
+};
 
 export default reduxForm({
   form: "addPlateForm",

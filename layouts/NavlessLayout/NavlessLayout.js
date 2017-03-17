@@ -1,9 +1,5 @@
 import React, { PropTypes } from "react";
 
-const propTypes = {
-  children: PropTypes.node
-};
-
 const NavlessLayout = ({ children }) => (
   <div>
     <style jsx global>
@@ -24,6 +20,8 @@ const NavlessLayout = ({ children }) => (
   </div>
 );
 
-NavlessLayout.propTypes = propTypes;
+NavlessLayout.propTypes = {
+  children: PropTypes.node
+};
 
 export default NavlessLayout;

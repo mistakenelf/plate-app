@@ -5,13 +5,6 @@ import BorderedButton from "../../../components/BorderedButton/BorderedButton";
 import Link from "next/link";
 import TextField from "material-ui/TextField";
 
-const propTypes = {
-  handleSubmit: PropTypes.func,
-  label: PropTypes.string,
-  meta: PropTypes.object,
-  input: PropTypes.object
-};
-
 const login = () => {
   console.log("submitted");
 };
@@ -107,8 +100,15 @@ const LoginForm = ({ handleSubmit }) => (
   </div>
 );
 
-RenderTextField.propTypes = propTypes;
-LoginForm.propTypes = propTypes;
+RenderTextField.propTypes = {
+  label: PropTypes.string,
+  meta: PropTypes.object,
+  input: PropTypes.object
+};
+
+LoginForm.propTypes = {
+  handleSubmit: PropTypes.func
+};
 
 export default reduxForm({
   form: "loginForm",

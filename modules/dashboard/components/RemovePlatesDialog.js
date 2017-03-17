@@ -6,11 +6,6 @@ import FlatButton from "material-ui/FlatButton";
 import IconButton from "material-ui/IconButton";
 import { red500 } from "material-ui/styles/colors";
 
-const propTypes = {
-  open: PropTypes.bool,
-  closeDialog: PropTypes.func
-};
-
 const styles = {
   largeIcon: {
     width: 80,
@@ -59,6 +54,9 @@ const RemovePlatesDialog = ({ open, closeDialog }) => {
   );
 };
 
-RemovePlatesDialog.propTypes = propTypes;
+RemovePlatesDialog.propTypes = {
+  open: PropTypes.bool,
+  closeDialog: PropTypes.func
+};
 
 export default RemovePlatesDialog;

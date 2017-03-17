@@ -11,10 +11,6 @@ Router.onRouteChangeStart = () => {
 Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
-const propTypes = {
-  title: PropTypes.string
-};
-
 const Header = ({ title }) => (
   <Head>
     <title>Plate - {title}</title>
@@ -39,6 +35,8 @@ const Header = ({ title }) => (
   </Head>
 );
 
-Header.propTypes = propTypes;
+Header.propTypes = {
+  title: PropTypes.string
+};
 
 export default Header;
