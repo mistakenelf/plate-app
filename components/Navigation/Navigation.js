@@ -1,4 +1,5 @@
 import React, { PropTypes } from "react";
+import { gql, withApollo } from "react-apollo";
 
 import AppBar from "material-ui/AppBar";
 import Drawer from "material-ui/Drawer";
@@ -8,7 +9,23 @@ import Link from "next/link";
 import MenuItem from "material-ui/MenuItem";
 import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
 
-const Navigation = ({ open, openDrawer, closeDrawer }) => {
+const Navigation = ({ open, openDrawer, closeDrawer, client }) => {
+  const Query = gql`
+    query {
+      allPlates {
+        id
+        name
+        description
+      }
+    }
+  `;
+
+  const prefetchPlates = () => {
+    client.query({
+      query: Query
+    });
+  };
+
   const elementRight = (
     <IconMenu
       iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
@@ -47,7 +64,12 @@ const Navigation = ({ open, openDrawer, closeDrawer }) => {
         </Link>
         <Link prefetch href="/dashboard">
           <a className="sidebar-text">
-            <MenuItem onTouchTap={closeDrawer}>Dashboard</MenuItem>
+            <MenuItem
+              onMouseOver={() => prefetchPlates()}
+              onTouchTap={closeDrawer}
+            >
+              Dashboard
+            </MenuItem>
           </a>
         </Link>
       </Drawer>
@@ -70,7 +92,8 @@ const Navigation = ({ open, openDrawer, closeDrawer }) => {
 Navigation.propTypes = {
   open: PropTypes.bool,
   openDrawer: PropTypes.func,
-  closeDrawer: PropTypes.func
+  closeDrawer: PropTypes.func,
+  client: PropTypes.object
 };
 
-export default Navigation;
+export default withApollo(Navigation);
