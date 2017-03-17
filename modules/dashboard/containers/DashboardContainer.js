@@ -3,6 +3,7 @@ import { compose, gql, graphql } from "react-apollo";
 
 import DashboardMenu from "../components/DashboardMenu";
 import Loader from "../../../components/Loader/Loader";
+import NoPlatesFound from "../components/NoPlatesFound";
 import Plate from "../components/Plate";
 import { actions } from "../../../store/modules/dashboard";
 import { bindActionCreators } from "redux";
@@ -53,6 +54,12 @@ class DashboardContainer extends Component {
           </div>
         </div>
         <div className="row">
+          {allPlates.length === 0 &&
+            <div
+              className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-lg-offset-4 col-xl-offset-4 col-md-offset-3"
+            >
+              <NoPlatesFound />
+            </div>}
           {searchText === "" &&
             allPlates.map((plate, index) => {
               return (
