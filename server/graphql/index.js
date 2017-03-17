@@ -5,6 +5,7 @@ const {
 
 const addPlate = require("./mutations/addPlate");
 const removePlate = require("./mutations/removePlate");
+const removeAllPlates = require("./mutations/removeAllPlates");
 const allPlates = require("./queries/allPlates");
 
 const schema = new GraphQLSchema({
@@ -18,7 +19,8 @@ const schema = new GraphQLSchema({
     name: "Mutation",
     fields: {
       addPlate,
-      removePlate
+      removePlate,
+      removeAllPlates
     }
   })
 });

@@ -24,7 +24,8 @@ class DashboardMenu extends Component {
     addPlate: PropTypes.func,
     refetch: PropTypes.func,
     searchText: PropTypes.string,
-    doSearch: PropTypes.func
+    doSearch: PropTypes.func,
+    removeAllPlates: PropTypes.func
   };
 
   state = {
@@ -61,7 +62,8 @@ class DashboardMenu extends Component {
       addPlate,
       refetch,
       searchText,
-      doSearch
+      doSearch,
+      removeAllPlates
     } = this.props;
 
     return (
@@ -132,6 +134,8 @@ class DashboardMenu extends Component {
           open={this.state.removePlatesDialogOpen}
           openDialog={this.openRemovePlatesDialog}
           closeDialog={this.closeRemovePlatesDialog}
+          removeAllPlates={removeAllPlates}
+          refetch={refetch}
         />
         <style jsx>
           {

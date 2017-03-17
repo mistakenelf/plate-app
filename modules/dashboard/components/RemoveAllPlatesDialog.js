@@ -19,10 +19,22 @@ const styles = {
   }
 };
 
-const RemoveAllPlatesDialog = ({ open, closeDialog }) => {
+const removePlates = (closeDialog, removeAllPlates, refetch) => {
+  removeAllPlates();
+  closeDialog();
+  refetch();
+};
+
+const RemoveAllPlatesDialog = (
+  { open, closeDialog, removeAllPlates, refetch }
+) => {
   const actions = [
     <FlatButton label="Cancel" primary onTouchTap={closeDialog} />,
-    <FlatButton label="Remove All" primary onTouchTap={closeDialog} />
+    <FlatButton
+      label="Remove All"
+      primary
+      onTouchTap={() => removePlates(closeDialog, removeAllPlates, refetch)}
+    />
   ];
 
   return (
@@ -56,7 +68,9 @@ const RemoveAllPlatesDialog = ({ open, closeDialog }) => {
 
 RemoveAllPlatesDialog.propTypes = {
   open: PropTypes.bool,
-  closeDialog: PropTypes.func
+  closeDialog: PropTypes.func,
+  removeAllPlates: PropTypes.func,
+  refetch: PropTypes.func
 };
 
 export default RemoveAllPlatesDialog;
