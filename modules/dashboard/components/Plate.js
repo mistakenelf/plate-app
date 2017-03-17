@@ -2,6 +2,7 @@ import { Card, CardActions, CardHeader, CardText } from "material-ui/Card";
 import React, { PropTypes } from "react";
 
 import FlatButton from "material-ui/FlatButton";
+import Link from "next/link";
 
 const propTypes = {
   name: PropTypes.string,
@@ -29,7 +30,9 @@ const Plate = ({ plateId, name, description, removePlate, refetch }) => (
         label="Wash Plate"
         onTouchTap={() => deletePlate(plateId, removePlate, refetch)}
       />
-      <FlatButton label="Fill Plate" />
+      <Link prefetch href={`/plateFiller?id=${plateId}`}>
+        <a><FlatButton label="Fill Plate" /></a>
+      </Link>
     </CardActions>
     <CardText expandable>
       {description}
