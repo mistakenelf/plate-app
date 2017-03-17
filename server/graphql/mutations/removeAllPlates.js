@@ -5,6 +5,10 @@ module.exports = {
   name: "removeAllPlates",
   type: PlateType,
   resolve() {
-    return PlateModel.remove({});
+    return new Promise((resolve, reject) => {
+      PlateModel.remove({}, (res, err) => {
+        err ? reject(err) : resolve(res);
+      });
+    });
   }
 };
