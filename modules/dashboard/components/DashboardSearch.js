@@ -2,11 +2,9 @@ import React, { PropTypes } from "react";
 
 import RaisedButton from "material-ui/RaisedButton";
 import TextField from "material-ui/TextField";
-import { doFilter } from "../containers/DashboardContainer";
 
 const searchPlate = (searchText, doSearch) => {
   const input = document.getElementById("searchPlateText").value;
-  <doFilter name={input} />;
   doSearch(input);
 };
 
