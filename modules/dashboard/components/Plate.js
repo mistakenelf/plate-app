@@ -34,13 +34,11 @@ export default class Plate extends Component {
     const { name, plateId, description, removePlate, refetch } = this.props;
 
     return (
-      <Card>
-        <CardHeader
-          title={name}
-          subtitle="Subtitle"
-          actAsExpander
-          showExpandableButton
-        />
+      <Card style={{ borderRadius: 10 }}>
+        <CardHeader title={name} actAsExpander showExpandableButton />
+        <CardText expandable>
+          {description}
+        </CardText>
         <CardActions>
           <FlatButton
             label="Wash Plate"
@@ -51,9 +49,6 @@ export default class Plate extends Component {
             <a><FlatButton primary label="Fill Plate" /></a>
           </Link>
         </CardActions>
-        <CardText expandable>
-          {description}
-        </CardText>
         <RemovePlateDialog
           open={this.state.open}
           handleClose={this.handleClose}
