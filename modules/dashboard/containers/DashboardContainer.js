@@ -62,24 +62,41 @@ class DashboardContainer extends Component {
             >
               <NoPlatesFound />
             </div>}
-          {searchText === "" &&
-            allPlates.map((plate, index) => {
-              return (
-                <div
-                  key={index}
-                  className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
-                  style={{ marginBottom: 10 }}
-                >
-                  <Plate
-                    plateId={plate.id}
-                    name={plate.name}
-                    description={plate.description}
-                    removePlate={removePlate}
-                    refetch={refetch}
-                  />
-                </div>
-              );
-            })}
+          {searchText === ""
+            ? allPlates.map((plate, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
+                    style={{ marginBottom: 10 }}
+                  >
+                    <Plate
+                      plateId={plate.id}
+                      name={plate.name}
+                      description={plate.description}
+                      removePlate={removePlate}
+                      refetch={refetch}
+                    />
+                  </div>
+                );
+              })
+            : platesByName.map((plate, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
+                    style={{ marginBottom: 10 }}
+                  >
+                    <Plate
+                      plateId={plate.id}
+                      name={plate.name}
+                      description={plate.description}
+                      removePlate={removePlate}
+                      refetch={refetch}
+                    />
+                  </div>
+                );
+              })}
         </div>
       </div>
     );
@@ -138,6 +155,15 @@ const removePlateMutation = gql`
   }
 `;
 
+export const doFilter = graphql(PlatesByNameQuery, {
+  options: ({ name }) => ({ variables: { name } }),
+  props: ({ data: { loading, refetch, platesByName } }) => ({
+    loading,
+    platesByName,
+    refetch
+  })
+});
+
 const removeAllPlatesMutation = gql`
   mutation {
     removeAllPlates {
@@ -155,7 +181,7 @@ export default compose(
       refetch
     })
   }),
-  graphql(PlatesByNameQuery, {
+  /*graphql(PlatesByNameQuery, {
     options: {
       variables: { name: "Alex" }
     },
@@ -164,7 +190,7 @@ export default compose(
       platesByName,
       refetch
     })
-  }),
+  }),*/
   graphql(addPlateMutation, {
     props: ({ mutate }) => ({
       addPlate: (name, description) =>
