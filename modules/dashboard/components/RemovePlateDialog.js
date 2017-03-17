@@ -26,6 +26,7 @@ const RemovePlateDialog = (
       actions={actions}
       modal={false}
       open={open}
+      contentStyle={{ width: "95%" }}
       onRequestClose={handleClose}
     >
       Are you sure you want to remove this plate?
