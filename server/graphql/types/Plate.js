@@ -18,6 +18,9 @@ module.exports = new GraphQLObjectType({
     },
     description: {
       type: GraphQLString
+    },
+    colorID: {
+      type: GraphQLString
     }
   }
 });

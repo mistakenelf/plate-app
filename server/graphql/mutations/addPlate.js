@@ -16,12 +16,16 @@ module.exports = {
     },
     description: {
       type: new GraphQLNonNull(GraphQLString)
+    },
+    colorID: {
+      type: new GraphQLNonNull(GraphQLString)
     }
   },
-  resolve(root, { name, description }) {
+  resolve(root, { name, description, colorID }) {
     const NewPlate = new PlateModel({
       name,
-      description
+      description,
+      colorID
     });
 
     return new Promise((resolve, reject) => {

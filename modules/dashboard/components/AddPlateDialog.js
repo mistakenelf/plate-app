@@ -32,7 +32,7 @@ const RenderTextField = (
 const confirmAddPlate = (addPlate, closeDialog, refetch) => {
   const plateName = document.getElementById("name").value;
   const plateDescription = document.getElementById("description").value;
-  addPlate(plateName, plateDescription);
+  addPlate(plateName, plateDescription, "hello");
   closeDialog();
   refetch();
 };
