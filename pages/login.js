@@ -1,4 +1,4 @@
-import Login from "../modules/login";
+import Login from "../modules/Login";
 import React from "react";
 import pageDecorator from "../lib/pageDecorator";
 

@@ -1,4 +1,4 @@
-import Dashboard from "../modules/dashboard";
+import Dashboard from "../modules/Dashboard";
 import React from "react";
 import pageDecorator from "../lib/pageDecorator";
 

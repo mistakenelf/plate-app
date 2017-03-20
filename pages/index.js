@@ -1,4 +1,4 @@
-import Home from "../modules/home";
+import Home from "../modules/Home";
 import React from "react";
 import pageDecorator from "../lib/pageDecorator";
 

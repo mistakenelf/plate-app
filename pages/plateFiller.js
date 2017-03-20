@@ -1,4 +1,4 @@
-import PlateFiller from "../modules/plateFiller";
+import PlateFiller from "../modules/PlateFiller";
 import React from "react";
 import pageDecorator from "../lib/pageDecorator";
 

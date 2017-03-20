@@ -1,4 +1,4 @@
-import ForgotPassword from "../modules/forgotPassword";
+import ForgotPassword from "../modules/ForgotPassword";
 import React from "react";
 import pageDecorator from "../lib/pageDecorator";
 
