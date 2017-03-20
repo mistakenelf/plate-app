@@ -111,7 +111,7 @@ const PlatesByNameQuery = gql`
     platesByName(name: $name) {
       id
       name
-      description,
+      description
       colorID
     }
   }
