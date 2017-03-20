@@ -151,7 +151,7 @@ export default compose(
       variables: { name: "Alex" }
     },
     props: ({ data: { loading, refetch, platesByName } }) => ({
-      loading,
+      plateByNameLoading: loading,
       platesByName,
       refetchByName: refetch
     })
