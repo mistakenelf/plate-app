@@ -7,7 +7,6 @@ import {
 } from "material-ui/Toolbar";
 
 import AddPlateDialog from "./AddPlateDialog";
-import Block from "material-ui/svg-icons/content/block";
 import DashBoardSearch from "./DashboardSearch";
 import Divider from "material-ui/Divider";
 import DoneAll from "material-ui/svg-icons/action/done-all";
