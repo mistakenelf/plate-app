@@ -1,4 +1,4 @@
-import { ApolloClient, createNetworkInterface } from "apollo-client";
+import { ApolloClient, createNetworkInterface } from "react-apollo";
 
 export const initApollo = headers => {
   const client = new ApolloClient({
