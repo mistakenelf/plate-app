@@ -105,7 +105,6 @@ const AllPlatesQuery = gql`
       id
       name
       description
-      colorID
     }
   }
 `;
@@ -162,7 +161,7 @@ export default compose(
     props: ({ data: { loading, refetch, platesByName } }) => ({
       loading,
       platesByName,
-      refetch
+      refetchByName: refetch
     })
   }),
   graphql(addPlateMutation, {
