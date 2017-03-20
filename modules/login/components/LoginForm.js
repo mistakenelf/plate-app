@@ -65,7 +65,7 @@ const LoginForm = ({ handleSubmit }) => (
           <BorderedButton type="submit" label="Login" />
         </form>
         <div className="forgot-password">
-          <Link prefetch href="/forgotPassword">
+          <Link prefetch href="/forgotpassword">
             <a>Forgot Password?</a>
           </Link>
         </div>

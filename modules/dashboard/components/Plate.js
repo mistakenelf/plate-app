@@ -45,7 +45,7 @@ export default class Plate extends Component {
             secondary
             onTouchTap={this.handleOpen}
           />
-          <Link prefetch href={`/plateFiller?id=${plateId}`}>
+          <Link prefetch href={`/platefiller?id=${plateId}`}>
             <a><FlatButton primary label="Fill Plate" /></a>
           </Link>
         </CardActions>
