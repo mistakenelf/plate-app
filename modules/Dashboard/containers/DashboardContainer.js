@@ -5,7 +5,7 @@ import DashboardMenu from "../components/DashboardMenu";
 import Loader from "../../../components/Loader/Loader";
 import NoPlatesFound from "../components/NoPlatesFound";
 import Plate from "../components/Plate";
-import { actions } from "../../../store/modules/dashboard";
+import { actions } from "../actions";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 

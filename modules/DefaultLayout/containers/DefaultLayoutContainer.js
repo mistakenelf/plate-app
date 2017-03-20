@@ -1,22 +1,20 @@
-import React, { PropTypes } from "react";
+import React, { Component, PropTypes } from "react";
 
-import { Component } from "react";
-import Navigation from "../../components/Navigation/Navigation";
-import { actions } from "../../store/modules/drawer";
+import Navigation from "../../../components/Navigation/Navigation";
+import { actions } from "../actions";
 import { bindActionCreators } from "redux";
-import { compose } from "react-apollo";
 import { connect } from "react-redux";
 
 class DefaultLayout extends Component {
   static propTypes = {
     children: PropTypes.node,
-    open: PropTypes.bool,
+    drawerOpen: PropTypes.bool,
     openDrawer: PropTypes.func,
     closeDrawer: PropTypes.func
   };
 
   render() {
-    const { children, open, openDrawer, closeDrawer } = this.props;
+    const { children, drawerOpen, openDrawer, closeDrawer } = this.props;
     return (
       <div>
         <style jsx global>
@@ -35,7 +33,7 @@ class DefaultLayout extends Component {
           }
         </style>
         <Navigation
-          open={open}
+          open={drawerOpen}
           openDrawer={openDrawer}
           closeDrawer={closeDrawer}
         />
@@ -45,9 +43,9 @@ class DefaultLayout extends Component {
   }
 }
 
-const mapStateToProps = ({ drawer: { open } }) => {
+const mapStateToProps = ({ navigation: { drawerOpen } }) => {
   return {
-    open
+    drawerOpen
   };
 };
 
@@ -61,6 +59,4 @@ const mapDispatchToProps = dispatch => {
   );
 };
 
-export default compose(connect(mapStateToProps, mapDispatchToProps))(
-  DefaultLayout
-);
+export default connect(mapStateToProps, mapDispatchToProps)(DefaultLayout);

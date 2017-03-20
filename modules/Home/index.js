@@ -1,5 +1,5 @@
 import Banner from "./components/Banner";
-import DefaultLayout from "../DefaultLayout/DefaultLayout";
+import DefaultLayout from "../DefaultLayout";
 import Footer from "./components/Footer";
 import Header from "../../components/Header/Header";
 import HomeDetails from "./components/HomeDetails";
