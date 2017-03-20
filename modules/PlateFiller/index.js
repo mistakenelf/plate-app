@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react";
 
-import DefaultLayout from "../../layouts/DefaultLayout/DefaultLayout";
+import DefaultLayout from "../DefaultLayout/DefaultLayout";
 import Header from "../../components/Header/Header";
 
 const PlateFiller = ({ query }) => (
