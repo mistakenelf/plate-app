@@ -3,9 +3,10 @@ import React, { PropTypes } from "react";
 import Dialog from "material-ui/Dialog";
 import FlatButton from "material-ui/FlatButton";
 
-const deletePlate = (removePlate, plateId, refetch) => {
+const deletePlate = (removePlate, plateId, refetch, handleClose) => {
   removePlate(plateId);
   refetch();
+  handleClose();
 };
 
 const RemovePlateDialog = (
@@ -16,7 +17,7 @@ const RemovePlateDialog = (
     <FlatButton
       label="Wash"
       primary
-      onTouchTap={() => deletePlate(removePlate, plateId, refetch)}
+      onTouchTap={() => deletePlate(removePlate, plateId, refetch, handleClose)}
     />
   ];
 
