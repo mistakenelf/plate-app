@@ -17,15 +17,13 @@ import MenuItem from "material-ui/MenuItem";
 import NavigationExpandMoreIcon
   from "material-ui/svg-icons/navigation/expand-more";
 import RaisedButton from "material-ui/RaisedButton";
-import RemoveAllPlatesDialog from "./RemoveAllPlatesDialog";
 
 class DashboardMenu extends Component {
   static propTypes = {
     addPlate: PropTypes.func,
     refetch: PropTypes.func,
     searchText: PropTypes.string,
-    doSearch: PropTypes.func,
-    removeAllPlates: PropTypes.func
+    doSearch: PropTypes.func
   };
 
   state = {
@@ -62,8 +60,7 @@ class DashboardMenu extends Component {
       addPlate,
       refetch,
       searchText,
-      doSearch,
-      removeAllPlates
+      doSearch
     } = this.props;
 
     return (
@@ -77,12 +74,6 @@ class DashboardMenu extends Component {
               <DashBoardSearch searchText={searchText} doSearch={doSearch} />
             </ToolbarGroup>
             <ToolbarGroup>
-              <IconButton
-                tooltip="Remove all plates"
-                onTouchTap={this.openRemovePlatesDialog}
-              >
-                <Block />
-              </IconButton>
               <IconButton tooltip="Mark all plates as done">
                 <DoneAll />
               </IconButton>
@@ -114,11 +105,6 @@ class DashboardMenu extends Component {
                 />
                 <Divider />
                 <MenuItem primaryText="Mark All Complete" />
-                <Divider />
-                <MenuItem
-                  primaryText="Remove All"
-                  onTouchTap={this.openRemovePlatesDialog}
-                />
               </IconMenu>
             </ToolbarGroup>
           </Toolbar>
@@ -128,13 +114,6 @@ class DashboardMenu extends Component {
           openDialog={this.openNewPlateDialog}
           closeDialog={this.closeNewPlateDialog}
           addPlate={addPlate}
-          refetch={refetch}
-        />
-        <RemoveAllPlatesDialog
-          open={this.state.removePlatesDialogOpen}
-          openDialog={this.openRemovePlatesDialog}
-          closeDialog={this.closeRemovePlatesDialog}
-          removeAllPlates={removeAllPlates}
           refetch={refetch}
         />
         <style jsx>

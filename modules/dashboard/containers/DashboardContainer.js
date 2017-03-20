@@ -17,8 +17,7 @@ class DashboardContainer extends Component {
     refetch: PropTypes.func,
     removePlate: PropTypes.func,
     searchText: PropTypes.string,
-    doSearch: PropTypes.func,
-    removeAllPlates: PropTypes.func
+    doSearch: PropTypes.func
   };
 
   render() {
@@ -29,8 +28,7 @@ class DashboardContainer extends Component {
       addPlate,
       removePlate,
       searchText,
-      doSearch,
-      removeAllPlates
+      doSearch
     } = this.props;
 
     if (loading) {
@@ -49,7 +47,6 @@ class DashboardContainer extends Component {
               refetch={refetch}
               searchText={searchText}
               doSearch={doSearch}
-              removeAllPlates={removeAllPlates}
             />
           </div>
         </div>
@@ -137,14 +134,6 @@ const removePlateMutation = gql`
   }
 `;
 
-const removeAllPlatesMutation = gql`
-  mutation {
-    removeAllPlates {
-      id
-    }
-  }
-`;
-
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   graphql(AllPlatesQuery, {
@@ -173,11 +162,6 @@ export default compose(
   graphql(removePlateMutation, {
     props: ({ mutate }) => ({
       removePlate: id => mutate({ variables: { id } })
-    })
-  }),
-  graphql(removeAllPlatesMutation, {
-    props: ({ mutate }) => ({
-      removeAllPlates: () => mutate({ variables: {} })
     })
   })
 )(DashboardContainer);
