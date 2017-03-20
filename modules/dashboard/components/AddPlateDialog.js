@@ -32,7 +32,16 @@ const RenderTextField = (
 const confirmAddPlate = (addPlate, closeDialog, refetch) => {
   const plateName = document.getElementById("name").value;
   const plateDescription = document.getElementById("description").value;
-  addPlate(plateName, plateDescription, "hello");
+  const plateColors = [
+    "#F3E5F5",
+    "#BBDEFB",
+    "#B2DFDB",
+    "#E6EE9C",
+    "#FFD180",
+    "#CFD8DC"
+  ];
+  const colorNumber = Math.floor(Math.random() * 6);
+  addPlate(plateName, plateDescription, plateColors[colorNumber]);
   closeDialog();
   refetch();
 };

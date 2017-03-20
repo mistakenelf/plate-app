@@ -71,6 +71,7 @@ class DashboardContainer extends Component {
                     description={plate.description}
                     removePlate={removePlate}
                     refetch={refetch}
+                    cardColor={plate.colorID}
                   />
                 </div>
               );
@@ -102,6 +103,7 @@ const AllPlatesQuery = gql`
       id
       name
       description
+      colorID
     }
   }
 `;

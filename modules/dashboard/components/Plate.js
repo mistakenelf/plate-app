@@ -11,7 +11,8 @@ export default class Plate extends Component {
     description: PropTypes.string,
     plateId: PropTypes.string,
     removePlate: PropTypes.func,
-    refetch: PropTypes.func
+    refetch: PropTypes.func,
+    cardColor: PropTypes.string
   };
 
   state = {
@@ -31,10 +32,17 @@ export default class Plate extends Component {
   };
 
   render() {
-    const { name, plateId, description, removePlate, refetch } = this.props;
+    const {
+      name,
+      plateId,
+      description,
+      removePlate,
+      refetch,
+      cardColor
+    } = this.props;
 
     return (
-      <Card style={{ borderRadius: 10 }}>
+      <Card style={{ borderRadius: 10, backgroundColor: cardColor }}>
         <CardHeader title={name} actAsExpander showExpandableButton />
         <CardText expandable>
           {description}
