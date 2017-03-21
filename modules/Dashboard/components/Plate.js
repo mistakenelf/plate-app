@@ -50,7 +50,12 @@ export default class Plate extends Component {
     return (
       <Card style={{ borderRadius: 5, backgroundColor: cardColor }}>
         <CardMedia overlay={<CardTitle title={name} />}>
-          <img src="/static/img/taskIcon.png" width="208" height="214" />
+          <img
+            style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }}
+            src="/static/img/taskIcon.png"
+            width="208"
+            height="214"
+          />
         </CardMedia>
         <CardText expandable>
           {description}
