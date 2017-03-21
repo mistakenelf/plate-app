@@ -62,7 +62,7 @@ class DashboardContainer extends Component {
               return (
                 <div
                   key={index}
-                  className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4"
+                  className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
                   style={{ marginBottom: 10 }}
                 >
                   <Plate

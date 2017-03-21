@@ -1,4 +1,10 @@
-import { Card, CardActions, CardHeader, CardText } from "material-ui/Card";
+import {
+  Card,
+  CardActions,
+  CardMedia,
+  CardText,
+  CardTitle,
+} from "material-ui/Card";
 import React, { Component, PropTypes } from "react";
 
 import FlatButton from "material-ui/FlatButton";
@@ -42,8 +48,10 @@ export default class Plate extends Component {
     } = this.props;
 
     return (
-      <Card style={{ borderRadius: 10, backgroundColor: cardColor }}>
-        <CardHeader title={name} actAsExpander showExpandableButton />
+      <Card style={{ borderRadius: 5, backgroundColor: cardColor }}>
+        <CardMedia overlay={<CardTitle title={name} />}>
+          <img src="/static/img/taskIcon.png" width="208" height="214" />
+        </CardMedia>
         <CardText expandable>
           {description}
         </CardText>
