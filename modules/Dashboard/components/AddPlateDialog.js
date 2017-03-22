@@ -46,9 +46,9 @@ const confirmAddPlate = (addPlate, closeDialog, refetch) => {
   refetch();
 };
 
-const AddPlateDialog = (
-  { open, closeDialog, addPlate, refetch, handleSubmit }
-) => {
+const AddPlateDialog = props => {
+  const { open, closeDialog, addPlate, refetch, handleSubmit } = props;
+
   const actions = [
     <FlatButton
       label="Cancel"

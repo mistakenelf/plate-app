@@ -38,9 +38,7 @@ class DashboardContainer extends Component {
       createPlateDialogOpen,
       openCreatePlateDialog,
       closeCreatePlateDialog,
-      removePlateDialogOpen,
-      openRemovePlateDialog,
-      closeRemovePlateDialog
+      removePlateDialogOpen
     } = this.props;
 
     if (loading) {
@@ -88,8 +86,6 @@ class DashboardContainer extends Component {
                     refetch={refetch}
                     cardColor={plate.colorID}
                     removePlateDialogOpen={removePlateDialogOpen}
-                    openRemovePlateDialog={openRemovePlateDialog}
-                    closeRemovePlateDialog={closeRemovePlateDialog}
                   />
                 </div>
               );
@@ -121,9 +117,7 @@ const mapDispatchToProps = dispatch => {
     {
       doSearch: actions.doSearch,
       openCreatePlateDialog: actions.openCreatePlateDialog,
-      closeCreatePlateDialog: actions.closeCreatePlateDialog,
-      openRemovePlateDialog: actions.openRemovePlateDialog,
-      closeRemovePlateDialog: actions.closeRemovePlateDialog
+      closeCreatePlateDialog: actions.closeCreatePlateDialog
     },
     dispatch
   );
