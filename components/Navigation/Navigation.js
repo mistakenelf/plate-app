@@ -9,7 +9,9 @@ import Link from "next/link";
 import MenuItem from "material-ui/MenuItem";
 import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
 
-const Navigation = ({ open, openDrawer, closeDrawer, client }) => {
+const Navigation = props => {
+  const { open, openDrawer, closeDrawer, client } = props;
+
   const Query = gql`
     query {
       allPlates {
@@ -38,6 +40,7 @@ const Navigation = ({ open, openDrawer, closeDrawer, client }) => {
       </Link>
     </IconMenu>
   );
+
   return (
     <div>
       <AppBar
@@ -76,13 +79,14 @@ const Navigation = ({ open, openDrawer, closeDrawer, client }) => {
       <style jsx global>
         {
           `
-        a {
-          text-decoration: none;
-        }
-        .sidebar-text {
-          text-align: center;
-        }
-      `
+          a {
+            text-decoration: none;
+          }
+
+          .sidebar-text {
+            text-align: center;
+          }
+        `
         }
       </style>
     </div>

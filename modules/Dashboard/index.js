@@ -3,9 +3,13 @@ import DefaultLayout from "../DefaultLayout";
 import Header from "../../components/Header/Header";
 import React from "react";
 
-export default () => (
-  <DefaultLayout>
-    <Header title="Dashboard" />
-    <DashboardContainer />
-  </DefaultLayout>
-);
+const Dashboard = () => {
+  return (
+    <DefaultLayout>
+      <Header title="Dashboard" />
+      <DashboardContainer />
+    </DefaultLayout>
+  );
+};
+
+export default Dashboard;

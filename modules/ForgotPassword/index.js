@@ -4,10 +4,14 @@ import Header from "../../components/Header/Header";
 import NavlessLayout from "../NavlessLayout";
 import React from "react";
 
-export default () => (
-  <NavlessLayout>
-    <Header title="Forgot Password" />
-    <BackButton />
-    <ForgotPasswordForm />
-  </NavlessLayout>
-);
+const ForgotPassword = () => {
+  return (
+    <NavlessLayout>
+      <Header title="Forgot Password" />
+      <BackButton />
+      <ForgotPasswordForm />
+    </NavlessLayout>
+  );
+};
+
+export default ForgotPassword;

@@ -4,10 +4,14 @@ import LoginForm from "./components/LoginForm";
 import NavlessLayout from "../NavlessLayout";
 import React from "react";
 
-export default () => (
-  <NavlessLayout>
-    <Header title="Login" />
-    <BackButton />
-    <LoginForm />
-  </NavlessLayout>
-);
+const Login = () => {
+  return (
+    <NavlessLayout>
+      <Header title="Login" />
+      <BackButton />
+      <LoginForm />
+    </NavlessLayout>
+  );
+};
+
+export default Login;

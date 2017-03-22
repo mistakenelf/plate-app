@@ -97,7 +97,7 @@ const DashboardMenu = props => {
                 display: none;
               }
             }
-        `
+          `
         }
       </style>
     </div>

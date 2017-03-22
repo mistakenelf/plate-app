@@ -25,55 +25,60 @@ const validate = values => {
   return errors;
 };
 
-const RenderTextField = (
-  { input, label, meta: { touched, error }, ...custom }
-) => (
-  <TextField
-    hintStyle={{ color: "white" }}
-    inputStyle={{ color: "white" }}
-    hintText={label}
-    autoComplete={"off"}
-    errorText={touched && error}
-    fullWidth
-    {...input}
-    {...custom}
-  />
-);
+const RenderTextField = props => {
+  const { input, label, meta: { touched, error }, ...custom } = props;
 
-const LoginForm = ({ handleSubmit }) => (
-  <div className="container-fluid">
-    <div
-      className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg"
-    >
-      <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-        <h1 className="header-text">Login</h1>
-        <form onSubmit={handleSubmit(login)}>
-          <Field
-            name="email"
-            id="email"
-            component={RenderTextField}
-            type="email"
-            label="Email"
-          />
-          <Field
-            name="password"
-            id="password"
-            component={RenderTextField}
-            type="password"
-            label="Password"
-          />
-          <BorderedButton type="submit" label="Login" />
-        </form>
-        <div className="forgot-password">
-          <Link prefetch href="/forgotpassword">
-            <a>Forgot Password?</a>
-          </Link>
+  return (
+    <TextField
+      hintStyle={{ color: "white" }}
+      inputStyle={{ color: "white" }}
+      hintText={label}
+      autoComplete={"off"}
+      errorText={touched && error}
+      fullWidth
+      {...input}
+      {...custom}
+    />
+  );
+};
+
+const LoginForm = props => {
+  const { handleSubmit } = props;
+
+  return (
+    <div className="container-fluid">
+      <div
+        className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg"
+      >
+        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+          <h1 className="header-text">Login</h1>
+          <form onSubmit={handleSubmit(login)}>
+            <Field
+              name="email"
+              id="email"
+              component={RenderTextField}
+              type="email"
+              label="Email"
+            />
+            <Field
+              name="password"
+              id="password"
+              component={RenderTextField}
+              type="password"
+              label="Password"
+            />
+            <BorderedButton type="submit" label="Login" />
+          </form>
+          <div className="forgot-password">
+            <Link prefetch href="/forgotpassword">
+              <a>Forgot Password?</a>
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
-    <style jsx>
-      {
-        `
+      <style jsx>
+        {
+          `
           .text-field-email {
             margin-bottom: 15px;
           }
@@ -95,10 +100,11 @@ const LoginForm = ({ handleSubmit }) => (
             margin-bottom: 50px;
           }
         `
-      }
-    </style>
-  </div>
-);
+        }
+      </style>
+    </div>
+  );
+};
 
 RenderTextField.propTypes = {
   label: PropTypes.string,

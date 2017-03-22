@@ -4,10 +4,14 @@ import NavlessLayout from "../NavlessLayout";
 import React from "react";
 import RegisterForm from "./components/RegisterForm";
 
-export default () => (
-  <NavlessLayout>
-    <Header title="Register" />
-    <BackButton />
-    <RegisterForm />
-  </NavlessLayout>
-);
+const Register = () => {
+  return (
+    <NavlessLayout>
+      <Header title="Register" />
+      <BackButton />
+      <RegisterForm />
+    </NavlessLayout>
+  );
+};
+
+export default Register;

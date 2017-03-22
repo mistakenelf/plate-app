@@ -15,21 +15,22 @@ class DefaultLayout extends Component {
 
   render() {
     const { children, drawerOpen, openDrawer, closeDrawer } = this.props;
+
     return (
       <div>
         <style jsx global>
           {
             `
-              * {
-                margin: 0;
-                box-sizing: border-box;
-              }
-              body {
-                font-family: 'Fira Sans', sans-serif;
-                margin-top: 60px;
-                margin-bottom: 0px;
-              }
-            `
+            * {
+              margin: 0;
+              box-sizing: border-box;
+            }
+            body {
+              font-family: 'Fira Sans', sans-serif;
+              margin-top: 60px;
+              margin-bottom: 0px;
+            }
+          `
           }
         </style>
         <Navigation

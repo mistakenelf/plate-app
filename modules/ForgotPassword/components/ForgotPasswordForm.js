@@ -22,60 +22,66 @@ const validate = values => {
   return errors;
 };
 
-const RenderTextField = (
-  { input, label, meta: { touched, error }, ...custom }
-) => (
-  <TextField
-    hintStyle={{ color: "white" }}
-    inputStyle={{ color: "white" }}
-    hintText={label}
-    autoComplete={"off"}
-    errorText={touched && error}
-    fullWidth
-    {...input}
-    {...custom}
-  />
-);
+const RenderTextField = props => {
+  const { input, label, meta: { touched, error }, ...custom } = props;
 
-const ForgotPasswordForm = ({ handleSubmit }) => (
-  <div className="container-fluid">
-    <div
-      className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg"
-    >
-      <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-        <h1 className="header-text">Forgot Password</h1>
-        <form onSubmit={handleSubmit(forgotPassword)}>
-          <div className="text-field-email">
-            <Field
-              name="email"
-              id="email"
-              component={RenderTextField}
-              type="email"
-              label="Email"
-            />
-          </div>
-          <BorderedButton type="submit" label="Forgot Password" />
-        </form>
+  return (
+    <TextField
+      hintStyle={{ color: "white" }}
+      inputStyle={{ color: "white" }}
+      hintText={label}
+      autoComplete={"off"}
+      errorText={touched && error}
+      fullWidth
+      {...input}
+      {...custom}
+    />
+  );
+};
+
+const ForgotPasswordForm = props => {
+  const { handleSubmit } = props;
+
+  return (
+    <div className="container-fluid">
+      <div
+        className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg"
+      >
+        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+          <h1 className="header-text">Forgot Password</h1>
+          <form onSubmit={handleSubmit(forgotPassword)}>
+            <div className="text-field-email">
+              <Field
+                name="email"
+                id="email"
+                component={RenderTextField}
+                type="email"
+                label="Email"
+              />
+            </div>
+            <BorderedButton type="submit" label="Forgot Password" />
+          </form>
+        </div>
       </div>
-    </div>
-    <style jsx>
-      {
+      <style jsx>
+        {
+          `
+          .full-height {
+            height: 90vh;
+          }
+          .text-field-email {
+            margin-bottom: 15px;
+          }
+          .header-text {
+            color: white;
+            margin-bottom: 50px;
+          }
         `
-      .full-height {
-        height: 90vh;
-      }
-      .text-field-email {
-        margin-bottom: 15px;
-      }
-      .header-text {
-        color: white;
-        margin-bottom: 50px;
-      }
-    `
-      }
-    </style>
-  </div>
-);
+        }
+      </style>
+    </div>
+  );
+};
 
 RenderTextField.propTypes = {
   label: PropTypes.string,

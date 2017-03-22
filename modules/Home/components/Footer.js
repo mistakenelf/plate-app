@@ -3,60 +3,61 @@ import FooterMobile from "./FooterMobile";
 import Link from "next/link";
 import React from "react";
 
-export default () => (
-  <div>
-    <div className="footer-main">
-      <div className="row">
-        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-          <h3>Plate</h3>
-          <div className="divider-style">
-            <Divider />
+const Footer = () => {
+  return (
+    <div>
+      <div className="footer-main">
+        <div className="row">
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <h3>Plate</h3>
+            <div className="divider-style">
+              <Divider />
+            </div>
+            <p>
+              Plate is the easiest way to manage your tasks<br />
+              Check out our resources to learn more about<br />
+              getting started.
+            </p>
           </div>
-          <p>
-            Plate is the easiest way to manage your tasks<br />
-            Check out our resources to learn more about<br />
-            getting started.
-          </p>
-        </div>
-        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-          <h3>Quick Links</h3>
-          <div className="divider-style">
-            <Divider />
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <h3>Quick Links</h3>
+            <div className="divider-style">
+              <Divider />
+            </div>
+            <Link prefetch href="/register">
+              <a className="footer-links">Register</a>
+            </Link>
+            <br />
+            <Link prefetch href="/login">
+              <a className="footer-links">
+                Login
+              </a>
+            </Link>
           </div>
-          <Link prefetch href="/register">
-            <a className="footer-links">Register</a>
-          </Link>
-          <br />
-          <Link prefetch href="/login">
-            <a className="footer-links">
-              Login
-            </a>
-          </Link>
-        </div>
-        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-          <h3>Get In Touch</h3>
-          <div className="divider-style">
-            <Divider />
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <h3>Get In Touch</h3>
+            <div className="divider-style">
+              <Divider />
+            </div>
+            <Link prefetch href="/">
+              <a className="footer-links">About Us</a>
+            </Link>
+            <br />
+            <Link prefetch href="/">
+              <a className="footer-links">Contact Us</a>
+            </Link>
           </div>
-          <Link prefetch href="/">
-            <a className="footer-links">About Us</a>
-          </Link>
-          <br />
-          <Link prefetch href="/">
-            <a className="footer-links">Contact Us</a>
-          </Link>
         </div>
       </div>
-    </div>
-    <div className="footer-mobile">
-      <FooterMobile />
-    </div>
-    <div className="copyright">
-      Copyright © 2017 Plate
-    </div>
-    <style jsx>
-      {
-        `
+      <div className="footer-mobile">
+        <FooterMobile />
+      </div>
+      <div className="copyright">
+        Copyright © 2017 Plate
+      </div>
+      <style jsx>
+        {
+          `
         .footer-mobile {
           background-color: #1E2532;
           padding: 30px;
@@ -139,7 +140,10 @@ export default () => (
           }
         }
       `
-      }
-    </style>
-  </div>
-);
+        }
+      </style>
+    </div>
+  );
+};
+
+export default Footer;

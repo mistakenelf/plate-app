@@ -8,20 +8,24 @@ const searchPlate = (searchText, doSearch) => {
   doSearch(input);
 };
 
-const DashboardSearch = ({ searchText, doSearch }) => (
-  <div className="row">
-    <div className="col-xs-12 col-sm-12 col-md-11 col-lg-11 col-xl-11">
-      <TextField hintText="Search Plate" id="searchPlateText" fullWidth />
+const DashboardSearch = props => {
+  const { searchText, doSearch } = props;
+
+  return (
+    <div className="row">
+      <div className="col-xs-12 col-sm-12 col-md-11 col-lg-11 col-xl-11">
+        <TextField hintText="Search Plate" id="searchPlateText" fullWidth />
+      </div>
+      <div className="col-xs-12 col-sm-12 col-md-1 col-lg-1 col-xl-1">
+        <RaisedButton
+          label="Search"
+          primary
+          onClick={() => searchPlate(searchText, doSearch)}
+        />
+      </div>
     </div>
-    <div className="col-xs-12 col-sm-12 col-md-1 col-lg-1 col-xl-1">
-      <RaisedButton
-        label="Search"
-        primary
-        onClick={() => searchPlate(searchText, doSearch)}
-      />
-    </div>
-  </div>
-);
+  );
+};
 
 DashboardSearch.propTypes = {
   searchText: PropTypes.string,

@@ -16,22 +16,24 @@ const validate = values => {
   return errors;
 };
 
-const RenderTextField = (
-  { input, label, meta: { touched, error }, ...custom }
-) => (
-  <TextField
-    hintText={label}
-    autoComplete={"off"}
-    errorText={touched && error}
-    fullWidth
-    {...input}
-    {...custom}
-  />
-);
+const RenderTextField = props => {
+  const { input, label, meta: { touched, error }, ...custom } = props;
+  return (
+    <TextField
+      hintText={label}
+      autoComplete={"off"}
+      errorText={touched && error}
+      fullWidth
+      {...input}
+      {...custom}
+    />
+  );
+};
 
 const confirmAddPlate = (addPlate, closeDialog, refetch) => {
   const plateName = document.getElementById("name").value;
   const plateDescription = document.getElementById("description").value;
+
   const plateColors = [
     "/static/img/taskIcon/taskIconBlue.png",
     "/static/img/taskIcon/taskIconGreen.png",
@@ -40,7 +42,9 @@ const confirmAddPlate = (addPlate, closeDialog, refetch) => {
     "/static/img/taskIcon/taskIconRed.png",
     "/static/img/taskIcon/taskIconYellow.png"
   ];
+
   const colorNumber = Math.floor(Math.random() * 6);
+
   addPlate(plateName, plateDescription, plateColors[colorNumber]);
   closeDialog();
   refetch();

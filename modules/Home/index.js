@@ -5,11 +5,15 @@ import Header from "../../components/Header/Header";
 import HomeDetails from "./components/HomeDetails";
 import React from "react";
 
-export default () => (
-  <DefaultLayout>
-    <Header title="Home" />
-    <Banner />
-    <HomeDetails />
-    <Footer />
-  </DefaultLayout>
-);
+const Home = () => {
+  return (
+    <DefaultLayout>
+      <Header title="Home" />
+      <Banner />
+      <HomeDetails />
+      <Footer />
+    </DefaultLayout>
+  );
+};
+
+export default Home;

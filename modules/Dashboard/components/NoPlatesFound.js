@@ -18,18 +18,20 @@ const styles = {
   }
 };
 
-const NoPlatesFound = () => (
-  <Card style={{ borderRadius: 10, textAlign: "center" }}>
-    <CardText>
-      <IconButton iconStyle={styles.largeIcon} style={styles.large}>
-        <ErrorIcon />
-      </IconButton>
-      <br />
-      <div style={{ fontSize: 20, fontWeight: "bolder" }}>
-        You currently have nothing on your Plate. Add a new plate to get started
-      </div>
-    </CardText>
-  </Card>
-);
+const NoPlatesFound = () => {
+  return (
+    <Card style={{ borderRadius: 10, textAlign: "center" }}>
+      <CardText>
+        <IconButton iconStyle={styles.largeIcon} style={styles.large}>
+          <ErrorIcon />
+        </IconButton>
+        <br />
+        <div style={{ fontSize: 20, fontWeight: "bolder" }}>
+          You currently have nothing on your Plate. Add a new plate to get started
+        </div>
+      </CardText>
+    </Card>
+  );
+};
 
 export default NoPlatesFound;
