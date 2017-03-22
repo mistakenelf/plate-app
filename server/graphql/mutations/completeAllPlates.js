@@ -17,7 +17,11 @@ module.exports = {
   resolve(root, { plateCompleted }) {
     return PlateModel.update(
       { completed: false },
-      { $set: { completed: plateCompleted } }
+      { $set: { completed: plateCompleted } },
+      (err, raw) => {
+        if (err) return handleError(err);
+        console.log("The raw response from Mongo was ", raw);
+      }
     );
   }
 };
