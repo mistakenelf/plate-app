@@ -169,6 +169,15 @@ const removePlateMutation = gql`
   }
 `;
 
+const completePlateMutation = gql`
+  mutation completePlate($id: ID!, $plateCompleted: Boolean) {
+    completePlate(id: $id, plateCompleted: $plateCompleted) {
+      id
+      plateCompleted
+    }
+  }
+`;
+
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   graphql(AllPlatesQuery, {
@@ -197,6 +206,12 @@ export default compose(
   graphql(removePlateMutation, {
     props: ({ mutate }) => ({
       removePlate: id => mutate({ variables: { id } })
+    })
+  }),
+  graphql(completePlateMutation, {
+    props: ({ mutate }) => ({
+      completePlate: (id, plateCompleted) =>
+        mutate({ variables: { id, plateCompleted } })
     })
   })
 )(DashboardContainer);
