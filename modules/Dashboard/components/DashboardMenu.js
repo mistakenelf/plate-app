@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from "react";
+import React, { PropTypes } from "react";
 import {
   Toolbar,
   ToolbarGroup,
@@ -17,107 +17,72 @@ import NavigationExpandMoreIcon
   from "material-ui/svg-icons/navigation/expand-more";
 import RaisedButton from "material-ui/RaisedButton";
 
-class DashboardMenu extends Component {
-  static propTypes = {
-    addPlate: PropTypes.func,
-    refetch: PropTypes.func,
-    searchText: PropTypes.string,
-    doSearch: PropTypes.func
-  };
+const DashboardMenu = props => {
+  const {
+    addPlate,
+    refetch,
+    searchText,
+    doSearch,
+    createPlateDialogOpen,
+    openCreatePlateDialog,
+    closeCreatePlateDialog
+  } = props;
 
-  state = {
-    newPlateDialogOpen: false,
-    removePlatesDialogOpen: false
-  };
-
-  openNewPlateDialog = () => {
-    this.setState({
-      newPlateDialogOpen: true
-    });
-  };
-
-  closeNewPlateDialog = () => {
-    this.setState({
-      newPlateDialogOpen: false
-    });
-  };
-
-  openRemovePlatesDialog = () => {
-    this.setState({
-      removePlatesDialogOpen: true
-    });
-  };
-
-  closeRemovePlatesDialog = () => {
-    this.setState({
-      removePlatesDialogOpen: false
-    });
-  };
-
-  render() {
-    const {
-      addPlate,
-      refetch,
-      searchText,
-      doSearch
-    } = this.props;
-
-    return (
-      <div>
-        <div className="toolbar-desktop">
-          <Toolbar>
-            <ToolbarGroup>
-              <ToolbarTitle text="Manage Plates" />
-            </ToolbarGroup>
-            <ToolbarGroup>
-              <DashBoardSearch searchText={searchText} doSearch={doSearch} />
-            </ToolbarGroup>
-            <ToolbarGroup>
-              <IconButton tooltip="Mark all plates as done">
-                <DoneAll />
-              </IconButton>
-              <ToolbarSeparator />
-              <RaisedButton
-                primary
-                label="Create Plate"
-                onTouchTap={this.openNewPlateDialog}
+  return (
+    <div>
+      <div className="toolbar-desktop">
+        <Toolbar>
+          <ToolbarGroup>
+            <ToolbarTitle text="Manage Plates" />
+          </ToolbarGroup>
+          <ToolbarGroup>
+            <DashBoardSearch searchText={searchText} doSearch={doSearch} />
+          </ToolbarGroup>
+          <ToolbarGroup>
+            <IconButton tooltip="Mark all plates as done">
+              <DoneAll />
+            </IconButton>
+            <ToolbarSeparator />
+            <RaisedButton
+              primary
+              label="Create Plate"
+              onTouchTap={() => openCreatePlateDialog()}
+            />
+          </ToolbarGroup>
+        </Toolbar>
+      </div>
+      <div className="toolbar-mobile">
+        <Toolbar>
+          <ToolbarGroup>
+            <ToolbarTitle text="Manage Plates" />
+          </ToolbarGroup>
+          <ToolbarGroup>
+            <IconMenu
+              iconButtonElement={
+                <IconButton touch>
+                  <NavigationExpandMoreIcon />
+                </IconButton>
+              }
+            >
+              <MenuItem
+                primaryText="Create Plate"
+                onTouchTap={() => openCreatePlateDialog()}
               />
-            </ToolbarGroup>
-          </Toolbar>
-        </div>
-        <div className="toolbar-mobile">
-          <Toolbar>
-            <ToolbarGroup>
-              <ToolbarTitle text="Manage Plates" />
-            </ToolbarGroup>
-            <ToolbarGroup>
-              <IconMenu
-                iconButtonElement={
-                  <IconButton touch>
-                    <NavigationExpandMoreIcon />
-                  </IconButton>
-                }
-              >
-                <MenuItem
-                  primaryText="Create Plate"
-                  onTouchTap={this.openNewPlateDialog}
-                />
-                <Divider />
-                <MenuItem primaryText="Mark All Complete" />
-              </IconMenu>
-            </ToolbarGroup>
-          </Toolbar>
-        </div>
-        <AddPlateDialog
-          open={this.state.newPlateDialogOpen}
-          openDialog={this.openNewPlateDialog}
-          closeDialog={this.closeNewPlateDialog}
-          addPlate={addPlate}
-          refetch={refetch}
-        />
-        <style jsx>
-          {
-            `
+              <Divider />
+              <MenuItem primaryText="Mark All Complete" />
+            </IconMenu>
+          </ToolbarGroup>
+        </Toolbar>
+      </div>
+      <AddPlateDialog
+        open={createPlateDialogOpen}
+        closeDialog={closeCreatePlateDialog}
+        addPlate={addPlate}
+        refetch={refetch}
+      />
+      <style jsx>
+        {
+          `
           @media only screen
             and (min-device-width : 320px)
             and (max-device-width : 600px) {
@@ -133,11 +98,20 @@ class DashboardMenu extends Component {
               }
             }
         `
-          }
-        </style>
-      </div>
-    );
-  }
-}
+        }
+      </style>
+    </div>
+  );
+};
+
+DashboardMenu.propTypes = {
+  addPlate: PropTypes.func,
+  refetch: PropTypes.func,
+  searchText: PropTypes.string,
+  doSearch: PropTypes.func,
+  createPlateDialogOpen: PropTypes.bool,
+  openCreatePlateDialog: PropTypes.func,
+  closeCreatePlateDialog: PropTypes.func
+};
 
 export default DashboardMenu;

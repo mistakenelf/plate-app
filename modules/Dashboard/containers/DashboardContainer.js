@@ -17,7 +17,13 @@ class DashboardContainer extends Component {
     refetch: PropTypes.func,
     removePlate: PropTypes.func,
     searchText: PropTypes.string,
-    doSearch: PropTypes.func
+    doSearch: PropTypes.func,
+    createPlateDialogOpen: PropTypes.bool,
+    openCreatePlateDialog: PropTypes.func,
+    closeCreatePlateDialog: PropTypes.func,
+    removePlateDialogOpen: PropTypes.bool,
+    openRemovePlateDialog: PropTypes.func,
+    closeRemovePlateDialog: PropTypes.func
   };
 
   render() {
@@ -28,7 +34,13 @@ class DashboardContainer extends Component {
       addPlate,
       removePlate,
       searchText,
-      doSearch
+      doSearch,
+      createPlateDialogOpen,
+      openCreatePlateDialog,
+      closeCreatePlateDialog,
+      removePlateDialogOpen,
+      openRemovePlateDialog,
+      closeRemovePlateDialog
     } = this.props;
 
     if (loading) {
@@ -47,6 +59,9 @@ class DashboardContainer extends Component {
               refetch={refetch}
               searchText={searchText}
               doSearch={doSearch}
+              createPlateDialogOpen={createPlateDialogOpen}
+              openCreatePlateDialog={openCreatePlateDialog}
+              closeCreatePlateDialog={closeCreatePlateDialog}
             />
           </div>
         </div>
@@ -72,6 +87,9 @@ class DashboardContainer extends Component {
                     removePlate={removePlate}
                     refetch={refetch}
                     cardColor={plate.colorID}
+                    removePlateDialogOpen={removePlateDialogOpen}
+                    openRemovePlateDialog={openRemovePlateDialog}
+                    closeRemovePlateDialog={closeRemovePlateDialog}
                   />
                 </div>
               );
@@ -82,16 +100,30 @@ class DashboardContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ dashboard: { searchText } }) => {
+const mapStateToProps = (
+  {
+    dashboard: {
+      searchText,
+      createPlateDialogOpen,
+      removePlateDialogOpen
+    }
+  }
+) => {
   return {
-    searchText
+    searchText,
+    createPlateDialogOpen,
+    removePlateDialogOpen
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      doSearch: actions.doSearch
+      doSearch: actions.doSearch,
+      openCreatePlateDialog: actions.openCreatePlateDialog,
+      closeCreatePlateDialog: actions.closeCreatePlateDialog,
+      openRemovePlateDialog: actions.openRemovePlateDialog,
+      closeRemovePlateDialog: actions.closeRemovePlateDialog
     },
     dispatch
   );
