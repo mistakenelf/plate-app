@@ -2,6 +2,7 @@ import { constants } from "../utils/constants";
 
 const initialState = {
   searchText: "",
+  plateCompleted: false,
   createPlateDialogOpen: false,
   removePlateDialogOpen: false
 };
@@ -12,6 +13,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         searchText: action.searchText
+      };
+    case constants.TOGGLE_COMPLETE_PLATE:
+      return {
+        ...state,
+        plateCompleted: action.plateCompleted
       };
     case constants.OPEN_CREATE_PLATE_DIALOG:
       return {
