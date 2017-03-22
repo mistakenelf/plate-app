@@ -18,18 +18,18 @@ const Plate = props => {
     description,
     removePlate,
     refetch,
-    cardColor,
+    cardImage,
     removePlateDialogOpen,
     openRemovePlateDialog,
     closeRemovePlateDialog
   } = props;
 
   return (
-    <Card style={{ borderRadius: 5, backgroundColor: cardColor }}>
+    <Card style={{ borderRadius: 5 }}>
       <CardMedia overlay={<CardTitle title={name} />}>
         <img
           style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }}
-          src="/static/img/taskIcon.png"
+          src={cardImage}
           width="208"
           height="214"
         />
@@ -64,7 +64,7 @@ Plate.propTypes = {
   plateId: PropTypes.string,
   removePlate: PropTypes.func,
   refetch: PropTypes.func,
-  cardColor: PropTypes.string,
+  cardImage: PropTypes.string,
   removePlateDialogOpen: PropTypes.bool,
   openRemovePlateDialog: PropTypes.func,
   closeRemovePlateDialog: PropTypes.func
