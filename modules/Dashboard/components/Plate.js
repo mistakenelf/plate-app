@@ -48,11 +48,11 @@ export default class Plate extends Component {
     } = this.props;
 
     return (
-      <Card style={{ borderRadius: 5, backgroundColor: cardColor }}>
+      <Card style={{ borderRadius: 5 }}>
         <CardMedia overlay={<CardTitle title={name} />}>
           <img
             style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }}
-            src="/static/img/taskIcon.png"
+            src={cardColor}
             width="208"
             height="214"
           />
