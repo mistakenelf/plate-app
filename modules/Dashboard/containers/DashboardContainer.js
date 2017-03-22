@@ -84,7 +84,7 @@ class DashboardContainer extends Component {
                     description={plate.description}
                     removePlate={removePlate}
                     refetch={refetch}
-                    cardColor={plate.colorID}
+                    cardImage={plate.colorID}
                     removePlateDialogOpen={removePlateDialogOpen}
                   />
                 </div>

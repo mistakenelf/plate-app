@@ -25,7 +25,8 @@ module.exports = {
     const NewPlate = new PlateModel({
       name,
       description,
-      colorID
+      colorID,
+      completed: false
     });
 
     return new Promise((resolve, reject) => {
