@@ -18,7 +18,7 @@ export default class Plate extends Component {
     plateId: PropTypes.string,
     removePlate: PropTypes.func,
     refetch: PropTypes.func,
-    cardColor: PropTypes.string
+    cardImage: PropTypes.string
   };
 
   state = {
@@ -44,7 +44,7 @@ export default class Plate extends Component {
       description,
       removePlate,
       refetch,
-      cardColor
+      cardImage
     } = this.props;
 
     return (
@@ -52,7 +52,7 @@ export default class Plate extends Component {
         <CardMedia overlay={<CardTitle title={name} />}>
           <img
             style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }}
-            src={cardColor}
+            src={cardImage}
             width="208"
             height="214"
           />
