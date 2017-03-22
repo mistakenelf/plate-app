@@ -7,6 +7,12 @@ export const actions = {
       searchText
     };
   },
+  completePlate() {
+    return {
+      type: constants.TOGGLE_COMPLETE_PLATE,
+      plateCompleted: true
+    };
+  },
   openCreatePlateDialog() {
     return {
       type: constants.OPEN_CREATE_PLATE_DIALOG,
