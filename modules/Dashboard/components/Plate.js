@@ -19,7 +19,9 @@ const Plate = props => {
     removePlate,
     refetch,
     cardColor,
-    removePlateDialogOpen
+    removePlateDialogOpen,
+    openRemovePlateDialog,
+    closeRemovePlateDialog
   } = props;
 
   return (
@@ -39,7 +41,7 @@ const Plate = props => {
         <FlatButton
           label="Wash Plate"
           secondary
-          onTouchTap={() => console.log("clicked")}
+          onTouchTap={() => openRemovePlateDialog()}
         />
         <Link prefetch href={`/platefiller?id=${plateId}`}>
           <a><FlatButton primary label="Fill Plate" /></a>
@@ -47,6 +49,7 @@ const Plate = props => {
       </CardActions>
       <RemovePlateDialog
         removePlateDialogOpen={removePlateDialogOpen}
+        closeRemovePlateDialog={closeRemovePlateDialog}
         removePlate={removePlate}
         refetch={refetch}
         plateId={plateId}

@@ -22,7 +22,7 @@ const RemovePlateDialog = props => {
     <FlatButton
       label="Cancel"
       secondary
-      onTouchTap={() => console.log("clickedds")}
+      onTouchTap={() => closeRemovePlateDialog()}
     />,
     <FlatButton
       label="Wash"
@@ -39,7 +39,7 @@ const RemovePlateDialog = props => {
       modal={false}
       open={removePlateDialogOpen}
       contentStyle={{ width: "95%" }}
-      onRequestClose={() => console.log("clicked")}
+      onRequestClose={() => closeRemovePlateDialog()}
     >
       Are you sure you want to remove this plate?
     </Dialog>
