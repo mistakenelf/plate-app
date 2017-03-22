@@ -5,7 +5,8 @@ const PlateSchema = new Schema({
   id: String,
   name: String,
   description: String,
-  colorID: String
+  colorID: String,
+  completed: Boolean
 });
 
 module.exports = mongoose.model("plate", PlateSchema, "plates");

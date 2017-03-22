@@ -1,5 +1,6 @@
 const {
   GraphQLString,
+  GraphQLBoolean,
   GraphQLObjectType,
   GraphQLID
 } = require("graphql");
@@ -21,6 +22,9 @@ module.exports = new GraphQLObjectType({
     },
     colorID: {
       type: GraphQLString
+    },
+    completed: {
+      type: GraphQLBoolean
     }
   }
 });
