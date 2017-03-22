@@ -20,7 +20,7 @@ module.exports = new GraphQLObjectType({
     description: {
       type: GraphQLString
     },
-    colorID: {
+    thumbnail: {
       type: GraphQLString
     },
     completed: {

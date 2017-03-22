@@ -17,15 +17,15 @@ module.exports = {
     description: {
       type: new GraphQLNonNull(GraphQLString)
     },
-    colorID: {
+    thumbnail: {
       type: new GraphQLNonNull(GraphQLString)
     }
   },
-  resolve(root, { name, description, colorID }) {
+  resolve(root, { name, description, thumbnail }) {
     const NewPlate = new PlateModel({
       name,
       description,
-      colorID,
+      thumbnail,
       completed: false
     });
 

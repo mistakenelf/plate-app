@@ -5,7 +5,7 @@ const PlateSchema = new Schema({
   id: String,
   name: String,
   description: String,
-  colorID: String,
+  thumbnail: String,
   completed: Boolean
 });
 

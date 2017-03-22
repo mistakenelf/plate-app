@@ -86,7 +86,7 @@ class DashboardContainer extends Component {
                     description={plate.description}
                     removePlate={removePlate}
                     refetch={refetch}
-                    cardImage={plate.colorID}
+                    cardImage={plate.thumbnail}
                     removePlateDialogOpen={removePlateDialogOpen}
                     openRemovePlateDialog={openRemovePlateDialog}
                     closeRemovePlateDialog={closeRemovePlateDialog}
@@ -135,7 +135,7 @@ const AllPlatesQuery = gql`
       id
       name
       description
-      colorID
+      thumbnail
     }
   }
 `;
@@ -146,17 +146,17 @@ const PlatesByNameQuery = gql`
       id
       name
       description
-      colorID
+      thumbnail
     }
   }
 `;
 
 const addPlateMutation = gql`
-  mutation addPlate($name: String!, $description: String!, $colorID: String!) {
-    addPlate(name: $name, description: $description, colorID: $colorID) {
+  mutation addPlate($name: String!, $description: String!, $thumbnail: String!) {
+    addPlate(name: $name, description: $description, thumbnail: $thumbnail) {
       name
       description
-      colorID
+      thumbnail
     }
   }
 `;
@@ -199,8 +199,8 @@ export default compose(
   }),
   graphql(addPlateMutation, {
     props: ({ mutate }) => ({
-      addPlate: (name, description, colorID) =>
-        mutate({ variables: { name, description, colorID } })
+      addPlate: (name, description, thumbnail) =>
+        mutate({ variables: { name, description, thumbnail } })
     })
   }),
   graphql(removePlateMutation, {
