@@ -30,7 +30,7 @@ const Plate = props => {
     <Card style={{ borderRadius: 5 }}>
       <CardMedia
         overlay={<CardTitle title={name} />}
-        onTouchTap={() => completePlate(!completed)}
+        onTouchTap={() => completePlate(plateId, !completed)}
       >
         <img
           style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }}
