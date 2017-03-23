@@ -38,6 +38,9 @@ const Navigation = props => {
       <Link prefetch href="/register">
         <a><MenuItem>Register</MenuItem></a>
       </Link>
+      <Link prefetch href="/profile">
+        <a><MenuItem>Profile</MenuItem></a>
+      </Link>
     </IconMenu>
   );
 
