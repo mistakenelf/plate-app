@@ -23,7 +23,8 @@ class DashboardContainer extends Component {
     closeCreatePlateDialog: PropTypes.func,
     removePlateDialogOpen: PropTypes.bool,
     openRemovePlateDialog: PropTypes.func,
-    closeRemovePlateDialog: PropTypes.func
+    closeRemovePlateDialog: PropTypes.func,
+    completePlate: PropTypes.func
   };
 
   render() {
@@ -40,7 +41,8 @@ class DashboardContainer extends Component {
       closeCreatePlateDialog,
       removePlateDialogOpen,
       openRemovePlateDialog,
-      closeRemovePlateDialog
+      closeRemovePlateDialog,
+      completePlate
     } = this.props;
 
     if (loading) {
@@ -90,6 +92,8 @@ class DashboardContainer extends Component {
                     removePlateDialogOpen={removePlateDialogOpen}
                     openRemovePlateDialog={openRemovePlateDialog}
                     closeRemovePlateDialog={closeRemovePlateDialog}
+                    completed={plate.completed}
+                    completePlate={completePlate}
                   />
                 </div>
               );
@@ -136,6 +140,7 @@ const AllPlatesQuery = gql`
       name
       description
       thumbnail
+      completed
     }
   }
 `;

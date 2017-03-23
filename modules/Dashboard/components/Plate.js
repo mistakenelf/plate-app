@@ -21,12 +21,17 @@ const Plate = props => {
     cardImage,
     removePlateDialogOpen,
     openRemovePlateDialog,
-    closeRemovePlateDialog
+    closeRemovePlateDialog,
+    completed,
+    completePlate
   } = props;
 
   return (
     <Card style={{ borderRadius: 5 }}>
-      <CardMedia overlay={<CardTitle title={name} />}>
+      <CardMedia
+        overlay={<CardTitle title={name} />}
+        onTouchTap={() => completePlate(!completed)}
+      >
         <img
           style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }}
           src={cardImage}
@@ -34,7 +39,9 @@ const Plate = props => {
           height="214"
         />
       </CardMedia>
-      <CardText expandable>
+      <CardText>
+        <h6>Comleted: </h6>
+        {completed ? <h6><i>Completed</i></h6> : <h6><i>Not Completed</i></h6>}
         {description}
       </CardText>
       <CardActions>
@@ -67,7 +74,9 @@ Plate.propTypes = {
   cardImage: PropTypes.string,
   removePlateDialogOpen: PropTypes.bool,
   openRemovePlateDialog: PropTypes.func,
-  closeRemovePlateDialog: PropTypes.func
+  closeRemovePlateDialog: PropTypes.func,
+  completed: PropTypes.bool,
+  completePlate: PropTypes.func
 };
 
 export default Plate;
