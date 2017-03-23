@@ -16,7 +16,7 @@
     "express": "^4.15.2",
     "graphql": "^0.9.1",
     "graphql-server-express": "^0.6.0",
-    "isomorphic-unfetch": "^1.0.0",
+    "isomorphic-fetch": "^2.2.1",
     "material-ui": "^0.17.1",
     "mongoose": "^4.9.1",
     "next": "2.0.0-beta.39",
@@ -27,8 +27,7 @@
     "react-redux": "^5.0.2",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
-    "redux-form": "^6.5.0",
-    "unfetch": "^2.1.2"
+    "redux-form": "^6.5.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.0",
