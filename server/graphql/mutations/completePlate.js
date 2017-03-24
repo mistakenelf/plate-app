@@ -4,6 +4,8 @@ const {
   GraphQLID
 } = require("graphql");
 
+const ObjectId = require("mongodb").ObjectId;
+
 const PlateType = require("../types/Plate");
 
 module.exports = {
@@ -20,6 +22,9 @@ module.exports = {
   resolve({ db }, { id, completed }) {
     return db
       .collection("plates")
-      .findOneAndUpdate({ _id: id }, { $set: { completed: completed } });
+      .findOneAndUpdate(
+        { _id: new ObjectId(id) },
+        { $set: { completed: completed } }
+      );
   }
 };
