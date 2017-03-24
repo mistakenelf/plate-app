@@ -1,5 +1,5 @@
 import React from "react";
 import Register from "../modules/Register";
-import pageDecorator from "../lib/pageDecorator";
+import withData from "../lib/withData";
 
-export default pageDecorator(() => <Register />);
+export default withData(() => <Register />);

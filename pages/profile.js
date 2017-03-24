@@ -1,5 +1,5 @@
 import Profile from "../modules/Profile";
 import React from "react";
-import pageDecorator from "../lib/pageDecorator";
+import withData from "../lib/withData";
 
-export default pageDecorator(() => <Profile />);
+export default withData(() => <Profile />);

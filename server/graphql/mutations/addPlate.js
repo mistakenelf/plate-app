@@ -3,7 +3,6 @@ const {
   GraphQLString
 } = require("graphql");
 
-const PlateModel = require("../../models/Plate");
 const PlateType = require("../types/Plate");
 
 module.exports = {
@@ -21,18 +20,14 @@ module.exports = {
       type: new GraphQLNonNull(GraphQLString)
     }
   },
-  resolve(root, { name, description, thumbnail }) {
-    const NewPlate = new PlateModel({
+  resolve({ db }, { name, description, thumbnail }) {
+    const data = {
       name,
       description,
       thumbnail,
       completed: false
-    });
+    };
 
-    return new Promise((resolve, reject) => {
-      NewPlate.save((err, res) => {
-        err ? reject(err) : resolve(res);
-      });
-    });
+    return db.collection("plates").insert(data);
   }
 };

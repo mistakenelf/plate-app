@@ -3,7 +3,6 @@ const {
   GraphQLID
 } = require("graphql");
 
-const PlateModel = require("../../models/Plate");
 const PlateType = require("../types/Plate");
 
 module.exports = {
@@ -14,7 +13,7 @@ module.exports = {
       type: new GraphQLNonNull(GraphQLID)
     }
   },
-  resolve(root, { id }) {
-    return PlateModel.findByIdAndRemove(id);
+  resolve({ db }, { id }) {
+    return db.collection("plates").deleteOne({ _id: id });
   }
 };

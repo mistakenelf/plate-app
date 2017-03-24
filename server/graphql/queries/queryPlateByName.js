@@ -4,7 +4,6 @@ const {
   GraphQLString
 } = require("graphql");
 
-const PlateModel = require("../../models/Plate");
 const PlateType = require("../types/Plate");
 
 module.exports = {
@@ -16,7 +15,7 @@ module.exports = {
       type: new GraphQLNonNull(GraphQLString)
     }
   },
-  resolve(root, { name }) {
-    return PlateModel.find({ name: name });
+  resolve({ db }, { name }) {
+    return db.collection("plates").find({ name: name }).toArray();
   }
 };

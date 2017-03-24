@@ -3,14 +3,14 @@ const next = require("next");
 
 const { graphiqlExpress, graphqlExpress } = require("graphql-server-express");
 const bodyParser = require("body-parser");
+const MongoClient = require("mongodb").MongoClient;
 const passport = require("passport");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-require("./connect");
-require("./auth/init");
+require("dotenv").load();
 
 const schema = require("./graphql");
 
@@ -28,7 +28,11 @@ app.prepare().then(() => {
   server.use(passport.initialize());
   server.use(passport.session());
 
-  server.use("/graphql", bodyParser.json(), graphqlExpress({ schema }));
+  server.use(
+    "/graphql",
+    bodyParser.json(),
+    graphqlExpress(req => ({ schema, rootValue: { db: req.app.locals.db } }))
+  );
 
   server.use(
     "/graphiql",
@@ -41,8 +45,16 @@ app.prepare().then(() => {
     return handle(req, res);
   });
 
-  server.listen(3000, err => {
-    if (err) throw err;
-    console.log("> Ready on http://localhost:3000");
-  });
+  MongoClient.connect(process.env.DB_CONNECTION_STRING, {
+    promiseLibrary: Promise
+  })
+    .catch(err => console.error(err.stack))
+    .then(db => {
+      console.log("Database Connection Successful");
+      server.locals.db = db;
+      server.listen(3000, err => {
+        if (err) throw err;
+        console.log("> Ready on http://localhost:3000");
+      });
+    });
 });

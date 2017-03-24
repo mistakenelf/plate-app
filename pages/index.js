@@ -1,5 +1,5 @@
 import Home from "../modules/Home";
 import React from "react";
-import pageDecorator from "../lib/pageDecorator";
+import withData from "../lib/withData";
 
-export default pageDecorator(() => <Home />);
+export default withData(() => <Home />);

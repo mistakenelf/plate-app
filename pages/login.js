@@ -1,5 +1,5 @@
 import Login from "../modules/Login";
 import React from "react";
-import pageDecorator from "../lib/pageDecorator";
+import withData from "../lib/withData";
 
-export default pageDecorator(() => <Login />);
+export default withData(() => <Login />);

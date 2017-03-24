@@ -1,5 +1,5 @@
 import Dashboard from "../modules/Dashboard";
 import React from "react";
-import pageDecorator from "../lib/pageDecorator";
+import withData from "../lib/withData";
 
-export default pageDecorator(() => <Dashboard />);
+export default withData(() => <Dashboard />);
