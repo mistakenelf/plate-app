@@ -1,5 +1,5 @@
 import ForgotPassword from "../modules/ForgotPassword";
 import React from "react";
-import pageDecorator from "../lib/pageDecorator";
+import withData from "../lib/withData";
 
-export default pageDecorator(() => <ForgotPassword />);
+export default withData(() => <ForgotPassword />);

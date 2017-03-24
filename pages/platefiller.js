@@ -1,5 +1,5 @@
 import PlateFiller from "../modules/PlateFiller";
 import React from "react";
-import pageDecorator from "../lib/pageDecorator";
+import withData from "../lib/withData";
 
-export default pageDecorator(({ query }) => <PlateFiller query={query} />);
+export default withData(({ query }) => <PlateFiller query={query} />);
