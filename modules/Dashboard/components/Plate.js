@@ -26,11 +26,17 @@ const Plate = props => {
     completePlate
   } = props;
 
+  const markPlateComplete = (plateId, completed, completePlate, refetch) => {
+    completePlate(plateId, !completed);
+    refetch();
+  };
+
   return (
     <Card style={{ borderRadius: 5 }}>
       <CardMedia
         overlay={<CardTitle title={name} />}
-        onTouchTap={() => completePlate(plateId, !completed)}
+        onTouchTap={() =>
+          markPlateComplete(plateId, completed, completePlate, refetch)}
       >
         <img
           style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }}
