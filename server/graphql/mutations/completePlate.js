@@ -17,7 +17,9 @@ module.exports = {
       type: new GraphQLNonNull(GraphQLBoolean)
     }
   },
-  resolve(root, { id, completed }) {
-    return console.log(root);
+  resolve({ db }, { id, completed }) {
+    return db
+      .collection("plates")
+      .update({ _id: id }, { $set: { completed: completed } });
   }
 };
