@@ -175,10 +175,10 @@ const removePlateMutation = gql`
 `;
 
 const completePlateMutation = gql`
-  mutation completePlate($id: ID!, $plateCompleted: Boolean) {
-    completePlate(id: $id, plateCompleted: $plateCompleted) {
+  mutation completePlate($id: ID!, $completed: Boolean!) {
+    completePlate(id: $id, completed: $completed) {
       id
-      plateCompleted
+      completed
     }
   }
 `;
@@ -215,8 +215,7 @@ export default compose(
   }),
   graphql(completePlateMutation, {
     props: ({ mutate }) => ({
-      completePlate: (id, plateCompleted) =>
-        mutate({ variables: { id, plateCompleted } })
+      completePlate: (id, completed) => mutate({ variables: { id, completed } })
     })
   })
 )(DashboardContainer);
