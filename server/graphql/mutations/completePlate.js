@@ -20,6 +20,6 @@ module.exports = {
   resolve({ db }, { id, completed }) {
     return db
       .collection("plates")
-      .update({ _id: id }, { $set: { completed: completed } });
+      .findOneAndUpdate({ _id: id }, { $set: { completed: completed } });
   }
 };
