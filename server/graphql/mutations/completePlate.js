@@ -4,7 +4,6 @@ const {
   GraphQLID
 } = require("graphql");
 
-const PlateModel = require("../../models/Plate");
 const PlateType = require("../types/Plate");
 
 module.exports = {
@@ -19,8 +18,6 @@ module.exports = {
     }
   },
   resolve(root, { id, completed }) {
-    return PlateModel.findByIdAndUpdate(id, {
-      $set: { completed: completed }
-    });
+    return console.log(root);
   }
 };
