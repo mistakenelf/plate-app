@@ -4,7 +4,6 @@ const next = require("next");
 const { graphiqlExpress, graphqlExpress } = require("graphql-server-express");
 const bodyParser = require("body-parser");
 const MongoClient = require("mongodb").MongoClient;
-const passport = require("passport");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -16,17 +15,6 @@ const schema = require("./graphql");
 
 app.prepare().then(() => {
   const server = express();
-
-  server.use(
-    require("express-session")({
-      secret: "keyboard cat",
-      resave: false,
-      saveUninitialized: false
-    })
-  );
-
-  server.use(passport.initialize());
-  server.use(passport.session());
 
   server.use(
     "/graphql",
