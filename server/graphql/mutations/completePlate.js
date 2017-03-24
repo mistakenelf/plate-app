@@ -14,13 +14,13 @@ module.exports = {
     id: {
       type: new GraphQLNonNull(GraphQLID)
     },
-    plateCompleted: {
+    completed: {
       type: new GraphQLNonNull(GraphQLBoolean)
     }
   },
-  resolve(root, { id, plateCompleted }) {
+  resolve(root, { id, completed }) {
     return PlateModel.findByIdAndUpdate(id, {
-      $set: { completed: plateCompleted }
+      $set: { completed: completed }
     });
   }
 };
