@@ -193,7 +193,10 @@ export default compose(
       loading,
       allPlates,
       refetch
-    })
+    }),
+    options: {
+      fetchPolicy: "cache-and-network"
+    }
   }),
   graphql(PlatesByNameQuery, {
     options: {
@@ -209,12 +212,26 @@ export default compose(
     props: ({ mutate }) => ({
       addPlate: (name, description, thumbnail) =>
         mutate({ variables: { name, description, thumbnail } })
-    })
+    }),
+    options: {
+      refetchQueries: [
+        {
+          query: AllPlatesQuery
+        }
+      ]
+    }
   }),
   graphql(removePlateMutation, {
     props: ({ mutate }) => ({
       removePlate: id => mutate({ variables: { id } })
-    })
+    }),
+    options: {
+      refetchQueries: [
+        {
+          query: AllPlatesQuery
+        }
+      ]
+    }
   }),
   graphql(completePlateMutation, {
     props: ({ mutate }) => ({

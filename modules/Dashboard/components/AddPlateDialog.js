@@ -30,7 +30,7 @@ const RenderTextField = props => {
   );
 };
 
-const confirmAddPlate = (addPlate, closeDialog, refetch) => {
+const confirmAddPlate = (addPlate, closeDialog) => {
   const plateName = document.getElementById("name").value;
   const plateDescription = document.getElementById("description").value;
 
@@ -47,11 +47,10 @@ const confirmAddPlate = (addPlate, closeDialog, refetch) => {
 
   addPlate(plateName, plateDescription, plateColors[colorNumber]);
   closeDialog();
-  refetch();
 };
 
 const AddPlateDialog = props => {
-  const { open, closeDialog, addPlate, refetch, handleSubmit } = props;
+  const { open, closeDialog, addPlate, handleSubmit } = props;
 
   const actions = [
     <FlatButton
@@ -74,8 +73,7 @@ const AddPlateDialog = props => {
     >
       <form
         id="plateForm"
-        onSubmit={handleSubmit(() =>
-          confirmAddPlate(addPlate, closeDialog, refetch))}
+        onSubmit={handleSubmit(() => confirmAddPlate(addPlate, closeDialog))}
       >
         <Field
           name="name"
@@ -109,7 +107,6 @@ AddPlateDialog.propTypes = {
   open: PropTypes.bool,
   closeDialog: PropTypes.func,
   addPlate: PropTypes.func,
-  refetch: PropTypes.func,
   handleSubmit: PropTypes.func
 };
 

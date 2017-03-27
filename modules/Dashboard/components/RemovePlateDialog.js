@@ -5,7 +5,6 @@ import FlatButton from "material-ui/FlatButton";
 
 const deletePlate = (removePlate, plateId, refetch, closeRemovePlateDialog) => {
   removePlate(plateId);
-  refetch();
   closeRemovePlateDialog();
 };
 
