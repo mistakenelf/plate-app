@@ -25,6 +25,7 @@
     "nprogress": "^0.2.0",
     "passport": "^0.3.2",
     "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.4.2",
     "react-apollo": "^1.0.0-rc.3",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
