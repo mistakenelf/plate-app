@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from "react";
 import { compose, gql, graphql } from "react-apollo";
 
+import Animation from "../../../components/Animation/Animation";
 import DashboardMenu from "../components/DashboardMenu";
 import Loader from "../../../components/Loader/Loader";
 import NoPlatesFound from "../components/NoPlatesFound";
 import Plate from "../components/Plate";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import { actions } from "../actions";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -68,13 +68,7 @@ class DashboardContainer extends Component {
             />
           </div>
         </div>
-        <ReactCSSTransitionGroup
-          transitionName="example"
-          transitionAppear
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}
-          transitionAppearTimeout={1500}
-        >
+        <Animation>
           <div className="row">
             {allPlates.length === 0 &&
               <div
@@ -107,7 +101,7 @@ class DashboardContainer extends Component {
                 );
               })}
           </div>
-        </ReactCSSTransitionGroup>
+        </Animation>
       </div>
     );
   }
