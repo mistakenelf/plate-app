@@ -34,46 +34,60 @@ const Plate = props => {
   };
 
   return (
-    <Card style={{ borderRadius: 5 }}>
-      {completed &&
-        <CardHeader
-          title={name + " is completed!"}
-          subtitle="Subtitle"
-          avatar={<CheckCircle style={{ color: "green" }} />}
-        />}
-      <CardMedia
-        overlay={<CardTitle title={name} />}
-        onTouchTap={() =>
-          markPlateComplete(plateId, completed, completePlate, refetch)}
-      >
-        <img
-          style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }}
-          src={cardImage}
-          width="208"
-          height="214"
+    <div className="card">
+      <Card style={{ borderRadius: 5 }}>
+        {completed &&
+          <CardHeader
+            title={name + " is completed!"}
+            avatar={<CheckCircle style={{ color: "green" }} />}
+          />}
+        <CardMedia
+          overlay={<CardTitle title={name} />}
+          onTouchTap={() =>
+            markPlateComplete(plateId, completed, completePlate, refetch)}
+        >
+          <img
+            style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }}
+            src={cardImage}
+            width="208"
+            height="214"
+          />
+        </CardMedia>
+        <CardText>
+          {description}
+        </CardText>
+        <CardActions>
+          <FlatButton
+            label="Wash Plate"
+            secondary
+            onTouchTap={() => openRemovePlateDialog()}
+          />
+          <Link prefetch href={`/platefiller?id=${plateId}`}>
+            <a><FlatButton primary label="Fill Plate" /></a>
+          </Link>
+        </CardActions>
+        <RemovePlateDialog
+          removePlateDialogOpen={removePlateDialogOpen}
+          closeRemovePlateDialog={closeRemovePlateDialog}
+          removePlate={removePlate}
+          refetch={refetch}
+          plateId={plateId}
         />
-      </CardMedia>
-      <CardText>
-        {description}
-      </CardText>
-      <CardActions>
-        <FlatButton
-          label="Wash Plate"
-          secondary
-          onTouchTap={() => openRemovePlateDialog()}
-        />
-        <Link prefetch href={`/platefiller?id=${plateId}`}>
-          <a><FlatButton primary label="Fill Plate" /></a>
-        </Link>
-      </CardActions>
-      <RemovePlateDialog
-        removePlateDialogOpen={removePlateDialogOpen}
-        closeRemovePlateDialog={closeRemovePlateDialog}
-        removePlate={removePlate}
-        refetch={refetch}
-        plateId={plateId}
-      />
-    </Card>
+      </Card>
+      <style jsx>
+        {
+          `
+          .card {
+            transition: 0.3s;
+          }
+
+          .card:hover {
+            box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+          }
+          `
+        }
+      </style>
+    </div>
   );
 };
 
