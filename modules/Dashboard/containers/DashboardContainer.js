@@ -5,6 +5,7 @@ import DashboardMenu from "../components/DashboardMenu";
 import Loader from "../../../components/Loader/Loader";
 import NoPlatesFound from "../components/NoPlatesFound";
 import Plate from "../components/Plate";
+import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 import { actions } from "../actions";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
@@ -67,38 +68,46 @@ class DashboardContainer extends Component {
             />
           </div>
         </div>
-        <div className="row">
-          {allPlates.length === 0 &&
-            <div
-              className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-lg-offset-4 col-xl-offset-4 col-md-offset-3"
-            >
-              <NoPlatesFound />
-            </div>}
-          {searchText === "" &&
-            allPlates.map((plate, index) => {
-              return (
-                <div
-                  key={index}
-                  className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
-                  style={{ marginBottom: 10 }}
-                >
-                  <Plate
-                    plateId={plate.id}
-                    name={plate.name}
-                    description={plate.description}
-                    removePlate={removePlate}
-                    refetch={refetch}
-                    cardImage={plate.thumbnail}
-                    removePlateDialogOpen={removePlateDialogOpen}
-                    openRemovePlateDialog={openRemovePlateDialog}
-                    closeRemovePlateDialog={closeRemovePlateDialog}
-                    completed={plate.completed}
-                    completePlate={completePlate}
-                  />
-                </div>
-              );
-            })}
-        </div>
+        <ReactCSSTransitionGroup
+          transitionName="example"
+          transitionAppear
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+          transitionAppearTimeout={1500}
+        >
+          <div className="row">
+            {allPlates.length === 0 &&
+              <div
+                className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-lg-offset-4 col-xl-offset-4 col-md-offset-3"
+              >
+                <NoPlatesFound />
+              </div>}
+            {searchText === "" &&
+              allPlates.map((plate, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
+                    style={{ marginBottom: 10 }}
+                  >
+                    <Plate
+                      plateId={plate.id}
+                      name={plate.name}
+                      description={plate.description}
+                      removePlate={removePlate}
+                      refetch={refetch}
+                      cardImage={plate.thumbnail}
+                      removePlateDialogOpen={removePlateDialogOpen}
+                      openRemovePlateDialog={openRemovePlateDialog}
+                      closeRemovePlateDialog={closeRemovePlateDialog}
+                      completed={plate.completed}
+                      completePlate={completePlate}
+                    />
+                  </div>
+                );
+              })}
+          </div>
+        </ReactCSSTransitionGroup>
       </div>
     );
   }

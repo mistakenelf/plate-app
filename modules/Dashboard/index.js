@@ -2,21 +2,12 @@ import DashboardContainer from "./containers/DashboardContainer";
 import DefaultLayout from "../DefaultLayout";
 import Header from "../../components/Header/Header";
 import React from "react";
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 const Dashboard = () => {
   return (
     <DefaultLayout>
       <Header title="Dashboard" />
-      <ReactCSSTransitionGroup
-        transitionName="example"
-        transitionAppear
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={300}
-        transitionAppearTimeout={1500}
-      >
-        <DashboardContainer />
-      </ReactCSSTransitionGroup>
+      <DashboardContainer />
       <style jsx global>
         {
           `
