@@ -11,5 +11,3 @@ cache:
 
 before_script:
   - npm install
-
-script:
