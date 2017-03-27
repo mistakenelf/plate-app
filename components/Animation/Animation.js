@@ -26,7 +26,7 @@ const Animation = props => {
 
           .example-enter.example-enter-active {
             transform: translate3d(0, 0, 0);
-            transition: all 600ms;
+            transition: all 300ms;
           }
 
           .example-leave {
@@ -43,7 +43,7 @@ const Animation = props => {
 
           .example-appear.example-appear-active {
             transform: translate3d(0, 0, 0);
-            transition: all 600ms;
+            transition: all 300ms;
           }
           `
         }
