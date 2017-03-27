@@ -1,6 +1,7 @@
 import React, { PropTypes } from "react";
 import { gql, withApollo } from "react-apollo";
 
+import AccountIcon from "material-ui/svg-icons/action/account-circle";
 import AppBar from "material-ui/AppBar";
 import Drawer from "material-ui/Drawer";
 import IconButton from "material-ui/IconButton";
@@ -8,6 +9,7 @@ import IconMenu from "material-ui/IconMenu";
 import Link from "next/link";
 import MenuItem from "material-ui/MenuItem";
 import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
+import Router from "next/router";
 
 const Navigation = props => {
   const { open, openDrawer, closeDrawer, client } = props;
@@ -29,19 +31,25 @@ const Navigation = props => {
   };
 
   const elementRight = (
-    <IconMenu
-      iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-      targetOrigin={{ horizontal: "right", vertical: "top" }}
-      anchorOrigin={{ horizontal: "right", vertical: "top" }}
-    >
-      <Link prefetch href="/login"><a><MenuItem>Login</MenuItem></a></Link>
-      <Link prefetch href="/register">
-        <a><MenuItem>Register</MenuItem></a>
-      </Link>
-      <Link prefetch href="/profile">
-        <a><MenuItem>Profile</MenuItem></a>
-      </Link>
-    </IconMenu>
+    <div>
+      <AccountIcon
+        style={{ color: "white", cursor: "pointer" }}
+        onTouchTap={() => Router.push("/profile")}
+        hoverColor="#B0BEC5"
+      />
+      <IconMenu
+        iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+        targetOrigin={{ horizontal: "right", vertical: "top" }}
+        anchorOrigin={{ horizontal: "right", vertical: "top" }}
+        iconStyle={{ color: "white" }}
+      >
+        <Link prefetch href="/login"><a><MenuItem>Login</MenuItem></a></Link>
+        <Link prefetch href="/register">
+          <a><MenuItem>Register</MenuItem></a>
+        </Link>
+
+      </IconMenu>
+    </div>
   );
 
   return (
