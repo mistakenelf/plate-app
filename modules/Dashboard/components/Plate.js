@@ -55,9 +55,11 @@ export default class Plate extends Component {
     return (
       <div className="card">
         <Card
-          style={{
-            borderRadius: 5
-          }}
+          style={
+            this.props.completed
+              ? { borderRadius: 5, backgroundColor: "#76FF03" }
+              : { borderRadius: 5 }
+          }
         >
           <CardMedia
             overlay={<CardTitle title={this.props.name} />}
@@ -80,7 +82,7 @@ export default class Plate extends Component {
               {this.props.description}
             </div>
             <div>
-              Status: {this.props.completed ? "Closed" : "Open"}
+              Status: {this.props.completed ? "Completed" : "To Be Completed"}
             </div>
           </CardText>
           <CardActions>
