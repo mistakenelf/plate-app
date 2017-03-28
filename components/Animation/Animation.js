@@ -3,8 +3,6 @@ import React, { PropTypes } from "react";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 const Animation = props => {
-  const { children } = props;
-
   return (
     <div>
       <ReactCSSTransitionGroup
@@ -15,7 +13,7 @@ const Animation = props => {
         transitionLeave={false}
       >
 
-        {children}
+        {props.children}
       </ReactCSSTransitionGroup>
       <style jsx global>
         {

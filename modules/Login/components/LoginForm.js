@@ -3,48 +3,14 @@ import React, { PropTypes } from "react";
 
 import BorderedButton from "../../../components/BorderedButton/BorderedButton";
 import Link from "next/link";
-import TextField from "material-ui/TextField";
+import RenderTextField from "../utils/RenderTextField";
+import { loginValidations } from "../utils/validations";
 
 const login = () => {
   console.log("submitted");
 };
 
-const validate = values => {
-  const errors = {};
-  if (!values.email) {
-    errors.email = "Please enter an email";
-  }
-  if (!values.password) {
-    errors.password = "Please enter a password";
-  } else if (
-    values.email &&
-    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-  ) {
-    errors.email = "Invalid email address";
-  }
-  return errors;
-};
-
-const RenderTextField = props => {
-  const { input, label, meta: { touched, error }, ...custom } = props;
-
-  return (
-    <TextField
-      hintStyle={{ color: "white" }}
-      inputStyle={{ color: "white" }}
-      hintText={label}
-      autoComplete={"off"}
-      errorText={touched && error}
-      fullWidth
-      {...input}
-      {...custom}
-    />
-  );
-};
-
 const LoginForm = props => {
-  const { handleSubmit } = props;
-
   return (
     <div className="container-fluid">
       <div
@@ -52,7 +18,7 @@ const LoginForm = props => {
       >
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
           <h1 className="header-text">Login</h1>
-          <form onSubmit={handleSubmit(login)}>
+          <form onSubmit={props.handleSubmit(login)}>
             <Field
               name="email"
               id="email"
@@ -106,17 +72,11 @@ const LoginForm = props => {
   );
 };
 
-RenderTextField.propTypes = {
-  label: PropTypes.string,
-  meta: PropTypes.object,
-  input: PropTypes.object
-};
-
 LoginForm.propTypes = {
   handleSubmit: PropTypes.func
 };
 
 export default reduxForm({
   form: "loginForm",
-  validate
+  validate: loginValidations
 })(LoginForm);

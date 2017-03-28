@@ -18,15 +18,6 @@ import NavigationExpandMoreIcon
 import RaisedButton from "material-ui/RaisedButton";
 
 const DashboardMenu = props => {
-  const {
-    addPlate,
-    searchText,
-    doSearch,
-    createPlateDialogOpen,
-    openCreatePlateDialog,
-    closeCreatePlateDialog
-  } = props;
-
   return (
     <div>
       <div className="toolbar-desktop">
@@ -35,7 +26,10 @@ const DashboardMenu = props => {
             <ToolbarTitle text="Manage Plates" />
           </ToolbarGroup>
           <ToolbarGroup>
-            <DashBoardSearch searchText={searchText} doSearch={doSearch} />
+            <DashBoardSearch
+              searchText={props.searchText}
+              doSearch={props.doSearch}
+            />
           </ToolbarGroup>
           <ToolbarGroup>
             <IconButton tooltip="Mark all plates as done">
@@ -45,7 +39,7 @@ const DashboardMenu = props => {
             <RaisedButton
               primary
               label="Create Plate"
-              onTouchTap={() => openCreatePlateDialog()}
+              onTouchTap={() => props.openCreatePlateDialog()}
             />
           </ToolbarGroup>
         </Toolbar>
@@ -65,7 +59,7 @@ const DashboardMenu = props => {
             >
               <MenuItem
                 primaryText="Create Plate"
-                onTouchTap={() => openCreatePlateDialog()}
+                onTouchTap={() => props.openCreatePlateDialog()}
               />
               <Divider />
               <MenuItem primaryText="Mark All Complete" />
@@ -74,9 +68,9 @@ const DashboardMenu = props => {
         </Toolbar>
       </div>
       <AddPlateDialog
-        open={createPlateDialogOpen}
-        closeDialog={closeCreatePlateDialog}
-        addPlate={addPlate}
+        open={props.createPlateDialogOpen}
+        closeDialog={props.closeCreatePlateDialog}
+        addPlate={props.addPlate}
       />
       <style jsx>
         {

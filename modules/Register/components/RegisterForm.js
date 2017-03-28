@@ -2,43 +2,11 @@ import { Field, reduxForm } from "redux-form";
 import React, { PropTypes } from "react";
 
 import BorderedButton from "../../../components/BorderedButton/BorderedButton";
-import TextField from "material-ui/TextField";
+import RenderTextField from "../utils/RenderTextField";
+import { registerValidations } from "../utils/validations";
 
 const register = () => {
   console.log("submitted");
-};
-
-const validate = values => {
-  const errors = {};
-  if (!values.email) {
-    errors.email = "Please enter an email";
-  }
-  if (!values.password) {
-    errors.password = "Please enter a password";
-  } else if (
-    values.email &&
-    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-  ) {
-    errors.email = "Invalid email address";
-  }
-  return errors;
-};
-
-const RenderTextField = props => {
-  const { input, label, meta: { touched, error }, ...custom } = props;
-
-  return (
-    <TextField
-      hintStyle={{ color: "white" }}
-      inputStyle={{ color: "white" }}
-      hintText={label}
-      autoComplete={"off"}
-      errorText={touched && error}
-      fullWidth
-      {...input}
-      {...custom}
-    />
-  );
 };
 
 const RegisterForm = props => {
@@ -93,17 +61,11 @@ const RegisterForm = props => {
   );
 };
 
-RenderTextField.propTypes = {
-  label: PropTypes.string,
-  meta: PropTypes.object,
-  input: PropTypes.object
-};
-
 RegisterForm.propTypes = {
   handleSubmit: PropTypes.func
 };
 
 export default reduxForm({
   form: "registerForm",
-  validate
+  validate: registerValidations
 })(RegisterForm);

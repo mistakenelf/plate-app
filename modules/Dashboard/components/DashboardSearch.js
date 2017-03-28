@@ -9,8 +9,6 @@ const searchPlate = (searchText, doSearch) => {
 };
 
 const DashboardSearch = props => {
-  const { searchText, doSearch } = props;
-
   return (
     <div className="row">
       <div className="col-xs-12 col-sm-12 col-md-11 col-lg-11 col-xl-11">
@@ -20,7 +18,7 @@ const DashboardSearch = props => {
         <RaisedButton
           label="Search"
           primary
-          onClick={() => searchPlate(searchText, doSearch)}
+          onClick={() => searchPlate(props.searchText, props.doSearch)}
         />
       </div>
     </div>

@@ -12,11 +12,9 @@ Router.onRouteChangeComplete = () => NProgress.done();
 Router.onRouteChangeError = () => NProgress.done();
 
 const Header = props => {
-  const { title } = props;
-
   return (
     <Head>
-      <title>Plate - {title}</title>
+      <title>Plate - {props.title}</title>
       <meta charSet="utf-8" />
       <meta
         name="viewport"

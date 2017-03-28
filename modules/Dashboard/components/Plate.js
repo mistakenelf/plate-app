@@ -21,48 +21,42 @@ const deletePlate = (removePlate, plateId) => {
 };
 
 const Plate = props => {
-  const {
-    name,
-    plateId,
-    description,
-    removePlate,
-    cardImage,
-    completed,
-    completePlate
-  } = props;
-
   return (
     <div className="card">
       <Card style={{ borderRadius: 5 }}>
-        {completed &&
+        {props.completed &&
           <CardHeader
-            title={name + " is completed!"}
+            title={props.name + " is completed!"}
             avatar={<CheckCircle style={{ color: "green" }} />}
           />}
         <CardMedia
-          overlay={<CardTitle title={name} />}
+          overlay={<CardTitle title={props.name} />}
           onTouchTap={() =>
-            markPlateComplete(plateId, completed, completePlate)}
+            markPlateComplete(
+              props.plateId,
+              props.completed,
+              props.completePlate
+            )}
         >
           <img
             style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }}
-            src={cardImage}
+            src={props.cardImage}
             width="208"
             height="214"
           />
         </CardMedia>
         <CardText>
-          {description}
+          {props.description}
         </CardText>
         <CardActions>
           <FlatButton
             label="Wash Plate"
             secondary
-            onTouchTap={() => deletePlate(removePlate, plateId)}
+            onTouchTap={() => deletePlate(props.removePlate, props.plateId)}
           />
           <Link
             prefetch
-            href={{ pathname: "platefiller", query: { id: plateId } }}
+            href={{ pathname: "platefiller", query: { id: props.plateId } }}
           >
             <a><FlatButton primary label="Fill Plate" /></a>
           </Link>

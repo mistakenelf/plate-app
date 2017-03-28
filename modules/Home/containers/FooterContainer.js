@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from "react";
+import React, { PropTypes } from "react";
 
 import Divider from "material-ui/Divider";
 import FooterMobile from "../components/FooterMobile";
@@ -7,81 +7,66 @@ import { actions } from "../actions";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-class FooterContainer extends Component {
-  static propTypes = {
-    quickLinkOpen: PropTypes.bool,
-    aboutLinkOpen: PropTypes.bool,
-    toggleAboutLink: PropTypes.func,
-    toggleQuickLink: PropTypes.func
-  };
-
-  render() {
-    const {
-      quickLinkOpen,
-      aboutLinkOpen,
-      toggleAboutLink,
-      toggleQuickLink
-    } = this.props;
-
-    return (
-      <div>
-        <div className="footer-main">
-          <div className="row">
-            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-              <h3>Plate</h3>
-              <div className="divider-style">
-                <Divider />
-              </div>
-              <p>
-                Plate is the easiest way to manage your tasks<br />
-                Check out our resources to learn more about<br />
-                getting started.
-              </p>
+const FooterContainer = props => {
+  return (
+    <div>
+      <div className="footer-main">
+        <div className="row">
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <h3>Plate</h3>
+            <div className="divider-style">
+              <Divider />
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-              <h3>Quick Links</h3>
-              <div className="divider-style">
-                <Divider />
-              </div>
-              <Link prefetch href="/register">
-                <a className="footer-links">Register</a>
-              </Link>
-              <br />
-              <Link prefetch href="/login">
-                <a className="footer-links">
-                  Login
-                </a>
-              </Link>
+            <p>
+              Plate is the easiest way to manage your tasks<br />
+              Check out our resources to learn more about<br />
+              getting started.
+            </p>
+          </div>
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <h3>Quick Links</h3>
+            <div className="divider-style">
+              <Divider />
             </div>
-            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-              <h3>Get In Touch</h3>
-              <div className="divider-style">
-                <Divider />
-              </div>
-              <Link prefetch href="/">
-                <a className="footer-links">About Us</a>
-              </Link>
-              <br />
-              <Link prefetch href="/">
-                <a className="footer-links">Contact Us</a>
-              </Link>
+            <Link prefetch href="/register">
+              <a className="footer-links">Register</a>
+            </Link>
+            <br />
+            <Link prefetch href="/login">
+              <a className="footer-links">
+                Login
+              </a>
+            </Link>
+          </div>
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <h3>Get In Touch</h3>
+            <div className="divider-style">
+              <Divider />
             </div>
+            <Link prefetch href="/">
+              <a className="footer-links">About Us</a>
+            </Link>
+            <br />
+            <Link prefetch href="/">
+              <a className="footer-links">Contact Us</a>
+            </Link>
           </div>
         </div>
-        <div className="footer-mobile">
-          <FooterMobile
-            quickLinkOpen={quickLinkOpen}
-            aboutLinkOpen={aboutLinkOpen}
-            toggleAboutLink={toggleAboutLink}
-            toggleQuickLink={toggleQuickLink}
-          />
-        </div>
-        <div className="copyright">
-          Copyright © 2017 Plate
-        </div>
-        <style jsx>
-          {
-            `
+      </div>
+      <div className="footer-mobile">
+        <FooterMobile
+          quickLinkOpen={props.quickLinkOpen}
+          aboutLinkOpen={props.aboutLinkOpen}
+          toggleAboutLink={props.toggleAboutLink}
+          toggleQuickLink={props.toggleQuickLink}
+        />
+      </div>
+      <div className="copyright">
+        Copyright © 2017 Plate
+      </div>
+      <style jsx>
+        {
+          `
         .footer-mobile {
           background-color: #1E2532;
           padding: 30px;
@@ -164,12 +149,11 @@ class FooterContainer extends Component {
           }
         }
       `
-          }
-        </style>
-      </div>
-    );
-  }
-}
+        }
+      </style>
+    </div>
+  );
+};
 
 const mapStateToProps = (
   {
@@ -193,6 +177,13 @@ const mapDispatchToProps = dispatch => {
     },
     dispatch
   );
+};
+
+FooterContainer.propTypes = {
+  quickLinkOpen: PropTypes.bool,
+  aboutLinkOpen: PropTypes.bool,
+  toggleAboutLink: PropTypes.func,
+  toggleQuickLink: PropTypes.func
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(FooterContainer);

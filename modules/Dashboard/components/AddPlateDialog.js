@@ -3,32 +3,8 @@ import React, { PropTypes } from "react";
 
 import Dialog from "material-ui/Dialog";
 import FlatButton from "material-ui/FlatButton";
-import TextField from "material-ui/TextField";
-
-const validate = values => {
-  const errors = {};
-  if (!values.name) {
-    errors.name = "Please enter a plate name";
-  }
-  if (!values.description) {
-    errors.description = "Please enter a plate description";
-  }
-  return errors;
-};
-
-const RenderTextField = props => {
-  const { input, label, meta: { touched, error }, ...custom } = props;
-  return (
-    <TextField
-      hintText={label}
-      autoComplete={"off"}
-      errorText={touched && error}
-      fullWidth
-      {...input}
-      {...custom}
-    />
-  );
-};
+import RenderTextField from "../utils/RenderTextField";
+import { addPlateValidations } from "../utils/validations";
 
 const confirmAddPlate = (addPlate, closeDialog, reset) => {
   const plateName = document.getElementById("name").value;
@@ -51,14 +27,12 @@ const confirmAddPlate = (addPlate, closeDialog, reset) => {
 };
 
 const AddPlateDialog = props => {
-  const { open, closeDialog, addPlate, handleSubmit, reset } = props;
-
   const actions = [
     <FlatButton
       label="Cancel"
       type="button"
       secondary
-      onTouchTap={closeDialog}
+      onTouchTap={props.closeDialog}
     />,
     <FlatButton label="Add Plate" form="plateForm" primary type="submit" />
   ];
@@ -67,15 +41,15 @@ const AddPlateDialog = props => {
     <Dialog
       title="Add A New Plate"
       modal={false}
-      open={open}
+      open={props.open}
       actions={actions}
-      onRequestClose={closeDialog}
+      onRequestClose={props.closeDialog}
       contentStyle={{ width: "95%" }}
     >
       <form
         id="plateForm"
-        onSubmit={handleSubmit(() =>
-          confirmAddPlate(addPlate, closeDialog, reset))}
+        onSubmit={props.handleSubmit(() =>
+          confirmAddPlate(props.addPlate, props.closeDialog, props.reset))}
       >
         <Field
           name="name"
@@ -99,12 +73,6 @@ const AddPlateDialog = props => {
   );
 };
 
-RenderTextField.propTypes = {
-  label: PropTypes.string,
-  meta: PropTypes.object,
-  input: PropTypes.object
-};
-
 AddPlateDialog.propTypes = {
   open: PropTypes.bool,
   closeDialog: PropTypes.func,
@@ -115,5 +83,5 @@ AddPlateDialog.propTypes = {
 
 export default reduxForm({
   form: "addPlateForm",
-  validate
+  validate: addPlateValidations
 })(AddPlateDialog);

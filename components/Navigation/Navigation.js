@@ -12,8 +12,6 @@ import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
 import Router from "next/router";
 
 const Navigation = props => {
-  const { open, openDrawer, closeDrawer, client } = props;
-
   const Query = gql`
     query {
       allPlates {
@@ -25,7 +23,7 @@ const Navigation = props => {
   `;
 
   const prefetchPlates = () => {
-    client.query({
+    props.client.query({
       query: Query
     });
   };
@@ -56,7 +54,7 @@ const Navigation = props => {
     <div>
       <AppBar
         title="Plate"
-        onLeftIconButtonTouchTap={openDrawer}
+        onLeftIconButtonTouchTap={props.openDrawer}
         iconElementRight={elementRight}
         style={{
           backgroundColor: "#343f53",
@@ -68,19 +66,19 @@ const Navigation = props => {
       <Drawer
         docked={false}
         width={200}
-        open={open}
-        onRequestChange={closeDrawer}
+        open={props.open}
+        onRequestChange={props.closeDrawer}
       >
         <Link prefetch href="/">
           <a className="sidebar-text">
-            <MenuItem onTouchTap={closeDrawer}>Home</MenuItem>
+            <MenuItem onTouchTap={props.closeDrawer}>Home</MenuItem>
           </a>
         </Link>
         <Link prefetch href="/dashboard">
           <a className="sidebar-text">
             <MenuItem
               onMouseOver={() => prefetchPlates()}
-              onTouchTap={closeDrawer}
+              onTouchTap={props.closeDrawer}
             >
               Dashboard
             </MenuItem>

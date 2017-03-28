@@ -1,8 +1,6 @@
 import React, { PropTypes } from "react";
 
 const NavlessLayout = props => {
-  const { children } = props;
-
   return (
     <div>
       <style jsx global>
@@ -19,7 +17,7 @@ const NavlessLayout = props => {
         `
         }
       </style>
-      {children}
+      {props.children}
     </div>
   );
 };

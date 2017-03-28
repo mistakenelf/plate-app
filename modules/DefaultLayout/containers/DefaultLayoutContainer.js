@@ -1,26 +1,16 @@
-import React, { Component, PropTypes } from "react";
+import React, { PropTypes } from "react";
 
 import Navigation from "../../../components/Navigation/Navigation";
 import { actions } from "../actions";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-class DefaultLayout extends Component {
-  static propTypes = {
-    children: PropTypes.node,
-    drawerOpen: PropTypes.bool,
-    openDrawer: PropTypes.func,
-    closeDrawer: PropTypes.func
-  };
-
-  render() {
-    const { children, drawerOpen, openDrawer, closeDrawer } = this.props;
-
-    return (
-      <div>
-        <style jsx global>
-          {
-            `
+const DefaultLayoutContainer = props => {
+  return (
+    <div>
+      <style jsx global>
+        {
+          `
             * {
               margin: 0;
               box-sizing: border-box;
@@ -31,18 +21,24 @@ class DefaultLayout extends Component {
               margin-bottom: 0px;
             }
           `
-          }
-        </style>
-        <Navigation
-          open={drawerOpen}
-          openDrawer={openDrawer}
-          closeDrawer={closeDrawer}
-        />
-        {children}
-      </div>
-    );
-  }
-}
+        }
+      </style>
+      <Navigation
+        open={props.drawerOpen}
+        openDrawer={props.openDrawer}
+        closeDrawer={props.closeDrawer}
+      />
+      {props.children}
+    </div>
+  );
+};
+
+DefaultLayoutContainer.propTypes = {
+  children: PropTypes.node,
+  drawerOpen: PropTypes.bool,
+  openDrawer: PropTypes.func,
+  closeDrawer: PropTypes.func
+};
 
 const mapStateToProps = ({ navigation: { drawerOpen } }) => {
   return {
@@ -60,4 +56,6 @@ const mapDispatchToProps = dispatch => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DefaultLayout);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  DefaultLayoutContainer
+);

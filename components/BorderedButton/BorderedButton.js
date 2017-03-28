@@ -3,13 +3,11 @@ import React, { PropTypes } from "react";
 import FlatButton from "material-ui/FlatButton";
 
 const BorderdButton = props => {
-  const { type, label } = props;
-
   return (
     <div className="bordered-button">
       <FlatButton
-        type={type}
-        label={label}
+        type={props.type}
+        label={props.label}
         labelStyle={{ color: "white", width: "100%" }}
       />
       <style jsx>

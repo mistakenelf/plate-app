@@ -7,22 +7,15 @@ import KeyboardArrowRight
   from "material-ui/svg-icons/hardware/keyboard-arrow-right";
 
 const FooterMobile = props => {
-  const {
-    quickLinkOpen,
-    aboutLinkOpen,
-    toggleAboutLink,
-    toggleQuickLink
-  } = props;
-
   return (
     <div className="footer-mobile-main">
       <List>
         <ListItem
           primaryText="Quick Links"
           style={{ color: "#bdbdbd" }}
-          onNestedListToggle={toggleQuickLink}
+          onNestedListToggle={props.toggleQuickLink}
           rightIcon={
-            quickLinkOpen ? <ExpandMoreIcon /> : <KeyboardArrowRight />
+            props.quickLinkOpen ? <ExpandMoreIcon /> : <KeyboardArrowRight />
           }
           primaryTogglesNestedList
           nestedItems={[
@@ -44,9 +37,9 @@ const FooterMobile = props => {
         <ListItem
           primaryText="About Us"
           style={{ color: "#bdbdbd" }}
-          onNestedListToggle={toggleAboutLink}
+          onNestedListToggle={props.toggleAboutLink}
           rightIcon={
-            aboutLinkOpen ? <ExpandMoreIcon /> : <KeyboardArrowRight />
+            props.aboutLinkOpen ? <ExpandMoreIcon /> : <KeyboardArrowRight />
           }
           primaryTogglesNestedList
           nestedItems={[

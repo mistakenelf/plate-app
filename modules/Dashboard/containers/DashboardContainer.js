@@ -1,5 +1,11 @@
-import React, { Component, PropTypes } from "react";
-import { compose, gql, graphql } from "react-apollo";
+import { AllPlatesQuery, PlatesByNameQuery } from "../utils/queries";
+import React, { PropTypes } from "react";
+import {
+  addPlateMutation,
+  completePlateMutation,
+  removePlateMutation,
+} from "../utils/mutations";
+import { compose, graphql } from "react-apollo";
 
 import Animation from "../../../components/Animation/Animation";
 import DashboardMenu from "../components/DashboardMenu";
@@ -10,89 +16,61 @@ import { actions } from "../actions";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-class DashboardContainer extends Component {
-  static propTypes = {
-    loading: PropTypes.bool,
-    allPlates: PropTypes.array,
-    addPlate: PropTypes.func,
-    removePlate: PropTypes.func,
-    searchText: PropTypes.string,
-    doSearch: PropTypes.func,
-    createPlateDialogOpen: PropTypes.bool,
-    openCreatePlateDialog: PropTypes.func,
-    closeCreatePlateDialog: PropTypes.func,
-    completePlate: PropTypes.func
-  };
-
-  render() {
-    const {
-      loading,
-      allPlates,
-      addPlate,
-      removePlate,
-      searchText,
-      doSearch,
-      createPlateDialogOpen,
-      openCreatePlateDialog,
-      closeCreatePlateDialog,
-      completePlate
-    } = this.props;
-
-    if (loading) {
-      return <Loader />;
-    }
-
-    return (
-      <div className="container-fluid" style={{ paddingTop: 5 }}>
-        <div className="row">
-          <div
-            className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
-            style={{ marginBottom: 10 }}
-          >
-            <DashboardMenu
-              addPlate={addPlate}
-              searchText={searchText}
-              doSearch={doSearch}
-              createPlateDialogOpen={createPlateDialogOpen}
-              openCreatePlateDialog={openCreatePlateDialog}
-              closeCreatePlateDialog={closeCreatePlateDialog}
-            />
-          </div>
-        </div>
-        <Animation>
-          <div className="row">
-            {allPlates.length === 0 &&
-              <div
-                className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-lg-offset-4 col-xl-offset-4 col-md-offset-3"
-              >
-                <NoPlatesFound />
-              </div>}
-            {searchText === "" &&
-              allPlates.map((plate, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
-                    style={{ marginBottom: 10 }}
-                  >
-                    <Plate
-                      plateId={plate.id}
-                      name={plate.name}
-                      description={plate.description}
-                      removePlate={removePlate}
-                      cardImage={plate.thumbnail}
-                      completed={plate.completed}
-                      completePlate={completePlate}
-                    />
-                  </div>
-                );
-              })}
-          </div>
-        </Animation>
-      </div>
-    );
+const DashboardContainer = props => {
+  if (props.loading) {
+    return <Loader />;
   }
-}
+
+  return (
+    <div className="container-fluid" style={{ paddingTop: 5 }}>
+      <div className="row">
+        <div
+          className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
+          style={{ marginBottom: 10 }}
+        >
+          <DashboardMenu
+            addPlate={props.addPlate}
+            searchText={props.searchText}
+            doSearch={props.doSearch}
+            createPlateDialogOpen={props.createPlateDialogOpen}
+            openCreatePlateDialog={props.openCreatePlateDialog}
+            closeCreatePlateDialog={props.closeCreatePlateDialog}
+          />
+        </div>
+      </div>
+      <Animation>
+        <div className="row">
+          {props.allPlates.length === 0 &&
+            <div
+              className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-lg-offset-4 col-xl-offset-4 col-md-offset-3"
+            >
+              <NoPlatesFound />
+            </div>}
+          {props.searchText === "" &&
+            props.allPlates.map((plate, index) => {
+              return (
+                <div
+                  key={index}
+                  className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
+                  style={{ marginBottom: 10 }}
+                >
+                  <Plate
+                    plateId={plate.id}
+                    name={plate.name}
+                    description={plate.description}
+                    removePlate={props.removePlate}
+                    cardImage={plate.thumbnail}
+                    completed={plate.completed}
+                    completePlate={props.completePlate}
+                  />
+                </div>
+              );
+            })}
+        </div>
+      </Animation>
+    </div>
+  );
+};
 
 const mapStateToProps = (
   {
@@ -119,55 +97,18 @@ const mapDispatchToProps = dispatch => {
   );
 };
 
-const AllPlatesQuery = gql`
-  query {
-    allPlates {
-      id
-      name
-      description
-      thumbnail
-      completed
-    }
-  }
-`;
-
-const PlatesByNameQuery = gql`
-  query allPlatesByName($name: String!) {
-    platesByName(name: $name) {
-      id
-      name
-      description
-      thumbnail
-    }
-  }
-`;
-
-const addPlateMutation = gql`
-  mutation addPlate($name: String!, $description: String!, $thumbnail: String!) {
-    addPlate(name: $name, description: $description, thumbnail: $thumbnail) {
-      name
-      description
-      thumbnail
-    }
-  }
-`;
-
-const removePlateMutation = gql`
-  mutation removePlate($id: ID!) {
-    removePlate(id: $id) {
-      id
-    }
-  }
-`;
-
-const completePlateMutation = gql`
-  mutation completePlate($id: ID!, $completed: Boolean!) {
-    completePlate(id: $id, completed: $completed) {
-      id
-      completed
-    }
-  }
-`;
+DashboardContainer.propTypes = {
+  loading: PropTypes.bool,
+  allPlates: PropTypes.array,
+  addPlate: PropTypes.func,
+  removePlate: PropTypes.func,
+  searchText: PropTypes.string,
+  doSearch: PropTypes.func,
+  createPlateDialogOpen: PropTypes.bool,
+  openCreatePlateDialog: PropTypes.func,
+  closeCreatePlateDialog: PropTypes.func,
+  completePlate: PropTypes.func
+};
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),

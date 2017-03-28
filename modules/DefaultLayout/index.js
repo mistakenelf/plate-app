@@ -3,11 +3,9 @@ import React, { PropTypes } from "react";
 import DefaultLayoutContainer from "./containers/DefaultLayoutContainer";
 
 const DefaultLayout = props => {
-  const { children } = props;
-
   return (
     <DefaultLayoutContainer>
-      {children}
+      {props.children}
     </DefaultLayoutContainer>
   );
 };
