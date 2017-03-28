@@ -57,7 +57,7 @@ export default class Plate extends Component {
         <Card
           style={
             this.props.completed
-              ? { borderRadius: 5, backgroundColor: "#76FF03" }
+              ? { borderRadius: 5, backgroundColor: "#BBDEFB" }
               : { borderRadius: 5 }
           }
         >
