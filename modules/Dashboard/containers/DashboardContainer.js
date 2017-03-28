@@ -15,23 +15,18 @@ class DashboardContainer extends Component {
     loading: PropTypes.bool,
     allPlates: PropTypes.array,
     addPlate: PropTypes.func,
-    refetch: PropTypes.func,
     removePlate: PropTypes.func,
     searchText: PropTypes.string,
     doSearch: PropTypes.func,
     createPlateDialogOpen: PropTypes.bool,
     openCreatePlateDialog: PropTypes.func,
     closeCreatePlateDialog: PropTypes.func,
-    removePlateDialogOpen: PropTypes.bool,
-    openRemovePlateDialog: PropTypes.func,
-    closeRemovePlateDialog: PropTypes.func,
     completePlate: PropTypes.func
   };
 
   render() {
     const {
       loading,
-      refetch,
       allPlates,
       addPlate,
       removePlate,
@@ -40,9 +35,6 @@ class DashboardContainer extends Component {
       createPlateDialogOpen,
       openCreatePlateDialog,
       closeCreatePlateDialog,
-      removePlateDialogOpen,
-      openRemovePlateDialog,
-      closeRemovePlateDialog,
       completePlate
     } = this.props;
 
@@ -59,7 +51,6 @@ class DashboardContainer extends Component {
           >
             <DashboardMenu
               addPlate={addPlate}
-              refetch={refetch}
               searchText={searchText}
               doSearch={doSearch}
               createPlateDialogOpen={createPlateDialogOpen}
@@ -89,11 +80,7 @@ class DashboardContainer extends Component {
                       name={plate.name}
                       description={plate.description}
                       removePlate={removePlate}
-                      refetch={refetch}
                       cardImage={plate.thumbnail}
-                      removePlateDialogOpen={removePlateDialogOpen}
-                      openRemovePlateDialog={openRemovePlateDialog}
-                      closeRemovePlateDialog={closeRemovePlateDialog}
                       completed={plate.completed}
                       completePlate={completePlate}
                     />
@@ -111,15 +98,13 @@ const mapStateToProps = (
   {
     dashboard: {
       searchText,
-      createPlateDialogOpen,
-      removePlateDialogOpen
+      createPlateDialogOpen
     }
   }
 ) => {
   return {
     searchText,
-    createPlateDialogOpen,
-    removePlateDialogOpen
+    createPlateDialogOpen
   };
 };
 
@@ -128,9 +113,7 @@ const mapDispatchToProps = dispatch => {
     {
       doSearch: actions.doSearch,
       openCreatePlateDialog: actions.openCreatePlateDialog,
-      closeCreatePlateDialog: actions.closeCreatePlateDialog,
-      openRemovePlateDialog: actions.openRemovePlateDialog,
-      closeRemovePlateDialog: actions.closeRemovePlateDialog
+      closeCreatePlateDialog: actions.closeCreatePlateDialog
     },
     dispatch
   );
@@ -189,10 +172,9 @@ const completePlateMutation = gql`
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
   graphql(AllPlatesQuery, {
-    props: ({ data: { loading, refetch, allPlates } }) => ({
+    props: ({ data: { loading, allPlates } }) => ({
       loading,
-      allPlates,
-      refetch
+      allPlates
     }),
     options: {
       fetchPolicy: "cache-and-network"
@@ -202,10 +184,9 @@ export default compose(
     options: {
       variables: { name: "Alex" }
     },
-    props: ({ data: { loading, refetch, platesByName } }) => ({
+    props: ({ data: { loading, platesByName } }) => ({
       plateByNameLoading: loading,
-      platesByName,
-      refetchByName: refetch
+      platesByName
     })
   }),
   graphql(addPlateMutation, {
@@ -236,6 +217,13 @@ export default compose(
   graphql(completePlateMutation, {
     props: ({ mutate }) => ({
       completePlate: (id, completed) => mutate({ variables: { id, completed } })
-    })
+    }),
+    options: {
+      refetchQueries: [
+        {
+          query: AllPlatesQuery
+        }
+      ]
+    }
   })
 )(DashboardContainer);

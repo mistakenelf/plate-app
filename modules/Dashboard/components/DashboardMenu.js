@@ -20,7 +20,6 @@ import RaisedButton from "material-ui/RaisedButton";
 const DashboardMenu = props => {
   const {
     addPlate,
-    refetch,
     searchText,
     doSearch,
     createPlateDialogOpen,
@@ -78,7 +77,6 @@ const DashboardMenu = props => {
         open={createPlateDialogOpen}
         closeDialog={closeCreatePlateDialog}
         addPlate={addPlate}
-        refetch={refetch}
       />
       <style jsx>
         {
@@ -106,7 +104,6 @@ const DashboardMenu = props => {
 
 DashboardMenu.propTypes = {
   addPlate: PropTypes.func,
-  refetch: PropTypes.func,
   searchText: PropTypes.string,
   doSearch: PropTypes.func,
   createPlateDialogOpen: PropTypes.bool,

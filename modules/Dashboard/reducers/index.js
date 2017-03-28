@@ -3,8 +3,7 @@ import { constants } from "../utils/constants";
 const initialState = {
   searchText: "",
   plateCompleted: false,
-  createPlateDialogOpen: false,
-  removePlateDialogOpen: false
+  createPlateDialogOpen: false
 };
 
 export default (state = initialState, action) => {
@@ -28,16 +27,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         createPlateDialogOpen: action.createPlateDialogOpen
-      };
-    case constants.OPEN_REMOVE_PLATE_DIALOG:
-      return {
-        ...state,
-        removePlateDialogOpen: action.removePlateDialogOpen
-      };
-    case constants.CLOSE_REMOVE_PLATE_DIALOG:
-      return {
-        ...state,
-        removePlateDialogOpen: action.removePlateDialogOpen
       };
     default:
       return state;

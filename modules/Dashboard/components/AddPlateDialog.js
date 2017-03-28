@@ -30,7 +30,7 @@ const RenderTextField = props => {
   );
 };
 
-const confirmAddPlate = (addPlate, closeDialog) => {
+const confirmAddPlate = (addPlate, closeDialog, reset) => {
   const plateName = document.getElementById("name").value;
   const plateDescription = document.getElementById("description").value;
 
@@ -47,10 +47,11 @@ const confirmAddPlate = (addPlate, closeDialog) => {
 
   addPlate(plateName, plateDescription, plateColors[colorNumber]);
   closeDialog();
+  reset();
 };
 
 const AddPlateDialog = props => {
-  const { open, closeDialog, addPlate, handleSubmit } = props;
+  const { open, closeDialog, addPlate, handleSubmit, reset } = props;
 
   const actions = [
     <FlatButton
@@ -73,7 +74,8 @@ const AddPlateDialog = props => {
     >
       <form
         id="plateForm"
-        onSubmit={handleSubmit(() => confirmAddPlate(addPlate, closeDialog))}
+        onSubmit={handleSubmit(() =>
+          confirmAddPlate(addPlate, closeDialog, reset))}
       >
         <Field
           name="name"
@@ -107,7 +109,8 @@ AddPlateDialog.propTypes = {
   open: PropTypes.bool,
   closeDialog: PropTypes.func,
   addPlate: PropTypes.func,
-  handleSubmit: PropTypes.func
+  handleSubmit: PropTypes.func,
+  reset: PropTypes.func
 };
 
 export default reduxForm({
