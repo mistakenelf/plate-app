@@ -1,14 +1,12 @@
 import {
   Card,
   CardActions,
-  CardHeader,
   CardMedia,
   CardText,
   CardTitle,
 } from "material-ui/Card";
 import React, { PropTypes } from "react";
 
-import CheckCircle from "material-ui/svg-icons/action/check-circle";
 import FlatButton from "material-ui/FlatButton";
 import Link from "next/link";
 
@@ -23,12 +21,11 @@ const deletePlate = (removePlate, plateId) => {
 const Plate = props => {
   return (
     <div className="card">
-      <Card style={{ borderRadius: 5 }}>
-        {props.completed &&
-          <CardHeader
-            title={props.name + " is completed!"}
-            avatar={<CheckCircle style={{ color: "green" }} />}
-          />}
+      <Card
+        style={{
+          borderRadius: 5
+        }}
+      >
         <CardMedia
           overlay={<CardTitle title={props.name} />}
           onTouchTap={() =>
@@ -46,7 +43,12 @@ const Plate = props => {
           />
         </CardMedia>
         <CardText>
-          {props.description}
+          <div style={{ marginBottom: 10 }}>
+            {props.description}
+          </div>
+          <div>
+            Status: {props.completed ? "Closed" : "Open"}
+          </div>
         </CardText>
         <CardActions>
           <FlatButton
