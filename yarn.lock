@@ -19,9 +19,13 @@
     "@types/express-serve-static-core" "*"
     "@types/serve-static" "*"
 
-"@types/graphql@^0.8.0", "@types/graphql@^0.8.5", "@types/graphql@^0.8.6":
+"@types/graphql@^0.8.5", "@types/graphql@^0.8.6":
   version "0.8.6"
   resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.8.6.tgz#b34fb880493ba835b0c067024ee70130d6f9bb68"
+
+"@types/graphql@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@types/graphql/-/graphql-0.9.0.tgz#fccf859f0d2817687f210737dc3be48a18b1d754"
 
 "@types/isomorphic-fetch@0.0.33":
   version "0.0.33"
@@ -32,8 +36,8 @@
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-0.0.29.tgz#fbcfd330573b912ef59eeee14602bface630754b"
 
 "@types/node@*":
-  version "7.0.11"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.11.tgz#55680189f2335f080f0aeb57871f0b9823646d89"
+  version "7.0.12"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.12.tgz#ae5f67a19c15f752148004db07cbbb372e69efc9"
 
 "@types/serve-static@*":
   version "1.7.31"
@@ -144,17 +148,18 @@ anymatch@^1.3.0:
     micromatch "^2.1.5"
 
 apollo-client@^1.0.0-rc.2:
-  version "1.0.0-rc.7"
-  resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-1.0.0-rc.7.tgz#190aaa2a632df0b0ab8e8d95715792804cd2fd69"
+  version "1.0.0-rc.8"
+  resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-1.0.0-rc.8.tgz#30105eb33f59ecab63f493177416d720ba0a8fd9"
   dependencies:
+    graphql "^0.9.1"
     graphql-anywhere "^3.0.1"
-    graphql-tag "^1.3.1"
+    graphql-tag "^2.0.0"
     redux "^3.4.0"
     symbol-observable "^1.0.2"
     whatwg-fetch "^2.0.0"
   optionalDependencies:
     "@types/async" "^2.0.31"
-    "@types/graphql" "^0.8.0"
+    "@types/graphql" "^0.9.0"
     "@types/isomorphic-fetch" "0.0.33"
 
 append-transform@^0.4.0:
@@ -1057,8 +1062,8 @@ browserify-rsa@^4.0.0:
     randombytes "^2.0.1"
 
 browserify-sign@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/browserify-sign/-/browserify-sign-4.0.0.tgz#10773910c3c206d5420a46aad8694f820b85968f"
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/browserify-sign/-/browserify-sign-4.0.4.tgz#aa4eb68e5d7b658baa6bf6a57e630cbd7a93d298"
   dependencies:
     bn.js "^4.1.1"
     browserify-rsa "^4.0.0"
@@ -1305,8 +1310,8 @@ convert-source-map@1.3.0:
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.3.0.tgz#e9f3e9c6e2728efc2676696a70eb382f73106a67"
 
 convert-source-map@^1.1.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.4.0.tgz#e3dad195bf61bfe13a7a3c73e9876ec14a0268f3"
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-1.5.0.tgz#9acd70851c6d5dfdd93d9282e5edf94a03ff46b5"
 
 cookie-signature@1.0.6:
   version "1.0.6"
@@ -1327,10 +1332,6 @@ core-js@^2.4.0:
 core-util-is@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
-
-crc@3.4.4:
-  version "3.4.4"
-  resolved "https://registry.yarnpkg.com/crc/-/crc-3.4.4.tgz#9da1e980e3bd44fc5c93bf5ab3da3378d85e466b"
 
 create-ecdh@^4.0.0:
   version "4.0.0"
@@ -1410,13 +1411,13 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
 
-debug@2.6.1:
+debug@2.6.1, debug@^2.1.1, debug@^2.2.0:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
   dependencies:
     ms "0.7.2"
 
-debug@2.6.3, debug@^2.1.1, debug@^2.2.0:
+debug@2.6.3:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.3.tgz#0f7eb8c30965ec08c72accfa0130c8b79984141d"
   dependencies:
@@ -1857,20 +1858,6 @@ expand-range@^1.8.1:
   dependencies:
     fill-range "^2.1.0"
 
-express-session@^1.15.2:
-  version "1.15.2"
-  resolved "https://registry.yarnpkg.com/express-session/-/express-session-1.15.2.tgz#d98516443a4ccb8688e1725ae584c02daa4093d4"
-  dependencies:
-    cookie "0.3.1"
-    cookie-signature "1.0.6"
-    crc "3.4.4"
-    debug "2.6.3"
-    depd "~1.1.0"
-    on-headers "~1.0.1"
-    parseurl "~1.3.1"
-    uid-safe "~2.1.4"
-    utils-merge "1.0.0"
-
 express@^4.15.2:
   version "4.15.2"
   resolved "https://registry.yarnpkg.com/express/-/express-4.15.2.tgz#af107fc148504457f2dca9a6f2571d7129b97b35"
@@ -2244,6 +2231,10 @@ graphql-server-module-graphiql@^0.6.0:
 graphql-tag@^1.3.1:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-1.3.2.tgz#7abb3a8fd9f3415d07163314ed237061c785b759"
+
+graphql-tag@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.0.0.tgz#f3efe3b4d64f33bfe8479ae06a461c9d72f2a6fe"
 
 graphql@^0.9.1:
   version "0.9.1"
@@ -3552,10 +3543,6 @@ on-finished@~2.3.0:
   dependencies:
     ee-first "1.1.1"
 
-on-headers@~1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/on-headers/-/on-headers-1.0.1.tgz#928f5d0f470d49342651ea6794b0857c100693f7"
-
 once@^1.3.0, once@^1.3.3, once@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
@@ -3875,10 +3862,6 @@ querystring-es3@^0.2.0:
 querystring@0.2.0, querystring@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
-
-random-bytes@~1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/random-bytes/-/random-bytes-1.0.0.tgz#4f68a1dc0ae58bd3fb95848c30324db75d64360b"
 
 randomatic@^1.1.3:
   version "1.1.6"
@@ -4745,12 +4728,6 @@ uglify-to-browserify@~1.0.0:
 uid-number@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
-
-uid-safe@~2.1.4:
-  version "2.1.4"
-  resolved "https://registry.yarnpkg.com/uid-safe/-/uid-safe-2.1.4.tgz#3ad6f38368c6d4c8c75ec17623fb79aa1d071d81"
-  dependencies:
-    random-bytes "~1.0.0"
 
 unfetch@2.1.2:
   version "2.1.2"
