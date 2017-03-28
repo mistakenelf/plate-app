@@ -60,7 +60,10 @@ const Plate = props => {
             secondary
             onTouchTap={() => deletePlate(removePlate, plateId)}
           />
-          <Link prefetch href={`/platefiller?id=${plateId}`}>
+          <Link
+            prefetch
+            href={{ pathname: "platefiller", query: { id: plateId } }}
+          >
             <a><FlatButton primary label="Fill Plate" /></a>
           </Link>
         </CardActions>
