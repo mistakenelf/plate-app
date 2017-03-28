@@ -9,7 +9,6 @@ import {
 import AddPlateDialog from "./AddPlateDialog";
 import DashBoardSearch from "./DashboardSearch";
 import Divider from "material-ui/Divider";
-import DoneAll from "material-ui/svg-icons/action/done-all";
 import IconButton from "material-ui/IconButton";
 import IconMenu from "material-ui/IconMenu";
 import MenuItem from "material-ui/MenuItem";
