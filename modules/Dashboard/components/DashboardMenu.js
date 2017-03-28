@@ -32,9 +32,6 @@ const DashboardMenu = props => {
             />
           </ToolbarGroup>
           <ToolbarGroup>
-            <IconButton tooltip="Mark all plates as done">
-              <DoneAll />
-            </IconButton>
             <ToolbarSeparator />
             <RaisedButton
               primary
