@@ -1,12 +1,6 @@
-import { AllPlatesQuery, PlatesByNameQuery } from "./utils/queries";
 import React, { Component, PropTypes } from "react";
-import {
-  addPlateMutation,
-  completePlateMutation,
-  removePlateMutation,
-} from "./utils/mutations";
-import { compose, graphql } from "react-apollo";
 
+import { AllPlatesQuery } from "./utils/queries";
 import Animation from "../../components/Animation/Animation";
 import DashboardMenu from "./components/DashboardMenu";
 import DefaultLayout from "../DefaultLayout";
@@ -14,14 +8,13 @@ import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import NoPlatesFound from "./components/NoPlatesFound";
 import Plate from "./components/Plate";
+import { graphql } from "react-apollo";
 
 class Dashboard extends Component {
   static propTypes = {
     loading: PropTypes.bool,
     allPlates: PropTypes.array,
-    addPlate: PropTypes.func,
-    removePlate: PropTypes.func,
-    completePlate: PropTypes.func
+    addPlate: PropTypes.func
   };
 
   render() {
@@ -59,10 +52,8 @@ class Dashboard extends Component {
                         plateId={plate.id}
                         name={plate.name}
                         description={plate.description}
-                        removePlate={this.props.removePlate}
                         cardImage={plate.thumbnail}
                         completed={plate.completed}
-                        completePlate={this.props.completePlate}
                       />
                     </Animation>
                   </div>
@@ -74,60 +65,12 @@ class Dashboard extends Component {
   }
 }
 
-export default compose(
-  graphql(AllPlatesQuery, {
-    props: ({ data: { loading, allPlates } }) => ({
-      loading,
-      allPlates
-    }),
-    options: {
-      fetchPolicy: "cache-and-network"
-    }
+export default graphql(AllPlatesQuery, {
+  props: ({ data: { loading, allPlates } }) => ({
+    loading,
+    allPlates
   }),
-  graphql(PlatesByNameQuery, {
-    options: {
-      variables: { name: "Alex" }
-    },
-    props: ({ data: { loading, platesByName } }) => ({
-      plateByNameLoading: loading,
-      platesByName
-    })
-  }),
-  graphql(addPlateMutation, {
-    props: ({ mutate }) => ({
-      addPlate: (name, description, thumbnail) =>
-        mutate({ variables: { name, description, thumbnail } })
-    }),
-    options: {
-      refetchQueries: [
-        {
-          query: AllPlatesQuery
-        }
-      ]
-    }
-  }),
-  graphql(removePlateMutation, {
-    props: ({ mutate }) => ({
-      removePlate: id => mutate({ variables: { id } })
-    }),
-    options: {
-      refetchQueries: [
-        {
-          query: AllPlatesQuery
-        }
-      ]
-    }
-  }),
-  graphql(completePlateMutation, {
-    props: ({ mutate }) => ({
-      completePlate: (id, completed) => mutate({ variables: { id, completed } })
-    }),
-    options: {
-      refetchQueries: [
-        {
-          query: AllPlatesQuery
-        }
-      ]
-    }
-  })
-)(Dashboard);
+  options: {
+    fetchPolicy: "cache-and-network"
+  }
+})(Dashboard);

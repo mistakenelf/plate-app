@@ -1,87 +1,106 @@
 import { Field, reduxForm } from "redux-form";
-import React, { PropTypes } from "react";
+import React, { Component, PropTypes } from "react";
+import { compose, graphql } from "react-apollo";
 
+import { AllPlatesQuery } from "../utils/queries";
 import Dialog from "material-ui/Dialog";
 import FlatButton from "material-ui/FlatButton";
 import RenderTextField from "../utils/RenderTextField";
+import { addPlateMutation } from "../utils/mutations";
 import { addPlateValidations } from "../utils/validations";
 
-const confirmAddPlate = (addPlate, closeDialog, reset) => {
-  const plateName = document.getElementById("name").value;
-  const plateDescription = document.getElementById("description").value;
+class AddPlateDialog extends Component {
+  static propTypes = {
+    open: PropTypes.bool,
+    closeDialog: PropTypes.func,
+    addPlate: PropTypes.func,
+    handleSubmit: PropTypes.func,
+    reset: PropTypes.func
+  };
 
-  const plateColors = [
-    "/static/img/taskIcon/taskIconBlue.png",
-    "/static/img/taskIcon/taskIconGreen.png",
-    "/static/img/taskIcon/taskIconOrange.png",
-    "/static/img/taskIcon/taskIconPink.png",
-    "/static/img/taskIcon/taskIconRed.png",
-    "/static/img/taskIcon/taskIconYellow.png"
-  ];
+  confirmAddPlate = () => {
+    const plateName = document.getElementById("name").value;
+    const plateDescription = document.getElementById("description").value;
 
-  const colorNumber = Math.floor(Math.random() * 6);
+    const plateColors = [
+      "/static/img/taskIcon/taskIconBlue.png",
+      "/static/img/taskIcon/taskIconGreen.png",
+      "/static/img/taskIcon/taskIconOrange.png",
+      "/static/img/taskIcon/taskIconPink.png",
+      "/static/img/taskIcon/taskIconRed.png",
+      "/static/img/taskIcon/taskIconYellow.png"
+    ];
 
-  addPlate(plateName, plateDescription, plateColors[colorNumber]);
-  closeDialog();
-  reset();
-};
+    const colorNumber = Math.floor(Math.random() * 6);
 
-const AddPlateDialog = props => {
-  const actions = [
-    <FlatButton
-      label="Cancel"
-      type="button"
-      secondary
-      onTouchTap={props.closeDialog}
-    />,
-    <FlatButton label="Add Plate" form="plateForm" primary type="submit" />
-  ];
+    this.props.addPlate(plateName, plateDescription, plateColors[colorNumber]);
+    this.props.closeDialog();
+    this.props.reset();
+  };
 
-  return (
-    <Dialog
-      title="Add A New Plate"
-      modal={false}
-      open={props.open}
-      actions={actions}
-      onRequestClose={props.closeDialog}
-      contentStyle={{ width: "95%" }}
-    >
-      <form
-        id="plateForm"
-        onSubmit={props.handleSubmit(() =>
-          confirmAddPlate(props.addPlate, props.closeDialog, props.reset))}
+  render() {
+    const actions = [
+      <FlatButton
+        label="Cancel"
+        type="button"
+        secondary
+        onTouchTap={this.props.closeDialog}
+      />,
+      <FlatButton label="Add Plate" form="plateForm" primary type="submit" />
+    ];
+
+    return (
+      <Dialog
+        title="Add A New Plate"
+        modal={false}
+        open={this.props.open}
+        actions={actions}
+        onRequestClose={this.props.closeDialog}
+        contentStyle={{ width: "95%" }}
       >
-        <Field
-          name="name"
-          id="name"
-          component={RenderTextField}
-          type="text"
-          label="Name"
-        />
-        <Field
-          name="description"
-          id="description"
-          component={RenderTextField}
-          type="text"
-          label="Description"
-          rows={4}
-          rowsMax={4}
-          multiLine
-        />
-      </form>
-    </Dialog>
-  );
-};
+        <form
+          id="plateForm"
+          onSubmit={this.props.handleSubmit(() => this.confirmAddPlate())}
+        >
+          <Field
+            name="name"
+            id="name"
+            component={RenderTextField}
+            type="text"
+            label="Name"
+          />
+          <Field
+            name="description"
+            id="description"
+            component={RenderTextField}
+            type="text"
+            label="Description"
+            rows={4}
+            rowsMax={4}
+            multiLine
+          />
+        </form>
+      </Dialog>
+    );
+  }
+}
 
-AddPlateDialog.propTypes = {
-  open: PropTypes.bool,
-  closeDialog: PropTypes.func,
-  addPlate: PropTypes.func,
-  handleSubmit: PropTypes.func,
-  reset: PropTypes.func
-};
-
-export default reduxForm({
-  form: "addPlateForm",
-  validate: addPlateValidations
-})(AddPlateDialog);
+export default compose(
+  reduxForm({
+    form: "addPlateForm",
+    validate: addPlateValidations
+  }),
+  graphql(addPlateMutation, {
+    props: ({ mutate }) => ({
+      addPlate: (name, description, thumbnail) =>
+        mutate({ variables: { name, description, thumbnail } })
+    }),
+    options: {
+      refetchQueries: [
+        {
+          query: AllPlatesQuery
+        }
+      ]
+    }
+  })
+)(AddPlateDialog);

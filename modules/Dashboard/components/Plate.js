@@ -6,12 +6,15 @@ import {
   CardTitle,
 } from "material-ui/Card";
 import React, { Component, PropTypes } from "react";
+import { completePlateMutation, removePlateMutation } from "../utils/mutations";
+import { compose, graphql } from "react-apollo";
 
+import { AllPlatesQuery } from "../utils/queries";
 import Dialog from "material-ui/Dialog";
 import FlatButton from "material-ui/FlatButton";
 import Link from "next/link";
 
-export default class Plate extends Component {
+class Plate extends Component {
   static propTypes = {
     name: PropTypes.string,
     description: PropTypes.string,
@@ -34,13 +37,13 @@ export default class Plate extends Component {
     this.setState({ open: false });
   };
 
-  deletePlate = (removePlate, plateId) => {
-    removePlate(plateId);
+  deletePlate = plateId => {
+    this.props.removePlate(plateId);
     this.handleClose();
   };
 
-  markPlateComplete = (plateId, completed, completePlate) => {
-    completePlate(plateId, !completed);
+  markPlateComplete = (plateId, completed) => {
+    this.props.completePlate(plateId, !completed);
   };
 
   render() {
@@ -49,8 +52,7 @@ export default class Plate extends Component {
       <FlatButton
         label="Discard"
         secondary
-        onTouchTap={() =>
-          this.deletePlate(this.props.removePlate, this.props.plateId)}
+        onTouchTap={() => this.deletePlate(this.props.plateId)}
       />
     ];
 
@@ -66,11 +68,7 @@ export default class Plate extends Component {
           <CardMedia
             overlay={<CardTitle title={this.props.name} />}
             onTouchTap={() =>
-              this.markPlateComplete(
-                this.props.plateId,
-                this.props.completed,
-                this.props.completePlate
-              )}
+              this.markPlateComplete(this.props.plateId, this.props.completed)}
           >
             <img
               style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }}
@@ -130,3 +128,30 @@ export default class Plate extends Component {
     );
   }
 }
+
+export default compose(
+  graphql(removePlateMutation, {
+    props: ({ mutate }) => ({
+      removePlate: id => mutate({ variables: { id } })
+    }),
+    options: {
+      refetchQueries: [
+        {
+          query: AllPlatesQuery
+        }
+      ]
+    }
+  }),
+  graphql(completePlateMutation, {
+    props: ({ mutate }) => ({
+      completePlate: (id, completed) => mutate({ variables: { id, completed } })
+    }),
+    options: {
+      refetchQueries: [
+        {
+          query: AllPlatesQuery
+        }
+      ]
+    }
+  })
+)(Plate);
