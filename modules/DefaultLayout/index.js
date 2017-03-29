@@ -26,21 +26,6 @@ export default class DefaultLayout extends Component {
   render() {
     return (
       <div>
-        <style jsx global>
-          {
-            `
-            * {
-              margin: 0;
-              box-sizing: border-box;
-            }
-            body {
-              font-family: 'Fira Sans', sans-serif;
-              margin-top: 60px;
-              margin-bottom: 0px;
-            }
-          `
-          }
-        </style>
         <Navigation
           open={this.state.open}
           openDrawer={this.openDrawer}

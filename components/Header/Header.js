@@ -25,6 +25,15 @@ const Header = props => {
       <style jsx global>
         {
           `
+          * {
+              margin: 0;
+              box-sizing: border-box;
+          }
+          body {
+            font-family: Roboto, sans-serif;
+            margin-top: 60px;
+            margin-bottom: 0px;
+          }
           /* Make clicks pass-through */
           #nprogress {
             pointer-events: none;
