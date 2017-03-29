@@ -61,7 +61,7 @@ class Plate extends Component {
         <Card
           style={
             this.props.completed
-              ? { borderRadius: 5, backgroundColor: "#BBDEFB" }
+              ? { borderRadius: 10, border: "5px solid #81C784" }
               : { borderRadius: 5 }
           }
         >
@@ -120,6 +120,7 @@ class Plate extends Component {
 
             .card:hover {
               box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+              border-radius: 10px;
             }
             `
           }
