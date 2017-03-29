@@ -1,5 +1,5 @@
 import { AllPlatesQuery, PlatesByNameQuery } from "../utils/queries";
-import React, { PropTypes } from "react";
+import React, { Component, PropTypes } from "react";
 import {
   addPlateMutation,
   completePlateMutation,
@@ -16,61 +16,62 @@ import { actions } from "../actions";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-const DashboardContainer = props => {
-  if (props.loading) {
-    return <Loader />;
-  }
+class DashboardContainer extends Component {
+  render() {
+    if (this.props.loading) {
+      return <Loader />;
+    }
 
-  return (
-    <div className="container-fluid" style={{ paddingTop: 5 }}>
-      <div className="row">
-        <div
-          className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
-          style={{ marginBottom: 10 }}
-        >
-          <DashboardMenu
-            addPlate={props.addPlate}
-            searchText={props.searchText}
-            doSearch={props.doSearch}
-            createPlateDialogOpen={props.createPlateDialogOpen}
-            openCreatePlateDialog={props.openCreatePlateDialog}
-            closeCreatePlateDialog={props.closeCreatePlateDialog}
+    const plates = this.props.allPlates.map((plate, index) => (
+      <div
+        key={index}
+        className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
+        style={{ marginBottom: 10 }}
+      >
+        <Animation>
+          <Plate
+            plateId={plate.id}
+            name={plate.name}
+            description={plate.description}
+            removePlate={this.props.removePlate}
+            cardImage={plate.thumbnail}
+            completed={plate.completed}
+            completePlate={this.props.completePlate}
           />
-        </div>
+        </Animation>
       </div>
-      <Animation>
+    ));
+
+    return (
+      <div className="container-fluid" style={{ paddingTop: 5 }}>
         <div className="row">
-          {props.allPlates.length === 0 &&
+          <div
+            className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
+            style={{ marginBottom: 10 }}
+          >
+            <DashboardMenu
+              addPlate={this.props.addPlate}
+              searchText={this.props.searchText}
+              doSearch={this.props.doSearch}
+              createPlateDialogOpen={this.props.createPlateDialogOpen}
+              openCreatePlateDialog={this.props.openCreatePlateDialog}
+              closeCreatePlateDialog={this.props.closeCreatePlateDialog}
+            />
+          </div>
+        </div>
+        <div className="row">
+          {this.props.allPlates.length === 0 &&
             <div
               className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-lg-offset-4 col-xl-offset-4 col-md-offset-3"
             >
               <NoPlatesFound />
             </div>}
-          {props.searchText === "" &&
-            props.allPlates.map((plate, index) => {
-              return (
-                <div
-                  key={index}
-                  className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
-                  style={{ marginBottom: 10 }}
-                >
-                  <Plate
-                    plateId={plate.id}
-                    name={plate.name}
-                    description={plate.description}
-                    removePlate={props.removePlate}
-                    cardImage={plate.thumbnail}
-                    completed={plate.completed}
-                    completePlate={props.completePlate}
-                  />
-                </div>
-              );
-            })}
+          {this.props.searchText === "" && plates}
         </div>
-      </Animation>
-    </div>
-  );
-};
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = (
   {
