@@ -17,7 +17,6 @@
     "express": "^4.15.2",
     "graphql": "^0.9.1",
     "graphql-server-express": "^0.6.0",
-    "gsap": "^1.19.1",
     "isomorphic-fetch": "^2.2.1",
     "material-ui": "^0.17.1",
     "mongodb": "^2.2.25",
