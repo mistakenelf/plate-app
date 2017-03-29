@@ -18,11 +18,20 @@ const Header = props => {
       />
       <link rel="shortcut icon" href="/static/img/plateLogo.png" />
       <link
+        async
         href="https://fonts.googleapis.com/css?family=Roboto"
         rel="stylesheet"
       />
-      <link rel="stylesheet" href="/static/css/flexboxgrid.css" />
-      <link rel="stylesheet" href="/static/css/nprogress.css" />
+      <link
+        rel="preload"
+        href="/static/css/flexboxgrid.css"
+        onLoad="this.rel='stylesheet'"
+      />
+      <link
+        rel="preload"
+        href="/static/css/nprogress.css"
+        onLoad="this.rel='stylesheet'"
+      />
       <link rel="manifest" href="/static/manifest.json" />
     </Head>
   );
