@@ -36,6 +36,7 @@ export default class Plate extends Component {
 
   deletePlate = (removePlate, plateId) => {
     removePlate(plateId);
+    handleClose();
   };
 
   markPlateComplete = (plateId, completed, completePlate) => {
