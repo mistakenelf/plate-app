@@ -3,7 +3,7 @@ import Header from "../../components/Header/Header";
 import ProfileForm from "./components/ProfileForm";
 import React from "react";
 
-const Profile = () => {
+const Account = () => {
   return (
     <DefaultLayout>
       <Header title="Profile" />
@@ -12,4 +12,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Account;

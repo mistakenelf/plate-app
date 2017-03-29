@@ -30,11 +30,6 @@ const Navigation = props => {
 
   const elementRight = (
     <div>
-      <AccountIcon
-        style={{ color: "white", cursor: "pointer" }}
-        onTouchTap={() => Router.push("/profile")}
-        hoverColor="#B0BEC5"
-      />
       <IconMenu
         iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
         targetOrigin={{ horizontal: "right", vertical: "top" }}
@@ -82,6 +77,11 @@ const Navigation = props => {
             >
               Dashboard
             </MenuItem>
+          </a>
+        </Link>
+        <Link prefetch href="/account">
+          <a className="sidebar-text">
+            <MenuItem onTouchTap={props.closeDrawer}>Account</MenuItem>
           </a>
         </Link>
       </Drawer>
