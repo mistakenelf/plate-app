@@ -1407,13 +1407,13 @@ date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
 
-debug@2.6.1, debug@^2.1.1, debug@^2.2.0:
+debug@2.6.1, debug@^2.1.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
   dependencies:
     ms "0.7.2"
 
-debug@2.6.3:
+debug@2.6.3, debug@^2.2.0:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/debug/-/debug-2.6.3.tgz#0f7eb8c30965ec08c72accfa0130c8b79984141d"
   dependencies:
@@ -4082,9 +4082,9 @@ redbox-react@^1.2.5:
     error-stack-parser "^1.3.6"
     object-assign "^4.0.1"
 
-redux-form@^6.6.0:
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/redux-form/-/redux-form-6.6.0.tgz#a26f05d5a2b317596733718031dec94126a0f05c"
+redux-form@^6.6.1:
+  version "6.6.1"
+  resolved "https://registry.yarnpkg.com/redux-form/-/redux-form-6.6.1.tgz#368dc4fc41301bfb1cd471b059a2215573649c8c"
   dependencies:
     deep-equal "^1.0.1"
     es6-error "^4.0.0"
