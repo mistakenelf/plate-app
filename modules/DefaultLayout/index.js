@@ -32,6 +32,21 @@ export default class DefaultLayout extends Component {
           closeDrawer={this.closeDrawer}
         />
         {this.props.children}
+        <style jsx global>
+          {
+            `
+            * {
+              margin: 0;
+              box-sizing: border-box;
+            }
+            body {
+              font-family: Roboto, sans-serif;
+              margin-top: 60px;
+              margin-bottom: 0px;
+            }
+            `
+          }
+        </style>
       </div>
     );
   }

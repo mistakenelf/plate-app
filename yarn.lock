@@ -3753,9 +3753,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier-eslint@^4.3.2:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/prettier-eslint/-/prettier-eslint-4.3.2.tgz#24c6361f514442506ee2019ca45484e97884e558"
+prettier-eslint@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/prettier-eslint/-/prettier-eslint-4.4.0.tgz#ded965da6a4d32bef72bfff992afbee0c0cf0443"
   dependencies:
     common-tags "^1.4.0"
     dlv "^1.1.0"
