@@ -1,64 +1,92 @@
 import { List, ListItem } from "material-ui/List";
-import React, { PropTypes } from "react";
+import React, { Component } from "react";
 
 import Divider from "material-ui/Divider";
 import ExpandMoreIcon from "material-ui/svg-icons/hardware/keyboard-arrow-down";
 import KeyboardArrowRight
   from "material-ui/svg-icons/hardware/keyboard-arrow-right";
 
-const FooterMobile = props => {
-  return (
-    <div className="footer-mobile-main">
-      <List>
-        <ListItem
-          primaryText="Quick Links"
-          style={{ color: "#bdbdbd" }}
-          onNestedListToggle={props.toggleQuickLink}
-          rightIcon={
-            props.quickLinkOpen ? <ExpandMoreIcon /> : <KeyboardArrowRight />
-          }
-          primaryTogglesNestedList
-          nestedItems={[
+class FooterMobile extends Component {
+  state = {
+    quickLinksOpen: false,
+    aboutLinksOpen: false
+  };
+
+  toggleQuickLinks = () => {
+    this.setState({
+      quickLinksOpen: !this.state.quickLinksOpen
+    });
+  };
+
+  toggleAboutLinks = () => {
+    this.setState({
+      aboutLinksOpen: !this.state.aboutLinksOpen
+    });
+  };
+
+  render() {
+    return (
+      <div className="footer-mobile">
+        <div className="footer-mobile-main">
+          <List>
             <ListItem
-              key={1}
-              primaryText="Register"
+              primaryText="Quick Links"
               style={{ color: "#bdbdbd" }}
-            />,
-            <ListItem
-              key={2}
-              primaryText="Login"
-              style={{ color: "#bdbdbd" }}
+              onNestedListToggle={this.toggleQuickLinks}
+              rightIcon={
+                this.state.quickLinksOpen
+                  ? <ExpandMoreIcon />
+                  : <KeyboardArrowRight />
+              }
+              primaryTogglesNestedList
+              nestedItems={[
+                <ListItem
+                  key={1}
+                  primaryText="Register"
+                  style={{ color: "#bdbdbd" }}
+                />,
+                <ListItem
+                  key={2}
+                  primaryText="Login"
+                  style={{ color: "#bdbdbd" }}
+                />
+              ]}
             />
-          ]}
-        />
-        <div className="divider-style">
-          <Divider />
+            <div className="divider-style">
+              <Divider />
+            </div>
+            <ListItem
+              primaryText="About Us"
+              style={{ color: "#bdbdbd" }}
+              onNestedListToggle={this.toggleAboutLinks}
+              rightIcon={
+                this.state.aboutLinksOpen
+                  ? <ExpandMoreIcon />
+                  : <KeyboardArrowRight />
+              }
+              primaryTogglesNestedList
+              nestedItems={[
+                <ListItem
+                  key={1}
+                  primaryText="Register"
+                  style={{ color: "#bdbdbd" }}
+                />,
+                <ListItem
+                  key={2}
+                  primaryText="Contact Us"
+                  style={{ color: "#bdbdbd" }}
+                />
+              ]}
+            />
+          </List>
         </div>
-        <ListItem
-          primaryText="About Us"
-          style={{ color: "#bdbdbd" }}
-          onNestedListToggle={props.toggleAboutLink}
-          rightIcon={
-            props.aboutLinkOpen ? <ExpandMoreIcon /> : <KeyboardArrowRight />
-          }
-          primaryTogglesNestedList
-          nestedItems={[
-            <ListItem
-              key={1}
-              primaryText="Register"
-              style={{ color: "#bdbdbd" }}
-            />,
-            <ListItem
-              key={2}
-              primaryText="Contact Us"
-              style={{ color: "#bdbdbd" }}
-            />
-          ]}
-        />
-      </List>
-      <style jsx>
-        {
-          `
+        <style jsx>
+          {
+            `
+            .footer-mobile {
+              background-color: #1E2532;
+              padding: 30px;
+            }
             .footer-mobile-main {
               background-color: #2E3644;
             }
@@ -67,18 +95,19 @@ const FooterMobile = props => {
               margin-top: 5px;
               margin-bottom: 5px;
             }
-          `
-        }
-      </style>
-    </div>
-  );
-};
-
-FooterMobile.propTypes = {
-  quickLinkOpen: PropTypes.bool,
-  aboutLinkOpen: PropTypes.bool,
-  toggleAboutLink: PropTypes.func,
-  toggleQuickLink: PropTypes.func
-};
+            @media only screen
+            and (min-device-width : 1031px)
+            and (max-device-width : 2600px) {
+              .footer-mobile {
+                display: none;
+              }
+            }
+            `
+          }
+        </style>
+      </div>
+    );
+  }
+}
 
 export default FooterMobile;

@@ -36,7 +36,7 @@ export default class Plate extends Component {
 
   deletePlate = (removePlate, plateId) => {
     removePlate(plateId);
-    handleClose();
+    this.handleClose();
   };
 
   markPlateComplete = (plateId, completed, completePlate) => {
@@ -53,6 +53,7 @@ export default class Plate extends Component {
           this.deletePlate(this.props.removePlate, this.props.plateId)}
       />
     ];
+
     return (
       <div className="card">
         <Card

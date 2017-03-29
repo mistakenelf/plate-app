@@ -1,6 +1,6 @@
 import Banner from "./components/Banner";
 import DefaultLayout from "../DefaultLayout";
-import FooterContainer from "./containers/FooterContainer";
+import Footer from "./components/Footer";
 import Header from "../../components/Header/Header";
 import HomeDetails from "./components/HomeDetails";
 import React from "react";
@@ -11,7 +11,7 @@ const Home = () => {
       <Header title="Home" />
       <Banner />
       <HomeDetails />
-      <FooterContainer />
+      <Footer />
     </DefaultLayout>
   );
 };
