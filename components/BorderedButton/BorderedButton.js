@@ -18,7 +18,7 @@ const BorderedButton = props => {
             border-radius: 4px;
             display: inline-block;
           }
-        `
+          `
         }
       </style>
     </div>

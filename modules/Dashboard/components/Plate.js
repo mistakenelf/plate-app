@@ -116,14 +116,14 @@ export default class Plate extends Component {
         <style jsx>
           {
             `
-          .card {
-            transition: 0.3s;
-          }
+            .card {
+              transition: 0.3s;
+            }
 
-          .card:hover {
-            box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
-          }
-          `
+            .card:hover {
+              box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
+            }
+            `
           }
         </style>
       </div>
