@@ -12,6 +12,7 @@ const NavlessLayout = props => {
               box-sizing: border-box;
           }
           body {
+            font-family: Roboto, sans-serif;
             margin-top: 0px;
             margin-bottom: 0px;
             background: linear-gradient(-90deg, rgb(141, 95, 115), #343f53);
