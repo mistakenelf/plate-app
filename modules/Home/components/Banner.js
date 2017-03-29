@@ -34,7 +34,7 @@ const Banner = () => {
         {
           `
           .banner {
-            background-image: url('/static/img/plateGradient.png');
+            background: linear-gradient(-90deg, rgb(141, 95, 115), #343f53);
             height: 500px;
             padding-top: 80px;
           }
@@ -68,7 +68,7 @@ const Banner = () => {
               font-size: 1.0em;
             }
           }
-        `
+          `
         }
       </style>
     </div>

@@ -11,7 +11,7 @@ const NavlessLayout = props => {
             box-sizing: border-box;
           }
           body {
-            background-image: url('/static/img/plateGradient.png');
+            background: linear-gradient(-90deg, rgb(141, 95, 115), #343f53);
             font-family: 'Fira Sans', sans-serif;
           }
         `
