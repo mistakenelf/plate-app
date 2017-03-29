@@ -22,6 +22,24 @@ class Dashboard extends Component {
       return <Loader />;
     }
 
+    const plates = this.props.allPlates.map((plate, index) => (
+      <div
+        key={index}
+        className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
+        style={{ marginBottom: 10 }}
+      >
+        <Animation>
+          <Plate
+            plateId={plate.id}
+            name={plate.name}
+            description={plate.description}
+            cardImage={plate.thumbnail}
+            completed={plate.completed}
+          />
+        </Animation>
+      </div>
+    ));
+
     return (
       <DefaultLayout>
         <Header title="Dashboard" />
@@ -35,29 +53,13 @@ class Dashboard extends Component {
             </div>
           </div>
           <div className="row">
-            {this.props.allPlates.length === 0
-              ? <div
-                  className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-lg-offset-4 col-xl-offset-4 col-md-offset-3"
-                >
-                  <NoPlatesFound />
-                </div>
-              : this.props.allPlates.map((plate, index) => (
-                  <div
-                    key={index}
-                    className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
-                    style={{ marginBottom: 10 }}
-                  >
-                    <Animation>
-                      <Plate
-                        plateId={plate.id}
-                        name={plate.name}
-                        description={plate.description}
-                        cardImage={plate.thumbnail}
-                        completed={plate.completed}
-                      />
-                    </Animation>
-                  </div>
-                ))}
+            {this.props.allPlates.length === 0 &&
+              <div
+                className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-lg-offset-4 col-xl-offset-4 col-md-offset-3"
+              >
+                <NoPlatesFound />
+              </div>}
+            {plates}
           </div>
         </div>
       </DefaultLayout>
