@@ -18,7 +18,7 @@ const Header = props => {
       />
       <link rel="shortcut icon" href="/static/img/plateLogo.png" />
       <link
-        href="https://fonts.googleapis.com/css?family=Fira+Sans"
+        href="https://fonts.googleapis.com/css?family=Roboto"
         rel="stylesheet"
       />
       <link rel="stylesheet" href="/static/css/flexboxgrid.css" />
