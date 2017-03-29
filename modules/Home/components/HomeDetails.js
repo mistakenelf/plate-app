@@ -13,7 +13,7 @@ const HomeDetails = () => {
           </p>
         </div>
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6col-xl-6">
-          <img src="/static/img/test.png" />
+          <div className="advertisement" />
         </div>
       </div>
       <div className="initial-row row full-height">
@@ -25,7 +25,7 @@ const HomeDetails = () => {
           </p>
         </div>
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6col-xl-6">
-          <img src="/static/img/test.png" />
+          <div className="advertisement" />
         </div>
       </div>
       <div className="initial-row row full-height">
@@ -37,12 +37,17 @@ const HomeDetails = () => {
           </p>
         </div>
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6col-xl-6">
-          <img src="/static/img/test.png" />
+          <div className="advertisement" />
         </div>
       </div>
       <style jsx>
         {
           `
+          .advertisement {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(-90deg, rgb(141, 95, 115), #343f53);
+          }
           .home-details {
             padding: 80px;
           }
