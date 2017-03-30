@@ -1,29 +1,41 @@
 import React from "react";
+import SwipeableViews from "react-swipeable-views";
+
+const styles = {
+  slide: {
+    padding: 15,
+    minHeight: 400,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    textAlign: "center",
+    color: "white",
+    fontSize: 45
+  },
+  slide1: {
+    background: "#FEA900"
+  },
+  slide2: {
+    background: "#B3DC4A"
+  },
+  slide3: {
+    background: "#6AC0FF"
+  }
+};
 
 const HomeDetails = () => {
   return (
-    <div className="home-details">
-      <div className="lead-in">
-        <h1>
-          This is the greatest task management app I have ever used. It so easy to get setup and start using right away
-        </h1>
+    <SwipeableViews enableMouseEvents resistance>
+      <div style={Object.assign({}, styles.slide, styles.slide1)}>
+        Easy To Use
       </div>
-      <style jsx>
-        {
-          `
-          .lead-in {
-            height: 500px;
-            display: flex;
-            padding-left: 20px;
-            padding-right: 20px;
-            align-items: center;
-            text-align: center;
-            justify-content: center;
-          }
-          `
-        }
-      </style>
-    </div>
+      <div style={Object.assign({}, styles.slide, styles.slide2)}>
+        Easy To Setup
+      </div>
+      <div style={Object.assign({}, styles.slide, styles.slide3)}>
+        Task management made Easy
+      </div>
+    </SwipeableViews>
   );
 };
 
