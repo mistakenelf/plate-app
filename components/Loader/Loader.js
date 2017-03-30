@@ -1,16 +1,32 @@
-import CircularProgress from "material-ui/CircularProgress";
 import React from "react";
+import RefreshIndicator from "material-ui/RefreshIndicator";
+
+const style = {
+  container: {
+    position: "relative"
+  },
+  refresh: {
+    display: "inline-block",
+    position: "relative"
+  }
+};
 
 const Loader = () => {
   return (
-    <div className="loader">
-      <CircularProgress size={60} />
+    <div className="loader" style={style.container}>
+      <RefreshIndicator
+        size={40}
+        left={10}
+        top={0}
+        status="loading"
+        style={style.refresh}
+      />
       <style jsx>
         {
           `
           .loader {
             display: flex;
-            height: 100vh;
+            width: 100%;
             justify-content: center;
             align-items: center;
           }

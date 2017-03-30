@@ -14,10 +14,8 @@ const Banner = () => {
         </div>
         <div className="header-secondary">
           <h5>
-            {" "}
             Create multiple plates and customize your very own task layout.
             <br />
-            {" "}
             Register now
             to begin managing your tasks!
           </h5>

@@ -2,8 +2,6 @@ import React, { Component, PropTypes } from "react";
 
 import { AllPlatesQuery } from "./utils/queries";
 import DashboardMenu from "./components/DashboardMenu";
-import DefaultLayout from "../DefaultLayout";
-import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import NoPlatesFound from "./components/NoPlatesFound";
 import Plate from "./components/Plate";
@@ -17,49 +15,43 @@ class Dashboard extends Component {
   };
 
   render() {
-    if (this.props.loading) {
-      return <Loader />;
-    }
-
-    const plates = this.props.allPlates.map((plate, index) => (
-      <div
-        key={index}
-        className="col-xs-12 col-sm-12 col-md-6 col-lg-3"
-        style={{ marginBottom: 10 }}
-      >
-        <Plate
-          plateId={plate.id}
-          name={plate.name}
-          description={plate.description}
-          cardImage={plate.thumbnail}
-          completed={plate.completed}
-        />
-      </div>
-    ));
-
     return (
-      <DefaultLayout>
-        <Header title="Dashboard" />
-        <div className="container-fluid" style={{ paddingTop: 5 }}>
-          <div className="row">
-            <div
-              className="col-xs-12 col-sm-12 col-md-12 col-lg-12"
-              style={{ marginBottom: 10 }}
-            >
-              <DashboardMenu addPlate={this.props.addPlate} />
-            </div>
+      <div className="container-fluid" style={{ paddingTop: 5 }}>
+        <div className="row">
+          <div
+            className="col-xs-12 col-sm-12 col-md-12 col-lg-12"
+            style={{ marginBottom: 10 }}
+          >
+            <DashboardMenu addPlate={this.props.addPlate} />
           </div>
-          <div className="row">
-            {this.props.allPlates.length === 0 &&
-              <div
+        </div>
+        <div className="row">
+          {this.props.loading && <Loader />}
+          {!this.props.loading && this.props.allPlates.length === 0
+            ? <div
                 className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3"
               >
                 <NoPlatesFound />
-              </div>}
-            {plates}
-          </div>
+              </div>
+            : !this.props.loading &&
+                this.props.allPlates.map((plate, index) => (
+                  <div
+                    key={index}
+                    className="col-xs-12 col-sm-12 col-md-6 col-lg-3"
+                    style={{ marginBottom: 10 }}
+                  >
+                    <Plate
+                      plateId={plate.id}
+                      name={plate.name}
+                      description={plate.description}
+                      cardImage={plate.thumbnail}
+                      completed={plate.completed}
+                    />
+                  </div>
+                ))}
+
         </div>
-      </DefaultLayout>
+      </div>
     );
   }
 }
