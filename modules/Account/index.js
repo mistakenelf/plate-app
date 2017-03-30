@@ -1,13 +1,13 @@
 import DefaultLayout from "../DefaultLayout";
 import Header from "../../components/Header/Header";
-import ProfileForm from "./components/ProfileForm";
+import ProfilePage from "./components/ProfilePage";
 import React from "react";
 
 const Account = () => {
   return (
     <DefaultLayout>
       <Header title="Profile" />
-      <ProfileForm />
+      <ProfilePage />
     </DefaultLayout>
   );
 };
