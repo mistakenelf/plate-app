@@ -2,30 +2,64 @@ import { Card, CardHeader } from "material-ui/Card";
 import { List, ListItem } from "material-ui/List";
 
 import Avatar from "material-ui/Avatar";
+import BackButton from "../../../components/BackButton/BackButton";
+import Divider from "material-ui/Divider";
+import EditIcon from "material-ui/svg-icons/editor/mode-edit";
 import EmailIcon from "material-ui/svg-icons/communication/email";
 import PhoneIcon from "material-ui/svg-icons/communication/call";
 import React from "react";
 
-export default () => (
-  <div className="container">
-    <div
-      className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg center-lg"
-    >
-      <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-        <Avatar src="/static/img/aleximage.jpg" size={200} />
+const ProfilePage = () => (
+  <div className="container-fluid">
+    <div className="row full-height">
+      <div
+        className="left col-xs-12 col-sm-12 col-md-6 col-lg-6 center-xs center-sm center-md center-lg center-lg"
+      >
+        <div className="row">
+          <BackButton buttonColor="black" />
+        </div>
+        <Avatar
+          src="/static/img/aleximage.jpg"
+          size={200}
+          style={{ marginBottom: 20 }}
+        />
+        <h3>Alex Knipfer</h3>
       </div>
-      <div className="col-xs-12 col-sm-12 col-md-6 col-lg-8">
-        <Card style={{ width: "300px", marginBottom: "20px" }}>
+      <div className="right col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <Card
+          style={{ width: "100%", marginTop: "20px", marginBottom: "20px" }}
+        >
           <CardHeader title="Contact Information" />
+          <Divider />
           <List>
-            <ListItem primaryText="Inbox" leftIcon={<EmailIcon />} />
-            <ListItem primaryText="Starred" leftIcon={<EmailIcon />} />
-            <ListItem primaryText="Sent mail" leftIcon={<EmailIcon />} />
-            <ListItem primaryText="Drafts" leftIcon={<EmailIcon />} />
-            <ListItem primaryText="Inbox" leftIcon={<EmailIcon />} />
+            <ListItem
+              primaryText="Inbox"
+              leftIcon={<EmailIcon />}
+              rightIcon={<EditIcon />}
+            />
+            <ListItem
+              primaryText="Starred"
+              leftIcon={<EmailIcon />}
+              rightIcon={<EditIcon />}
+            />
+            <ListItem
+              primaryText="Sent mail"
+              leftIcon={<EmailIcon />}
+              rightIcon={<EditIcon />}
+            />
+            <ListItem
+              primaryText="Drafts"
+              leftIcon={<EmailIcon />}
+              rightIcon={<EditIcon />}
+            />
+            <ListItem
+              primaryText="Inbox"
+              leftIcon={<EmailIcon />}
+              rightIcon={<EditIcon />}
+            />
           </List>
         </Card>
-        <Card style={{ width: "300px" }}>
+        <Card style={{ width: "100%" }}>
           <List>
             <ListItem
               leftIcon={<PhoneIcon />}
@@ -44,13 +78,13 @@ export default () => (
     <style jsx>
       {
         `
-      .container {
-        display: flex;
-        justify-content: center;
-        margin-top: 100px;
+      .container-fluid {
+        margin-top: 80px;
       }
         `
       }
     </style>
   </div>
 );
+
+export default ProfilePage;
