@@ -9,7 +9,6 @@ import IconMenu from "material-ui/IconMenu";
 import Link from "next/link";
 import MenuItem from "material-ui/MenuItem";
 import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
-import Router from "next/router";
 
 const Navigation = props => {
   const Query = gql`
