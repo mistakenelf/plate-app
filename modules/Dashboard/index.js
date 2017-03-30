@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from "react";
 
 import { AllPlatesQuery } from "./utils/queries";
-import Animation from "../../components/Animation/Animation";
 import DashboardMenu from "./components/DashboardMenu";
 import DefaultLayout from "../DefaultLayout";
 import Header from "../../components/Header/Header";
@@ -28,15 +27,13 @@ class Dashboard extends Component {
         className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
         style={{ marginBottom: 10 }}
       >
-        <Animation>
-          <Plate
-            plateId={plate.id}
-            name={plate.name}
-            description={plate.description}
-            cardImage={plate.thumbnail}
-            completed={plate.completed}
-          />
-        </Animation>
+        <Plate
+          plateId={plate.id}
+          name={plate.name}
+          description={plate.description}
+          cardImage={plate.thumbnail}
+          completed={plate.completed}
+        />
       </div>
     ));
 
