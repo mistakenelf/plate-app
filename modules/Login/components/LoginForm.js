@@ -32,6 +32,7 @@ const LoginForm = props => {
               component={RenderTextField}
               type="password"
               label="Password"
+              style={{ marginBottom: 20 }}
             />
             <BorderedButton type="submit" label="Login" />
           </form>

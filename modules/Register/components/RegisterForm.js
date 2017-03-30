@@ -33,6 +33,7 @@ const RegisterForm = props => {
               component={RenderTextField}
               type="password"
               label="Password"
+              style={{ marginBottom: 20 }}
             />
             <BorderedButton type="submit" label="Register" />
           </form>
