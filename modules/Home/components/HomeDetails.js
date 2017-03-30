@@ -12,8 +12,8 @@ const HomeDetails = () => {
             Our interface provides the most simplistic way for creatings tasks
           </p>
         </div>
-        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6col-xl-6">
-          <div className="advertisement" />
+        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <img src="/static/img/taskIcon/taskIconBlue.png" alt="Blue Task" />
         </div>
       </div>
       <div className="initial-row row full-height">
@@ -25,7 +25,10 @@ const HomeDetails = () => {
           </p>
         </div>
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6col-xl-6">
-          <div className="advertisement" />
+          <img
+            src="/static/img/taskIcon/taskIconOrange.png"
+            alt="Orange Task"
+          />
         </div>
       </div>
       <div className="initial-row row full-height">
@@ -37,17 +40,12 @@ const HomeDetails = () => {
           </p>
         </div>
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6col-xl-6">
-          <div className="advertisement" />
+          <img src="/static/img/taskIcon/taskIconGreen.png" alt="Green Task" />
         </div>
       </div>
       <style jsx>
         {
           `
-          .advertisement {
-            height: 100%;
-            width: 100%;
-            background: linear-gradient(-90deg, rgb(141, 95, 115), #343f53);
-          }
           .home-details {
             padding: 80px;
           }
@@ -60,7 +58,7 @@ const HomeDetails = () => {
           }
           img {
             width: 100%;
-            height: auto;
+            height: 100%;
           }
           @media only screen
             and (min-device-width : 1080px) {
