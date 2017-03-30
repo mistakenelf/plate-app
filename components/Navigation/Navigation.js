@@ -30,6 +30,14 @@ const Navigation = props => {
 
   const elementRight = (
     <div>
+      <Link prefetch href="/account">
+        <a>
+          <AccountIcon
+            style={{ color: "white", cursor: "pointer" }}
+            hoverColor="#B0BEC5"
+          />
+        </a>
+      </Link>
       <IconMenu
         iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
         targetOrigin={{ horizontal: "right", vertical: "top" }}
@@ -77,11 +85,6 @@ const Navigation = props => {
             >
               Dashboard
             </MenuItem>
-          </a>
-        </Link>
-        <Link prefetch href="/account">
-          <a className="sidebar-text">
-            <MenuItem onTouchTap={props.closeDrawer}>Account</MenuItem>
           </a>
         </Link>
       </Drawer>
