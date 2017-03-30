@@ -15,7 +15,7 @@ const ProfileForm = props => {
     <div className="container">
       <form onSubmit={props.handleSubmit(updateProfile)}>
         <div className="row">
-          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <Field
               name="firstName"
               id="firstName"
@@ -24,7 +24,7 @@ const ProfileForm = props => {
               label="First Name"
             />
           </div>
-          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <Field
               name="lastName"
               id="lastName"

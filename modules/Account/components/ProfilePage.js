@@ -9,12 +9,12 @@ import React from "react";
 export default () => (
   <div className="container">
     <div
-      className="row full-height middle-xs middle-sm middle-md middle-lg middle-xl center-xs center-sm center-md center-lg center-lg"
+      className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg center-lg"
     >
-      <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
         <Avatar src="/static/img/aleximage.jpg" size={200} />
       </div>
-      <div className="col-xs-12 col-sm-12 col-md-6 col-lg-8 col-xl-8">
+      <div className="col-xs-12 col-sm-12 col-md-6 col-lg-8">
         <Card style={{ width: "300px", marginBottom: "20px" }}>
           <CardHeader title="Contact Information" />
           <List>

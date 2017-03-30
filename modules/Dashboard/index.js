@@ -24,7 +24,7 @@ class Dashboard extends Component {
     const plates = this.props.allPlates.map((plate, index) => (
       <div
         key={index}
-        className="col-xs-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
+        className="col-xs-12 col-sm-12 col-md-6 col-lg-3"
         style={{ marginBottom: 10 }}
       >
         <Plate
@@ -43,7 +43,7 @@ class Dashboard extends Component {
         <div className="container-fluid" style={{ paddingTop: 5 }}>
           <div className="row">
             <div
-              className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"
+              className="col-xs-12 col-sm-12 col-md-12 col-lg-12"
               style={{ marginBottom: 10 }}
             >
               <DashboardMenu addPlate={this.props.addPlate} />
@@ -52,7 +52,7 @@ class Dashboard extends Component {
           <div className="row">
             {this.props.allPlates.length === 0 &&
               <div
-                className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 col-lg-offset-4 col-xl-offset-4 col-md-offset-3"
+                className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3"
               >
                 <NoPlatesFound />
               </div>}

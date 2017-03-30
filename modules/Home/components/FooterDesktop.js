@@ -6,7 +6,7 @@ const FooterDesktop = () => {
   return (
     <div className="footer-main">
       <div className="row">
-        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <h3>Plate</h3>
           <div className="divider-style">
             <Divider />
@@ -17,7 +17,7 @@ const FooterDesktop = () => {
             getting started.
           </p>
         </div>
-        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <h3>Quick Links</h3>
           <div className="divider-style">
             <Divider />
@@ -32,7 +32,7 @@ const FooterDesktop = () => {
             </a>
           </Link>
         </div>
-        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <h3>Get In Touch</h3>
           <div className="divider-style">
             <Divider />

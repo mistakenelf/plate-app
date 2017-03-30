@@ -8,8 +8,8 @@ const NavlessLayout = props => {
         {
           `
           * {
-              margin: 0;
-              box-sizing: border-box;
+            margin: 0;
+            box-sizing: border-box;
           }
           body {
             font-family: Roboto, sans-serif;
