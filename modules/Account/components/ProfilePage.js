@@ -59,7 +59,7 @@ const ProfilePage = () => (
             />
           </List>
         </Card>
-        <Card style={{ width: '100%' }}>
+        <Card style={{ width: '100%', marginBottom: '20px' }}>
           <List>
             <ListItem
               leftIcon={<PhoneIcon />}
