@@ -1,5 +1,5 @@
 import DefaultLayout from "../modules/DefaultLayout";
-import Header from "../components/Header/Header";
+import Header from "../modules/Header";
 import Home from "../modules/Home";
 import React from "react";
 import withData from "../lib/withData";

@@ -1,4 +1,4 @@
-import BackButton from "../../components/BackButton/BackButton";
+import BackButton from "../../components/BackButton";
 import React from "react";
 import RegisterForm from "./components/RegisterForm";
 

@@ -2,7 +2,7 @@ import { Card, CardHeader } from "material-ui/Card";
 import { List, ListItem } from "material-ui/List";
 
 import Avatar from "material-ui/Avatar";
-import BackButton from "../../../components/BackButton/BackButton";
+import BackButton from "../../../components/BackButton";
 import Divider from "material-ui/Divider";
 import EditIcon from "material-ui/svg-icons/editor/mode-edit";
 import EmailIcon from "material-ui/svg-icons/communication/email";

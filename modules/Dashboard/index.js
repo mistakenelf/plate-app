@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from "react";
 
 import { AllPlatesQuery } from "./utils/queries";
 import DashboardMenu from "./components/DashboardMenu";
-import Loader from "../../components/Loader/Loader";
+import Loader from "../../components/Loader";
 import NoPlatesFound from "./components/NoPlatesFound";
 import Plate from "./components/Plate";
 import { graphql } from "react-apollo";

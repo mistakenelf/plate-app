@@ -1,4 +1,4 @@
-import Header from "../components/Header/Header";
+import Header from "../modules/Header";
 import NavlessLayout from "../modules/NavlessLayout";
 import React from "react";
 import Register from "../modules/Register";

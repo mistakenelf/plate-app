@@ -50,7 +50,7 @@ class Plate extends Component {
     const actions = [
       <FlatButton label="Cancel" primary onTouchTap={this.handleClose} />,
       <FlatButton
-        label="Discard"
+        label="Wash"
         secondary
         onTouchTap={() => this.deletePlate(this.props.plateId)}
       />

@@ -1,7 +1,7 @@
 import { Field, reduxForm } from "redux-form";
 import React, { PropTypes } from "react";
 
-import BorderedButton from "../../../components/BorderedButton/BorderedButton";
+import BorderedButton from "../../../components/BorderedButton";
 import RenderTextField from "../utils/RenderTextField";
 import { profileValidations } from "../utils/validations";
 

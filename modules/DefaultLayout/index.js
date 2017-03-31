@@ -1,40 +1,22 @@
-import React, { Component, PropTypes } from "react";
+import React, { PropTypes } from "react";
 
-import Navigation from "../../components/Navigation/Navigation";
+import Navigation from "../Navigation";
+import { actions } from "../../store/modules/navigation";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
-export default class DefaultLayout extends Component {
-  static propTypes = {
-    children: PropTypes.node
-  };
-
-  state = {
-    open: false
-  };
-
-  openDrawer = () => {
-    this.setState({
-      open: true
-    });
-  };
-
-  closeDrawer = () => {
-    this.setState({
-      open: false
-    });
-  };
-
-  render() {
-    return (
-      <div>
-        <Navigation
-          open={this.state.open}
-          openDrawer={this.openDrawer}
-          closeDrawer={this.closeDrawer}
-        />
-        {this.props.children}
-        <style jsx global>
-          {
-            `
+const DefaultLayout = props => {
+  return (
+    <div>
+      <Navigation
+        open={props.open}
+        openDrawer={props.openDrawer}
+        closeDrawer={props.closeDrawer}
+      />
+      {props.children}
+      <style jsx global>
+        {
+          `
             * {
               margin: 0;
               box-sizing: border-box;
@@ -45,9 +27,33 @@ export default class DefaultLayout extends Component {
               margin-bottom: 0px;
             }
             `
-          }
-        </style>
-      </div>
-    );
-  }
-}
+        }
+      </style>
+    </div>
+  );
+};
+
+const mapStateToProps = ({ navigation: { open } }) => {
+  return {
+    open
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      openDrawer: actions.openDrawer,
+      closeDrawer: actions.closeDrawer
+    },
+    dispatch
+  );
+};
+
+DefaultLayout.propTypes = {
+  children: PropTypes.node,
+  open: PropTypes.bool,
+  openDrawer: PropTypes.func,
+  closeDrawer: PropTypes.func
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(DefaultLayout);

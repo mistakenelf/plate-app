@@ -1,5 +1,5 @@
 import DefaultLayout from "../modules/DefaultLayout";
-import Header from "../components/Header/Header";
+import Header from "../modules/Header";
 import PlateFiller from "../modules/PlateFiller";
 import React from "react";
 import withData from "../lib/withData";
