@@ -1,13 +1,13 @@
-import React from "react";
-import RefreshIndicator from "material-ui/RefreshIndicator";
+import React from 'react';
+import RefreshIndicator from 'material-ui/RefreshIndicator';
 
 const style = {
   container: {
-    position: "relative"
+    position: 'relative'
   },
   refresh: {
-    display: "inline-block",
-    position: "relative"
+    display: 'inline-block',
+    position: 'relative'
   }
 };
 

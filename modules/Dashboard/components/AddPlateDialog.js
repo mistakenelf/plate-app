@@ -1,13 +1,13 @@
-import { Field, reduxForm } from "redux-form";
-import React, { Component, PropTypes } from "react";
-import { compose, graphql } from "react-apollo";
+import { Field, reduxForm } from 'redux-form';
+import React, { Component, PropTypes } from 'react';
+import { compose, graphql } from 'react-apollo';
 
-import { AllPlatesQuery } from "../utils/queries";
-import Dialog from "material-ui/Dialog";
-import FlatButton from "material-ui/FlatButton";
-import RenderTextField from "../utils/RenderTextField";
-import { addPlateMutation } from "../utils/mutations";
-import { addPlateValidations } from "../utils/validations";
+import { AllPlatesQuery } from '../utils/queries';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import RenderTextField from '../utils/RenderTextField';
+import { addPlateMutation } from '../utils/mutations';
+import { addPlateValidations } from '../utils/validations';
 
 class AddPlateDialog extends Component {
   static propTypes = {
@@ -19,16 +19,16 @@ class AddPlateDialog extends Component {
   };
 
   confirmAddPlate = () => {
-    const plateName = document.getElementById("name").value;
-    const plateDescription = document.getElementById("description").value;
+    const plateName = document.getElementById('name').value;
+    const plateDescription = document.getElementById('description').value;
 
     const plateColors = [
-      "/static/img/taskIcon/taskIconBlue.png",
-      "/static/img/taskIcon/taskIconGreen.png",
-      "/static/img/taskIcon/taskIconOrange.png",
-      "/static/img/taskIcon/taskIconPink.png",
-      "/static/img/taskIcon/taskIconRed.png",
-      "/static/img/taskIcon/taskIconYellow.png"
+      '/static/img/taskIcon/taskIconBlue.png',
+      '/static/img/taskIcon/taskIconGreen.png',
+      '/static/img/taskIcon/taskIconOrange.png',
+      '/static/img/taskIcon/taskIconPink.png',
+      '/static/img/taskIcon/taskIconRed.png',
+      '/static/img/taskIcon/taskIconYellow.png'
     ];
 
     const colorNumber = Math.floor(Math.random() * 6);
@@ -56,7 +56,7 @@ class AddPlateDialog extends Component {
         open={this.props.open}
         actions={actions}
         onRequestClose={this.props.closeDialog}
-        contentStyle={{ width: "95%" }}
+        contentStyle={{ width: '95%' }}
       >
         <form
           id="plateForm"
@@ -87,7 +87,7 @@ class AddPlateDialog extends Component {
 
 export default compose(
   reduxForm({
-    form: "addPlateForm",
+    form: 'addPlateForm',
     validate: addPlateValidations
   }),
   graphql(addPlateMutation, {

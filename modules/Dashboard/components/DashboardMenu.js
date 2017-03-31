@@ -1,8 +1,8 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component, PropTypes } from 'react';
 
-import AddPlateDialog from "./AddPlateDialog";
-import DesktopToolbar from "./DesktopToolbar";
-import MobileToolbar from "./MobileToolbar";
+import AddPlateDialog from './AddPlateDialog';
+import DesktopToolbar from './DesktopToolbar';
+import MobileToolbar from './MobileToolbar';
 
 class DashboardMenu extends Component {
   static propTypes = {

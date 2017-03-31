@@ -1,6 +1,6 @@
-import BorderedButton from "../../../components/BorderedButton";
-import Link from "next/link";
-import React from "react";
+import BorderedButton from '../../../components/BorderedButton';
+import Link from 'next/link';
+import React from 'react';
 
 const Banner = () => {
   return (

@@ -1,6 +1,6 @@
-import Divider from "material-ui/Divider";
-import Link from "next/link";
-import React from "react";
+import Divider from 'material-ui/Divider';
+import Link from 'next/link';
+import React from 'react';
 
 const FooterDesktop = () => {
   return (

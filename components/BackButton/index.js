@@ -1,7 +1,7 @@
-import React, { PropTypes } from "react";
+import React, { PropTypes } from 'react';
 
-import BackArrow from "material-ui/svg-icons/navigation/arrow-back";
-import IconButton from "material-ui/IconButton";
+import BackArrow from 'material-ui/svg-icons/navigation/arrow-back';
+import IconButton from 'material-ui/IconButton';
 
 const BackButton = props => {
   return (
@@ -24,7 +24,7 @@ BackButton.propTypes = {
 };
 
 BackButton.defaultProps = {
-  buttonColor: "white"
+  buttonColor: 'white'
 };
 
 export default BackButton;

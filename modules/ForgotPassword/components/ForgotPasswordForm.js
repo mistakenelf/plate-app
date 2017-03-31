@@ -1,13 +1,13 @@
-import { Field, reduxForm } from "redux-form";
-import React, { PropTypes } from "react";
+import { Field, reduxForm } from 'redux-form';
+import React, { PropTypes } from 'react';
 
-import BorderedButton from "../../../components/BorderedButton";
-import RenderTextField from "../utils/RenderTextField";
-import { forgotPasswordValidations } from "../utils/validations";
+import BorderedButton from '../../../components/BorderedButton';
+import RenderTextField from '../utils/RenderTextField';
+import { forgotPasswordValidations } from '../utils/validations';
 
 const forgotPassword = e => {
   e.preventDefault();
-  console.log("submitted");
+  console.log('submitted');
 };
 
 const ForgotPasswordForm = props => {
@@ -57,6 +57,6 @@ ForgotPasswordForm.propTypes = {
 };
 
 export default reduxForm({
-  form: "forgotPasswordForm",
+  form: 'forgotPasswordForm',
   validate: forgotPasswordValidations
 })(ForgotPasswordForm);

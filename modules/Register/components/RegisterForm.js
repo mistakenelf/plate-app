@@ -1,12 +1,12 @@
-import { Field, reduxForm } from "redux-form";
-import React, { PropTypes } from "react";
+import { Field, reduxForm } from 'redux-form';
+import React, { PropTypes } from 'react';
 
-import BorderedButton from "../../../components/BorderedButton";
-import RenderTextField from "../utils/RenderTextField";
-import { registerValidations } from "../utils/validations";
+import BorderedButton from '../../../components/BorderedButton';
+import RenderTextField from '../utils/RenderTextField';
+import { registerValidations } from '../utils/validations';
 
 const register = () => {
-  console.log("submitted");
+  console.log('submitted');
 };
 
 const RegisterForm = props => {
@@ -67,6 +67,6 @@ RegisterForm.propTypes = {
 };
 
 export default reduxForm({
-  form: "registerForm",
+  form: 'registerForm',
   validate: registerValidations
 })(RegisterForm);

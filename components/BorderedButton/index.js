@@ -1,6 +1,6 @@
-import React, { PropTypes } from "react";
+import React, { PropTypes } from 'react';
 
-import FlatButton from "material-ui/FlatButton";
+import FlatButton from 'material-ui/FlatButton';
 
 const BorderedButton = props => {
   return (
@@ -8,7 +8,7 @@ const BorderedButton = props => {
       <FlatButton
         type={props.type}
         label={props.label}
-        labelStyle={{ color: "white", width: "100%" }}
+        labelStyle={{ color: 'white', width: '100%' }}
       />
       <style jsx>
         {

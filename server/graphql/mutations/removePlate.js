@@ -1,14 +1,14 @@
 const {
   GraphQLNonNull,
   GraphQLID
-} = require("graphql");
+} = require('graphql');
 
-const ObjectId = require("mongodb").ObjectId;
+const ObjectId = require('mongodb').ObjectId;
 
-const PlateType = require("../types/Plate");
+const PlateType = require('../types/Plate');
 
 module.exports = {
-  name: "removePlate",
+  name: 'removePlate',
   type: PlateType,
   args: {
     id: {
@@ -16,6 +16,6 @@ module.exports = {
     }
   },
   resolve({ db }, { id }) {
-    return db.collection("plates").findOneAndDelete({ _id: new ObjectId(id) });
+    return db.collection('plates').findOneAndDelete({ _id: new ObjectId(id) });
   }
 };

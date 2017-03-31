@@ -4,15 +4,15 @@ import {
   CardMedia,
   CardText,
   CardTitle,
-} from "material-ui/Card";
-import React, { Component, PropTypes } from "react";
-import { completePlateMutation, removePlateMutation } from "../utils/mutations";
-import { compose, graphql } from "react-apollo";
+} from 'material-ui/Card';
+import React, { Component, PropTypes } from 'react';
+import { completePlateMutation, removePlateMutation } from '../utils/mutations';
+import { compose, graphql } from 'react-apollo';
 
-import { AllPlatesQuery } from "../utils/queries";
-import Dialog from "material-ui/Dialog";
-import FlatButton from "material-ui/FlatButton";
-import Link from "next/link";
+import { AllPlatesQuery } from '../utils/queries';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
+import Link from 'next/link';
 
 class Plate extends Component {
   static propTypes = {
@@ -61,7 +61,7 @@ class Plate extends Component {
         <Card
           style={
             this.props.completed
-              ? { borderRadius: 10, border: "5px solid #81C784" }
+              ? { borderRadius: 10, border: '5px solid #81C784' }
               : { borderRadius: 5 }
           }
         >
@@ -82,7 +82,7 @@ class Plate extends Component {
               {this.props.description}
             </div>
             <div>
-              Status: {this.props.completed ? "Completed" : "To Be Completed"}
+              Status: {this.props.completed ? 'Completed' : 'To Be Completed'}
             </div>
           </CardText>
           <CardActions>
@@ -94,7 +94,7 @@ class Plate extends Component {
             <Link
               prefetch
               href={{
-                pathname: "platefiller",
+                pathname: 'platefiller',
                 query: { id: this.props.plateId }
               }}
             >
@@ -106,7 +106,7 @@ class Plate extends Component {
             modal={false}
             open={this.state.open}
             onRequestClose={this.handleClose}
-            contentStyle={{ width: "95%" }}
+            contentStyle={{ width: '95%' }}
           >
             Are you sure you want to remove this plate?
           </Dialog>

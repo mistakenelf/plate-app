@@ -2,13 +2,13 @@ const {
   GraphQLList,
   GraphQLNonNull,
   GraphQLString
-} = require("graphql");
+} = require('graphql');
 
-const PlateType = require("../types/Plate");
+const PlateType = require('../types/Plate');
 
 module.exports = {
-  name: "plateByName",
-  description: "All Plates By Name Query",
+  name: 'plateByName',
+  description: 'All Plates By Name Query',
   type: new GraphQLList(PlateType),
   args: {
     name: {
@@ -16,6 +16,6 @@ module.exports = {
     }
   },
   resolve({ db }, { name }) {
-    return db.collection("plates").find({ name: name }).toArray();
+    return db.collection('plates').find({ name: name }).toArray();
   }
 };

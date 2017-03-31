@@ -1,11 +1,11 @@
-import React, { PropTypes } from "react";
-import { Toolbar, ToolbarGroup, ToolbarTitle } from "material-ui/Toolbar";
+import React, { PropTypes } from 'react';
+import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 
-import IconButton from "material-ui/IconButton";
-import IconMenu from "material-ui/IconMenu";
-import MenuItem from "material-ui/MenuItem";
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
 import NavigationExpandMoreIcon
-  from "material-ui/svg-icons/navigation/expand-more";
+  from 'material-ui/svg-icons/navigation/expand-more';
 
 const MobileToolbar = props => {
   return (

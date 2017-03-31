@@ -1,12 +1,12 @@
-import React, { PropTypes } from "react";
+import React, { PropTypes } from 'react';
 import {
   Toolbar,
   ToolbarGroup,
   ToolbarSeparator,
   ToolbarTitle,
-} from "material-ui/Toolbar";
+} from 'material-ui/Toolbar';
 
-import RaisedButton from "material-ui/RaisedButton";
+import RaisedButton from 'material-ui/RaisedButton';
 
 const DesktopToolbar = props => {
   return (

@@ -1,13 +1,13 @@
-import { Field, reduxForm } from "redux-form";
-import React, { PropTypes } from "react";
+import { Field, reduxForm } from 'redux-form';
+import React, { PropTypes } from 'react';
 
-import BorderedButton from "../../../components/BorderedButton";
-import RenderTextField from "../utils/RenderTextField";
-import { profileValidations } from "../utils/validations";
+import BorderedButton from '../../../components/BorderedButton';
+import RenderTextField from '../utils/RenderTextField';
+import { profileValidations } from '../utils/validations';
 
 const updateProfile = e => {
   e.preventDefault();
-  console.log("submitted");
+  console.log('submitted');
 };
 
 const ProfileForm = props => {
@@ -45,6 +45,6 @@ ProfileForm.propTypes = {
 };
 
 export default reduxForm({
-  form: "profileForm",
+  form: 'profileForm',
   validate: profileValidations
 })(ProfileForm);

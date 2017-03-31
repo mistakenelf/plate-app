@@ -1,6 +1,6 @@
-import React, { PropTypes } from "react";
+import React, { PropTypes } from 'react';
 
-import TextField from "material-ui/TextField";
+import TextField from 'material-ui/TextField';
 
 const RenderTextField = props => {
   const { input, label, meta: { touched, error }, ...custom } = props;
@@ -8,7 +8,7 @@ const RenderTextField = props => {
   return (
     <TextField
       hintText={label}
-      autoComplete={"off"}
+      autoComplete={'off'}
       errorText={touched && error}
       fullWidth
       {...input}

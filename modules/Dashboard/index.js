@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component, PropTypes } from 'react';
 
-import { AllPlatesQuery } from "./utils/queries";
-import DashboardMenu from "./components/DashboardMenu";
-import Loader from "../../components/Loader";
-import NoPlatesFound from "./components/NoPlatesFound";
-import Plate from "./components/Plate";
-import { graphql } from "react-apollo";
+import { AllPlatesQuery } from './utils/queries';
+import DashboardMenu from './components/DashboardMenu';
+import Loader from '../../components/Loader';
+import NoPlatesFound from './components/NoPlatesFound';
+import Plate from './components/Plate';
+import { graphql } from 'react-apollo';
 
 class Dashboard extends Component {
   static propTypes = {
@@ -62,6 +62,6 @@ export default graphql(AllPlatesQuery, {
     allPlates
   }),
   options: {
-    fetchPolicy: "cache-and-network"
+    fetchPolicy: 'cache-and-network'
   }
 })(Dashboard);

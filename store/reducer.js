@@ -1,6 +1,6 @@
-import { combineReducers } from "redux";
-import { reducer as formReducer } from "redux-form";
-import navigation from "./modules/navigation";
+import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
+import navigation from './modules/navigation';
 
 // Root reducer for our redux store and
 // apollo's store

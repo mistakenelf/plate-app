@@ -1,25 +1,25 @@
-import React from "react";
-import SwipeableViews from "react-swipeable-views";
+import React from 'react';
+import SwipeableViews from 'react-swipeable-views';
 
 const styles = {
   slide: {
     padding: 15,
     minHeight: 400,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    textAlign: "center",
-    color: "white",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    color: 'white',
     fontSize: 45
   },
   slide1: {
-    background: "#FEA900"
+    background: '#FEA900'
   },
   slide2: {
-    background: "#B3DC4A"
+    background: '#B3DC4A'
   },
   slide3: {
-    background: "#6AC0FF"
+    background: '#6AC0FF'
   }
 };
 

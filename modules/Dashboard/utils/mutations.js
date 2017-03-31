@@ -1,4 +1,4 @@
-import { gql } from "react-apollo";
+import { gql } from 'react-apollo';
 
 export const addPlateMutation = gql`
   mutation addPlate($name: String!, $description: String!, $thumbnail: String!) {

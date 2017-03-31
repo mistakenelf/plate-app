@@ -1,14 +1,14 @@
-import React, { PropTypes } from "react";
-import { gql, withApollo } from "react-apollo";
+import React, { PropTypes } from 'react';
+import { gql, withApollo } from 'react-apollo';
 
-import AccountIcon from "material-ui/svg-icons/action/account-circle";
-import AppBar from "material-ui/AppBar";
-import Drawer from "material-ui/Drawer";
-import IconButton from "material-ui/IconButton";
-import IconMenu from "material-ui/IconMenu";
-import Link from "next/link";
-import MenuItem from "material-ui/MenuItem";
-import MoreVertIcon from "material-ui/svg-icons/navigation/more-vert";
+import AccountIcon from 'material-ui/svg-icons/action/account-circle';
+import AppBar from 'material-ui/AppBar';
+import Drawer from 'material-ui/Drawer';
+import IconButton from 'material-ui/IconButton';
+import IconMenu from 'material-ui/IconMenu';
+import Link from 'next/link';
+import MenuItem from 'material-ui/MenuItem';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 const Navigation = props => {
   const Query = gql`
@@ -32,16 +32,16 @@ const Navigation = props => {
       <Link prefetch href="/account">
         <a>
           <AccountIcon
-            style={{ color: "white", cursor: "pointer" }}
+            style={{ color: 'white', cursor: 'pointer' }}
             hoverColor="#B0BEC5"
           />
         </a>
       </Link>
       <IconMenu
         iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-        targetOrigin={{ horizontal: "right", vertical: "top" }}
-        anchorOrigin={{ horizontal: "right", vertical: "top" }}
-        iconStyle={{ color: "white" }}
+        targetOrigin={{ horizontal: 'right', vertical: 'top' }}
+        anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
+        iconStyle={{ color: 'white' }}
       >
         <Link prefetch href="/login"><a><MenuItem>Login</MenuItem></a></Link>
         <Link prefetch href="/register">
@@ -59,8 +59,8 @@ const Navigation = props => {
         onLeftIconButtonTouchTap={props.openDrawer}
         iconElementRight={elementRight}
         style={{
-          backgroundColor: "#343f53",
-          position: "fixed",
+          backgroundColor: '#343f53',
+          position: 'fixed',
           height: 60,
           top: 0
         }}

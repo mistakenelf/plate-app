@@ -1,9 +1,9 @@
-import React, { PropTypes } from "react";
+import React, { PropTypes } from 'react';
 
-import Navigation from "../Navigation";
-import { actions } from "../../store/modules/navigation";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
+import Navigation from '../Navigation';
+import { actions } from '../../store/modules/navigation';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 const DefaultLayout = props => {
   return (

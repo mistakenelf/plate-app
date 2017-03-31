@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from "react";
+import React, { Component, PropTypes } from 'react';
 
-import ReactCSSTransitionGroup from "react-addons-css-transition-group";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class Animation extends Component {
   static propTypes = {

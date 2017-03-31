@@ -21,13 +21,6 @@
     "node": true
   },
   "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "trailingComma": "none",
-        "singleQuote": false
-      }
-    ],
     "react/display-name": [
       0
     ],

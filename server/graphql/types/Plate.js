@@ -3,10 +3,10 @@ const {
   GraphQLBoolean,
   GraphQLObjectType,
   GraphQLID
-} = require("graphql");
+} = require('graphql');
 
 module.exports = new GraphQLObjectType({
-  name: "Plate",
+  name: 'Plate',
   fields: {
     id: {
       type: GraphQLID,

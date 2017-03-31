@@ -1,13 +1,13 @@
-import { Card, CardHeader } from "material-ui/Card";
-import { List, ListItem } from "material-ui/List";
+import { Card, CardHeader } from 'material-ui/Card';
+import { List, ListItem } from 'material-ui/List';
 
-import Avatar from "material-ui/Avatar";
-import BackButton from "../../../components/BackButton";
-import Divider from "material-ui/Divider";
-import EditIcon from "material-ui/svg-icons/editor/mode-edit";
-import EmailIcon from "material-ui/svg-icons/communication/email";
-import PhoneIcon from "material-ui/svg-icons/communication/call";
-import React from "react";
+import Avatar from 'material-ui/Avatar';
+import BackButton from '../../../components/BackButton';
+import Divider from 'material-ui/Divider';
+import EditIcon from 'material-ui/svg-icons/editor/mode-edit';
+import EmailIcon from 'material-ui/svg-icons/communication/email';
+import PhoneIcon from 'material-ui/svg-icons/communication/call';
+import React from 'react';
 
 const ProfilePage = () => (
   <div className="container-fluid">
@@ -27,7 +27,7 @@ const ProfilePage = () => (
       </div>
       <div className="right col-xs-12 col-sm-12 col-md-6 col-lg-6">
         <Card
-          style={{ width: "100%", marginTop: "20px", marginBottom: "20px" }}
+          style={{ width: '100%', marginTop: '20px', marginBottom: '20px' }}
         >
           <CardHeader title="Contact Information" />
           <Divider />
@@ -59,7 +59,7 @@ const ProfilePage = () => (
             />
           </List>
         </Card>
-        <Card style={{ width: "100%" }}>
+        <Card style={{ width: '100%' }}>
           <List>
             <ListItem
               leftIcon={<PhoneIcon />}

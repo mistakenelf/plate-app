@@ -1,6 +1,6 @@
-import FooterDesktop from "./FooterDesktop";
-import FooterMobile from "./FooterMobile";
-import React from "react";
+import FooterDesktop from './FooterDesktop';
+import FooterMobile from './FooterMobile';
+import React from 'react';
 
 const Footer = () => {
   return (

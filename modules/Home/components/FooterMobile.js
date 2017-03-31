@@ -1,10 +1,10 @@
-import { List, ListItem } from "material-ui/List";
-import React, { Component } from "react";
+import { List, ListItem } from 'material-ui/List';
+import React, { Component } from 'react';
 
-import Divider from "material-ui/Divider";
-import ExpandMoreIcon from "material-ui/svg-icons/hardware/keyboard-arrow-down";
+import Divider from 'material-ui/Divider';
+import ExpandMoreIcon from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
 import KeyboardArrowRight
-  from "material-ui/svg-icons/hardware/keyboard-arrow-right";
+  from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
 
 class FooterMobile extends Component {
   state = {
@@ -31,7 +31,7 @@ class FooterMobile extends Component {
           <List>
             <ListItem
               primaryText="Quick Links"
-              style={{ color: "#bdbdbd" }}
+              style={{ color: '#bdbdbd' }}
               onNestedListToggle={this.toggleQuickLinks}
               rightIcon={
                 this.state.quickLinksOpen
@@ -43,12 +43,12 @@ class FooterMobile extends Component {
                 <ListItem
                   key={1}
                   primaryText="Register"
-                  style={{ color: "#bdbdbd" }}
+                  style={{ color: '#bdbdbd' }}
                 />,
                 <ListItem
                   key={2}
                   primaryText="Login"
-                  style={{ color: "#bdbdbd" }}
+                  style={{ color: '#bdbdbd' }}
                 />
               ]}
             />
@@ -57,7 +57,7 @@ class FooterMobile extends Component {
             </div>
             <ListItem
               primaryText="About Us"
-              style={{ color: "#bdbdbd" }}
+              style={{ color: '#bdbdbd' }}
               onNestedListToggle={this.toggleAboutLinks}
               rightIcon={
                 this.state.aboutLinksOpen
@@ -69,12 +69,12 @@ class FooterMobile extends Component {
                 <ListItem
                   key={1}
                   primaryText="Register"
-                  style={{ color: "#bdbdbd" }}
+                  style={{ color: '#bdbdbd' }}
                 />,
                 <ListItem
                   key={2}
                   primaryText="Contact Us"
-                  style={{ color: "#bdbdbd" }}
+                  style={{ color: '#bdbdbd' }}
                 />
               ]}
             />

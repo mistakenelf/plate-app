@@ -1,6 +1,6 @@
-import React, { PropTypes } from "react";
+import React, { PropTypes } from 'react';
 
-import Head from "next/head";
+import Head from 'next/head';
 
 const Header = props => {
   return (

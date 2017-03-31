@@ -1,13 +1,13 @@
 const {
   GraphQLNonNull,
   GraphQLString
-} = require("graphql");
+} = require('graphql');
 
-const PlateType = require("../types/Plate");
+const PlateType = require('../types/Plate');
 
 module.exports = {
-  name: "addPlate",
-  description: "Add new plate",
+  name: 'addPlate',
+  description: 'Add new plate',
   type: PlateType,
   args: {
     name: {
@@ -28,6 +28,6 @@ module.exports = {
       completed: false
     };
 
-    return db.collection("plates").insert(data);
+    return db.collection('plates').insert(data);
   }
 };

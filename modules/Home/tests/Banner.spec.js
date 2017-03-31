@@ -1,16 +1,16 @@
 /* global it, expect, describe */
 
-import "../../../lib/tap_events";
+import '../../../lib/tap_events';
 
-import Banner from "../components/Banner/";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import React from "react";
-import getMuiTheme from "material-ui/styles/getMuiTheme";
-import { render } from "react-dom";
-import renderer from "react-test-renderer";
+import Banner from '../components/Banner/';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import React from 'react';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import { render } from 'react-dom';
+import renderer from 'react-test-renderer';
 
-it("renders without crashing", () => {
-  const div = document.createElement("div");
+it('renders without crashing', () => {
+  const div = document.createElement('div');
   render(
     <MuiThemeProvider muiTheme={getMuiTheme()}>
       <Banner />
@@ -19,7 +19,7 @@ it("renders without crashing", () => {
   );
 });
 
-describe("Banner snapshot", () => {
+describe('Banner snapshot', () => {
   it('renders without crashing!"', () => {
     const component = renderer.create(
       <MuiThemeProvider muiTheme={getMuiTheme()}>
