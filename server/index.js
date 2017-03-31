@@ -9,9 +9,8 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-require('dotenv').load();
-
 const schema = require('./graphql');
+const env = require('../env-config');
 
 app.prepare().then(() => {
   const server = express();
@@ -33,7 +32,7 @@ app.prepare().then(() => {
     return handle(req, res);
   });
 
-  MongoClient.connect(process.env.DB_CONNECTION_STRING, {
+  MongoClient.connect(env.DB_CONNECTION_STRING, {
     promiseLibrary: Promise
   })
     .catch(err => console.error(err.stack))

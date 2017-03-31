@@ -3,8 +3,8 @@ import React, { PropTypes } from 'react';
 
 import BorderedButton from '../../../components/BorderedButton';
 import Link from 'next/link';
-import RenderTextField from '../utils/RenderTextField';
-import { loginValidations } from '../utils/validations';
+import RenderTextField from '../util/RenderTextField';
+import { loginValidations } from '../util/validations';
 
 const login = () => {
   console.log('submitted');

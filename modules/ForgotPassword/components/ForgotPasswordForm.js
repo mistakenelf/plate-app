@@ -2,8 +2,8 @@ import { Field, reduxForm } from 'redux-form';
 import React, { PropTypes } from 'react';
 
 import BorderedButton from '../../../components/BorderedButton';
-import RenderTextField from '../utils/RenderTextField';
-import { forgotPasswordValidations } from '../utils/validations';
+import RenderTextField from '../util/RenderTextField';
+import { forgotPasswordValidations } from '../util/validations';
 
 const forgotPassword = e => {
   e.preventDefault();

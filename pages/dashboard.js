@@ -1,12 +1,11 @@
 import Dashboard from '../modules/Dashboard';
-import DefaultLayout from '../modules/DefaultLayout';
 import Header from '../modules/Header';
 import React from 'react';
-import withData from '../lib/withData';
+import page from '../hocs/page';
 
-export default withData(() => (
-  <DefaultLayout>
+export default page(() => (
+  <div>
     <Header title="Dashboard" />
     <Dashboard />
-  </DefaultLayout>
+  </div>
 ));

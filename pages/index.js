@@ -1,12 +1,11 @@
-import DefaultLayout from '../modules/DefaultLayout';
 import Header from '../modules/Header';
 import Home from '../modules/Home';
 import React from 'react';
-import withData from '../lib/withData';
+import page from '../hocs/page';
 
-export default withData(() => (
-  <DefaultLayout>
+export default page(() => (
+  <div>
     <Header title="Home" />
     <Home />
-  </DefaultLayout>
+  </div>
 ));

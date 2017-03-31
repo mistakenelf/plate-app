@@ -1,12 +1,11 @@
 import Header from '../modules/Header';
 import Login from '../modules/Login';
-import NavlessLayout from '../modules/NavlessLayout';
 import React from 'react';
-import withData from '../lib/withData';
+import { pageWithNavlessLayout } from '../hocs/page';
 
-export default withData(() => (
-  <NavlessLayout>
+export default pageWithNavlessLayout(() => (
+  <div>
     <Header title="Login" />
     <Login />
-  </NavlessLayout>
+  </div>
 ));

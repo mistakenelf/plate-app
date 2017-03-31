@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import { AllPlatesQuery } from './utils/queries';
+import { AllPlatesQuery } from './util/queries';
 import DashboardMenu from './components/DashboardMenu';
 import Loader from '../../components/Loader';
 import NoPlatesFound from './components/NoPlatesFound';

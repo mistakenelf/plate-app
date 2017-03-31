@@ -1,12 +1,11 @@
-import DefaultLayout from '../modules/DefaultLayout';
 import Header from '../modules/Header';
 import PlateFiller from '../modules/PlateFiller';
 import React from 'react';
-import withData from '../lib/withData';
+import page from '../hocs/page';
 
-export default withData(props => (
-  <DefaultLayout>
+export default page(props => (
+  <div>
     <Header title="Plate Filler" />
     <PlateFiller {...props} />
-  </DefaultLayout>
+  </div>
 ));

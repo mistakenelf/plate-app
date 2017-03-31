@@ -6,10 +6,10 @@ import {
   CardTitle,
 } from 'material-ui/Card';
 import React, { Component, PropTypes } from 'react';
-import { completePlateMutation, removePlateMutation } from '../utils/mutations';
+import { completePlateMutation, removePlateMutation } from '../util/mutations';
 import { compose, graphql } from 'react-apollo';
 
-import { AllPlatesQuery } from '../utils/queries';
+import { AllPlatesQuery } from '../util/queries';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import Link from 'next/link';

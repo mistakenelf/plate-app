@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 
 const PlateFiller = props => {
+  console.log(props);
   return (
     <div>
       <h1>Plate {props.url.query.id}</h1>

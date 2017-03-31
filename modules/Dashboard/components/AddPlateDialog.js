@@ -2,12 +2,12 @@ import { Field, reduxForm } from 'redux-form';
 import React, { Component, PropTypes } from 'react';
 import { compose, graphql } from 'react-apollo';
 
-import { AllPlatesQuery } from '../utils/queries';
+import { AllPlatesQuery } from '../util/queries';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import RenderTextField from '../utils/RenderTextField';
-import { addPlateMutation } from '../utils/mutations';
-import { addPlateValidations } from '../utils/validations';
+import RenderTextField from '../util/RenderTextField';
+import { addPlateMutation } from '../util/mutations';
+import { addPlateValidations } from '../util/validations';
 
 class AddPlateDialog extends Component {
   static propTypes = {

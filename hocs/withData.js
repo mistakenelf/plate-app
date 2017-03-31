@@ -1,6 +1,5 @@
-import './tap_events';
-import './route_progress';
 import 'isomorphic-fetch';
+import '../util/tap_events';
 
 import { ApolloProvider, getDataFromTree } from 'react-apollo';
 import React, { PropTypes } from 'react';

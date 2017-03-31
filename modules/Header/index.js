@@ -20,9 +20,10 @@ const Header = props => {
       <link
         href="https://fonts.googleapis.com/css?family=Roboto"
         rel="stylesheet"
+        async
       />
-      <link href="/static/css/flexboxgrid.css" rel="stylesheet" />
-      <link href="/static/css/nprogress.css" rel="stylesheet" />
+      <link href="/static/css/flexboxgrid.css" rel="stylesheet" async />
+      <link href="/static/css/nprogress.css" rel="stylesheet" async />
       <link rel="manifest" href="/static/manifest.json" />
     </Head>
   );
