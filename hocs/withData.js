@@ -2,15 +2,15 @@ import 'isomorphic-fetch';
 import '../util/tap_events';
 
 import { ApolloProvider, getDataFromTree } from 'react-apollo';
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { initApollo } from '../store/initApollo';
 import { initStore } from '../store/initStore';
 
-export default Component =>
-  class extends React.Component {
+export default ComposedComponent =>
+  class WithData extends Component {
     static propTypes = {
       headers: PropTypes.object,
       initialState: PropTypes.object,
@@ -33,8 +33,8 @@ export default Component =>
 
       const props = {
         url: { query: ctx.query, pathname: ctx.pathname },
-        ...(await (Component.getInitialProps
-          ? Component.getInitialProps(ctx)
+        ...(await (ComposedComponent.getInitialProps
+          ? ComposedComponent.getInitialProps(ctx)
           : {}))
       };
 
@@ -43,7 +43,7 @@ export default Component =>
         const app = (
           <ApolloProvider client={client} store={store}>
             <MuiThemeProvider muiTheme={getMuiTheme({ userAgent: userAgent })}>
-              <Component {...props} />
+              <ComposedComponent {...props} />
             </MuiThemeProvider>
           </ApolloProvider>
         );
@@ -77,7 +77,7 @@ export default Component =>
           <MuiThemeProvider
             muiTheme={getMuiTheme({ userAgent: this.props.userAgent })}
           >
-            <Component {...this.props} />
+            <ComposedComponent {...this.props} />
           </MuiThemeProvider>
         </ApolloProvider>
       );

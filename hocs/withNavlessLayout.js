@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import configureLoadingProgressBar from '../util/routing';
 
 export default ComposedComponent =>
-  class WithDefaultLayout extends Component {
+  class WithNavlessLayout extends Component {
     componentDidMount() {
       configureLoadingProgressBar();
     }
