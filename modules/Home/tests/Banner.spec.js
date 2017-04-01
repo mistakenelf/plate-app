@@ -1,6 +1,6 @@
 /* global it, expect, describe */
 
-import '../../../lib/tap_events';
+import '../../../util/tap_events';
 
 import Banner from '../components/Banner/';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
