@@ -9,7 +9,6 @@ import {
   TableRowColumn,
 } from 'material-ui/Table';
 
-import Checkbox from 'material-ui/Checkbox';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
@@ -17,7 +16,8 @@ import TextField from 'material-ui/TextField';
 class AddPlate extends Component {
   state = {
     finished: false,
-    stepIndex: 0
+    stepIndex: 0,
+    plateNameFromInput: ''
   };
 
   handleNext = () => {
@@ -35,14 +35,23 @@ class AddPlate extends Component {
     }
   };
 
-  getStepContent(stepIndex) {
+  updatePlateName = () => {
+    console.log(document.getElementById('plateNameHello').value);
+    const { plateNameFromInput } = this.state;
+    this.setState({
+      plateNameFromInput: document.getElementById('plateNameHello').value
+    });
+  };
+
+  getStepContent(stepIndex, plateNameFromInput) {
     switch (stepIndex) {
       case 0:
         return (
           <center>
             <TextField
-              id="plateName"
+              id="plateNameHello"
               hintText="Enter A Plate Name"
+              onChange={this.updatePlateName}
               style={{ marginTop: 100, marginBottom: 100, width: '500px' }}
             />
           </center>
@@ -65,7 +74,7 @@ class AddPlate extends Component {
               <TableRow>
                 <TableRowColumn><b>Plate Name:</b></TableRowColumn>
                 <TableRowColumn>
-                  {document.getElementById('plateName').value}
+                  {plateNameFromInput}
                 </TableRowColumn>
               </TableRow>
             </TableBody>
@@ -79,7 +88,7 @@ class AddPlate extends Component {
   }
 
   render() {
-    const { finished, stepIndex } = this.state;
+    const { finished, stepIndex, plateNameFromInput } = this.state;
     return (
       <div className="container">
         <div
@@ -115,7 +124,9 @@ class AddPlate extends Component {
                       </a> to reset the example.
                     </p>
                   : <div>
-                      <p>{this.getStepContent(stepIndex)}</p>
+                      <p>
+                        {this.getStepContent(stepIndex, plateNameFromInput)}
+                      </p>
                       <div style={{ marginTop: 12 }}>
                         <FlatButton
                           label="Back"
