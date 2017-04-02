@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
 import { Step, StepLabel, Stepper } from 'material-ui/Stepper';
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRow,
+  TableRowColumn,
+} from 'material-ui/Table';
 
+import Checkbox from 'material-ui/Checkbox';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
@@ -32,6 +41,7 @@ class AddPlate extends Component {
         return (
           <center>
             <TextField
+              id="plateName"
               hintText="Enter A Plate Name"
               style={{ marginTop: 100, marginBottom: 100, width: '500px' }}
             />
@@ -39,10 +49,28 @@ class AddPlate extends Component {
         );
         break;
       case 1:
-        return 'nothing yet';
-        break;
+        return (
+          <center>
+            <TextField
+              id="plateDescription"
+              hintText="Give your plate a description..."
+              style={{ marginTop: 100, marginBottom: 100, width: '500px' }}
+            />
+          </center>
+        );
       case 2:
-        return 'nothing yet';
+        return (
+          <Table>
+            <TableBody displayRowCheckbox={false}>
+              <TableRow>
+                <TableRowColumn><b>Plate Name:</b></TableRowColumn>
+                <TableRowColumn>
+                  {document.getElementById('plateName').value}
+                </TableRowColumn>
+              </TableRow>
+            </TableBody>
+          </Table>
+        );
         break;
       default:
         return 'nothing yet';
