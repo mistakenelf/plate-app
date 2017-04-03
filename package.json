@@ -48,8 +48,5 @@
   },
   "now": {
     "alias": "plate"
-  },
-  "now.files": [
-    "config.js"
-  ]
+  }
 }
