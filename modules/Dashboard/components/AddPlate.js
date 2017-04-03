@@ -47,25 +47,21 @@ class AddPlate extends Component {
     switch (stepIndex) {
       case 0:
         return (
-          <center>
-            <TextField
-              id="plateNameHello"
-              hintText="Enter A Plate Name"
-              onChange={this.updatePlateName}
-              style={{ marginTop: 100, marginBottom: 100, width: '500px' }}
-            />
-          </center>
+          <TextField
+            id="plateNameHello"
+            hintText="Enter A Plate Name"
+            onChange={this.updatePlateName}
+            style={{ marginTop: 100, marginBottom: 100, width: '500px' }}
+          />
         );
         break;
       case 1:
         return (
-          <center>
-            <TextField
-              id="plateDescription"
-              hintText="Give your plate a description..."
-              style={{ marginTop: 100, marginBottom: 100, width: '500px' }}
-            />
-          </center>
+          <TextField
+            id="plateDescription"
+            hintText="Give your plate a description..."
+            style={{ marginTop: 100, marginBottom: 100, width: '500px' }}
+          />
         );
       case 2:
         return (
