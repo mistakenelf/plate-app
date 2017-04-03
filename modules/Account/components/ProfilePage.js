@@ -2,7 +2,6 @@ import { Card, CardHeader } from 'material-ui/Card';
 import { List, ListItem } from 'material-ui/List';
 
 import Avatar from 'material-ui/Avatar';
-import BackButton from '../../../components/BackButton';
 import Divider from 'material-ui/Divider';
 import EditIcon from 'material-ui/svg-icons/editor/mode-edit';
 import EmailIcon from 'material-ui/svg-icons/communication/email';
@@ -15,9 +14,6 @@ const ProfilePage = () => (
       <div
         className="left col-xs-12 col-sm-12 col-md-6 col-lg-6 center-xs center-sm center-md center-lg center-lg"
       >
-        <div className="row">
-          <BackButton buttonColor="black" />
-        </div>
         <Avatar
           src="/static/img/aleximage.jpg"
           size={200}
