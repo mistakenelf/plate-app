@@ -108,7 +108,7 @@ class AddPlate extends Component {
               </Stepper>
               <div style={{ margin: '0 16px' }}>
                 {finished
-                  ? <p>
+                  ? <div>
                       <a
                         href="#"
                         onClick={event => {
@@ -118,11 +118,9 @@ class AddPlate extends Component {
                       >
                         Click here
                       </a> to reset the example.
-                    </p>
+                    </div>
                   : <div>
-                      <p>
-                        {this.getStepContent(stepIndex, plateNameFromInput)}
-                      </p>
+                      {this.getStepContent(stepIndex, plateNameFromInput)}
                       <div style={{ marginTop: 12 }}>
                         <FlatButton
                           label="Back"
