@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import { Step, StepLabel, Stepper } from 'material-ui/Stepper';
-import {
-  Table,
-  TableBody,
-  TableHeader,
-  TableHeaderColumn,
-  TableRow,
-  TableRowColumn,
-} from 'material-ui/Table';
+import { Table, TableBody, TableRow, TableRowColumn } from 'material-ui/Table';
 
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -36,7 +29,6 @@ class AddPlate extends Component {
   };
 
   plateValidationData = () => {
-    const { plateNameFromInput } = this.state;
     this.setState({
       plateNameFromInput: document.getElementById('plateNameInput').value
     });
@@ -91,7 +83,7 @@ class AddPlate extends Component {
     return (
       <div className="container">
         <div
-          className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg center-lg"
+          className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg"
         >
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <center>
@@ -149,7 +141,7 @@ class AddPlate extends Component {
               margin-top: 80px;
               justify-content: center;
             }
-          `
+            `
           }
         </style>
       </div>

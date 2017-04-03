@@ -51,6 +51,6 @@
     "alias": "plate"
   },
   "now.files": [
-    "env-config.js"
+    "config.js"
   ]
 }

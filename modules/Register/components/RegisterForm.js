@@ -15,7 +15,7 @@ const RegisterForm = props => {
   return (
     <div className="container-fluid">
       <div
-        className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg center-lg"
+        className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg"
       >
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <h1 className="header-text">Register</h1>

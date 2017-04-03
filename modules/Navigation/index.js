@@ -97,7 +97,7 @@ const Navigation = props => {
           .sidebar-text {
             text-align: center;
           }
-        `
+          `
         }
       </style>
     </div>

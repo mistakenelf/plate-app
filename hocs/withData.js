@@ -8,6 +8,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { initApollo } from '../store/initApollo';
 import { initStore } from '../store/initStore';
+import { loadGetInitialProps } from 'next/dist/lib/utils';
 
 export default ComposedComponent =>
   class WithData extends Component {
@@ -20,43 +21,33 @@ export default ComposedComponent =>
     static async getInitialProps(ctx) {
       const { req } = ctx;
       const headers = ctx.req ? ctx.req.headers : {};
-
-      // Need the user agent for MuiThemeProvider when rendered on the
-      // server vs client
       const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
-
-      // Initialize apollo client
-      const client = initApollo(headers);
-
-      // Setup redux store
-      const store = initStore(client, client.initialState);
+      const apolloClient = initApollo(headers);
+      const reduxStore = initStore(apolloClient, apolloClient.initialState);
+      const subProps = await loadGetInitialProps(ComposedComponent, ctx);
 
       const props = {
         url: { query: ctx.query, pathname: ctx.pathname },
-        ...(await (ComposedComponent.getInitialProps
-          ? ComposedComponent.getInitialProps(ctx)
-          : {}))
+        ...subProps
       };
 
-      // Were rendering on the server
       if (!process.browser) {
-        const app = (
-          <ApolloProvider client={client} store={store}>
+        await getDataFromTree(
+          <ApolloProvider client={apolloClient} store={reduxStore}>
             <MuiThemeProvider muiTheme={getMuiTheme({ userAgent: userAgent })}>
               <ComposedComponent {...props} />
             </MuiThemeProvider>
           </ApolloProvider>
         );
-        await getDataFromTree(app);
       }
 
-      const state = store.getState();
+      const state = reduxStore.getState();
 
       return {
         initialState: {
           ...state,
           apollo: {
-            data: client.getInitialState().data
+            data: apolloClient.getInitialState().data
           }
         },
         headers,
@@ -67,13 +58,13 @@ export default ComposedComponent =>
 
     constructor(props) {
       super(props);
-      this.client = initApollo(props.headers);
-      this.store = initStore(this.client, props.initialState);
+      this.apolloClient = initApollo(props.headers);
+      this.reduxStore = initStore(this.apolloClient, props.initialState);
     }
 
     render() {
       return (
-        <ApolloProvider client={this.client} store={this.store}>
+        <ApolloProvider client={this.apolloClient} store={this.reduxStore}>
           <MuiThemeProvider
             muiTheme={getMuiTheme({ userAgent: this.props.userAgent })}
           >

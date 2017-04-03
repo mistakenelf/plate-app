@@ -24,8 +24,8 @@ class DashboardMenu extends Component {
   render() {
     return (
       <div>
-        <DesktopToolbar openCreatePlateDialog={this.handleOpen} />
-        <MobileToolbar openCreatePlateDialog={this.handleOpen} />
+        <DesktopToolbar />
+        <MobileToolbar />
         <AddPlateDialog
           open={this.state.open}
           closeDialog={this.handleClose}

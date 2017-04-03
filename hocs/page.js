@@ -6,14 +6,14 @@ import withNavlessLayout from './withNavlessLayout';
 
 export const pageWithDefaultLayout = compose(
   withData,
-  withDefaultLayout,
-  withAnalytics
+  withAnalytics,
+  withDefaultLayout
 );
 
 export const pageWithNavlessLayout = compose(
   withData,
-  withNavlessLayout,
-  withAnalytics
+  withAnalytics,
+  withNavlessLayout
 );
 
 export default compose(pageWithDefaultLayout);

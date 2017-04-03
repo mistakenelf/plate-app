@@ -4,7 +4,7 @@ import { loadGetInitialProps } from 'next/dist/lib/utils';
 
 let ReactGA;
 if (process.browser) {
-  ReactGA = require('react-ga');
+  ReactGA = require('react-ga'); // eslint-disable-line global-require
 }
 
 export default ComposedComponent =>

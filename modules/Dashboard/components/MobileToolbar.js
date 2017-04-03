@@ -6,8 +6,9 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import NavigationExpandMoreIcon
   from 'material-ui/svg-icons/navigation/expand-more';
+import Router from 'next/router';
 
-const MobileToolbar = props => {
+const MobileToolbar = () => {
   return (
     <div className="toolbar-mobile">
       <Toolbar>
@@ -24,7 +25,7 @@ const MobileToolbar = props => {
           >
             <MenuItem
               primaryText="Create Plate"
-              onTouchTap={() => props.openCreatePlateDialog()}
+              onTouchTap={() => Router.push('/addPlate')}
             />
           </IconMenu>
         </ToolbarGroup>
@@ -33,12 +34,12 @@ const MobileToolbar = props => {
         {
           `
           @media only screen
-            and (min-device-width : 601px)
-            and (max-device-width : 2600px) {
-              .toolbar-mobile {
-                display: none;
-              }
+          and (min-device-width : 601px)
+          and (max-device-width : 2600px) {
+            .toolbar-mobile {
+              display: none;
             }
+          }
           `
         }
       </style>

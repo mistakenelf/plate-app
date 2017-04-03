@@ -78,9 +78,9 @@ const ProfilePage = () => (
     <style jsx>
       {
         `
-      .container-fluid {
-        margin-top: 80px;
-      }
+        .container-fluid {
+          margin-top: 80px;
+        }
         `
       }
     </style>

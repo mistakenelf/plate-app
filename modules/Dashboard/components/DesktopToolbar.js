@@ -9,7 +9,7 @@ import {
 import RaisedButton from 'material-ui/RaisedButton';
 import Router from 'next/router';
 
-const DesktopToolbar = props => {
+const DesktopToolbar = () => {
   return (
     <div className="toolbar-desktop">
       <Toolbar>

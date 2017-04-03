@@ -4,12 +4,8 @@ export const initApollo = headers => {
   const client = new ApolloClient({
     ssrMode: !process.browser,
     headers,
-    dataIdFromObject: result => {
-      if (result.id) {
-        return result.id;
-      }
-      return null;
-    },
+    dataIdFromObject: result => result.id || null,
+    connectToDevTools: process.browser,
     networkInterface: createNetworkInterface({
       uri: process.env.NODE_ENV === 'development'
         ? 'http://localhost:3000/graphql'
