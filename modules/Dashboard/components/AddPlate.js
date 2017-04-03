@@ -36,10 +36,9 @@ class AddPlate extends Component {
   };
 
   updatePlateName = () => {
-    console.log(document.getElementById('plateNameHello').value);
     const { plateNameFromInput } = this.state;
     this.setState({
-      plateNameFromInput: document.getElementById('plateNameHello').value
+      plateNameFromInput: document.getElementById('plateNameInput').value
     });
   };
 
@@ -48,7 +47,7 @@ class AddPlate extends Component {
       case 0:
         return (
           <TextField
-            id="plateNameHello"
+            id="plateNameInput"
             hintText="Enter A Plate Name"
             onChange={this.updatePlateName}
             style={{ marginTop: 100, marginBottom: 100, width: '500px' }}
@@ -58,7 +57,7 @@ class AddPlate extends Component {
       case 1:
         return (
           <TextField
-            id="plateDescription"
+            id="plateDescriptionHello"
             hintText="Give your plate a description..."
             style={{ marginTop: 100, marginBottom: 100, width: '500px' }}
           />
