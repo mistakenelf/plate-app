@@ -35,7 +35,7 @@ class AddPlate extends Component {
     }
   };
 
-  updatePlateName = () => {
+  plateValidationData = () => {
     const { plateNameFromInput } = this.state;
     this.setState({
       plateNameFromInput: document.getElementById('plateNameInput').value
@@ -49,7 +49,7 @@ class AddPlate extends Component {
           <TextField
             id="plateNameInput"
             hintText="Enter A Plate Name"
-            onChange={this.updatePlateName}
+            onChange={this.plateValidationData}
             style={{ marginTop: 100, marginBottom: 100, width: '500px' }}
           />
         );
@@ -57,7 +57,7 @@ class AddPlate extends Component {
       case 1:
         return (
           <TextField
-            id="plateDescriptionHello"
+            id="plateDescriptionInput"
             hintText="Give your plate a description..."
             style={{ marginTop: 100, marginBottom: 100, width: '500px' }}
           />
@@ -83,7 +83,11 @@ class AddPlate extends Component {
   }
 
   render() {
-    const { finished, stepIndex, plateNameFromInput } = this.state;
+    const {
+      finished,
+      stepIndex,
+      plateNameFromInput
+    } = this.state;
     return (
       <div className="container">
         <div
