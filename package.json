@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint .",
-    "dev": "NODE_ENV=development node ./server/index.js",
+    "dev": "NODE_ENV=development node server",
     "build": "NODE_ENV=production next build",
     "start": "NODE_ENV=production node server",
     "deploy": "now && now alias"
