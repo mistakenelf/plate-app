@@ -1,6 +1,5 @@
 const express = require('express');
 const next = require('next');
-
 const { graphiqlExpress, graphqlExpress } = require('graphql-server-express');
 const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
