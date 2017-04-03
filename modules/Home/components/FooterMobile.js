@@ -27,7 +27,7 @@ class FooterMobile extends Component {
   render() {
     return (
       <div className="footer-mobile">
-        <div className="footer-mobile-main">
+        <div>
           <List>
             <ListItem
               primaryText="Quick Links"
@@ -85,10 +85,6 @@ class FooterMobile extends Component {
             `
             .footer-mobile {
               background-color: #1E2532;
-              padding: 30px;
-            }
-            .footer-mobile-main {
-              background-color: #2E3644;
             }
             .divider-style {
               opacity: 0.1;

@@ -23,7 +23,11 @@ const Banner = () => {
         <div className="register-button">
           <Link prefetch href="/register">
             <a>
-              <BorderedButton type="button" label="Register" />
+              <BorderedButton
+                type="button"
+                label="Register Now"
+                color="black"
+              />
             </a>
           </Link>
         </div>
@@ -32,18 +36,15 @@ const Banner = () => {
         {
           `
           .banner {
-            background: linear-gradient(-90deg, rgb(141, 95, 115), #343f53);
             height: 500px;
             padding-top: 80px;
           }
           .header-main h1 {
             text-align: center;
-            color: white;
             font-size: 3.5em;
           }
           .header-secondary h5{
             text-align: center;
-            color: white;
             font-style: italic;
             margin-top: 30px;
           }

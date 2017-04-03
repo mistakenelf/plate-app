@@ -23,7 +23,7 @@ const styles = {
   }
 };
 
-const HomeDetails = () => {
+const Header = () => {
   return (
     <SwipeableViews enableMouseEvents resistance>
       <div style={Object.assign({}, styles.slide, styles.slide1)}>
@@ -39,4 +39,4 @@ const HomeDetails = () => {
   );
 };
 
-export default HomeDetails;
+export default Header;
