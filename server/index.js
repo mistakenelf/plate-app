@@ -9,7 +9,7 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 
 const schema = require('./graphql');
-const env = require('../config');
+const env = require('../env-config');
 
 app.prepare().then(() => {
   const server = express();

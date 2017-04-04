@@ -7,7 +7,7 @@
       "plugins": [
         [
           "transform-define",
-          "config.js"
+          "env-config.js"
         ]
       ]
     },
@@ -18,7 +18,7 @@
       "plugins": [
         [
           "transform-define",
-          "config.js"
+          "env-config.js"
         ]
       ]
     },
