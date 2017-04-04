@@ -7,9 +7,8 @@ import {
 } from 'material-ui/Toolbar';
 
 import RaisedButton from 'material-ui/RaisedButton';
-import Router from 'next/router';
 
-const DesktopToolbar = () => {
+const DesktopToolbar = props => {
   return (
     <div className="toolbar-desktop">
       <Toolbar>
@@ -22,7 +21,7 @@ const DesktopToolbar = () => {
           <RaisedButton
             primary
             label="Create Plate"
-            onTouchTap={() => Router.push('/addPlate')}
+            onTouchTap={props.openDialog}
           />
         </ToolbarGroup>
       </Toolbar>
@@ -44,7 +43,7 @@ const DesktopToolbar = () => {
 };
 
 DesktopToolbar.propTypes = {
-  openCreatePlateDialog: PropTypes.func
+  openDialog: PropTypes.func
 };
 
 export default DesktopToolbar;
