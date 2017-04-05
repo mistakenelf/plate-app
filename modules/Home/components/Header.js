@@ -1,16 +1,14 @@
+import Banner from './Banner';
 import React from 'react';
 import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
 
 const styles = {
   slide: {
-    padding: 15,
-    minHeight: 400,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign: 'center',
+    margin: 0,
+    padding: 0,
     color: 'white',
-    fontSize: 45
+    height: 400
   },
   slide1: {
     background: '#FEA900'
@@ -23,20 +21,16 @@ const styles = {
   }
 };
 
-const Header = () => {
-  return (
-    <SwipeableViews enableMouseEvents resistance>
-      <div style={Object.assign({}, styles.slide, styles.slide1)}>
-        Easy To Use
-      </div>
-      <div style={Object.assign({}, styles.slide, styles.slide2)}>
-        Easy To Setup
-      </div>
-      <div style={Object.assign({}, styles.slide, styles.slide3)}>
-        Task management made Easy
-      </div>
-    </SwipeableViews>
-  );
-};
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+
+const Header = () => (
+  <AutoPlaySwipeableViews interval="4000">
+    <div style={Object.assign({}, styles.slide, styles.slide1)}>
+      <Banner />
+    </div>
+    <div style={Object.assign({}, styles.slide, styles.slide2)}>slide n2</div>
+    <div style={Object.assign({}, styles.slide, styles.slide3)}>slide n3</div>
+  </AutoPlaySwipeableViews>
+);
 
 export default Header;

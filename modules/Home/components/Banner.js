@@ -36,8 +36,11 @@ const Banner = () => {
         {
           `
           .banner {
-            height: 500px;
+            background: linear-gradient(-90deg, rgb(141, 95, 115), #343f53);
+            height: 400px;
+            width: 100%;
             padding-top: 80px;
+            margin: 0;
           }
           .header-main h1 {
             text-align: center;
