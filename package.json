@@ -23,6 +23,7 @@
     "material-ui": "^0.17.1",
     "mongodb": "^2.2.25",
     "next": "^2.0.1",
+    "next-routes": "^1.0.23",
     "nprogress": "^0.2.0",
     "react": "^15.4.2",
     "react-apollo": "^1.0.0",
