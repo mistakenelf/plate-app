@@ -26,7 +26,7 @@ const Banner = () => {
               <BorderedButton
                 type="button"
                 label="Register Now"
-                color="black"
+                color="white"
               />
             </a>
           </Link>
