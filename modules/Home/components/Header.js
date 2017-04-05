@@ -24,7 +24,7 @@ const styles = {
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const Header = () => (
-  <AutoPlaySwipeableViews interval="4000" enableMouseEvents>
+  <AutoPlaySwipeableViews enableMouseEvents resistance interval="4000">
     <div style={Object.assign({}, styles.slide, styles.slide1)}>
       <Banner />
     </div>
