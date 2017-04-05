@@ -1,18 +1,14 @@
-import {
-  Card,
-  CardActions,
-  CardMedia,
-  CardText,
-  CardTitle,
-} from 'material-ui/Card';
+import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import React, { Component, PropTypes } from 'react';
 import { completePlateMutation, removePlateMutation } from '../util/mutations';
 import { compose, graphql } from 'react-apollo';
 
 import { AllPlatesQuery } from '../util/queries';
+import CheckCircle from 'material-ui/svg-icons/action/check-circle';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import Link from 'next/link';
+import { green500 } from 'material-ui/styles/colors';
 
 class Plate extends Component {
   static propTypes = {
@@ -58,31 +54,40 @@ class Plate extends Component {
 
     return (
       <div className="card">
-        <Card
-          style={
-            this.props.completed
-              ? { borderRadius: 10, border: '5px solid #81C784' }
-              : { borderRadius: 5 }
-          }
-        >
-          <CardMedia
-            overlay={<CardTitle title={this.props.name} />}
-            onTouchTap={() =>
-              this.markPlateComplete(this.props.plateId, this.props.completed)}
-          >
-            <img
-              style={{ borderTopRightRadius: 5, borderTopLeftRadius: 5 }}
-              src={this.props.cardImage}
-              width="208"
-              height="214"
-            />
-          </CardMedia>
+        <Card style={{ borderRadius: 5 }}>
+          <CardHeader
+            title={this.props.name}
+            subtitle={
+              `Status: ${this.props.completed ? 'Completed' : 'To Be Completed'}`
+            }
+            showExpandableButton
+            expandable={false}
+            openIcon={
+              <CheckCircle
+                color={green500}
+                onTouchTap={() =>
+                  this.markPlateComplete(
+                    this.props.plateId,
+                    this.props.completed
+                  )}
+              />
+            }
+            closeIcon={
+              <CheckCircle
+                color={green500}
+                onTouchTap={() =>
+                  this.markPlateComplete(
+                    this.props.plateId,
+                    this.props.completed
+                  )}
+              />
+            }
+            avatar={this.props.cardImage}
+          />
           <CardText>
-            <div style={{ marginBottom: 10 }}>
-              {this.props.description}
-            </div>
             <div>
-              Status: {this.props.completed ? 'Completed' : 'To Be Completed'}
+              <h3 style={{ marginBottom: 5 }}>DESCRIPTION</h3>
+              {this.props.description}
             </div>
           </CardText>
           <CardActions>
