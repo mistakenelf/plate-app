@@ -8,5 +8,6 @@
   "editor.dragAndDrop": true,
   "editor.formatOnSave": true,
   "prettier.singleQuote": true,
-  "prettier.trailingComma": "none"
+  "prettier.trailingComma": "none",
+  "workbench.colorTheme": "Solarized Dark"
 }
