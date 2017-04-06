@@ -8,6 +8,7 @@ const removePlate = require('./mutations/removePlate');
 const completePlate = require('./mutations/completePlate');
 const allPlates = require('./queries/allPlates');
 const platesByName = require('./queries/queryPlateByName');
+const editPlate = require('./mutations/editPlate');
 
 const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
@@ -22,7 +23,8 @@ const schema = new GraphQLSchema({
     fields: {
       addPlate,
       removePlate,
-      completePlate
+      completePlate,
+      editPlate
     }
   })
 });
