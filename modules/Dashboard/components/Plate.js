@@ -88,12 +88,14 @@ class Plate extends Component {
               />
             }
             closeIcon={
-              <div>
-                <EditIcon
-                  style={{ color: 'grey', float: 'right', cursor: 'pointer' }}
-                  onTouchTap={this.editPlateHandleOpen}
-                />
-              </div>
+              <CheckCircle
+                color={green500}
+                onTouchTap={() =>
+                  this.markPlateComplete(
+                    this.props.plateId,
+                    this.props.completed
+                  )}
+              />
             }
             avatar={this.props.cardImage}
           />
@@ -120,6 +122,10 @@ class Plate extends Component {
             >
               <a><FlatButton primary label="Fill Plate" /></a>
             </Link>
+            <EditIcon
+              style={{ float: 'right', marginTop: 5, cursor: 'pointer' }}
+              onTouchTap={this.editPlateHandleOpen}
+            />
           </CardActions>
           <EditPlateDialog
             editPlateOpen={this.state.editPlateOpen}
