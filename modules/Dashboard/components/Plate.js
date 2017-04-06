@@ -1,6 +1,10 @@
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import React, { Component, PropTypes } from 'react';
-import { completePlateMutation, removePlateMutation } from '../util/mutations';
+import {
+  completePlateMutation,
+  editPlateMutation,
+  removePlateMutation,
+} from '../util/mutations';
 import { compose, graphql } from 'react-apollo';
 
 import { AllPlatesQuery } from '../util/queries';
@@ -20,7 +24,8 @@ class Plate extends Component {
     removePlate: PropTypes.func,
     cardImage: PropTypes.string,
     completed: PropTypes.bool,
-    completePlate: PropTypes.func
+    completePlate: PropTypes.func,
+    editPlate: PropTypes.func
   };
 
   state = {
@@ -130,8 +135,10 @@ class Plate extends Component {
           <EditPlateDialog
             editPlateOpen={this.state.editPlateOpen}
             editPlateHandleClose={this.editPlateHandleClose}
+            plateId={this.props.plateId}
             plateName={this.props.name}
             plateDescription={this.props.description}
+            editPlate={this.props.editPlate}
           />
           <Dialog
             actions={actions}
@@ -178,6 +185,19 @@ export default compose(
   graphql(completePlateMutation, {
     props: ({ mutate }) => ({
       completePlate: (id, completed) => mutate({ variables: { id, completed } })
+    }),
+    options: {
+      refetchQueries: [
+        {
+          query: AllPlatesQuery
+        }
+      ]
+    }
+  }),
+  graphql(editPlateMutation, {
+    props: ({ mutate }) => ({
+      editPlate: (id, name, description) =>
+        mutate({ variables: { id, name, description } })
     }),
     options: {
       refetchQueries: [
