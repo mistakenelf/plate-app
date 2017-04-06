@@ -26,3 +26,13 @@ export const completePlateMutation = gql`
     }
   }
 `;
+
+export const editPlateMutation = gql`
+  mutation editPlate($id: ID!, $name: String!, $description: String!) {
+    editPlate(id: $id, name: $name, description: $description) {
+      id
+      name
+      description
+    }
+  }
+`;
