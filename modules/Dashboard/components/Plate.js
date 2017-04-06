@@ -6,6 +6,8 @@ import { compose, graphql } from 'react-apollo';
 import { AllPlatesQuery } from '../util/queries';
 import CheckCircle from 'material-ui/svg-icons/action/check-circle';
 import Dialog from 'material-ui/Dialog';
+import EditIcon from 'material-ui/svg-icons/editor/mode-edit';
+import EditPlateDialog from './EditPlateDialog';
 import FlatButton from 'material-ui/FlatButton';
 import Link from 'next/link';
 import { green500 } from 'material-ui/styles/colors';
@@ -22,20 +24,29 @@ class Plate extends Component {
   };
 
   state = {
-    open: false
+    washPlateOpen: false,
+    editPlateOpen: false
   };
 
-  handleOpen = () => {
-    this.setState({ open: true });
+  washPlateHandleOpen = () => {
+    this.setState({ washPlateOpen: true });
   };
 
-  handleClose = () => {
-    this.setState({ open: false });
+  washPlateHandleClose = () => {
+    this.setState({ washPlateOpen: false });
+  };
+
+  editPlateHandleOpen = () => {
+    this.setState({ editPlateOpen: true });
+  };
+
+  editPlateHandleClose = () => {
+    this.setState({ editPlateOpen: false });
   };
 
   deletePlate = plateId => {
     this.props.removePlate(plateId);
-    this.handleClose();
+    this.washPlateHandleClose();
   };
 
   markPlateComplete = (plateId, completed) => {
@@ -44,7 +55,11 @@ class Plate extends Component {
 
   render() {
     const actions = [
-      <FlatButton label="Cancel" primary onTouchTap={this.handleClose} />,
+      <FlatButton
+        label="Cancel"
+        primary
+        onTouchTap={this.washPlateHandleClose}
+      />,
       <FlatButton
         label="Wash"
         secondary
@@ -73,20 +88,20 @@ class Plate extends Component {
               />
             }
             closeIcon={
-              <CheckCircle
-                color={green500}
-                onTouchTap={() =>
-                  this.markPlateComplete(
-                    this.props.plateId,
-                    this.props.completed
-                  )}
-              />
+              <div>
+                <EditIcon
+                  style={{ color: 'grey', float: 'right', cursor: 'pointer' }}
+                  onTouchTap={this.editPlateHandleOpen}
+                />
+              </div>
             }
             avatar={this.props.cardImage}
           />
           <CardText>
             <div>
-              <h3 style={{ marginBottom: 5 }}>DESCRIPTION</h3>
+              <h3 style={{ marginBottom: 5 }}>
+                DESCRIPTION
+              </h3>
               {this.props.description}
             </div>
           </CardText>
@@ -94,7 +109,7 @@ class Plate extends Component {
             <FlatButton
               label="Wash Plate"
               secondary
-              onTouchTap={this.handleOpen}
+              onTouchTap={this.washPlateHandleOpen}
             />
             <Link
               prefetch
@@ -106,11 +121,17 @@ class Plate extends Component {
               <a><FlatButton primary label="Fill Plate" /></a>
             </Link>
           </CardActions>
+          <EditPlateDialog
+            editPlateOpen={this.state.editPlateOpen}
+            editPlateHandleClose={this.editPlateHandleClose}
+            plateName={this.props.name}
+            plateDescription={this.props.description}
+          />
           <Dialog
             actions={actions}
             modal={false}
-            open={this.state.open}
-            onRequestClose={this.handleClose}
+            open={this.state.washPlateOpen}
+            onRequestClose={this.washPlateHandleClose}
             contentStyle={{ width: '95%' }}
           >
             Are you sure you want to remove this plate?
