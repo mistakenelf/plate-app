@@ -43,9 +43,6 @@ const EditPlateDialog = props => {
     >
       <h3>Edit Plate</h3>
       <br />
-      <span style={{ marginRight: 10 }}>ID:</span>
-      <TextField id="text-field-default" defaultValue={props.plateId} />
-      <br />
       <span style={{ marginRight: 10 }}>Name:</span>
       <TextField id="currentPlateName" defaultValue={props.plateName} />
       <br />
