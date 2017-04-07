@@ -4,14 +4,14 @@ const {
 } = require('graphql');
 
 // Queries
-const AllPlates = require('./queries/allPlates');
+const AllPlates = require('./queries/AllPlates');
 
 // Mutations
-const AddPlate = require('./mutations/addPlate');
-const RemovePlate = require('./mutations/removePlate');
-const CompletePlate = require('./mutations/completePlate');
-const EditPlate = require('./mutations/editPlate');
-const Register = require('./mutations/register');
+const AddPlate = require('./mutations/AddPlate');
+const RemovePlate = require('./mutations/RemovePlate');
+const CompletePlate = require('./mutations/CompletePlate');
+const EditPlate = require('./mutations/EditPlate');
+const Register = require('./mutations/Register');
 
 // Main Schema
 const schema = new GraphQLSchema({
