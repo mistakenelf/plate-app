@@ -1,69 +1,82 @@
-import React, { Component, PropTypes } from 'react';
+import { Field, reduxForm } from 'redux-form';
+import React, { PropTypes } from 'react';
 
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import TextField from 'material-ui/TextField';
+import RenderTextField from '../util/RenderTextField';
+import { editPlateValidations } from '../util/validations';
 
-class EditPlateDialog extends Component {
-  static propTypes = {
-    editPlateOpen: PropTypes.bool,
-    editPlateHandleClose: PropTypes.func,
-    plateId: PropTypes.string,
-    plateName: PropTypes.string,
-    plateDescription: PropTypes.string,
-    editPlate: PropTypes.func
-  };
+const editPlateDetails = (id, editPlate, editPlateHandleClose) => {
+  const newPlateName = document.getElementById('currentPlateName').value;
+  const newPlateDescription = document.getElementById(
+    'currentPlateDescription'
+  ).value;
 
-  editPlateDetails = (id, editPlate, editPlateHandleClose) => {
-    const newPlateName = document.getElementById('currentPlateName').value;
-    const newPlateDescription = document.getElementById(
-      'currentPlateDescription'
-    ).value;
+  editPlate(id, newPlateName, newPlateDescription);
+  editPlateHandleClose();
+};
 
-    editPlate(id, newPlateName, newPlateDescription);
-    editPlateHandleClose();
-  };
+const EditPlateDialog = props => {
+  const actions = [
+    <FlatButton
+      label="Cancel"
+      onTouchTap={props.editPlateHandleClose}
+      primary
+    />,
+    <FlatButton label="Submit" form="editPlateForm" secondary type="submit" />
+  ];
 
-  render() {
-    const actions = [
-      <FlatButton
-        label="Cancel"
-        onTouchTap={this.props.editPlateHandleClose}
-        primary
-      />,
-      <FlatButton
-        label="Submit"
-        secondary
-        onTouchTap={() =>
+  return (
+    <Dialog
+      actions={actions}
+      modal={false}
+      open={props.editPlateOpen}
+      onRequestClose={props.editPlateHandleClose}
+      contentStyle={{ width: '95%' }}
+    >
+      <h3 style={{ marginBottom: 10 }}>Edit Plate</h3>
+      <form
+        id="editPlateForm"
+        onSubmit={props.handleSubmit(() =>
           editPlateDetails(
-            this.props.plateId,
-            this.props.editPlate,
-            this.props.editPlateHandleClose
-          )}
-      />
-    ];
-
-    return (
-      <Dialog
-        actions={actions}
-        modal={false}
-        open={this.props.editPlateOpen}
-        onRequestClose={this.props.editPlateHandleClose}
-        contentStyle={{ width: '95%' }}
+            props.plateId,
+            props.editPlate,
+            props.editPlateHandleClose
+          ))}
       >
-        <h3>Edit Plate</h3>
-        <br />
         <span style={{ marginRight: 10 }}>Name:</span>
-        <TextField id="currentPlateName" defaultValue={this.props.plateName} />
-        <br />
-        <span style={{ marginRight: 10 }}>Description:</span>
-        <TextField
-          id="currentPlateDescription"
-          defaultValue={this.props.plateDescription}
+        <Field
+          name="currentPlateName"
+          id="currentPlateName"
+          component={RenderTextField}
+          type="text"
+          label={props.plateName}
+          style={{ marginBottom: 20 }}
         />
-      </Dialog>
-    );
-  }
-}
+        <span style={{ marginRight: 10 }}>Description:</span>
+        <Field
+          name="currentPlateDescription"
+          id="currentPlateDescription"
+          component={RenderTextField}
+          type="text"
+          label={props.plateDescription}
+        />
+      </form>
+    </Dialog>
+  );
+};
 
-export default EditPlateDialog;
+EditPlateDialog.propTypes = {
+  editPlateOpen: PropTypes.bool,
+  editPlateHandleClose: PropTypes.func,
+  plateId: PropTypes.string,
+  plateName: PropTypes.string,
+  plateDescription: PropTypes.string,
+  editPlate: PropTypes.func,
+  handleSubmit: PropTypes.func
+};
+
+export default reduxForm({
+  form: 'editPlateForm',
+  validate: editPlateValidations
+})(EditPlateDialog);
