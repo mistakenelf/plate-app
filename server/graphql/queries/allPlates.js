@@ -4,8 +4,9 @@ const {
 
 const PlateType = require('../types/Plate');
 
+// Query all plates
 module.exports = {
-  name: 'allPlates',
+  name: 'AllPlates',
   description: 'All Plates Query',
   type: new GraphQLList(PlateType),
   resolve({ db }) {

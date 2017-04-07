@@ -5,24 +5,24 @@ const {
   GraphQLID
 } = require('graphql');
 
-// Schema for a plate
+// Schema for a user
 module.exports = new GraphQLObjectType({
-  name: 'Plate',
+  name: 'User',
   fields: {
     id: {
       type: GraphQLID,
       resolve: ({ _id }) => _id
     },
-    name: {
+    firstName: {
       type: GraphQLString
     },
-    description: {
+    lastName: {
       type: GraphQLString
     },
-    thumbnail: {
+    username: {
       type: GraphQLString
     },
-    completed: {
+    password: {
       type: GraphQLBoolean
     }
   }

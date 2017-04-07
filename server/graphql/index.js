@@ -3,13 +3,18 @@ const {
   GraphQLSchema
 } = require('graphql');
 
+// Queries
+const allPlates = require('./queries/allPlates');
+const platesByName = require('./queries/queryPlateByName');
+
+// Mutations
 const addPlate = require('./mutations/addPlate');
 const removePlate = require('./mutations/removePlate');
 const completePlate = require('./mutations/completePlate');
-const allPlates = require('./queries/allPlates');
-const platesByName = require('./queries/queryPlateByName');
 const editPlate = require('./mutations/editPlate');
+const register = require('./mutations/register');
 
+// Main Schema
 const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'Query',
@@ -24,7 +29,8 @@ const schema = new GraphQLSchema({
       addPlate,
       removePlate,
       completePlate,
-      editPlate
+      editPlate,
+      register
     }
   })
 });

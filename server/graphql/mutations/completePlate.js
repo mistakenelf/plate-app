@@ -8,8 +8,9 @@ const ObjectId = require('mongodb').ObjectId;
 
 const PlateType = require('../types/Plate');
 
+// Change completed status of a plate
 module.exports = {
-  name: 'completePlate',
+  name: 'CompletePlate',
   type: PlateType,
   args: {
     id: {

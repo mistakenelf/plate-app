@@ -37,9 +37,7 @@ const Banner = () => {
           `
           .banner {
             background: linear-gradient(-90deg, rgb(141, 95, 115), #343f53);
-            width: 100%;
             padding-top: 80px;
-            margin: 0;
             height: 400px;
           }
           .header-main h1 {
@@ -49,6 +47,7 @@ const Banner = () => {
           .header-secondary h5{
             text-align: center;
             font-style: italic;
+            font-size: 1.5em;
             margin-top: 30px;
           }
           .register-button {
@@ -56,11 +55,22 @@ const Banner = () => {
             display: flex;
             justify-content: center;
           }
+          @media only screen and (max-width: 736px) {
+            .banner {
+              height: 400px;
+              padding-top: 80px;
+            }
+            .header-main h1 {
+              font-size: 1.5em;
+            }
+            .header-secondary h5 {
+              font-size: 1.0em;
+            }
+          }
           @media only screen and (max-width: 660px) {
             .banner {
+              height: 400px;
               padding-top: 80px;
-              padding-right: 40px;
-              padding-left: 40px;
             }
             .header-main h1 {
               font-size: 1.5em;

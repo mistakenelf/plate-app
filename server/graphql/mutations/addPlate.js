@@ -5,8 +5,9 @@ const {
 
 const PlateType = require('../types/Plate');
 
+// Add a new plate
 module.exports = {
-  name: 'addPlate',
+  name: 'AddPlate',
   description: 'Add new plate',
   type: PlateType,
   args: {

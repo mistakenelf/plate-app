@@ -2,6 +2,7 @@ import createMiddleware from './middleware';
 import { createStore } from 'redux';
 import getReducer from './reducer';
 
+// Initialize Redux Store
 export const initStore = (client, initialState) => {
   let store;
   if (!process.browser || !window.store) {

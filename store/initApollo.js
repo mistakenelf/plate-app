@@ -1,5 +1,6 @@
 import { ApolloClient, createNetworkInterface } from 'react-apollo';
 
+// Initialize Apollo
 export const initApollo = headers => {
   const client = new ApolloClient({
     ssrMode: !process.browser,
@@ -7,9 +8,7 @@ export const initApollo = headers => {
     dataIdFromObject: result => result.id || null,
     connectToDevTools: process.browser,
     networkInterface: createNetworkInterface({
-      uri: process.env.NODE_ENV === 'development'
-        ? 'http://localhost:3000/graphql'
-        : 'https://plate.now.sh/graphql',
+      uri: '/graphql',
       opts: {
         credentials: 'same-origin'
       }

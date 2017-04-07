@@ -7,8 +7,9 @@ const ObjectId = require('mongodb').ObjectId;
 
 const PlateType = require('../types/Plate');
 
+// Remove a plate
 module.exports = {
-  name: 'removePlate',
+  name: 'RemovePlate',
   type: PlateType,
   args: {
     id: {

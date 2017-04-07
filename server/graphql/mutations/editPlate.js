@@ -8,8 +8,9 @@ const ObjectId = require('mongodb').ObjectId;
 
 const PlateType = require('../types/Plate');
 
+// Edit a plates details
 module.exports = {
-  name: 'editPlate',
+  name: 'EditPlate',
   type: PlateType,
   args: {
     id: {
