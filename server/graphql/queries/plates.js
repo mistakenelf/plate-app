@@ -2,7 +2,7 @@ const {
   GraphQLList
 } = require('graphql');
 
-const PlateType = require('../types/Plate');
+const PlateType = require('../types/plate');
 
 // Query all plates
 module.exports = {

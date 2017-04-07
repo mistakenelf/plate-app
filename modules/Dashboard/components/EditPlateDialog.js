@@ -35,7 +35,7 @@ class EditPlateDialog extends Component {
         label="Submit"
         secondary
         onTouchTap={() =>
-          editPlateDetails(
+          this.editPlateDetails(
             this.props.plateId,
             this.props.editPlate,
             this.props.editPlateHandleClose
