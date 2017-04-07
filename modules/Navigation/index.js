@@ -13,7 +13,7 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 const Navigation = props => {
   const Query = gql`
     query {
-      allPlates {
+      AllPlates {
         id
         name
         description

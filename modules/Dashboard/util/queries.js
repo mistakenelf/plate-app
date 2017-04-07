@@ -2,7 +2,7 @@ import { gql } from 'react-apollo';
 
 export const AllPlatesQuery = gql`
   query {
-    allPlates {
+    AllPlates {
       id
       name
       description

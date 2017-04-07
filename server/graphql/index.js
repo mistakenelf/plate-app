@@ -4,33 +4,31 @@ const {
 } = require('graphql');
 
 // Queries
-const allPlates = require('./queries/allPlates');
-const platesByName = require('./queries/queryPlateByName');
+const AllPlates = require('./queries/allPlates');
 
 // Mutations
-const addPlate = require('./mutations/addPlate');
-const removePlate = require('./mutations/removePlate');
-const completePlate = require('./mutations/completePlate');
-const editPlate = require('./mutations/editPlate');
-const register = require('./mutations/register');
+const AddPlate = require('./mutations/addPlate');
+const RemovePlate = require('./mutations/removePlate');
+const CompletePlate = require('./mutations/completePlate');
+const EditPlate = require('./mutations/editPlate');
+const Register = require('./mutations/register');
 
 // Main Schema
 const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'Query',
     fields: {
-      allPlates,
-      platesByName
+      AllPlates
     }
   }),
   mutation: new GraphQLObjectType({
     name: 'Mutation',
     fields: {
-      addPlate,
-      removePlate,
-      completePlate,
-      editPlate,
-      register
+      AddPlate,
+      RemovePlate,
+      CompletePlate,
+      EditPlate,
+      Register
     }
   })
 });

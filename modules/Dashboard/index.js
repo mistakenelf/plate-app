@@ -10,7 +10,7 @@ import { graphql } from 'react-apollo';
 class Dashboard extends Component {
   static propTypes = {
     loading: PropTypes.bool,
-    allPlates: PropTypes.array,
+    AllPlates: PropTypes.array,
     addPlate: PropTypes.func
   };
 
@@ -27,14 +27,14 @@ class Dashboard extends Component {
         </div>
         <div className="row">
           {this.props.loading && <Loader />}
-          {!this.props.loading && this.props.allPlates.length === 0
+          {!this.props.loading && this.props.AllPlates.length === 0
             ? <div
                 className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3"
               >
                 <NoPlatesFound />
               </div>
             : !this.props.loading &&
-                this.props.allPlates.map((plate, index) => (
+                this.props.AllPlates.map((plate, index) => (
                   <div
                     key={index}
                     className="col-xs-12 col-sm-12 col-md-6 col-lg-3"
@@ -56,9 +56,9 @@ class Dashboard extends Component {
 }
 
 export default graphql(AllPlatesQuery, {
-  props: ({ data: { loading, allPlates } }) => ({
+  props: ({ data: { loading, AllPlates } }) => ({
     loading,
-    allPlates
+    AllPlates
   }),
   options: {
     fetchPolicy: 'cache-and-network'

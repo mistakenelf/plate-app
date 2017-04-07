@@ -8,7 +8,9 @@ export const initApollo = headers => {
     dataIdFromObject: result => result.id || null,
     connectToDevTools: process.browser,
     networkInterface: createNetworkInterface({
-      uri: '/graphql',
+      uri: process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3000/graphql'
+        : 'https://plate.now.sh/graphql',
       opts: {
         credentials: 'same-origin'
       }
