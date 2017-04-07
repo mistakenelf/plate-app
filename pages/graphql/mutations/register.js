@@ -5,11 +5,11 @@ const {
 
 const bcrypt = require('bcrypt');
 
-const UserType = require('../types/User');
+const UserType = require('../types/user');
 
 // Register a new user
 module.exports = {
-  name: 'Register',
+  name: 'register',
   description: 'Register A New User',
   type: UserType,
   args: {

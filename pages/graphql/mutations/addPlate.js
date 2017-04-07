@@ -3,11 +3,11 @@ const {
   GraphQLString
 } = require('graphql');
 
-const PlateType = require('../types/Plate');
+const PlateType = require('../types/plate');
 
 // Add a new plate
 module.exports = {
-  name: 'AddPlate',
+  name: 'addPlate',
   description: 'Add new plate',
   type: PlateType,
   args: {

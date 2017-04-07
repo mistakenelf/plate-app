@@ -7,7 +7,7 @@ const {
 
 // Schema for a user
 module.exports = new GraphQLObjectType({
-  name: 'User',
+  name: 'user',
   fields: {
     id: {
       type: GraphQLID,
