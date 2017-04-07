@@ -1,8 +1,8 @@
 import { gql } from 'react-apollo';
 
-export const AllPlatesQuery = gql`
+export const PlatesQuery = gql`
   query {
-    AllPlates {
+    plates {
       id
       name
       description

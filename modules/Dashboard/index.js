@@ -1,16 +1,16 @@
 import React, { Component, PropTypes } from 'react';
 
-import { AllPlatesQuery } from './util/queries';
 import DashboardMenu from './components/DashboardMenu';
 import Loader from '../../components/Loader';
 import NoPlatesFound from './components/NoPlatesFound';
 import Plate from './components/Plate';
+import { PlatesQuery } from './util/queries';
 import { graphql } from 'react-apollo';
 
 class Dashboard extends Component {
   static propTypes = {
     loading: PropTypes.bool,
-    AllPlates: PropTypes.array,
+    plates: PropTypes.array,
     addPlate: PropTypes.func
   };
 
@@ -27,14 +27,14 @@ class Dashboard extends Component {
         </div>
         <div className="row">
           {this.props.loading && <Loader />}
-          {!this.props.loading && this.props.AllPlates.length === 0
+          {!this.props.loading && this.props.plates.length === 0
             ? <div
                 className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3"
               >
                 <NoPlatesFound />
               </div>
             : !this.props.loading &&
-                this.props.AllPlates.map((plate, index) => (
+                this.props.plates.map((plate, index) => (
                   <div
                     key={index}
                     className="col-xs-12 col-sm-12 col-md-6 col-lg-3"
@@ -55,10 +55,10 @@ class Dashboard extends Component {
   }
 }
 
-export default graphql(AllPlatesQuery, {
-  props: ({ data: { loading, AllPlates } }) => ({
+export default graphql(PlatesQuery, {
+  props: ({ data: { loading, plates } }) => ({
     loading,
-    AllPlates
+    plates
   }),
   options: {
     fetchPolicy: 'cache-and-network'

@@ -7,13 +7,13 @@ import {
 } from '../util/mutations';
 import { compose, graphql } from 'react-apollo';
 
-import { AllPlatesQuery } from '../util/queries';
 import CheckCircle from 'material-ui/svg-icons/action/check-circle';
 import Dialog from 'material-ui/Dialog';
 import EditIcon from 'material-ui/svg-icons/editor/mode-edit';
 import EditPlateDialog from './EditPlateDialog';
 import FlatButton from 'material-ui/FlatButton';
 import Link from 'next/link';
+import { PlatesQuery } from '../util/queries';
 import { green500 } from 'material-ui/styles/colors';
 
 class Plate extends Component {
@@ -177,7 +177,7 @@ export default compose(
     options: {
       refetchQueries: [
         {
-          query: AllPlatesQuery
+          query: PlatesQuery
         }
       ]
     }
@@ -189,7 +189,7 @@ export default compose(
     options: {
       refetchQueries: [
         {
-          query: AllPlatesQuery
+          query: PlatesQuery
         }
       ]
     }
@@ -202,7 +202,7 @@ export default compose(
     options: {
       refetchQueries: [
         {
-          query: AllPlatesQuery
+          query: PlatesQuery
         }
       ]
     }

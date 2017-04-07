@@ -9,7 +9,6 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 const server = express();
 
-const { configSession, defaultSessionData } = require('./session');
 const cache = require('./cache');
 const schema = require('./graphql');
 const env = require('../env-config');
@@ -22,8 +21,6 @@ module.exports = app
     server
       .use(bodyParser.json())
       .use(bodyParser.urlencoded({ extended: true }))
-      .use(configSession)
-      .use(defaultSessionData)
       .use(cache(app))
       .use(
         '/graphql',
@@ -31,8 +28,7 @@ module.exports = app
         graphqlExpress(req => ({
           schema,
           rootValue: {
-            db: req.app.locals.db,
-            session: req.session
+            db: req.app.locals.db
           }
         }))
       )

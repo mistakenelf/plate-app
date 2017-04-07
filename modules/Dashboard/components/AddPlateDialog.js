@@ -2,9 +2,9 @@ import { Field, reduxForm } from 'redux-form';
 import React, { Component, PropTypes } from 'react';
 import { compose, graphql } from 'react-apollo';
 
-import { AllPlatesQuery } from '../util/queries';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import { PlatesQuery } from '../util/queries';
 import RenderTextField from '../util/RenderTextField';
 import { addPlateMutation } from '../util/mutations';
 import { addPlateValidations } from '../util/validations';
@@ -98,7 +98,7 @@ export default compose(
     options: {
       refetchQueries: [
         {
-          query: AllPlatesQuery
+          query: PlatesQuery
         }
       ]
     }
