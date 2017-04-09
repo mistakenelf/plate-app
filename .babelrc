@@ -5,6 +5,7 @@
         "next/babel"
       ],
       "plugins": [
+        "transform-flow-strip-types",
         [
           "transform-define",
           "env-config.js"
@@ -16,6 +17,7 @@
         "next/babel"
       ],
       "plugins": [
+        "transform-flow-strip-types",
         [
           "transform-define",
           "env-config.js"

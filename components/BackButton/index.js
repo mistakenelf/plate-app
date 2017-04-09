@@ -1,14 +1,19 @@
-import React, { PropTypes } from 'react';
+// @flow
 
 import BackArrow from 'material-ui/svg-icons/navigation/arrow-back';
 import IconButton from 'material-ui/IconButton';
+import React from 'react';
 
-const BackButton = props => {
+type Props = {
+  buttonColor?: string
+};
+
+const BackButton = ({ buttonColor }: Props) => {
   return (
     <div>
       <a onClick={() => window.history.back()}>
         <IconButton
-          iconStyle={{ color: props.buttonColor }}
+          iconStyle={{ color: buttonColor }}
           tooltip="Back"
           tooltipPosition="bottom-center"
         >
@@ -17,10 +22,6 @@ const BackButton = props => {
       </a>
     </div>
   );
-};
-
-BackButton.propTypes = {
-  buttonColor: PropTypes.string
 };
 
 BackButton.defaultProps = {
