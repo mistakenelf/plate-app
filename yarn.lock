@@ -96,8 +96,8 @@ ajv-keywords@^1.0.0, ajv-keywords@^1.1.1:
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-1.5.1.tgz#314dd0a4b3368fad3dfcdc54ede6171b886daf3c"
 
 ajv@^4.7.0, ajv@^4.9.1:
-  version "4.11.5"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-4.11.5.tgz#b6ee74657b993a01dce44b7944d56f485828d5bd"
+  version "4.11.6"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-4.11.6.tgz#947e93049790942b2a2d60a8289b28924d39f987"
   dependencies:
     co "^4.6.0"
     json-stable-stringify "^1.0.1"
@@ -824,9 +824,9 @@ babel-plugin-transform-react-jsx@^6.23.0:
     babel-plugin-syntax-jsx "^6.8.0"
     babel-runtime "^6.22.0"
 
-babel-plugin-transform-react-remove-prop-types@0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.3.2.tgz#6da8d834c6d7ad8ab02f956509790cfaa01ffe19"
+babel-plugin-transform-react-remove-prop-types@0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-remove-prop-types/-/babel-plugin-transform-react-remove-prop-types-0.3.3.tgz#d09f48b9a9503a69c1ced39b3825c2f45d29333c"
 
 babel-plugin-transform-regenerator@^6.24.1:
   version "6.24.1"
@@ -1063,7 +1063,7 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
-bowser@^1.0.0:
+bowser@^1.6.0:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/bowser/-/bowser-1.6.1.tgz#9157e9498f456e937173a2918f3b2161e5353eb3"
 
@@ -1420,6 +1420,12 @@ create-hmac@^1.1.0, create-hmac@^1.1.2:
     create-hash "^1.1.0"
     inherits "^2.0.1"
 
+create-react-class@^15.5.1:
+  version "15.5.1"
+  resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.5.1.tgz#25a138a42d1c9df6d5c70fea29ec6ccf5ae165b8"
+  dependencies:
+    fbjs "^0.8.9"
+
 cross-spawn@5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-5.1.0.tgz#e8bd0efee58fcff6f8f94510a0a554bbfa235449"
@@ -1448,6 +1454,12 @@ crypto-browserify@^3.11.0:
     pbkdf2 "^3.0.3"
     public-encrypt "^4.0.0"
     randombytes "^2.0.0"
+
+css-in-js-utils@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/css-in-js-utils/-/css-in-js-utils-1.0.3.tgz#9ac7e02f763cf85d94017666565ed68a5b5f3215"
+  dependencies:
+    hyphenate-style-name "^1.0.2"
 
 cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   version "0.3.2"
@@ -1991,7 +2003,7 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
-fbjs@^0.8.1, fbjs@^0.8.4, fbjs@^0.8.6:
+fbjs@^0.8.1, fbjs@^0.8.4, fbjs@^0.8.6, fbjs@^0.8.9:
   version "0.8.12"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.12.tgz#10b5d92f76d45575fd63a217d4ea02bea2f8ed04"
   dependencies:
@@ -2445,7 +2457,7 @@ https-browserify@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-0.0.1.tgz#3f91365cabe60b77ed0ebba24b454e3e09d95a82"
 
-hyphenate-style-name@^1.0.1:
+hyphenate-style-name@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.2.tgz#31160a36930adaf1fc04c6074f7eb41465d4ec4b"
 
@@ -2496,12 +2508,12 @@ ini@~1.3.0:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/ini/-/ini-1.3.4.tgz#0537cb79daf59b59a1a517dff706c86ec039162e"
 
-inline-style-prefixer@^2.0.1:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/inline-style-prefixer/-/inline-style-prefixer-2.0.5.tgz#c153c7e88fd84fef5c602e95a8168b2770671fe7"
+inline-style-prefixer@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/inline-style-prefixer/-/inline-style-prefixer-3.0.2.tgz#989865e0c5de7a946acbea71e16e02741efe0dd7"
   dependencies:
-    bowser "^1.0.0"
-    hyphenate-style-name "^1.0.1"
+    bowser "^1.6.0"
+    css-in-js-utils "^1.0.3"
 
 inquirer@^0.12.0:
   version "0.12.0"
@@ -3090,7 +3102,7 @@ jsx-ast-utils@^1.3.4:
   dependencies:
     object-assign "^4.1.0"
 
-keycode@^2.1.1, keycode@^2.1.7:
+keycode@^2.1.7, keycode@^2.1.8:
   version "2.1.8"
   resolved "https://registry.yarnpkg.com/keycode/-/keycode-2.1.8.tgz#94d2b7098215eff0e8f9a8931d5a59076c4532fb"
 
@@ -3229,19 +3241,19 @@ makeerror@1.0.x:
   dependencies:
     tmpl "1.0.x"
 
-material-ui@^0.17.1:
-  version "0.17.1"
-  resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-0.17.1.tgz#37f9b9c073afa1603b8fb900d620b41699663176"
+material-ui@^0.17.2:
+  version "0.17.2"
+  resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-0.17.2.tgz#6cb0250f34d98e9d5c42d5ee0666491492b252f1"
   dependencies:
-    babel-runtime "^6.18.0"
-    inline-style-prefixer "^2.0.1"
-    keycode "^2.1.1"
+    babel-runtime "^6.23.0"
+    inline-style-prefixer "^3.0.2"
+    keycode "^2.1.8"
     lodash.merge "^4.6.0"
     lodash.throttle "^4.1.1"
-    react-addons-create-fragment "^15.0.0"
-    react-addons-transition-group "^15.0.0"
-    react-event-listener "^0.4.0"
-    recompose "^0.22.0"
+    react-addons-create-fragment "^15.4.0"
+    react-addons-transition-group "^15.4.0"
+    react-event-listener "^0.4.5"
+    recompose "^0.23.0"
     simple-assign "^0.1.0"
     warning "^3.0.0"
 
@@ -3425,9 +3437,9 @@ next-routes@^1.0.24:
   dependencies:
     path-to-regexp "^1.7.0"
 
-next@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/next/-/next-2.1.0.tgz#7a94c7666f87064274d546c1f2574f01015e5023"
+next@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/next/-/next-2.1.1.tgz#d23f18e3cdda2ce110bd2a449ad013e855e59f83"
   dependencies:
     ansi-html "0.0.7"
     babel-core "6.24.0"
@@ -3439,7 +3451,7 @@ next@^2.1.0:
     babel-plugin-transform-es2015-modules-commonjs "6.24.0"
     babel-plugin-transform-object-rest-spread "6.22.0"
     babel-plugin-transform-react-jsx-source "6.22.0"
-    babel-plugin-transform-react-remove-prop-types "0.3.2"
+    babel-plugin-transform-react-remove-prop-types "0.3.3"
     babel-plugin-transform-runtime "6.22.0"
     babel-preset-latest "6.24.0"
     babel-preset-react "6.23.0"
@@ -3888,6 +3900,12 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
+prop-types@^15.0.0, prop-types@^15.5.2, prop-types@^15.5.4, prop-types@~15.5.0:
+  version "15.5.4"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.4.tgz#2ed3692716a5060f8cc020946d8238e7419d92c0"
+  dependencies:
+    fbjs "^0.8.9"
+
 proxy-addr@~1.1.3:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-1.1.4.tgz#27e545f6960a44a627d9b44467e35c1b6b4ce2f3"
@@ -3965,23 +3983,16 @@ rc@~1.1.6:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-addons-create-fragment@^15.0.0:
-  version "15.5.1"
-  resolved "https://registry.yarnpkg.com/react-addons-create-fragment/-/react-addons-create-fragment-15.5.1.tgz#62c2427ee1e32fcd511f612cf3fe326ef9671b1c"
+react-addons-create-fragment@^15.4.0:
+  version "15.5.3"
+  resolved "https://registry.yarnpkg.com/react-addons-create-fragment/-/react-addons-create-fragment-15.5.3.tgz#d0025675a9e98b2591240382c73b491251066109"
   dependencies:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-react-addons-shallow-compare@^15.4.1:
-  version "15.5.0"
-  resolved "https://registry.yarnpkg.com/react-addons-shallow-compare/-/react-addons-shallow-compare-15.5.0.tgz#4d95c68a5537ccb75f395169b64db1745617fab5"
-  dependencies:
-    fbjs "^0.8.4"
-    object-assign "^4.1.0"
-
-react-addons-transition-group@^15.0.0:
-  version "15.5.0"
-  resolved "https://registry.yarnpkg.com/react-addons-transition-group/-/react-addons-transition-group-15.5.0.tgz#4a7dd48d2061f49a8977396f9e7c3f40f1b07a40"
+react-addons-transition-group@^15.4.0:
+  version "15.5.2"
+  resolved "https://registry.yarnpkg.com/react-addons-transition-group/-/react-addons-transition-group-15.5.2.tgz#da6989d9cffe27dffacaedc862000ffb09ae2206"
   dependencies:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
@@ -4007,20 +4018,22 @@ react-deep-force-update@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-2.0.1.tgz#4f7f6c12c3e7de42f345992a3c518236fa1ecad3"
 
-"react-dom@0.14.x || 15.* || ^15.0.0", react-dom@^15.4.2:
-  version "15.4.2"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.4.2.tgz#015363f05b0a1fd52ae9efdd3a0060d90695208f"
+"react-dom@0.14.x || 15.* || ^15.0.0", react-dom@^15.5.3:
+  version "15.5.3"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.5.3.tgz#2ee127ce942df55da53111ae303316e68072b5c5"
   dependencies:
-    fbjs "^0.8.1"
+    fbjs "^0.8.9"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+    prop-types "~15.5.0"
 
-react-event-listener@^0.4.0, react-event-listener@^0.4.2:
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/react-event-listener/-/react-event-listener-0.4.4.tgz#af6552f06b5a4fa3f6df900bef0a7bba47cab39d"
+react-event-listener@^0.4.5:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/react-event-listener/-/react-event-listener-0.4.5.tgz#e3e895a0970cf14ee8f890113af68197abf3d0b1"
   dependencies:
     babel-runtime "^6.20.0"
     fbjs "^0.8.4"
+    prop-types "^15.5.4"
     warning "^3.0.0"
 
 react-ga@^2.1.2:
@@ -4047,14 +4060,16 @@ react-proxy@^3.0.0-alpha.0:
     lodash "^4.6.1"
 
 react-redux@^5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.3.tgz#86c3b68d56e74294a42e2a740ab66117ef6c019f"
+  version "5.0.4"
+  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.4.tgz#1563babadcfb2672f57f9ceaa439fb16bf85d55b"
   dependencies:
+    create-react-class "^15.5.1"
     hoist-non-react-statics "^1.0.3"
     invariant "^2.0.0"
     lodash "^4.2.0"
     lodash-es "^4.2.0"
     loose-envify "^1.1.0"
+    prop-types "^15.0.0"
 
 react-swipeable-views-core@^0.11.1:
   version "0.11.1"
@@ -4063,24 +4078,26 @@ react-swipeable-views-core@^0.11.1:
     babel-runtime "^6.23.0"
     warning "^3.0.0"
 
-react-swipeable-views-utils@^0.11.1:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/react-swipeable-views-utils/-/react-swipeable-views-utils-0.11.1.tgz#9956160812e5f2200b299c0a7742cbde2c0e67bb"
+react-swipeable-views-utils@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/react-swipeable-views-utils/-/react-swipeable-views-utils-0.12.0.tgz#4ff11f20a8da0561f623876d9fd691116e1a6a03"
   dependencies:
     babel-runtime "^6.23.0"
+    fbjs "^0.8.4"
     keycode "^2.1.7"
-    react-addons-shallow-compare "^15.4.1"
-    react-event-listener "^0.4.2"
+    prop-types "^15.5.4"
+    react-event-listener "^0.4.5"
     react-swipeable-views-core "^0.11.1"
 
-react-swipeable-views@^0.11.2:
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/react-swipeable-views/-/react-swipeable-views-0.11.2.tgz#9df5a2587e1cc0275f6639ba0070fa6660e700ae"
+react-swipeable-views@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/react-swipeable-views/-/react-swipeable-views-0.12.0.tgz#0d64b97aca18ec48c5fcaf1f99d1525a3d6c181f"
   dependencies:
     babel-runtime "^6.23.0"
     dom-helpers "^3.2.1"
+    prop-types "^15.5.4"
     react-swipeable-views-core "^0.11.1"
-    react-swipeable-views-utils "^0.11.1"
+    react-swipeable-views-utils "^0.12.0"
     warning "^3.0.0"
 
 react-tap-event-plugin@^2.0.1:
@@ -4089,20 +4106,21 @@ react-tap-event-plugin@^2.0.1:
   dependencies:
     fbjs "^0.8.6"
 
-react-test-renderer@^15.4.2:
-  version "15.4.2"
-  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.4.2.tgz#27e1dff5d26d0e830f99614c487622bc831416f3"
+react-test-renderer@^15.5.4:
+  version "15.5.4"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.5.4.tgz#d4ebb23f613d685ea8f5390109c2d20fbf7c83bc"
   dependencies:
-    fbjs "^0.8.4"
+    fbjs "^0.8.9"
     object-assign "^4.1.0"
 
-react@^15.4.2:
-  version "15.4.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.4.2.tgz#41f7991b26185392ba9bae96c8889e7e018397ef"
+react@^15.5.3:
+  version "15.5.3"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.5.3.tgz#84055382c025dec4e3b902bb61a8697cc79c1258"
   dependencies:
-    fbjs "^0.8.4"
+    fbjs "^0.8.9"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+    prop-types "^15.5.2"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
@@ -4132,8 +4150,8 @@ readable-stream@2.1.5, readable-stream@~2.1.4:
     util-deprecate "~1.0.1"
 
 "readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.5, readable-stream@^2.2.2, readable-stream@^2.2.6:
-  version "2.2.8"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.8.tgz#ad28b686f3554c73d39bc32347fa058356624705"
+  version "2.2.9"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.9.tgz#cf78ec6f4a6d1eb43d26488cac97f042e74b7fc8"
   dependencies:
     buffer-shims "~1.0.0"
     core-util-is "~1.0.0"
@@ -4166,9 +4184,9 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
-recompose@^0.22.0:
-  version "0.22.0"
-  resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.22.0.tgz#f099d18385882ca41d9eec891718dadddc3204ef"
+recompose@^0.23.0:
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/recompose/-/recompose-0.23.0.tgz#604840c3b75517cf57cf48d395c22fc7301820be"
   dependencies:
     change-emitter "^0.1.2"
     fbjs "^0.8.1"
@@ -4176,11 +4194,12 @@ recompose@^0.22.0:
     symbol-observable "^1.0.4"
 
 redbox-react@^1.2.5:
-  version "1.3.4"
-  resolved "https://registry.yarnpkg.com/redbox-react/-/redbox-react-1.3.4.tgz#3d882bb62cc7c8f6256279d12f05c6a5a96d24c6"
+  version "1.3.6"
+  resolved "https://registry.yarnpkg.com/redbox-react/-/redbox-react-1.3.6.tgz#70314c57c066257eb70b0a24dc794b5cef4f1c4e"
   dependencies:
     error-stack-parser "^1.3.6"
     object-assign "^4.0.1"
+    prop-types "^15.5.4"
 
 redux-form@^6.6.2:
   version "6.6.2"
@@ -4823,8 +4842,8 @@ ua-parser-js@^0.7.9:
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"
 
 uglify-js@^2.6, uglify-js@^2.8.5:
-  version "2.8.21"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.21.tgz#1733f669ae6f82fc90c7b25ec0f5c783ee375314"
+  version "2.8.22"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.22.tgz#d54934778a8da14903fa29a326fb24c0ab51a1a0"
   dependencies:
     source-map "~0.5.1"
     yargs "~3.10.0"
