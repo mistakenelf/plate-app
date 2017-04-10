@@ -41,7 +41,7 @@ const FooterDesktop = () => {
             <a className="footer-links">About Us</a>
           </Link>
           <br />
-          <Link prefetch href="/">
+          <Link prefetch href="/contact">
             <a className="footer-links">Contact Us</a>
           </Link>
         </div>
