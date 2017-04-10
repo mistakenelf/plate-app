@@ -1,3 +1,5 @@
+// @flow
+
 import Header from '../modules/Header';
 import Login from '../modules/Login';
 import React from 'react';

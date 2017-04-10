@@ -1,3 +1,5 @@
+// @flow
+
 import createMiddleware from './middleware';
 import { createStore } from 'redux';
 import getReducer from './reducer';

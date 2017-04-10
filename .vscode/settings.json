@@ -10,5 +10,6 @@
   "prettier.singleQuote": true,
   "prettier.trailingComma": "none",
   "workbench.colorTheme": "Solarized Dark",
-  "javascript.validate.enable": false
+  "javascript.validate.enable": false,
+  "flow.useNPMPackagedFlow": true
 }

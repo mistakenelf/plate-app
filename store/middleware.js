@@ -1,3 +1,5 @@
+// @flow
+
 import { applyMiddleware, compose } from 'redux';
 
 // Create our middleware and setup devtools

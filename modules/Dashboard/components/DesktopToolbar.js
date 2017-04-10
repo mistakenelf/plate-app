@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+// @flow
+
 import {
   Toolbar,
   ToolbarGroup,
@@ -7,8 +8,13 @@ import {
 } from 'material-ui/Toolbar';
 
 import RaisedButton from 'material-ui/RaisedButton';
+import React from 'react';
 
-const DesktopToolbar = props => {
+type Props = {
+  openDialog: Function
+};
+
+const DesktopToolbar = ({ openDialog }: Props) => {
   return (
     <div className="toolbar-desktop">
       <Toolbar>
@@ -18,11 +24,7 @@ const DesktopToolbar = props => {
         <ToolbarGroup />
         <ToolbarGroup>
           <ToolbarSeparator />
-          <RaisedButton
-            primary
-            label="Create Plate"
-            onTouchTap={props.openDialog}
-          />
+          <RaisedButton primary label="Create Plate" onTouchTap={openDialog} />
         </ToolbarGroup>
       </Toolbar>
       <style jsx>
@@ -40,10 +42,6 @@ const DesktopToolbar = props => {
       </style>
     </div>
   );
-};
-
-DesktopToolbar.propTypes = {
-  openDialog: PropTypes.func
 };
 
 export default DesktopToolbar;

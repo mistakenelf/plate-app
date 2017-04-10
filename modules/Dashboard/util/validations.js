@@ -1,4 +1,6 @@
-export const addPlateValidations = values => {
+// @flow
+
+export const addPlateValidations = (values: Object) => {
   const errors = {};
   if (!values.name) {
     errors.name = 'Please enter a plate name';
@@ -9,7 +11,7 @@ export const addPlateValidations = values => {
   return errors;
 };
 
-export const editPlateValidations = values => {
+export const editPlateValidations = (values: Object) => {
   const errors = {};
   if (!values.currentPlateName) {
     errors.currentPlateName = 'Please enter a plate name';

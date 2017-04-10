@@ -1,15 +1,19 @@
-import React, { Component, PropTypes } from 'react';
+// @flow
+
+import React, { Component } from 'react';
 
 import Navigation from '../modules/Navigation';
 import configureLoadingProgressBar from '../util/routing';
 
-export default ComposedComponent =>
+type Props = {
+  open?: boolean,
+  openDrawer?: Function,
+  closeDrawer?: Function
+};
+
+export default (ComposedComponent: Function) =>
   class WithDefaultLayout extends Component {
-    static propTypes = {
-      open: PropTypes.bool,
-      openDrawer: PropTypes.func,
-      closeDrawer: PropTypes.func
-    };
+    props: Props;
 
     state = {
       open: false

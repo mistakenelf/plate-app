@@ -1,3 +1,5 @@
+// @flow
+
 import { Card, CardText } from 'material-ui/Card';
 
 import ErrorIcon from 'material-ui/svg-icons/alert/error';

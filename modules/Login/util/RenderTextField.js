@@ -1,8 +1,15 @@
-import React, { PropTypes } from 'react';
+// @flow
 
+import React from 'react';
 import TextField from 'material-ui/TextField';
 
-const RenderTextField = props => {
+type Props = {
+  label: string,
+  meta: Object,
+  input: Object
+};
+
+const RenderTextField = (props: Props) => {
   const { input, label, meta: { touched, error }, ...custom } = props;
   return (
     <TextField
@@ -16,12 +23,6 @@ const RenderTextField = props => {
       {...custom}
     />
   );
-};
-
-RenderTextField.propTypes = {
-  label: PropTypes.string,
-  meta: PropTypes.object,
-  input: PropTypes.object
 };
 
 export default RenderTextField;

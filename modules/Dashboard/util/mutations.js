@@ -1,3 +1,5 @@
+// @flow
+
 import { gql } from 'react-apollo';
 
 export const addPlateMutation = gql`

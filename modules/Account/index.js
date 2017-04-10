@@ -1,3 +1,5 @@
+// @flow
+
 import BackButton from '../../components/BackButton';
 import ProfilePage from './components/ProfilePage';
 import React from 'react';

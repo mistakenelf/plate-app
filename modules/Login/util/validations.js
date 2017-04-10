@@ -1,4 +1,6 @@
-export const loginValidations = values => {
+// @flow
+
+export const loginValidations = (values: Object) => {
   const errors = {};
   if (!values.email) {
     errors.email = 'Please enter an email';

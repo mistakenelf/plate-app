@@ -1,15 +1,17 @@
-import React, { PropTypes } from 'react';
+// @flow
 
-const PlateFiller = props => {
-  return (
-    <div>
-      <h1>Plate {props.url.query.id}</h1>
-    </div>
-  );
+import React from 'react';
+
+type Props = {
+  query: Object
 };
 
-PlateFiller.propTypes = {
-  url: PropTypes.object
+const PlateFiller = ({ url }: Props) => {
+  return (
+    <div>
+      <h1>Plate {url.query.id}</h1>
+    </div>
+  );
 };
 
 export default PlateFiller;

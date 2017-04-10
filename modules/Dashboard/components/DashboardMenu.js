@@ -1,13 +1,17 @@
-import React, { Component, PropTypes } from 'react';
+// @flow
+
+import React, { Component } from 'react';
 
 import AddPlateDialog from './AddPlateDialog';
 import DesktopToolbar from './DesktopToolbar';
 import MobileToolbar from './MobileToolbar';
 
+type Props = {
+  addPlate: Function
+};
+
 class DashboardMenu extends Component {
-  static propTypes = {
-    addPlate: PropTypes.func
-  };
+  props: Props;
 
   state = {
     open: false

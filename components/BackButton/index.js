@@ -5,7 +5,7 @@ import IconButton from 'material-ui/IconButton';
 import React from 'react';
 
 type Props = {
-  buttonColor?: string
+  buttonColor: string
 };
 
 const BackButton = ({ buttonColor }: Props) => {
@@ -22,10 +22,6 @@ const BackButton = ({ buttonColor }: Props) => {
       </a>
     </div>
   );
-};
-
-BackButton.defaultProps = {
-  buttonColor: 'white'
 };
 
 export default BackButton;

@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+// @flow
+
 import { Toolbar, ToolbarGroup, ToolbarTitle } from 'material-ui/Toolbar';
 
 import IconButton from 'material-ui/IconButton';
@@ -6,8 +7,13 @@ import IconMenu from 'material-ui/IconMenu';
 import MenuItem from 'material-ui/MenuItem';
 import NavigationExpandMoreIcon
   from 'material-ui/svg-icons/navigation/expand-more';
+import React from 'react';
 
-const MobileToolbar = props => {
+type Props = {
+  openDialog: Function
+};
+
+const MobileToolbar = ({ openDialog }: Props) => {
   return (
     <div className="toolbar-mobile">
       <Toolbar>
@@ -22,10 +28,7 @@ const MobileToolbar = props => {
               </IconButton>
             }
           >
-            <MenuItem
-              primaryText="Create Plate"
-              onTouchTap={props.openDialog}
-            />
+            <MenuItem primaryText="Create Plate" onTouchTap={openDialog} />
           </IconMenu>
         </ToolbarGroup>
       </Toolbar>
@@ -44,10 +47,6 @@ const MobileToolbar = props => {
       </style>
     </div>
   );
-};
-
-MobileToolbar.propTypes = {
-  openDialog: PropTypes.func
 };
 
 export default MobileToolbar;

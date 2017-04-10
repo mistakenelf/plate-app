@@ -1,9 +1,15 @@
+// @flow
+
 import Header from '../modules/Header';
 import PlateFiller from '../modules/PlateFiller';
 import React from 'react';
 import page from '../hocs/page';
 
-export default page(props => (
+type Props = {
+  props: Object
+};
+
+export default page((props: Props) => (
   <div>
     <Header title="Plate Filler" />
     <PlateFiller {...props} />

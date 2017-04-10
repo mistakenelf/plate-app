@@ -1,10 +1,22 @@
+// @flow
+
 import { Field, reduxForm } from 'redux-form';
-import React, { PropTypes } from 'react';
 
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import React from 'react';
 import RenderTextField from '../util/RenderTextField';
 import { editPlateValidations } from '../util/validations';
+
+type Props = {
+  editPlateOpen: boolean,
+  editPlateHandleClose: Function,
+  plateId: string,
+  plateName: string,
+  plateDescription: string,
+  editPlate: Function,
+  handleSubmit: Function
+};
 
 const editPlateDetails = (id, editPlate, editPlateHandleClose) => {
   const newPlateName = document.getElementById('currentPlateName').value;
@@ -16,13 +28,19 @@ const editPlateDetails = (id, editPlate, editPlateHandleClose) => {
   editPlateHandleClose();
 };
 
-const EditPlateDialog = props => {
+const EditPlateDialog = (
+  {
+    editPlateOpen,
+    editPlateHandleClose,
+    plateId,
+    plateName,
+    plateDescription,
+    editPlate,
+    handleSubmit
+  }: Props
+) => {
   const actions = [
-    <FlatButton
-      label="Cancel"
-      onTouchTap={props.editPlateHandleClose}
-      primary
-    />,
+    <FlatButton label="Cancel" onTouchTap={editPlateHandleClose} primary />,
     <FlatButton label="Submit" form="editPlateForm" secondary type="submit" />
   ];
 
@@ -30,19 +48,15 @@ const EditPlateDialog = props => {
     <Dialog
       actions={actions}
       modal={false}
-      open={props.editPlateOpen}
-      onRequestClose={props.editPlateHandleClose}
+      open={editPlateOpen}
+      onRequestClose={editPlateHandleClose}
       contentStyle={{ width: '95%' }}
     >
       <h3 style={{ marginBottom: 10 }}>Edit Plate</h3>
       <form
         id="editPlateForm"
-        onSubmit={props.handleSubmit(() =>
-          editPlateDetails(
-            props.plateId,
-            props.editPlate,
-            props.editPlateHandleClose
-          ))}
+        onSubmit={handleSubmit(() =>
+          editPlateDetails(plateId, editPlate, editPlateHandleClose))}
       >
         <span style={{ marginRight: 10 }}>Name:</span>
         <Field
@@ -50,7 +64,7 @@ const EditPlateDialog = props => {
           id="currentPlateName"
           component={RenderTextField}
           type="text"
-          label={props.plateName}
+          label={plateName}
           style={{ marginBottom: 20 }}
         />
         <span style={{ marginRight: 10 }}>Description:</span>
@@ -59,21 +73,11 @@ const EditPlateDialog = props => {
           id="currentPlateDescription"
           component={RenderTextField}
           type="text"
-          label={props.plateDescription}
+          label={plateDescription}
         />
       </form>
     </Dialog>
   );
-};
-
-EditPlateDialog.propTypes = {
-  editPlateOpen: PropTypes.bool,
-  editPlateHandleClose: PropTypes.func,
-  plateId: PropTypes.string,
-  plateName: PropTypes.string,
-  plateDescription: PropTypes.string,
-  editPlate: PropTypes.func,
-  handleSubmit: PropTypes.func
 };
 
 export default reduxForm({

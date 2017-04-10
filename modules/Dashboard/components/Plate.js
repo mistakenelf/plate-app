@@ -1,5 +1,7 @@
+// @flow
+
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import {
   completePlateMutation,
   editPlateMutation,
@@ -16,17 +18,19 @@ import Link from 'next/link';
 import { PlatesQuery } from '../util/queries';
 import { green500 } from 'material-ui/styles/colors';
 
+type Props = {
+  name: string,
+  description: string,
+  plateId: string,
+  removePlate: Function,
+  cardImage: string,
+  completed: boolean,
+  completePlate: Function,
+  editPlate: Function
+};
+
 class Plate extends Component {
-  static propTypes = {
-    name: PropTypes.string,
-    description: PropTypes.string,
-    plateId: PropTypes.string,
-    removePlate: PropTypes.func,
-    cardImage: PropTypes.string,
-    completed: PropTypes.bool,
-    completePlate: PropTypes.func,
-    editPlate: PropTypes.func
-  };
+  props: Props;
 
   state = {
     washPlateOpen: false,
@@ -118,13 +122,7 @@ class Plate extends Component {
               secondary
               onTouchTap={this.washPlateHandleOpen}
             />
-            <Link
-              prefetch
-              href={{
-                pathname: 'platefiller',
-                query: { id: this.props.plateId }
-              }}
-            >
+            <Link prefetch href={`/platefiller?id=${this.props.plateId}`}>
               <a><FlatButton primary label="Fill Plate" /></a>
             </Link>
             <EditIcon

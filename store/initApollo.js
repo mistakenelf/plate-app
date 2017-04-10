@@ -1,3 +1,5 @@
+// @flow
+
 import { ApolloClient, createNetworkInterface } from 'react-apollo';
 
 // Initialize Apollo

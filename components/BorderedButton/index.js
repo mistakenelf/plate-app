@@ -1,17 +1,21 @@
-import React, { PropTypes } from 'react';
+// @flow
 
 import FlatButton from 'material-ui/FlatButton';
+import React from 'react';
 
-const BorderedButton = props => {
+type Props = {
+  type: string,
+  label: string,
+  color: string
+};
+
+const BorderedButton = ({ type, label, color }: Props) => {
   return (
-    <div
-      className="bordered-button"
-      style={{ border: `1px solid ${props.color}` }}
-    >
+    <div className="bordered-button" style={{ border: `1px solid ${color}` }}>
       <FlatButton
-        type={props.type}
-        label={props.label}
-        labelStyle={{ color: props.color, width: '100%' }}
+        type={type}
+        label={label}
+        labelStyle={{ color: color, width: '100%' }}
       />
       <style jsx>
         {
@@ -25,16 +29,6 @@ const BorderedButton = props => {
       </style>
     </div>
   );
-};
-
-BorderedButton.propTypes = {
-  type: PropTypes.string,
-  label: PropTypes.string,
-  color: PropTypes.string
-};
-
-BorderedButton.defaultProps = {
-  color: 'white'
 };
 
 export default BorderedButton;

@@ -1,5 +1,7 @@
+// @flow
+
 import { Field, reduxForm } from 'redux-form';
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { compose, graphql } from 'react-apollo';
 
 import Dialog from 'material-ui/Dialog';
@@ -9,14 +11,16 @@ import RenderTextField from '../util/RenderTextField';
 import { addPlateMutation } from '../util/mutations';
 import { addPlateValidations } from '../util/validations';
 
+type Props = {
+  open: boolean,
+  closeDialog: Function,
+  addPlate: Function,
+  handleSubmit: Function,
+  reset: Function
+};
+
 class AddPlateDialog extends Component {
-  static propTypes = {
-    open: PropTypes.bool,
-    closeDialog: PropTypes.func,
-    addPlate: PropTypes.func,
-    handleSubmit: PropTypes.func,
-    reset: PropTypes.func
-  };
+  props: Props;
 
   confirmAddPlate = () => {
     const plateName = document.getElementById('name').value;

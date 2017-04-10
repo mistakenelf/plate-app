@@ -1,21 +1,28 @@
+// @flow
+
 import { Field, reduxForm } from 'redux-form';
-import React, { PropTypes } from 'react';
 import { compose, graphql } from 'react-apollo';
 
 import BorderedButton from '../../../components/BorderedButton';
+import React from 'react';
 import RenderTextField from '../util/RenderTextField';
 import Router from 'next/router';
 import { registerMutation } from '../util/mutations';
 import { registerValidations } from '../util/validations';
 
-const RegisterForm = props => {
+type Props = {
+  handleSubmit: Function,
+  register: Function
+};
+
+const RegisterForm = ({ handleSubmit, register }: Props) => {
   const registerUser = () => {
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
-    props.register(firstName, lastName, username, password);
+    register(firstName, lastName, username, password);
 
     Router.push('/');
   };
@@ -27,7 +34,7 @@ const RegisterForm = props => {
       >
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <h1 className="header-text">Register</h1>
-          <form onSubmit={props.handleSubmit(registerUser)}>
+          <form onSubmit={handleSubmit(registerUser)}>
             <Field
               name="firstName"
               id="firstName"
@@ -82,11 +89,6 @@ const RegisterForm = props => {
       </style>
     </div>
   );
-};
-
-RegisterForm.propTypes = {
-  handleSubmit: PropTypes.func,
-  register: PropTypes.func
 };
 
 export default compose(

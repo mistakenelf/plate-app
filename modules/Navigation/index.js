@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+// @flow
+
 import { gql, withApollo } from 'react-apollo';
 
 import AccountIcon from 'material-ui/svg-icons/action/account-circle';
@@ -9,8 +10,16 @@ import IconMenu from 'material-ui/IconMenu';
 import Link from 'next/link';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import React from 'react';
 
-const Navigation = props => {
+type Props = {
+  open: boolean,
+  openDrawer: Function,
+  closeDrawer: Function,
+  client: Object
+};
+
+const Navigation = ({ open, openDrawer, closeDrawer, client }: Props) => {
   const Query = gql`
     query {
       plates {
@@ -22,7 +31,7 @@ const Navigation = props => {
   `;
 
   const prefetchPlates = () => {
-    props.client.query({
+    client.query({
       query: Query
     });
   };
@@ -56,7 +65,7 @@ const Navigation = props => {
     <div>
       <AppBar
         title="Plate"
-        onLeftIconButtonTouchTap={props.openDrawer}
+        onLeftIconButtonTouchTap={openDrawer}
         iconElementRight={elementRight}
         style={{
           backgroundColor: '#343f53',
@@ -68,26 +77,26 @@ const Navigation = props => {
       <Drawer
         docked={false}
         width={200}
-        open={props.open}
-        onRequestChange={props.closeDrawer}
+        open={open}
+        onRequestChange={closeDrawer}
       >
         <Link prefetch href="/">
           <a className="sidebar-text">
-            <MenuItem onTouchTap={props.closeDrawer}>Home</MenuItem>
+            <MenuItem onTouchTap={closeDrawer}>Home</MenuItem>
           </a>
         </Link>
         <Link prefetch href="/dashboard">
           <a className="sidebar-text">
             <MenuItem
               onMouseOver={() => prefetchPlates()}
-              onTouchTap={props.closeDrawer}
+              onTouchTap={closeDrawer}
             >
               Dashboard
             </MenuItem>
           </a>
         </Link>
       </Drawer>
-      <style jsx global>
+      <style jsx>
         {
           `
           a {
@@ -102,13 +111,6 @@ const Navigation = props => {
       </style>
     </div>
   );
-};
-
-Navigation.propTypes = {
-  open: PropTypes.bool,
-  openDrawer: PropTypes.func,
-  closeDrawer: PropTypes.func,
-  client: PropTypes.object
 };
 
 export default withApollo(Navigation);

@@ -1,3 +1,5 @@
+// @flow
+
 import Contact from '../modules/Contact';
 import Header from '../modules/Header';
 import React from 'react';

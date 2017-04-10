@@ -1,4 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+// flow
+
+import React, { Component } from 'react';
 
 import DashboardMenu from './components/DashboardMenu';
 import Loader from '../../components/Loader';
@@ -7,12 +9,14 @@ import Plate from './components/Plate';
 import { PlatesQuery } from './util/queries';
 import { graphql } from 'react-apollo';
 
+type Props = {
+  loading: boolean,
+  plates: Array,
+  addPlate: Function
+};
+
 class Dashboard extends Component {
-  static propTypes = {
-    loading: PropTypes.bool,
-    plates: PropTypes.array,
-    addPlate: PropTypes.func
-  };
+  props: Props;
 
   render() {
     return (

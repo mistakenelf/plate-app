@@ -1,4 +1,6 @@
-export const registerValidations = values => {
+// @flow
+
+export const registerValidations = (values: Object) => {
   const errors = {};
   if (!values.firstName) {
     errors.firstName = 'Please enter your first name';
