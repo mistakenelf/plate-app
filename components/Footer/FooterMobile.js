@@ -5,6 +5,7 @@ import Divider from 'material-ui/Divider';
 import ExpandMoreIcon from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
 import KeyboardArrowRight
   from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
+import Router from 'next/router';
 
 class FooterMobile extends Component {
   state = {
@@ -75,6 +76,7 @@ class FooterMobile extends Component {
                   key={2}
                   primaryText="Contact Us"
                   style={{ color: '#bdbdbd' }}
+                  onTouchTap={() => Router.push('/contact')}
                 />
               ]}
             />
