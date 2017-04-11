@@ -3,6 +3,7 @@ const next = require('next');
 const bodyParser = require('body-parser');
 const { graphiqlExpress, graphqlExpress } = require('graphql-server-express');
 const MongoClient = require('mongodb').MongoClient;
+const helmet = require('helmet');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -21,6 +22,7 @@ module.exports = app
     server
       .use(bodyParser.json())
       .use(bodyParser.urlencoded({ extended: true }))
+      .use(helmet())
       .use(cache(app))
       .use(
         '/graphql',
