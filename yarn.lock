@@ -3245,9 +3245,9 @@ makeerror@1.0.x:
   dependencies:
     tmpl "1.0.x"
 
-material-ui@^0.17.2:
-  version "0.17.2"
-  resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-0.17.2.tgz#6cb0250f34d98e9d5c42d5ee0666491492b252f1"
+material-ui@^0.17.3:
+  version "0.17.3"
+  resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-0.17.3.tgz#1c8d82da7909dab39d5e292b575516fe13b055c7"
   dependencies:
     babel-runtime "^6.23.0"
     inline-style-prefixer "^3.0.2"
