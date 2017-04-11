@@ -32,7 +32,13 @@ class TextEditor extends Component {
 
   render = () => {
     return (
-      <div style={{ border: '1px solid grey', padding: 20, height: 500 }}>
+      <div
+        style={{
+          border: '1px solid grey',
+          padding: 20,
+          height: 500
+        }}
+      >
         <Editor state={this.state.state} onChange={this.onChange} />
       </div>
     );
