@@ -34,7 +34,11 @@ const ForgotPasswordForm = ({ handleSubmit }: Props) => {
                 label="Email"
               />
             </div>
-            <BorderedButton type="submit" label="Forgot Password" />
+            <BorderedButton
+              color="white"
+              type="submit"
+              label="Forgot Password"
+            />
           </form>
         </div>
       </div>

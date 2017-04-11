@@ -5,7 +5,7 @@ import { createStore } from 'redux';
 import getReducer from './reducer';
 
 // Initialize Redux Store
-export const initStore = (client, initialState) => {
+export const initStore = (client: Object, initialState: Object) => {
   let store;
   if (!process.browser || !window.store) {
     const middleware = createMiddleware(client.middleware());

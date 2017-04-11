@@ -3,13 +3,13 @@
 import React from 'react';
 
 type Props = {
-  query: Object
+  plateId: string
 };
 
-const PlateFiller = ({ url }: Props) => {
+const PlateFiller = ({ plateId }: Props) => {
   return (
     <div>
-      <h1>Plate {url.query.id}</h1>
+      <h1>Plate {plateId}</h1>
     </div>
   );
 };

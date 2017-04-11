@@ -7,7 +7,7 @@ import React from 'react';
 const Account = () => {
   return (
     <div>
-      <BackButton buttonColor="black" />
+      <BackButton color="black" />
       <ProfilePage />
     </div>
   );

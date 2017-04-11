@@ -23,8 +23,8 @@ class AddPlateDialog extends Component {
   props: Props;
 
   confirmAddPlate = () => {
-    const plateName = document.getElementById('name').value;
-    const plateDescription = document.getElementById('description').value;
+    const plateName = document.getElementById('name').value || '';
+    const plateDescription = document.getElementById('description').value || '';
 
     const plateColors = [
       '/static/img/taskIcon/taskIconBlue.png',

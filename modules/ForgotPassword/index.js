@@ -7,7 +7,7 @@ import React from 'react';
 const ForgotPassword = () => {
   return (
     <div>
-      <BackButton />
+      <BackButton color="white" />
       <ForgotPasswordForm />
     </div>
   );

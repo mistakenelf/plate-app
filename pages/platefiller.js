@@ -6,12 +6,12 @@ import React from 'react';
 import page from '../hocs/page';
 
 type Props = {
-  props: Object
+  url: Object
 };
 
-export default page((props: Props) => (
+export default page(({ url }: Props) => (
   <div>
     <Header title="Plate Filler" />
-    <PlateFiller {...props} />
+    <PlateFiller plateId={url.query.id} />
   </div>
 ));

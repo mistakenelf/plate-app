@@ -17,10 +17,10 @@ type Props = {
 
 const RegisterForm = ({ handleSubmit, register }: Props) => {
   const registerUser = () => {
-    const firstName = document.getElementById('firstName').value;
-    const lastName = document.getElementById('lastName').value;
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+    const firstName = document.getElementById('firstName').value || '';
+    const lastName = document.getElementById('lastName').value || '';
+    const username = document.getElementById('username').value || '';
+    const password = document.getElementById('password').value || '';
 
     register(firstName, lastName, username, password);
 
@@ -64,7 +64,7 @@ const RegisterForm = ({ handleSubmit, register }: Props) => {
               label="Password"
               style={{ marginBottom: 20 }}
             />
-            <BorderedButton type="submit" label="Register" />
+            <BorderedButton color="white" type="submit" label="Register" />
           </form>
         </div>
       </div>

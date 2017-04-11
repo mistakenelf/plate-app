@@ -7,7 +7,7 @@ import React from 'react';
 const Login = () => {
   return (
     <div>
-      <BackButton />
+      <BackButton color="white" />
       <LoginForm />
     </div>
   );

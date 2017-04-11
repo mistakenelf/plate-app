@@ -5,15 +5,15 @@ import IconButton from 'material-ui/IconButton';
 import React from 'react';
 
 type Props = {
-  buttonColor: string
+  color: string
 };
 
-const BackButton = ({ buttonColor }: Props) => {
+const BackButton = ({ color }: Props) => {
   return (
     <div>
       <a onClick={() => window.history.back()}>
         <IconButton
-          iconStyle={{ color: buttonColor }}
+          iconStyle={{ color: color }}
           tooltip="Back"
           tooltipPosition="bottom-center"
         >

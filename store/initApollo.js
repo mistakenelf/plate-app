@@ -3,7 +3,7 @@
 import { ApolloClient, createNetworkInterface } from 'react-apollo';
 
 // Initialize Apollo
-export const initApollo = headers => {
+export const initApollo = (headers: Object) => {
   const client = new ApolloClient({
     ssrMode: !process.browser,
     headers,

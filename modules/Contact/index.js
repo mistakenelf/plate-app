@@ -4,9 +4,13 @@ import ContactForm from './components/ContactForm';
 import Footer from '../../components/Footer/Footer';
 import React from 'react';
 
-export default () => (
-  <div>
-    <ContactForm />
-    <Footer />
-  </div>
-);
+const Contact = () => {
+  return (
+    <div>
+      <ContactForm />
+      <Footer />
+    </div>
+  );
+};
+
+export default Contact;

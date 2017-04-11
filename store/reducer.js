@@ -5,9 +5,11 @@ import { reducer as formReducer } from 'redux-form';
 
 // Root reducer for our redux store and
 // apollo's store
-export default function getReducer(client) {
+const getReducer = (client: Object) => {
   return combineReducers({
     form: formReducer,
     apollo: client.reducer()
   });
-}
+};
+
+export default getReducer;
