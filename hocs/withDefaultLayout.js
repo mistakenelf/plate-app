@@ -51,6 +51,9 @@ export default (ComposedComponent: Function) =>
                 margin: 0;
                 box-sizing: border-box;
               }
+              a {
+                text-decoration: none;
+              }
               body {
                 font-family: Roboto, sans-serif;
                 margin-top: 60px;
