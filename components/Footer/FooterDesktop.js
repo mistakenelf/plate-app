@@ -84,6 +84,9 @@ const FooterDesktop = () => {
           padding: 5px;
           font-size: .2em;
         }
+        a {
+          text-decoration: none;
+        }
         a::before,
         a::after {
           display: inline-block;
