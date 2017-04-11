@@ -1,13 +1,8 @@
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import React, { Component } from 'react';
-import {
-  completePlateMutation,
-  editPlateMutation,
-  removePlateMutation,
-} from '../util/mutations';
 import { compose, graphql } from 'react-apollo';
+import { editPlateMutation, removePlateMutation } from '../util/mutations';
 
-import CheckCircle from 'material-ui/svg-icons/action/check-circle';
 import Dialog from 'material-ui/Dialog';
 import EditIcon from 'material-ui/svg-icons/editor/mode-edit';
 import EditPlateDialog from './EditPlateDialog';
@@ -15,7 +10,6 @@ import FlatButton from 'material-ui/FlatButton';
 import Link from 'next/link';
 import { PlatesQuery } from '../util/queries';
 import PropTypes from 'prop-types';
-import { green500 } from 'material-ui/styles/colors';
 
 class Plate extends Component {
   static propTypes = {
@@ -24,8 +18,7 @@ class Plate extends Component {
     plateId: PropTypes.string,
     removePlate: PropTypes.func,
     cardImage: PropTypes.string,
-    completed: PropTypes.bool,
-    completePlate: PropTypes.func,
+    status: PropTypes.string,
     editPlate: PropTypes.func
   };
 
@@ -55,10 +48,6 @@ class Plate extends Component {
     this.washPlateHandleClose();
   };
 
-  markPlateComplete = (plateId, completed) => {
-    this.props.completePlate(plateId, !completed);
-  };
-
   render() {
     const actions = [
       <FlatButton
@@ -78,32 +67,12 @@ class Plate extends Component {
         <Card style={{ borderRadius: 5 }}>
           <CardHeader
             title={this.props.name}
-            subtitle={
-              `Status: ${this.props.completed ? 'Completed' : 'To Be Completed'}`
-            }
+            subtitle={`Status: ${this.props.status}`}
+            avatar={this.props.cardImage}
             showExpandableButton
             expandable={false}
-            openIcon={
-              <CheckCircle
-                color={green500}
-                onTouchTap={() =>
-                  this.markPlateComplete(
-                    this.props.plateId,
-                    this.props.completed
-                  )}
-              />
-            }
-            closeIcon={
-              <CheckCircle
-                color={green500}
-                onTouchTap={() =>
-                  this.markPlateComplete(
-                    this.props.plateId,
-                    this.props.completed
-                  )}
-              />
-            }
-            avatar={this.props.cardImage}
+            openIcon={<EditIcon onTouchTap={this.editPlateHandleOpen} />}
+            closeIcon={<EditIcon onTouchTap={this.editPlateHandleOpen} />}
           />
           <CardText>
             <div>
@@ -122,16 +91,13 @@ class Plate extends Component {
             <Link prefetch href={`/platefiller?id=${this.props.plateId}`}>
               <a><FlatButton primary label="Fill Plate" /></a>
             </Link>
-            <EditIcon
-              style={{ float: 'right', marginTop: 5, cursor: 'pointer' }}
-              onTouchTap={this.editPlateHandleOpen}
-            />
           </CardActions>
           <EditPlateDialog
             editPlateOpen={this.state.editPlateOpen}
             editPlateHandleClose={this.editPlateHandleClose}
             plateId={this.props.plateId}
             plateName={this.props.name}
+            plateStatus={this.props.status}
             plateDescription={this.props.description}
             editPlate={this.props.editPlate}
           />
@@ -177,22 +143,10 @@ export default compose(
       ]
     }
   }),
-  graphql(completePlateMutation, {
-    props: ({ mutate }) => ({
-      completePlate: (id, completed) => mutate({ variables: { id, completed } })
-    }),
-    options: {
-      refetchQueries: [
-        {
-          query: PlatesQuery
-        }
-      ]
-    }
-  }),
   graphql(editPlateMutation, {
     props: ({ mutate }) => ({
-      editPlate: (id, name, description) =>
-        mutate({ variables: { id, name, description } })
+      editPlate: (id, name, description, status) =>
+        mutate({ variables: { id, name, description, status } })
     }),
     options: {
       refetchQueries: [

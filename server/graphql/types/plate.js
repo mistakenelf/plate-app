@@ -1,6 +1,5 @@
 const {
   GraphQLString,
-  GraphQLBoolean,
   GraphQLObjectType,
   GraphQLID
 } = require('graphql');
@@ -22,8 +21,8 @@ module.exports = new GraphQLObjectType({
     thumbnail: {
       type: GraphQLString
     },
-    completed: {
-      type: GraphQLBoolean
+    status: {
+      type: GraphQLString
     }
   }
 });

@@ -21,14 +21,17 @@ module.exports = {
     },
     description: {
       type: new GraphQLNonNull(GraphQLString)
+    },
+    status: {
+      type: new GraphQLNonNull(GraphQLString)
     }
   },
-  resolve({ db }, { id, name, description }) {
+  resolve({ db }, { id, name, description, status }) {
     return db
       .collection('plates')
       .findOneAndUpdate(
         { _id: new ObjectId(id) },
-        { $set: { name: name, description: description } }
+        { $set: { name: name, description: description, status: status } }
       );
   }
 };

@@ -26,7 +26,7 @@ module.exports = {
       name,
       description,
       thumbnail,
-      completed: false
+      status: 'New'
     };
 
     return db.collection('plates').insert(data);

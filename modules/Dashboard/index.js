@@ -43,7 +43,7 @@ class Dashboard extends Component {
                     name={plate.name}
                     description={plate.description}
                     cardImage={plate.thumbnail}
-                    completed={plate.completed}
+                    status={plate.status}
                   />
                 </div>
               ))}

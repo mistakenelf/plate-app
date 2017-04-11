@@ -18,6 +18,7 @@ const Navigation = ({ open, openDrawer, closeDrawer, client }) => {
         id
         name
         description
+        status
       }
     }
   `;

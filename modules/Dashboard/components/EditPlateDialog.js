@@ -12,8 +12,9 @@ const editPlateDetails = (id, editPlate, editPlateHandleClose) => {
   const newPlateDescription = document.getElementById(
     'currentPlateDescription'
   ).value;
+  const plateStatus = document.getElementById('plateStatus').value;
 
-  editPlate(id, newPlateName, newPlateDescription);
+  editPlate(id, newPlateName, newPlateDescription, plateStatus);
   editPlateHandleClose();
 };
 
@@ -25,6 +26,7 @@ const EditPlateDialog = (
     plateName,
     plateDescription,
     editPlate,
+    plateStatus,
     handleSubmit
   }
 ) => {
@@ -63,6 +65,15 @@ const EditPlateDialog = (
           component={RenderTextField}
           type="text"
           label={plateDescription}
+          style={{ marginBottom: 20 }}
+        />
+        <span style={{ marginRight: 10 }}>Status:</span>
+        <Field
+          name="plateStatus"
+          id="plateStatus"
+          component={RenderTextField}
+          type="text"
+          label={plateStatus}
         />
       </form>
     </Dialog>
@@ -75,6 +86,7 @@ EditPlateDialog.propTypes = {
   plateId: PropTypes.string,
   plateName: PropTypes.string,
   plateDescription: PropTypes.string,
+  plateStatus: PropTypes.string,
   editPlate: PropTypes.func,
   handleSubmit: PropTypes.func
 };
