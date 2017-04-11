@@ -1,22 +1,11 @@
-// @flow
-
 import { Field, reduxForm } from 'redux-form';
 
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
+import PropTypes from 'prop-types';
 import React from 'react';
 import RenderTextField from '../util/RenderTextField';
 import { editPlateValidations } from '../util/validations';
-
-type Props = {
-  editPlateOpen: boolean,
-  editPlateHandleClose: Function,
-  plateId: string,
-  plateName: string,
-  plateDescription: string,
-  editPlate: Function,
-  handleSubmit: Function
-};
 
 const editPlateDetails = (id, editPlate, editPlateHandleClose) => {
   const newPlateName = document.getElementById('currentPlateName').value;
@@ -37,7 +26,7 @@ const EditPlateDialog = (
     plateDescription,
     editPlate,
     handleSubmit
-  }: Props
+  }
 ) => {
   const actions = [
     <FlatButton label="Cancel" onTouchTap={editPlateHandleClose} primary />,
@@ -78,6 +67,16 @@ const EditPlateDialog = (
       </form>
     </Dialog>
   );
+};
+
+EditPlateDialog.propTypes = {
+  editPlateOpen: PropTypes.bool,
+  editPlateHandleClose: PropTypes.func,
+  plateId: PropTypes.string,
+  plateName: PropTypes.string,
+  plateDescription: PropTypes.string,
+  editPlate: PropTypes.func,
+  handleSubmit: PropTypes.func
 };
 
 export default reduxForm({

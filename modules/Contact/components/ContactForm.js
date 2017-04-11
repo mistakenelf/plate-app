@@ -1,5 +1,3 @@
-// @flow
-
 import { Card } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import React from 'react';

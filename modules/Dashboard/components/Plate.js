@@ -1,5 +1,3 @@
-// @flow
-
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
 import React, { Component } from 'react';
 import {
@@ -16,21 +14,20 @@ import EditPlateDialog from './EditPlateDialog';
 import FlatButton from 'material-ui/FlatButton';
 import Link from 'next/link';
 import { PlatesQuery } from '../util/queries';
+import PropTypes from 'prop-types';
 import { green500 } from 'material-ui/styles/colors';
 
-type Props = {
-  name: string,
-  description: string,
-  plateId: string,
-  removePlate: Function,
-  cardImage: string,
-  completed: boolean,
-  completePlate: Function,
-  editPlate: Function
-};
-
 class Plate extends Component {
-  props: Props;
+  static propTypes = {
+    name: PropTypes.string,
+    description: PropTypes.string,
+    plateId: PropTypes.string,
+    removePlate: PropTypes.func,
+    cardImage: PropTypes.string,
+    completed: PropTypes.bool,
+    completePlate: PropTypes.func,
+    editPlate: PropTypes.func
+  };
 
   state = {
     washPlateOpen: false,

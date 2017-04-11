@@ -1,5 +1,3 @@
-// @flow
-
 import Banner from './Banner';
 import React from 'react';
 import SwipeableViews from 'react-swipeable-views';

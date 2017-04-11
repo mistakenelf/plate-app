@@ -1,5 +1,3 @@
-// @flow
-
 import { gql, withApollo } from 'react-apollo';
 
 import AccountIcon from 'material-ui/svg-icons/action/account-circle';
@@ -10,16 +8,10 @@ import IconMenu from 'material-ui/IconMenu';
 import Link from 'next/link';
 import MenuItem from 'material-ui/MenuItem';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+import PropTypes from 'prop-types';
 import React from 'react';
 
-type Props = {
-  open: boolean,
-  openDrawer: Function,
-  closeDrawer: Function,
-  client: Object
-};
-
-const Navigation = ({ open, openDrawer, closeDrawer, client }: Props) => {
+const Navigation = ({ open, openDrawer, closeDrawer, client }) => {
   const Query = gql`
     query {
       plates {
@@ -111,6 +103,13 @@ const Navigation = ({ open, openDrawer, closeDrawer, client }: Props) => {
       </style>
     </div>
   );
+};
+
+Navigation.propTypes = {
+  open: PropTypes.bool,
+  openDrawer: PropTypes.func,
+  closeDrawer: PropTypes.func,
+  client: PropTypes.object
 };
 
 export default withApollo(Navigation);

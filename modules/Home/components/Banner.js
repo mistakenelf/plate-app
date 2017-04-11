@@ -1,5 +1,3 @@
-// @flow
-
 import BorderedButton from '../../../components/BorderedButton';
 import Link from 'next/link';
 import React from 'react';

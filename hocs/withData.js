@@ -1,5 +1,3 @@
-// @flow
-
 import 'isomorphic-fetch';
 import '../util/tap_events';
 
@@ -7,20 +5,19 @@ import { ApolloProvider, getDataFromTree } from 'react-apollo';
 import React, { Component } from 'react';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import PropTypes from 'prop-types';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import { initApollo } from '../store/initApollo';
 import { initStore } from '../store/initStore';
 import { loadGetInitialProps } from 'next/dist/lib/utils';
 
-type Props = {
-  headers?: Object,
-  initialState?: Object,
-  userAgent?: string
-};
-
-export default (ComposedComponent: Function) =>
+export default ComposedComponent =>
   class WithData extends Component {
-    props: Props;
+    static propTypes = {
+      headers: PropTypes.object,
+      initialState: PropTypes.object,
+      userAgent: PropTypes.string
+    };
 
     static async getInitialProps(ctx) {
       const { req } = ctx;
@@ -60,7 +57,7 @@ export default (ComposedComponent: Function) =>
       };
     }
 
-    constructor(props: Props) {
+    constructor(props) {
       super(props);
       this.apolloClient = initApollo(props.headers);
       this.reduxStore = initStore(this.apolloClient, props.initialState);

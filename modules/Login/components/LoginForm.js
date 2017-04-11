@@ -1,22 +1,17 @@
-// @flow
-
 import { Field, reduxForm } from 'redux-form';
 
 import BorderedButton from '../../../components/BorderedButton';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import React from 'react';
 import RenderTextField from '../util/RenderTextField';
 import { loginValidations } from '../util/validations';
-
-type Props = {
-  handleSubmit: Function
-};
 
 const login = () => {
   console.log('submitted');
 };
 
-const LoginForm = ({ handleSubmit }: Props) => {
+const LoginForm = ({ handleSubmit }) => {
   return (
     <div className="container-fluid">
       <div
@@ -77,6 +72,10 @@ const LoginForm = ({ handleSubmit }: Props) => {
       </style>
     </div>
   );
+};
+
+LoginForm.propTypes = {
+  handleSubmit: PropTypes.func
 };
 
 export default reduxForm({

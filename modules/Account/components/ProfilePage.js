@@ -1,5 +1,3 @@
-// @flow
-
 import { Card, CardHeader } from 'material-ui/Card';
 import { List, ListItem } from 'material-ui/List';
 

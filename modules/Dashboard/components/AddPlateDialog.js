@@ -1,5 +1,3 @@
-// @flow
-
 import { Field, reduxForm } from 'redux-form';
 import React, { Component } from 'react';
 import { compose, graphql } from 'react-apollo';
@@ -7,24 +5,23 @@ import { compose, graphql } from 'react-apollo';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import { PlatesQuery } from '../util/queries';
+import PropTypes from 'prop-types';
 import RenderTextField from '../util/RenderTextField';
 import { addPlateMutation } from '../util/mutations';
 import { addPlateValidations } from '../util/validations';
 
-type Props = {
-  open: boolean,
-  closeDialog: Function,
-  addPlate: Function,
-  handleSubmit: Function,
-  reset: Function
-};
-
 class AddPlateDialog extends Component {
-  props: Props;
+  static propTypes = {
+    open: PropTypes.bool,
+    closeDialog: PropTypes.func,
+    addPlate: PropTypes.func,
+    handleSubmit: PropTypes.func,
+    reset: PropTypes.func
+  };
 
   confirmAddPlate = () => {
-    const plateName = document.getElementById('name').value || '';
-    const plateDescription = document.getElementById('description').value || '';
+    const plateName = document.getElementById('name').value;
+    const plateDescription = document.getElementById('description').value;
 
     const plateColors = [
       '/static/img/taskIcon/taskIconBlue.png',

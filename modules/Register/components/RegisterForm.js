@@ -1,21 +1,15 @@
-// @flow
-
 import { Field, reduxForm } from 'redux-form';
 import { compose, graphql } from 'react-apollo';
 
 import BorderedButton from '../../../components/BorderedButton';
+import PropTypes from 'prop-types';
 import React from 'react';
 import RenderTextField from '../util/RenderTextField';
 import Router from 'next/router';
 import { registerMutation } from '../util/mutations';
 import { registerValidations } from '../util/validations';
 
-type Props = {
-  handleSubmit: Function,
-  register: Function
-};
-
-const RegisterForm = ({ handleSubmit, register }: Props) => {
+const RegisterForm = ({ handleSubmit, register }) => {
   const registerUser = () => {
     const firstName = document.getElementById('firstName').value || '';
     const lastName = document.getElementById('lastName').value || '';
@@ -89,6 +83,11 @@ const RegisterForm = ({ handleSubmit, register }: Props) => {
       </style>
     </div>
   );
+};
+
+RegisterForm.propTypes = {
+  handleSubmit: PropTypes.func,
+  register: PropTypes.func
 };
 
 export default compose(

@@ -1,22 +1,17 @@
-// @flow
-
 import { Field, reduxForm } from 'redux-form';
 
 import BorderedButton from '../../../components/BorderedButton';
+import PropTypes from 'prop-types';
 import React from 'react';
 import RenderTextField from '../util/RenderTextField';
 import { forgotPasswordValidations } from '../util/validations';
-
-type Props = {
-  handleSubmit: Function
-};
 
 const forgotPassword = e => {
   e.preventDefault();
   console.log('submitted');
 };
 
-const ForgotPasswordForm = ({ handleSubmit }: Props) => {
+const ForgotPasswordForm = ({ handleSubmit }) => {
   return (
     <div className="container-fluid">
       <div
@@ -60,6 +55,10 @@ const ForgotPasswordForm = ({ handleSubmit }: Props) => {
       </style>
     </div>
   );
+};
+
+ForgotPasswordForm.propTypes = {
+  handleSubmit: PropTypes.func
 };
 
 export default reduxForm({

@@ -1,5 +1,3 @@
-// flow
-
 import React, { Component } from 'react';
 
 import AddPlateButton from './components/AddPlateButton';
@@ -7,16 +5,15 @@ import Loader from '../../components/Loader';
 import NoPlatesFound from './components/NoPlatesFound';
 import Plate from './components/Plate';
 import { PlatesQuery } from './util/queries';
+import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 
-type Props = {
-  loading: boolean,
-  plates: Array,
-  addPlate: Function
-};
-
 class Dashboard extends Component {
-  props: Props;
+  static propTypes = {
+    loading: PropTypes.bool,
+    plates: PropTypes.array,
+    addPlate: PropTypes.func
+  };
 
   render() {
     if (this.props.loading) {

@@ -9,7 +9,5 @@
   "editor.formatOnSave": true,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "none",
-  "workbench.colorTheme": "Solarized Dark",
-  "javascript.validate.enable": false,
-  "flow.useNPMPackagedFlow": true
+  "workbench.colorTheme": "Solarized Dark"
 }

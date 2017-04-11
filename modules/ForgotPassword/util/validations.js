@@ -1,6 +1,4 @@
-// @flow
-
-export const forgotPasswordValidations = (values: Object) => {
+export const forgotPasswordValidations = values => {
   const errors = {};
   if (!values.email) {
     errors.email = 'Please enter an email';

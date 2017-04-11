@@ -1,20 +1,10 @@
-// @flow
-
 import React, { Component } from 'react';
 
 import Navigation from '../modules/Navigation';
 import configureLoadingProgressBar from '../util/routing';
 
-type Props = {
-  open?: boolean,
-  openDrawer?: Function,
-  closeDrawer?: Function
-};
-
-export default (ComposedComponent: Function) =>
+export default ComposedComponent =>
   class WithDefaultLayout extends Component {
-    props: Props;
-
     state = {
       open: false
     };

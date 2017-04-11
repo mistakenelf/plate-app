@@ -1,9 +1,7 @@
-// @flow
-
 import { ApolloClient, createNetworkInterface } from 'react-apollo';
 
 // Initialize Apollo
-export const initApollo = (headers: Object) => {
+export const initApollo = headers => {
   const client = new ApolloClient({
     ssrMode: !process.browser,
     headers,

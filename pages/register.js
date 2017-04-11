@@ -1,5 +1,3 @@
-// @flow
-
 import Header from '../modules/Header';
 import React from 'react';
 import Register from '../modules/Register';

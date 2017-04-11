@@ -1,11 +1,9 @@
-// @flow
-
 import createMiddleware from './middleware';
 import { createStore } from 'redux';
 import getReducer from './reducer';
 
 // Initialize Redux Store
-export const initStore = (client: Object, initialState: Object) => {
+export const initStore = (client, initialState) => {
   let store;
   if (!process.browser || !window.store) {
     const middleware = createMiddleware(client.middleware());

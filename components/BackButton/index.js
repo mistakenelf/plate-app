@@ -1,14 +1,9 @@
-// @flow
-
 import BackArrow from 'material-ui/svg-icons/navigation/arrow-back';
 import IconButton from 'material-ui/IconButton';
+import PropTypes from 'prop-types';
 import React from 'react';
 
-type Props = {
-  color: string
-};
-
-const BackButton = ({ color }: Props) => {
+const BackButton = ({ color }) => {
   return (
     <div>
       <a onClick={() => window.history.back()}>
@@ -22,6 +17,10 @@ const BackButton = ({ color }: Props) => {
       </a>
     </div>
   );
+};
+
+BackButton.propTypes = {
+  color: PropTypes.string
 };
 
 export default BackButton;

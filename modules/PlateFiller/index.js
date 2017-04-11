@@ -1,13 +1,8 @@
-// @flow
-
+import PropTypes from 'prop-types';
 import React from 'react';
 import TextEditor from '../../components/TextEditor';
 
-type Props = {
-  plateId: string
-};
-
-const PlateFiller = ({ plateId }: Props) => {
+const PlateFiller = ({ plateId }) => {
   return (
     <div className="container-fluid">
       <div className="row">
@@ -19,6 +14,10 @@ const PlateFiller = ({ plateId }: Props) => {
       </div>
     </div>
   );
+};
+
+PlateFiller.propTypes = {
+  plateId: PropTypes.string
 };
 
 export default PlateFiller;

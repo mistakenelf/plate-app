@@ -1,5 +1,3 @@
-// @flow
-
 import ForgotPassword from '../modules/ForgotPassword';
 import Header from '../modules/Header';
 import React from 'react';

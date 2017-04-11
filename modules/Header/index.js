@@ -1,13 +1,8 @@
-// @flow
-
 import Head from 'next/head';
+import PropTypes from 'prop-types';
 import React from 'react';
 
-type Props = {
-  title: string
-};
-
-const Header = ({ title }: Props) => {
+const Header = ({ title }) => {
   return (
     <Head>
       <title>Plate - {title}</title>
@@ -32,6 +27,10 @@ const Header = ({ title }: Props) => {
       <link rel="manifest" href="/static/manifest.json" />
     </Head>
   );
+};
+
+Header.propTypes = {
+  title: PropTypes.string
 };
 
 export default Header;

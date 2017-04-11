@@ -1,10 +1,8 @@
-// @flow
-
 import React, { Component } from 'react';
 
 import configureLoadingProgressBar from '../util/routing';
 
-export default (ComposedComponent: Function) =>
+export default ComposedComponent =>
   class WithNavlessLayout extends Component {
     componentDidMount() {
       configureLoadingProgressBar();
