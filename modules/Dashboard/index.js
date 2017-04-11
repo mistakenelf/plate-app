@@ -21,8 +21,11 @@ class Dashboard extends Component {
     }
 
     return (
-      <div className="container-fluid" style={{ paddingTop: 5 }}>
-        <div className="row">
+      <div
+        className="container-fluid"
+        style={{ paddingTop: 5, paddingLeft: '0.5em', paddingRight: '0.5em' }}
+      >
+        <div className="row" style={{ marginBottom: 70 }}>
           {this.props.plates.length === 0
             ? <div
                 className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3"
@@ -46,7 +49,16 @@ class Dashboard extends Component {
               ))}
         </div>
         <div className="row">
-          <div style={{ bottom: 0 }} className="col-sm-12 end-lg">
+          <div
+            style={{
+              position: 'fixed',
+              bottom: 0,
+              right: 0,
+              padding: 10,
+              zIndex: 200
+            }}
+            className="col-sm-12"
+          >
             <AddPlateButton />
           </div>
         </div>
