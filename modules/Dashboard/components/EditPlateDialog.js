@@ -1,95 +1,123 @@
 import { Field, reduxForm } from 'redux-form';
+import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
+import React, { Component } from 'react';
 
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import PropTypes from 'prop-types';
-import React from 'react';
 import RenderTextField from '../util/RenderTextField';
 import { editPlateValidations } from '../util/validations';
 
-const editPlateDetails = (id, editPlate, editPlateHandleClose) => {
-  const newPlateName = document.getElementById('currentPlateName').value;
-  const newPlateDescription = document.getElementById(
-    'currentPlateDescription'
-  ).value;
-  const plateStatus = document.getElementById('plateStatus').value;
+class EditPlateDialog extends Component {
+  static propTypes = {
+    editPlateOpen: PropTypes.bool,
+    editPlateHandleClose: PropTypes.func,
+    plateId: PropTypes.string,
+    plateName: PropTypes.string,
+    plateDescription: PropTypes.string,
+    plateStatus: PropTypes.string,
+    editPlate: PropTypes.func,
+    handleSubmit: PropTypes.func
+  };
 
-  editPlate(id, newPlateName, newPlateDescription, plateStatus);
-  editPlateHandleClose();
-};
+  state = {
+    plateStatusSelected: ''
+  };
 
-const EditPlateDialog = (
-  {
-    editPlateOpen,
-    editPlateHandleClose,
-    plateId,
-    plateName,
-    plateDescription,
-    editPlate,
-    plateStatus,
-    handleSubmit
-  }
-) => {
-  const actions = [
-    <FlatButton label="Cancel" onTouchTap={editPlateHandleClose} primary />,
+  editPlateDetails = (id, editPlate, editPlateHandleClose) => {
+    const newPlateName = document.getElementById('currentPlateName').value;
+    const newPlateDescription = document.getElementById(
+      'currentPlateDescription'
+    ).value;
+    editPlate(
+      id,
+      newPlateName,
+      newPlateDescription,
+      this.state.plateStatusSelected
+    );
+    editPlateHandleClose();
+  };
+
+  plateStatusSelection = (e, value) => {
+    if (value === 'plate_complete') {
+      this.setState({
+        plateStatusSelected: 'Complete'
+      });
+    } else {
+      this.setState({
+        plateStatusSelected: 'In Progress'
+      });
+    }
+  };
+
+  actions = [
+    <FlatButton
+      label="Cancel"
+      onTouchTap={this.props.editPlateHandleClose}
+      primary
+    />,
     <FlatButton label="Submit" form="editPlateForm" secondary type="submit" />
   ];
 
-  return (
-    <Dialog
-      actions={actions}
-      modal={false}
-      open={editPlateOpen}
-      onRequestClose={editPlateHandleClose}
-      contentStyle={{ width: '95%' }}
-    >
-      <h3 style={{ marginBottom: 10 }}>Edit Plate</h3>
-      <form
-        id="editPlateForm"
-        onSubmit={handleSubmit(() =>
-          editPlateDetails(plateId, editPlate, editPlateHandleClose))}
+  render() {
+    return (
+      <Dialog
+        actions={this.actions}
+        modal={false}
+        open={this.props.editPlateOpen}
+        onRequestClose={this.props.editPlateHandleClose}
+        contentStyle={{ width: '95%' }}
       >
-        <span style={{ marginRight: 10 }}>Name:</span>
-        <Field
-          name="currentPlateName"
-          id="currentPlateName"
-          component={RenderTextField}
-          type="text"
-          label={plateName}
-          style={{ marginBottom: 20 }}
-        />
-        <span style={{ marginRight: 10 }}>Description:</span>
-        <Field
-          name="currentPlateDescription"
-          id="currentPlateDescription"
-          component={RenderTextField}
-          type="text"
-          label={plateDescription}
-          style={{ marginBottom: 20 }}
-        />
-        <span style={{ marginRight: 10 }}>Status:</span>
-        <Field
-          name="plateStatus"
-          id="plateStatus"
-          component={RenderTextField}
-          type="text"
-          label={plateStatus}
-        />
-      </form>
-    </Dialog>
-  );
-};
-
-EditPlateDialog.propTypes = {
-  editPlateOpen: PropTypes.bool,
-  editPlateHandleClose: PropTypes.func,
-  plateId: PropTypes.string,
-  plateName: PropTypes.string,
-  plateDescription: PropTypes.string,
-  plateStatus: PropTypes.string,
-  editPlate: PropTypes.func,
-  handleSubmit: PropTypes.func
-};
+        <h3 style={{ marginBottom: 10 }}>Edit Plate</h3>
+        <form
+          id="editPlateForm"
+          onSubmit={this.props.handleSubmit(() =>
+            this.editPlateDetails(
+              this.props.plateId,
+              this.props.editPlate,
+              this.props.editPlateHandleClose
+            ))}
+        >
+          <span style={{ marginRight: 10 }}>Name:</span>
+          <Field
+            name="currentPlateName"
+            id="currentPlateName"
+            component={RenderTextField}
+            type="text"
+            label={this.props.plateName}
+            style={{ marginBottom: 20 }}
+          />
+          <span style={{ marginRight: 10 }}>Description:</span>
+          <Field
+            name="currentPlateDescription"
+            id="currentPlateDescription"
+            component={RenderTextField}
+            type="text"
+            label={this.props.plateDescription}
+            style={{ marginBottom: 20 }}
+          />
+          <span>Status:</span>
+          <RadioButtonGroup
+            name="currentPlateStatus"
+            defaultSelected="in_progress"
+            onChange={this.plateStatusSelection}
+          >
+            <RadioButton
+              value="in_progress"
+              label="In Progress"
+              style={{ marginTop: 10 }}
+            />
+            <RadioButton
+              value="plate_complete"
+              label="Complete"
+              style={{ marginTop: 10 }}
+            />
+          </RadioButtonGroup>
+        </form>
+      </Dialog>
+    );
+  }
+}
 
 export default reduxForm({
   form: 'editPlateForm',
