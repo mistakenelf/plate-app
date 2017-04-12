@@ -8,7 +8,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "../login",
+  "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#343f53",
