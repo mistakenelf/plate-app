@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const next = require('next');
 const bodyParser = require('body-parser');
 const { graphiqlExpress, graphqlExpress } = require('graphql-server-express');
