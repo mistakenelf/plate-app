@@ -6,6 +6,7 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import PropTypes from 'prop-types';
 import RenderTextField from '../util/RenderTextField';
+import { connect } from 'react-redux';
 import { editPlateValidations } from '../util/validations';
 
 class EditPlateDialog extends Component {
@@ -122,7 +123,18 @@ class EditPlateDialog extends Component {
   }
 }
 
-export default reduxForm({
+const mapStateToProps = (state, ownProps) => {
+  return {
+    initialValues: {
+      currentPlateName: ownProps.plateName,
+      currentPlateDescription: ownProps.plateDescription
+    }
+  };
+};
+
+const myForm = reduxForm({
   form: 'editPlateForm',
   validate: editPlateValidations
 })(EditPlateDialog);
+
+export default connect(mapStateToProps)(myForm);
