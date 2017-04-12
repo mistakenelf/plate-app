@@ -93,7 +93,10 @@ class EditPlateDialog extends Component {
             id="currentPlateDescription"
             component={RenderTextField}
             type="text"
+            rows={4}
+            rowsMax={4}
             label={this.props.plateDescription}
+            multiLine
             style={{ marginBottom: 20 }}
           />
           <span>Status:</span>
