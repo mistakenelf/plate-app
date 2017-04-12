@@ -31,7 +31,7 @@
     "react": "^15.5.3",
     "react-apollo": "^1.0.1",
     "react-dom": "^15.5.3",
-    "react-ga": "^2.1.2",
+    "react-ga": "^2.2.0",
     "react-redux": "^5.0.4",
     "react-swipeable-views": "^0.12.0",
     "react-tap-event-plugin": "^2.0.1",
@@ -50,8 +50,9 @@
     "eslint-plugin-react": "^6.10.3",
     "jest-cli": "^19.0.2",
     "prettier": "^0.22.0",
-    "prettier-eslint": "^4.4.0",
-    "react-test-renderer": "^15.5.4"
+    "prettier-eslint": "^5.0.0",
+    "react-test-renderer": "^15.5.4",
+    "sw-precache-webpack-plugin": "^0.9.1"
   },
   "now": {
     "alias": "plate"
