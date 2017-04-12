@@ -24,7 +24,11 @@ class AddPlateButton extends Component {
   render() {
     return (
       <div>
-        <FloatingActionButton secondary={true} onTouchTap={this.openDialog}>
+        <FloatingActionButton
+          style={{ marginRight: 10, marginBottom: 10 }}
+          secondary={true}
+          onTouchTap={this.openDialog}
+        >
           <ContentAdd />
         </FloatingActionButton>
         <AddPlateDialog open={this.state.open} closeDialog={this.closeDialog} />
