@@ -1,7 +1,4 @@
-const {
-  GraphQLNonNull,
-  GraphQLString
-} = require('graphql');
+const { GraphQLNonNull, GraphQLString } = require('graphql');
 
 const PlateType = require('../types/plate');
 
@@ -27,7 +24,7 @@ module.exports = {
       description,
       thumbnail,
       status: 'New',
-      content: 'Welcome to your new plate. Edit this text to get started'
+      content: '<p>Welcome to your new plate. Edit this text to get started<p>'
     };
 
     return db.collection('plates').insert(data);
