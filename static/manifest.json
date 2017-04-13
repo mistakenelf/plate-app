@@ -6,6 +6,11 @@
       "src": "img/plateLogo.png",
       "sizes": "192x192",
       "type": "image/png"
+    },
+    {
+      "src": "img/plateLogo.png",
+      "sizes": "144x144",
+      "type": "image/png"
     }
   ],
   "start_url": "/index",
