@@ -7,13 +7,11 @@ const Header = ({ plateName }) => {
       <div className="header">{plateName.toUpperCase()}</div>
       <hr style={{ marginBottom: 15 }} />
       <style jsx>
-        {
-          `
+        {`
             .header {
               font-size: 45px;
             }
-          `
-        }
+          `}
       </style>
     </div>
   );
