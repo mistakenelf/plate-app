@@ -1,10 +1,10 @@
 import { compose, graphql } from 'react-apollo';
 
+import ContentEditor from '../components/PlateFiller/ContentEditor';
 import Header from '../components/PlateFiller/Header';
 import Loader from '../components/Loader/Loader';
 import PropTypes from 'prop-types';
 import React from 'react';
-import TextEditor from '../components/TextEditor/TextEditor';
 import { getPlateData } from '../queries/plateFillerQueries';
 import { savePlateContentMutation } from '../mutations/plateFillerMutations';
 
@@ -25,7 +25,7 @@ const PlateFillerContainer = ({
           style={{ width: '100%' }}
         >
           <Header plateName={plate.name} />
-          <TextEditor
+          <ContentEditor
             saveContent={savePlateContent}
             plateContent={plate.content}
             plateId={plateId}

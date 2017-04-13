@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
-class TextEditor extends Component {
+class ContentEditor extends Component {
   static propTypes = {
     plateContent: PropTypes.string,
     saveContent: PropTypes.func,
@@ -47,4 +47,4 @@ class TextEditor extends Component {
   };
 }
 
-export default TextEditor;
+export default ContentEditor;
