@@ -90,8 +90,7 @@ const Navigation = ({ open, openDrawer, closeDrawer, client }) => {
         </Link>
       </Drawer>
       <style jsx>
-        {
-          `
+        {`
           a {
             text-decoration: none;
           }
@@ -99,8 +98,7 @@ const Navigation = ({ open, openDrawer, closeDrawer, client }) => {
           .sidebar-text {
             text-align: center;
           }
-          `
-        }
+          `}
       </style>
     </div>
   );

@@ -1,6 +1,4 @@
-const {
-  GraphQLList
-} = require('graphql');
+const { GraphQLList } = require('graphql');
 
 const PlateType = require('../types/plate');
 

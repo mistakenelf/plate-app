@@ -1,7 +1,4 @@
-const {
-  GraphQLNonNull,
-  GraphQLString
-} = require('graphql');
+const { GraphQLNonNull, GraphQLString } = require('graphql');
 
 const bcrypt = require('bcrypt');
 

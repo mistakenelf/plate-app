@@ -14,9 +14,7 @@ const login = () => {
 const LoginForm = ({ handleSubmit }) => {
   return (
     <div className="container-fluid">
-      <div
-        className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg"
-      >
+      <div className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg">
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <h1 className="header-text">Login</h1>
           <form onSubmit={handleSubmit(login)}>
@@ -45,8 +43,7 @@ const LoginForm = ({ handleSubmit }) => {
         </div>
       </div>
       <style jsx>
-        {
-          `
+        {`
           .text-field-email {
             margin-bottom: 15px;
           }
@@ -67,8 +64,7 @@ const LoginForm = ({ handleSubmit }) => {
             color: white;
             margin-bottom: 50px;
           }
-        `
-        }
+        `}
       </style>
     </div>
   );

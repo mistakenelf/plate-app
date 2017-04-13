@@ -11,14 +11,12 @@ const BorderedButton = ({ type, label, color }) => {
         labelStyle={{ color: color, width: '100%' }}
       />
       <style jsx>
-        {
-          `
+        {`
           .bordered-button {
             border-radius: 4px;
             display: inline-block;
           }
-          `
-        }
+          `}
       </style>
     </div>
   );

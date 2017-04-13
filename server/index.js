@@ -42,7 +42,8 @@ module.exports = app
         })
       )
       .get('/sw.js', (req, res) => res.sendFile(path.resolve('./.next/sw.js')))
-      .use((req, res) => handle(req, res)))
+      .use((req, res) => handle(req, res))
+  )
   .then(() => {
     MongoClient.connect(env.DB_CONNECTION_STRING, {
       promiseLibrary: Promise

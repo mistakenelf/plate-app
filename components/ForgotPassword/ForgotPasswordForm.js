@@ -16,9 +16,7 @@ const forgotPassword = e => {
 const ForgotPasswordForm = ({ handleSubmit }) => {
   return (
     <div className="container-fluid">
-      <div
-        className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg"
-      >
+      <div className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg">
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <h1 className="header-text">Forgot Password</h1>
           <form onSubmit={handleSubmit(forgotPassword)}>
@@ -40,8 +38,7 @@ const ForgotPasswordForm = ({ handleSubmit }) => {
         </div>
       </div>
       <style jsx>
-        {
-          `
+        {`
           .full-height {
             height: 90vh;
           }
@@ -52,8 +49,7 @@ const ForgotPasswordForm = ({ handleSubmit }) => {
             color: white;
             margin-bottom: 50px;
           }
-        `
-        }
+        `}
       </style>
     </div>
   );

@@ -10,8 +10,7 @@ const Body = () => {
       </div>
       <img src="/static/img/plateLogo.png" />
       <style jsx>
-        {
-          `
+        {`
             .body {
               display: flex;
               padding: 5px;
@@ -34,8 +33,7 @@ const Body = () => {
               font-size: 20px;
               margin-bottom: 15px;
             }
-          `
-        }
+          `}
       </style>
     </div>
   );

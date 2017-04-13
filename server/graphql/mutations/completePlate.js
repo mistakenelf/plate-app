@@ -1,8 +1,4 @@
-const {
-  GraphQLNonNull,
-  GraphQLBoolean,
-  GraphQLID
-} = require('graphql');
+const { GraphQLNonNull, GraphQLBoolean, GraphQLID } = require('graphql');
 
 const ObjectId = require('mongodb').ObjectId;
 

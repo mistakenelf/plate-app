@@ -3,40 +3,38 @@ import React, { Component } from 'react';
 import Navigation from '../components/Navigation/Navigation';
 import configureLoadingProgressBar from '../utils/routing';
 
-export default ComposedComponent =>
-  class WithDefaultLayout extends Component {
-    state = {
+export default ComposedComponent => class WithDefaultLayout extends Component {
+  state = {
+    open: false
+  };
+
+  componentDidMount() {
+    configureLoadingProgressBar();
+  }
+
+  openDrawer = () => {
+    this.setState({
+      open: true
+    });
+  };
+
+  closeDrawer = () => {
+    this.setState({
       open: false
-    };
+    });
+  };
 
-    componentDidMount() {
-      configureLoadingProgressBar();
-    }
-
-    openDrawer = () => {
-      this.setState({
-        open: true
-      });
-    };
-
-    closeDrawer = () => {
-      this.setState({
-        open: false
-      });
-    };
-
-    render() {
-      return (
-        <div>
-          <Navigation
-            open={this.state.open}
-            openDrawer={this.openDrawer}
-            closeDrawer={this.closeDrawer}
-          />
-          <ComposedComponent {...this.props} />
-          <style jsx global>
-            {
-              `
+  render() {
+    return (
+      <div>
+        <Navigation
+          open={this.state.open}
+          openDrawer={this.openDrawer}
+          closeDrawer={this.closeDrawer}
+        />
+        <ComposedComponent {...this.props} />
+        <style jsx global>
+          {`
               * {
                 margin: 0;
                 box-sizing: border-box;
@@ -49,10 +47,9 @@ export default ComposedComponent =>
                 margin-top: 60px;
                 margin-bottom: 0px;
               }
-              `
-            }
-          </style>
-        </div>
-      );
-    }
-  };
+              `}
+        </style>
+      </div>
+    );
+  }
+};

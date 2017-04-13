@@ -1,8 +1,4 @@
-const {
-  GraphQLString,
-  GraphQLObjectType,
-  GraphQLID
-} = require('graphql');
+const { GraphQLString, GraphQLObjectType, GraphQLID } = require('graphql');
 
 // Schema for a plate
 module.exports = new GraphQLObjectType({

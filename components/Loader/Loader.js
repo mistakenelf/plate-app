@@ -22,16 +22,14 @@ const Loader = () => {
         style={style.refresh}
       />
       <style jsx>
-        {
-          `
+        {`
           .loader {
             display: flex;
             width: 100%;
             justify-content: center;
             align-items: center;
           }
-        `
-        }
+        `}
       </style>
     </div>
   );

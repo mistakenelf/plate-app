@@ -12,9 +12,7 @@ const ProfilePage = () => {
   return (
     <div className="container-fluid">
       <div className="row full-height">
-        <div
-          className="left col-xs-12 col-sm-12 col-md-6 col-lg-6 center-xs center-sm center-md center-lg center-lg"
-        >
+        <div className="left col-xs-12 col-sm-12 col-md-6 col-lg-6 center-xs center-sm center-md center-lg center-lg">
           <Avatar
             src="/static/img/aleximage.jpg"
             size={200}
@@ -73,13 +71,11 @@ const ProfilePage = () => {
         </div>
       </div>
       <style jsx>
-        {
-          `
+        {`
         .container-fluid {
           margin-top: 80px;
         }
-        `
-        }
+        `}
       </style>
     </div>
   );

@@ -47,8 +47,7 @@ const FooterDesktop = () => {
         </div>
       </div>
       <style jsx>
-        {
-          `
+        {`
         .footer-main {
           color: white;
           background-color: #1E2532;
@@ -117,8 +116,7 @@ const FooterDesktop = () => {
             display: none;
           }
         }
-      `
-        }
+      `}
       </style>
     </div>
   );

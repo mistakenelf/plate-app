@@ -116,8 +116,7 @@ class Plate extends Component {
           </Dialog>
         </Card>
         <style jsx>
-          {
-            `
+          {`
             .card {
               transition: 0.3s;
             }
@@ -126,8 +125,7 @@ class Plate extends Component {
               box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
               border-radius: 10px;
             }
-            `
-          }
+            `}
         </style>
       </div>
     );

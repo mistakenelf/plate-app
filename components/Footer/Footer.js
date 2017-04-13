@@ -11,16 +11,14 @@ const Footer = () => {
         Copyright © 2017 Plate
       </div>
       <style jsx>
-        {
-          `
+        {`
           .copyright {
             color: white;
             background-color: #1E2532;
             padding: 5px;
             font-size: .7em;
           }
-          `
-        }
+          `}
       </style>
     </div>
   );

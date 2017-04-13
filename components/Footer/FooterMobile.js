@@ -83,8 +83,7 @@ class FooterMobile extends Component {
           </List>
         </div>
         <style jsx>
-          {
-            `
+          {`
             .footer-mobile {
               background-color: #1E2532;
             }
@@ -100,8 +99,7 @@ class FooterMobile extends Component {
                 display: none;
               }
             }
-            `
-          }
+            `}
         </style>
       </div>
     );

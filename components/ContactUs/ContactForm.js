@@ -13,9 +13,7 @@ const ContactForm = () => {
 
   return (
     <div className="container">
-      <div
-        className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg"
-      >
+      <div className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg">
         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <h1>Get in touch with us</h1>
           <div className="contact-form">
@@ -31,8 +29,7 @@ const ContactForm = () => {
         </div>
       </div>
       <style jsx>
-        {
-          `
+        {`
           .container {
             margin-top: 100px;
             margin-bottom: 100px;
@@ -54,8 +51,7 @@ const ContactForm = () => {
                 width: 90%;
               }
             }
-          `
-        }
+          `}
       </style>
     </div>
   );
