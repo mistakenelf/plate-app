@@ -1,11 +1,11 @@
-import Header from '../modules/Header';
-import Home from '../modules/Home';
+import Header from '../components/Header/Header';
+import HomeContainer from '../containers/HomeContainer';
 import React from 'react';
 import page from '../hocs/page';
 
 export default page(() => (
   <div>
     <Header title="Home" />
-    <Home />
+    <HomeContainer />
   </div>
 ));

@@ -1,11 +1,11 @@
-import Account from '../modules/Account';
-import Header from '../modules/Header';
+import AccountContainer from '../containers/AccountContainer';
+import Header from '../components/Header/Header';
 import React from 'react';
 import page from '../hocs/page';
 
 export default page(() => (
   <div>
     <Header title="Account" />
-    <Account />
+    <AccountContainer />
   </div>
 ));

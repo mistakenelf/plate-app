@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import configureLoadingProgressBar from '../util/routing';
+import configureLoadingProgressBar from '../utils/routing';
 
 export default ComposedComponent =>
   class WithNavlessLayout extends Component {

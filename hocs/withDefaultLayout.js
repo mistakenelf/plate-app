@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Navigation from '../modules/Navigation';
-import configureLoadingProgressBar from '../util/routing';
+import Navigation from '../components/Navigation/Navigation';
+import configureLoadingProgressBar from '../utils/routing';
 
 export default ComposedComponent =>
   class WithDefaultLayout extends Component {

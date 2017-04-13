@@ -1,6 +1,6 @@
 import 'isomorphic-fetch';
-import '../util/tap_events';
-import '../util/offline_install';
+import '../utils/tap_events';
+import '../utils/offline_install';
 
 import { ApolloProvider, getDataFromTree } from 'react-apollo';
 import React, { Component } from 'react';

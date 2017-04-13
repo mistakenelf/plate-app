@@ -1,11 +1,11 @@
-import Header from '../modules/Header';
-import PlateFiller from '../modules/PlateFiller';
+import Header from '../components/Header/Header';
+import PlateFillerContainer from '../containers/PlateFillerContainer';
 import React from 'react';
 import page from '../hocs/page';
 
 export default page(({ url }) => (
   <div>
     <Header title="Plate Filler" />
-    <PlateFiller plateId={url.query.id} />
+    <PlateFillerContainer plateId={url.query.id} />
   </div>
 ));
