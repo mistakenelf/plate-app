@@ -47,6 +47,15 @@ export default compose(
   graphql(savePlateContentMutation, {
     props: ({ mutate }) => ({
       savePlateContent: (id, content) => mutate({ variables: { id, content } })
+    }),
+    options: ({ plateId }) => ({
+      refetchQueries: [
+        {
+          query: getPlateData,
+          variables: { id: plateId }
+        }
+      ],
+      fetchPolicy: 'cache-and-network'
     })
   }),
   graphql(getPlateData, {
@@ -55,7 +64,8 @@ export default compose(
       plate
     }),
     options: ({ plateId }) => ({
-      variables: { id: plateId }
+      variables: { id: plateId },
+      fetchPolicy: 'cache-and-network'
     })
   })
 )(PlateFillerContainer);
