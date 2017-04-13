@@ -5,6 +5,7 @@ const {
 
 // Queries
 const plates = require('./queries/plates');
+const plate = require('./queries/plate');
 
 // Mutations
 const addPlate = require('./mutations/addPlate');
@@ -19,7 +20,8 @@ const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'Query',
     fields: {
-      plates
+      plates,
+      plate
     }
   }),
   mutation: new GraphQLObjectType({

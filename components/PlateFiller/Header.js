@@ -1,17 +1,26 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const Header = ({ plateId }) => {
+const Header = ({ plateName }) => {
   return (
     <div>
-      <div>Plate {plateId}</div>
+      <div className="header">{plateName.toUpperCase()}</div>
       <hr style={{ marginBottom: 15 }} />
+      <style jsx>
+        {
+          `
+            .header {
+              font-size: 45px;
+            }
+          `
+        }
+      </style>
     </div>
   );
 };
 
 Header.propTypes = {
-  plateId: PropTypes.string
+  plateName: PropTypes.string
 };
 
 export default Header;

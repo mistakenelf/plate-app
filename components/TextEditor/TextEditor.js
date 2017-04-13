@@ -1,33 +1,31 @@
-import { Editor, Raw, resetKeyGenerator } from 'slate';
+import { Editor, Plain, resetKeyGenerator } from 'slate';
 import React, { Component } from 'react';
 
-resetKeyGenerator();
-
-const initialState = Raw.deserialize(
-  {
-    nodes: [
-      {
-        kind: 'block',
-        type: 'paragraph',
-        nodes: [
-          {
-            kind: 'text',
-            text: 'A line of text in a paragraph.'
-          }
-        ]
-      }
-    ]
-  },
-  { terse: true }
-);
+import PropTypes from 'prop-types';
 
 class TextEditor extends Component {
+  static propTypes = {
+    plateContent: PropTypes.string,
+    saveContent: PropTypes.func,
+    plateId: PropTypes.string
+  };
+
+  constructor(props) {
+    super(props);
+    resetKeyGenerator();
+  }
+
   state = {
-    state: initialState
+    state: Plain.deserialize(this.props.plateContent)
   };
 
   onChange = state => {
     this.setState({ state });
+  };
+
+  onDocumentChange = (document, state) => {
+    const content = Plain.serialize(state);
+    this.props.saveContent(this.props.plateId, content);
   };
 
   render = () => {
@@ -39,7 +37,11 @@ class TextEditor extends Component {
           height: 500
         }}
       >
-        <Editor state={this.state.state} onChange={this.onChange} />
+        <Editor
+          state={this.state.state}
+          onChange={this.onChange}
+          onDocumentChange={this.onDocumentChange}
+        />
       </div>
     );
   };
