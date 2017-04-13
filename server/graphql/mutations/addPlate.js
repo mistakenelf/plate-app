@@ -26,7 +26,8 @@ module.exports = {
       name,
       description,
       thumbnail,
-      status: 'New'
+      status: 'New',
+      content: 'Welcome to your new plate. Edit this text to get started'
     };
 
     return db.collection('plates').insert(data);

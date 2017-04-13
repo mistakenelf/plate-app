@@ -8,6 +8,7 @@ export const PlatesQuery = gql`
       description
       thumbnail
       status
+      content
     }
   }
 `;

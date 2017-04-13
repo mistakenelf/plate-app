@@ -44,6 +44,7 @@ class DashboardContainer extends Component {
                     description={plate.description}
                     cardImage={plate.thumbnail}
                     status={plate.status}
+                    content={plate.content}
                   />
                 </div>
               ))}

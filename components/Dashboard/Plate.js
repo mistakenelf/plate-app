@@ -22,6 +22,7 @@ class Plate extends Component {
     removePlate: PropTypes.func,
     cardImage: PropTypes.string,
     status: PropTypes.string,
+    content: PropTypes.string,
     editPlate: PropTypes.func
   };
 

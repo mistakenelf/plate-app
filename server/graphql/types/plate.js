@@ -23,6 +23,9 @@ module.exports = new GraphQLObjectType({
     },
     status: {
       type: GraphQLString
+    },
+    content: {
+      type: GraphQLString
     }
   }
 });

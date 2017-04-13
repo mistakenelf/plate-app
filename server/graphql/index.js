@@ -12,6 +12,7 @@ const removePlate = require('./mutations/removePlate');
 const completePlate = require('./mutations/completePlate');
 const editPlate = require('./mutations/editPlate');
 const register = require('./mutations/register');
+const savePlateContent = require('./mutations/savePlateContent');
 
 // Main Schema
 const schema = new GraphQLSchema({
@@ -28,7 +29,8 @@ const schema = new GraphQLSchema({
       removePlate,
       completePlate,
       editPlate,
-      register
+      register,
+      savePlateContent
     }
   })
 });
