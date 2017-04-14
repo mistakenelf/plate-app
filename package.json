@@ -18,9 +18,6 @@
     "body-parser": "^1.17.1",
     "draft-convert": "^1.4.3",
     "draft-js": "^0.10.0",
-    "draft-js-autosave-plugin": "^0.1.0",
-    "draft-js-linkify-plugin": "^2.0.0-beta1",
-    "draft-js-plugins-editor": "^2.0.0-beta1",
     "express": "^4.15.2",
     "graphql": "^0.9.3",
     "graphql-server-express": "^0.7.0",
@@ -46,17 +43,13 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.2",
-    "babel-jest": "^19.0.0",
     "babel-plugin-transform-define": "^1.2.0",
-    "babel-preset-es2015": "^6.24.1",
     "eslint": "^3.19.0",
     "eslint-config-prettier": "^1.6.0",
     "eslint-plugin-prettier": "^2.0.1",
     "eslint-plugin-react": "^6.10.3",
-    "jest-cli": "^19.0.2",
     "prettier": "^1.1.0",
     "prettier-eslint": "^5.0.0",
-    "react-test-renderer": "^15.5.4",
     "sw-precache-webpack-plugin": "^0.9.1"
   },
   "now": {
