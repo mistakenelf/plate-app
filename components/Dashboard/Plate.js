@@ -92,7 +92,11 @@ class Plate extends Component {
               secondary
               onTouchTap={this.washPlateHandleOpen}
             />
-            <Link prefetch href={`/platefiller?id=${this.props.plateId}`}>
+            <Link
+              prefetch
+              href={`/platefiller?id=${this.props.plateId}`}
+              as={`/platefiller/${this.props.plateId}`}
+            >
               <a><FlatButton primary label="Fill Plate" /></a>
             </Link>
           </CardActions>
