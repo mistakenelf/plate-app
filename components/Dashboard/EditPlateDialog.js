@@ -77,8 +77,7 @@ class EditPlateDialog extends Component {
               this.props.plateId,
               this.props.editPlate,
               this.props.editPlateHandleClose
-            )
-          )}
+            ))}
         >
           <span style={{ marginRight: 10 }}>Name:</span>
           <Field
