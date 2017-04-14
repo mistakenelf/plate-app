@@ -16,6 +16,8 @@
   "dependencies": {
     "bcrypt": "^1.0.2",
     "body-parser": "^1.17.1",
+    "draft-convert": "^1.4.3",
+    "draft-js": "^0.10.0",
     "express": "^4.15.2",
     "graphql": "^0.9.3",
     "graphql-server-express": "^0.7.0",
@@ -36,8 +38,7 @@
     "react-swipeable-views": "^0.12.0",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
-    "redux-form": "^6.6.3",
-    "slate": "^0.19.16"
+    "redux-form": "^6.6.3"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.2",
@@ -49,7 +50,7 @@
     "eslint-plugin-prettier": "^2.0.1",
     "eslint-plugin-react": "^6.10.3",
     "jest-cli": "^19.0.2",
-    "prettier": "^1.0.2",
+    "prettier": "^1.1.0",
     "prettier-eslint": "^5.0.0",
     "react-test-renderer": "^15.5.4",
     "sw-precache-webpack-plugin": "^0.9.1"

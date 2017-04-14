@@ -24,7 +24,7 @@ module.exports = {
       description,
       thumbnail,
       status: 'New',
-      content: '<p>Welcome to your new plate. Edit this text to get started<p>'
+      content: '<p>Edit this text to get started filling your plate</p>'
     };
 
     return db.collection('plates').insert(data);
