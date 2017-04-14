@@ -3,13 +3,19 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 
 const RenderRegularTextField = props => {
-  const { input, label, meta: { touched, error }, ...custom } = props;
+  const {
+    input: { value, ...input },
+    label,
+    meta: { touched, error },
+    ...custom
+  } = props;
+
   return (
     <TextField
-      hintText={label}
       autoComplete={'off'}
       errorText={touched && error}
       fullWidth
+      value={label}
       {...input}
       {...custom}
     />

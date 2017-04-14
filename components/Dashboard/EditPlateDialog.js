@@ -122,19 +122,7 @@ class EditPlateDialog extends Component {
     );
   }
 }
-
-const mapStateToProps = (state, ownProps) => {
-  return {
-    initialValues: {
-      currentPlateName: ownProps.plateName,
-      currentPlateDescription: ownProps.plateDescription
-    }
-  };
-};
-
-const myForm = reduxForm({
+export default reduxForm({
   form: 'editPlateForm',
   validate: editPlateValidations
 })(EditPlateDialog);
-
-export default connect(mapStateToProps)(myForm);
