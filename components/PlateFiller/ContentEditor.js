@@ -1,8 +1,9 @@
-import { Editor, EditorState } from 'draft-js';
+import { Editor, EditorState, RichUtils } from 'draft-js';
 import { convertFromHTML, convertToHTML } from 'draft-convert';
 
 import PropTypes from 'prop-types';
 import React from 'react';
+import debounce from 'lodash/debounce';
 
 class ContentEditor extends React.Component {
   static propTypes = {
@@ -11,14 +12,15 @@ class ContentEditor extends React.Component {
     plateId: PropTypes.string
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      editorState: EditorState.createWithContent(
-        convertFromHTML(props.plateContent)
-      )
-    };
-  }
+  state = {
+    editorState: EditorState.createWithContent(
+      convertFromHTML(this.props.plateContent)
+    )
+  };
+
+  saveContent = debounce(htmlContent => {
+    this.props.saveContent(this.props.plateId, htmlContent);
+  }, 500);
 
   onChange = editorState => {
     this.setState({
@@ -26,7 +28,11 @@ class ContentEditor extends React.Component {
     });
 
     let htmlContent = convertToHTML(editorState.getCurrentContent());
-    this.props.saveContent(this.props.plateId, htmlContent);
+    this.saveContent(htmlContent);
+  };
+
+  handleKeyCommand = () => {
+    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'));
   };
 
   focus = () => {
@@ -39,6 +45,7 @@ class ContentEditor extends React.Component {
         <Editor
           editorKey="ContentEditor"
           editorState={this.state.editorState}
+          handleKeyCommand={this.handleKeyCommand}
           onChange={this.onChange}
           ref={input => {
             this.editor = input;
@@ -47,7 +54,13 @@ class ContentEditor extends React.Component {
         <style jsx>
           {`
             .editor {
-              height: 100vh;
+              min-height: 500px;
+              height: auto;
+              padding: 15px;
+              border-radius: 5px;
+              border-color: blue;
+              margin-bottom: 20px;
+              box-shadow: inset 0 0 8px #9E9E9E;
             }
             `}
         </style>
