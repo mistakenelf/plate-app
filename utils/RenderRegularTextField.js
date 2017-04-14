@@ -15,7 +15,7 @@ const RenderRegularTextField = props => {
       autoComplete={'off'}
       errorText={touched && error}
       fullWidth
-      value={label}
+      defaultValue={label}
       {...input}
       {...custom}
     />
