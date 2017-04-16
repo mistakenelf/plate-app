@@ -20,8 +20,10 @@ class AddPlateDialog extends Component {
   };
 
   confirmAddPlate = () => {
-    const plateName = document.getElementById('name').value;
-    const plateDescription = document.getElementById('description').value;
+    const plateName = document.getElementById('add_plate_name').value;
+    const plateDescription = document.getElementById(
+      'add_plate_description'
+    ).value;
 
     const plateColors = [
       '/static/img/taskIcon/taskIconBlue.png',
@@ -65,14 +67,14 @@ class AddPlateDialog extends Component {
         >
           <Field
             name="name"
-            id="name"
+            id="add_plate_name"
             component={RenderRegularTextField}
             type="text"
             label="Name"
           />
           <Field
             name="description"
-            id="description"
+            id="add_plate_description"
             component={RenderRegularTextField}
             type="text"
             label="Description"
