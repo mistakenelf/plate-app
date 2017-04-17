@@ -24,7 +24,7 @@ module.exports = {
       description,
       thumbnail,
       status: 'New',
-      content: '<p>Edit this text to get started filling your plate</p>'
+      content: '<p>Edit this content to get started filling you plate</p>'
     }
 
     return db.collection('plates').insert(data)

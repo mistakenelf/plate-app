@@ -1,11 +1,75 @@
-import { Editor, EditorState, RichUtils } from 'draft-js'
-import { convertFromHTML, convertToHTML } from 'draft-convert'
+import { Editor, Html, resetKeyGenerator } from 'slate'
+import React, { Component } from 'react'
 
 import PropTypes from 'prop-types'
-import React from 'react'
 import debounce from 'lodash/debounce'
 
-class ContentEditor extends React.Component {
+resetKeyGenerator()
+
+const BLOCK_TAGS = {
+  blockquote: 'quote',
+  p: 'paragraph',
+  pre: 'code'
+}
+
+// Add a dictionary of mark tags.
+const MARK_TAGS = {
+  em: 'italic',
+  strong: 'bold',
+  u: 'underline'
+}
+
+const rules = [
+  {
+    deserialize(el, next) {
+      const type = BLOCK_TAGS[el.tagName]
+      if (!type) return
+      return {
+        kind: 'block',
+        type: type,
+        nodes: next(el.children)
+      }
+    },
+    serialize(object, children) {
+      if (object.kind != 'block') return
+      switch (object.type) {
+        case 'code':
+          return <pre><code>{children}</code></pre>
+        case 'paragraph':
+          return <p>{children}</p>
+        case 'quote':
+          return <blockquote>{children}</blockquote>
+      }
+    }
+  },
+  // Add a new rule that handles marks...
+  {
+    deserialize(el, next) {
+      const type = MARK_TAGS[el.tagName]
+      if (!type) return
+      return {
+        kind: 'mark',
+        type: type,
+        nodes: next(el.children)
+      }
+    },
+    serialize(object, children) {
+      if (object.kind != 'mark') return
+      switch (object.type) {
+        case 'bold':
+          return <strong>{children}</strong>
+        case 'italic':
+          return <em>{children}</em>
+        case 'underline':
+          return <u>{children}</u>
+      }
+    }
+  }
+]
+
+const html = new Html({ rules })
+
+class ContentEditor extends Component {
   static propTypes = {
     saveContent: PropTypes.func,
     plateContent: PropTypes.string,
@@ -13,57 +77,32 @@ class ContentEditor extends React.Component {
   }
 
   state = {
-    editorState: EditorState.createWithContent(
-      convertFromHTML(this.props.plateContent)
-    )
+    state: html.deserialize(this.props.plateContent)
   }
 
-  saveContent = debounce(htmlContent => {
-    this.props.saveContent(this.props.plateId, htmlContent)
+  onChange = state => {
+    this.setState({
+      state
+    })
+  }
+
+  saveData = debounce(content => {
+    this.props.saveContent(this.props.plateId, content)
   }, 500)
 
-  onChange = editorState => {
-    this.setState({
-      editorState
-    })
-
-    let htmlContent = convertToHTML(editorState.getCurrentContent())
-    this.saveContent(htmlContent)
+  onDocumentChange = (document, state) => {
+    const content = html.serialize(state)
+    this.saveData(content)
   }
 
-  handleKeyCommand = () => {
-    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'))
-  }
-
-  focus = () => {
-    this.editor.focus()
-  }
-
-  render() {
+  render = () => {
     return (
-      <div className="editor" onClick={this.focus}>
+      <div>
         <Editor
-          editorKey="ContentEditor"
-          editorState={this.state.editorState}
-          handleKeyCommand={this.handleKeyCommand}
+          state={this.state.state}
           onChange={this.onChange}
-          ref={input => {
-            this.editor = input
-          }}
+          onDocumentChange={this.onDocumentChange}
         />
-        <style jsx>
-          {`
-            .editor {
-              min-height: 500px;
-              height: auto;
-              padding: 15px;
-              border-radius: 5px;
-              border-color: blue;
-              margin-bottom: 20px;
-              box-shadow: inset 0 0 8px #9E9E9E;
-            }
-            `}
-        </style>
       </div>
     )
   }
