@@ -2316,19 +2316,19 @@ graphql-server-core@^0.7.0:
   optionalDependencies:
     "@types/graphql" "^0.9.0"
 
-graphql-server-express@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/graphql-server-express/-/graphql-server-express-0.7.0.tgz#23b6461d55e7369388f02063b728a8ccfd839596"
+graphql-server-express@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/graphql-server-express/-/graphql-server-express-0.7.1.tgz#6038f7eac8f87938a0e4fc5a39eb8aaac00c84c5"
   dependencies:
     graphql-server-core "^0.7.0"
-    graphql-server-module-graphiql "^0.7.0"
+    graphql-server-module-graphiql "^0.7.1"
   optionalDependencies:
     "@types/express" "^4.0.35"
     "@types/graphql" "^0.9.0"
 
-graphql-server-module-graphiql@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/graphql-server-module-graphiql/-/graphql-server-module-graphiql-0.7.0.tgz#15cb1f820d7fec38d9dc0bd414d1d8826a997c01"
+graphql-server-module-graphiql@^0.7.1:
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/graphql-server-module-graphiql/-/graphql-server-module-graphiql-0.7.1.tgz#09cc2b80595bcb1165f3673138c268dd2166feb5"
 
 graphql-tag@^1.3.1:
   version "1.3.2"
@@ -3064,15 +3064,16 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
-material-ui@^0.17.3:
-  version "0.17.3"
-  resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-0.17.3.tgz#1c8d82da7909dab39d5e292b575516fe13b055c7"
+material-ui@^0.17.4:
+  version "0.17.4"
+  resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-0.17.4.tgz#193999ecb49c3ec15ae0abb4e90fdf9a7bd343e0"
   dependencies:
     babel-runtime "^6.23.0"
     inline-style-prefixer "^3.0.2"
     keycode "^2.1.8"
     lodash.merge "^4.6.0"
     lodash.throttle "^4.1.1"
+    prop-types "^15.5.7"
     react-addons-create-fragment "^15.4.0"
     react-addons-transition-group "^15.4.0"
     react-event-listener "^0.4.5"
