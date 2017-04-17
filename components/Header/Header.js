@@ -23,6 +23,7 @@ const Header = ({ title }) => {
         async
       />
       <link href="/static/css/flexboxgrid.css" rel="stylesheet" async />
+      <link href="/static/css/Draft.css" rel="stylesheet" async />
       <link href="/static/css/nprogress.css" rel="stylesheet" async />
       <link rel="manifest" href="/static/manifest.json" />
     </Head>
