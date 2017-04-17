@@ -1,73 +1,14 @@
-import { Editor, Html, resetKeyGenerator } from 'slate'
+import {
+  Editor,
+  EditorState,
+  RichUtils,
+  convertFromRaw,
+  convertToRaw,
+} from 'draft-js'
 import React, { Component } from 'react'
 
 import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
-
-resetKeyGenerator()
-
-const BLOCK_TAGS = {
-  blockquote: 'quote',
-  p: 'paragraph',
-  pre: 'code'
-}
-
-// Add a dictionary of mark tags.
-const MARK_TAGS = {
-  em: 'italic',
-  strong: 'bold',
-  u: 'underline'
-}
-
-const rules = [
-  {
-    deserialize(el, next) {
-      const type = BLOCK_TAGS[el.tagName]
-      if (!type) return
-      return {
-        kind: 'block',
-        type: type,
-        nodes: next(el.children)
-      }
-    },
-    serialize(object, children) {
-      if (object.kind != 'block') return
-      switch (object.type) {
-        case 'code':
-          return <pre><code>{children}</code></pre>
-        case 'paragraph':
-          return <p>{children}</p>
-        case 'quote':
-          return <blockquote>{children}</blockquote>
-      }
-    }
-  },
-  // Add a new rule that handles marks...
-  {
-    deserialize(el, next) {
-      const type = MARK_TAGS[el.tagName]
-      if (!type) return
-      return {
-        kind: 'mark',
-        type: type,
-        nodes: next(el.children)
-      }
-    },
-    serialize(object, children) {
-      if (object.kind != 'mark') return
-      switch (object.type) {
-        case 'bold':
-          return <strong>{children}</strong>
-        case 'italic':
-          return <em>{children}</em>
-        case 'underline':
-          return <u>{children}</u>
-      }
-    }
-  }
-]
-
-const html = new Html({ rules })
 
 class ContentEditor extends Component {
   static propTypes = {
@@ -76,33 +17,58 @@ class ContentEditor extends Component {
     plateId: PropTypes.string
   }
 
-  state = {
-    state: html.deserialize(this.props.plateContent)
+  constructor(props) {
+    super(props)
+    this.state = {
+      editorState: EditorState.createWithContent(
+        convertFromRaw(JSON.parse(props.plateContent))
+      )
+    }
   }
 
-  onChange = state => {
-    this.setState({
-      state
-    })
-  }
-
-  saveData = debounce(content => {
+  saveContent = debounce(content => {
     this.props.saveContent(this.props.plateId, content)
   }, 500)
 
-  onDocumentChange = (document, state) => {
-    const content = html.serialize(state)
-    this.saveData(content)
+  onChange = editorState => {
+    this.setState({
+      editorState
+    })
+
+    const content = JSON.stringify(
+      convertToRaw(editorState.getCurrentContent())
+    )
+
+    this.saveContent(content)
   }
 
-  render = () => {
+  focus = () => {
+    this.editor.focus()
+  }
+
+  render() {
     return (
-      <div>
+      <div className="editor" onClick={this.focus}>
         <Editor
-          state={this.state.state}
+          editorKey="ContentEditor"
+          editorState={this.state.editorState}
           onChange={this.onChange}
-          onDocumentChange={this.onDocumentChange}
+          ref={input => {
+            this.editor = input
+          }}
         />
+        <style jsx>
+          {`
+            .editor {
+              min-height: 500px;
+              height: auto;
+              padding: 15px;
+              border-radius: 5px;
+              border-color: blue;
+              margin-bottom: 20px;
+            }
+            `}
+        </style>
       </div>
     )
   }
