@@ -8,6 +8,7 @@ import {
 import React, { Component } from 'react'
 
 import PropTypes from 'prop-types'
+import RaisedButton from 'material-ui/RaisedButton'
 import debounce from 'lodash/debounce'
 
 class ContentEditor extends Component {
@@ -46,9 +47,28 @@ class ContentEditor extends Component {
     this.editor.focus()
   }
 
+  makeBold = () => {
+    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'BOLD'))
+  }
+
+  makeItalic = () => {
+    this.onChange(RichUtils.toggleInlineStyle(this.state.editorState, 'ITALIC'))
+  }
+
   render() {
     return (
       <div className="editor" onClick={this.focus}>
+        <RaisedButton
+          label="Bold"
+          primary={true}
+          style={{ marginRight: 10 }}
+          onTouchTap={() => this.makeBold()}
+        />
+        <RaisedButton
+          label="Italic"
+          primary={true}
+          onTouchTap={() => this.makeItalic()}
+        />
         <Editor
           editorKey="ContentEditor"
           editorState={this.state.editorState}
