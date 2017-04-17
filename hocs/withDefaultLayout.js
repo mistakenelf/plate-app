@@ -1,28 +1,28 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import Navigation from '../components/Navigation/Navigation';
-import configureLoadingProgressBar from '../utils/routing';
+import Navigation from '../components/Navigation/Navigation'
+import configureLoadingProgressBar from '../utils/routing'
 
 export default ComposedComponent => class WithDefaultLayout extends Component {
   state = {
     open: false
-  };
+  }
 
   componentDidMount() {
-    configureLoadingProgressBar();
+    configureLoadingProgressBar()
   }
 
   openDrawer = () => {
     this.setState({
       open: true
-    });
-  };
+    })
+  }
 
   closeDrawer = () => {
     this.setState({
       open: false
-    });
-  };
+    })
+  }
 
   render() {
     return (
@@ -50,6 +50,6 @@ export default ComposedComponent => class WithDefaultLayout extends Component {
               `}
         </style>
       </div>
-    );
+    )
   }
-};
+}

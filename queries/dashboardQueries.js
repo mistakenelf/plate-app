@@ -1,4 +1,4 @@
-import { gql } from 'react-apollo';
+import { gql } from 'react-apollo'
 
 export const PlatesQuery = gql`
   query {
@@ -11,4 +11,4 @@ export const PlatesQuery = gql`
       content
     }
   }
-`;
+`

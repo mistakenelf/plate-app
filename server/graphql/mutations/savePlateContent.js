@@ -1,8 +1,8 @@
-const { GraphQLNonNull, GraphQLString, GraphQLID } = require('graphql');
+const { GraphQLNonNull, GraphQLString, GraphQLID } = require('graphql')
 
-const ObjectId = require('mongodb').ObjectId;
+const ObjectId = require('mongodb').ObjectId
 
-const PlateType = require('../types/plate');
+const PlateType = require('../types/plate')
 
 // Save Plate Content
 module.exports = {
@@ -22,6 +22,6 @@ module.exports = {
       .findOneAndUpdate(
         { _id: new ObjectId(id) },
         { $set: { content: content } }
-      );
+      )
   }
-};
+}

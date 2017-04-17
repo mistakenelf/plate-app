@@ -1,12 +1,12 @@
-import { Card, CardHeader } from 'material-ui/Card';
-import { List, ListItem } from 'material-ui/List';
+import { Card, CardHeader } from 'material-ui/Card'
+import { List, ListItem } from 'material-ui/List'
 
-import Avatar from 'material-ui/Avatar';
-import Divider from 'material-ui/Divider';
-import EditIcon from 'material-ui/svg-icons/editor/mode-edit';
-import EmailIcon from 'material-ui/svg-icons/communication/email';
-import PhoneIcon from 'material-ui/svg-icons/communication/call';
-import React from 'react';
+import Avatar from 'material-ui/Avatar'
+import Divider from 'material-ui/Divider'
+import EditIcon from 'material-ui/svg-icons/editor/mode-edit'
+import EmailIcon from 'material-ui/svg-icons/communication/email'
+import PhoneIcon from 'material-ui/svg-icons/communication/call'
+import React from 'react'
 
 const ProfilePage = () => {
   return (
@@ -78,7 +78,7 @@ const ProfilePage = () => {
         `}
       </style>
     </div>
-  );
-};
+  )
+}
 
-export default ProfilePage;
+export default ProfilePage

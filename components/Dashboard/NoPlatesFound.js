@@ -1,9 +1,9 @@
-import { Card, CardText } from 'material-ui/Card';
+import { Card, CardText } from 'material-ui/Card'
 
-import ErrorIcon from 'material-ui/svg-icons/alert/error';
-import IconButton from 'material-ui/IconButton';
-import React from 'react';
-import { red500 } from 'material-ui/styles/colors';
+import ErrorIcon from 'material-ui/svg-icons/alert/error'
+import IconButton from 'material-ui/IconButton'
+import React from 'react'
+import { red500 } from 'material-ui/styles/colors'
 
 const styles = {
   largeIcon: {
@@ -16,7 +16,7 @@ const styles = {
     height: 120,
     padding: 20
   }
-};
+}
 
 const NoPlatesFound = () => {
   return (
@@ -31,7 +31,7 @@ const NoPlatesFound = () => {
         </div>
       </CardText>
     </Card>
-  );
-};
+  )
+}
 
-export default NoPlatesFound;
+export default NoPlatesFound

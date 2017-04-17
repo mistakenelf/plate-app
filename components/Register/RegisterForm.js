@@ -1,25 +1,25 @@
-import { Field, reduxForm } from 'redux-form';
-import { compose, graphql } from 'react-apollo';
+import { Field, reduxForm } from 'redux-form'
+import { compose, graphql } from 'react-apollo'
 
-import BorderedButton from '../BorderedButton/BorderedButton';
-import PropTypes from 'prop-types';
-import React from 'react';
-import RenderWhiteTextField from '../../utils/RenderWhiteTextField';
-import Router from 'next/router';
-import { registerMutation } from '../../mutations/registerMutations';
-import { registerValidations } from '../../validations/registerValidations';
+import BorderedButton from '../BorderedButton/BorderedButton'
+import PropTypes from 'prop-types'
+import React from 'react'
+import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
+import Router from 'next/router'
+import { registerMutation } from '../../mutations/registerMutations'
+import { registerValidations } from '../../validations/registerValidations'
 
 const RegisterForm = ({ handleSubmit, register }) => {
   const registerUser = () => {
-    const firstName = document.getElementById('firstName').value || '';
-    const lastName = document.getElementById('lastName').value || '';
-    const username = document.getElementById('username').value || '';
-    const password = document.getElementById('password').value || '';
+    const firstName = document.getElementById('firstName').value || ''
+    const lastName = document.getElementById('lastName').value || ''
+    const username = document.getElementById('username').value || ''
+    const password = document.getElementById('password').value || ''
 
-    register(firstName, lastName, username, password);
+    register(firstName, lastName, username, password)
 
-    Router.push('/');
-  };
+    Router.push('/')
+  }
 
   return (
     <div className="container-fluid">
@@ -78,13 +78,13 @@ const RegisterForm = ({ handleSubmit, register }) => {
           `}
       </style>
     </div>
-  );
-};
+  )
+}
 
 RegisterForm.propTypes = {
   handleSubmit: PropTypes.func,
   register: PropTypes.func
-};
+}
 
 export default compose(
   reduxForm({
@@ -97,4 +97,4 @@ export default compose(
         mutate({ variables: { firstName, lastName, username, password } })
     })
   })
-)(RegisterForm);
+)(RegisterForm)

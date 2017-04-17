@@ -1,6 +1,6 @@
-import BackButton from '../components/BackButton/BackButton';
-import LoginForm from '../components/Login/LoginForm';
-import React from 'react';
+import BackButton from '../components/BackButton/BackButton'
+import LoginForm from '../components/Login/LoginForm'
+import React from 'react'
 
 const LoginContainer = () => {
   return (
@@ -8,7 +8,7 @@ const LoginContainer = () => {
       <BackButton color="white" />
       <LoginForm />
     </div>
-  );
-};
+  )
+}
 
-export default LoginContainer;
+export default LoginContainer

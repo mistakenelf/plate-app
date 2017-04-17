@@ -1,5 +1,5 @@
-import React from 'react';
-import RefreshIndicator from 'material-ui/RefreshIndicator';
+import React from 'react'
+import RefreshIndicator from 'material-ui/RefreshIndicator'
 
 const style = {
   container: {
@@ -9,7 +9,7 @@ const style = {
     display: 'inline-block',
     position: 'relative'
   }
-};
+}
 
 const Loader = () => {
   return (
@@ -32,7 +32,7 @@ const Loader = () => {
         `}
       </style>
     </div>
-  );
-};
+  )
+}
 
-export default Loader;
+export default Loader

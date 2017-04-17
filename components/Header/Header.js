@@ -1,6 +1,6 @@
-import Head from 'next/head';
-import PropTypes from 'prop-types';
-import React from 'react';
+import Head from 'next/head'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const Header = ({ title }) => {
   return (
@@ -26,11 +26,11 @@ const Header = ({ title }) => {
       <link href="/static/css/nprogress.css" rel="stylesheet" async />
       <link rel="manifest" href="/static/manifest.json" />
     </Head>
-  );
-};
+  )
+}
 
 Header.propTypes = {
   title: PropTypes.string
-};
+}
 
-export default Header;
+export default Header

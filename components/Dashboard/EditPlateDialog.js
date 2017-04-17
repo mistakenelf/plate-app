@@ -1,13 +1,12 @@
-import { Field, reduxForm } from 'redux-form';
-import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
-import React, { Component } from 'react';
+import { Field, reduxForm } from 'redux-form'
+import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton'
+import React, { Component } from 'react'
 
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import PropTypes from 'prop-types';
-import RenderRegularTextField from '../../utils/RenderRegularTextField';
-import { connect } from 'react-redux';
-import { editPlateValidations } from '../../validations/dashboardValidations';
+import Dialog from 'material-ui/Dialog'
+import FlatButton from 'material-ui/FlatButton'
+import PropTypes from 'prop-types'
+import RenderRegularTextField from '../../utils/RenderRegularTextField'
+import { editPlateValidations } from '../../validations/dashboardValidations'
 
 class EditPlateDialog extends Component {
   static propTypes = {
@@ -19,37 +18,37 @@ class EditPlateDialog extends Component {
     plateStatus: PropTypes.string,
     editPlate: PropTypes.func,
     handleSubmit: PropTypes.func
-  };
+  }
 
   state = {
     plateStatusSelected: ''
-  };
+  }
 
   editPlateDetails = (id, editPlate, editPlateHandleClose) => {
-    const newPlateName = document.getElementById('currentPlateName').value;
+    const newPlateName = document.getElementById('currentPlateName').value
     const newPlateDescription = document.getElementById(
       'currentPlateDescription'
-    ).value;
+    ).value
     editPlate(
       id,
       newPlateName,
       newPlateDescription,
       this.state.plateStatusSelected
-    );
-    editPlateHandleClose();
-  };
+    )
+    editPlateHandleClose()
+  }
 
   plateStatusSelection = (e, value) => {
     if (value === 'plate_complete') {
       this.setState({
         plateStatusSelected: 'Complete'
-      });
+      })
     } else {
       this.setState({
         plateStatusSelected: 'In Progress'
-      });
+      })
     }
-  };
+  }
 
   actions = [
     <FlatButton
@@ -58,7 +57,7 @@ class EditPlateDialog extends Component {
       primary
     />,
     <FlatButton label="Submit" form="editPlateForm" secondary type="submit" />
-  ];
+  ]
 
   render() {
     return (
@@ -77,7 +76,8 @@ class EditPlateDialog extends Component {
               this.props.plateId,
               this.props.editPlate,
               this.props.editPlateHandleClose
-            ))}
+            )
+          )}
         >
           <span style={{ marginRight: 10 }}>Name:</span>
           <Field
@@ -119,10 +119,10 @@ class EditPlateDialog extends Component {
           </RadioButtonGroup>
         </form>
       </Dialog>
-    );
+    )
   }
 }
 export default reduxForm({
   form: 'editPlateForm',
   validate: editPlateValidations
-})(EditPlateDialog);
+})(EditPlateDialog)

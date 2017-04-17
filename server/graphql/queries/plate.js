@@ -1,7 +1,7 @@
-const { GraphQLID, GraphQLNonNull } = require('graphql');
+const { GraphQLID, GraphQLNonNull } = require('graphql')
 
-const PlateType = require('../types/plate');
-const ObjectId = require('mongodb').ObjectId;
+const PlateType = require('../types/plate')
+const ObjectId = require('mongodb').ObjectId
 
 // Get info for one plate
 module.exports = {
@@ -14,6 +14,6 @@ module.exports = {
     }
   },
   resolve({ db }, { id }) {
-    return db.collection('plates').findOne({ _id: new ObjectId(id) });
+    return db.collection('plates').findOne({ _id: new ObjectId(id) })
   }
-};
+}

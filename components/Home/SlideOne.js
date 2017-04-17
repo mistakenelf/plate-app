@@ -1,6 +1,6 @@
-import BorderedButton from '../BorderedButton/BorderedButton';
-import Link from 'next/link';
-import React from 'react';
+import BorderedButton from '../BorderedButton/BorderedButton'
+import Link from 'next/link'
+import React from 'react'
 
 const SlideOne = () => {
   return (
@@ -27,7 +27,7 @@ const SlideOne = () => {
         </Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SlideOne;
+export default SlideOne

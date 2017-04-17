@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const Body = () => {
   return (
@@ -36,7 +36,7 @@ const Body = () => {
           `}
       </style>
     </div>
-  );
-};
+  )
+}
 
-export default Body;
+export default Body

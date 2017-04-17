@@ -3,7 +3,7 @@ const {
   GraphQLBoolean,
   GraphQLObjectType,
   GraphQLID
-} = require('graphql');
+} = require('graphql')
 
 // Schema for a user
 module.exports = new GraphQLObjectType({
@@ -26,4 +26,4 @@ module.exports = new GraphQLObjectType({
       type: GraphQLBoolean
     }
   }
-});
+})

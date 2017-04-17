@@ -1,15 +1,15 @@
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form'
 
-import BorderedButton from '../BorderedButton/BorderedButton';
-import Link from 'next/link';
-import PropTypes from 'prop-types';
-import React from 'react';
-import RenderWhiteTextField from '../../utils/RenderWhiteTextField';
-import { loginValidations } from '../../validations/loginValidations';
+import BorderedButton from '../BorderedButton/BorderedButton'
+import Link from 'next/link'
+import PropTypes from 'prop-types'
+import React from 'react'
+import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
+import { loginValidations } from '../../validations/loginValidations'
 
 const login = () => {
-  console.log('submitted');
-};
+  console.log('submitted')
+}
 
 const LoginForm = ({ handleSubmit }) => {
   return (
@@ -67,14 +67,14 @@ const LoginForm = ({ handleSubmit }) => {
         `}
       </style>
     </div>
-  );
-};
+  )
+}
 
 LoginForm.propTypes = {
   handleSubmit: PropTypes.func
-};
+}
 
 export default reduxForm({
   form: 'loginForm',
   validate: loginValidations
-})(LoginForm);
+})(LoginForm)

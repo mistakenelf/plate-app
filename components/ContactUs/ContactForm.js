@@ -1,7 +1,7 @@
-import { Card } from 'material-ui/Card';
-import RaisedButton from 'material-ui/RaisedButton';
-import React from 'react';
-import TextField from 'material-ui/TextField';
+import { Card } from 'material-ui/Card'
+import RaisedButton from 'material-ui/RaisedButton'
+import React from 'react'
+import TextField from 'material-ui/TextField'
 
 const ContactForm = () => {
   const styles = {
@@ -9,7 +9,7 @@ const ContactForm = () => {
       width: 250,
       marginTop: 50
     }
-  };
+  }
 
   return (
     <div className="container">
@@ -54,7 +54,7 @@ const ContactForm = () => {
           `}
       </style>
     </div>
-  );
-};
+  )
+}
 
-export default ContactForm;
+export default ContactForm

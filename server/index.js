@@ -1,21 +1,21 @@
-const express = require('express');
-const path = require('path');
-const next = require('next');
-const bodyParser = require('body-parser');
-const { graphiqlExpress, graphqlExpress } = require('graphql-server-express');
-const MongoClient = require('mongodb').MongoClient;
-const helmet = require('helmet');
+const express = require('express')
+const path = require('path')
+const next = require('next')
+const bodyParser = require('body-parser')
+const { graphiqlExpress, graphqlExpress } = require('graphql-server-express')
+const MongoClient = require('mongodb').MongoClient
+const helmet = require('helmet')
 
-const dev = process.env.NODE_ENV !== 'production';
-const app = next({ dev });
-const handle = app.getRequestHandler();
-const server = express();
+const dev = process.env.NODE_ENV !== 'production'
+const app = next({ dev })
+const handle = app.getRequestHandler()
+const server = express()
 
-const cache = require('./cache');
-const schema = require('./graphql');
-const env = require('../env-config');
+const cache = require('./cache')
+const schema = require('./graphql')
+const env = require('../env-config')
 
-const port = 3000;
+const port = 3000
 
 module.exports = app
   .prepare()
@@ -50,15 +50,15 @@ module.exports = app
     })
       .catch(err => console.error(err.stack))
       .then(db => {
-        console.log('Database Connection Successful');
-        server.locals.db = db;
+        console.log('Database Connection Successful')
+        server.locals.db = db
         server.listen(port, err => {
-          if (err) throw err;
-          console.log(`> Ready on http://localhost:${port}`);
-        });
-      });
+          if (err) throw err
+          console.log(`> Ready on http://localhost:${port}`)
+        })
+      })
   })
   .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+    console.error(err)
+    process.exit(1)
+  })

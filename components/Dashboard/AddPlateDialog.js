@@ -1,14 +1,14 @@
-import { Field, reduxForm } from 'redux-form';
-import React, { Component } from 'react';
-import { compose, graphql } from 'react-apollo';
+import { Field, reduxForm } from 'redux-form'
+import React, { Component } from 'react'
+import { compose, graphql } from 'react-apollo'
 
-import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import { PlatesQuery } from '../../queries/dashboardQueries';
-import PropTypes from 'prop-types';
-import RenderRegularTextField from '../../utils/RenderRegularTextField';
-import { addPlateMutation } from '../../mutations/dashboardMutations';
-import { addPlateValidations } from '../../validations/dashboardValidations';
+import Dialog from 'material-ui/Dialog'
+import FlatButton from 'material-ui/FlatButton'
+import { PlatesQuery } from '../../queries/dashboardQueries'
+import PropTypes from 'prop-types'
+import RenderRegularTextField from '../../utils/RenderRegularTextField'
+import { addPlateMutation } from '../../mutations/dashboardMutations'
+import { addPlateValidations } from '../../validations/dashboardValidations'
 
 class AddPlateDialog extends Component {
   static propTypes = {
@@ -17,13 +17,12 @@ class AddPlateDialog extends Component {
     addPlate: PropTypes.func,
     handleSubmit: PropTypes.func,
     reset: PropTypes.func
-  };
+  }
 
   confirmAddPlate = () => {
-    const plateName = document.getElementById('add_plate_name').value;
-    const plateDescription = document.getElementById(
-      'add_plate_description'
-    ).value;
+    const plateName = document.getElementById('add_plate_name').value
+    const plateDescription = document.getElementById('add_plate_description')
+      .value
 
     const plateColors = [
       '/static/img/taskIcon/taskIconBlue.png',
@@ -32,14 +31,14 @@ class AddPlateDialog extends Component {
       '/static/img/taskIcon/taskIconPink.png',
       '/static/img/taskIcon/taskIconRed.png',
       '/static/img/taskIcon/taskIconYellow.png'
-    ];
+    ]
 
-    const colorNumber = Math.floor(Math.random() * 6);
+    const colorNumber = Math.floor(Math.random() * 6)
 
-    this.props.addPlate(plateName, plateDescription, plateColors[colorNumber]);
-    this.props.closeDialog();
-    this.props.reset();
-  };
+    this.props.addPlate(plateName, plateDescription, plateColors[colorNumber])
+    this.props.closeDialog()
+    this.props.reset()
+  }
 
   render() {
     const actions = [
@@ -50,7 +49,7 @@ class AddPlateDialog extends Component {
         onTouchTap={this.props.closeDialog}
       />,
       <FlatButton label="Add Plate" form="plateForm" primary type="submit" />
-    ];
+    ]
 
     return (
       <Dialog
@@ -84,7 +83,7 @@ class AddPlateDialog extends Component {
           />
         </form>
       </Dialog>
-    );
+    )
   }
 }
 
@@ -106,4 +105,4 @@ export default compose(
       ]
     }
   })
-)(AddPlateDialog);
+)(AddPlateDialog)

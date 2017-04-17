@@ -1,4 +1,4 @@
-import { ApolloClient, createNetworkInterface } from 'react-apollo';
+import { ApolloClient, createNetworkInterface } from 'react-apollo'
 
 // Initialize Apollo
 export const initApollo = headers => {
@@ -15,13 +15,13 @@ export const initApollo = headers => {
         credentials: 'same-origin'
       }
     })
-  });
+  })
   if (!process.browser) {
-    return client;
+    return client
   } else {
     if (!window.__APOLLO_CLIENT__) {
-      window.__APOLLO_CLIENT__ = client;
+      window.__APOLLO_CLIENT__ = client
     }
-    return window.__APOLLO_CLIENT__;
+    return window.__APOLLO_CLIENT__
   }
-};
+}

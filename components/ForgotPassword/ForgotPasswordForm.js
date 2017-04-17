@@ -1,17 +1,17 @@
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm } from 'redux-form'
 
-import BorderedButton from '../BorderedButton/BorderedButton';
-import PropTypes from 'prop-types';
-import React from 'react';
-import RenderWhiteTextField from '../../utils/RenderWhiteTextField';
+import BorderedButton from '../BorderedButton/BorderedButton'
+import PropTypes from 'prop-types'
+import React from 'react'
+import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
 import {
   forgotPasswordValidations,
-} from '../../validations/forgotPasswordValidations';
+} from '../../validations/forgotPasswordValidations'
 
 const forgotPassword = e => {
-  e.preventDefault();
-  console.log('submitted');
-};
+  e.preventDefault()
+  console.log('submitted')
+}
 
 const ForgotPasswordForm = ({ handleSubmit }) => {
   return (
@@ -52,14 +52,14 @@ const ForgotPasswordForm = ({ handleSubmit }) => {
         `}
       </style>
     </div>
-  );
-};
+  )
+}
 
 ForgotPasswordForm.propTypes = {
   handleSubmit: PropTypes.func
-};
+}
 
 export default reduxForm({
   form: 'forgotPasswordForm',
   validate: forgotPasswordValidations
-})(ForgotPasswordForm);
+})(ForgotPasswordForm)

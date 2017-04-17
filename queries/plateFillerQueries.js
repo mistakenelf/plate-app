@@ -1,4 +1,4 @@
-import { gql } from 'react-apollo';
+import { gql } from 'react-apollo'
 
 export const getPlateData = gql`
   query plate($id: ID!) {
@@ -10,4 +10,4 @@ export const getPlateData = gql`
       content
     }
   }
-`;
+`

@@ -1,7 +1,7 @@
-import BackArrow from 'material-ui/svg-icons/navigation/arrow-back';
-import IconButton from 'material-ui/IconButton';
-import PropTypes from 'prop-types';
-import React from 'react';
+import BackArrow from 'material-ui/svg-icons/navigation/arrow-back'
+import IconButton from 'material-ui/IconButton'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const BackButton = ({ color }) => {
   return (
@@ -16,11 +16,11 @@ const BackButton = ({ color }) => {
         </IconButton>
       </a>
     </div>
-  );
-};
+  )
+}
 
 BackButton.propTypes = {
   color: PropTypes.string
-};
+}
 
-export default BackButton;
+export default BackButton

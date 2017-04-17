@@ -1,4 +1,4 @@
-const nextRoutes = require('next-routes');
+const nextRoutes = require('next-routes')
 
 module.exports = nextRoutes()
   .add('/')
@@ -7,4 +7,4 @@ module.exports = nextRoutes()
   .add('account')
   .add('login')
   .add('register')
-  .add('forgotpassword');
+  .add('forgotpassword')

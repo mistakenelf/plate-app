@@ -1,9 +1,9 @@
-import React from 'react';
-import SlideOne from './SlideOne';
-import SlideThree from './SlideThree';
-import SlideTwo from './SlideTwo';
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
+import React from 'react'
+import SlideOne from './SlideOne'
+import SlideThree from './SlideThree'
+import SlideTwo from './SlideTwo'
+import SwipeableViews from 'react-swipeable-views'
+import { autoPlay } from 'react-swipeable-views-utils'
 
 const styles = {
   slide: {
@@ -25,9 +25,9 @@ const styles = {
   slide3: {
     background: 'linear-gradient(-90deg, #B3DC4A, #6AC0FF)'
   }
-};
+}
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews)
 
 const Header = () => (
   <AutoPlaySwipeableViews enableMouseEvents resistance interval={4000}>
@@ -41,6 +41,6 @@ const Header = () => (
       <SlideThree />
     </div>
   </AutoPlaySwipeableViews>
-);
+)
 
-export default Header;
+export default Header

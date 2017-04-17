@@ -1,7 +1,6 @@
-import BackButton from '../components/BackButton/BackButton';
-import ForgotPasswordForm
-  from '../components/ForgotPassword/ForgotPasswordForm';
-import React from 'react';
+import BackButton from '../components/BackButton/BackButton'
+import ForgotPasswordForm from '../components/ForgotPassword/ForgotPasswordForm'
+import React from 'react'
 
 const ForgotPasswordContainer = () => {
   return (
@@ -9,7 +8,7 @@ const ForgotPasswordContainer = () => {
       <BackButton color="white" />
       <ForgotPasswordForm />
     </div>
-  );
-};
+  )
+}
 
-export default ForgotPasswordContainer;
+export default ForgotPasswordContainer

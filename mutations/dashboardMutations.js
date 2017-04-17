@@ -1,4 +1,4 @@
-import { gql } from 'react-apollo';
+import { gql } from 'react-apollo'
 
 export const addPlateMutation = gql`
   mutation addPlate($name: String!, $description: String!, $thumbnail: String!) {
@@ -8,7 +8,7 @@ export const addPlateMutation = gql`
       thumbnail
     }
   }
-`;
+`
 
 export const removePlateMutation = gql`
   mutation removePlate($id: ID!) {
@@ -16,7 +16,7 @@ export const removePlateMutation = gql`
       id
     }
   }
-`;
+`
 
 export const editPlateMutation = gql`
   mutation editPlate($id: ID!, $name: String!, $description: String!, $status: String!) {
@@ -27,4 +27,4 @@ export const editPlateMutation = gql`
       status
     }
   }
-`;
+`

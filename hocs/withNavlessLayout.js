@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import configureLoadingProgressBar from '../utils/routing';
+import configureLoadingProgressBar from '../utils/routing'
 
 export default ComposedComponent => class WithNavlessLayout extends Component {
   componentDidMount() {
-    configureLoadingProgressBar();
+    configureLoadingProgressBar()
   }
 
   render() {
@@ -29,6 +29,6 @@ export default ComposedComponent => class WithNavlessLayout extends Component {
               `}
         </style>
       </div>
-    );
+    )
   }
-};
+}

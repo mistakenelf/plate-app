@@ -1,8 +1,8 @@
-const { GraphQLNonNull, GraphQLBoolean, GraphQLID } = require('graphql');
+const { GraphQLNonNull, GraphQLBoolean, GraphQLID } = require('graphql')
 
-const ObjectId = require('mongodb').ObjectId;
+const ObjectId = require('mongodb').ObjectId
 
-const PlateType = require('../types/plate');
+const PlateType = require('../types/plate')
 
 // Change completed status of a plate
 module.exports = {
@@ -22,6 +22,6 @@ module.exports = {
       .findOneAndUpdate(
         { _id: new ObjectId(id) },
         { $set: { completed: completed } }
-      );
+      )
   }
-};
+}

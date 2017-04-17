@@ -1,15 +1,14 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import TextField from 'material-ui/TextField';
+import PropTypes from 'prop-types'
+import React from 'react'
+import TextField from 'material-ui/TextField'
 
 const RenderRegularTextField = props => {
   const {
-    input: { value, ...input },
+    input: { ...input },
     label,
-    name,
     meta: { touched, error },
     ...custom
-  } = props;
+  } = props
 
   if (custom.id === 'add_plate_name' || custom.id === 'add_plate_description') {
     return (
@@ -21,7 +20,7 @@ const RenderRegularTextField = props => {
         {...input}
         {...custom}
       />
-    );
+    )
   } else {
     return (
       <TextField
@@ -32,15 +31,15 @@ const RenderRegularTextField = props => {
         {...input}
         {...custom}
       />
-    );
+    )
   }
-};
+}
 
 RenderRegularTextField.propTypes = {
   label: PropTypes.string,
   meta: PropTypes.object,
   input: PropTypes.object,
   name: PropTypes.string
-};
+}
 
-export default RenderRegularTextField;
+export default RenderRegularTextField

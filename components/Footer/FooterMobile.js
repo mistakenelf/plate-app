@@ -1,29 +1,29 @@
-import { List, ListItem } from 'material-ui/List';
-import React, { Component } from 'react';
+import { List, ListItem } from 'material-ui/List'
+import React, { Component } from 'react'
 
-import Divider from 'material-ui/Divider';
-import ExpandMoreIcon from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
+import Divider from 'material-ui/Divider'
+import ExpandMoreIcon from 'material-ui/svg-icons/hardware/keyboard-arrow-down'
 import KeyboardArrowRight
-  from 'material-ui/svg-icons/hardware/keyboard-arrow-right';
-import Router from 'next/router';
+  from 'material-ui/svg-icons/hardware/keyboard-arrow-right'
+import Router from 'next/router'
 
 class FooterMobile extends Component {
   state = {
     quickLinksOpen: false,
     aboutLinksOpen: false
-  };
+  }
 
   toggleQuickLinks = () => {
     this.setState({
       quickLinksOpen: !this.state.quickLinksOpen
-    });
-  };
+    })
+  }
 
   toggleAboutLinks = () => {
     this.setState({
       aboutLinksOpen: !this.state.aboutLinksOpen
-    });
-  };
+    })
+  }
 
   render() {
     return (
@@ -102,8 +102,8 @@ class FooterMobile extends Component {
             `}
         </style>
       </div>
-    );
+    )
   }
 }
 
-export default FooterMobile;
+export default FooterMobile

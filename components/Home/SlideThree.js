@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 const SlideThree = () => {
   return (
@@ -9,7 +9,7 @@ const SlideThree = () => {
         </h1>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SlideThree;
+export default SlideThree

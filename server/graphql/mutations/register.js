@@ -1,8 +1,8 @@
-const { GraphQLNonNull, GraphQLString } = require('graphql');
+const { GraphQLNonNull, GraphQLString } = require('graphql')
 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt')
 
-const UserType = require('../types/user');
+const UserType = require('../types/user')
 
 // Register a new user
 module.exports = {
@@ -24,15 +24,15 @@ module.exports = {
     }
   },
   resolve({ db }, { firstName, lastName, username, password }) {
-    const saltRounds = 10;
+    const saltRounds = 10
     bcrypt.hash(password, saltRounds, (err, hash) => {
       const data = {
         firstName,
         lastName,
         username,
         password: hash
-      };
-      return db.collection('users').insertOne(data);
-    });
+      }
+      return db.collection('users').insertOne(data)
+    })
   }
-};
+}

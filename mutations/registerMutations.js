@@ -1,4 +1,4 @@
-import { gql } from 'react-apollo';
+import { gql } from 'react-apollo'
 
 export const registerMutation = gql`
   mutation register($firstName: String!, $lastName: String!, $username: String!, $password: String!) {
@@ -9,4 +9,4 @@ export const registerMutation = gql`
       password
     }
   }
-`;
+`

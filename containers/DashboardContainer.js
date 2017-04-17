@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import AddPlateButton from '../components/Dashboard/AddPlateButton';
-import Loader from '../components/Loader/Loader';
-import NoPlatesFound from '../components/Dashboard/NoPlatesFound';
-import Plate from '../components/Dashboard/Plate';
-import { PlatesQuery } from '../queries/dashboardQueries';
-import PropTypes from 'prop-types';
-import { graphql } from 'react-apollo';
+import AddPlateButton from '../components/Dashboard/AddPlateButton'
+import Loader from '../components/Loader/Loader'
+import NoPlatesFound from '../components/Dashboard/NoPlatesFound'
+import Plate from '../components/Dashboard/Plate'
+import { PlatesQuery } from '../queries/dashboardQueries'
+import PropTypes from 'prop-types'
+import { graphql } from 'react-apollo'
 
 class DashboardContainer extends Component {
   static propTypes = {
     loading: PropTypes.bool,
     plates: PropTypes.array,
     addPlate: PropTypes.func
-  };
+  }
 
   render() {
     if (this.props.loading) {
-      return <Loader />;
+      return <Loader />
     }
 
     return (
@@ -27,9 +27,7 @@ class DashboardContainer extends Component {
       >
         <div className="row" style={{ marginBottom: 70 }}>
           {this.props.plates.length === 0
-            ? <div
-                className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3"
-              >
+            ? <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3">
                 <NoPlatesFound />
               </div>
             : this.props.plates.map((plate, index) => (
@@ -64,7 +62,7 @@ class DashboardContainer extends Component {
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -76,4 +74,4 @@ export default graphql(PlatesQuery, {
   options: {
     fetchPolicy: 'cache-and-network'
   }
-})(DashboardContainer);
+})(DashboardContainer)

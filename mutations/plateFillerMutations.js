@@ -1,4 +1,4 @@
-import { gql } from 'react-apollo';
+import { gql } from 'react-apollo'
 
 export const savePlateContentMutation = gql`
   mutation savePlateContent($id: ID!, $content: String!) {
@@ -7,4 +7,4 @@ export const savePlateContentMutation = gql`
       content
     }
   }
-`;
+`

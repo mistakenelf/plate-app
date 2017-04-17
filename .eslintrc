@@ -24,6 +24,10 @@
     "react/display-name": [
       0
     ],
+    "semi": [
+      "error",
+      "never"
+    ],
     "no-unused-vars": [
       "error"
     ]

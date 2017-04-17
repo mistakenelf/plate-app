@@ -1,15 +1,15 @@
-import { gql, withApollo } from 'react-apollo';
+import { gql, withApollo } from 'react-apollo'
 
-import AccountIcon from 'material-ui/svg-icons/action/account-circle';
-import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer';
-import IconButton from 'material-ui/IconButton';
-import IconMenu from 'material-ui/IconMenu';
-import Link from 'next/link';
-import MenuItem from 'material-ui/MenuItem';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-import PropTypes from 'prop-types';
-import React from 'react';
+import AccountIcon from 'material-ui/svg-icons/action/account-circle'
+import AppBar from 'material-ui/AppBar'
+import Drawer from 'material-ui/Drawer'
+import IconButton from 'material-ui/IconButton'
+import IconMenu from 'material-ui/IconMenu'
+import Link from 'next/link'
+import MenuItem from 'material-ui/MenuItem'
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const Navigation = ({ open, openDrawer, closeDrawer, client }) => {
   const Query = gql`
@@ -21,13 +21,13 @@ const Navigation = ({ open, openDrawer, closeDrawer, client }) => {
         status
       }
     }
-  `;
+  `
 
   const prefetchPlates = () => {
     client.query({
       query: Query
-    });
-  };
+    })
+  }
 
   const elementRight = (
     <div>
@@ -52,7 +52,7 @@ const Navigation = ({ open, openDrawer, closeDrawer, client }) => {
 
       </IconMenu>
     </div>
-  );
+  )
 
   return (
     <div>
@@ -101,14 +101,14 @@ const Navigation = ({ open, openDrawer, closeDrawer, client }) => {
           `}
       </style>
     </div>
-  );
-};
+  )
+}
 
 Navigation.propTypes = {
   open: PropTypes.bool,
   openDrawer: PropTypes.func,
   closeDrawer: PropTypes.func,
   client: PropTypes.object
-};
+}
 
-export default withApollo(Navigation);
+export default withApollo(Navigation)

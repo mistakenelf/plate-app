@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import PropTypes from 'prop-types'
+import React from 'react'
 
 const Header = ({ plateName }) => {
   return (
@@ -16,11 +16,11 @@ const Header = ({ plateName }) => {
           `}
       </style>
     </div>
-  );
-};
+  )
+}
 
 Header.propTypes = {
   plateName: PropTypes.string
-};
+}
 
-export default Header;
+export default Header

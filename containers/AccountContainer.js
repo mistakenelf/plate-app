@@ -1,6 +1,6 @@
-import BackButton from '../components/BackButton/BackButton';
-import ProfilePage from '../components/Account/ProfilePage';
-import React from 'react';
+import BackButton from '../components/BackButton/BackButton'
+import ProfilePage from '../components/Account/ProfilePage'
+import React from 'react'
 
 const AccountContainer = () => {
   return (
@@ -8,7 +8,7 @@ const AccountContainer = () => {
       <BackButton color="black" />
       <ProfilePage />
     </div>
-  );
-};
+  )
+}
 
-export default AccountContainer;
+export default AccountContainer

@@ -1,6 +1,6 @@
-import BackButton from '../components/BackButton/BackButton';
-import React from 'react';
-import RegisterForm from '../components/Register/RegisterForm';
+import BackButton from '../components/BackButton/BackButton'
+import React from 'react'
+import RegisterForm from '../components/Register/RegisterForm'
 
 const RegisterContainer = () => {
   return (
@@ -8,7 +8,7 @@ const RegisterContainer = () => {
       <BackButton color="white" />
       <RegisterForm />
     </div>
-  );
-};
+  )
+}
 
-export default RegisterContainer;
+export default RegisterContainer

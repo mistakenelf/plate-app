@@ -1,18 +1,18 @@
-import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card';
-import React, { Component } from 'react';
-import { compose, graphql } from 'react-apollo';
+import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card'
+import React, { Component } from 'react'
+import { compose, graphql } from 'react-apollo'
 import {
   editPlateMutation,
   removePlateMutation,
-} from '../../mutations/dashboardMutations';
+} from '../../mutations/dashboardMutations'
 
-import Dialog from 'material-ui/Dialog';
-import EditIcon from 'material-ui/svg-icons/editor/mode-edit';
-import EditPlateDialog from './EditPlateDialog';
-import FlatButton from 'material-ui/FlatButton';
-import Link from 'next/link';
-import { PlatesQuery } from '../../queries/dashboardQueries';
-import PropTypes from 'prop-types';
+import Dialog from 'material-ui/Dialog'
+import EditIcon from 'material-ui/svg-icons/editor/mode-edit'
+import EditPlateDialog from './EditPlateDialog'
+import FlatButton from 'material-ui/FlatButton'
+import Link from 'next/link'
+import { PlatesQuery } from '../../queries/dashboardQueries'
+import PropTypes from 'prop-types'
 
 class Plate extends Component {
   static propTypes = {
@@ -24,33 +24,33 @@ class Plate extends Component {
     status: PropTypes.string,
     content: PropTypes.string,
     editPlate: PropTypes.func
-  };
+  }
 
   state = {
     washPlateOpen: false,
     editPlateOpen: false
-  };
+  }
 
   washPlateHandleOpen = () => {
-    this.setState({ washPlateOpen: true });
-  };
+    this.setState({ washPlateOpen: true })
+  }
 
   washPlateHandleClose = () => {
-    this.setState({ washPlateOpen: false });
-  };
+    this.setState({ washPlateOpen: false })
+  }
 
   editPlateHandleOpen = () => {
-    this.setState({ editPlateOpen: true });
-  };
+    this.setState({ editPlateOpen: true })
+  }
 
   editPlateHandleClose = () => {
-    this.setState({ editPlateOpen: false });
-  };
+    this.setState({ editPlateOpen: false })
+  }
 
   deletePlate = plateId => {
-    this.props.removePlate(plateId);
-    this.washPlateHandleClose();
-  };
+    this.props.removePlate(plateId)
+    this.washPlateHandleClose()
+  }
 
   render() {
     const actions = [
@@ -64,7 +64,7 @@ class Plate extends Component {
         secondary
         onTouchTap={() => this.deletePlate(this.props.plateId)}
       />
-    ];
+    ]
 
     return (
       <div className="card">
@@ -132,7 +132,7 @@ class Plate extends Component {
             `}
         </style>
       </div>
-    );
+    )
   }
 }
 
@@ -162,4 +162,4 @@ export default compose(
       ]
     }
   })
-)(Plate);
+)(Plate)

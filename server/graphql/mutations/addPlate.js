@@ -1,6 +1,6 @@
-const { GraphQLNonNull, GraphQLString } = require('graphql');
+const { GraphQLNonNull, GraphQLString } = require('graphql')
 
-const PlateType = require('../types/plate');
+const PlateType = require('../types/plate')
 
 // Add a new plate
 module.exports = {
@@ -25,8 +25,8 @@ module.exports = {
       thumbnail,
       status: 'New',
       content: '<p>Edit this text to get started filling your plate</p>'
-    };
+    }
 
-    return db.collection('plates').insert(data);
+    return db.collection('plates').insert(data)
   }
-};
+}
