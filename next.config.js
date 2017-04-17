@@ -1,4 +1,4 @@
-const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 
 module.exports = {
   webpack: (config, { dev }) => {
@@ -26,8 +26,8 @@ module.exports = {
             }
           ]
         })
-      );
+      )
     }
-    return config;
+    return config
   }
-};
+}
