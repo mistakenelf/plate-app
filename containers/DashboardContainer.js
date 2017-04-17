@@ -27,7 +27,9 @@ class DashboardContainer extends Component {
       >
         <div className="row" style={{ marginBottom: 70 }}>
           {this.props.plates.length === 0
-            ? <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3">
+            ? <div
+                className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3"
+              >
                 <NoPlatesFound />
               </div>
             : this.props.plates.map((plate, index) => (
