@@ -111,6 +111,7 @@ class ContentEditor extends Component {
               font-size: 16px;
               margin-top: 10px;
               padding-top: 10px;
+              color: #424242;
             }
             .RichEditor-editor .RichEditor-blockquote {
               border-left: 5px solid #eee;
