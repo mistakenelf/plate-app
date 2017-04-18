@@ -18,7 +18,7 @@ const PlateFillerContainer = ({
     return <Loader />
   }
   return (
-    <div className="container-fluid">
+    <div className="container-fluid bottom-margin">
       <div className="row">
         <div
           className="col-sm-12 col-md-12 col-lg-12"
@@ -32,6 +32,13 @@ const PlateFillerContainer = ({
           />
         </div>
       </div>
+      <style jsx>
+        {`
+          .bottom-margin {
+            margin-bottom: 50px;
+          }
+        `}
+      </style>
     </div>
   )
 }

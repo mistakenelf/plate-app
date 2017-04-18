@@ -128,9 +128,8 @@ class ContentEditor extends Component {
               padding: 20px;
             }
             .button-container {
-              display: flex;
-              flex-direction: row;
-              justify-content: center;
+              word-wrap: break-word;
+              text-align: center;
             }
           `}
         </style>
