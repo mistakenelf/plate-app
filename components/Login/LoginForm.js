@@ -5,19 +5,28 @@ import Link from 'next/link'
 import PropTypes from 'prop-types'
 import React from 'react'
 import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
+import Router from 'next/router'
+import cookie from 'react-cookie'
 import { loginValidations } from '../../validations/loginValidations'
 
-const login = () => {
-  console.log('submitted')
+const login = async generateToken => {
+  const token = await generateToken()
+
+  cookie.save('token', token.data.generateToken, {
+    maxAge: 3600,
+    path: '/'
+  })
+
+  Router.push('/')
 }
 
-const LoginForm = ({ handleSubmit }) => {
+const LoginForm = ({ handleSubmit, generateToken }) => {
   return (
     <div className="container-fluid">
       <div className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg">
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <h1 className="header-text">Login</h1>
-          <form onSubmit={handleSubmit(login)}>
+          <form onSubmit={handleSubmit(() => login(generateToken))}>
             <Field
               name="email"
               id="email"
@@ -71,7 +80,8 @@ const LoginForm = ({ handleSubmit }) => {
 }
 
 LoginForm.propTypes = {
-  handleSubmit: PropTypes.func
+  handleSubmit: PropTypes.func,
+  generateToken: PropTypes.func
 }
 
 export default reduxForm({

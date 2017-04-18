@@ -11,6 +11,7 @@ const completePlate = require('./mutations/completePlate')
 const editPlate = require('./mutations/editPlate')
 const register = require('./mutations/register')
 const savePlateContent = require('./mutations/savePlateContent')
+const generateToken = require('./mutations/generateToken')
 
 // Main Schema
 const schema = new GraphQLSchema({
@@ -29,7 +30,8 @@ const schema = new GraphQLSchema({
       completePlate,
       editPlate,
       register,
-      savePlateContent
+      savePlateContent,
+      generateToken
     }
   })
 })
