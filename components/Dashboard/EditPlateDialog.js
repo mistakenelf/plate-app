@@ -68,7 +68,7 @@ class EditPlateDialog extends Component {
         onRequestClose={this.props.editPlateHandleClose}
         contentStyle={{ width: '95%' }}
       >
-        <h3 style={{ marginBottom: 10 }}>Edit Plate</h3>
+        <h3 className="header-style">Edit Plate</h3>
         <form
           id="editPlateForm"
           onSubmit={this.props.handleSubmit(() =>
@@ -79,7 +79,7 @@ class EditPlateDialog extends Component {
             )
           )}
         >
-          <span style={{ marginRight: 10 }}>Name:</span>
+          <span className="label-style">Name:</span>
           <Field
             name="currentPlateName"
             id="currentPlateName"
@@ -88,7 +88,7 @@ class EditPlateDialog extends Component {
             label={this.props.plateName}
             style={{ marginBottom: 20 }}
           />
-          <span style={{ marginRight: 10 }}>Description:</span>
+          <span className="label-style">Description:</span>
           <Field
             name="currentPlateDescription"
             id="currentPlateDescription"
@@ -118,6 +118,16 @@ class EditPlateDialog extends Component {
             />
           </RadioButtonGroup>
         </form>
+        <style jsx>
+          {`
+            .header-style {
+              margin-bottom: 10px;
+            }
+            .label-style {
+              margin-right: 10px;
+            }
+          `}
+        </style>
       </Dialog>
     )
   }

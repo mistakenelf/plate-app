@@ -26,10 +26,18 @@ const NoPlatesFound = () => {
           <ErrorIcon />
         </IconButton>
         <br />
-        <div style={{ fontSize: 20, fontWeight: 'bolder' }}>
+        <div className="content">
           You currently have nothing on your Plate. Add a new plate to get started
         </div>
       </CardText>
+      <style jsx>
+        {`
+          .content {
+            font-size: 20px;
+            font-weight: bolder;
+          }
+        `}
+      </style>
     </Card>
   )
 }

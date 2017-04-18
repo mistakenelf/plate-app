@@ -94,11 +94,10 @@ const Navigation = ({ open, openDrawer, closeDrawer, client }) => {
           a {
             text-decoration: none;
           }
-
           .sidebar-text {
             text-align: center;
           }
-          `}
+        `}
       </style>
     </div>
   )

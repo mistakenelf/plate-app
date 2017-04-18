@@ -11,29 +11,27 @@ const Body = () => {
       <img src="/static/img/plateLogo.png" />
       <style jsx>
         {`
-            .body {
-              display: flex;
-              padding: 5px;
-              color: white;
-              align-items: center;
-              font-size: 20px;
-              height: 300px;
-              flex-direction: column;
-              justify-content: center;
-              background-color: rgb(255, 64, 129);
-            }
-
-            img {
-              height: 100px;
-              width: 100px;
-            }
-
-            .lead-text {
-              text-align: center;
-              font-size: 20px;
-              margin-bottom: 15px;
-            }
-          `}
+          .body {
+            display: flex;
+            padding: 5px;
+            color: white;
+            align-items: center;
+            font-size: 20px;
+            height: 300px;
+            flex-direction: column;
+            justify-content: center;
+            background-color: rgb(255, 64, 129);
+          }
+          img {
+            height: 100px;
+            width: 100px;
+          }
+          .lead-text {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 15px;
+          }
+        `}
       </style>
     </div>
   )

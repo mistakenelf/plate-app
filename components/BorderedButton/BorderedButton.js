@@ -16,7 +16,7 @@ const BorderedButton = ({ type, label, color }) => {
             border-radius: 4px;
             display: inline-block;
           }
-          `}
+        `}
       </style>
     </div>
   )

@@ -80,7 +80,7 @@ class Plate extends Component {
           />
           <CardText>
             <div>
-              <h3 style={{ marginBottom: 5 }}>
+              <h3 className="description">
                 DESCRIPTION
               </h3>
               {this.props.description}
@@ -124,12 +124,14 @@ class Plate extends Component {
             .card {
               transition: 0.3s;
             }
-
             .card:hover {
               box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
               border-radius: 10px;
             }
-            `}
+            .description {
+              margin-bottom: 5px;
+            }
+          `}
         </style>
       </div>
     )

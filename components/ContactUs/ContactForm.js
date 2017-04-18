@@ -51,7 +51,7 @@ const ContactForm = () => {
                 width: 90%;
               }
             }
-          `}
+        `}
       </style>
     </div>
   )

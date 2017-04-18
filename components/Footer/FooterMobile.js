@@ -99,7 +99,7 @@ class FooterMobile extends Component {
                 display: none;
               }
             }
-            `}
+          `}
         </style>
       </div>
     )

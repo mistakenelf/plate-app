@@ -21,11 +21,8 @@ class DashboardContainer extends Component {
     }
 
     return (
-      <div
-        className="container-fluid"
-        style={{ paddingTop: 5, paddingLeft: '0.5em', paddingRight: '0.5em' }}
-      >
-        <div className="row" style={{ marginBottom: 70 }}>
+      <div className="container-fluid container-padding">
+        <div className="row row-margin">
           {this.props.plates.length === 0
             ? <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3">
                 <NoPlatesFound />
@@ -33,8 +30,7 @@ class DashboardContainer extends Component {
             : this.props.plates.map((plate, index) => (
                 <div
                   key={index}
-                  className="col-xs-12 col-sm-12 col-md-6 col-lg-3"
-                  style={{ marginBottom: 10 }}
+                  className="col-xs-12 col-sm-12 col-md-6 col-lg-3 plate-padding"
                 >
                   <Plate
                     plateId={plate.id}
@@ -48,19 +44,32 @@ class DashboardContainer extends Component {
               ))}
         </div>
         <div className="row">
-          <div
-            style={{
-              position: 'fixed',
-              bottom: 0,
-              right: 0,
-              padding: 10,
-              zIndex: 200
-            }}
-            className="col-sm-12"
-          >
+          <div className="col-sm-12 add-button">
             <AddPlateButton />
           </div>
         </div>
+        <style jsx>
+          {`
+            .add-button {
+              position: fixed;
+              bottom: 0;
+              right: 0;
+              padding: 10px;
+              z-index: 200;
+            }
+            .plate-padding {
+              margin-bottom: 10px;
+            }
+            .row-margin {
+              margin-bottom: 70px;
+            }
+            .container-padding {
+              padding-top: 5px;
+              padding-left: 0.5em;
+              padding-right: 0.5em;
+            }
+          `}
+        </style>
       </div>
     )
   }

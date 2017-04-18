@@ -35,19 +35,19 @@ export default ComposedComponent => class WithDefaultLayout extends Component {
         <ComposedComponent {...this.props} />
         <style jsx global>
           {`
-              * {
-                margin: 0;
-                box-sizing: border-box;
-              }
-              a {
-                text-decoration: none;
-              }
-              body {
-                font-family: Roboto, sans-serif;
-                margin-top: 60px;
-                margin-bottom: 0px;
-              }
-              `}
+            * {
+              margin: 0;
+              box-sizing: border-box;
+            }
+            a {
+              text-decoration: none;
+            }
+            body {
+              font-family: Roboto, sans-serif;
+              margin-top: 60px;
+              margin-bottom: 0px;
+            }
+          `}
         </style>
       </div>
     )

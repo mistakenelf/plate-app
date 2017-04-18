@@ -20,10 +20,7 @@ const PlateFillerContainer = ({
   return (
     <div className="container-fluid bottom-margin">
       <div className="row">
-        <div
-          className="col-sm-12 col-md-12 col-lg-12"
-          style={{ width: '100%' }}
-        >
+        <div className="col-sm-12 col-md-12 col-lg-12 full-width">
           <Header plateName={plate.name} />
           <ContentEditor
             saveContent={savePlateContent}
@@ -36,6 +33,9 @@ const PlateFillerContainer = ({
         {`
           .bottom-margin {
             margin-bottom: 50px;
+          }
+          .full-width {
+            width: 100%;
           }
         `}
       </style>

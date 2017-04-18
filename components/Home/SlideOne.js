@@ -6,13 +6,13 @@ const SlideOne = () => {
   return (
     <div>
       <div>
-        <h1 style={{ marginBottom: 25 }}>
+        <h1 className="text-padding">
           Task Management in the Most Simplistic Form, <br />
           Welcome to <i>Plate</i>!
         </h1>
       </div>
       <div>
-        <h5 style={{ marginBottom: 25 }}>
+        <h5 className="text-padding">
           Create multiple plates and customize your very own task layout.
           <br />
           Register now
@@ -26,6 +26,13 @@ const SlideOne = () => {
           </a>
         </Link>
       </div>
+      <style jsx>
+        {`
+          .text-padding {
+            margin-bottom: 25px;
+          }
+        `}
+      </style>
     </div>
   )
 }
