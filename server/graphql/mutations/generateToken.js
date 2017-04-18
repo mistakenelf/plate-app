@@ -8,6 +8,11 @@ module.exports = {
   name: 'generateToken',
   description: 'Generate a new JWT token',
   type: GraphQLString,
+  args: {
+    username: {
+      type: GraphQLString
+    }
+  },
   resolve() {
     const token = jwt.sign({}, env.JWT_SECRET)
     return token
