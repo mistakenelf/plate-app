@@ -6,7 +6,6 @@ import Link from 'next/link'
 import PropTypes from 'prop-types'
 import React from 'react'
 import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
-import Router from 'next/router'
 import cookie from 'react-cookie'
 import { loginMutation } from '../../mutations/loginMutations'
 import { loginValidations } from '../../validations/loginValidations'
@@ -18,7 +17,7 @@ const userLogin = async login => {
     console.log('error')
   } else {
     cookie.save('token', user.data.login.id, { path: '/' })
-    Router.push('/')
+    window.location.href = '/'
   }
 }
 

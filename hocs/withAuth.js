@@ -3,13 +3,45 @@ import { gql, graphql } from 'react-apollo'
 
 import Loader from '../components/Loader/Loader'
 import PropTypes from 'prop-types'
+import Router from 'next/router'
 import cookie from 'react-cookie'
+import { loadGetInitialProps } from 'next/dist/lib/utils'
+
+let auth = { loggedIn: false }
 
 function authWrapper(ComposedComponent) {
   class withAuth extends Component {
     static propTypes = {
       loading: PropTypes.bool,
-      userProfile: PropTypes.object
+      userProfile: PropTypes.object,
+      serverRendered: PropTypes.bool,
+      auth: PropTypes.object
+    }
+
+    static async getInitialProps(ctx) {
+      if (!process.browser) {
+        if (ctx.req.cookies.token) {
+          auth.loggedIn = true
+        } else {
+          auth.loggedIn = false
+        }
+      }
+
+      return {
+        serverRendered: !process.browser,
+        auth,
+        ...(await loadGetInitialProps(ComposedComponent, ctx))
+      }
+    }
+
+    componentDidMount() {
+      if (this.props.serverRendered) {
+        auth = this.props.auth
+      }
+
+      if (auth.loggedIn === false) {
+        Router.push('/login')
+      }
     }
 
     render() {
