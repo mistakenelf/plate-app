@@ -1,4 +1,5 @@
 import { Field, reduxForm } from 'redux-form'
+import { compose, graphql } from 'react-apollo'
 
 import BorderedButton from '../BorderedButton/BorderedButton'
 import Link from 'next/link'
@@ -7,17 +8,21 @@ import React from 'react'
 import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
 import Router from 'next/router'
 import cookie from 'react-cookie'
+import { generateToken } from '../../mutations/loginMutations'
 import { loginValidations } from '../../validations/loginValidations'
 
 const login = async generateToken => {
-  const token = await generateToken()
-
-  cookie.save('token', token.data.generateToken, {
-    maxAge: 3600,
-    path: '/'
-  })
-
-  Router.push('/')
+  const username = document.getElementById('email').value
+  const token = await generateToken(username)
+  if (token) {
+    cookie.save('token', token.data.generateToken, {
+      maxAge: 3600,
+      path: '/'
+    })
+    Router.push('/')
+  } else {
+    console.log('error')
+  }
 }
 
 const LoginForm = ({ handleSubmit, generateToken }) => {
@@ -84,7 +89,14 @@ LoginForm.propTypes = {
   generateToken: PropTypes.func
 }
 
-export default reduxForm({
-  form: 'loginForm',
-  validate: loginValidations
-})(LoginForm)
+export default compose(
+  reduxForm({
+    form: 'loginForm',
+    validate: loginValidations
+  }),
+  graphql(generateToken, {
+    props: ({ mutate }) => ({
+      generateToken: username => mutate({ variables: { username } })
+    })
+  })
+)(LoginForm)

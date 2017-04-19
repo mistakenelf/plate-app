@@ -1,25 +1,14 @@
 import BackButton from '../components/BackButton/BackButton'
 import LoginForm from '../components/Login/LoginForm'
-import PropTypes from 'prop-types'
 import React from 'react'
-import { generateToken } from '../mutations/loginMutations'
-import { graphql } from 'react-apollo'
 
-const LoginContainer = ({ generateToken }) => {
+const LoginContainer = () => {
   return (
     <div>
       <BackButton color="white" />
-      <LoginForm generateToken={generateToken} />
+      <LoginForm />
     </div>
   )
 }
 
-LoginContainer.propTypes = {
-  generateToken: PropTypes.func
-}
-
-export default graphql(generateToken, {
-  props: ({ mutate }) => ({
-    generateToken: () => mutate({})
-  })
-})(LoginContainer)
+export default LoginContainer
