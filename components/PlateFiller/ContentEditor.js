@@ -27,14 +27,14 @@ class ContentEditor extends Component {
     super(props)
     this.constants = {
       CHALKBOARD: 0,
-      BLANK: 1
+      WHITE: 1
     }
 
     this.state = {
       editorState: EditorState.createWithContent(
         convertFromRaw(JSON.parse(props.plateContent))
       ),
-      currBackground: this.constants.CHALKBOARD,
+      currBackground: this.constants.WHITE,
       value: 1
     }
   }
@@ -98,14 +98,11 @@ class ContentEditor extends Component {
 
   changeToBlank = () => {
     this.setState({
-      currBackground: this.constants.BLANK
+      currBackground: this.constants.WHITE
     })
   }
 
   render() {
-    const backgroundImage = ['/static/img/chalkboard.jpg', '']
-    if (this.state.currBackground === 0) {
-    }
     return (
       <div className="RichEditor-root">
         <div className="button-container">
@@ -123,18 +120,19 @@ class ContentEditor extends Component {
         <div className="button-container">
           <DropDownMenu
             value={this.state.value}
+            style={{ width: 200 }}
             labelStyle={{ color: '#999' }}
             onChange={this.handleDropChange}
           >
             <MenuItem
               value={1}
-              primaryText="Chalkboard"
-              onTouchTap={this.changeToChalkboard}
+              primaryText="White"
+              onTouchTap={this.changeToBlank}
             />
             <MenuItem
-              value={2}
-              primaryText="Blank"
-              onTouchTap={this.changeToBlank}
+              value={0}
+              primaryText="Chalkboard"
+              onTouchTap={this.changeToChalkboard}
             />
           </DropDownMenu>
         </div>
@@ -142,9 +140,9 @@ class ContentEditor extends Component {
           className="RichEditor-editor"
           style={{
             backgroundImage: this.state.currBackground === 0
-              ? 'url(' + backgroundImage[this.state.currBackground] + ')'
-              : null,
-            backgroundColor: this.state.currBackground === 1 ? 'white' : null,
+              ? 'url(/static/img/chalkboard.jpg)'
+              : 'none',
+            backgroundColor: this.state.currBackground === 1 ? 'white' : 'none',
             color: this.state.currBackground === 1 ? 'black' : 'white'
           }}
           onClick={this.focus}
@@ -174,8 +172,6 @@ class ContentEditor extends Component {
               cursor: text;
               font-size: 16px;
               margin-top: 10px;
-              color: #ffffff;
-              background-color: #424242;
               padding: 15px;
             }
             .RichEditor-editor .RichEditor-blockquote {
@@ -186,7 +182,6 @@ class ContentEditor extends Component {
               padding: 10px 20px;
             }
             .RichEditor-editor .public-DraftStyleDefault-pre {
-              background-color: rgba(0, 0, 0, 0.05);
               font-family: 'Inconsolata', 'Menlo', 'Consolas', monospace;
               font-size: 16px;
               padding: 20px;
