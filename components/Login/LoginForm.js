@@ -8,30 +8,27 @@ import React from 'react'
 import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
 import Router from 'next/router'
 import cookie from 'react-cookie'
-import { generateToken } from '../../mutations/loginMutations'
+import { loginMutation } from '../../mutations/loginMutations'
 import { loginValidations } from '../../validations/loginValidations'
 
-const login = async generateToken => {
+const userLogin = async login => {
   const username = document.getElementById('username').value
-  const token = await generateToken(username)
-  if (token.data.generateToken) {
-    cookie.save('token', token.data.generateToken, {
-      maxAge: 3600,
-      path: '/'
-    })
-    Router.push('/')
-  } else {
+  const user = await login(username)
+  if (user.data.login === null) {
     console.log('error')
+  } else {
+    cookie.save('token', user.data.login.id, { path: '/' })
+    Router.push('/')
   }
 }
 
-const LoginForm = ({ handleSubmit, generateToken }) => {
+const LoginForm = ({ handleSubmit, login }) => {
   return (
     <div className="container-fluid">
       <div className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg">
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <h1 className="header-text">Login</h1>
-          <form onSubmit={handleSubmit(() => login(generateToken))}>
+          <form onSubmit={handleSubmit(() => userLogin(login))}>
             <Field
               name="username"
               id="username"
@@ -86,7 +83,7 @@ const LoginForm = ({ handleSubmit, generateToken }) => {
 
 LoginForm.propTypes = {
   handleSubmit: PropTypes.func,
-  generateToken: PropTypes.func
+  login: PropTypes.func
 }
 
 export default compose(
@@ -94,9 +91,9 @@ export default compose(
     form: 'loginForm',
     validate: loginValidations
   }),
-  graphql(generateToken, {
+  graphql(loginMutation, {
     props: ({ mutate }) => ({
-      generateToken: username => mutate({ variables: { username } })
+      login: username => mutate({ variables: { username } })
     })
   })
 )(LoginForm)

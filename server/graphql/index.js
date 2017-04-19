@@ -3,6 +3,7 @@ const { GraphQLObjectType, GraphQLSchema } = require('graphql')
 // Queries
 const plates = require('./queries/plates')
 const plate = require('./queries/plate')
+const userProfile = require('./queries/userProfile')
 
 // Mutations
 const addPlate = require('./mutations/addPlate')
@@ -11,7 +12,7 @@ const completePlate = require('./mutations/completePlate')
 const editPlate = require('./mutations/editPlate')
 const register = require('./mutations/register')
 const savePlateContent = require('./mutations/savePlateContent')
-const generateToken = require('./mutations/generateToken')
+const login = require('./mutations/login')
 
 // Main Schema
 const schema = new GraphQLSchema({
@@ -19,7 +20,8 @@ const schema = new GraphQLSchema({
     name: 'Query',
     fields: {
       plates,
-      plate
+      plate,
+      userProfile
     }
   }),
   mutation: new GraphQLObjectType({
@@ -31,7 +33,7 @@ const schema = new GraphQLSchema({
       editPlate,
       register,
       savePlateContent,
-      generateToken
+      login
     }
   })
 })
