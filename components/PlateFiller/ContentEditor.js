@@ -26,7 +26,8 @@ class ContentEditor extends Component {
     this.state = {
       editorState: EditorState.createWithContent(
         convertFromRaw(JSON.parse(props.plateContent))
-      )
+      ),
+      currBackground: 0
     }
   }
 
@@ -70,10 +71,25 @@ class ContentEditor extends Component {
     )
   }
 
+  changeToChalkboard = () => {
+    this.setState({
+      currBackground: 0
+    })
+  }
+
+  changeToBlank = () => {
+    this.setState({
+      currBackground: 1
+    })
+  }
+
   render() {
+    const backgroundImage = ['/static/img/chalkboard.jpg', '']
     return (
       <div className="RichEditor-root">
         <div className="button-container">
+          <h3 onTouchTap={this.changeToChalkboard}>chalkboard</h3>
+          <h3 onTouchTap={this.changeToBlank}>blank</h3>
           <BlockStyleControls
             editorState={this.state.editorState}
             onToggle={this.toggleBlockType}
@@ -85,7 +101,15 @@ class ContentEditor extends Component {
             onToggle={this.toggleInlineStyle}
           />
         </div>
-        <div className="RichEditor-editor" onClick={this.focus}>
+        <div
+          className="RichEditor-editor"
+          style={{
+            backgroundImage: 'url(' +
+              backgroundImage[this.state.currBackground] +
+              ')'
+          }}
+          onClick={this.focus}
+        >
           <Editor
             blockStyleFn={getBlockStyle}
             customStyleMap={styleMap}
@@ -102,22 +126,22 @@ class ContentEditor extends Component {
           {`
             RichEditor-root {
               background: #fff;
-              font-family: 'Georgia', serif;
+              font-family: 'Fredericka the Great', cursive;
               font-size: 14px;
               padding: 15px;
             }
             .RichEditor-editor {
+              font-family: 'Fredericka the Great', cursive;
               cursor: text;
               font-size: 16px;
               margin-top: 10px;
-              padding-top: 10px;
-              color: #424242;
+              color: #ffffff;
+              padding: 15px;
             }
             .RichEditor-editor .RichEditor-blockquote {
               border-left: 5px solid #eee;
               color: #666;
-              font-family: 'Hoefler Text', 'Georgia', serif;
-              font-style: italic;
+              font-family: 'Fredericka the Great', cursive;
               margin: 16px 0;
               padding: 10px 20px;
             }
