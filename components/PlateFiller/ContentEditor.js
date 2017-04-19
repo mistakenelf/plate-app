@@ -29,6 +29,7 @@ class ContentEditor extends Component {
       CHALKBOARD: 0,
       BLANK: 1
     }
+
     this.state = {
       editorState: EditorState.createWithContent(
         convertFromRaw(JSON.parse(props.plateContent))
@@ -78,10 +79,16 @@ class ContentEditor extends Component {
     )
   }
 
-  handleDropChange = (event, index, value) =>
+  onTab = e => {
+    const maxDepth = 4
+    this.onChange(RichUtils.onTab(e, this.state.editorState, maxDepth))
+  }
+
+  handleDropChange = (event, index, value) => {
     this.setState({
       value
     })
+  }
 
   changeToChalkboard = () => {
     this.setState({
@@ -97,6 +104,8 @@ class ContentEditor extends Component {
 
   render() {
     const backgroundImage = ['/static/img/chalkboard.jpg', '']
+    if (this.state.currBackground === 0) {
+    }
     return (
       <div className="RichEditor-root">
         <div className="button-container">
@@ -111,29 +120,32 @@ class ContentEditor extends Component {
             onToggle={this.toggleInlineStyle}
           />
         </div>
-        <DropDownMenu
-          style={{ float: 'right' }}
-          labelStyle={{ color: 'white' }}
-          value={this.state.value}
-          onChange={this.handleDropChange}
-        >
-          <MenuItem
-            value={1}
-            primaryText="Chalkboard"
-            onTouchTap={this.changeToChalkboard}
-          />
-          <MenuItem
-            value={2}
-            primaryText="Blank"
-            onTouchTap={this.changeToBlank}
-          />
-        </DropDownMenu>
+        <div className="button-container">
+          <DropDownMenu
+            value={this.state.value}
+            labelStyle={{ color: '#999' }}
+            onChange={this.handleDropChange}
+          >
+            <MenuItem
+              value={1}
+              primaryText="Chalkboard"
+              onTouchTap={this.changeToChalkboard}
+            />
+            <MenuItem
+              value={2}
+              primaryText="Blank"
+              onTouchTap={this.changeToBlank}
+            />
+          </DropDownMenu>
+        </div>
         <div
           className="RichEditor-editor"
           style={{
-            backgroundImage: 'url(' +
-              backgroundImage[this.state.currBackground] +
-              ')'
+            backgroundImage: this.state.currBackground === 0
+              ? 'url(' + backgroundImage[this.state.currBackground] + ')'
+              : null,
+            backgroundColor: this.state.currBackground === 1 ? 'white' : null,
+            color: this.state.currBackground === 1 ? 'black' : 'white'
           }}
           onClick={this.focus}
         >
@@ -143,6 +155,7 @@ class ContentEditor extends Component {
             editorState={this.state.editorState}
             handleKeyCommand={this.handleKeyCommand}
             onChange={this.onChange}
+            onTab={this.onTab}
             ref={input => {
               this.editor = input
             }}
@@ -153,7 +166,6 @@ class ContentEditor extends Component {
           {`
             RichEditor-root {
               background: #fff;
-              font-family: 'Fredericka the Great', cursive;
               font-size: 14px;
               padding: 15px;
             }

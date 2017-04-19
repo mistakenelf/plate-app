@@ -12,9 +12,9 @@ import { generateToken } from '../../mutations/loginMutations'
 import { loginValidations } from '../../validations/loginValidations'
 
 const login = async generateToken => {
-  const username = document.getElementById('email').value
+  const username = document.getElementById('username').value
   const token = await generateToken(username)
-  if (token) {
+  if (token.data.generateToken) {
     cookie.save('token', token.data.generateToken, {
       maxAge: 3600,
       path: '/'
@@ -33,11 +33,11 @@ const LoginForm = ({ handleSubmit, generateToken }) => {
           <h1 className="header-text">Login</h1>
           <form onSubmit={handleSubmit(() => login(generateToken))}>
             <Field
-              name="email"
-              id="email"
+              name="username"
+              id="username"
               component={RenderWhiteTextField}
-              type="email"
-              label="Email"
+              type="text"
+              label="Username"
             />
             <Field
               name="password"

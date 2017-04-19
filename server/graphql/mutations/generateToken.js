@@ -13,8 +13,18 @@ module.exports = {
       type: GraphQLString
     }
   },
-  resolve() {
-    const token = jwt.sign({}, env.JWT_SECRET)
-    return token
+  async resolve({ db }, { username }) {
+    if (
+      (await db
+        .collection('users')
+        .find({ username: username })
+        .limit(1)
+        .count()) === 1
+    ) {
+      const token = jwt.sign({}, env.JWT_SECRET)
+      return token
+    } else {
+      console.log('not found')
+    }
   }
 }
