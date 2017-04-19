@@ -8,7 +8,9 @@ import {
 import React, { Component } from 'react'
 
 import BlockStyleControls from './BlockStyleControls'
+import DropDownMenu from 'material-ui/DropDownMenu'
 import InlineStyleControls from './InlineStyleControls'
+import MenuItem from 'material-ui/MenuItem'
 import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
 import { getBlockStyle } from './getBlockStyle'
@@ -31,7 +33,8 @@ class ContentEditor extends Component {
       editorState: EditorState.createWithContent(
         convertFromRaw(JSON.parse(props.plateContent))
       ),
-      currBackground: this.constants.CHALKBOARD
+      currBackground: this.constants.CHALKBOARD,
+      value: 1
     }
   }
 
@@ -75,6 +78,11 @@ class ContentEditor extends Component {
     )
   }
 
+  handleDropChange = (event, index, value) =>
+    this.setState({
+      value
+    })
+
   changeToChalkboard = () => {
     this.setState({
       currBackground: this.constants.CHALKBOARD
@@ -92,8 +100,6 @@ class ContentEditor extends Component {
     return (
       <div className="RichEditor-root">
         <div className="button-container">
-          <h3 onTouchTap={this.changeToChalkboard}>chalkboard</h3>
-          <h3 onTouchTap={this.changeToBlank}>blank</h3>
           <BlockStyleControls
             editorState={this.state.editorState}
             onToggle={this.toggleBlockType}
@@ -105,6 +111,23 @@ class ContentEditor extends Component {
             onToggle={this.toggleInlineStyle}
           />
         </div>
+        <DropDownMenu
+          style={{ float: 'right' }}
+          labelStyle={{ color: 'white' }}
+          value={this.state.value}
+          onChange={this.handleDropChange}
+        >
+          <MenuItem
+            value={1}
+            primaryText="Chalkboard"
+            onTouchTap={this.changeToChalkboard}
+          />
+          <MenuItem
+            value={2}
+            primaryText="Blank"
+            onTouchTap={this.changeToBlank}
+          />
+        </DropDownMenu>
         <div
           className="RichEditor-editor"
           style={{
@@ -140,6 +163,7 @@ class ContentEditor extends Component {
               font-size: 16px;
               margin-top: 10px;
               color: #ffffff;
+              background-color: #424242;
               padding: 15px;
             }
             .RichEditor-editor .RichEditor-blockquote {
