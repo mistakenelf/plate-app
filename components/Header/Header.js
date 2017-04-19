@@ -22,6 +22,11 @@ const Header = ({ title }) => {
         rel="stylesheet"
         async
       />
+      <link
+        href="https://fonts.googleapis.com/css?family=Fredericka+the+Great"
+        rel="stylesheet"
+        async
+      />
       <link href="/static/css/flexboxgrid.css" rel="stylesheet" async />
       <link href="/static/css/nprogress.css" rel="stylesheet" async />
       <link rel="manifest" href="/static/manifest.json" />
