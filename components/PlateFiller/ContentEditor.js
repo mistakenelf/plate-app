@@ -23,11 +23,15 @@ class ContentEditor extends Component {
 
   constructor(props) {
     super(props)
+    this.constants = {
+      CHALKBOARD: 0,
+      BLANK: 1
+    }
     this.state = {
       editorState: EditorState.createWithContent(
         convertFromRaw(JSON.parse(props.plateContent))
       ),
-      currBackground: 0
+      currBackground: this.constants.CHALKBOARD
     }
   }
 
@@ -73,13 +77,13 @@ class ContentEditor extends Component {
 
   changeToChalkboard = () => {
     this.setState({
-      currBackground: 0
+      currBackground: this.constants.CHALKBOARD
     })
   }
 
   changeToBlank = () => {
     this.setState({
-      currBackground: 1
+      currBackground: this.constants.BLANK
     })
   }
 
