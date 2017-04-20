@@ -5,20 +5,19 @@ import BorderedButton from '../BorderedButton/BorderedButton'
 import PropTypes from 'prop-types'
 import React from 'react'
 import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
-import Router from 'next/router'
 import { registerMutation } from '../../mutations/registerMutations'
 import { registerValidations } from '../../validations/registerValidations'
 
 const RegisterForm = ({ handleSubmit, register }) => {
-  const registerUser = () => {
-    const firstName = document.getElementById('firstName').value || ''
-    const lastName = document.getElementById('lastName').value || ''
-    const username = document.getElementById('username').value || ''
-    const password = document.getElementById('password').value || ''
+  const registerUser = async () => {
+    const firstName = document.getElementById('firstName').value
+    const lastName = document.getElementById('lastName').value
+    const username = document.getElementById('username').value
+    const password = document.getElementById('password').value
 
-    register(firstName, lastName, username, password)
+    await register(firstName, lastName, username, password)
 
-    Router.push('/')
+    window.location.href = '/'
   }
 
   return (
