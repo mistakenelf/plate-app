@@ -27,7 +27,6 @@ module.exports = {
         )
       )
     )
-    console.log(initialContent)
     const data = {
       name,
       description,
