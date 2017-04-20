@@ -38,10 +38,7 @@ class LoginForm extends Component {
     const { login, handleSubmit } = this.props
     const errorStyle = {
       marginBottom: 10,
-      backgroundColor: '#DDFFFF',
-      borderLeftStyle: 'solid',
-      borderWidth: '5px',
-      borderColor: '#ff3333'
+      backgroundColor: '#DDFFFF'
     }
     return (
       <div className="container-fluid">
@@ -50,12 +47,16 @@ class LoginForm extends Component {
             <h1 className="header-text">Login</h1>
             {this.state.loginError &&
               <Card style={errorStyle}>
-                <CardText>
-                  <b>Error:</b> Invalid Login.
-                  <Link prefetch href="/forgotpassword">
-                    <a style={{ textDecoration: 'none' }}> Forgot Password?</a>
-                  </Link>
-                </CardText>
+                <div className="error-text">
+                  <CardText>
+                    <b>Error:</b> Invalid Login.
+                    <Link prefetch href="/forgotpassword">
+                      <a style={{ textDecoration: 'none' }}>
+                        {' '}Forgot Password?
+                      </a>
+                    </Link>
+                  </CardText>
+                </div>
               </Card>}
             <form onSubmit={handleSubmit(() => this.userLogin(login))}>
               <Field
@@ -96,6 +97,9 @@ class LoginForm extends Component {
           .forgot-password a {
             color: white;
             text-decoration: none;
+          }
+          .error-text {
+            text-align: center;
           }
           .full-height {
             height: 90vh;
