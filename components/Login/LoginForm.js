@@ -23,7 +23,9 @@ class LoginForm extends Component {
 
   userLogin = async login => {
     const username = document.getElementById('username').value
-    const token = await login(username)
+    const password = document.getElementById('password').value
+
+    const token = await login(username, password)
     if (token.data.login === null) {
       this.setState({
         loginError: true
@@ -124,7 +126,8 @@ export default compose(
   }),
   graphql(loginMutation, {
     props: ({ mutate }) => ({
-      login: username => mutate({ variables: { username } })
+      login: (username, password) =>
+        mutate({ variables: { username, password } })
     })
   })
 )(LoginForm)
