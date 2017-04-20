@@ -16,6 +16,6 @@ module.exports = {
   },
   resolve({ db }, { token }) {
     const user = jwt.decode(token, env.JWT_SECRET)
-    return console.log(user)
+    return user
   }
 }

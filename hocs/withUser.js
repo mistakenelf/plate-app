@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 
 import { getUserProfile } from '../queries/getUserProfile'
+import { graphql } from 'react-apollo'
 
 export default ComposedComponent => {
-  return class WithProfile extends Component {
+  class WithProfile extends Component {
     static propTypes = {
       serverRendered: PropTypes.bool,
       auth: PropTypes.object.isRequired
@@ -15,12 +16,12 @@ export default ComposedComponent => {
   }
 
   return graphql(getUserProfile, {
-    props: ({ data: { loading, profile } }) => ({
+    props: ({ data: { loading, getUserProfile } }) => ({
       loading,
-      profile
+      getUserProfile
     }),
     options: props => ({
-      variables: { token: props.auth.token },
+      variables: { token: props.auth.token || '' },
       fetchPolicy: 'cache-and-network'
     })
   })(WithProfile)
