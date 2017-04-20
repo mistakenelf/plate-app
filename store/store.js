@@ -2,16 +2,17 @@ import createMiddleware from './middleware'
 import { createStore } from 'redux'
 import getReducer from './reducer'
 
-// Initialize Redux Store
-export const initStore = (client, initialState) => {
+let reduxStore = null
+
+export default function getStore(client, initialState) {
   let store
-  if (!process.browser || !window.store) {
+  if (!process.browser || !reduxStore) {
     const middleware = createMiddleware(client.middleware())
     store = createStore(getReducer(client), initialState, middleware)
     if (!process.browser) {
       return store
     }
-    window.store = store
+    reduxStore = store
   }
-  return window.store
+  return reduxStore
 }

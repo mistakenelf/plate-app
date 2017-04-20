@@ -5,7 +5,6 @@ const bodyParser = require('body-parser')
 const { graphiqlExpress, graphqlExpress } = require('graphql-server-express')
 const MongoClient = require('mongodb').MongoClient
 const helmet = require('helmet')
-const cookieParser = require('cookie-parser')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -24,7 +23,6 @@ module.exports = app
     server
       .use(bodyParser.json())
       .use(bodyParser.urlencoded({ extended: true }))
-      .use(cookieParser())
       .use(helmet())
       .use(cache(app))
       .use(
@@ -34,7 +32,7 @@ module.exports = app
           schema,
           rootValue: {
             db: req.app.locals.db,
-            token: req.cookies.token
+            token: req.headers.authorization
           }
         }))
       )

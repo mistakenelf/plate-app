@@ -7,25 +7,40 @@ import React, { Component } from 'react'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import PropTypes from 'prop-types'
+import getClientAndStore from '../store/clientAndStore'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import { initApollo } from '../store/initApollo'
-import { initStore } from '../store/initStore'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
+
+function getInitialState(apolloClient, reduxStore) {
+  return {
+    ...reduxStore.getState(),
+    apollo: {
+      data: apolloClient.getInitialState().data
+    }
+  }
+}
 
 export default ComposedComponent => class WithData extends Component {
   static propTypes = {
-    headers: PropTypes.object,
-    initialState: PropTypes.object,
-    userAgent: PropTypes.string
+    initialState: PropTypes.object.isRequired,
+    clientAndStoreProps: PropTypes.shape({
+      userAgent: PropTypes.string
+    })
   }
 
   static async getInitialProps(ctx) {
-    const { req } = ctx
-    const headers = ctx.req ? ctx.req.headers : {}
-    const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
-    const apolloClient = initApollo(headers)
-    const reduxStore = initStore(apolloClient, apolloClient.initialState)
     const subProps = await loadGetInitialProps(ComposedComponent, ctx)
+    const userAgent = ctx.req
+      ? ctx.req.headers['user-agent']
+      : navigator.userAgent
+    const clientAndStoreProps = {
+      userAgent: userAgent
+    }
+
+    const { apolloClient, reduxStore } = getClientAndStore(
+      {},
+      clientAndStoreProps
+    )
 
     const props = {
       url: { query: ctx.query, pathname: ctx.pathname },
@@ -42,32 +57,30 @@ export default ComposedComponent => class WithData extends Component {
       )
     }
 
-    const state = reduxStore.getState()
-
     return {
-      initialState: {
-        ...state,
-        apollo: {
-          data: apolloClient.getInitialState().data
-        }
-      },
-      headers,
-      userAgent,
+      initialState: getInitialState(apolloClient, reduxStore),
+      clientAndStoreProps,
       ...props
     }
   }
 
   constructor(props) {
     super(props)
-    this.apolloClient = initApollo(props.headers)
-    this.reduxStore = initStore(this.apolloClient, props.initialState)
+    const clientAndStore = getClientAndStore(
+      this.props.initialState,
+      this.props.clientAndStoreProps
+    )
+    this.apolloClient = clientAndStore.apolloClient
+    this.reduxStore = clientAndStore.reduxStore
   }
 
   render() {
     return (
       <ApolloProvider client={this.apolloClient} store={this.reduxStore}>
         <MuiThemeProvider
-          muiTheme={getMuiTheme({ userAgent: this.props.userAgent })}
+          muiTheme={getMuiTheme({
+            userAgent: this.props.clientAndStoreProps.userAgent
+          })}
         >
           <ComposedComponent {...this.props} />
         </MuiThemeProvider>

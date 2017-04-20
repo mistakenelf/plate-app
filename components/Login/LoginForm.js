@@ -6,18 +6,19 @@ import Link from 'next/link'
 import PropTypes from 'prop-types'
 import React from 'react'
 import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
+import Router from 'next/router'
 import cookie from 'react-cookie'
 import { loginMutation } from '../../mutations/loginMutations'
 import { loginValidations } from '../../validations/loginValidations'
 
 const userLogin = async login => {
   const username = document.getElementById('username').value
-  const user = await login(username)
-  if (user.data.login === null) {
+  const token = await login(username)
+  if (token.data.login === null) {
     console.log('error')
   } else {
-    cookie.save('token', user.data.login.id, { path: '/' })
-    window.location.href = '/'
+    cookie.save('token', token.data.login, { path: '/' })
+    Router.push('/')
   }
 }
 

@@ -1,9 +1,9 @@
 import AccountContainer from '../containers/AccountContainer'
 import Header from '../components/Header/Header'
 import React from 'react'
-import { pageWithAuth } from '../hocs/page'
+import { pageWithDefaultLayout } from '../hocs/page'
 
-export default pageWithAuth(() => (
+export default pageWithDefaultLayout(() => (
   <div>
     <Header title="Account" />
     <AccountContainer />

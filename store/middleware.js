@@ -1,12 +1,8 @@
 import { applyMiddleware, compose } from 'redux'
 
-// Create our middleware and setup devtools
-const createMiddleware = clientMiddleware => {
-  const middleware = applyMiddleware(clientMiddleware)
-  if (process.browser && window.devToolsExtension) {
-    return compose(middleware, window.devToolsExtension())
-  }
-  return middleware
+export default function createMiddleware(clientMiddleware) {
+  const universalMiddleware = applyMiddleware(clientMiddleware)
+  return process.browser && window.devToolsExtension
+    ? compose(universalMiddleware, window.devToolsExtension())
+    : universalMiddleware
 }
-
-export default createMiddleware

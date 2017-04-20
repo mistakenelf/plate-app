@@ -23,6 +23,7 @@
     "graphql-server-express": "^0.7.1",
     "helmet": "^3.5.0",
     "isomorphic-fetch": "^2.2.1",
+    "jsonwebtoken": "^7.3.0",
     "lodash": "^4.17.4",
     "lru-cache": "^4.0.2",
     "material-ui": "^0.17.4",
@@ -49,7 +50,7 @@
     "eslint-config-prettier": "^1.7.0",
     "eslint-plugin-prettier": "^2.0.1",
     "eslint-plugin-react": "^6.10.3",
-    "prettier": "^1.2.0",
+    "prettier": "^1.2.2",
     "prettier-eslint": "^5.1.0",
     "sw-precache-webpack-plugin": "^0.9.1"
   },
