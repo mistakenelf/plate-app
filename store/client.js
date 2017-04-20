@@ -1,16 +1,14 @@
 import { ApolloClient, createNetworkInterface } from 'react-apollo'
 
-import cookie from 'react-cookie'
-
 let apolloClient = null
 
-function createClient() {
+function createClient(props) {
   const networkInterface = createNetworkInterface({
     uri: process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000/graphql'
       : 'https://plate.now.sh/graphql',
     opts: {
-      credentials: 'same-origin'
+      credentials: 'include'
     }
   })
 
@@ -21,7 +19,7 @@ function createClient() {
         if (!req.options.headers) {
           req.options.headers = {}
         }
-        req.options.headers.authorization = cookie.load('token') || null
+        req.options.headers.authorization = props.token || null
         /* eslint-enable no-param-reassign */
         next()
       }
