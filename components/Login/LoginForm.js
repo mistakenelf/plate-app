@@ -36,10 +36,12 @@ class LoginForm extends Component {
 
   render() {
     const { login, handleSubmit } = this.props
+
     const errorStyle = {
       marginBottom: 10,
       backgroundColor: '#FFCDD2'
     }
+
     return (
       <div className="container-fluid">
         <div className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg">
