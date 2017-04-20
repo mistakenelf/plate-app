@@ -54,7 +54,6 @@ class DashboardContainer extends Component {
               position: fixed;
               bottom: 0;
               right: 0;
-              padding: 10px;
               z-index: 200;
             }
             .plate-padding {
