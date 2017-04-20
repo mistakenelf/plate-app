@@ -3,7 +3,7 @@ const { GraphQLObjectType, GraphQLSchema } = require('graphql')
 // Queries
 const plates = require('./queries/plates')
 const plate = require('./queries/plate')
-const userProfile = require('./queries/userProfile')
+const getUserProfile = require('./queries/getUserProfile')
 
 // Mutations
 const addPlate = require('./mutations/addPlate')
@@ -21,7 +21,7 @@ const schema = new GraphQLSchema({
     fields: {
       plates,
       plate,
-      userProfile
+      getUserProfile
     }
   }),
   mutation: new GraphQLObjectType({
