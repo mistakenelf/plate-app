@@ -17,9 +17,12 @@ module.exports = {
     },
     thumbnail: {
       type: new GraphQLNonNull(GraphQLString)
+    },
+    createdBy: {
+      type: new GraphQLNonNull(GraphQLString)
     }
   },
-  resolve({ db }, { name, description, thumbnail }) {
+  resolve({ db }, { name, description, thumbnail, createdBy }) {
     const initialContent = JSON.stringify(
       convertToRaw(
         ContentState.createFromText(
@@ -32,7 +35,8 @@ module.exports = {
       description,
       thumbnail,
       status: 'New',
-      content: initialContent
+      content: initialContent,
+      createdBy: createdBy
     }
 
     return db.collection('plates').insert(data)

@@ -1,4 +1,4 @@
-const { GraphQLList } = require('graphql')
+const { GraphQLList, GraphQLString } = require('graphql')
 
 const PlateType = require('../types/plate')
 
@@ -7,7 +7,12 @@ module.exports = {
   name: 'plates',
   description: 'plates query',
   type: new GraphQLList(PlateType),
-  resolve({ db }) {
-    return db.collection('plates').find().toArray()
+  args: {
+    username: {
+      type: GraphQLString
+    }
+  },
+  resolve({ db }, { username }) {
+    return db.collection('plates').find({ createdBy: username }).toArray()
   }
 }

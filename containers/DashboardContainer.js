@@ -12,7 +12,8 @@ class DashboardContainer extends Component {
   static propTypes = {
     loading: PropTypes.bool,
     plates: PropTypes.array,
-    addPlate: PropTypes.func
+    addPlate: PropTypes.func,
+    user: PropTypes.object
   }
 
   render() {
@@ -45,7 +46,7 @@ class DashboardContainer extends Component {
         </div>
         <div className="row">
           <div className="col-sm-12 add-button">
-            <AddPlateButton />
+            <AddPlateButton user={this.props.user} />
           </div>
         </div>
         <style jsx>
@@ -79,7 +80,8 @@ export default graphql(PlatesQuery, {
     loading,
     plates
   }),
-  options: {
-    fetchPolicy: 'cache-and-network'
-  }
+  options: props => ({
+    fetchPolicy: 'cache-and-network',
+    variables: { username: props.user.username }
+  })
 })(DashboardContainer)

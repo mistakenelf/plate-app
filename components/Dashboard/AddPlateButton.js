@@ -3,8 +3,13 @@ import React, { Component } from 'react'
 import AddPlateDialog from './AddPlateDialog'
 import ContentAdd from 'material-ui/svg-icons/content/add'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
+import PropTypes from 'prop-types'
 
 class AddPlateButton extends Component {
+  static propTypes = {
+    user: PropTypes.object
+  }
+
   state = {
     open: false
   }
@@ -31,7 +36,11 @@ class AddPlateButton extends Component {
         >
           <ContentAdd />
         </FloatingActionButton>
-        <AddPlateDialog open={this.state.open} closeDialog={this.closeDialog} />
+        <AddPlateDialog
+          open={this.state.open}
+          closeDialog={this.closeDialog}
+          user={this.props.user}
+        />
       </div>
     )
   }

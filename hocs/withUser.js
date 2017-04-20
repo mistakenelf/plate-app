@@ -7,11 +7,16 @@ export default ComposedComponent => {
   class WithProfile extends Component {
     static propTypes = {
       serverRendered: PropTypes.bool,
-      auth: PropTypes.object.isRequired
+      auth: PropTypes.object.isRequired,
+      loading: PropTypes.bool
     }
 
     render() {
-      return <ComposedComponent {...this.props} />
+      if (this.props.loading) {
+        return null
+      } else {
+        return <ComposedComponent {...this.props} />
+      }
     }
   }
 

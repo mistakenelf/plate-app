@@ -5,6 +5,7 @@ export const getUserProfile = gql`
     getUserProfile(token: $token) {
       firstName
       lastName
+      username
     }
   }
 `

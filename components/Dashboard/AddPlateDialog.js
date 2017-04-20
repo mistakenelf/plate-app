@@ -16,7 +16,8 @@ class AddPlateDialog extends Component {
     closeDialog: PropTypes.func,
     addPlate: PropTypes.func,
     handleSubmit: PropTypes.func,
-    reset: PropTypes.func
+    reset: PropTypes.func,
+    user: PropTypes.object
   }
 
   confirmAddPlate = () => {
@@ -35,7 +36,12 @@ class AddPlateDialog extends Component {
 
     const colorNumber = Math.floor(Math.random() * 6)
 
-    this.props.addPlate(plateName, plateDescription, plateColors[colorNumber])
+    this.props.addPlate(
+      plateName,
+      plateDescription,
+      plateColors[colorNumber],
+      this.props.user.username
+    )
     this.props.closeDialog()
     this.props.reset()
   }
@@ -94,8 +100,8 @@ export default compose(
   }),
   graphql(addPlateMutation, {
     props: ({ mutate }) => ({
-      addPlate: (name, description, thumbnail) =>
-        mutate({ variables: { name, description, thumbnail } })
+      addPlate: (name, description, thumbnail, createdBy) =>
+        mutate({ variables: { name, description, thumbnail, createdBy } })
     }),
     options: {
       refetchQueries: [

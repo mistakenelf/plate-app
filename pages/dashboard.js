@@ -8,7 +8,8 @@ import { pageWithDefaultLayout } from '../hocs/page'
 
 class dashboard extends Component {
   static propTypes = {
-    auth: PropTypes.object
+    auth: PropTypes.object,
+    getUserProfile: PropTypes.object
   }
 
   componentDidMount() {
@@ -21,7 +22,7 @@ class dashboard extends Component {
     return (
       <div>
         <Header title="Dashboard" />
-        <DashboardContainer />
+        <DashboardContainer user={this.props.getUserProfile} />
       </div>
     )
   }
