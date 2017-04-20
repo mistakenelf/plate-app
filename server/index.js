@@ -35,7 +35,9 @@ module.exports = app
           schema,
           rootValue: {
             db: req.app.locals.db,
-            token: req.cookies.token
+            token: req.cookies.token,
+            csrf: req.app.locals.csrf,
+            req: req
           }
         }))
       )

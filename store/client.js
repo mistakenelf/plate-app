@@ -19,7 +19,7 @@ function createClient(props) {
         if (!req.options.headers) {
           req.options.headers = {}
         }
-        req.options.headers.authorization = props.token || null
+        req.options.headers['csrf-token'] = props.csrf || null
         /* eslint-enable no-param-reassign */
         next()
       }
