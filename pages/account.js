@@ -13,6 +13,15 @@ class account extends Component {
   }
 
   render() {
+    if (this.props.auth.loggedIn === false) {
+      return (
+        <div>
+          <Header title="Account" />
+          <Unauthorized />
+        </div>
+      )
+    }
+
     if (!cookie.load('token')) {
       return (
         <div>

@@ -14,6 +14,15 @@ class platefiller extends Component {
   }
 
   render() {
+    if (this.props.auth.loggedIn === false) {
+      return (
+        <div>
+          <Header title="Plate Filler" />
+          <Unauthorized />
+        </div>
+      )
+    }
+
     if (!cookie.load('token')) {
       return (
         <div>

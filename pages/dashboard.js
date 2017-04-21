@@ -14,6 +14,15 @@ class dashboard extends Component {
   }
 
   render() {
+    if (this.props.getUserProfile === null) {
+      return (
+        <div>
+          <Header title="Dashboard" />
+          <Unauthorized />
+        </div>
+      )
+    }
+
     if (!cookie.load('token')) {
       return (
         <div>
