@@ -103,12 +103,13 @@ export default compose(
       addPlate: (name, description, thumbnail, createdBy) =>
         mutate({ variables: { name, description, thumbnail, createdBy } })
     }),
-    options: {
+    options: props => ({
       refetchQueries: [
         {
-          query: PlatesQuery
+          query: PlatesQuery,
+          variables: { username: props.user.username }
         }
       ]
-    }
+    })
   })
 )(AddPlateDialog)

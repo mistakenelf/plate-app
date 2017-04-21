@@ -40,6 +40,7 @@ class DashboardContainer extends Component {
                     cardImage={plate.thumbnail}
                     status={plate.status}
                     content={plate.content}
+                    user={this.props.user}
                   />
                 </div>
               ))}

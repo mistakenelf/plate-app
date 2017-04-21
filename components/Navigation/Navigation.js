@@ -11,10 +11,10 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const Navigation = ({ open, openDrawer, closeDrawer, client }) => {
+const Navigation = ({ open, openDrawer, closeDrawer, client, user }) => {
   const Query = gql`
-    query {
-      plates {
+    query plates($username: String) {
+      plates(username: $username) {
         id
         name
         description
@@ -25,7 +25,8 @@ const Navigation = ({ open, openDrawer, closeDrawer, client }) => {
 
   const prefetchPlates = () => {
     client.query({
-      query: Query
+      query: Query,
+      variables: { username: user.username }
     })
   }
 
@@ -107,7 +108,8 @@ Navigation.propTypes = {
   open: PropTypes.bool,
   openDrawer: PropTypes.func,
   closeDrawer: PropTypes.func,
-  client: PropTypes.object
+  client: PropTypes.object,
+  user: PropTypes.object
 }
 
 export default withApollo(Navigation)

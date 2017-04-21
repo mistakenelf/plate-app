@@ -23,7 +23,8 @@ class Plate extends Component {
     cardImage: PropTypes.string,
     status: PropTypes.string,
     content: PropTypes.string,
-    editPlate: PropTypes.func
+    editPlate: PropTypes.func,
+    user: PropTypes.object
   }
 
   state = {
@@ -143,25 +144,27 @@ export default compose(
     props: ({ mutate }) => ({
       removePlate: id => mutate({ variables: { id } })
     }),
-    options: {
+    options: props => ({
       refetchQueries: [
         {
-          query: PlatesQuery
+          query: PlatesQuery,
+          variables: { username: props.user.username }
         }
       ]
-    }
+    })
   }),
   graphql(editPlateMutation, {
     props: ({ mutate }) => ({
       editPlate: (id, name, description, status) =>
         mutate({ variables: { id, name, description, status } })
     }),
-    options: {
+    options: props => ({
       refetchQueries: [
         {
-          query: PlatesQuery
+          query: PlatesQuery,
+          variables: { username: props.user.username }
         }
       ]
-    }
+    })
   })
 )(Plate)
