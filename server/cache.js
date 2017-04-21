@@ -18,7 +18,9 @@ function cache(app) {
     } else {
       const { route, params } = routes.match(req.url)
       if (
-        !route || req.url === '/favicon.ico' || req.url === '/__webpack_hmr'
+        !route ||
+        req.url === '/favicon.ico' ||
+        req.url === '/__webpack_hmr'
       ) {
         next()
       } else {

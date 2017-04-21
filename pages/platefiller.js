@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Header from '../components/Header/Header'
 import PlateFillerContainer from '../containers/PlateFillerContainer'
 import PropTypes from 'prop-types'
-import Router from 'next/router'
+import Unauthorized from '../components/Unauthorized/Unauthorized'
 import { pageWithDefaultLayout } from '../hocs/page'
 
 class platefiller extends Component {
@@ -12,13 +12,16 @@ class platefiller extends Component {
     url: PropTypes.object
   }
 
-  componentDidMount() {
-    if (this.props.auth.loggedIn === false) {
-      Router.push('/login')
-    }
-  }
-
   render() {
+    if (this.props.auth.loggedIn === false) {
+      return (
+        <div>
+          <Header title="Plate Filler" />
+          <Unauthorized />
+        </div>
+      )
+    }
+
     return (
       <div>
         <Header title="Plate Filler" />

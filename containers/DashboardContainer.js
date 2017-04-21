@@ -15,7 +15,6 @@ class DashboardContainer extends Component {
     addPlate: PropTypes.func,
     user: PropTypes.object
   }
-
   render() {
     if (this.props.loading) {
       return <Loader />

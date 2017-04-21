@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import DashboardContainer from '../containers/DashboardContainer'
 import Header from '../components/Header/Header'
 import PropTypes from 'prop-types'
-import Router from 'next/router'
+import Unauthorized from '../components/Unauthorized/Unauthorized'
 import { pageWithDefaultLayout } from '../hocs/page'
 
 class dashboard extends Component {
@@ -12,13 +12,16 @@ class dashboard extends Component {
     getUserProfile: PropTypes.object
   }
 
-  componentDidMount() {
-    if (this.props.auth.loggedIn === false) {
-      Router.push('/login')
-    }
-  }
-
   render() {
+    if (this.props.getUserProfile === null) {
+      return (
+        <div>
+          <Header title="Dashboard" />
+          <Unauthorized />
+        </div>
+      )
+    }
+
     return (
       <div>
         <Header title="Dashboard" />

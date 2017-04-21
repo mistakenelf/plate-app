@@ -16,6 +16,7 @@ export default ComposedComponent => {
         auth.token = ctx.req.cookies.token
         auth.loggedIn = Boolean(auth.token)
       }
+
       return {
         serverRendered: !process.browser,
         auth,

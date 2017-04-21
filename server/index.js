@@ -6,7 +6,6 @@ const { graphiqlExpress, graphqlExpress } = require('graphql-server-express')
 const MongoClient = require('mongodb').MongoClient
 const helmet = require('helmet')
 const cookieParser = require('cookie-parser')
-const crypto = require('crypto')
 
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
@@ -35,9 +34,7 @@ module.exports = app
           schema,
           rootValue: {
             db: req.app.locals.db,
-            token: req.cookies.token,
-            csrf: req.app.locals.csrf,
-            req: req
+            token: req.cookies.token
           }
         }))
       )
@@ -49,8 +46,6 @@ module.exports = app
       )
       .get('/sw.js', (req, res) => res.sendFile(path.resolve('./.next/sw.js')))
       .use((req, res) => {
-        server.locals.csrf = crypto.randomBytes(32).toString('base64')
-        res.cookie('csrf', server.locals.csrf, { sameSite: true })
         handle(req, res)
       })
   )
