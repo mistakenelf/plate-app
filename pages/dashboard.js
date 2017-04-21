@@ -4,6 +4,7 @@ import DashboardContainer from '../containers/DashboardContainer'
 import Header from '../components/Header/Header'
 import PropTypes from 'prop-types'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
+import cookie from 'react-cookie'
 import { pageWithDefaultLayout } from '../hocs/page'
 
 class dashboard extends Component {
@@ -13,7 +14,7 @@ class dashboard extends Component {
   }
 
   render() {
-    if (this.props.getUserProfile === null) {
+    if (!cookie.load('token')) {
       return (
         <div>
           <Header title="Dashboard" />
