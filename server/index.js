@@ -12,7 +12,6 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 const server = express()
 
-const cache = require('./cache')
 const schema = require('./graphql')
 const env = require('../env-config')
 
@@ -26,7 +25,6 @@ module.exports = app
       .use(bodyParser.urlencoded({ extended: true }))
       .use(cookieParser())
       .use(helmet())
-      .use(cache(app))
       .use(
         '/graphql',
         bodyParser.json(),
