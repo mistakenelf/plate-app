@@ -5,6 +5,7 @@ import BorderedButton from '../BorderedButton/BorderedButton'
 import PropTypes from 'prop-types'
 import React from 'react'
 import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
+import cookie from 'react-cookie'
 import { registerMutation } from '../../mutations/registerMutations'
 import { registerValidations } from '../../validations/registerValidations'
 
@@ -15,9 +16,14 @@ const RegisterForm = ({ handleSubmit, register }) => {
     const username = document.getElementById('username').value
     const password = document.getElementById('password').value
 
-    await register(firstName, lastName, username, password)
+    const user = await register(firstName, lastName, username, password)
 
-    window.location.href = '/'
+    if (user.data.register === null) {
+      alert('Registration error')
+    } else {
+      cookie.save('token', user.data.register, { path: '/' })
+      window.location.href = '/'
+    }
   }
 
   return (

@@ -6,6 +6,7 @@ export const getUserProfile = gql`
       firstName
       lastName
       username
+      id
     }
   }
 `

@@ -1,14 +1,15 @@
 const { GraphQLNonNull, GraphQLString } = require('graphql')
 
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
-const UserType = require('../types/user')
+const env = require('../../../env-config')
 
 // Register a new user
 module.exports = {
   name: 'register',
   description: 'Register A New User',
-  type: UserType,
+  type: GraphQLString,
   args: {
     firstName: {
       type: new GraphQLNonNull(GraphQLString)
@@ -30,15 +31,25 @@ module.exports = {
       .count()
     if (duplicateUser !== 1) {
       const saltRounds = 10
-      bcrypt.hash(password, saltRounds, async (err, hash) => {
-        const data = {
-          firstName,
-          lastName,
-          username,
-          password: hash
-        }
-        return await db.collection('users').insertOne(data)
+
+      const hash = bcrypt.hashSync(password, saltRounds)
+
+      const data = {
+        firstName,
+        lastName,
+        username,
+        password: hash
+      }
+
+      await db.collection('users').insertOne(data)
+      const newUser = await db
+        .collection('users')
+        .findOne({ username: username })
+      const token = jwt.sign(newUser, env.JWT_SECRET, {
+        expiresIn: 60 * 60 * 24
       })
+
+      return token
     }
   }
 }
