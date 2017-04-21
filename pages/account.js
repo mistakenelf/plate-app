@@ -6,17 +6,18 @@ import PropTypes from 'prop-types'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
 import cookie from 'react-cookie'
 import { pageWithDefaultLayout } from '../hocs/page'
+import withUser from '../hocs/withUser'
 
 class account extends Component {
   static propTypes = {
-    auth: PropTypes.object
+    getUserProfile: PropTypes.object
   }
 
   render() {
-    if (this.props.auth.loggedIn === false) {
+    if (this.props.getUserProfile === null) {
       return (
         <div>
-          <Header title="Account" />
+          <Header title="Dashboard" />
           <Unauthorized />
         </div>
       )
@@ -40,4 +41,4 @@ class account extends Component {
   }
 }
 
-export default pageWithDefaultLayout(account)
+export default pageWithDefaultLayout(withUser(account))

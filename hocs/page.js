@@ -4,13 +4,11 @@ import withAuth from './withAuth'
 import withData from './withData'
 import withDefaultLayout from './withDefaultLayout'
 import withNavlessLayout from './withNavlessLayout'
-import withUser from './withUser'
 
 export const pageWithDefaultLayout = compose(
   withData,
   withAnalytics,
   withAuth,
-  withUser,
   withDefaultLayout
 )
 

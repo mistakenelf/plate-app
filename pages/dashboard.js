@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
 import cookie from 'react-cookie'
 import { pageWithDefaultLayout } from '../hocs/page'
+import withUser from '../hocs/withUser'
 
 class dashboard extends Component {
   static propTypes = {
@@ -41,4 +42,4 @@ class dashboard extends Component {
   }
 }
 
-export default pageWithDefaultLayout(dashboard)
+export default pageWithDefaultLayout(withUser(dashboard))
