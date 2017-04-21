@@ -173,6 +173,7 @@ class ContentEditor extends Component {
               font-size: 16px;
               margin-top: 10px;
               padding: 15px;
+              min-height: 500px;
             }
             .RichEditor-editor .RichEditor-blockquote {
               border-left: 5px solid #eee;
