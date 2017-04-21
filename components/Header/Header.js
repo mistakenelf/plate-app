@@ -5,7 +5,7 @@ import React from 'react'
 const Header = ({ title }) => {
   return (
     <Head>
-      <title>Plate - {title}</title>
+      <title>{title}</title>
       <meta charSet="utf-8" />
       <meta
         name="viewport"

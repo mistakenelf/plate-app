@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import Header from '../components/Header/Header'
 import PlateFillerContainer from '../containers/PlateFillerContainer'
 import PropTypes from 'prop-types'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
@@ -19,7 +18,6 @@ class platefiller extends Component {
     if (this.props.getUserProfile === null) {
       return (
         <div>
-          <Header title="Dashboard" />
           <Unauthorized />
         </div>
       )
@@ -28,7 +26,6 @@ class platefiller extends Component {
     if (!cookie.load('token')) {
       return (
         <div>
-          <Header title="Plate Filler" />
           <Unauthorized />
         </div>
       )
@@ -36,7 +33,6 @@ class platefiller extends Component {
 
     return (
       <div>
-        <Header title="Plate Filler" />
         <PlateFillerContainer plateId={this.props.url.query.id} />
       </div>
     )

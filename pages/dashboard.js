@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import DashboardContainer from '../containers/DashboardContainer'
-import Header from '../components/Header/Header'
 import PropTypes from 'prop-types'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
 import cookie from 'react-cookie'
@@ -18,7 +17,6 @@ class dashboard extends Component {
     if (this.props.getUserProfile === null) {
       return (
         <div>
-          <Header title="Dashboard" />
           <Unauthorized />
         </div>
       )
@@ -27,7 +25,6 @@ class dashboard extends Component {
     if (!cookie.load('token')) {
       return (
         <div>
-          <Header title="Dashboard" />
           <Unauthorized />
         </div>
       )
@@ -35,7 +32,6 @@ class dashboard extends Component {
 
     return (
       <div>
-        <Header title="Dashboard" />
         <DashboardContainer user={this.props.getUserProfile} />
       </div>
     )

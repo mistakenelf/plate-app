@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
 import AccountContainer from '../containers/AccountContainer'
-import Header from '../components/Header/Header'
 import PropTypes from 'prop-types'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
 import cookie from 'react-cookie'
@@ -17,7 +16,6 @@ class account extends Component {
     if (this.props.getUserProfile === null) {
       return (
         <div>
-          <Header title="Dashboard" />
           <Unauthorized />
         </div>
       )
@@ -26,7 +24,6 @@ class account extends Component {
     if (!cookie.load('token')) {
       return (
         <div>
-          <Header title="Account" />
           <Unauthorized />
         </div>
       )
@@ -34,7 +31,6 @@ class account extends Component {
 
     return (
       <div>
-        <Header title="Account" />
         <AccountContainer />
       </div>
     )

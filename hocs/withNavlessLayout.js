@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import Header from '../components/Header/Header'
 import configureLoadingProgressBar from '../utils/routing'
 
 export default ComposedComponent => class WithNavlessLayout extends Component {
@@ -10,6 +11,7 @@ export default ComposedComponent => class WithNavlessLayout extends Component {
   render() {
     return (
       <div>
+        <Header title="Plate" />
         <ComposedComponent {...this.props} />
         <style jsx global>
           {`

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import Header from '../components/Header/Header'
 import Navigation from '../components/Navigation/Navigation'
 import PropTypes from 'prop-types'
 import configureLoadingProgressBar from '../utils/routing'
@@ -32,6 +33,7 @@ export default ComposedComponent => class WithDefaultLayout extends Component {
   render() {
     return (
       <div>
+        <Header title="Plate" />
         <Navigation
           open={this.state.open}
           openDrawer={this.openDrawer}
