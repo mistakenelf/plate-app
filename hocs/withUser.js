@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 
+import Loader from '../components/Loader/Loader'
 import { getUserProfile } from '../queries/getUserProfile'
 import { graphql } from 'react-apollo'
 
@@ -13,7 +14,7 @@ export default ComposedComponent => {
 
     render() {
       if (this.props.loading) {
-        return null
+        return <Loader />
       } else {
         return <ComposedComponent {...this.props} />
       }

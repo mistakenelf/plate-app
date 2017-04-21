@@ -26,7 +26,7 @@ const Navigation = ({ open, openDrawer, closeDrawer, client, user }) => {
   const prefetchPlates = () => {
     client.query({
       query: Query,
-      variables: { username: user.username }
+      variables: { username: user.username || '' }
     })
   }
 

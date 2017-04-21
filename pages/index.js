@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Header from '../components/Header/Header'
 import HomeContainer from '../containers/HomeContainer'
 import { pageWithDefaultLayout } from '../hocs/page'
+import withUser from '../hocs/withUser'
 
 class index extends Component {
   render() {
@@ -15,4 +16,4 @@ class index extends Component {
   }
 }
 
-export default pageWithDefaultLayout(index)
+export default pageWithDefaultLayout(withUser(index))
