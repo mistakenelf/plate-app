@@ -139,6 +139,7 @@ class ContentEditor extends Component {
         <div
           className="RichEditor-editor"
           style={{
+            backgroundRepeat: 'no-repeat',
             backgroundImage: this.state.currBackground === 0
               ? 'url(/static/img/chalkboard.jpg)'
               : 'none',
@@ -173,7 +174,7 @@ class ContentEditor extends Component {
               font-size: 16px;
               margin-top: 10px;
               padding: 15px;
-              min-height: 500px;
+              min-height: 100vh;
             }
             .RichEditor-editor .RichEditor-blockquote {
               border-left: 5px solid #eee;
