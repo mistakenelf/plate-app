@@ -4,10 +4,10 @@ import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 
 import BorderedButton from '../BorderedButton/BorderedButton'
+import Cookies from 'universal-cookie'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
-import cookie from 'react-cookie'
 import { loginMutation } from '../../mutations/loginMutations'
 import { loginValidations } from '../../validations/loginValidations'
 
@@ -25,13 +25,15 @@ class LoginForm extends Component {
     const username = document.getElementById('username').value
     const password = document.getElementById('password').value
 
+    const cookies = new Cookies()
+
     const token = await login(username, password)
     if (token.data.login === null) {
       this.setState({
         loginError: true
       })
     } else {
-      cookie.save('token', token.data.login, { path: '/' })
+      cookies.set('token', token.data.login, { path: '/' })
       window.location.href = '/'
     }
   }

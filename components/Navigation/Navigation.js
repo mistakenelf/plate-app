@@ -61,7 +61,7 @@ const Navigation = ({ open, openDrawer, closeDrawer, client, user }) => {
       </IconMenu>
     </div>
   )
-  console.log(user.username)
+
   return (
     <div>
       <AppBar

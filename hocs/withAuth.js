@@ -1,5 +1,6 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 
+import PropTypes from 'prop-types'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
 
 let auth = { loggedIn: false }

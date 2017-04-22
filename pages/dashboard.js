@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
+import Cookies from 'universal-cookie'
 import DashboardContainer from '../containers/DashboardContainer'
 import PropTypes from 'prop-types'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
-import cookie from 'react-cookie'
 import { pageWithDefaultLayout } from '../hocs/page'
 import withUser from '../hocs/withUser'
 
@@ -14,6 +14,8 @@ class dashboard extends Component {
   }
 
   render() {
+    const cookies = new Cookies()
+
     if (this.props.getUserProfile === null) {
       return (
         <div>
@@ -22,7 +24,7 @@ class dashboard extends Component {
       )
     }
 
-    if (!cookie.load('token')) {
+    if (!cookies.get('token')) {
       return (
         <div>
           <Unauthorized />
