@@ -46,7 +46,14 @@ const Navigation = ({ open, openDrawer, closeDrawer, client, user }) => {
         anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
         iconStyle={{ color: 'white' }}
       >
-        <Link prefetch href="/login"><a><MenuItem>Login</MenuItem></a></Link>
+        {user.username !== undefined
+          ? <Link prefetch href="/login">
+              <a><MenuItem>Logout</MenuItem></a>
+            </Link>
+          : <Link prefetch href="/login">
+              <a><MenuItem>Login</MenuItem></a>
+            </Link>}
+
         <Link prefetch href="/register">
           <a><MenuItem>Register</MenuItem></a>
         </Link>
@@ -54,7 +61,7 @@ const Navigation = ({ open, openDrawer, closeDrawer, client, user }) => {
       </IconMenu>
     </div>
   )
-
+  console.log(user.username)
   return (
     <div>
       <AppBar
