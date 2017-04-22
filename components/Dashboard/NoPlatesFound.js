@@ -27,7 +27,7 @@ const NoPlatesFound = () => {
         </IconButton>
         <br />
         <div className="content">
-          You currently have nothing on your Plate. Add a new plate to get started
+          You currently have nothing on your dashboard. Add a new plate to get started
         </div>
       </CardText>
       <style jsx>
