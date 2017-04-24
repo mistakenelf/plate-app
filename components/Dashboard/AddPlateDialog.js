@@ -26,12 +26,12 @@ class AddPlateDialog extends Component {
       .value
 
     const plateColors = [
-      '/static/img/taskIcon/taskIconBlue.png',
-      '/static/img/taskIcon/taskIconGreen.png',
-      '/static/img/taskIcon/taskIconOrange.png',
-      '/static/img/taskIcon/taskIconPink.png',
-      '/static/img/taskIcon/taskIconRed.png',
-      '/static/img/taskIcon/taskIconYellow.png'
+      '/static/img/wine.png',
+      '/static/img/milk.png',
+      '/static/img/egg.png',
+      '/static/img/garlic.png',
+      '/static/img/turkey.png',
+      '/static/img/pizza.png'
     ]
 
     const colorNumber = Math.floor(Math.random() * 6)
