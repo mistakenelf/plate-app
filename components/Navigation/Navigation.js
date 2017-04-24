@@ -11,10 +11,12 @@ import MenuItem from 'material-ui/MenuItem'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import PropTypes from 'prop-types'
 import React from 'react'
+import Router from 'next/router'
 
 const logout = () => {
   const cookies = new Cookies()
   cookies.remove('token')
+  Router.push('/login')
 }
 
 const Navigation = ({ open, openDrawer, closeDrawer, client, user }) => {
