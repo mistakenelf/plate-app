@@ -33,8 +33,8 @@ class LoginForm extends Component {
         loginError: true
       })
     } else {
-      cookies.set('token', token.data.login, { path: '/' })
-      window.location.href = '/'
+      cookies.set('token', token.data.login, { path: '/dashboard' })
+      window.location.href = '/dashboard'
     }
   }
 

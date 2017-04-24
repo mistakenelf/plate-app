@@ -40,8 +40,8 @@ class RegisterForm extends Component {
         registerError: true
       })
     } else {
-      cookies.set('token', user.data.register, { path: '/' })
-      window.location.href = '/'
+      cookies.set('token', user.data.register, { path: '/dashboard' })
+      window.location.href = '/dashboard'
     }
   }
 
