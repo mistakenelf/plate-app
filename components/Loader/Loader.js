@@ -24,8 +24,8 @@ const Loader = () => {
       <style jsx>
         {`
           .loader {
-            height: 100vh;
             display: flex;
+            margin-top: 100px;
             width: 100%;
             justify-content: center;
             align-items: center;

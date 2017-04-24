@@ -4,9 +4,9 @@ import TextField from 'material-ui/TextField'
 
 const RenderRegularTextField = props => {
   const {
-    input: { ...input },
-    label,
+    input: { value, ...input },
     meta: { touched, error },
+    label,
     ...custom
   } = props
 
@@ -16,6 +16,7 @@ const RenderRegularTextField = props => {
         autoComplete={'off'}
         errorText={touched && error}
         fullWidth
+        label
         defaultValue={label}
         {...input}
         {...custom}
@@ -27,6 +28,7 @@ const RenderRegularTextField = props => {
         autoComplete={'off'}
         errorText={touched && error}
         fullWidth
+        label
         defaultValue={label}
         {...input}
         {...custom}
