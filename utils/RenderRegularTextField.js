@@ -18,6 +18,7 @@ const RenderRegularTextField = props => {
         fullWidth
         label
         defaultValue={label}
+        {...value}
         {...input}
         {...custom}
       />
@@ -30,6 +31,7 @@ const RenderRegularTextField = props => {
         fullWidth
         label
         defaultValue={label}
+        {...value}
         {...input}
         {...custom}
       />

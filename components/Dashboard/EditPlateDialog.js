@@ -21,7 +21,7 @@ class EditPlateDialog extends Component {
   }
 
   state = {
-    plateStatusSelected: ''
+    plateStatusSelected: 'New'
   }
 
   editPlateDetails = (id, editPlate, editPlateHandleClose) => {
@@ -33,7 +33,7 @@ class EditPlateDialog extends Component {
       id,
       newPlateName,
       newPlateDescription,
-      this.state.plateStatusSelected
+      this.state.plateStatusSelected || 'New'
     )
     editPlateHandleClose()
   }
