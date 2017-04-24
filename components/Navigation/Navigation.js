@@ -1,5 +1,3 @@
-import { gql, withApollo } from 'react-apollo'
-
 import AccountIcon from 'material-ui/svg-icons/action/account-circle'
 import AppBar from 'material-ui/AppBar'
 import Cookies from 'js-cookie'
@@ -17,49 +15,34 @@ const logout = () => {
   window.location.href = '/login'
 }
 
-const Navigation = ({ open, openDrawer, closeDrawer, client, user }) => {
-  const Query = gql`
-    query plates($username: String) {
-      plates(username: $username) {
-        id
-        name
-        description
-        status
-      }
-    }
-  `
-
-  const prefetchPlates = () => {
-    client.query({
-      query: Query,
-      variables: { username: user.username || '' }
-    })
-  }
-
+const Navigation = ({ open, openDrawer, closeDrawer, token }) => {
   const elementRight = (
     <div>
-      <Link prefetch href="/account">
-        <a>
-          <AccountIcon
-            style={{ color: 'white', cursor: 'pointer' }}
-            hoverColor="#B0BEC5"
-          />
-        </a>
-      </Link>
+      {token &&
+        <Link prefetch href="/account">
+          <a>
+            <AccountIcon
+              style={{ color: 'white', cursor: 'pointer' }}
+              hoverColor="#B0BEC5"
+            />
+          </a>
+        </Link>}
       <IconMenu
         iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
         targetOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
         iconStyle={{ color: 'white' }}
       >
-
-        <a><MenuItem>Logout</MenuItem></a>
-        <Link prefetch href="/login">
-          <a><MenuItem>Login</MenuItem></a>
-        </Link>
-        <Link prefetch href="/register">
-          <a><MenuItem>Register</MenuItem></a>
-        </Link>
+        {token
+          ? <a onTouchTap={() => logout()}><MenuItem>Logout</MenuItem></a>
+          : <div>
+              <Link prefetch href="/login">
+                <a><MenuItem>Login</MenuItem></a>
+              </Link>
+              <Link prefetch href="/register">
+                <a><MenuItem>Register</MenuItem></a>
+              </Link>
+            </div>}
       </IconMenu>
     </div>
   )
@@ -88,17 +71,14 @@ const Navigation = ({ open, openDrawer, closeDrawer, client, user }) => {
             <MenuItem onTouchTap={closeDrawer}>Home</MenuItem>
           </a>
         </Link>
-
-        <Link prefetch href="/dashboard">
-          <a className="sidebar-text">
-            <MenuItem
-              onMouseOver={() => prefetchPlates()}
-              onTouchTap={closeDrawer}
-            >
-              Dashboard
-            </MenuItem>
-          </a>
-        </Link>
+        {token &&
+          <Link prefetch href="/dashboard">
+            <a className="sidebar-text">
+              <MenuItem onTouchTap={closeDrawer}>
+                Dashboard
+              </MenuItem>
+            </a>
+          </Link>}
       </Drawer>
       <style jsx>
         {`
@@ -119,7 +99,7 @@ Navigation.propTypes = {
   openDrawer: PropTypes.func,
   closeDrawer: PropTypes.func,
   client: PropTypes.object,
-  user: PropTypes.object
+  token: PropTypes.string
 }
 
-export default withApollo(Navigation)
+export default Navigation

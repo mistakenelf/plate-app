@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import Cookies from 'js-cookie'
 import GetUserProfile from '../queries/GetUserProfileQuery'
 import Loader from '../components/Loader/Loader'
 import PropTypes from 'prop-types'
@@ -9,7 +10,6 @@ export default ComposedComponent => {
   class WithProfile extends Component {
     static propTypes = {
       serverRendered: PropTypes.bool,
-      auth: PropTypes.object.isRequired,
       loading: PropTypes.bool
     }
 
@@ -27,8 +27,10 @@ export default ComposedComponent => {
       loading,
       getUserProfile
     }),
-    options: props => ({
-      variables: { token: props.auth.token || '' },
+    options: () => ({
+      variables: {
+        token: Cookies.get('token') || ''
+      },
       fetchPolicy: 'cache-and-network'
     })
   })(WithProfile)

@@ -39,7 +39,7 @@ class RegisterForm extends Component {
       })
     } else {
       Cookies.set('token', user.data.register, {
-        path: '/dashboard',
+        path: '/',
         expires: 7
       })
 

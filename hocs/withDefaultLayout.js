@@ -34,6 +34,7 @@ export default ComposedComponent => {
             open={this.state.open}
             openDrawer={this.openDrawer}
             closeDrawer={this.closeDrawer}
+            token={this.props.auth.token}
           />
           <ComposedComponent {...this.props} />
           <style jsx global>
