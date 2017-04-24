@@ -11,10 +11,10 @@ export const addPlateValidations = values => {
 
 export const editPlateValidations = values => {
   const errors = {}
-  if (values.currentPlateName === ' ') {
+  if (values.currentPlateName === undefined) {
     errors.currentPlateName = 'Please enter a plate name'
   }
-  if (values.currentPlateDescription === ' ') {
+  if (values.currentPlateDescription === undefined) {
     errors.currentPlateDescription = 'Please enter a plate description'
   }
   return errors
