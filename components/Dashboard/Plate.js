@@ -1,18 +1,16 @@
 import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card'
 import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
-import {
-  editPlateMutation,
-  removePlateMutation,
-} from '../../mutations/dashboardMutations'
 
 import Dialog from 'material-ui/Dialog'
 import EditIcon from 'material-ui/svg-icons/editor/mode-edit'
 import EditPlateDialog from './EditPlateDialog'
+import EditPlateMutation from '../../mutations/EditPlateMutation'
 import FlatButton from 'material-ui/FlatButton'
 import Link from 'next/link'
-import { PlatesQuery } from '../../queries/dashboardQueries'
+import PlatesQuery from '../../queries/PlatesQuery'
 import PropTypes from 'prop-types'
+import RemovePlateMutation from '../../mutations/RemovePlateMutation'
 
 class Plate extends Component {
   static propTypes = {
@@ -136,7 +134,7 @@ class Plate extends Component {
 }
 
 export default compose(
-  graphql(removePlateMutation, {
+  graphql(RemovePlateMutation, {
     props: ({ mutate }) => ({
       removePlate: id => mutate({ variables: { id } })
     }),
@@ -149,7 +147,7 @@ export default compose(
       ]
     })
   }),
-  graphql(editPlateMutation, {
+  graphql(EditPlateMutation, {
     props: ({ mutate }) => ({
       editPlate: (id, name, description, status) =>
         mutate({ variables: { id, name, description, status } })

@@ -1,6 +1,6 @@
 import { gql } from 'react-apollo'
 
-export const getUserProfile = gql`
+export default gql`
   query getUserProfile($token: String!) {
     getUserProfile(token: $token) {
       firstName

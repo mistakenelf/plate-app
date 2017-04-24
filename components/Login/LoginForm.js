@@ -6,10 +6,10 @@ import { compose, graphql } from 'react-apollo'
 import BorderedButton from '../BorderedButton/BorderedButton'
 import Cookies from 'universal-cookie'
 import Link from 'next/link'
+import LoginMutation from '../../mutations/LoginMutation'
+import LoginValidation from '../../validations/LoginValidation'
 import PropTypes from 'prop-types'
 import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
-import { loginMutation } from '../../mutations/loginMutations'
-import { loginValidations } from '../../validations/loginValidations'
 
 class LoginForm extends Component {
   static propTypes = {
@@ -124,9 +124,9 @@ class LoginForm extends Component {
 export default compose(
   reduxForm({
     form: 'loginForm',
-    validate: loginValidations
+    validate: LoginValidation
   }),
-  graphql(loginMutation, {
+  graphql(LoginMutation, {
     props: ({ mutate }) => ({
       login: (username, password) =>
         mutate({ variables: { username, password } })

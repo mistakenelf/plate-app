@@ -1,6 +1,6 @@
 import { gql } from 'react-apollo'
 
-export const savePlateContentMutation = gql`
+export default gql`
   mutation savePlateContent($id: ID!, $content: String!) {
     savePlateContent(id: $id, content: $content) {
       id

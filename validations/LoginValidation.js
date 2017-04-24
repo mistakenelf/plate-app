@@ -1,4 +1,4 @@
-export const loginValidations = values => {
+export default values => {
   const errors = {}
   if (!values.username) {
     errors.username = 'Please enter a username'

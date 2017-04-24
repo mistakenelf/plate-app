@@ -3,10 +3,10 @@ import { compose, graphql } from 'react-apollo'
 import ContentEditor from '../components/PlateFiller/ContentEditor'
 import Header from '../components/PlateFiller/Header'
 import Loader from '../components/Loader/Loader'
+import PlateQuery from '../queries/PlateQuery'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { getPlateData } from '../queries/plateFillerQueries'
-import { savePlateContentMutation } from '../mutations/plateFillerMutations'
+import SavePlateContentMutation from '../mutations/SavePlateContentMutation'
 
 const PlateFillerContainer = ({
   plateId,
@@ -51,21 +51,21 @@ PlateFillerContainer.propTypes = {
 }
 
 export default compose(
-  graphql(savePlateContentMutation, {
+  graphql(SavePlateContentMutation, {
     props: ({ mutate }) => ({
       savePlateContent: (id, content) => mutate({ variables: { id, content } })
     }),
     options: ({ plateId }) => ({
       refetchQueries: [
         {
-          query: getPlateData,
+          query: PlateQuery,
           variables: { id: plateId }
         }
       ],
       fetchPolicy: 'cache-and-network'
     })
   }),
-  graphql(getPlateData, {
+  graphql(PlateQuery, {
     props: ({ data: { loading, plate } }) => ({
       loading,
       plate

@@ -11,12 +11,11 @@ import MenuItem from 'material-ui/MenuItem'
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import PropTypes from 'prop-types'
 import React from 'react'
-import Router from 'next/router'
 
 const logout = () => {
   const cookies = new Cookies()
   cookies.remove('token')
-  Router.push('/login')
+  window.location.href = '/login'
 }
 
 const Navigation = ({ open, openDrawer, closeDrawer, client, user }) => {
@@ -40,30 +39,29 @@ const Navigation = ({ open, openDrawer, closeDrawer, client, user }) => {
 
   const elementRight = (
     <div>
-      {user.username &&
-        <Link prefetch href="/account">
-          <a>
-            <AccountIcon
-              style={{ color: 'white', cursor: 'pointer' }}
-              hoverColor="#B0BEC5"
-            />
-          </a>
-        </Link>}
+
+      <Link prefetch href="/account">
+        <a>
+          <AccountIcon
+            style={{ color: 'white', cursor: 'pointer' }}
+            hoverColor="#B0BEC5"
+          />
+        </a>
+      </Link>
       <IconMenu
         iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
         targetOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
         iconStyle={{ color: 'white' }}
       >
-        {user.username !== undefined
-          ? <a onTouchTap={() => logout()}><MenuItem>Logout</MenuItem></a>
-          : <Link prefetch href="/login">
-              <a><MenuItem>Login</MenuItem></a>
-            </Link>}
-        {!user.username &&
-          <Link prefetch href="/register">
-            <a><MenuItem>Register</MenuItem></a>
-          </Link>}
+
+        <a onTouchTap={() => logout()}><MenuItem>Logout</MenuItem></a>
+        <Link prefetch href="/login">
+          <a><MenuItem>Login</MenuItem></a>
+        </Link>
+        <Link prefetch href="/register">
+          <a><MenuItem>Register</MenuItem></a>
+        </Link>
       </IconMenu>
     </div>
   )
@@ -92,17 +90,17 @@ const Navigation = ({ open, openDrawer, closeDrawer, client, user }) => {
             <MenuItem onTouchTap={closeDrawer}>Home</MenuItem>
           </a>
         </Link>
-        {user.username &&
-          <Link prefetch href="/dashboard">
-            <a className="sidebar-text">
-              <MenuItem
-                onMouseOver={() => prefetchPlates()}
-                onTouchTap={closeDrawer}
-              >
-                Dashboard
-              </MenuItem>
-            </a>
-          </Link>}
+
+        <Link prefetch href="/dashboard">
+          <a className="sidebar-text">
+            <MenuItem
+              onMouseOver={() => prefetchPlates()}
+              onTouchTap={closeDrawer}
+            >
+              Dashboard
+            </MenuItem>
+          </a>
+        </Link>
       </Drawer>
       <style jsx>
         {`

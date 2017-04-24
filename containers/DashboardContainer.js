@@ -4,7 +4,7 @@ import AddPlateButton from '../components/Dashboard/AddPlateButton'
 import Loader from '../components/Loader/Loader'
 import NoPlatesFound from '../components/Dashboard/NoPlatesFound'
 import Plate from '../components/Dashboard/Plate'
-import { PlatesQuery } from '../queries/dashboardQueries'
+import PlatesQuery from '../queries/PlatesQuery'
 import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 

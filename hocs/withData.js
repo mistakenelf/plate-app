@@ -31,16 +31,14 @@ export default ComposedComponent => class WithData extends Component {
   static async getInitialProps(ctx) {
     const subProps = await loadGetInitialProps(ComposedComponent, ctx)
     let token
-    let csrf
     const userAgent = ctx.req
       ? ctx.req.headers['user-agent']
       : navigator.userAgent
     if (!process.browser) {
-      ;(token = ctx.req.cookies.token), (csrf = ctx.req.cookies.csrf)
+      token = ctx.req.cookies.token
     }
     const clientAndStoreProps = {
       token: token,
-      csrf: csrf,
       userAgent: userAgent
     }
 

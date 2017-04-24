@@ -2,13 +2,13 @@ import { Field, reduxForm } from 'redux-form'
 import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 
+import AddPlateMutation from '../../mutations/AddPlateMutation'
+import AddPlateValidation from '../../validations/AddPlateValidation'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
-import { PlatesQuery } from '../../queries/dashboardQueries'
+import PlatesQuery from '../../queries/PlatesQuery'
 import PropTypes from 'prop-types'
 import RenderRegularTextField from '../../utils/RenderRegularTextField'
-import { addPlateMutation } from '../../mutations/dashboardMutations'
-import { addPlateValidations } from '../../validations/dashboardValidations'
 
 class AddPlateDialog extends Component {
   static propTypes = {
@@ -96,9 +96,9 @@ class AddPlateDialog extends Component {
 export default compose(
   reduxForm({
     form: 'addPlateForm',
-    validate: addPlateValidations
+    validate: AddPlateValidation
   }),
-  graphql(addPlateMutation, {
+  graphql(AddPlateMutation, {
     props: ({ mutate }) => ({
       addPlate: (name, description, thumbnail, createdBy) =>
         mutate({ variables: { name, description, thumbnail, createdBy } })

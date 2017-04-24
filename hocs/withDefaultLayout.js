@@ -2,17 +2,10 @@ import React, { Component } from 'react'
 
 import Header from '../components/Header/Header'
 import Navigation from '../components/Navigation/Navigation'
-import PropTypes from 'prop-types'
 import configureLoadingProgressBar from '../utils/routing'
-import { getUserProfile } from '../queries/getUserProfile'
-import { graphql } from 'react-apollo'
 
 export default ComposedComponent => {
-  class WithDefaultLayout extends Component {
-    static propTypes = {
-      getUserProfile: PropTypes.object
-    }
-
+  return class WithDefaultLayout extends Component {
     state = {
       open: false
     }
@@ -41,7 +34,6 @@ export default ComposedComponent => {
             open={this.state.open}
             openDrawer={this.openDrawer}
             closeDrawer={this.closeDrawer}
-            user={this.props.getUserProfile || {}}
           />
           <ComposedComponent {...this.props} />
           <style jsx global>
@@ -64,15 +56,4 @@ export default ComposedComponent => {
       )
     }
   }
-
-  return graphql(getUserProfile, {
-    props: ({ data: { loading, getUserProfile } }) => ({
-      loading,
-      getUserProfile
-    }),
-    options: props => ({
-      variables: { token: props.auth.token || '' },
-      fetchPolicy: 'cache-and-network'
-    })
-  })(WithDefaultLayout)
 }

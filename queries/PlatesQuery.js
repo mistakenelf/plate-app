@@ -1,13 +1,15 @@
 import { gql } from 'react-apollo'
 
-export const getPlateData = gql`
-  query plate($id: ID!) {
-    plate(id: $id) {
+export default gql`
+  query plates($username: String) {
+    plates(username: $username) {
+      id
       name
       description
       thumbnail
       status
       content
+      createdBy
     }
   }
 `

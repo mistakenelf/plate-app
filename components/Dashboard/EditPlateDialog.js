@@ -3,10 +3,10 @@ import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton'
 import React, { Component } from 'react'
 
 import Dialog from 'material-ui/Dialog'
+import EditPlateValidation from '../../validations/EditPlateValidation'
 import FlatButton from 'material-ui/FlatButton'
 import PropTypes from 'prop-types'
 import RenderRegularTextField from '../../utils/RenderRegularTextField'
-import { editPlateValidations } from '../../validations/dashboardValidations'
 
 class EditPlateDialog extends Component {
   static propTypes = {
@@ -134,5 +134,5 @@ class EditPlateDialog extends Component {
 }
 export default reduxForm({
   form: 'editPlateForm',
-  validate: editPlateValidations
+  validate: EditPlateValidation
 })(EditPlateDialog)

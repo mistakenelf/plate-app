@@ -6,9 +6,9 @@ import { compose, graphql } from 'react-apollo'
 import BorderedButton from '../BorderedButton/BorderedButton'
 import Cookies from 'universal-cookie'
 import PropTypes from 'prop-types'
+import RegisterMutation from '../../mutations/RegisterMutation'
+import RegisterValidation from '../../validations/RegisterValidation'
 import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
-import { registerMutation } from '../../mutations/registerMutations'
-import { registerValidations } from '../../validations/registerValidations'
 
 class RegisterForm extends Component {
   static propTypes = {
@@ -128,9 +128,9 @@ class RegisterForm extends Component {
 export default compose(
   reduxForm({
     form: 'registerForm',
-    validate: registerValidations
+    validate: RegisterValidation
   }),
-  graphql(registerMutation, {
+  graphql(RegisterMutation, {
     props: ({ mutate }) => ({
       register: (firstName, lastName, username, password) =>
         mutate({ variables: { firstName, lastName, username, password } })

@@ -1,7 +1,8 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 
+import GetUserProfile from '../queries/GetUserProfileQuery'
 import Loader from '../components/Loader/Loader'
-import { getUserProfile } from '../queries/getUserProfile'
+import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 
 export default ComposedComponent => {
@@ -21,7 +22,7 @@ export default ComposedComponent => {
     }
   }
 
-  return graphql(getUserProfile, {
+  return graphql(GetUserProfile, {
     props: ({ data: { loading, getUserProfile } }) => ({
       loading,
       getUserProfile

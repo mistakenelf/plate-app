@@ -1,4 +1,4 @@
-export const registerValidations = values => {
+export default values => {
   const errors = {}
   if (!values.firstName) {
     errors.firstName = 'Please enter your first name'
