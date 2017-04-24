@@ -10,8 +10,6 @@ const RenderRegularTextField = props => {
     ...custom
   } = props
 
-  console.log(label)
-
   if (custom.id === 'add_plate_name' || custom.id === 'add_plate_description') {
     return (
       <TextField
