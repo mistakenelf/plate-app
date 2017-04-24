@@ -4,7 +4,7 @@ import TextField from 'material-ui/TextField'
 
 const RenderRegularTextField = props => {
   const {
-    input: { value, ...input },
+    input: { ...input },
     label,
     meta: { touched, error },
     ...custom
