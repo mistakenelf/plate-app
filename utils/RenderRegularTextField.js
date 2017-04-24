@@ -4,11 +4,13 @@ import TextField from 'material-ui/TextField'
 
 const RenderRegularTextField = props => {
   const {
-    input: { ...input },
+    input: { value, ...input },
     label,
     meta: { touched, error },
     ...custom
   } = props
+
+  console.log(label)
 
   if (custom.id === 'add_plate_name' || custom.id === 'add_plate_description') {
     return (
@@ -16,7 +18,7 @@ const RenderRegularTextField = props => {
         autoComplete={'off'}
         errorText={touched && error}
         fullWidth
-        hintText={label}
+        defaultValue={label}
         {...input}
         {...custom}
       />
