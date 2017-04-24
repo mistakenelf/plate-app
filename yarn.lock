@@ -1145,8 +1145,8 @@ camelize@1.0.0:
   resolved "https://registry.yarnpkg.com/camelize/-/camelize-1.0.0.tgz#164a5483e630fa4321e5af07020e531831b2609b"
 
 caniuse-db@^1.0.30000639:
-  version "1.0.30000659"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000659.tgz#6775220394d464c8efa4a25cafd2ed9b0c60b11c"
+  version "1.0.30000660"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000660.tgz#d2d57b309dc5a11bb5b46018f51855f7a41efee5"
 
 capture-stack-trace@^1.0.0:
   version "1.0.0"
@@ -1352,7 +1352,7 @@ cookie-signature@1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/cookie-signature/-/cookie-signature-1.0.6.tgz#e303a882b342cc3ee8ca513a79999734dab3ae2c"
 
-cookie@0.3.1, cookie@^0.3.1:
+cookie@0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
 
@@ -2446,8 +2446,8 @@ hsts@2.0.0:
     core-util-is "1.0.2"
 
 html-entities@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.2.0.tgz#41948caf85ce82fed36e4e6a0ed371a6664379e2"
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-1.2.1.tgz#0df29351f0721163515dfb9e5543e5f6eed5162f"
 
 htmlescape@1.1.1:
   version "1.1.1"
@@ -2665,10 +2665,6 @@ is-my-json-valid@^2.10.0:
     generate-object-property "^1.1.0"
     jsonpointer "^4.0.0"
     xtend "^4.0.0"
-
-is-node@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/is-node/-/is-node-1.0.2.tgz#d7d002745ef7debbb7477e988956ab0a4fccb653"
 
 is-npm@^1.0.0:
   version "1.0.0"
@@ -3706,9 +3702,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier-eslint@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/prettier-eslint/-/prettier-eslint-6.1.0.tgz#3e59f56e153cb3730c2c26e0b418dd8d4134e754"
+prettier-eslint@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/prettier-eslint/-/prettier-eslint-6.1.1.tgz#5fa54088a26af5da0986e1ac90af32ea1dbe5325"
   dependencies:
     common-tags "^1.4.0"
     dlv "^1.1.0"
@@ -4772,14 +4768,6 @@ uid-number@~0.0.6:
 unfetch@2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/unfetch/-/unfetch-2.1.2.tgz#684fee4d8acdb135bdb26c0364c642fc326ca95b"
-
-universal-cookie@^2.0.4:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/universal-cookie/-/universal-cookie-2.0.5.tgz#e8fae5212bb5c8f231401ce9bf52d384a600c80b"
-  dependencies:
-    cookie "^0.3.1"
-    is-node "^1.0.2"
-    object-assign "^4.1.0"
 
 unpipe@1.0.0, unpipe@~1.0.0:
   version "1.0.0"
