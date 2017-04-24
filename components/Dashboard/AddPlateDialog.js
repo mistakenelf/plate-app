@@ -8,7 +8,7 @@ import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
 import PlatesQuery from '../../queries/PlatesQuery'
 import PropTypes from 'prop-types'
-import RenderRegularTextField from '../../utils/RenderRegularTextField'
+import RenderAddPlateTextField from '../../utils/RenderAddPlateTextField'
 
 class AddPlateDialog extends Component {
   static propTypes = {
@@ -73,14 +73,14 @@ class AddPlateDialog extends Component {
           <Field
             name="name"
             id="add_plate_name"
-            component={RenderRegularTextField}
+            component={RenderAddPlateTextField}
             type="text"
             label="Name"
           />
           <Field
             name="description"
             id="add_plate_description"
-            component={RenderRegularTextField}
+            component={RenderAddPlateTextField}
             type="text"
             label="Description"
             rows={4}

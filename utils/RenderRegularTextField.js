@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import TextField from 'material-ui/TextField'
 
-const RenderRegularTextField = props => {
+const RenderEditPlateTextField = props => {
   const {
     input: { value, ...input },
     meta: { touched, error },
@@ -16,9 +16,8 @@ const RenderRegularTextField = props => {
         autoComplete={'off'}
         errorText={touched && error}
         fullWidth
-        label
+        hintText={value}
         defaultValue={label}
-        {...value}
         {...input}
         {...custom}
       />
@@ -29,9 +28,8 @@ const RenderRegularTextField = props => {
         autoComplete={'off'}
         errorText={touched && error}
         fullWidth
-        label
+        hintText={value}
         defaultValue={label}
-        {...value}
         {...input}
         {...custom}
       />
@@ -39,11 +37,11 @@ const RenderRegularTextField = props => {
   }
 }
 
-RenderRegularTextField.propTypes = {
+RenderEditPlateTextField.propTypes = {
   label: PropTypes.string,
   meta: PropTypes.object,
   input: PropTypes.object,
   name: PropTypes.string
 }
 
-export default RenderRegularTextField
+export default RenderEditPlateTextField
