@@ -4,9 +4,9 @@ import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 
 import BorderedButton from '../BorderedButton/BorderedButton'
+import Cookies from 'universal-cookie'
 import PropTypes from 'prop-types'
 import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
-import cookie from 'react-cookie'
 import { registerMutation } from '../../mutations/registerMutations'
 import { registerValidations } from '../../validations/registerValidations'
 
@@ -33,12 +33,14 @@ class RegisterForm extends Component {
       password
     )
 
+    const cookies = new Cookies()
+
     if (user.data.register === null) {
       this.setState({
         registerError: true
       })
     } else {
-      cookie.save('token', user.data.register, { path: '/' })
+      cookies.set('token', user.data.register, { path: '/' })
       window.location.href = '/'
     }
   }
