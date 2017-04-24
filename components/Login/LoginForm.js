@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 
 import BorderedButton from '../BorderedButton/BorderedButton'
-import Cookies from 'universal-cookie'
+import Cookies from 'js-cookie'
 import Link from 'next/link'
 import LoginMutation from '../../mutations/LoginMutation'
 import LoginValidation from '../../validations/LoginValidation'
@@ -25,15 +25,13 @@ class LoginForm extends Component {
     const username = document.getElementById('username').value
     const password = document.getElementById('password').value
 
-    const cookies = new Cookies()
-
     const token = await login(username, password)
     if (token.data.login === null) {
       this.setState({
         loginError: true
       })
     } else {
-      cookies.set('token', token.data.login, { path: '/dashboard' })
+      Cookies.set('token', token.data.login, { path: '/dashboard', expires: 7 })
       window.location.href = '/dashboard'
     }
   }

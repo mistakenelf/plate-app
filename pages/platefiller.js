@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Cookies from 'universal-cookie'
+import Cookies from 'js-cookie'
 import PlateFillerContainer from '../containers/PlateFillerContainer'
 import PropTypes from 'prop-types'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
@@ -15,8 +15,6 @@ class platefiller extends Component {
   }
 
   render() {
-    const cookies = new Cookies()
-
     if (this.props.getUserProfile === null) {
       return (
         <div>
@@ -25,7 +23,7 @@ class platefiller extends Component {
       )
     }
 
-    if (!cookies.get('token')) {
+    if (!Cookies.get('token')) {
       return (
         <div>
           <Unauthorized />

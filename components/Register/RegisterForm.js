@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 
 import BorderedButton from '../BorderedButton/BorderedButton'
-import Cookies from 'universal-cookie'
+import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
 import RegisterMutation from '../../mutations/RegisterMutation'
 import RegisterValidation from '../../validations/RegisterValidation'
@@ -33,14 +33,16 @@ class RegisterForm extends Component {
       password
     )
 
-    const cookies = new Cookies()
-
     if (user.data.register === null) {
       this.setState({
         registerError: true
       })
     } else {
-      cookies.set('token', user.data.register, { path: '/dashboard' })
+      Cookies.set('token', user.data.register, {
+        path: '/dashboard',
+        expires: 7
+      })
+
       window.location.href = '/dashboard'
     }
   }

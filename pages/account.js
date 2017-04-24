@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import AccountContainer from '../containers/AccountContainer'
-import Cookies from 'universal-cookie'
+import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
 import { pageWithDefaultLayout } from '../hocs/page'
@@ -13,8 +13,6 @@ class account extends Component {
   }
 
   render() {
-    const cookies = new Cookies()
-
     if (this.props.getUserProfile === null) {
       return (
         <div>
@@ -23,7 +21,7 @@ class account extends Component {
       )
     }
 
-    if (!cookies.get('token')) {
+    if (!Cookies.get('token')) {
       return (
         <div>
           <Unauthorized />

@@ -23,6 +23,7 @@
     "graphql-server-express": "^0.7.2",
     "helmet": "^3.5.0",
     "isomorphic-fetch": "^2.2.1",
+    "js-cookie": "^2.1.4",
     "jsonwebtoken": "^7.3.0",
     "lodash": "^4.17.4",
     "material-ui": "^0.17.4",
@@ -38,8 +39,7 @@
     "react-swipeable-views": "^0.12.1",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
-    "redux-form": "^6.6.3",
-    "universal-cookie": "^2.0.4"
+    "redux-form": "^6.6.3"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

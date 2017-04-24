@@ -37,6 +37,7 @@ export default ComposedComponent => class WithData extends Component {
     if (!process.browser) {
       token = ctx.req.cookies.token
     }
+
     const clientAndStoreProps = {
       token: token,
       userAgent: userAgent

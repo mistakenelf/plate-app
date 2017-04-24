@@ -2,7 +2,7 @@ import { gql, withApollo } from 'react-apollo'
 
 import AccountIcon from 'material-ui/svg-icons/action/account-circle'
 import AppBar from 'material-ui/AppBar'
-import Cookies from 'universal-cookie'
+import Cookies from 'js-cookie'
 import Drawer from 'material-ui/Drawer'
 import IconButton from 'material-ui/IconButton'
 import IconMenu from 'material-ui/IconMenu'
@@ -13,8 +13,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const logout = () => {
-  const cookies = new Cookies()
-  cookies.remove('token')
+  Cookies.remove('token')
   window.location.href = '/login'
 }
 
@@ -39,7 +38,6 @@ const Navigation = ({ open, openDrawer, closeDrawer, client, user }) => {
 
   const elementRight = (
     <div>
-
       <Link prefetch href="/account">
         <a>
           <AccountIcon
@@ -55,7 +53,7 @@ const Navigation = ({ open, openDrawer, closeDrawer, client, user }) => {
         iconStyle={{ color: 'white' }}
       >
 
-        <a onTouchTap={() => logout()}><MenuItem>Logout</MenuItem></a>
+        <a><MenuItem>Logout</MenuItem></a>
         <Link prefetch href="/login">
           <a><MenuItem>Login</MenuItem></a>
         </Link>
