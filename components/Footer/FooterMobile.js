@@ -43,13 +43,15 @@ class FooterMobile extends Component {
               nestedItems={[
                 <ListItem
                   key={1}
-                  primaryText="Register"
+                  primaryText="Terms and Conditions"
                   style={{ color: '#bdbdbd' }}
+                  onTouchTap={() => Router.push('/terms')}
                 />,
                 <ListItem
                   key={2}
-                  primaryText="Login"
+                  primaryText="Meet The Team"
                   style={{ color: '#bdbdbd' }}
+                  onTouchTap={() => Router.push('/team')}
                 />
               ]}
             />
@@ -57,7 +59,7 @@ class FooterMobile extends Component {
               <Divider />
             </div>
             <ListItem
-              primaryText="About Us"
+              primaryText="Get In Touch"
               style={{ color: '#bdbdbd' }}
               onNestedListToggle={this.toggleAboutLinks}
               rightIcon={
@@ -69,8 +71,9 @@ class FooterMobile extends Component {
               nestedItems={[
                 <ListItem
                   key={1}
-                  primaryText="Register"
+                  primaryText="About Us"
                   style={{ color: '#bdbdbd' }}
+                  onTouchTap={() => Router.push('/about')}
                 />,
                 <ListItem
                   key={2}

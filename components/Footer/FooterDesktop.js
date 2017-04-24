@@ -22,13 +22,13 @@ const FooterDesktop = () => {
           <div className="divider-style">
             <Divider />
           </div>
-          <Link prefetch href="/register">
-            <a className="footer-links">Register</a>
+          <Link prefetch href="/terms">
+            <a className="footer-links">Terms and Conditions</a>
           </Link>
           <br />
-          <Link prefetch href="/login">
+          <Link prefetch href="/team">
             <a className="footer-links">
-              Login
+              Meet the Team
             </a>
           </Link>
         </div>
@@ -37,7 +37,7 @@ const FooterDesktop = () => {
           <div className="divider-style">
             <Divider />
           </div>
-          <Link prefetch href="/">
+          <Link prefetch href="/about">
             <a className="footer-links">About Us</a>
           </Link>
           <br />
