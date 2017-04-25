@@ -6,9 +6,10 @@ import Divider from 'material-ui/Divider'
 import EditIcon from 'material-ui/svg-icons/editor/mode-edit'
 import EmailIcon from 'material-ui/svg-icons/communication/email'
 import PhoneIcon from 'material-ui/svg-icons/communication/call'
+import PropTypes from 'prop-types'
 import React from 'react'
 
-const ProfilePage = () => {
+const ProfilePage = ({ user }) => {
   return (
     <div className="container-fluid">
       <div className="row full-height">
@@ -18,7 +19,7 @@ const ProfilePage = () => {
             size={200}
             style={{ marginBottom: 20 }}
           />
-          <h3>Alex Knipfer</h3>
+          <h3>{user.firstName + ' ' + user.lastName}</h3>
         </div>
         <div className="right col-xs-12 col-sm-12 col-md-6 col-lg-6">
           <Card
@@ -79,6 +80,10 @@ const ProfilePage = () => {
       </style>
     </div>
   )
+}
+
+ProfilePage.propTypes = {
+  user: PropTypes.object
 }
 
 export default ProfilePage

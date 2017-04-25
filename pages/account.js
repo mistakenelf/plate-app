@@ -23,7 +23,7 @@ const account = ({ getUserProfile }) => {
   }
   return (
     <div>
-      <AccountContainer />
+      <AccountContainer user={getUserProfile} />
     </div>
   )
 }
