@@ -29,7 +29,13 @@ function createClient(props) {
   return new ApolloClient({
     networkInterface,
     ssrMode: !process.browser,
-    dataIdFromObject: result => result.id || null,
+    dataIdFromObject: result => {
+      if (result.id && result.__typename) {
+        // eslint-disable-line no-underscore-dangle
+        return result.__typename + result.id // eslint-disable-line no-underscore-dangle
+      }
+      return null
+    },
     connectToDevTools: process.browser
   })
 }

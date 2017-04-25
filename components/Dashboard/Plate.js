@@ -149,8 +149,20 @@ export default compose(
   }),
   graphql(EditPlateMutation, {
     props: ({ mutate }) => ({
-      editPlate: (id, name, description, status) =>
-        mutate({ variables: { id, name, description, status } })
+      editPlate: (id, name, description, status) => {
+        return mutate({
+          variables: { id, name, description, status },
+          optimisticResponse: {
+            __typename: 'Mutation',
+            editPlate: {
+              __typename: 'Plate',
+              name,
+              description,
+              status
+            }
+          }
+        })
+      }
     }),
     options: props => ({
       refetchQueries: [
