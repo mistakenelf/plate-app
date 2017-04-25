@@ -31,14 +31,14 @@ class DashboardContainer extends Component {
             : this.props.plates.map((plate, index) => (
                 <Animate
                   key={index}
+                  easing="easeQuadIn"
                   default={{
                     scale: 0
                   }}
                   data={{
                     scale: 1
                   }}
-                  duration={800}
-                  easing="easeBounceOut"
+                  duration={200}
                 >
                   {data => (
                     <div
