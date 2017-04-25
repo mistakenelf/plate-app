@@ -24,12 +24,12 @@ class EditPlateDialog extends Component {
     plateStatusSelected: 'New'
   }
 
-  editPlateDetails = (id, editPlate, editPlateHandleClose) => {
+  editPlateDetails = async (id, editPlate, editPlateHandleClose) => {
     const newPlateName = document.getElementById('currentPlateName').value
     const newPlateDescription = document.getElementById(
       'currentPlateDescription'
     ).value
-    editPlate(
+    await editPlate(
       id,
       newPlateName,
       newPlateDescription,

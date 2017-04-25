@@ -17,13 +17,15 @@ const editPlateTypeDef = `
 
 const editPlateResolvers = {
   Mutation: {
-    editPlate: ({ db }, { id, name, description, status }) => {
-      return db
+    editPlate: async ({ db }, { id, name, description, status }) => {
+      const editedPlate = await db
         .collection('plates')
         .findOneAndUpdate(
           { _id: new ObjectId(id) },
           { $set: { name: name, description: description, status: status } }
         )
+
+      return editedPlate.value
     }
   },
   Plate: {
