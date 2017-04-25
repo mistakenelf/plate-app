@@ -33,7 +33,7 @@ class EditPlateDialog extends Component {
       id,
       newPlateName,
       newPlateDescription,
-      this.state.plateStatusSelected || 'New'
+      this.state.plateStatusSelected
     )
     editPlateHandleClose()
   }

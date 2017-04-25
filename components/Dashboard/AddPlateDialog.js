@@ -20,7 +20,7 @@ class AddPlateDialog extends Component {
     user: PropTypes.object
   }
 
-  confirmAddPlate = () => {
+  confirmAddPlate = async () => {
     const plateName = document.getElementById('add_plate_name').value
     const plateDescription = document.getElementById('add_plate_description')
       .value
@@ -36,7 +36,7 @@ class AddPlateDialog extends Component {
 
     const colorNumber = Math.floor(Math.random() * 6)
 
-    this.props.addPlate(
+    await this.props.addPlate(
       plateName,
       plateDescription,
       plateColors[colorNumber],

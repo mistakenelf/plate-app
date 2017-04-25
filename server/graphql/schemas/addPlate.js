@@ -17,7 +17,7 @@ const addPlateTypeDef = `
 
 const addPlateResolvers = {
   Mutation: {
-    addPlate: ({ db }, { name, description, thumbnail, createdBy }) => {
+    addPlate: async ({ db }, { name, description, thumbnail, createdBy }) => {
       const initialContent = JSON.stringify(
         convertToRaw(
           ContentState.createFromText(
@@ -34,7 +34,8 @@ const addPlateResolvers = {
         createdBy: createdBy
       }
 
-      return db.collection('plates').insert(data)
+      await db.collection('plates').insert(data)
+      return data
     }
   },
   Plate: {
