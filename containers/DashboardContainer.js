@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import AddPlateButton from '../components/Dashboard/AddPlateButton'
+import { Animate } from 'react-move'
 import Loader from '../components/Loader/Loader'
 import NoPlatesFound from '../components/Dashboard/NoPlatesFound'
 import Plate from '../components/Dashboard/Plate'
@@ -28,20 +29,36 @@ class DashboardContainer extends Component {
                 <NoPlatesFound />
               </div>
             : this.props.plates.map((plate, index) => (
-                <div
+                <Animate
                   key={index}
-                  className="col-xs-12 col-sm-12 col-md-6 col-lg-3 plate-padding"
+                  default={{
+                    scale: 0
+                  }}
+                  data={{
+                    scale: 1
+                  }}
+                  duration={800}
+                  easing="easeBounceOut"
                 >
-                  <Plate
-                    plateId={plate.id}
-                    name={plate.name}
-                    description={plate.description}
-                    cardImage={plate.thumbnail}
-                    status={plate.status}
-                    content={plate.content}
-                    user={this.props.user}
-                  />
-                </div>
+                  {data => (
+                    <div
+                      style={{
+                        transform: `scale(${data.scale})`
+                      }}
+                      className="col-xs-12 col-sm-12 col-md-6 col-lg-3 plate-padding"
+                    >
+                      <Plate
+                        plateId={plate.id}
+                        name={plate.name}
+                        description={plate.description}
+                        cardImage={plate.thumbnail}
+                        status={plate.status}
+                        content={plate.content}
+                        user={this.props.user}
+                      />
+                    </div>
+                  )}
+                </Animate>
               ))}
         </div>
         <div className="row">
