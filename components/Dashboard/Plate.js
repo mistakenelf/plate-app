@@ -46,8 +46,8 @@ class Plate extends Component {
     this.setState({ editPlateOpen: false })
   }
 
-  deletePlate = plateId => {
-    this.props.removePlate(plateId)
+  deletePlate = async plateId => {
+    await this.props.removePlate(plateId)
     this.washPlateHandleClose()
   }
 
@@ -136,7 +136,18 @@ class Plate extends Component {
 export default compose(
   graphql(RemovePlateMutation, {
     props: ({ mutate }) => ({
-      removePlate: id => mutate({ variables: { id } })
+      removePlate: id => {
+        return mutate({
+          variables: { id },
+          optimisticResponse: {
+            __typename: 'Mutation',
+            removePlate: {
+              __typename: 'Plate',
+              id
+            }
+          }
+        })
+      }
     }),
     options: props => ({
       refetchQueries: [

@@ -17,8 +17,11 @@ const removePlateTypeDef = `
 
 const removePlateResolvers = {
   Mutation: {
-    removePlate: ({ db }, { id }) => {
-      return db.collection('plates').findOneAndDelete({ _id: new ObjectId(id) })
+    removePlate: async ({ db }, { id }) => {
+      const data = await db
+        .collection('plates')
+        .findOneAndDelete({ _id: new ObjectId(id) })
+      return data.value
     }
   },
   Plate: {
