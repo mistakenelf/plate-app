@@ -11,6 +11,13 @@ export const pageWithDefaultLayout = compose(
   withAnalytics,
   withAuth,
   withDefaultLayout,
+)
+
+export const pageWithUserData = compose(
+  withData,
+  withAnalytics,
+  withAuth,
+  withDefaultLayout,
   withUser
 )
 

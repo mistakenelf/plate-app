@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
-import { pageWithDefaultLayout } from '../hocs/page'
+import { pageWithUserData } from '../hocs/page'
 
 const account = ({ getUserProfile }) => {
   if (getUserProfile === null) {
@@ -32,4 +32,4 @@ account.propTypes = {
   getUserProfile: PropTypes.object
 }
 
-export default pageWithDefaultLayout(account)
+export default pageWithUserData(account)

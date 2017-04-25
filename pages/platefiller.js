@@ -3,7 +3,7 @@ import PlateFillerContainer from '../containers/PlateFillerContainer'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
-import { pageWithDefaultLayout } from '../hocs/page'
+import { pageWithUserData } from '../hocs/page'
 
 const platefiller = ({ getUserProfile, url }) => {
   if (getUserProfile === null) {
@@ -34,4 +34,4 @@ platefiller.propTypes = {
   url: PropTypes.object
 }
 
-export default pageWithDefaultLayout(platefiller)
+export default pageWithUserData(platefiller)

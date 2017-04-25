@@ -3,7 +3,7 @@ import DashboardContainer from '../containers/DashboardContainer'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
-import { pageWithDefaultLayout } from '../hocs/page'
+import { pageWithUserData } from '../hocs/page'
 
 const dashboard = ({ getUserProfile }) => {
   if (getUserProfile === null) {
@@ -33,4 +33,4 @@ dashboard.propTypes = {
   getUserProfile: PropTypes.object
 }
 
-export default pageWithDefaultLayout(dashboard)
+export default pageWithUserData(dashboard)
