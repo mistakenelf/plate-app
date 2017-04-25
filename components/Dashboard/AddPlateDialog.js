@@ -102,17 +102,7 @@ export default compose(
     props: ({ mutate }) => ({
       addPlate: (name, description, thumbnail, createdBy) =>
         mutate({
-          variables: { name, description, thumbnail, createdBy },
-          optimisticResponse: {
-            __typename: 'Mutation',
-            addPlate: {
-              __typename: 'Plate',
-              name,
-              description,
-              thumbnail,
-              createdBy
-            }
-          }
+          variables: { name, description, thumbnail, createdBy }
         })
     }),
     options: props => ({
