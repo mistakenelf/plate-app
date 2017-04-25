@@ -100,10 +100,21 @@ export default compose(
   }),
   graphql(AddPlateMutation, {
     props: ({ mutate }) => ({
-      addPlate: (name, description, thumbnail, createdBy) =>
-        mutate({
-          variables: { name, description, thumbnail, createdBy }
+      addPlate: (name, description, thumbnail, createdBy) => {
+        return mutate({
+          variables: { name, description, thumbnail, createdBy },
+          optimisticResponse: {
+            __typename: 'Mutation',
+            addPlate: {
+              __typename: 'Plate',
+              name,
+              description,
+              thumbnail,
+              createdBy
+            }
+          }
         })
+      }
     }),
     options: props => ({
       refetchQueries: [
