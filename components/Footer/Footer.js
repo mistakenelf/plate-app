@@ -14,7 +14,7 @@ const Footer = () => {
         {`
           .copyright {
             color: white;
-            background-color: #1E2532;
+            background-color: #212121;
             padding: 5px;
             font-size: .7em;
           }

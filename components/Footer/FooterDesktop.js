@@ -50,7 +50,7 @@ const FooterDesktop = () => {
         {`
         .footer-main {
           color: white;
-          background-color: #1E2532;
+          background-color: #212121;
           height: 250px;
           padding: 30px;
         }

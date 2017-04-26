@@ -32,25 +32,25 @@ class FooterMobile extends Component {
           <List>
             <ListItem
               primaryText="Quick Links"
-              style={{ color: '#bdbdbd' }}
+              style={{ color: 'white' }}
               onNestedListToggle={this.toggleQuickLinks}
               rightIcon={
                 this.state.quickLinksOpen
-                  ? <ExpandMoreIcon />
-                  : <KeyboardArrowRight />
+                  ? <ExpandMoreIcon color="white" />
+                  : <KeyboardArrowRight color="white" />
               }
               primaryTogglesNestedList
               nestedItems={[
                 <ListItem
                   key={1}
                   primaryText="Terms and Conditions"
-                  style={{ color: '#bdbdbd' }}
+                  style={{ color: 'white' }}
                   onTouchTap={() => Router.push('/terms')}
                 />,
                 <ListItem
                   key={2}
                   primaryText="Meet The Team"
-                  style={{ color: '#bdbdbd' }}
+                  style={{ color: 'white' }}
                   onTouchTap={() => Router.push('/team')}
                 />
               ]}
@@ -60,25 +60,25 @@ class FooterMobile extends Component {
             </div>
             <ListItem
               primaryText="Get In Touch"
-              style={{ color: '#bdbdbd' }}
+              style={{ color: 'white' }}
               onNestedListToggle={this.toggleAboutLinks}
               rightIcon={
                 this.state.aboutLinksOpen
-                  ? <ExpandMoreIcon />
-                  : <KeyboardArrowRight />
+                  ? <ExpandMoreIcon color="white" />
+                  : <KeyboardArrowRight color="white" />
               }
               primaryTogglesNestedList
               nestedItems={[
                 <ListItem
                   key={1}
                   primaryText="About Us"
-                  style={{ color: '#bdbdbd' }}
+                  style={{ color: 'white' }}
                   onTouchTap={() => Router.push('/about')}
                 />,
                 <ListItem
                   key={2}
                   primaryText="Contact Us"
-                  style={{ color: '#bdbdbd' }}
+                  style={{ color: 'white' }}
                   onTouchTap={() => Router.push('/contact')}
                 />
               ]}
@@ -88,7 +88,7 @@ class FooterMobile extends Component {
         <style jsx>
           {`
             .footer-mobile {
-              background-color: #1E2532;
+              background-color: #212121;
             }
             .divider-style {
               opacity: 0.1;
