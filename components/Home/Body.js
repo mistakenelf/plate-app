@@ -8,7 +8,7 @@ const Body = () => {
         Get started now or if you want to learn more get
         in contact with us and we'll help out.
       </div>
-      <img src="/static/img/plateLogo.png" />
+      <img src="https://res.cloudinary.com/knipferrc/image/upload/v1493208940/plateLogo_wa3wpi.png" />
       <style jsx>
         {`
           .body {

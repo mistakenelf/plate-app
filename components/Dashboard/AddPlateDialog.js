@@ -26,12 +26,12 @@ class AddPlateDialog extends Component {
       .value
 
     const plateColors = [
-      '/static/img/wine.png',
-      '/static/img/milk.png',
-      '/static/img/egg.png',
-      '/static/img/garlic.png',
-      '/static/img/turkey.png',
-      '/static/img/pizza.png'
+      'https://res.cloudinary.com/knipferrc/image/upload/v1493208940/wine_q6ujgl.png',
+      'https://res.cloudinary.com/knipferrc/image/upload/v1493208939/milk_rbreh5.png',
+      'https://res.cloudinary.com/knipferrc/image/upload/v1493208939/egg_q3tta8.png',
+      'https://res.cloudinary.com/knipferrc/image/upload/v1493208939/garlic_un9gbg.png',
+      'https://res.cloudinary.com/knipferrc/image/upload/v1493208939/turkey_d6sftw.png',
+      'https://res.cloudinary.com/knipferrc/image/upload/v1493208939/pizza_pyyg8p.png'
     ]
 
     const colorNumber = Math.floor(Math.random() * 6)

@@ -141,7 +141,7 @@ class ContentEditor extends Component {
           style={{
             backgroundRepeat: 'no-repeat',
             backgroundImage: this.state.currBackground === 0
-              ? 'url(/static/img/chalkboard.jpg)'
+              ? 'url(https://res.cloudinary.com/knipferrc/image/upload/v1493208940/chalkboard_th5tlf.jpg)'
               : 'none',
             backgroundColor: this.state.currBackground === 1 ? 'white' : 'none',
             color: this.state.currBackground === 1 ? 'black' : 'white'
