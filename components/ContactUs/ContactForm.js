@@ -18,10 +18,19 @@ const ContactForm = () => {
           <h1>Get in touch with us</h1>
           <div className="contact-form">
             <Card style={{ paddingTop: 40, paddingBottom: 40 }}>
-              <TextField hintText="Name" /><br />
-              <TextField hintText="Email Address" style={{ marginTop: 20 }} />
+              <TextField hintText="Name" id="name" /><br />
+              <TextField
+                hintText="Email Address"
+                id="email"
+                style={{ marginTop: 20 }}
+              />
               <br />
-              <TextField hintText="Describe your message." multiLine rows={3} />
+              <TextField
+                hintText="Describe your message."
+                id="message"
+                multiLine
+                rows={3}
+              />
               <br />
               <RaisedButton label="Send Message" style={styles.button} />
             </Card>
