@@ -3971,9 +3971,9 @@ react-hot-loader@3.0.0-beta.6:
     redbox-react "^1.2.5"
     source-map "^0.4.4"
 
-react-move@^1.1.7:
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/react-move/-/react-move-1.1.7.tgz#2baa763c5ad52a83142b517ee40b86366fd26b4d"
+react-move@^1.1.8:
+  version "1.1.8"
+  resolved "https://registry.yarnpkg.com/react-move/-/react-move-1.1.8.tgz#deee7e01002580f925afa47520525a821f512d6a"
   dependencies:
     "@types/react" "^15.0.22"
     d3-ease "^1.0.3"
@@ -4626,9 +4626,9 @@ supports-color@^3.1.0:
   dependencies:
     has-flag "^1.0.0"
 
-sw-precache-webpack-plugin@^0.9.1:
-  version "0.9.1"
-  resolved "https://registry.yarnpkg.com/sw-precache-webpack-plugin/-/sw-precache-webpack-plugin-0.9.1.tgz#2381ff706fbb6cabdb20a20337de8e58fb49a2a7"
+sw-precache-webpack-plugin@^0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/sw-precache-webpack-plugin/-/sw-precache-webpack-plugin-0.10.1.tgz#3e353000f79054ce3f7b8fc8047dd762cd0eebe5"
   dependencies:
     del "^2.2.2"
     sw-precache "^5.0.0"

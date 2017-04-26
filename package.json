@@ -36,7 +36,7 @@
     "react-apollo": "^1.1.1",
     "react-dom": "^15.5.4",
     "react-ga": "^2.2.0",
-    "react-move": "^1.1.7",
+    "react-move": "^1.1.8",
     "react-redux": "^5.0.4",
     "react-swipeable-views": "^0.12.1",
     "react-tap-event-plugin": "^2.0.1",
@@ -52,7 +52,7 @@
     "eslint-plugin-react": "^6.10.3",
     "prettier": "^1.2.2",
     "prettier-eslint": "^6.1.1",
-    "sw-precache-webpack-plugin": "^0.9.1"
+    "sw-precache-webpack-plugin": "^0.10.1"
   },
   "now": {
     "alias": "plate"
