@@ -11,7 +11,6 @@ const Header = ({ title }) => {
         name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
       />
-      <meta name="theme-color" content="#343f53" />
       <meta
         name="apple-mobile-web-app-status-bar-style"
         content="black-translucent"
@@ -23,22 +22,18 @@ const Header = ({ title }) => {
       <link
         href="https://fonts.googleapis.com/css?family=Roboto"
         rel="stylesheet"
-        async
       />
       <link
         href="https://fonts.googleapis.com/css?family=Fredericka+the+Great"
         rel="stylesheet"
-        async
       />
       <link
         href="https://res.cloudinary.com/knipferrc/raw/upload/flexboxgrid_lwjscm.css"
         rel="stylesheet"
-        async
       />
       <link
         href="https://res.cloudinary.com/knipferrc/raw/upload/nprogress_xgvrwm.css"
         rel="stylesheet"
-        async
       />
       <link rel="manifest" href="/static/manifest.json" />
     </Head>
