@@ -1,13 +1,12 @@
-import HomeContainer from '../containers/HomeContainer'
-import React from 'react'
+import React, { Component } from 'react'
+
+import Home from '../views/Home'
 import { pageWithDefaultLayout } from '../hocs/page'
 
-const index = () => {
-  return (
-    <div>
-      <HomeContainer />
-    </div>
-  )
-}
-
-export default pageWithDefaultLayout(index)
+export default pageWithDefaultLayout(
+  class extends Component {
+    render() {
+      return <Home />
+    }
+  }
+)

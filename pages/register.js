@@ -1,13 +1,12 @@
-import React from 'react'
-import RegisterContainer from '../containers/RegisterContainer'
+import React, { Component } from 'react'
+
+import Register from '../views/Register'
 import { pageWithNavlessLayout } from '../hocs/page'
 
-const register = () => {
-  return (
-    <div>
-      <RegisterContainer />
-    </div>
-  )
-}
-
-export default pageWithNavlessLayout(register)
+export default pageWithNavlessLayout(
+  class extends Component {
+    render() {
+      return <Register />
+    }
+  }
+)

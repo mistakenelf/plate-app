@@ -3,13 +3,13 @@ import { Field, reduxForm } from 'redux-form'
 import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 
-import BorderedButton from '../BorderedButton/BorderedButton'
+import BorderedButton from '../../../components/BorderedButton/BorderedButton'
 import Cookies from 'js-cookie'
 import Link from 'next/link'
-import LoginMutation from '../../mutations/LoginMutation'
-import LoginValidation from '../../validations/LoginValidation'
+import LoginMutation from '../../../mutations/LoginMutation'
+import LoginValidation from '../../../validations/LoginValidation'
 import PropTypes from 'prop-types'
-import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
+import RenderWhiteTextField from '../../../utils/RenderWhiteTextField'
 
 class LoginForm extends Component {
   static propTypes = {

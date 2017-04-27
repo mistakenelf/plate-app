@@ -1,19 +1,14 @@
 import { compose, graphql } from 'react-apollo'
 
-import ContentEditor from '../components/PlateFiller/ContentEditor'
-import Header from '../components/PlateFiller/Header'
-import Loader from '../components/Loader/Loader'
-import PlateQuery from '../queries/PlateQuery'
+import ContentEditor from './components/ContentEditor'
+import Header from './components/Header'
+import Loader from '../../components/Loader/Loader'
+import PlateQuery from '../../queries/PlateQuery'
 import PropTypes from 'prop-types'
 import React from 'react'
-import SavePlateContentMutation from '../mutations/SavePlateContentMutation'
+import SavePlateContentMutation from '../../mutations/SavePlateContentMutation'
 
-const PlateFillerContainer = ({
-  plateId,
-  savePlateContent,
-  plate,
-  loading
-}) => {
+const PlateFiller = ({ plateId, savePlateContent, plate, loading }) => {
   if (loading) {
     return <Loader />
   }
@@ -43,7 +38,7 @@ const PlateFillerContainer = ({
   )
 }
 
-PlateFillerContainer.propTypes = {
+PlateFiller.propTypes = {
   plateId: PropTypes.string,
   savePlateContent: PropTypes.func,
   plate: PropTypes.object,
@@ -75,4 +70,4 @@ export default compose(
       fetchPolicy: 'cache-and-network'
     })
   })
-)(PlateFillerContainer)
+)(PlateFiller)

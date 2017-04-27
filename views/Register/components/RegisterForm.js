@@ -3,12 +3,12 @@ import { Field, reduxForm } from 'redux-form'
 import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 
-import BorderedButton from '../BorderedButton/BorderedButton'
+import BorderedButton from '../../../components/BorderedButton/BorderedButton'
 import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
-import RegisterMutation from '../../mutations/RegisterMutation'
-import RegisterValidation from '../../validations/RegisterValidation'
-import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
+import RegisterMutation from '../../../mutations/RegisterMutation'
+import RegisterValidation from '../../../validations/RegisterValidation'
+import RenderWhiteTextField from '../../../utils/RenderWhiteTextField'
 
 class RegisterForm extends Component {
   static propTypes = {

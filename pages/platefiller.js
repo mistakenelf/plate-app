@@ -1,37 +1,36 @@
+import React, { Component } from 'react'
+
 import Cookies from 'js-cookie'
-import PlateFillerContainer from '../containers/PlateFillerContainer'
+import PlateFiller from '../views/PlateFiller'
 import PropTypes from 'prop-types'
-import React from 'react'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
 import { pageWithUserData } from '../hocs/page'
 
-const platefiller = ({ getUserProfile, url }) => {
-  if (getUserProfile === null) {
-    return (
-      <div>
-        <Unauthorized />
-      </div>
-    )
+export default pageWithUserData(
+  class extends Component {
+    static propTypes = {
+      url: PropTypes.object,
+      getUserProfile: PropTypes.object
+    }
+
+    render() {
+      const { getUserProfile } = this.props
+      if (getUserProfile === null) {
+        return (
+          <div>
+            <Unauthorized />
+          </div>
+        )
+      }
+
+      if (!Cookies.get('token')) {
+        return (
+          <div>
+            <Unauthorized />
+          </div>
+        )
+      }
+      return <PlateFiller plateId={url.query.id} />
+    }
   }
-
-  if (!Cookies.get('token')) {
-    return (
-      <div>
-        <Unauthorized />
-      </div>
-    )
-  }
-
-  return (
-    <div>
-      <PlateFillerContainer plateId={url.query.id} />
-    </div>
-  )
-}
-
-platefiller.propTypes = {
-  getUserProfile: PropTypes.object,
-  url: PropTypes.object
-}
-
-export default pageWithUserData(platefiller)
+)

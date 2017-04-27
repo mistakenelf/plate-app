@@ -1,13 +1,12 @@
-import ForgotPasswordContainer from '../containers/ForgotPasswordContainer'
-import React from 'react'
+import React, { Component } from 'react'
+
+import ForgotPassword from '../views/ForgotPassword'
 import { pageWithNavlessLayout } from '../hocs/page'
 
-const forgotpassword = () => {
-  return (
-    <div>
-      <ForgotPasswordContainer />
-    </div>
-  )
-}
-
-export default pageWithNavlessLayout(forgotpassword)
+export default pageWithNavlessLayout(
+  class extends Component {
+    render() {
+      return <ForgotPassword />
+    }
+  }
+)

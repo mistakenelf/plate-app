@@ -79,7 +79,7 @@ class FooterMobile extends Component {
                   key={2}
                   primaryText="Contact Us"
                   style={{ color: 'white' }}
-                  onTouchTap={() => Router.push('/contact')}
+                  onTouchTap={() => Router.push('/contactus')}
                 />
               ]}
             />

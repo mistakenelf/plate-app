@@ -5,12 +5,12 @@ import { compose, graphql } from 'react-apollo'
 import Dialog from 'material-ui/Dialog'
 import EditIcon from 'material-ui/svg-icons/editor/mode-edit'
 import EditPlateDialog from './EditPlateDialog'
-import EditPlateMutation from '../../mutations/EditPlateMutation'
+import EditPlateMutation from '../../../mutations/EditPlateMutation'
 import FlatButton from 'material-ui/FlatButton'
 import Link from 'next/link'
-import PlatesQuery from '../../queries/PlatesQuery'
+import PlatesQuery from '../../../queries/PlatesQuery'
 import PropTypes from 'prop-types'
-import RemovePlateMutation from '../../mutations/RemovePlateMutation'
+import RemovePlateMutation from '../../../mutations/RemovePlateMutation'
 
 class Plate extends Component {
   static propTypes = {

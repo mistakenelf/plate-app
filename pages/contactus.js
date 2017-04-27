@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
-import About from '../views/About'
+import ContactUs from '../views/ContactUs'
 import { pageWithDefaultLayout } from '../hocs/page'
 
 export default pageWithDefaultLayout(
   class extends Component {
     render() {
-      return <About />
+      return <ContactUs />
     }
   }
 )

@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react'
+
+import MeetTheTeam from '../views/MeetTheTeam'
 import { pageWithDefaultLayout } from '../hocs/page'
 
-const Team = () => {
-  return (
-    <div>
-      <h1>Team</h1>
-    </div>
-  )
-}
-
-export default pageWithDefaultLayout(Team)
+export default pageWithDefaultLayout(
+  class extends Component {
+    render() {
+      return <MeetTheTeam />
+    }
+  }
+)

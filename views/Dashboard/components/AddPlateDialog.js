@@ -2,13 +2,13 @@ import { Field, reduxForm } from 'redux-form'
 import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 
-import AddPlateMutation from '../../mutations/AddPlateMutation'
-import AddPlateValidation from '../../validations/AddPlateValidation'
+import AddPlateMutation from '../../../mutations/AddPlateMutation'
+import AddPlateValidation from '../../../validations/AddPlateValidation'
 import Dialog from 'material-ui/Dialog'
 import FlatButton from 'material-ui/FlatButton'
-import PlatesQuery from '../../queries/PlatesQuery'
+import PlatesQuery from '../../../queries/PlatesQuery'
 import PropTypes from 'prop-types'
-import RenderAddPlateTextField from '../../utils/RenderAddPlateTextField'
+import RenderAddPlateTextField from '../../../utils/RenderAddPlateTextField'
 
 class AddPlateDialog extends Component {
   static propTypes = {

@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react'
+
+import TermsAndConditions from '../views/TermsAndConditions'
 import { pageWithDefaultLayout } from '../hocs/page'
 
-const Terms = () => {
-  return <h1>Terms and Conditions</h1>
-}
-
-export default pageWithDefaultLayout(Terms)
+export default pageWithDefaultLayout(
+  class extends Component {
+    render() {
+      return <TermsAndConditions />
+    }
+  }
+)

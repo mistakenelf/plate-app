@@ -1,11 +1,11 @@
 import { Field, reduxForm } from 'redux-form'
 
-import BorderedButton from '../BorderedButton/BorderedButton'
+import BorderedButton from '../../../components/BorderedButton/BorderedButton'
 import ForgotPasswordValidation
-  from '../../validations/ForgotPasswordValidation'
+  from '../../../validations/ForgotPasswordValidation'
 import PropTypes from 'prop-types'
 import React from 'react'
-import RenderWhiteTextField from '../../utils/RenderWhiteTextField'
+import RenderWhiteTextField from '../../../utils/RenderWhiteTextField'
 
 const forgotPassword = e => {
   e.preventDefault()

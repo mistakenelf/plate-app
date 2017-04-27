@@ -1,35 +1,37 @@
-import AccountContainer from '../containers/AccountContainer'
+import React, { Component } from 'react'
+
+import Account from '../views/Account'
 import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
-import React from 'react'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
 import { pageWithUserData } from '../hocs/page'
 
-const account = ({ getUserProfile }) => {
-  if (getUserProfile === null) {
-    return (
-      <div>
-        <Unauthorized />
-      </div>
-    )
+export default pageWithUserData(
+  class extends Component {
+    static propTypes = {
+      getUserProfile: PropTypes.object
+    }
+
+    render() {
+      const { getUserProfile } = this.props
+
+      if (getUserProfile === null) {
+        return (
+          <div>
+            <Unauthorized />
+          </div>
+        )
+      }
+
+      if (!Cookies.get('token')) {
+        return (
+          <div>
+            <Unauthorized />
+          </div>
+        )
+      }
+
+      return <Account user={getUserProfile} />
+    }
   }
-
-  if (!Cookies.get('token')) {
-    return (
-      <div>
-        <Unauthorized />
-      </div>
-    )
-  }
-  return (
-    <div>
-      <AccountContainer user={getUserProfile} />
-    </div>
-  )
-}
-
-account.propTypes = {
-  getUserProfile: PropTypes.object
-}
-
-export default pageWithUserData(account)
+)
