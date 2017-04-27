@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 
-import AddPlateButton from '../components/Dashboard/AddPlateButton'
+import AddPlateButton from './AddPlateButton'
 import { Animate } from 'react-move'
-import Loader from '../components/Loader/Loader'
-import NoPlatesFound from '../components/Dashboard/NoPlatesFound'
-import Plate from '../components/Dashboard/Plate'
-import PlatesQuery from '../queries/PlatesQuery'
+import Loader from '../../components/Loader/Loader'
+import NoPlatesFound from './NoPlatesFound'
+import Plate from './Plate'
+import PlatesQuery from '../../queries/PlatesQuery'
 import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 
-class DashboardContainer extends Component {
+class DashboardView extends Component {
   static propTypes = {
     loading: PropTypes.bool,
     plates: PropTypes.array,
@@ -101,4 +101,4 @@ export default graphql(PlatesQuery, {
     fetchPolicy: 'cache-and-network',
     variables: { username: props.user.username }
   })
-})(DashboardContainer)
+})(DashboardView)

@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie'
-import DashboardContainer from '../containers/DashboardContainer'
+import DashboardView from '../views/Dashboard'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
@@ -24,7 +24,7 @@ const dashboard = ({ getUserProfile }) => {
 
   return (
     <div>
-      <DashboardContainer user={getUserProfile} />
+      <DashboardView user={getUserProfile} />
     </div>
   )
 }
