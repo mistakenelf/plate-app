@@ -14,7 +14,7 @@ export default pageWithUserData(
     }
 
     render() {
-      const { getUserProfile } = this.props
+      const { getUserProfile, url } = this.props
       if (getUserProfile === null) {
         return (
           <div>
