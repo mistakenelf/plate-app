@@ -43,7 +43,7 @@ export default ComposedComponent => class WithData extends Component {
     const response = await fetch(
       process.env.NODE_ENV === 'development'
         ? 'http://localhost:3000/messages'
-        : 'https://plate.now.sh'
+        : 'https://plate.now.sh/messages'
     )
     const messages = await response.json()
 

@@ -25,7 +25,7 @@ class PlateTalk extends Component {
     this.socket = io(
       process.env.NODE_ENV === 'development'
         ? 'http://localhost:3000/'
-        : 'https://plate.now.sh'
+        : 'https://plate.now.sh/'
     )
     this.socket.on('message', this.handleMessage)
   }
