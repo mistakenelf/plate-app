@@ -22,7 +22,11 @@ class PlateTalk extends Component {
 
   // connect to WS server and listen event
   componentDidMount() {
-    this.socket = io('http://localhost:3000/')
+    this.socket = io(
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3000/'
+        : 'https://plate.now.sh'
+    )
     this.socket.on('message', this.handleMessage)
   }
 

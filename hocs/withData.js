@@ -40,7 +40,11 @@ export default ComposedComponent => class WithData extends Component {
       token = ctx.req.cookies.token
     }
 
-    const response = await fetch('http://localhost:3000/messages')
+    const response = await fetch(
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3000/messages'
+        : 'https://plate.now.sh'
+    )
     const messages = await response.json()
 
     const clientAndStoreProps = {
