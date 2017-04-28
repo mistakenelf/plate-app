@@ -46,7 +46,6 @@ const Body = () => {
             height: 350px;
             background-color: #FAFAFA;
           }
-
           .align-items {
             margin-top: auto;
             margin-bottom: auto;
