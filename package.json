@@ -41,7 +41,9 @@
     "react-swipeable-views": "^0.12.1",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
-    "redux-form": "^6.6.3"
+    "redux-form": "^6.6.3",
+    "socket.io": "^1.7.3",
+    "socket.io-client": "^1.7.3"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
