@@ -40,11 +40,15 @@ const Body = () => {
           .section {
             width: auto;
             height: 350px;
+            margin-top: 30px;
+            margin-bottom: 30px;
           }
           .section-grey {
             width: auto;
             height: 350px;
             background-color: #FAFAFA;
+            margin-top: 30px;
+            margin-bottom: 30px;
           }
           .align-items {
             margin-top: auto;
