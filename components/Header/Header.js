@@ -25,10 +25,6 @@ const Header = ({ title }) => {
         rel="stylesheet"
       />
       <link
-        href="https://fonts.googleapis.com/css?family=Fredericka+the+Great"
-        rel="stylesheet"
-      />
-      <link
         href="https://res.cloudinary.com/knipferrc/raw/upload/flexboxgrid_lwjscm.css"
         rel="stylesheet"
       />

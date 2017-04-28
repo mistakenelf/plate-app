@@ -169,12 +169,11 @@ class ContentEditor extends Component {
               padding: 15px;
             }
             .RichEditor-editor {
-              font-family: 'Fredericka the Great', cursive;
               cursor: text;
               font-size: 16px;
               margin-top: 10px;
               padding: 15px;
-              min-height: 100vh;
+              min-height: 400px;
             }
             .RichEditor-editor .RichEditor-blockquote {
               border-left: 5px solid #eee;
