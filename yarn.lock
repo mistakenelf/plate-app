@@ -3887,9 +3887,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier-eslint@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/prettier-eslint/-/prettier-eslint-6.1.1.tgz#5fa54088a26af5da0986e1ac90af32ea1dbe5325"
+prettier-eslint@^6.1.2:
+  version "6.1.2"
+  resolved "https://registry.yarnpkg.com/prettier-eslint/-/prettier-eslint-6.1.2.tgz#97984cbeb668d3b748cda92983898b2fa4850006"
   dependencies:
     common-tags "^1.4.0"
     dlv "^1.1.0"
