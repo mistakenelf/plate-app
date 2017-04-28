@@ -72,13 +72,22 @@ const Navigation = ({ open, openDrawer, closeDrawer, token }) => {
           </a>
         </Link>
         {token &&
-          <Link prefetch href="/dashboard">
-            <a className="sidebar-text">
-              <MenuItem onTouchTap={closeDrawer}>
-                Dashboard
-              </MenuItem>
-            </a>
-          </Link>}
+          <div>
+            <Link prefetch href="/dashboard">
+              <a className="sidebar-text">
+                <MenuItem onTouchTap={closeDrawer}>
+                  Dashboard
+                </MenuItem>
+              </a>
+            </Link>
+            <Link prefetch href="/platetalk">
+              <a className="sidebar-text">
+                <MenuItem onTouchTap={closeDrawer}>
+                  Plate Talk
+                </MenuItem>
+              </a>
+            </Link>
+          </div>}
       </Drawer>
       <style jsx>
         {`

@@ -31,12 +31,17 @@ export default ComposedComponent => class WithData extends Component {
   static async getInitialProps(ctx) {
     const subProps = await loadGetInitialProps(ComposedComponent, ctx)
     let token
+
     const userAgent = ctx.req
       ? ctx.req.headers['user-agent']
       : navigator.userAgent
+
     if (!process.browser) {
       token = ctx.req.cookies.token
     }
+
+    const response = await fetch('http://localhost:3000/messages')
+    const messages = await response.json()
 
     const clientAndStoreProps = {
       token: token,
@@ -50,6 +55,7 @@ export default ComposedComponent => class WithData extends Component {
 
     const props = {
       url: { query: ctx.query, pathname: ctx.pathname },
+      messages,
       ...subProps
     }
 
