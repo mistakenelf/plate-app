@@ -3,12 +3,13 @@ import { Field, reduxForm } from 'redux-form'
 import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 
-import BorderedButton from '../../../components/BorderedButton/BorderedButton'
 import Cookies from 'js-cookie'
+import Link from 'next/link'
 import PropTypes from 'prop-types'
+import RaisedButton from 'material-ui/RaisedButton'
 import RegisterMutation from '../../../mutations/RegisterMutation'
 import RegisterValidation from '../../../validations/RegisterValidation'
-import RenderWhiteTextField from '../../../utils/RenderWhiteTextField'
+import RenderRegularTextField from '../../../utils/RenderRegularTextField'
 
 class RegisterForm extends Component {
   static propTypes = {
@@ -59,47 +60,59 @@ class RegisterForm extends Component {
       <div className="container-fluid">
         <div className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg">
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-            <h1 className="header-text">Register</h1>
-            {this.state.registerError &&
-              <Card style={errorStyle}>
-                <div className="error-text">
-                  <CardText>
-                    <b>Error:</b> Registration Error.
-                  </CardText>
-                </div>
-              </Card>}
-            <form onSubmit={handleSubmit(this.registerUser)}>
-              <Field
-                name="firstName"
-                id="firstName"
-                component={RenderWhiteTextField}
-                type="text"
-                label="First Name"
-              />
-              <Field
-                name="lastName"
-                id="lastName"
-                component={RenderWhiteTextField}
-                type="text"
-                label="Last Name"
-              />
-              <Field
-                name="username"
-                id="username"
-                component={RenderWhiteTextField}
-                type="text"
-                label="Username"
-              />
-              <Field
-                name="password"
-                id="password"
-                component={RenderWhiteTextField}
-                type="password"
-                label="Password"
-                style={{ marginBottom: 20 }}
-              />
-              <BorderedButton color="white" type="submit" label="Register" />
-            </form>
+            <Card style={{ padding: 20 }}>
+              <h1 className="header-text">Register</h1>
+              {this.state.registerError &&
+                <Card style={errorStyle}>
+                  <div className="error-text">
+                    <CardText>
+                      <b>Error:</b> Registration Error.
+                    </CardText>
+                  </div>
+                </Card>}
+              <form onSubmit={handleSubmit(this.registerUser)}>
+                <Field
+                  name="firstName"
+                  id="firstName"
+                  component={RenderRegularTextField}
+                  type="text"
+                  label="First Name"
+                />
+                <Field
+                  name="lastName"
+                  id="lastName"
+                  component={RenderRegularTextField}
+                  type="text"
+                  label="Last Name"
+                />
+                <Field
+                  name="username"
+                  id="username"
+                  component={RenderRegularTextField}
+                  type="text"
+                  label="Username"
+                />
+                <Field
+                  name="password"
+                  id="password"
+                  component={RenderRegularTextField}
+                  type="password"
+                  label="Password"
+                  style={{ marginBottom: 20 }}
+                />
+                <RaisedButton
+                  style={{ marginBottom: 5 }}
+                  label="Register"
+                  primary
+                />
+              </form>
+              <span className="login-link">
+                Already have an account?
+                <Link prefetch href="/login">
+                  <a> Login</a>
+                </Link>
+              </span>
+            </Card>
           </div>
         </div>
         <style jsx>
@@ -114,11 +127,14 @@ class RegisterForm extends Component {
             margin-bottom: 15px;
           }
           .header-text {
-            color: white;
-            margin-bottom: 50px;
+            color: black;
+            margin-bottom: 40px;
           }
           .error-text {
             text-align: center;
+          }
+          .login-link {
+            font-size: 12px;
           }
           `}
         </style>
