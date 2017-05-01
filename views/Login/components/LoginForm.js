@@ -3,13 +3,13 @@ import { Field, reduxForm } from 'redux-form'
 import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 
-import BorderedButton from '../../../components/BorderedButton/BorderedButton'
 import Cookies from 'js-cookie'
 import Link from 'next/link'
 import LoginMutation from '../../../mutations/LoginMutation'
 import LoginValidation from '../../../validations/LoginValidation'
 import PropTypes from 'prop-types'
-import RenderWhiteTextField from '../../../utils/RenderWhiteTextField'
+import RaisedButton from 'material-ui/RaisedButton'
+import RenderRegularTextField from '../../../utils/RenderRegularTextField'
 
 class LoginForm extends Component {
   static propTypes = {
@@ -48,43 +48,49 @@ class LoginForm extends Component {
       <div className="container-fluid">
         <div className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg">
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-            <h1 className="header-text">Login</h1>
-            {this.state.loginError &&
-              <Card style={errorStyle}>
-                <div className="error-text">
-                  <CardText>
-                    <b>Error:</b> Invalid Login.
-                    <Link prefetch href="/forgotpassword">
-                      <a style={{ textDecoration: 'none' }}>
-                        {' '}Forgot Password?
-                      </a>
-                    </Link>
-                  </CardText>
-                </div>
-              </Card>}
-            <form onSubmit={handleSubmit(() => this.userLogin(login))}>
-              <Field
-                name="username"
-                id="username"
-                component={RenderWhiteTextField}
-                type="text"
-                label="Username"
-              />
-              <Field
-                name="password"
-                id="password"
-                component={RenderWhiteTextField}
-                type="password"
-                label="Password"
-                style={{ marginBottom: 20 }}
-              />
-              <BorderedButton color="white" type="submit" label="Login" />
-            </form>
-            <div className="forgot-password">
-              <Link prefetch href="/forgotpassword">
-                <a>Forgot Password?</a>
-              </Link>
-            </div>
+            <Card style={{ padding: 20 }}>
+              <h1 className="header-text">Login</h1>
+              {this.state.loginError &&
+                <Card style={errorStyle}>
+                  <div className="error-text">
+                    <CardText>
+                      <b>Error:</b> Invalid Login.
+                      <Link prefetch href="/forgotpassword">
+                        <a style={{ textDecoration: 'none' }}>
+                          {' '}Forgot Password?
+                        </a>
+                      </Link>
+                    </CardText>
+                  </div>
+                </Card>}
+              <form onSubmit={handleSubmit(() => this.userLogin(login))}>
+                <Field
+                  name="username"
+                  id="username"
+                  component={RenderRegularTextField}
+                  type="text"
+                  label="Username"
+                />
+                <Field
+                  name="password"
+                  id="password"
+                  component={RenderRegularTextField}
+                  type="password"
+                  label="Password"
+                  style={{ marginBottom: 20 }}
+                />
+                <RaisedButton
+                  style={{ marginBottom: 5 }}
+                  label="Login"
+                  primary
+                />
+              </form>
+              <div className="forgot-password">
+                <Link prefetch href="/forgotpassword">
+                  <a>Forgot Password?</a>
+                </Link>
+              </div>
+            </Card>
           </div>
         </div>
         <style jsx>
@@ -99,8 +105,8 @@ class LoginForm extends Component {
             margin-top: 15px;
           }
           .forgot-password a {
-            color: white;
             text-decoration: none;
+            font-size: 12px;
           }
           .error-text {
             text-align: center;
@@ -109,8 +115,7 @@ class LoginForm extends Component {
             height: 90vh;
           }
           .header-text {
-            color: white;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
           }
         `}
         </style>
