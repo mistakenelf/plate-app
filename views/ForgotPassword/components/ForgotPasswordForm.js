@@ -1,14 +1,14 @@
 import { Field, reduxForm } from 'redux-form'
 
-import BorderedButton from '../../../components/BorderedButton/BorderedButton'
+import { Card } from 'material-ui/Card'
 import ForgotPasswordValidation
   from '../../../validations/ForgotPasswordValidation'
 import PropTypes from 'prop-types'
+import RaisedButton from 'material-ui/RaisedButton'
 import React from 'react'
-import RenderWhiteTextField from '../../../utils/RenderWhiteTextField'
+import RenderRegularTextField from '../../../utils/RenderRegularTextField'
 
-const forgotPassword = e => {
-  e.preventDefault()
+const forgotPassword = () => {
   console.log('submitted')
 }
 
@@ -17,23 +17,27 @@ const ForgotPasswordForm = ({ handleSubmit }) => {
     <div className="container-fluid">
       <div className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg">
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-          <h1 className="header-text">Forgot Password</h1>
-          <form onSubmit={handleSubmit(forgotPassword)}>
-            <div className="text-field-email">
-              <Field
-                name="email"
-                id="email"
-                component={RenderWhiteTextField}
-                type="email"
-                label="Email"
+          <Card style={{ padding: 20 }}>
+            <h1 className="header-text">Forgot Password</h1>
+            <form onSubmit={handleSubmit(forgotPassword)}>
+              <div className="text-field-email">
+                <Field
+                  name="email"
+                  id="email"
+                  component={RenderRegularTextField}
+                  type="email"
+                  label="Email"
+                />
+              </div>
+              <RaisedButton
+                style={{ marginBottom: 5 }}
+                label="Forgot Password"
+                primary
+                fullWidth
+                type="submit"
               />
-            </div>
-            <BorderedButton
-              color="white"
-              type="submit"
-              label="Forgot Password"
-            />
-          </form>
+            </form>
+          </Card>
         </div>
       </div>
       <style jsx>
@@ -45,7 +49,7 @@ const ForgotPasswordForm = ({ handleSubmit }) => {
             margin-bottom: 15px;
           }
           .header-text {
-            color: white;
+            color: #424242;
             margin-bottom: 50px;
           }
         `}

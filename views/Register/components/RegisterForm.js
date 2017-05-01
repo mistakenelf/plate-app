@@ -44,7 +44,6 @@ class RegisterForm extends Component {
         path: '/',
         expires: 7
       })
-
       Router.push('/dashboard')
     }
   }
@@ -105,6 +104,8 @@ class RegisterForm extends Component {
                   style={{ marginBottom: 5 }}
                   label="Register"
                   primary
+                  fullWidth
+                  type="submit"
                 />
               </form>
               <span className="login-link">
