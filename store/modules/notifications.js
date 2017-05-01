@@ -1,11 +1,11 @@
 const constants = {
-  SHOW_NOTIFICATION: 'Notifications/SHOW_NOTIFICATION'
+  SHOW_NOTIFICATIONS: 'Notifications/SHOW_NOTIFICATIONS'
 }
 
 export const actions = {
-  showNotification() {
+  showNotifications() {
     return {
-      type: constants.LOGIN_SUCCESS,
+      type: constants.SHOW_NOTIFICATIONS,
       show: true
     }
   }
@@ -17,7 +17,7 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case constants.SHOW_NOTIFICATION:
+    case constants.SHOW_NOTIFICATIONS:
       return {
         ...state,
         show: action.show

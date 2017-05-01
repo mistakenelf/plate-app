@@ -11,6 +11,9 @@ import PropTypes from 'prop-types'
 import RaisedButton from 'material-ui/RaisedButton'
 import RenderRegularTextField from '../../../utils/RenderRegularTextField'
 import Router from 'next/router'
+import { actions } from '../../../store/modules/notifications'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 
 class LoginForm extends Component {
   static propTypes = {
@@ -32,6 +35,7 @@ class LoginForm extends Component {
         loginError: true
       })
     } else {
+      this.props.showNotifications()
       Cookies.set('token', token.data.login, { path: '/', expires: 7 })
       Router.push('/')
     }
@@ -128,7 +132,17 @@ class LoginForm extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      showNotifications: actions.showNotifications
+    },
+    dispatch
+  )
+}
+
 export default compose(
+  connect(null, mapDispatchToProps),
   reduxForm({
     form: 'loginForm',
     validate: LoginValidation

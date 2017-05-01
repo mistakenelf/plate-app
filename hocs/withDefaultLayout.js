@@ -32,7 +32,6 @@ export default ComposedComponent => {
     }
 
     render() {
-      console.log(this.props)
       return (
         <div>
           <Header title="Plate" />
