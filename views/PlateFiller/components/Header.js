@@ -49,7 +49,6 @@ class Header extends Component {
         >
           <Menu>
             <MenuItem primaryText="Share" />
-            <MenuItem primaryText="Stats" />
             <MenuItem primaryText="Settings" />
           </Menu>
         </Popover>

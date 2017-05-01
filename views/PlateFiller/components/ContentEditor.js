@@ -8,9 +8,7 @@ import {
 import React, { Component } from 'react'
 
 import BlockStyleControls from './BlockStyleControls'
-import DropDownMenu from 'material-ui/DropDownMenu'
 import InlineStyleControls from './InlineStyleControls'
-import MenuItem from 'material-ui/MenuItem'
 import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
 import { getBlockStyle } from './getBlockStyle'
@@ -25,17 +23,11 @@ class ContentEditor extends Component {
 
   constructor(props) {
     super(props)
-    this.constants = {
-      CHALKBOARD: 0,
-      WHITE: 1
-    }
 
     this.state = {
       editorState: EditorState.createWithContent(
         convertFromRaw(JSON.parse(props.plateContent))
-      ),
-      currBackground: this.constants.WHITE,
-      value: 1
+      )
     }
   }
 
@@ -84,24 +76,6 @@ class ContentEditor extends Component {
     this.onChange(RichUtils.onTab(e, this.state.editorState, maxDepth))
   }
 
-  handleDropChange = (event, index, value) => {
-    this.setState({
-      value
-    })
-  }
-
-  changeToChalkboard = () => {
-    this.setState({
-      currBackground: this.constants.CHALKBOARD
-    })
-  }
-
-  changeToBlank = () => {
-    this.setState({
-      currBackground: this.constants.WHITE
-    })
-  }
-
   render() {
     return (
       <div className="RichEditor-root">
@@ -117,37 +91,7 @@ class ContentEditor extends Component {
             onToggle={this.toggleInlineStyle}
           />
         </div>
-        <div className="button-container">
-          <DropDownMenu
-            value={this.state.value}
-            style={{ width: 200 }}
-            labelStyle={{ color: '#999' }}
-            onChange={this.handleDropChange}
-          >
-            <MenuItem
-              value={1}
-              primaryText="White"
-              onTouchTap={this.changeToBlank}
-            />
-            <MenuItem
-              value={0}
-              primaryText="Chalkboard"
-              onTouchTap={this.changeToChalkboard}
-            />
-          </DropDownMenu>
-        </div>
-        <div
-          className="RichEditor-editor"
-          style={{
-            backgroundRepeat: 'no-repeat',
-            backgroundImage: this.state.currBackground === 0
-              ? 'url(https://res.cloudinary.com/knipferrc/image/upload/v1493208940/chalkboard_th5tlf.jpg)'
-              : 'none',
-            backgroundColor: this.state.currBackground === 1 ? 'white' : 'none',
-            color: this.state.currBackground === 1 ? 'black' : 'white'
-          }}
-          onClick={this.focus}
-        >
+        <div className="RichEditor-editor" onClick={this.focus}>
           <Editor
             blockStyleFn={getBlockStyle}
             customStyleMap={styleMap}
@@ -178,7 +122,6 @@ class ContentEditor extends Component {
             .RichEditor-editor .RichEditor-blockquote {
               border-left: 5px solid #eee;
               color: #666;
-              font-family: 'Fredericka the Great', cursive;
               margin: 16px 0;
               padding: 10px 20px;
             }
