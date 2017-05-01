@@ -5,7 +5,7 @@ import React from 'react'
 
 const Body = () => {
   return (
-    <div className="body">
+    <div className="container-fluid custom-container">
       <div className="row section">
         <div className="align-items col-xs-12 col-sm-12 col-md-6 col-lg-6 center-xs center-sm center-md center-lg center-lg">
           <img src="/static/img/mobile.png" />
@@ -122,16 +122,15 @@ const Body = () => {
       </div>
       <style jsx>
         {`
-          .body {
-            height: auto;
+          .custom-container {
+            padding-left: 0.5em;
+            padding-right: 0.5em;
           }
           .section {
-            width: auto;
             height: 350px;
             margin-top: 30px;
           }
           .section-grey {
-            width: auto;
             height: 350px;
             background-color: #FAFAFA;
             margin-top: 30px;
