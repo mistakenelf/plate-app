@@ -10,7 +10,7 @@ const styles = {
     margin: 0,
     padding: 0,
     color: 'white',
-    height: 400,
+    height: 450,
     display: 'flex',
     justifyContent: 'center',
     textAlign: 'center',
