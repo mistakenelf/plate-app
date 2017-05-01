@@ -18,7 +18,8 @@ import { connect } from 'react-redux'
 class LoginForm extends Component {
   static propTypes = {
     handleSubmit: PropTypes.func,
-    login: PropTypes.func
+    login: PropTypes.func,
+    showNotifications: PropTypes.func
   }
 
   state = {
