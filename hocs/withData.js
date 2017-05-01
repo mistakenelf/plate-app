@@ -5,6 +5,7 @@ import '../utils/offline_install'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import React, { Component } from 'react'
 
+import Cookies from 'js-cookie'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import PropTypes from 'prop-types'
 import getClientAndStore from '../store/clientAndStore'
@@ -40,15 +41,8 @@ export default ComposedComponent => class WithData extends Component {
       token = ctx.req.cookies.token
     }
 
-    const response = await fetch(
-      process.env.NODE_ENV === 'development'
-        ? 'http://localhost:3000/messages'
-        : 'https://plate.now.sh/messages'
-    )
-    const messages = await response.json()
-
     const clientAndStoreProps = {
-      token: token,
+      token: token || Cookies.get('token'),
       userAgent: userAgent
     }
 
@@ -59,7 +53,6 @@ export default ComposedComponent => class WithData extends Component {
 
     const props = {
       url: { query: ctx.query, pathname: ctx.pathname },
-      messages,
       ...subProps
     }
 

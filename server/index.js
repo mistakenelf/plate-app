@@ -17,8 +17,6 @@ const env = require('../env-config')
 
 const port = 3000
 
-const messages = []
-
 module.exports = app
   .prepare()
   .then(() =>
@@ -44,9 +42,6 @@ module.exports = app
           endpointURL: '/graphql'
         })
       )
-      .get('/messages', (req, res) => {
-        res.json(messages)
-      })
       .get('/sw.js', (req, res) => res.sendFile(path.resolve('./.next/sw.js')))
       .use((req, res) => {
         handle(req, res)

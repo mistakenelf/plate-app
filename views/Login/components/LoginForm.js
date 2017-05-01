@@ -10,6 +10,7 @@ import LoginValidation from '../../../validations/LoginValidation'
 import PropTypes from 'prop-types'
 import RaisedButton from 'material-ui/RaisedButton'
 import RenderRegularTextField from '../../../utils/RenderRegularTextField'
+import Router from 'next/router'
 
 class LoginForm extends Component {
   static propTypes = {
@@ -32,7 +33,7 @@ class LoginForm extends Component {
       })
     } else {
       Cookies.set('token', token.data.login, { path: '/', expires: 7 })
-      window.location.href = '/dashboard'
+      Router.push('/')
     }
   }
 
@@ -118,6 +119,7 @@ class LoginForm extends Component {
           }
           .header-text {
             margin-bottom: 40px;
+            color: #424242
           }
         `}
         </style>

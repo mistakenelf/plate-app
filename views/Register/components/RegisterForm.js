@@ -10,6 +10,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 import RegisterMutation from '../../../mutations/RegisterMutation'
 import RegisterValidation from '../../../validations/RegisterValidation'
 import RenderRegularTextField from '../../../utils/RenderRegularTextField'
+import Router from 'next/router'
 
 class RegisterForm extends Component {
   static propTypes = {
@@ -44,7 +45,7 @@ class RegisterForm extends Component {
         expires: 7
       })
 
-      window.location.href = '/dashboard'
+      Router.push('/dashboard')
     }
   }
 
