@@ -7,6 +7,7 @@ import {
 } from 'draft-js'
 import React, { Component } from 'react'
 
+import BlockRenderMap from './BlockRenderMap'
 import BlockStyleControls from './BlockStyleControls'
 import InlineStyleControls from './InlineStyleControls'
 import PropTypes from 'prop-types'
@@ -95,6 +96,7 @@ class ContentEditor extends Component {
           <Editor
             blockStyleFn={getBlockStyle}
             customStyleMap={styleMap}
+            blockRenderMap={BlockRenderMap}
             editorState={this.state.editorState}
             handleKeyCommand={this.handleKeyCommand}
             onChange={this.onChange}
@@ -126,7 +128,6 @@ class ContentEditor extends Component {
               padding: 10px 20px;
             }
             .RichEditor-editor .public-DraftStyleDefault-pre {
-              font-family: 'Inconsolata', 'Menlo', 'Consolas', monospace;
               font-size: 16px;
               padding: 20px;
             }
@@ -134,6 +135,16 @@ class ContentEditor extends Component {
               word-wrap: break-word;
               text-align: center;
             }
+            .text-align-right {
+              text-align: right;
+            }
+            .text-align-center {
+              text-align: center;
+            }
+            .text-align-left {
+              text-align: left;
+            }
+
           `}
         </style>
       </div>

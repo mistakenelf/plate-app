@@ -12,7 +12,10 @@ const BLOCK_TYPES = [
   { label: 'Blockquote', style: 'blockquote' },
   { label: 'UL', style: 'unordered-list-item' },
   { label: 'OL', style: 'ordered-list-item' },
-  { label: 'Code Block', style: 'code-block' }
+  { label: 'Code Block', style: 'code-block' },
+  { label: 'Right', style: 'text-align-right' },
+  { label: 'Left', style: 'text-align-left' },
+  { label: 'Center', style: 'text-align-center' }
 ]
 
 const BlockStyleControls = props => {
