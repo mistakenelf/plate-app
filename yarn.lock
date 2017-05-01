@@ -2456,11 +2456,11 @@ graphql-tools@^0.11.0:
   optionalDependencies:
     "@types/graphql" "^0.9.0"
 
-graphql@^0.9.3, graphql@^0.9.4:
-  version "0.9.4"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.9.4.tgz#04c8d5804139539995f2d9c3c97d8090dd1480fe"
+graphql@^0.9.3, graphql@^0.9.5:
+  version "0.9.5"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.9.5.tgz#efe588b98fe3ce036d7d55b4ad940daed56c4622"
   dependencies:
-    iterall "1.0.3"
+    iterall "^1.0.0"
 
 har-schema@^1.0.5:
   version "1.0.5"
@@ -2926,9 +2926,9 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
 
-iterall@1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.0.3.tgz#e0b31958f835013c323ff0b10943829ac69aa4b7"
+iterall@^1.0.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.1.1.tgz#f7f0af11e9a04ec6426260f5019d9fcca4d50214"
 
 jest-matcher-utils@^19.0.0:
   version "19.0.0"
@@ -3242,9 +3242,9 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
-material-ui@^0.17.4:
-  version "0.17.4"
-  resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-0.17.4.tgz#193999ecb49c3ec15ae0abb4e90fdf9a7bd343e0"
+material-ui@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-0.18.0.tgz#fcf5eddfe87d066792bd44f09b4f7c9ca7f620d6"
   dependencies:
     babel-runtime "^6.23.0"
     inline-style-prefixer "^3.0.2"
