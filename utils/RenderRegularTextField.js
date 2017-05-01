@@ -4,7 +4,7 @@ import TextField from 'material-ui/TextField'
 
 const RenderEditPlateTextField = props => {
   const {
-    input: { value, ...input },
+    input: { ...input },
     meta: { touched, error },
     label,
     ...custom
@@ -16,8 +16,7 @@ const RenderEditPlateTextField = props => {
         autoComplete={'off'}
         errorText={touched && error}
         fullWidth
-        hintText={value}
-        defaultValue={label}
+        hintText={label}
         {...input}
         {...custom}
       />
@@ -28,8 +27,7 @@ const RenderEditPlateTextField = props => {
         autoComplete={'off'}
         errorText={touched && error}
         fullWidth
-        hintText={value}
-        defaultValue={label}
+        hintText={label}
         {...input}
         {...custom}
       />

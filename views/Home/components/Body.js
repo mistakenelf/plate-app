@@ -36,10 +36,10 @@ const Body = () => {
       </div>
       <div className="row price-section">
         <div className="membership-header col-xs-12 col-sm-12 col-md-12 col-lg-12 center-xs center-sm center-md center-lg center-lg">
-          <div style={{ fontSize: '25' }}>
+          <div style={{ fontSize: 20 }}>
             Choose the plan depending on how busy you are.
           </div>
-          <div style={{ marginTop: 15, fontSize: '20' }}>Change anytime!</div>
+          <div style={{ marginTop: 15, fontSize: 20 }}>Change anytime!</div>
         </div>
         <div className="align-items col-xs-12 col-sm-12 col-md-4 col-lg-4 center-xs center-sm center-md center-lg center-lg">
           <div className="price-card-side">

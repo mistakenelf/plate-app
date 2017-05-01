@@ -11,8 +11,6 @@ const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 const server = express()
-const httpServer = require('http').Server(server)
-const io = require('socket.io')(httpServer)
 
 const schema = require('./graphql')
 const env = require('../env-config')
@@ -62,20 +60,11 @@ module.exports = app
       .then(db => {
         console.log('Database Connection Successful')
         server.locals.db = db
-        httpServer.listen(port, err => {
+        server.listen(port, err => {
           if (err) throw err
           console.log(`> Ready on http://localhost:${port}`)
         })
       })
-  })
-  .then(() => {
-    // socket.io server
-    io.on('connection', socket => {
-      socket.on('message', data => {
-        messages.push(data)
-        socket.broadcast.emit('message', data)
-      })
-    })
   })
   .catch(err => {
     console.error(err)

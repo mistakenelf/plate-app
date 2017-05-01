@@ -80,13 +80,6 @@ const Navigation = ({ open, openDrawer, closeDrawer, token }) => {
                 </MenuItem>
               </a>
             </Link>
-            <Link prefetch href="/platetalk">
-              <a className="sidebar-text">
-                <MenuItem onTouchTap={closeDrawer}>
-                  Plate Talk
-                </MenuItem>
-              </a>
-            </Link>
           </div>}
       </Drawer>
       <style jsx>

@@ -83,6 +83,8 @@ class LoginForm extends Component {
                   style={{ marginBottom: 5 }}
                   label="Login"
                   primary
+                  fullWidth
+                  type="submit"
                 />
               </form>
               <div className="forgot-password">
