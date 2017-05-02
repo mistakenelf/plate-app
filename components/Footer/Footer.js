@@ -8,15 +8,16 @@ const Footer = () => {
       <FooterDesktop />
       <FooterMobile />
       <div className="copyright">
-        Copyright © 2017 Plate
+        © 2017, Plate
       </div>
       <style jsx>
         {`
           .copyright {
-            color: white;
-            background-color: #212121;
-            padding: 5px;
+            color: #7D8A95;
+            background-color: #223741;
+            padding: 20px;
             font-size: .7em;
+            text-align: center;
           }
           `}
       </style>

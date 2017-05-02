@@ -5,12 +5,9 @@ import React from 'react'
 const FooterDesktop = () => {
   return (
     <div className="footer-main">
-      <div className="row">
+      <div className="row main-content">
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-          <h3>Plate</h3>
-          <div className="divider-style">
-            <Divider />
-          </div>
+          <h3 style={{ marginLeft: 0 }}>Plate</h3>
           <p>
             Plate is the easiest way to manage your tasks<br />
             Check out our resources to learn more about<br />
@@ -19,9 +16,6 @@ const FooterDesktop = () => {
         </div>
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <h3>Quick Links</h3>
-          <div className="divider-style">
-            <Divider />
-          </div>
           <Link prefetch href="/terms">
             <a className="footer-links">Terms and Conditions</a>
           </Link>
@@ -34,9 +28,6 @@ const FooterDesktop = () => {
         </div>
         <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
           <h3>Get In Touch</h3>
-          <div className="divider-style">
-            <Divider />
-          </div>
           <Link prefetch href="/about">
             <a className="footer-links">About Us</a>
           </Link>
@@ -48,14 +39,26 @@ const FooterDesktop = () => {
       </div>
       <style jsx>
         {`
+        h3 {
+          text-transform: uppercase;
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: 4px;
+          margin-bottom: 20px;
+          margin-left: 13px; /*offset for hover effect*/
+        }
         .footer-main {
           color: white;
-          background-color: #212121;
-          height: 250px;
-          padding: 30px;
+          background-color: #223741;
+          height: 300px;
+          padding: 50px;
+        }
+        .main-content {
+          margin-top: 50px;
         }
         .footer-main p {
-          color: #bdbdbd;
+          color: #89A1C0;
+          font-size: 13px;
         }
         .footer-main ul {
           list-style-type: none;
@@ -65,23 +68,13 @@ const FooterDesktop = () => {
           margin-bottom: 5px;
         }
         .footer-links {
-          color: #bdbdbd;
+          color: #89A1C0;
           display: inline-block;
           margin-bottom: 5px;
+          font-size: 13px;
         }
         .footer-links:hover {
           color: #ffffff;
-        }
-        .divider-style {
-          opacity: 0.2;
-          margin-top: 10px;
-          margin-bottom: 10px;
-        }
-        .copyright {
-          color: white;
-          background-color: #343F53;
-          padding: 5px;
-          font-size: .2em;
         }
         a {
           text-decoration: none;
