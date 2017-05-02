@@ -66,7 +66,6 @@ const ContactForm = ({ contactUs }) => {
             margin-left: auto;
             margin-right: auto;
             margin-top: 60px;
-            width: 40%;
           }
           @media only screen
             and (min-device-width : 320px)
