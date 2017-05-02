@@ -10,6 +10,7 @@ const removePlate = require('./schemas/removePlate')
 const editPlate = require('./schemas/editPlate')
 const savePlateContent = require('./schemas/savePlateContent')
 const register = require('./schemas/register')
+const contactUs = require('./schemas/contactUs')
 
 const rootSchema = `
   type Query {
@@ -44,7 +45,8 @@ const schema = makeExecutableSchema({
     removePlate.removePlateTypeDef,
     editPlate.editPlateTypeDef,
     savePlateContent.savePlateContentTypeDef,
-    register.registerTypeDef
+    register.registerTypeDef,
+    contactUs.contactUsTypeDef
   ],
   resolvers: merge(
     rootResolvers,
@@ -56,7 +58,8 @@ const schema = makeExecutableSchema({
     removePlate.removePlateResolvers,
     editPlate.editPlateResolvers,
     savePlateContent.savePlateContentResolvers,
-    register.registerResolvers
+    register.registerResolvers,
+    contactUs.contactUsResolvers
   )
 })
 

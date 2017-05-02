@@ -1,14 +1,22 @@
 import { Card } from 'material-ui/Card'
+import ContactUsMutation from '../../../mutations/ContactUsMutation'
+import PropTypes from 'prop-types'
 import RaisedButton from 'material-ui/RaisedButton'
 import React from 'react'
 import TextField from 'material-ui/TextField'
+import { graphql } from 'react-apollo'
 
-const ContactForm = () => {
-  const styles = {
-    button: {
-      width: 250,
-      marginTop: 50
-    }
+const ContactForm = ({ contactUs }) => {
+  const sendEmail = e => {
+    e.preventDefault()
+
+    let name = document.getElementById('name').value
+    let email = document.getElementById('email').value
+    let message = document.getElementById('message').value
+
+    contactUs(email, name, message)
+
+    document.getElementById('contactForm').reset()
   }
 
   return (
@@ -18,21 +26,28 @@ const ContactForm = () => {
           <h1>Get in touch with us</h1>
           <div className="contact-form">
             <Card style={{ paddingTop: 40, paddingBottom: 40 }}>
-              <TextField hintText="Name" id="name" /><br />
-              <TextField
-                hintText="Email Address"
-                id="email"
-                style={{ marginTop: 20 }}
-              />
-              <br />
-              <TextField
-                hintText="Describe your message."
-                id="message"
-                multiLine
-                rows={3}
-              />
-              <br />
-              <RaisedButton label="Send Message" style={styles.button} />
+              <form onSubmit={e => sendEmail(e)} id="contactForm">
+                <TextField hintText="Name" id="name" /><br />
+                <TextField
+                  hintText="Email Address"
+                  id="email"
+                  style={{ marginTop: 20 }}
+                />
+                <br />
+                <TextField
+                  hintText="Describe your message."
+                  id="message"
+                  multiLine
+                  rows={3}
+                />
+                <br />
+                <RaisedButton
+                  label="Send Message"
+                  primary
+                  type="submit"
+                  style={{ width: 250, marginTop: 50 }}
+                />
+              </form>
             </Card>
           </div>
         </div>
@@ -66,4 +81,13 @@ const ContactForm = () => {
   )
 }
 
-export default ContactForm
+ContactForm.propTypes = {
+  contactUs: PropTypes.func
+}
+
+export default graphql(ContactUsMutation, {
+  props: ({ mutate }) => ({
+    contactUs: (email, name, message) =>
+      mutate({ variables: { email, name, message } })
+  })
+})(ContactForm)
