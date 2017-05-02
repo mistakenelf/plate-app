@@ -29,6 +29,7 @@
     "material-ui": "^0.18.0",
     "mongodb": "^2.2.26",
     "next": "^2.2.0",
+    "nodemailer": "^4.0.1",
     "nprogress": "^0.2.0",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
