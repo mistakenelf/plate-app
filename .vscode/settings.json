@@ -9,6 +9,6 @@
   "editor.formatOnSave": true,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "none",
-  "workbench.colorTheme": "Monokai",
+  "workbench.colorTheme": "Solarized Dark",
   "prettier.semi": false
 }
