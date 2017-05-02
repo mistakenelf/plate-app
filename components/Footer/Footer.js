@@ -1,12 +1,10 @@
 import FooterDesktop from './FooterDesktop'
-import FooterMobile from './FooterMobile'
 import React from 'react'
 
 const Footer = () => {
   return (
     <div>
       <FooterDesktop />
-      <FooterMobile />
       <div className="copyright">
         © 2017, Plate
       </div>

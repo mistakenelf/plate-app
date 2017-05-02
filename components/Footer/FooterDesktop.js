@@ -6,15 +6,15 @@ const FooterDesktop = () => {
   return (
     <div className="footer-main">
       <div className="row main-content">
-        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-          <h3 style={{ marginLeft: 0 }}>Plate</h3>
+        <div className="section-margins col-xs-12 col-sm-12 col-md-6 col-lg-3">
+          <h3>Plate</h3>
           <p>
-            Plate is the easiest way to manage your tasks<br />
-            Check out our resources to learn more about<br />
+            Plate is the easiest way to manage your tasks
+            Check out our resources to learn more about
             getting started.
           </p>
         </div>
-        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div className="section-margins col-xs-12 col-sm-12 col-md-6 col-lg-3">
           <h3>Quick Links</h3>
           <Link prefetch href="/terms">
             <a className="footer-links">Terms and Conditions</a>
@@ -26,7 +26,7 @@ const FooterDesktop = () => {
             </a>
           </Link>
         </div>
-        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+        <div className="section-margins col-xs-12 col-sm-12 col-md-6 col-lg-3">
           <h3>Get In Touch</h3>
           <Link prefetch href="/about">
             <a className="footer-links">About Us</a>
@@ -35,6 +35,23 @@ const FooterDesktop = () => {
           <Link prefetch href="/contactus">
             <a className="footer-links">Contact Us</a>
           </Link>
+        </div>
+        <div className="col-xs-12 col-sm-12 col-md-6 col-lg-3">
+          <i
+            style={{ color: '#3B5998', marginRight: 30 }}
+            className="fa fa-facebook-square fa-3x"
+            aria-hidden="true"
+          />
+          <i
+            style={{ color: '#55ACEE', marginRight: 30 }}
+            className="fa fa-twitter-square fa-3x"
+            aria-hidden="true"
+          />
+          <i
+            style={{ color: '#5481A3', marginRight: 30 }}
+            className="fa fa-instagram fa-3x"
+            aria-hidden="true"
+          />
         </div>
       </div>
       <style jsx>
@@ -50,13 +67,17 @@ const FooterDesktop = () => {
         .footer-main {
           color: white;
           background-color: #223741;
-          height: 300px;
-          padding: 50px;
+          height: auto;
+          padding-top: 100px;
+          padding-bottom: 100px;
+          padding-left: 50px;
+          padding-right: 50px;
         }
         .main-content {
           margin-top: 50px;
         }
         .footer-main p {
+          margin-left: 13px;
           color: #89A1C0;
           font-size: 13px;
         }
@@ -106,7 +127,16 @@ const FooterDesktop = () => {
         and (min-device-width : 320px)
         and (max-device-width : 1030px) {
           .footer-main {
-            display: none;
+            padding: 50px;
+          }
+          .main-content {
+            text-align: center;
+          }
+          .section-margins {
+            margin-bottom: 40px;
+          }
+          .footer-main p {
+            text-align: center;
           }
         }
       `}
