@@ -16,22 +16,13 @@ const Header = ({ title }) => {
         name="apple-mobile-web-app-status-bar-style"
         content="black-translucent"
       />
-      <link
-        rel="shortcut icon"
-        href="https://res.cloudinary.com/knipferrc/image/upload/v1493208940/plateLogo_wa3wpi.png"
-      />
+      <link rel="shortcut icon" href="/static/img/plateLogo.png" />
       <link
         href="https://fonts.googleapis.com/css?family=Roboto"
         rel="stylesheet"
       />
-      <link
-        href="https://res.cloudinary.com/knipferrc/raw/upload/flexboxgrid_lwjscm.css"
-        rel="stylesheet"
-      />
-      <link
-        href="https://res.cloudinary.com/knipferrc/raw/upload/nprogress_xgvrwm.css"
-        rel="stylesheet"
-      />
+      <link href="/static/css/flexboxgrid.css" rel="stylesheet" />
+      <link href="/static/css/nprogress.css" rel="stylesheet" />
       <link rel="manifest" href="/static/manifest.json" />
       <link
         rel="stylesheet"

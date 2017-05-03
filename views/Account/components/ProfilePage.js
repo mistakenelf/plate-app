@@ -15,7 +15,7 @@ const ProfilePage = ({ user }) => {
       <div className="row full-height">
         <div className="left col-xs-12 col-sm-12 col-md-6 col-lg-6 center-xs center-sm center-md center-lg center-lg">
           <Avatar
-            src="https://res.cloudinary.com/knipferrc/image/upload/v1493213458/aleximage_t1aaer.jpg"
+            src="/static/img/aleximage.jpg"
             size={200}
             style={{ marginBottom: 20 }}
           />
