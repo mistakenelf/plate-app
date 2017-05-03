@@ -1,10 +1,12 @@
-import { Card } from 'material-ui/Card'
+import { Field, reduxForm } from 'redux-form'
+import { compose, graphql } from 'react-apollo'
+
 import ContactUsMutation from '../../../mutations/ContactUsMutation'
+import ContactValidation from '../../../validations/ContactValidation'
 import PropTypes from 'prop-types'
 import RaisedButton from 'material-ui/RaisedButton'
 import React from 'react'
-import TextField from 'material-ui/TextField'
-import { graphql } from 'react-apollo'
+import RenderRegularTextField from '../../../utils/RenderRegularTextField'
 
 const ContactForm = ({ contactUs }) => {
   const sendEmail = e => {
@@ -21,34 +23,40 @@ const ContactForm = ({ contactUs }) => {
 
   return (
     <div className="container">
-      <div className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg">
+      <div className="row contact-container">
         <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-          <h1>Get in touch with us</h1>
-          <div className="contact-form">
-            <Card style={{ paddingTop: 40, paddingBottom: 40 }}>
-              <form onSubmit={e => sendEmail(e)} id="contactForm">
-                <TextField hintText="Name" id="name" /><br />
-                <TextField
-                  hintText="Email Address"
-                  id="email"
-                  style={{ marginTop: 20 }}
-                />
-                <br />
-                <TextField
-                  hintText="Describe your message."
-                  id="message"
-                  multiLine
-                  rows={3}
-                />
-                <br />
-                <RaisedButton
-                  label="Send Message"
-                  primary
-                  type="submit"
-                  style={{ width: 250, marginTop: 50 }}
-                />
-              </form>
-            </Card>
+          <div className="contact-left">
+            <form onSubmit={e => sendEmail(e)} id="contactForm">
+              <Field
+                name="name"
+                id="name"
+                component={RenderRegularTextField}
+                type="text"
+                label="Name"
+              />
+              <Field
+                name="email"
+                id="email"
+                component={RenderRegularTextField}
+                type="text"
+                label="Email"
+              />
+              <br />
+              <Field
+                name="message"
+                id="message"
+                component={RenderRegularTextField}
+                type="text"
+                label="Describe your message."
+              />
+              <br />
+              <RaisedButton
+                label="Send Message"
+                primary
+                type="submit"
+                style={{ width: 250, marginTop: 50 }}
+              />
+            </form>
           </div>
         </div>
       </div>
@@ -58,14 +66,21 @@ const ContactForm = ({ contactUs }) => {
             margin-top: 100px;
             margin-bottom: 100px;
           }
-          h1 {
-            font-weight: 900;
-            font-size: 45px;
+          h4 {
+            color: white;
+            font-weight: 100;
+            margin-bottom: 20px;
           }
-          .contact-form {
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 60px;
+          .contact-container {
+            margin-right: 200px;
+            margin-left: 200px;
+          }
+          .contact-left {
+            background-color: white;
+          }
+          .contact-right {
+            padding: 30px;
+            background-color: #103F6E;
           }
           @media only screen
             and (min-device-width : 320px)
@@ -84,9 +99,15 @@ ContactForm.propTypes = {
   contactUs: PropTypes.func
 }
 
-export default graphql(ContactUsMutation, {
-  props: ({ mutate }) => ({
-    contactUs: (email, name, message) =>
-      mutate({ variables: { email, name, message } })
+export default compose(
+  reduxForm({
+    form: 'contactForm',
+    validate: ContactValidation
+  }),
+  graphql(ContactUsMutation, {
+    props: ({ mutate }) => ({
+      contactUs: (email, name, message) =>
+        mutate({ variables: { email, name, message } })
+    })
   })
-})(ContactForm)
+)(ContactForm)
