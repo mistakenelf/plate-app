@@ -33,13 +33,10 @@ const Header = ({ title }) => {
         rel="stylesheet"
       />
       <link rel="manifest" href="/static/manifest.json" />
-
       <link
         rel="stylesheet"
-        href="path/to/font-awesome/css/font-awesome.min.css"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
       />
-
-      <script src="https://use.fontawesome.com/c929e7d89e.js" />
     </Head>
   )
 }
