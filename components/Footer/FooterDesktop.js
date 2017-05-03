@@ -1,4 +1,3 @@
-import Divider from 'material-ui/Divider'
 import Link from 'next/link'
 import React from 'react'
 
