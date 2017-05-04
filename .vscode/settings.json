@@ -2,13 +2,13 @@
 {
   "editor.fontSize": 12,
   "editor.tabSize": 2,
-  "editor.fontFamily": "Fira Code",
+  "editor.fontFamily": "Monaco",
   "editor.fontLigatures": true,
   "editor.minimap.enabled": true,
   "editor.dragAndDrop": true,
   "editor.formatOnSave": true,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "none",
-  "workbench.colorTheme": "Solarized Dark",
+  "workbench.colorTheme": "Dracula",
   "prettier.semi": false
 }
