@@ -33,7 +33,7 @@ class LoginForm extends Component {
       })
     } else {
       Cookies.set('token', token.data.login, { path: '/', expires: 7 })
-      Router.push('/')
+      Router.push('/dashboard')
     }
   }
 
