@@ -1,13 +1,12 @@
-import { Card, CardHeader } from 'material-ui/Card'
 import { Field, reduxForm } from 'redux-form'
 import { compose, graphql } from 'react-apollo'
 
+import { Card } from 'material-ui/Card'
 import ContactUsMutation from '../../../mutations/ContactUsMutation'
 import ContactValidation from '../../../validations/ContactValidation'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import Icon from '../../../components/Icon/Icon'
 import PropTypes from 'prop-types'
-import RaisedButton from 'material-ui/RaisedButton'
 import React from 'react'
 import RenderRegularTextField from '../../../utils/RenderRegularTextField'
 
