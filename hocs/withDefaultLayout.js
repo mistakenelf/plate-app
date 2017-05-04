@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import Cookies from 'js-cookie'
 import Header from '../components/Header/Header'
 import Navigation from '../components/Navigation/Navigation'
 import PropTypes from 'prop-types'
@@ -39,7 +40,7 @@ export default ComposedComponent => {
             open={this.state.open}
             openDrawer={this.openDrawer}
             closeDrawer={this.closeDrawer}
-            token={this.props.auth.token}
+            token={Cookies.get('token') || this.props.auth.token}
           />
           <ComposedComponent {...this.props} />
           <style jsx global>
