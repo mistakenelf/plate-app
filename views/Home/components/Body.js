@@ -5,7 +5,7 @@ import React from 'react'
 
 const Body = () => {
   return (
-    <div className="container-fluid custom-container">
+    <div className="container">
       <div className="row section">
         <div className="align-items col-xs-12 col-sm-12 col-md-6 col-lg-6 center-xs center-sm center-md center-lg center-lg">
           <img src="/static/img/mobile.png" />

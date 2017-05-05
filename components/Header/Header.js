@@ -17,12 +17,8 @@ const Header = ({ title }) => {
         content="black-translucent"
       />
       <link rel="shortcut icon" href="/static/img/plateLogo.png" />
-      <link
-        href="https://fonts.googleapis.com/css?family=Roboto"
-        rel="stylesheet"
-      />
-      <link href="/static/css/flexboxgrid.css" rel="stylesheet" />
       <link href="/static/css/nprogress.css" rel="stylesheet" />
+      <link href="/static/css/mini.css" rel="stylesheet" />
       <link rel="manifest" href="/static/manifest.json" />
       <link
         rel="stylesheet"

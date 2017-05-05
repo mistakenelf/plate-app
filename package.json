@@ -20,7 +20,7 @@
     "graphql": "^0.9.6",
     "graphql-server-express": "^0.7.2",
     "graphql-tools": "^0.11.0",
-    "helmet": "^3.5.0",
+    "helmet": "^3.6.0",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
     "js-cookie": "^2.1.4",

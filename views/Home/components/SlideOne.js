@@ -1,4 +1,3 @@
-import BorderedButton from '../../../components/BorderedButton/BorderedButton'
 import Link from 'next/link'
 import React from 'react'
 
@@ -8,7 +7,7 @@ const SlideOne = () => {
       <div>
         <h1 className="text-padding">
           Task Management in the Most Simplistic Form, <br />
-          Welcome to <i>Plate</i>!
+          Welcome to Plate
         </h1>
       </div>
       <div>
@@ -22,7 +21,7 @@ const SlideOne = () => {
       <div>
         <Link prefetch href="/register">
           <a>
-            <BorderedButton type="button" label="Register Now" color="white" />
+            <input type="button" className="primary" value="Register Now" />
           </a>
         </Link>
       </div>
