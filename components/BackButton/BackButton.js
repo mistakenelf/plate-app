@@ -1,5 +1,4 @@
-import BackArrow from 'material-ui/svg-icons/navigation/arrow-back'
-import IconButton from 'material-ui/IconButton'
+import Icon from '../Icon/Icon'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -7,14 +6,18 @@ const BackButton = ({ color }) => {
   return (
     <div>
       <a onClick={() => window.history.back()}>
-        <IconButton
-          iconStyle={{ color: color }}
-          tooltip="Back"
-          tooltipPosition="bottom-center"
-        >
-          <BackArrow />
-        </IconButton>
+        <Icon
+          style={{ color: color, fontSize: 25, padding: 5 }}
+          type="fa fa-arrow-circle-o-left"
+        />
       </a>
+      <style jsx>
+        {`
+          a {
+            cursor: pointer;
+          }
+        `}
+      </style>
     </div>
   )
 }

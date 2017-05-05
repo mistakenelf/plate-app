@@ -1,108 +1,80 @@
-import AccountIcon from 'material-ui/svg-icons/action/account-circle'
-import AppBar from 'material-ui/AppBar'
+import React, { Component } from 'react'
+
 import Cookies from 'js-cookie'
-import Drawer from 'material-ui/Drawer'
-import IconButton from 'material-ui/IconButton'
-import IconMenu from 'material-ui/IconMenu'
 import Link from 'next/link'
-import MenuItem from 'material-ui/MenuItem'
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert'
 import PropTypes from 'prop-types'
-import React from 'react'
 import Router from 'next/router'
 
-const logout = () => {
-  Cookies.remove('token')
-  Router.push('/login')
-}
+class Navigation extends Component {
+  static propTypes = {
+    token: PropTypes.string
+  }
 
-const Navigation = ({ open, openDrawer, closeDrawer, token }) => {
-  const elementRight = (
-    <div>
-      {token &&
-        <Link prefetch href="/account">
-          <a>
-            <AccountIcon
-              style={{ color: 'white', cursor: 'pointer' }}
-              hoverColor="#B0BEC5"
-            />
-          </a>
-        </Link>}
-      <IconMenu
-        iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-        targetOrigin={{ horizontal: 'right', vertical: 'top' }}
-        anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
-        iconStyle={{ color: 'white' }}
-      >
-        {token
-          ? <a onTouchTap={() => logout()}><MenuItem>Logout</MenuItem></a>
+  state = {
+    loggedIn: this.props.token ? true : false
+  }
+
+  logout = () => {
+    this.setState({
+      loggedIn: false
+    })
+
+    Cookies.remove('token')
+    Router.push('/login')
+  }
+
+  render() {
+    return (
+      <header className="fixed-nav">
+        <a href="#" className="logo logo-container">
+          Plate
+        </a>
+        {this.state.loggedIn
+          ? <div>
+              <Link prefetch href="/"><a className="nav-link">Home</a></Link>
+              <Link prefetch href="/dashboard">
+                <a className="nav-link">Dashboard</a>
+              </Link>
+              <Link prefetch href="/account">
+                <a className="nav-link">Account</a>
+              </Link>
+              <a onClick={this.logout} className="nav-link">Logout</a>
+            </div>
           : <div>
+              <Link prefetch href="/"><a className="nav-link">Home</a></Link>
               <Link prefetch href="/login">
-                <a><MenuItem>Login</MenuItem></a>
+                <a className="nav-link">Login</a>
               </Link>
               <Link prefetch href="/register">
-                <a><MenuItem>Register</MenuItem></a>
+                <a className="nav-link">Register</a>
               </Link>
             </div>}
-      </IconMenu>
-    </div>
-  )
-
-  return (
-    <div>
-      <AppBar
-        title="Plate"
-        onLeftIconButtonTouchTap={openDrawer}
-        iconElementRight={elementRight}
-        style={{
-          backgroundColor: '#343f53',
-          position: 'fixed',
-          height: 60,
-          top: 0
-        }}
-      />
-      <Drawer
-        docked={false}
-        width={200}
-        open={open}
-        onRequestChange={closeDrawer}
-      >
-        <Link prefetch href="/">
-          <a className="sidebar-text">
-            <MenuItem onTouchTap={closeDrawer}>Home</MenuItem>
-          </a>
-        </Link>
-        {token &&
-          <div>
-            <Link prefetch href="/dashboard">
-              <a className="sidebar-text">
-                <MenuItem onTouchTap={closeDrawer}>
-                  Dashboard
-                </MenuItem>
-              </a>
-            </Link>
-          </div>}
-      </Drawer>
-      <style jsx>
-        {`
-          a {
-            text-decoration: none;
-          }
-          .sidebar-text {
-            text-align: center;
-          }
-        `}
-      </style>
-    </div>
-  )
-}
-
-Navigation.propTypes = {
-  open: PropTypes.bool,
-  openDrawer: PropTypes.func,
-  closeDrawer: PropTypes.func,
-  client: PropTypes.object,
-  token: PropTypes.string
+        <style jsx>
+          {`
+            .fixed-nav {
+              position: fixed;
+              display: flex;
+              align-items: center;
+              box-shadow: 0 2px 2px #343f53;
+              z-index: 100;
+              width: 100%;
+              background: #343f53;
+              color: white;
+            }
+            .logo-container {
+              margin-right: 15px;
+            }
+            .nav-link {
+              color: white;
+              font-size: 18px;
+              margin-left: 10px;
+              cursor: pointer;
+            }
+          `}
+        </style>
+      </header>
+    )
+  }
 }
 
 export default Navigation
