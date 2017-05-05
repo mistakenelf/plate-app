@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import RaisedButton from 'material-ui/RaisedButton'
 import TestModal from '../../components/TestModal/TestModal'
 
 class MeetTheTeam extends Component {
@@ -14,11 +13,22 @@ class MeetTheTeam extends Component {
     })
   }
 
+  closeModal = () => {
+    this.setState({
+      displayModal: false
+    })
+  }
+
   render() {
     return (
       <div>
-        <RaisedButton label="Primary" primary onTouchTap={this.openModal} />
-        {this.state.displayModal && <TestModal />}
+        <button
+          label="Primary"
+          primary
+          onTouchTap={this.openModal}
+          style={{ marginTop: 80 }}
+        />
+        {this.state.displayModal && <TestModal closeModal={this.closeModal} />}
       </div>
     )
   }

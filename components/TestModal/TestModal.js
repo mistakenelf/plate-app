@@ -1,12 +1,17 @@
 import Icon from '../Icon/Icon'
+import PropTypes from 'prop-types'
 import React from 'react'
 
-const TestModal = () => {
+const TestModal = ({ closeModal }) => {
   return (
     <div>
       <div className="modal">
         <div className="modal-content">
-          <Icon type="fa fa-times fa-lg" style={{ float: 'right' }} />
+          <Icon
+            type="fa fa-times fa-lg"
+            style={{ float: 'right', cursor: 'pointer' }}
+            onClick={closeModal}
+          />
           <p>This is a test custom modal!</p>
           <p>No more run-of-the-mill modal trends</p>
         </div>
@@ -35,6 +40,10 @@ const TestModal = () => {
       </style>
     </div>
   )
+}
+
+TestModal.propTypes = {
+  closeModal: PropTypes.func
 }
 
 export default TestModal
