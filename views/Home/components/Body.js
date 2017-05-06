@@ -1,6 +1,5 @@
 import Card from '../../../components/Card/Card'
 import Divider from 'material-ui/Divider'
-import RaisedButton from 'material-ui/RaisedButton'
 import React from 'react'
 
 const Body = () => {
@@ -58,9 +57,10 @@ const Body = () => {
                 <br />
                 <span>Test</span>
                 <br />
-                <RaisedButton
-                  label="Register"
-                  primary
+                <input
+                  type="button"
+                  className="primary"
+                  value="Register"
                   style={{ marginTop: 40 }}
                 />
               </div>
@@ -84,9 +84,10 @@ const Body = () => {
                 <br />
                 <span>Test</span>
                 <br />
-                <RaisedButton
-                  label="Buy Now"
-                  primary
+                <input
+                  type="button"
+                  className="primary"
+                  value="Buy Now"
                   style={{ marginTop: 40 }}
                 />
               </div>
@@ -110,9 +111,10 @@ const Body = () => {
                 <br />
                 <span>Test</span>
                 <br />
-                <RaisedButton
-                  label="Buy Now"
-                  primary
+                <input
+                  type="button"
+                  className="primary"
+                  value="Buy Now"
                   style={{ marginTop: 40 }}
                 />
               </div>

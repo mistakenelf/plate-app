@@ -7,10 +7,10 @@ const Card = ({ children, style }) => {
       {children}
       <style jsx>{`
         .custom-card {
-          border-radius: 10px;
-          border-color: #223741;
+          border-radius: 6px;
           padding: 10px;
           text-align: center;
+          box-shadow: 0 6px 4px -4px black;
         }
         `}</style>
     </div>
