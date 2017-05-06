@@ -1,4 +1,4 @@
-import { Card } from 'material-ui/Card'
+import Card from '../../../components/Card/Card'
 import Divider from 'material-ui/Divider'
 import RaisedButton from 'material-ui/RaisedButton'
 import React from 'react'
@@ -43,7 +43,7 @@ const Body = () => {
         </div>
         <div className="align-items col-xs-12 col-sm-12 col-md-4 col-lg-4 center-xs center-sm center-md center-lg center-lg">
           <div className="price-card-side">
-            <Card style={{ padding: 10 }}>
+            <Card>
               <span className="price">$0</span>
               <span className="month"> /month</span>
               <br />
@@ -69,7 +69,7 @@ const Body = () => {
         </div>
         <div className="align-items col-xs-12 col-sm-12 col-md-4 col-lg-4 center-xs center-sm center-md center-lg center-lg">
           <div className="price-card">
-            <Card style={{ padding: 10 }}>
+            <Card>
               <span className="price">$5</span>
               <span className="month"> /month</span>
               <br />
@@ -95,7 +95,7 @@ const Body = () => {
         </div>
         <div className="align-items col-xs-12 col-sm-12 col-md-4 col-lg-4 center-xs center-sm center-md center-lg center-lg">
           <div className="price-card-side">
-            <Card style={{ padding: 10 }}>
+            <Card>
               <span className="price">$3</span>
               <span className="month"> /month</span>
               <br />
