@@ -11,6 +11,7 @@ const Card = ({ children, style }) => {
           padding: 10px;
           text-align: center;
           box-shadow: 0 6px 4px -4px black;
+          width: auto;
         }
         `}</style>
     </div>
