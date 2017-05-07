@@ -1,37 +1,32 @@
-import React, { Component } from 'react'
+import { injectState, provideState } from 'freactal'
 
+import React from 'react'
 import TestModal from '../../components/TestModal/TestModal'
 
-class MeetTheTeam extends Component {
-  state = {
+const wrapComponentWithState = provideState({
+  initialState: () => ({
     displayModal: false
+  }),
+  effects: {
+    openModal: () => state => Object.assign({}, state, { displayModal: true }),
+    closeModal: () => state => Object.assign({}, state, { displayModal: false })
   }
+})
 
-  openModal = () => {
-    this.setState({
-      displayModal: true
-    })
-  }
-
-  closeModal = () => {
-    this.setState({
-      displayModal: false
-    })
-  }
-
-  render() {
+const MeetTheTeam = wrapComponentWithState(
+  injectState(({ state, effects }) => {
     return (
       <div>
         <button
           label="Primary"
           primary
-          onTouchTap={this.openModal}
+          onTouchTap={effects.openModal}
           style={{ marginTop: 80 }}
         />
-        {this.state.displayModal && <TestModal closeModal={this.closeModal} />}
+        {state.displayModal && <TestModal />}
       </div>
     )
-  }
-}
+  })
+)
 
 export default MeetTheTeam

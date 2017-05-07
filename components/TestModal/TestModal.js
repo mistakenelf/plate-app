@@ -1,8 +1,8 @@
 import Icon from '../Icon/Icon'
-import PropTypes from 'prop-types'
 import React from 'react'
+import { injectState } from 'freactal'
 
-const TestModal = ({ closeModal }) => {
+const TestModal = injectState(({ effects }) => {
   return (
     <div>
       <div className="modal">
@@ -10,7 +10,7 @@ const TestModal = ({ closeModal }) => {
           <Icon
             type="fa fa-times fa-lg"
             style={{ float: 'right', cursor: 'pointer' }}
-            onClick={closeModal}
+            onClick={effects.closeModal}
           />
           <p>This is a test custom modal!</p>
           <p>No more run-of-the-mill modal trends</p>
@@ -40,10 +40,6 @@ const TestModal = ({ closeModal }) => {
       </style>
     </div>
   )
-}
-
-TestModal.propTypes = {
-  closeModal: PropTypes.func
-}
+})
 
 export default TestModal
