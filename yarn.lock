@@ -2162,6 +2162,12 @@ frameguard@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/frameguard/-/frameguard-3.0.0.tgz#7bcad469ee7b96e91d12ceb3959c78235a9272e9"
 
+freactal@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/freactal/-/freactal-1.0.0.tgz#3a71421105b2cc040e1f57534f674c3935be66ce"
+  dependencies:
+    lodash "^4.17.4"
+
 fresh@0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.0.tgz#f474ca5e6a9246d6fd8e0953cfa9b9c805afa78e"
