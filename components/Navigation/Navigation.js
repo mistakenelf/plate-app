@@ -51,6 +51,9 @@ class Navigation extends Component {
             </div>}
         <style jsx>
           {`
+            a {
+              text-decoration: none;
+            }
             .fixed-nav {
               position: fixed;
               display: flex;

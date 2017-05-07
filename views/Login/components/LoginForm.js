@@ -1,8 +1,8 @@
-import { Card, CardText } from 'material-ui/Card'
 import { Field, reduxForm } from 'redux-form'
 import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 
+import Card from '../../../components/Card/Card'
 import Cookies from 'js-cookie'
 import Link from 'next/link'
 import LoginMutation from '../../../mutations/LoginMutation'
@@ -46,9 +46,9 @@ class LoginForm extends Component {
     }
 
     return (
-      <div className="container-fluid">
+      <div className="container-fluid login-container">
         <div className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg">
-          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
+          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-md-offset-3 col-lg-offset-4">
             <Card style={{ padding: 20 }}>
               <h1 className="header-text">Login</h1>
               {this.state.loginError &&
@@ -98,6 +98,9 @@ class LoginForm extends Component {
         </div>
         <style jsx>
           {`
+          .login-container {
+            margin-top: 100px;
+          }
           .text-field-email {
             margin-bottom: 15px;
           }
@@ -121,6 +124,13 @@ class LoginForm extends Component {
             margin-bottom: 40px;
             color: #424242
           }
+          @media only screen
+          and (min-device-width : 320px)
+          and (max-device-width : 1030px) {
+            .login-container {
+              margin-left: 10px;
+              margin-right: 10px;
+            }
         `}
         </style>
       </div>
