@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import Header from '../components/Header/Header'
 import Navigation from '../components/Navigation/Navigation'
 import PropTypes from 'prop-types'
-import configureLoadingProgressBar from '../utils/routing'
+import configureLoadingProgressBar from '../lib/routing'
 
 export default ComposedComponent => {
   return class WithDefaultLayout extends Component {
