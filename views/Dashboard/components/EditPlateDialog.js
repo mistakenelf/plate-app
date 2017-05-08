@@ -53,10 +53,17 @@ class EditPlateDialog extends Component {
   actions = [
     <FlatButton
       label="Cancel"
+      key="cancel"
       onTouchTap={this.props.editPlateHandleClose}
       primary
     />,
-    <FlatButton label="Submit" form="editPlateForm" secondary type="submit" />
+    <FlatButton
+      label="Submit"
+      key="edit"
+      form="editPlateForm"
+      secondary
+      type="submit"
+    />
   ]
 
   render() {

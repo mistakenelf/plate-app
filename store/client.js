@@ -1,12 +1,13 @@
-import { ApolloClient, createNetworkInterface } from 'react-apollo'
+import { ApolloClient, createBatchingNetworkInterface } from 'react-apollo'
 
 let apolloClient = null
 
 function createClient(props) {
-  const networkInterface = createNetworkInterface({
+  const networkInterface = createBatchingNetworkInterface({
     uri: process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000/graphql'
       : 'https://plate.now.sh/graphql',
+    batchInterval: 10,
     opts: {
       credentials: 'include'
     }
@@ -14,7 +15,7 @@ function createClient(props) {
 
   networkInterface.use([
     {
-      applyMiddleware(req, next) {
+      applyBatchMiddleware(req, next) {
         /* eslint-disable no-param-reassign */
         if (!req.options.headers) {
           req.options.headers = {}

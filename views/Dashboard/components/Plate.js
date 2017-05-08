@@ -56,11 +56,13 @@ class Plate extends Component {
       <FlatButton
         label="Cancel"
         primary
+        key="cancel"
         onTouchTap={this.washPlateHandleClose}
       />,
       <FlatButton
         label="Wash"
         secondary
+        key="wash"
         onTouchTap={() => this.deletePlate(this.props.plateId)}
       />
     ]

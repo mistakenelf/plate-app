@@ -46,7 +46,7 @@ const Modal = injectState(({ open, children, effects }) => {
 })
 
 Modal.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node,
   open: PropTypes.bool
 }
 

@@ -51,10 +51,17 @@ class AddPlateDialog extends Component {
       <FlatButton
         label="Cancel"
         type="button"
+        key="cancel"
         secondary
         onTouchTap={this.props.closeDialog}
       />,
-      <FlatButton label="Add Plate" form="plateForm" primary type="submit" />
+      <FlatButton
+        label="Add Plate"
+        key="add"
+        form="plateForm"
+        primary
+        type="submit"
+      />
     ]
 
     return (

@@ -14,7 +14,7 @@ const Body = () => {
             <h2 className="section-titles">Easily manage your tasks</h2>
             <p>
               Manage your tasks easily through an elegant and simple interface.
-              Never forget what's on your list of tasks to be completed.
+              Never forget whats on your list of tasks to be completed.
             </p>
           </div>
         </div>

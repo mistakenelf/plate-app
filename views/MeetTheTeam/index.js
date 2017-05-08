@@ -17,12 +17,9 @@ const MeetTheTeam = wrapComponentWithState(
   injectState(({ state, effects }) => {
     return (
       <div>
-        <button
-          label="Primary"
-          primary
-          onTouchTap={effects.openModal}
-          style={{ marginTop: 80 }}
-        />
+        <button onClick={effects.openModal} style={{ marginTop: 80 }}>
+          Open Modal
+        </button>
         <Modal open={state.displayModal} />
       </div>
     )

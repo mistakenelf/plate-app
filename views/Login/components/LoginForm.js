@@ -1,4 +1,3 @@
-import { Field, reduxForm } from 'redux-form'
 import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 
@@ -6,10 +5,7 @@ import Card from '../../../components/Card/Card'
 import Cookies from 'js-cookie'
 import Link from 'next/link'
 import LoginMutation from '../../../mutations/LoginMutation'
-import LoginValidation from '../../../validations/LoginValidation'
 import PropTypes from 'prop-types'
-import RaisedButton from 'material-ui/RaisedButton'
-import RenderRegularTextField from '../../../utils/RenderRegularTextField'
 import Router from 'next/router'
 
 class LoginForm extends Component {
@@ -22,7 +18,8 @@ class LoginForm extends Component {
     loginError: false
   }
 
-  userLogin = async login => {
+  userLogin = async (e, login) => {
+    e.preventDefault()
     const username = document.getElementById('username').value
     const password = document.getElementById('password').value
 
@@ -38,7 +35,7 @@ class LoginForm extends Component {
   }
 
   render() {
-    const { login, handleSubmit } = this.props
+    const { login } = this.props
 
     const errorStyle = {
       marginBottom: 10,
@@ -46,47 +43,38 @@ class LoginForm extends Component {
     }
 
     return (
-      <div className="container-fluid login-container">
-        <div className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg">
-          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-md-offset-3 col-lg-offset-4">
-            <Card style={{ padding: 20 }}>
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-12 col-md-6 col-lg-4 col-md-offset-3 col-lg-offset-4">
+            <Card>
               <h1 className="header-text">Login</h1>
               {this.state.loginError &&
                 <Card style={errorStyle}>
                   <div className="error-text">
-                    <CardText>
-                      <b>Error:</b> Invalid Login.
-                      <Link prefetch href="/forgotpassword">
-                        <a style={{ textDecoration: 'none' }}>
-                          {' '}Forgot Password?
-                        </a>
-                      </Link>
-                    </CardText>
+                    <b>Error:</b> Invalid Login.
+                    <Link prefetch href="/forgotpassword">
+                      <a style={{ textDecoration: 'none' }}>
+                        Forgot Password?
+                      </a>
+                    </Link>
                   </div>
                 </Card>}
-              <form onSubmit={handleSubmit(() => this.userLogin(login))}>
-                <Field
-                  name="username"
-                  id="username"
-                  component={RenderRegularTextField}
+              <form onSubmit={e => this.userLogin(e, login)}>
+                <label htmlFor="username">Username</label>
+                <input
                   type="text"
-                  label="Username"
+                  id="username"
+                  placeholder="Enter your username"
                 />
-                <Field
-                  name="password"
-                  id="password"
-                  component={RenderRegularTextField}
+                <label htmlFor="password">Password</label>
+                <input
                   type="password"
-                  label="Password"
-                  style={{ marginBottom: 20 }}
+                  id="password"
+                  placeholder="Enter your password"
                 />
-                <RaisedButton
-                  style={{ marginBottom: 5 }}
-                  label="Login"
-                  primary
-                  fullWidth
-                  type="submit"
-                />
+                <button type="submit" className="primary full-width">
+                  Login
+                </button>
               </form>
               <div className="forgot-password">
                 <Link prefetch href="/forgotpassword">
@@ -98,40 +86,24 @@ class LoginForm extends Component {
         </div>
         <style jsx>
           {`
-          .login-container {
-            margin-top: 100px;
-          }
-          .text-field-email {
-            margin-bottom: 15px;
-          }
-          .text-field-password {
-            margin-bottom: 15px;
-          }
-          .forgot-password {
-            margin-top: 15px;
-          }
-          .forgot-password a {
-            text-decoration: none;
-            font-size: 12px;
-          }
-          .error-text {
-            text-align: center;
-          }
-          .full-height {
-            height: 90vh;
-          }
-          .header-text {
-            margin-bottom: 40px;
-            color: #424242
-          }
-          @media only screen
-          and (min-device-width : 320px)
-          and (max-device-width : 1030px) {
-            .login-container {
-              margin-left: 10px;
-              margin-right: 10px;
+            .full-width {
+              width: 95%;
             }
-        `}
+            .forgot-password {
+              margin-top: 15px;
+            }
+            .forgot-password a {
+              text-decoration: none;
+              font-size: 12px;
+            }
+            .error-text {
+              text-align: center;
+            }
+            .header-text {
+              margin-bottom: 40px;
+              color: #424242
+            }
+          `}
         </style>
       </div>
     )
@@ -139,10 +111,6 @@ class LoginForm extends Component {
 }
 
 export default compose(
-  reduxForm({
-    form: 'loginForm',
-    validate: LoginValidation
-  }),
   graphql(LoginMutation, {
     props: ({ mutate }) => ({
       login: (username, password) =>
