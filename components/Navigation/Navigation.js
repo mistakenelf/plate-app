@@ -1,35 +1,36 @@
-import React, { Component } from 'react'
+import { injectState, provideState } from 'freactal'
 
 import Cookies from 'js-cookie'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
+import React from 'react'
 import Router from 'next/router'
 
-class Navigation extends Component {
-  static propTypes = {
-    token: PropTypes.string
+const wrapComponentWithState = provideState({
+  initialState: props => ({
+    loggedIn: props.token ? true : false
+  }),
+  effects: {
+    logout: () => state => Object.assign({}, state, { loggedIn: false }),
+    login: () => state => Object.assign({}, state, { loggedIn: true })
   }
+})
 
-  state = {
-    loggedIn: this.props.token ? true : false
-  }
+const logUserOut = logout => {
+  logout()
 
-  logout = () => {
-    this.setState({
-      loggedIn: false
-    })
+  Cookies.remove('token')
+  Router.push('/login')
+}
 
-    Cookies.remove('token')
-    Router.push('/login')
-  }
-
-  render() {
+const Navigation = wrapComponentWithState(
+  injectState(({ state, effects }) => {
     return (
       <header className="fixed-nav">
         <a href="#" className="logo logo-container">
           Plate
         </a>
-        {this.state.loggedIn
+        {state.loggedIn
           ? <div>
               <Link prefetch href="/"><a className="nav-link">Home</a></Link>
               <Link prefetch href="/dashboard">
@@ -38,7 +39,12 @@ class Navigation extends Component {
               <Link prefetch href="/account">
                 <a className="nav-link">Account</a>
               </Link>
-              <a onClick={this.logout} className="nav-link">Logout</a>
+              <a
+                onClick={() => logUserOut(effects.logout)}
+                className="nav-link"
+              >
+                Logout
+              </a>
             </div>
           : <div>
               <Link prefetch href="/"><a className="nav-link">Home</a></Link>
@@ -77,7 +83,11 @@ class Navigation extends Component {
         </style>
       </header>
     )
-  }
+  })
+)
+
+Navigation.propTypes = {
+  token: PropTypes.string
 }
 
 export default Navigation
