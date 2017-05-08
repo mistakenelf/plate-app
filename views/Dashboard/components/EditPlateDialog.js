@@ -1,9 +1,8 @@
-import { Field, reduxForm } from 'redux-form'
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton'
 import React, { Component } from 'react'
 
 import Dialog from 'material-ui/Dialog'
-import EditPlateValidation from '../../../validations/EditPlateValidation'
+import { Field } from 'redux-form'
 import FlatButton from 'material-ui/FlatButton'
 import PropTypes from 'prop-types'
 import RenderRegularTextField from '../../../utils/RenderRegularTextField'
@@ -78,13 +77,12 @@ class EditPlateDialog extends Component {
         <h3 className="header-style">Edit Plate</h3>
         <form
           id="editPlateForm"
-          onSubmit={this.props.handleSubmit(() =>
+          onSubmit={() =>
             this.editPlateDetails(
               this.props.plateId,
               this.props.editPlate,
               this.props.editPlateHandleClose
-            )
-          )}
+            )}
         >
           <span className="label-style">Name:</span>
           <Field
@@ -139,7 +137,5 @@ class EditPlateDialog extends Component {
     )
   }
 }
-export default reduxForm({
-  form: 'editPlateForm',
-  validate: EditPlateValidation
-})(EditPlateDialog)
+
+export default EditPlateDialog

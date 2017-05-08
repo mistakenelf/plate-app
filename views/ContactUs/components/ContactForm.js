@@ -1,14 +1,12 @@
-import { Field, reduxForm } from 'redux-form'
 import { compose, graphql } from 'react-apollo'
 
 import { Card } from 'material-ui/Card'
 import ContactUsMutation from '../../../mutations/ContactUsMutation'
-import ContactValidation from '../../../validations/ContactValidation'
+import { Field } from 'redux-form'
 import FloatingActionButton from 'material-ui/FloatingActionButton'
 import Icon from '../../../components/Icon/Icon'
 import PropTypes from 'prop-types'
 import React from 'react'
-import RenderRegularTextField from '../../../utils/RenderRegularTextField'
 
 const ContactForm = ({ contactUs }) => {
   const sendEmail = e => {
@@ -101,10 +99,6 @@ ContactForm.propTypes = {
 }
 
 export default compose(
-  reduxForm({
-    form: 'contactForm',
-    validate: ContactValidation
-  }),
   graphql(ContactUsMutation, {
     props: ({ mutate }) => ({
       contactUs: (email, name, message) =>

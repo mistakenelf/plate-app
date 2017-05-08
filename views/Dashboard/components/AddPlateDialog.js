@@ -1,10 +1,9 @@
-import { Field, reduxForm } from 'redux-form'
 import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 
 import AddPlateMutation from '../../../mutations/AddPlateMutation'
-import AddPlateValidation from '../../../validations/AddPlateValidation'
 import Dialog from 'material-ui/Dialog'
+import { Field } from 'redux-form'
 import FlatButton from 'material-ui/FlatButton'
 import PlatesQuery from '../../../queries/PlatesQuery'
 import PropTypes from 'prop-types'
@@ -73,10 +72,7 @@ class AddPlateDialog extends Component {
         onRequestClose={this.props.closeDialog}
         contentStyle={{ width: '95%' }}
       >
-        <form
-          id="plateForm"
-          onSubmit={this.props.handleSubmit(() => this.confirmAddPlate())}
-        >
+        <form id="plateForm" onSubmit={() => this.confirmAddPlate()}>
           <Field
             name="name"
             id="add_plate_name"
@@ -101,10 +97,6 @@ class AddPlateDialog extends Component {
 }
 
 export default compose(
-  reduxForm({
-    form: 'addPlateForm',
-    validate: AddPlateValidation
-  }),
   graphql(AddPlateMutation, {
     props: ({ mutate }) => ({
       addPlate: (name, description, thumbnail, createdBy) => {
