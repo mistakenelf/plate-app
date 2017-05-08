@@ -16,11 +16,40 @@ const wrapComponentWithState = provideState({
 const MeetTheTeam = wrapComponentWithState(
   injectState(({ state, effects }) => {
     return (
-      <div>
-        <button onClick={effects.openModal} style={{ marginTop: 80 }}>
+      <div className="container">
+        <button onClick={effects.openModal}>
           Open Modal
         </button>
-        <Modal open={state.displayModal} closeModal={effects.closeModal} />
+        <Modal open={state.displayModal} closeModal={effects.closeModal}>
+          <form>
+            <fieldset>
+              <legend>Login</legend>
+              <div className="input-group fluid">
+                <label className="input-label" htmlFor="username">
+                  Username:
+                </label>
+                <input
+                  type="text"
+                  id="username"
+                  placeholder="username"
+                  required
+                />
+              </div>
+              <div className="input-group fluid">
+                <label className="input-label" htmlFor="pwd">Password:</label>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="password"
+                  required
+                />
+              </div>
+              <div className="input-group fluid">
+                <button type="submit" className="primary">Login</button>
+              </div>
+            </fieldset>
+          </form>
+        </Modal>
       </div>
     )
   })

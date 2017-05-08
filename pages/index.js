@@ -1,12 +1,5 @@
-import React, { Component } from 'react'
-
 import Home from '../views/Home'
+import React from 'react'
 import { pageWithDefaultLayout } from '../hocs/page'
 
-export default pageWithDefaultLayout(
-  class extends Component {
-    render() {
-      return <Home />
-    }
-  }
-)
+export default pageWithDefaultLayout(() => <Home />)

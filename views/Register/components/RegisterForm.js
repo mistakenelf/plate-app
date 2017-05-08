@@ -1,159 +1,131 @@
-import { Card, CardText } from 'material-ui/Card'
-import { Field, reduxForm } from 'redux-form'
-import React, { Component } from 'react'
-import { compose, graphql } from 'react-apollo'
+import { injectState, provideState } from 'freactal'
 
+import Alert from '../../../components/Alert/Alert'
 import Cookies from 'js-cookie'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
-import RaisedButton from 'material-ui/RaisedButton'
+import React from 'react'
 import RegisterMutation from '../../../mutations/RegisterMutation'
-import RegisterValidation from '../../../validations/RegisterValidation'
-import RenderRegularTextField from '../../../utils/RenderRegularTextField'
 import Router from 'next/router'
+import { graphql } from 'react-apollo'
 
-class RegisterForm extends Component {
-  static propTypes = {
-    handleSubmit: PropTypes.func,
-    register: PropTypes.func
-  }
-
-  state = {
+const wrapComponentWithState = provideState({
+  initialState: () => ({
     registerError: false
+  }),
+  effects: {
+    showError: () => state => Object.assign({}, state, { registerError: true })
   }
+})
 
-  registerUser = async () => {
-    const firstName = document.getElementById('firstName').value
-    const lastName = document.getElementById('lastName').value
-    const username = document.getElementById('username').value
-    const password = document.getElementById('password').value
+const registerUser = async (e, register, showError) => {
+  e.preventDefault()
+  const firstName = document.getElementById('firstName').value
+  const lastName = document.getElementById('lastName').value
+  const username = document.getElementById('username').value
+  const password = document.getElementById('password').value
 
-    const user = await this.props.register(
-      firstName,
-      lastName,
-      username,
-      password
-    )
+  const user = await register(firstName, lastName, username, password)
 
-    if (user.data.register === null) {
-      this.setState({
-        registerError: true
-      })
-    } else {
-      Cookies.set('token', user.data.register, {
-        path: '/',
-        expires: 7
-      })
-      Router.push('/dashboard')
-    }
-  }
-
-  render() {
-    const { handleSubmit } = this.props
-
-    const errorStyle = {
-      marginBottom: 10,
-      backgroundColor: '#FFCDD2'
-    }
-
-    return (
-      <div className="container-fluid">
-        <div className="row full-height middle-xs middle-sm middle-md middle-lg center-xs center-sm center-md center-lg">
-          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4">
-            <Card style={{ padding: 20 }}>
-              <h1 className="header-text">Register</h1>
-              {this.state.registerError &&
-                <Card style={errorStyle}>
-                  <div className="error-text">
-                    <CardText>
-                      <b>Error:</b> Registration Error.
-                    </CardText>
-                  </div>
-                </Card>}
-              <form onSubmit={handleSubmit(this.registerUser)}>
-                <Field
-                  name="firstName"
-                  id="firstName"
-                  component={RenderRegularTextField}
-                  type="text"
-                  label="First Name"
-                />
-                <Field
-                  name="lastName"
-                  id="lastName"
-                  component={RenderRegularTextField}
-                  type="text"
-                  label="Last Name"
-                />
-                <Field
-                  name="username"
-                  id="username"
-                  component={RenderRegularTextField}
-                  type="text"
-                  label="Username"
-                />
-                <Field
-                  name="password"
-                  id="password"
-                  component={RenderRegularTextField}
-                  type="password"
-                  label="Password"
-                  style={{ marginBottom: 20 }}
-                />
-                <RaisedButton
-                  style={{ marginBottom: 5 }}
-                  label="Register"
-                  primary
-                  fullWidth
-                  type="submit"
-                />
-              </form>
-              <span className="login-link">
-                Already have an account?
-                <Link prefetch href="/login">
-                  <a> Login</a>
-                </Link>
-              </span>
-            </Card>
-          </div>
-        </div>
-        <style jsx>
-          {`
-          .full-height {
-            height: 90vh;
-          }
-          .text-field-email {
-            margin-bottom: 15px;
-          }
-          .text-field-password {
-            margin-bottom: 15px;
-          }
-          .header-text {
-            color: black;
-            margin-bottom: 40px;
-          }
-          .error-text {
-            text-align: center;
-          }
-          .login-link {
-            font-size: 12px;
-          }
-          `}
-        </style>
-      </div>
-    )
+  if (user.data.register === null) {
+    showError()
+  } else {
+    Cookies.set('token', user.data.register, {
+      path: '/',
+      expires: 7
+    })
+    Router.push('/dashboard')
   }
 }
 
-export default compose(
-  reduxForm({
-    form: 'registerForm',
-    validate: RegisterValidation
-  }),
-  graphql(RegisterMutation, {
-    props: ({ mutate }) => ({
-      register: (firstName, lastName, username, password) =>
-        mutate({ variables: { firstName, lastName, username, password } })
-    })
+const RegisterForm = wrapComponentWithState(
+  injectState(({ state, effects, register }) => {
+    return (
+      <div>
+        <div className="row">
+          <div className="col-sm-12 col-md-6 col-lg-4 col-md-offset-3 col-lg-offset-4">
+            <form onSubmit={e => registerUser(e, register, effects.showError)}>
+              <fieldset>
+                <legend>Register</legend>
+                <div className="input-group fluid">
+                  <label className="input-label" htmlFor="firstName">
+                    First Name:
+                  </label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    placeholder="first name"
+                    required
+                  />
+                </div>
+                <div className="input-group fluid">
+                  <label className="input-label" htmlFor="lastName">
+                    Last Name:
+                  </label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    placeholder="last name"
+                    required
+                  />
+                </div>
+                <div className="input-group fluid">
+                  <label className="input-label" htmlFor="username">
+                    Username:
+                  </label>
+                  <input
+                    type="text"
+                    id="username"
+                    placeholder="username"
+                    required
+                  />
+                </div>
+                <div className="input-group fluid">
+                  <label className="input-label" htmlFor="pwd">Password:</label>
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="password"
+                    required
+                  />
+                </div>
+                <div className="input-group fluid">
+                  <button type="submit" className="primary">Register</button>
+                  <button type="button">
+                    <Link href="/login" prefetch>
+                      <a>Already A User?</a>
+                    </Link>
+                  </button>
+                </div>
+                {state.registerError &&
+                  <Alert message="Error! Registration Failed" />}
+              </fieldset>
+            </form>
+          </div>
+        </div>
+        <style jsx>{`
+        .input-label {
+          width: 100px;
+        }
+        a {
+          text-decoration: none;
+        }
+        .error-text {
+          text-align: center;
+        }
+      `}</style>
+      </div>
+    )
   })
-)(RegisterForm)
+)
+
+RegisterForm.propTypes = {
+  register: PropTypes.func
+}
+
+export default graphql(RegisterMutation, {
+  props: ({ mutate }) => ({
+    register: (firstName, lastName, username, password) =>
+      mutate({ variables: { firstName, lastName, username, password } })
+  })
+})(RegisterForm)

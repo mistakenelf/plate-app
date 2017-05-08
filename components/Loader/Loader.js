@@ -10,6 +10,7 @@ const Loader = () => {
             display: flex;
             margin-top: 100px;
             width: 100%:
+            align-items: center;
             justify-content: center;
           }
         `}

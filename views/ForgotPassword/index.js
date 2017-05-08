@@ -6,7 +6,9 @@ const ForgotPassword = () => {
   return (
     <div>
       <BackButton color="white" />
-      <ForgotPasswordForm />
+      <div className="container">
+        <ForgotPasswordForm />
+      </div>
     </div>
   )
 }

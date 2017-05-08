@@ -13,7 +13,7 @@ const PlateFiller = ({ plateId, savePlateContent, plate, loading }) => {
     return <Loader />
   }
   return (
-    <div className="container-fluid bottom-margin">
+    <div className="container">
       <div className="row">
         <div className="col-sm-12 col-md-12 col-lg-12 full-width">
           <Header plateName={plate.name} />

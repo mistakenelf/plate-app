@@ -6,7 +6,9 @@ const Register = () => {
   return (
     <div>
       <BackButton color="white" />
-      <RegisterForm />
+      <div className="container">
+        <RegisterForm />
+      </div>
     </div>
   )
 }

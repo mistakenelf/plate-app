@@ -5,7 +5,7 @@ import React from 'react'
 
 const Account = ({ user }) => {
   return (
-    <div>
+    <div className="container">
       <BackButton color="black" />
       <ProfilePage user={user} />
     </div>

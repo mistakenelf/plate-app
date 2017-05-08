@@ -22,10 +22,10 @@ class Dashboard extends Component {
     }
 
     return (
-      <div className="container-fluid container-padding">
+      <div className="container">
         <div className="row row-margin">
           {this.props.plates.length === 0
-            ? <div className="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3">
+            ? <div className="col-sm-12 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3">
                 <NoPlatesFound />
               </div>
             : this.props.plates.map((plate, index) => (

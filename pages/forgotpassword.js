@@ -1,16 +1,5 @@
-import React, { Component } from 'react'
-
 import ForgotPassword from '../views/ForgotPassword'
+import React from 'react'
 import { pageWithNavlessLayout } from '../hocs/page'
 
-export default pageWithNavlessLayout(
-  class extends Component {
-    render() {
-      return (
-        <div className="container">
-          <ForgotPassword />
-        </div>
-      )
-    }
-  }
-)
+export default pageWithNavlessLayout(() => <ForgotPassword />)

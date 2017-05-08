@@ -1,12 +1,5 @@
-import React, { Component } from 'react'
-
 import Login from '../views/Login'
+import React from 'react'
 import { pageWithNavlessLayout } from '../hocs/page'
 
-export default pageWithNavlessLayout(
-  class extends Component {
-    render() {
-      return <Login />
-    }
-  }
-)
+export default pageWithNavlessLayout(() => <Login />)
