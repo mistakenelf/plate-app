@@ -6,7 +6,11 @@ import { pageWithDefaultLayout } from '../hocs/page'
 export default pageWithDefaultLayout(
   class extends Component {
     render() {
-      return <ContactUs />
+      return (
+        <div className="container">
+          <ContactUs />
+        </div>
+      )
     }
   }
 )

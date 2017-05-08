@@ -1,4 +1,4 @@
-import Body from './components/Body'
+import AdvertisingSection from './components/AdvertisingSection'
 import Footer from '../../components/Footer/Footer'
 import Header from './components/Header'
 import React from 'react'
@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <Body />
+      <AdvertisingSection />
       <Footer />
     </div>
   )

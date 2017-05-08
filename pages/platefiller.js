@@ -30,7 +30,11 @@ export default pageWithUserData(
           </div>
         )
       }
-      return <PlateFiller plateId={url.query.id} />
+      return (
+        <div className="container">
+          <PlateFiller plateId={url.query.id} />
+        </div>
+      )
     }
   }
 )

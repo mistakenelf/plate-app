@@ -31,7 +31,11 @@ export default pageWithUserData(
         )
       }
 
-      return <Account user={getUserProfile} />
+      return (
+        <div className="container">
+          <Account user={getUserProfile} />
+        </div>
+      )
     }
   }
 )

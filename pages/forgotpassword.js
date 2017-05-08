@@ -6,7 +6,11 @@ import { pageWithNavlessLayout } from '../hocs/page'
 export default pageWithNavlessLayout(
   class extends Component {
     render() {
-      return <ForgotPassword />
+      return (
+        <div className="container">
+          <ForgotPassword />
+        </div>
+      )
     }
   }
 )
