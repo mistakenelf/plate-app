@@ -5,7 +5,6 @@ import Dialog from 'material-ui/Dialog'
 import { Field } from 'redux-form'
 import FlatButton from 'material-ui/FlatButton'
 import PropTypes from 'prop-types'
-import RenderRegularTextField from '../../../utils/RenderRegularTextField'
 
 class EditPlateDialog extends Component {
   static propTypes = {
@@ -88,7 +87,6 @@ class EditPlateDialog extends Component {
           <Field
             name="currentPlateName"
             id="currentPlateName"
-            component={RenderRegularTextField}
             type="text"
             label={this.props.plateName}
             style={{ marginBottom: 20 }}
@@ -97,7 +95,6 @@ class EditPlateDialog extends Component {
           <Field
             name="currentPlateDescription"
             id="currentPlateDescription"
-            component={RenderRegularTextField}
             type="text"
             rows={4}
             rowsMax={4}

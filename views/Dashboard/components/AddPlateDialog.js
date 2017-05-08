@@ -7,7 +7,6 @@ import { Field } from 'redux-form'
 import FlatButton from 'material-ui/FlatButton'
 import PlatesQuery from '../../../queries/PlatesQuery'
 import PropTypes from 'prop-types'
-import RenderAddPlateTextField from '../../../utils/RenderAddPlateTextField'
 
 class AddPlateDialog extends Component {
   static propTypes = {
@@ -73,17 +72,10 @@ class AddPlateDialog extends Component {
         contentStyle={{ width: '95%' }}
       >
         <form id="plateForm" onSubmit={() => this.confirmAddPlate()}>
-          <Field
-            name="name"
-            id="add_plate_name"
-            component={RenderAddPlateTextField}
-            type="text"
-            label="Name"
-          />
+          <Field name="name" id="add_plate_name" type="text" label="Name" />
           <Field
             name="description"
             id="add_plate_description"
-            component={RenderAddPlateTextField}
             type="text"
             label="Description"
             rows={4}
