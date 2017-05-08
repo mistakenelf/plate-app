@@ -1,9 +1,8 @@
 import Icon from '../Icon/Icon'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { injectState } from 'freactal'
 
-const Modal = injectState(({ open, children, effects }) => {
+const Modal = ({ open, closeModal, children }) => {
   return (
     <div>
       <div
@@ -14,7 +13,7 @@ const Modal = injectState(({ open, children, effects }) => {
           <Icon
             type="fa fa-times fa-lg"
             style={{ float: 'right', cursor: 'pointer' }}
-            onClick={effects.closeModal}
+            onClick={closeModal}
           />
           {children}
         </div>
@@ -43,11 +42,12 @@ const Modal = injectState(({ open, children, effects }) => {
       </style>
     </div>
   )
-})
+}
 
 Modal.propTypes = {
   children: PropTypes.node,
-  open: PropTypes.bool
+  open: PropTypes.bool,
+  closeModal: PropTypes.func
 }
 
 export default Modal

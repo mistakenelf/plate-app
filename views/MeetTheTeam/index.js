@@ -20,7 +20,7 @@ const MeetTheTeam = wrapComponentWithState(
         <button onClick={effects.openModal} style={{ marginTop: 80 }}>
           Open Modal
         </button>
-        <Modal open={state.displayModal} />
+        <Modal open={state.displayModal} closeModal={effects.closeModal} />
       </div>
     )
   })
