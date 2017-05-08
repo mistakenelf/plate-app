@@ -1,7 +1,7 @@
 import { injectState, provideState } from 'freactal'
 
+import Modal from '../../components/Modal/Modal'
 import React from 'react'
-import TestModal from '../../components/TestModal/TestModal'
 
 const wrapComponentWithState = provideState({
   initialState: () => ({
@@ -23,7 +23,7 @@ const MeetTheTeam = wrapComponentWithState(
           onTouchTap={effects.openModal}
           style={{ marginTop: 80 }}
         />
-        {state.displayModal && <TestModal />}
+        <Modal open={state.displayModal} />
       </div>
     )
   })
