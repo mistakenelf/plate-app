@@ -15,7 +15,7 @@
     "bcrypt": "^1.0.2",
     "body-parser": "^1.17.1",
     "cookie-parser": "^1.4.3",
-    "draft-js": "^0.10.0",
+    "draft-js": "^0.10.1",
     "express": "^4.15.2",
     "freactal": "^1.0.0",
     "graphql": "^0.9.6",
