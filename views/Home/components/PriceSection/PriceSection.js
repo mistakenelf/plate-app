@@ -21,17 +21,17 @@ const PriceSection = () => {
         </div>
       </div>
       <div className="row price-section">
-        <div className="col-sm-12 col-md-4 col-lg-4">
+        <div className="col-sm-12 col-md-6 col-lg-4">
           <div className="price-card-side">
             <FreeMembershipCard />
           </div>
         </div>
-        <div className="col-sm-12 col-md-4 col-lg-4">
+        <div className="col-sm-12 col-md-6 col-lg-4">
           <div className="price-card">
             <ThreeMembershipCard />
           </div>
         </div>
-        <div className="col-sm-12 col-md-4 col-lg-4">
+        <div className="col-sm-12 col-md-6 col-lg-4">
           <div className="price-card-side">
             <FiveMembershipCard />
           </div>
