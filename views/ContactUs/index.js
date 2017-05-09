@@ -4,8 +4,10 @@ import React from 'react'
 
 const ContactUs = () => {
   return (
-    <div className="container">
-      <ContactForm />
+    <div>
+      <div className="container">
+        <ContactForm />
+      </div>
       <Footer />
     </div>
   )
