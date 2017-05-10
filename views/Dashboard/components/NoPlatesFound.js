@@ -1,5 +1,3 @@
-import { Card, CardText } from 'material-ui/Card'
-
 import ErrorIcon from 'material-ui/svg-icons/alert/error'
 import IconButton from 'material-ui/IconButton'
 import React from 'react'
@@ -21,15 +19,13 @@ const styles = {
 const NoPlatesFound = () => {
   return (
     <Card style={{ borderRadius: 10, textAlign: 'center' }}>
-      <CardText>
-        <IconButton iconStyle={styles.largeIcon} style={styles.large}>
-          <ErrorIcon />
-        </IconButton>
-        <br />
-        <div className="content">
-          You currently have nothing on your dashboard. Add a new plate to get started
-        </div>
-      </CardText>
+      <IconButton iconStyle={styles.largeIcon} style={styles.large}>
+        <ErrorIcon />
+      </IconButton>
+      <br />
+      <div className="content">
+        You currently have nothing on your dashboard. Add a new plate to get started
+      </div>
       <style jsx>
         {`
           .content {

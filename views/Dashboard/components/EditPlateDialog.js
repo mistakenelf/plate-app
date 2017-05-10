@@ -1,4 +1,3 @@
-import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton'
 import React, { Component } from 'react'
 
 import Dialog from 'material-ui/Dialog'
