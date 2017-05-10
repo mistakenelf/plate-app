@@ -9,6 +9,6 @@
   "editor.formatOnSave": true,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "none",
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Nord",
   "prettier.semi": false
 }
