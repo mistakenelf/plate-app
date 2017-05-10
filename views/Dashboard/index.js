@@ -45,7 +45,7 @@ class Dashboard extends Component {
                       style={{
                         transform: `scale(${data.scale})`
                       }}
-                      className="col-xs-12 col-sm-12 col-md-6 col-lg-3 plate-padding"
+                      className="col-sm-12 col-md-6 col-lg-3"
                     >
                       <Plate
                         plateId={plate.id}
@@ -66,27 +66,22 @@ class Dashboard extends Component {
             <AddPlateButton user={this.props.user} />
           </div>
         </div>
-        <style jsx>
-          {`
-            .add-button {
-              position: fixed;
-              bottom: 0;
-              right: 0;
-              z-index: 200;
-            }
-            .plate-padding {
-              margin-bottom: 10px;
-            }
-            .row-margin {
-              margin-bottom: 70px;
-            }
-            .container-padding {
-              padding-top: 5px;
-              padding-left: 0.5em;
-              padding-right: 0.5em;
-            }
-          `}
-        </style>
+        <style jsx>{`
+          .add-button {
+            z-index: 200;
+          }
+          .plate-padding {
+            margin-bottom: 10px;
+          }
+          .row-margin {
+            margin-bottom: 70px;
+          }
+          .container-padding {
+            padding-top: 5px;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+          }
+        `}</style>
       </div>
     )
   }

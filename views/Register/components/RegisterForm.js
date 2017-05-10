@@ -104,16 +104,16 @@ const RegisterForm = wrapComponentWithState(
           </div>
         </div>
         <style jsx>{`
-        .input-label {
-          width: 100px;
-        }
-        a {
-          text-decoration: none;
-        }
-        .error-text {
-          text-align: center;
-        }
-      `}</style>
+          .input-label {
+            width: 100px;
+          }
+          a {
+            text-decoration: none;
+          }
+          .error-text {
+            text-align: center;
+          }
+        `}</style>
       </div>
     )
   })

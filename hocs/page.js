@@ -10,7 +10,7 @@ export const pageWithDefaultLayout = compose(
   withData,
   withAnalytics,
   withAuth,
-  withDefaultLayout,
+  withDefaultLayout
 )
 
 export const pageWithUserData = compose(

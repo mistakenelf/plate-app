@@ -14,13 +14,11 @@ export default ComposedComponent =>
         <div>
           <Header title="Plate" />
           <ComposedComponent {...this.props} />
-          <style jsx global>
-            {`
-              body {
-                background: linear-gradient(-90deg, rgb(141, 95, 115), #343f53);
-              }
-            `}
-          </style>
+          <style jsx global>{`
+            body {
+              background: linear-gradient(-90deg, rgb(141, 95, 115), #343f53);
+            }
+          `}</style>
         </div>
       )
     }

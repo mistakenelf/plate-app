@@ -22,20 +22,6 @@ export default ComposedComponent => {
           <Header title="Plate" />
           <Navigation token={Cookies.get('token') || this.props.auth.token} />
           <ComposedComponent {...this.props} />
-          <style jsx global>
-            {`
-               * {
-                margin: 0;
-                box-sizing: border-box;
-              }
-              a {
-                text-decoration: none;
-              }
-              body {
-                margin-bottom: 0px;
-            }
-            `}
-          </style>
         </div>
       )
     }

@@ -37,16 +37,14 @@ const BlockStyleControls = props => {
           style={type.style}
         />
       ))}
-      <style jsx>
-        {`
-          .RichEditor-controls {
-            font-family: 'Helvetica', sans-serif;
-            font-size: 14px;
-            user-select: none;
-            margin-bottom: 10px;
-          }
-        `}
-      </style>
+      <style jsx>{`
+        .RichEditor-controls {
+          font-family: 'Helvetica', sans-serif;
+          font-size: 14px;
+          user-select: none;
+          margin-bottom: 10px;
+        }
+      `}</style>
     </div>
   )
 }

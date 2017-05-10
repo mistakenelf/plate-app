@@ -50,69 +50,42 @@ class Plate extends Component {
   }
 
   render() {
-    const actions = [
-      <input
-        type="button"
-        className="primary"
-        value="Cancel"
-        onClick={this.washPlateHandleClose}
-      />,
-      <input
-        type="button"
-        className="secondary"
-        value="Cancel"
-        onClick={() => this.deletePlate(this.props.plateId)}
-      />
-    ]
-
     return (
-      <div className="card">
-        <Card style={{ borderRadius: 5 }}>
-          <div>
-            <h3 className="description">
-              DESCRIPTION
-            </h3>
-            {this.props.description}
-          </div>
-          <input
-            type="button"
-            className="secondary"
-            value="Cancel"
-            onClick={this.wasPlateHandleOpen}
-          />
+      <Card>
+        <div>
+          <h3 className="description">
+            DESCRIPTION
+          </h3>
+          {this.props.description}
+        </div>
+        <div className="row">
+          <button className="secondary" onClick={this.washPlateHandleOpen}>
+            Wash
+          </button>
           <Link prefetch href={`/platefiller?id=${this.props.plateId}`}>
             <a>
-              <input type="button" className="primary" value="Fill Plate" />
+              <button className="primary">Fill Plate</button>
             </a>
           </Link>
-          <EditPlateDialog
-            editPlateOpen={this.state.editPlateOpen}
-            editPlateHandleClose={this.editPlateHandleClose}
-            plateId={this.props.plateId}
-            plateName={this.props.name}
-            plateStatus={this.props.status}
-            plateDescription={this.props.description}
-            editPlate={this.props.editPlate}
-          />
-          <Modal open={this.state.washPlateOpen}>
-            Are you sure you want to remove this plate?
-          </Modal>
-        </Card>
-        <style jsx>
-          {`
-            .card {
-              transition: 0.3s;
-            }
-            .card:hover {
-              box-shadow: 0 3px 8px 0 rgba(0,0,0,0.2);
-              border-radius: 10px;
-            }
-            .description {
-              margin-bottom: 5px;
-            }
-          `}
-        </style>
-      </div>
+        </div>
+        <EditPlateDialog
+          editPlateOpen={this.state.editPlateOpen}
+          editPlateHandleClose={this.editPlateHandleClose}
+          plateId={this.props.plateId}
+          plateName={this.props.name}
+          plateStatus={this.props.status}
+          plateDescription={this.props.description}
+          editPlate={this.props.editPlate}
+        />
+        <Modal open={this.state.washPlateOpen}>
+          Are you sure you want to remove this plate?
+        </Modal>
+        <style jsx>{`
+          .description {
+            margin-bottom: 5px;
+          }
+        `}</style>
+      </Card>
     )
   }
 }

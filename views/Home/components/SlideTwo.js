@@ -8,13 +8,11 @@ const SlideTwo = () => {
           Get out there and start creating some plates. Its fun!
         </h1>
       </div>
-      <style jsx>
-        {`
-          .text-padding {
-            margin-bottom: 25px;
-          }
-        `}
-      </style>
+      <style jsx>{`
+        .text-padding {
+          margin-bottom: 25px;
+        }
+      `}</style>
     </div>
   )
 }

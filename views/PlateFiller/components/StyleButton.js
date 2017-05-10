@@ -24,20 +24,18 @@ class StyleButton extends Component {
     return (
       <span className={className} onMouseDown={this.onToggle}>
         {this.props.label}
-        <style jsx>
-          {`
-            .RichEditor-styleButton {
-              color: #999;
-              cursor: pointer;
-              margin-right: 16px;
-              padding: 2px 0;
-            }
+        <style jsx>{`
+          .RichEditor-styleButton {
+            color: #999;
+            cursor: pointer;
+            margin-right: 16px;
+            padding: 2px 0;
+          }
 
-            .RichEditor-activeButton {
-              color: #5890ff;
-            }
-          `}
-        </style>
+          .RichEditor-activeButton {
+            color: #5890ff;
+          }
+        `}</style>
       </span>
     )
   }

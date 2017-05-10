@@ -50,24 +50,22 @@ const Navigation = wrapComponentWithState(
               <Link href="/login"><a className="nav-link">Login</a></Link>
               <Link href="/register"><a className="nav-link">Register</a></Link>
             </span>}
-        <style jsx>
-          {`
-            a {
-              text-decoration: none;
-              color: white;
-            }
-            .logo-container {
-              margin-right: 15px;
-            }
-            .nav-bar {
-              box-shadow: 0 2px 2px #343f53;
-              background: #343f53;
-            }
-            .nav-link {
-              margin-right: 10px;
-            }
-          `}
-        </style>
+        <style jsx>{`
+          a {
+            text-decoration: none;
+            color: white;
+          }
+          .logo-container {
+            margin-right: 15px;
+          }
+          .nav-bar {
+            box-shadow: 0 2px 2px #343f53;
+            background: #343f53;
+          }
+          .nav-link {
+            margin-right: 10px;
+          }
+        `}</style>
       </header>
     )
   })

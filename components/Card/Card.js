@@ -11,7 +11,7 @@ const Card = ({ children, style }) => {
           padding: 10px;
           box-shadow: 0 6px 4px -4px black;
         }
-        `}</style>
+      `}</style>
     </div>
   )
 }

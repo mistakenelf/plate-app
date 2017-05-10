@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
 
-import IconButton from 'material-ui/IconButton'
-import Menu from 'material-ui/Menu'
-import MenuItem from 'material-ui/MenuItem'
-import Popover from 'material-ui/Popover'
+import Icon from '../../../components/Icon/Icon'
 import PropTypes from 'prop-types'
-import Settings from 'material-ui/svg-icons/action/settings'
 
 class Header extends Component {
   static propTypes = {
@@ -37,23 +33,8 @@ class Header extends Component {
     return (
       <div className="header-container">
         <div className="header">{plateName.toUpperCase()}</div>
-        <IconButton tooltip="Plate Settings" onTouchTap={this.handleTouchTap}>
-          <Settings color="#424242" />
-        </IconButton>
-        <Popover
-          open={this.state.open}
-          anchorEl={this.state.anchorEl}
-          anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
-          targetOrigin={{ horizontal: 'left', vertical: 'top' }}
-          onRequestClose={this.handleRequestClose}
-        >
-          <Menu>
-            <MenuItem primaryText="Share" />
-            <MenuItem primaryText="Settings" />
-          </Menu>
-        </Popover>
-        <style jsx>
-          {`
+        <Icon type="fa fa-cog" style={{ fontSize: 20, color: '#424242' }} />
+        <style jsx>{`
           .header-container {
             display: flex;
             flex-direction: row;
@@ -69,8 +50,7 @@ class Header extends Component {
             color: #424242;
             font-weight: bolder;
           }
-        `}
-        </style>
+        `}</style>
       </div>
     )
   }

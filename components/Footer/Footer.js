@@ -56,100 +56,98 @@ const Footer = () => {
       <div className="copyright">
         © 2017, Plate
       </div>
-      <style jsx>
-        {`
-          h3 {
-            text-transform: uppercase;
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
-            margin-left: 13px; /*offset for hover effect*/
-          }
+      <style jsx>{`
+        h3 {
+          text-transform: uppercase;
+          font-size: 14px;
+          font-weight: 600;
+          letter-spacing: 4px;
+          margin-bottom: 20px;
+          margin-left: 13px; /*offset for hover effect*/
+        }
+        .footer-main {
+          color: white;
+          background-color: #223741;
+          height: auto;
+          padding-top: 100px;
+          padding-bottom: 100px;
+          padding-left: 50px;
+          padding-right: 50px;
+        }
+        .main-content {
+          margin-top: 50px;
+        }
+        .footer-main p {
+          margin-left: 13px;
+          color: #89A1C0;
+          font-size: 13px;
+        }
+        .footer-main ul {
+          list-style-type: none;
+          color: #bdbdbd;
+        }
+        .footer-main ul li {
+          margin-bottom: 5px;
+        }
+        .footer-links {
+          color: #89A1C0;
+          display: inline-block;
+          margin-bottom: 5px;
+          font-size: 13px;
+        }
+        .footer-links:hover {
+          color: #ffffff;
+        }
+        a {
+          text-decoration: none;
+        }
+        a::before,
+        a::after {
+          display: inline-block;
+          opacity: 0;
+          transition: transform 0.3s, opacity 0.2s;
+        }
+        a::before {
+          padding-right:10px;
+          content: '[';
+          transform: translateX(10px);
+        }
+        a::after {
+          padding-left:10px;
+          content: ']';
+          transform: translateX(-10px);
+        }
+        a:hover::before,
+        a:hover::after,
+        a:focus::before,
+        a:focus::after {
+          opacity: 1;
+          transform: translateX(0px);
+        }
+        @media only screen
+        and (min-device-width : 320px)
+        and (max-device-width : 1030px) {
           .footer-main {
-            color: white;
-            background-color: #223741;
-            height: auto;
-            padding-top: 100px;
-            padding-bottom: 100px;
-            padding-left: 50px;
-            padding-right: 50px;
+            padding: 50px;
           }
           .main-content {
-            margin-top: 50px;
-          }
-          .footer-main p {
-            margin-left: 13px;
-            color: #89A1C0;
-            font-size: 13px;
-          }
-          .footer-main ul {
-            list-style-type: none;
-            color: #bdbdbd;
-          }
-          .footer-main ul li {
-            margin-bottom: 5px;
-          }
-          .footer-links {
-            color: #89A1C0;
-            display: inline-block;
-            margin-bottom: 5px;
-            font-size: 13px;
-          }
-          .footer-links:hover {
-            color: #ffffff;
-          }
-          a {
-            text-decoration: none;
-          }
-          a::before,
-          a::after {
-            display: inline-block;
-            opacity: 0;
-            transition: transform 0.3s, opacity 0.2s;
-          }
-          a::before {
-            padding-right:10px;
-            content: '[';
-            transform: translateX(10px);
-          }
-          a::after {
-            padding-left:10px;
-            content: ']';
-            transform: translateX(-10px);
-          }
-          a:hover::before,
-          a:hover::after,
-          a:focus::before,
-          a:focus::after {
-            opacity: 1;
-            transform: translateX(0px);
-          }
-          @media only screen
-          and (min-device-width : 320px)
-          and (max-device-width : 1030px) {
-            .footer-main {
-              padding: 50px;
-            }
-            .main-content {
-              text-align: center;
-            }
-            .section-margins {
-              margin-bottom: 40px;
-            }
-            .footer-main p {
-              text-align: center;
-            }
-          }
-          .copyright {
-            color: #7D8A95;
-            background-color: #223741;
-            padding: 20px;
-            font-size: .7em;
             text-align: center;
           }
-        `}
-      </style>
+          .section-margins {
+            margin-bottom: 40px;
+          }
+          .footer-main p {
+            text-align: center;
+          }
+        }
+        .copyright {
+          color: #7D8A95;
+          background-color: #223741;
+          padding: 20px;
+          font-size: .7em;
+          text-align: center;
+        }
+      `}</style>
     </div>
   )
 }

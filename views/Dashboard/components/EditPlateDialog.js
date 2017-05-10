@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import { Field } from 'redux-form'
 import Modal from '../../../components/Modal/Modal'
 import PropTypes from 'prop-types'
 
@@ -46,16 +45,6 @@ class EditPlateDialog extends Component {
     }
   }
 
-  actions = [
-    <input
-      type="button"
-      className="secondary"
-      value="Cancel"
-      onClick={this.props.editPlateHandleClose}
-    />,
-    <input type="submit" className="primary" value="Submit" />
-  ]
-
   render() {
     return (
       <Modal open={this.props.editPlateOpen}>
@@ -70,52 +59,33 @@ class EditPlateDialog extends Component {
             )}
         >
           <span className="label-style">Name:</span>
-          <Field
+          <input
             name="currentPlateName"
             id="currentPlateName"
             type="text"
-            label={this.props.plateName}
             style={{ marginBottom: 20 }}
           />
           <span className="label-style">Description:</span>
-          <Field
+          <textarea
             name="currentPlateDescription"
             id="currentPlateDescription"
-            type="text"
             rows={4}
-            rowsMax={4}
-            label={this.props.plateDescription}
-            multiLine
             style={{ marginBottom: 20 }}
           />
           <span>Status:</span>
-          <RadioButtonGroup
-            name="currentPlateStatus"
-            defaultSelected="in_progress"
-            onChange={this.plateStatusSelection}
-          >
-            <RadioButton
-              value="in_progress"
-              label="In Progress"
-              style={{ marginTop: 10 }}
-            />
-            <RadioButton
-              value="plate_complete"
-              label="Complete"
-              style={{ marginTop: 10 }}
-            />
-          </RadioButtonGroup>
+          <div className="input-group">
+            <input type="radio" id="rad1" tabIndex="0" name="radio-group-1" />
+            <label htmlFor="rad1">Radio</label>
+          </div>
         </form>
-        <style jsx>
-          {`
-            .header-style {
-              margin-bottom: 10px;
-            }
-            .label-style {
-              margin-right: 10px;
-            }
-          `}
-        </style>
+        <style jsx>{`
+          .header-style {
+            margin-bottom: 10px;
+          }
+          .label-style {
+            margin-right: 10px;
+          }
+        `}</style>
       </Modal>
     )
   }

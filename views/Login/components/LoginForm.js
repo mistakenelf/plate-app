@@ -75,16 +75,16 @@ const LoginForm = wrapComponentWithState(
           </div>
         </div>
         <style jsx>{`
-        .input-label {
-          width: 80px;
-        }
-        a {
-          text-decoration: none;
-        }
-        .error-text {
-          text-align: center;
-        }
-      `}</style>
+          .input-label {
+            width: 80px;
+          }
+          a {
+            text-decoration: none;
+          }
+          .error-text {
+            text-align: center;
+          }
+        `}</style>
       </div>
     )
   })

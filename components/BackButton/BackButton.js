@@ -11,13 +11,11 @@ const BackButton = ({ color }) => {
           type="fa fa-arrow-circle-o-left"
         />
       </a>
-      <style jsx>
-        {`
-          a {
-            cursor: pointer;
-          }
-        `}
-      </style>
+      <style jsx>{`
+        a {
+          cursor: pointer;
+        }
+      `}</style>
     </div>
   )
 }

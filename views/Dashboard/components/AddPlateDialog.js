@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 
 import AddPlateMutation from '../../../mutations/AddPlateMutation'
-import Dialog from 'material-ui/Dialog'
-import { Field } from 'redux-form'
-import FlatButton from 'material-ui/FlatButton'
 import PlatesQuery from '../../../queries/PlatesQuery'
 import PropTypes from 'prop-types'
 
@@ -45,23 +42,6 @@ class AddPlateDialog extends Component {
   }
 
   render() {
-    const actions = [
-      <FlatButton
-        label="Cancel"
-        type="button"
-        key="cancel"
-        secondary
-        onTouchTap={this.props.closeDialog}
-      />,
-      <FlatButton
-        label="Add Plate"
-        key="add"
-        form="plateForm"
-        primary
-        type="submit"
-      />
-    ]
-
     return (
       <Dialog
         title="Add A New Plate"

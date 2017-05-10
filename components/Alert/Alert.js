@@ -5,13 +5,11 @@ const Alert = ({ message }) => {
   return (
     <div className="alert critical animated center-text">
       {message}
-      <style jsx>
-        {`
+      <style jsx>{`
         .center-text {
           text-align: center;
         }
-      `}
-      </style>
+      `}</style>
     </div>
   )
 }

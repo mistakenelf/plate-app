@@ -19,14 +19,12 @@ const Unauthorized = () => {
           </Card>
         </div>
       </div>
-      <style jsx>
-        {`
-          .content {
-            font-size: 20px;
-            font-weight: bolder;
-          }
-        `}
-      </style>
+      <style jsx>{`
+        .content {
+          font-size: 20px;
+          font-weight: bolder;
+        }
+      `}</style>
     </div>
   )
 }

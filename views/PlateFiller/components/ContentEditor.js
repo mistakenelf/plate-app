@@ -107,46 +107,44 @@ class ContentEditor extends Component {
             spellCheck={true}
           />
         </div>
-        <style jsx global>
-          {`
-            RichEditor-root {
-              background: #fff;
-              font-size: 14px;
-              padding: 15px;
-            }
-            .RichEditor-editor {
-              cursor: text;
-              font-size: 16px;
-              margin-top: 10px;
-              padding: 15px;
-              min-height: 400px;
-            }
-            .RichEditor-editor .RichEditor-blockquote {
-              border-left: 5px solid #eee;
-              color: #666;
-              margin: 16px 0;
-              padding: 10px 20px;
-            }
-            .RichEditor-editor .public-DraftStyleDefault-pre {
-              font-size: 16px;
-              padding: 20px;
-            }
-            .button-container {
-              word-wrap: break-word;
-              text-align: center;
-            }
-            .text-align-right {
-              text-align: right;
-            }
-            .text-align-center {
-              text-align: center;
-            }
-            .text-align-left {
-              text-align: left;
-            }
+        <style jsx global>{`
+          RichEditor-root {
+            background: #fff;
+            font-size: 14px;
+            padding: 15px;
+          }
+          .RichEditor-editor {
+            cursor: text;
+            font-size: 16px;
+            margin-top: 10px;
+            padding: 15px;
+            min-height: 400px;
+          }
+          .RichEditor-editor .RichEditor-blockquote {
+            border-left: 5px solid #eee;
+            color: #666;
+            margin: 16px 0;
+            padding: 10px 20px;
+          }
+          .RichEditor-editor .public-DraftStyleDefault-pre {
+            font-size: 16px;
+            padding: 20px;
+          }
+          .button-container {
+            word-wrap: break-word;
+            text-align: center;
+          }
+          .text-align-right {
+            text-align: right;
+          }
+          .text-align-center {
+            text-align: center;
+          }
+          .text-align-left {
+            text-align: left;
+          }
 
-          `}
-        </style>
+        `}</style>
       </div>
     )
   }

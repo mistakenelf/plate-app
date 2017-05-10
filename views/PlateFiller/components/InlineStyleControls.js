@@ -22,16 +22,14 @@ const InlineStyleControls = props => {
           style={type.style}
         />
       ))}
-      <style jsx>
-        {`
-          .RichEditor-controls {
-            font-family: 'Helvetica', sans-serif;
-            font-size: 14px;
-            margin-bottom: 5px;
-            user-select: none;
-          }
-        `}
-      </style>
+      <style jsx>{`
+        .RichEditor-controls {
+          font-family: 'Helvetica', sans-serif;
+          font-size: 14px;
+          margin-bottom: 5px;
+          user-select: none;
+        }
+      `}</style>
     </div>
   )
 }

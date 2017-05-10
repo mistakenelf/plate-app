@@ -16,24 +16,19 @@ const FreeMembershipCard = () => {
         <br />
         <span>Test</span>
         <br />
-        <input
-          type="button"
-          className="primary"
-          value="Register"
-          style={{ marginTop: 40 }}
-        />
+        <button className="primary" style={{ marginTop: 40 }}>Buy Now</button>
       </div>
       <style jsx>{`
-          .price {
-            font-size: 49px;
-          }
-          .month {
-            font-size: 20px;
-          }
-          .member-details {
-            margin-top: 10px;
-          }
-          `}</style>
+        .price {
+          font-size: 49px;
+        }
+        .month {
+          font-size: 20px;
+        }
+        .member-details {
+          margin-top: 10px;
+        }
+        `}</style>
     </Card>
   )
 }

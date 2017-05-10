@@ -37,44 +37,42 @@ const PriceSection = () => {
           </div>
         </div>
       </div>
-      <style jsx>
-        {`
-          .membership-header {
+      <style jsx>{`
+        .membership-header {
+          margin-bottom: 20px;
+          color: white;
+        }
+        .price-section {
+          padding: 30px;
+          background-color: #536E8D;
+          margin-bottom: 0;
+        }
+        .price-card-side {
+          margin-top: 50px;
+          width: 300px;
+          margin-right: auto;
+          margin-left: auto;
+        }
+        .price-card {
+          width: 300px;
+          margin-right: auto;
+          margin-left: auto;
+        }
+
+        @media only screen
+        and (min-device-width : 320px)
+        and (max-device-width : 1030px) {
+          .price-card {
             margin-bottom: 20px;
-            color: white;
-          }
-          .price-section {
-            padding: 30px;
-            background-color: #536E8D;
-            margin-bottom: 0;
           }
           .price-card-side {
-            margin-top: 50px;
-            width: 300px;
-            margin-right: auto;
-            margin-left: auto;
+            margin-top: 0;
+            margin-bottom: 20px;
           }
-          .price-card {
-            width: 300px;
-            margin-right: auto;
-            margin-left: auto;
-          }
-
-          @media only screen
-          and (min-device-width : 320px)
-          and (max-device-width : 1030px) {
-            .price-card {
-              margin-bottom: 20px;
-            }
-            .price-card-side {
-              margin-top: 0;
-              margin-bottom: 20px;
-            }
-            .one{order: 1}
-            .two{order: 0}
-          }
-        `}
-      </style>
+          .one{order: 1}
+          .two{order: 0}
+        }
+      `}</style>
     </div>
   )
 }

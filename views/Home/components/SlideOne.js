@@ -21,17 +21,15 @@ const SlideOne = () => {
       <div>
         <Link prefetch href="/register">
           <a>
-            <input type="button" className="primary" value="Register Now" />
+            <button className="primary">Register Now</button>
           </a>
         </Link>
       </div>
-      <style jsx>
-        {`
-          .text-padding {
-            margin-bottom: 25px;
-          }
-        `}
-      </style>
+      <style jsx>{`
+        .text-padding {
+          margin-bottom: 25px;
+        }
+      `}</style>
     </div>
   )
 }

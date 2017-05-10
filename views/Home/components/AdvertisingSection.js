@@ -27,19 +27,17 @@ const AdvertisingSection = () => {
           </p>
         </div>
       </div>
-      <style jsx>
-        {`
-          .section {
-            padding: 50px;
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-          }
-          .row-padding {
-            margin-bottom: 50px;
-          }
-        `}
-      </style>
+      <style jsx>{`
+        .section {
+          padding: 50px;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+        }
+        .row-padding {
+          margin-bottom: 50px;
+        }
+      `}</style>
     </section>
   )
 }

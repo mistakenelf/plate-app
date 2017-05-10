@@ -24,16 +24,14 @@ const PlateFiller = ({ plateId, savePlateContent, plate, loading }) => {
           />
         </div>
       </div>
-      <style jsx>
-        {`
-          .bottom-margin {
-            margin-bottom: 50px;
-          }
-          .full-width {
-            width: 100%;
-          }
-        `}
-      </style>
+      <style jsx>{`
+        .bottom-margin {
+          margin-bottom: 50px;
+        }
+        .full-width {
+          width: 100%;
+        }
+      `}</style>
     </div>
   )
 }
