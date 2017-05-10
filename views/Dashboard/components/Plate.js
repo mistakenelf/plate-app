@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
+import { injectState, provideState } from 'freactal'
 
 import Card from '../../../components/Card/Card'
 import EditPlateDialog from './EditPlateDialog'
@@ -8,86 +8,83 @@ import Link from 'next/link'
 import Modal from '../../../components/Modal/Modal'
 import PlatesQuery from '../../../queries/PlatesQuery'
 import PropTypes from 'prop-types'
+import React from 'react'
 import RemovePlateMutation from '../../../mutations/RemovePlateMutation'
 
-class Plate extends Component {
-  static propTypes = {
-    name: PropTypes.string,
-    description: PropTypes.string,
-    plateId: PropTypes.string,
-    removePlate: PropTypes.func,
-    cardImage: PropTypes.string,
-    status: PropTypes.string,
-    content: PropTypes.string,
-    editPlate: PropTypes.func,
-    user: PropTypes.object
-  }
-
-  state = {
+const wrapComponentWithState = provideState({
+  initialState: () => ({
     washPlateOpen: false,
     editPlateOpen: false
+  }),
+  effects: {
+    washPlateHandleOpen: () => state =>
+      Object.assign({}, state, { washPlateOpen: true }),
+    washPlateHandleClose: () => state =>
+      Object.assign({}, state, { washPlateOpen: false }),
+    editPlateHandleOpen: () => state =>
+      Object.assign({}, state, { editPlateOpen: true }),
+    editPlateHandleClose: () => state =>
+      Object.assign({}, state, { editPlateOpen: false })
   }
+})
 
-  washPlateHandleOpen = () => {
-    this.setState({ washPlateOpen: true })
-  }
-
-  washPlateHandleClose = () => {
-    this.setState({ washPlateOpen: false })
-  }
-
-  editPlateHandleOpen = () => {
-    this.setState({ editPlateOpen: true })
-  }
-
-  editPlateHandleClose = () => {
-    this.setState({ editPlateOpen: false })
-  }
-
-  deletePlate = async plateId => {
-    await this.props.removePlate(plateId)
-    this.washPlateHandleClose()
-  }
-
-  render() {
+const Plate = wrapComponentWithState(
+  injectState(({ state, effects, description, plateId, status, editPlate }) => {
     return (
-      <Card>
-        <div>
-          <h3 className="description">
-            DESCRIPTION
-          </h3>
-          {this.props.description}
-        </div>
-        <div className="row">
-          <button className="secondary" onClick={this.washPlateHandleOpen}>
-            Wash
-          </button>
-          <Link prefetch href={`/platefiller?id=${this.props.plateId}`}>
-            <a>
-              <button className="primary">Fill Plate</button>
-            </a>
-          </Link>
-        </div>
-        <EditPlateDialog
-          editPlateOpen={this.state.editPlateOpen}
-          editPlateHandleClose={this.editPlateHandleClose}
-          plateId={this.props.plateId}
-          plateName={this.props.name}
-          plateStatus={this.props.status}
-          plateDescription={this.props.description}
-          editPlate={this.props.editPlate}
-        />
-        <Modal open={this.state.washPlateOpen}>
-          Are you sure you want to remove this plate?
-        </Modal>
-        <style jsx>{`
+      <div>
+        <Card>
+          <div>
+            <h3 className="description">
+              DESCRIPTION
+            </h3>
+            {description}
+          </div>
+          <div className="row">
+            <button className="secondary" onClick={effects.washPlateHandleOpen}>
+              Wash
+            </button>
+            <Link prefetch href={`/platefiller?id=${plateId}`}>
+              <a>
+                <button className="primary">Fill Plate</button>
+              </a>
+            </Link>
+          </div>
+          <EditPlateDialog
+            editPlateOpen={state.editPlateOpen}
+            editPlateHandleClose={effects.editPlateHandleClose}
+            plateId={plateId}
+            plateName={name}
+            plateStatus={status}
+            plateDescription={description}
+            editPlate={editPlate}
+          />
+          <style jsx>{`
           .description {
             margin-bottom: 5px;
           }
         `}</style>
-      </Card>
+        </Card>
+        <Modal
+          open={state.washPlateOpen}
+          closeModal={effects.washPlateHandleClose}
+        >
+          Are you sure you want to remove this plate?
+        </Modal>
+      </div>
     )
-  }
+  })
+)
+
+Plate.propTypes = {
+  name: PropTypes.string,
+  description: PropTypes.string,
+  plateId: PropTypes.string,
+  removePlate: PropTypes.func,
+  cardImage: PropTypes.string,
+  status: PropTypes.string,
+  content: PropTypes.string,
+  editPlate: PropTypes.func,
+  user: PropTypes.object
 }
 
 export default compose(
