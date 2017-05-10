@@ -76,11 +76,6 @@ class Dashboard extends Component {
           .row-margin {
             margin-bottom: 70px;
           }
-          .container-padding {
-            padding-top: 5px;
-            padding-left: 0.5em;
-            padding-right: 0.5em;
-          }
         `}</style>
       </div>
     )

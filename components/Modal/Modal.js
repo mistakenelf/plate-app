@@ -1,24 +1,28 @@
 import Icon from '../Icon/Icon'
+import Portal from 'react-portal'
 import PropTypes from 'prop-types'
 import React from 'react'
 
 const Modal = ({ open, closeModal, children }) => {
   return (
-    <div>
-      <div
-        className="modal"
-        style={open ? { display: 'inline' } : { display: 'none' }}
-      >
-        <div className="modal-content">
-          <Icon
-            type="fa fa-times fa-lg"
-            style={{ float: 'right', cursor: 'pointer' }}
-            onClick={closeModal}
-          />
-          {children}
+    <Portal
+      closeOnEsc
+      closeOnOutsideClick
+      isOpened={open}
+      style={{ width: '100%' }}
+    >
+      <div>
+        <div className="modal">
+          <div className="modal-content">
+            <Icon
+              type="fa fa-times fa-lg"
+              style={{ float: 'right', cursor: 'pointer' }}
+              onClick={closeModal}
+            />
+            {children}
+          </div>
         </div>
-      </div>
-      <style jsx>{`
+        <style jsx>{`
         .modal {
           position: fixed;
           z-index: 2;
@@ -35,10 +39,11 @@ const Modal = ({ open, closeModal, children }) => {
           border-radius: 5px;
           margin: 15% auto;
           padding: 20px;
-          width: 50%;
+          width: 80%;
         }
       `}</style>
-    </div>
+      </div>
+    </Portal>
   )
 }
 

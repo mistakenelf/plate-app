@@ -28,51 +28,73 @@ const wrapComponentWithState = provideState({
   }
 })
 
+const deletePlate = async (removePlate, plateId, closeModal) => {
+  await removePlate(plateId)
+  closeModal()
+}
+
 const Plate = wrapComponentWithState(
-  injectState(({ state, effects, description, plateId, status, editPlate }) => {
-    return (
-      <div>
-        <Card>
-          <div>
-            <h3 className="description">
-              DESCRIPTION
-            </h3>
-            {description}
-          </div>
-          <div className="row">
-            <button className="secondary" onClick={effects.washPlateHandleOpen}>
-              Wash
+  injectState(
+    ({
+      state,
+      effects,
+      description,
+      plateId,
+      status,
+      editPlate,
+      removePlate
+    }) => {
+      return (
+        <div>
+          <Card>
+            <div>
+              <h3>
+                DESCRIPTION
+              </h3>
+              {description}
+            </div>
+            <div className="row">
+              <button
+                className="secondary"
+                onClick={effects.washPlateHandleOpen}
+              >
+                Wash
+              </button>
+              <Link prefetch href={`/platefiller?id=${plateId}`}>
+                <a>
+                  <button className="primary">Fill Plate</button>
+                </a>
+              </Link>
+            </div>
+            <EditPlateDialog
+              editPlateOpen={state.editPlateOpen}
+              editPlateHandleClose={effects.editPlateHandleClose}
+              plateId={plateId}
+              plateName={name}
+              plateStatus={status}
+              plateDescription={description}
+              editPlate={editPlate}
+            />
+          </Card>
+          <Modal
+            open={state.washPlateOpen}
+            closeModal={effects.washPlateHandleClose}
+          >
+            <p>Are you sure you want to remove this plate?</p>
+            <button
+              onClick={() => {
+                deletePlate(removePlate, plateId, effects.washPlateHandleClose)
+              }}
+              className="primary"
+            >
+              Remove
             </button>
-            <Link prefetch href={`/platefiller?id=${plateId}`}>
-              <a>
-                <button className="primary">Fill Plate</button>
-              </a>
-            </Link>
-          </div>
-          <EditPlateDialog
-            editPlateOpen={state.editPlateOpen}
-            editPlateHandleClose={effects.editPlateHandleClose}
-            plateId={plateId}
-            plateName={name}
-            plateStatus={status}
-            plateDescription={description}
-            editPlate={editPlate}
-          />
-          <style jsx>{`
-          .description {
-            margin-bottom: 5px;
-          }
-        `}</style>
-        </Card>
-        <Modal
-          open={state.washPlateOpen}
-          closeModal={effects.washPlateHandleClose}
-        >
-          Are you sure you want to remove this plate?
-        </Modal>
-      </div>
-    )
-  })
+            <button onClick={effects.washPlateHandleClose}>Cancel</button>
+          </Modal>
+        </div>
+      )
+    }
+  )
 )
 
 Plate.propTypes = {
