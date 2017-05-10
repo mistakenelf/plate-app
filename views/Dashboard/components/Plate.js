@@ -1,13 +1,11 @@
-import { Card, CardActions, CardHeader, CardText } from 'material-ui/Card'
 import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 
-import Dialog from 'material-ui/Dialog'
-import EditIcon from 'material-ui/svg-icons/editor/mode-edit'
+import Card from '../../../components/Card/Card'
 import EditPlateDialog from './EditPlateDialog'
 import EditPlateMutation from '../../../mutations/EditPlateMutation'
-import FlatButton from 'material-ui/FlatButton'
 import Link from 'next/link'
+import Modal from '../../../components/Modal/Modal'
 import PlatesQuery from '../../../queries/PlatesQuery'
 import PropTypes from 'prop-types'
 import RemovePlateMutation from '../../../mutations/RemovePlateMutation'
@@ -53,50 +51,40 @@ class Plate extends Component {
 
   render() {
     const actions = [
-      <FlatButton
-        label="Cancel"
-        primary
-        key="cancel"
-        onTouchTap={this.washPlateHandleClose}
+      <input
+        type="button"
+        className="primary"
+        value="Cancel"
+        onClick={this.washPlateHandleClose}
       />,
-      <FlatButton
-        label="Wash"
-        secondary
-        key="wash"
-        onTouchTap={() => this.deletePlate(this.props.plateId)}
+      <input
+        type="button"
+        className="secondary"
+        value="Cancel"
+        onClick={() => this.deletePlate(this.props.plateId)}
       />
     ]
 
     return (
       <div className="card">
         <Card style={{ borderRadius: 5 }}>
-          <CardHeader
-            title={this.props.name}
-            subtitle={`Status: ${this.props.status}`}
-            avatar={this.props.cardImage}
-            showExpandableButton
-            expandable={false}
-            openIcon={<EditIcon onTouchTap={this.editPlateHandleOpen} />}
-            closeIcon={<EditIcon onTouchTap={this.editPlateHandleOpen} />}
+          <div>
+            <h3 className="description">
+              DESCRIPTION
+            </h3>
+            {this.props.description}
+          </div>
+          <input
+            type="button"
+            className="secondary"
+            value="Cancel"
+            onClick={this.wasPlateHandleOpen}
           />
-          <CardText>
-            <div>
-              <h3 className="description">
-                DESCRIPTION
-              </h3>
-              {this.props.description}
-            </div>
-          </CardText>
-          <CardActions>
-            <FlatButton
-              label="Wash Plate"
-              secondary
-              onTouchTap={this.washPlateHandleOpen}
-            />
-            <Link prefetch href={`/platefiller?id=${this.props.plateId}`}>
-              <a><FlatButton primary label="Fill Plate" /></a>
-            </Link>
-          </CardActions>
+          <Link prefetch href={`/platefiller?id=${this.props.plateId}`}>
+            <a>
+              <input type="button" className="primary" value="Fill Plate" />
+            </a>
+          </Link>
           <EditPlateDialog
             editPlateOpen={this.state.editPlateOpen}
             editPlateHandleClose={this.editPlateHandleClose}
@@ -106,15 +94,9 @@ class Plate extends Component {
             plateDescription={this.props.description}
             editPlate={this.props.editPlate}
           />
-          <Dialog
-            actions={actions}
-            modal={false}
-            open={this.state.washPlateOpen}
-            onRequestClose={this.washPlateHandleClose}
-            contentStyle={{ width: '95%' }}
-          >
+          <Modal open={this.state.washPlateOpen}>
             Are you sure you want to remove this plate?
-          </Dialog>
+          </Modal>
         </Card>
         <style jsx>
           {`

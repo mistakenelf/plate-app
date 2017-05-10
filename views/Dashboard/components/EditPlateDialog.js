@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 
-import Dialog from 'material-ui/Dialog'
 import { Field } from 'redux-form'
-import FlatButton from 'material-ui/FlatButton'
+import Modal from '../../../components/Modal/Modal'
 import PropTypes from 'prop-types'
 
 class EditPlateDialog extends Component {
@@ -48,30 +47,18 @@ class EditPlateDialog extends Component {
   }
 
   actions = [
-    <FlatButton
-      label="Cancel"
-      key="cancel"
-      onTouchTap={this.props.editPlateHandleClose}
-      primary
+    <input
+      type="button"
+      className="secondary"
+      value="Cancel"
+      onClick={this.props.editPlateHandleClose}
     />,
-    <FlatButton
-      label="Submit"
-      key="edit"
-      form="editPlateForm"
-      secondary
-      type="submit"
-    />
+    <input type="submit" className="primary" value="Submit" />
   ]
 
   render() {
     return (
-      <Dialog
-        actions={this.actions}
-        modal={false}
-        open={this.props.editPlateOpen}
-        onRequestClose={this.props.editPlateHandleClose}
-        contentStyle={{ width: '95%' }}
-      >
+      <Modal open={this.props.editPlateOpen}>
         <h3 className="header-style">Edit Plate</h3>
         <form
           id="editPlateForm"
@@ -129,7 +116,7 @@ class EditPlateDialog extends Component {
             }
           `}
         </style>
-      </Dialog>
+      </Modal>
     )
   }
 }
