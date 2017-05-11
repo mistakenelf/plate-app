@@ -5,7 +5,6 @@ import Card from '../../../components/Card/Card'
 import EditPlateDialog from './EditPlateDialog'
 import EditPlateMutation from '../../../mutations/EditPlateMutation'
 import Icon from '../../../components/Icon/Icon'
-import Link from 'next/link'
 import Modal from '../../../components/Modal/Modal'
 import PlatesQuery from '../../../queries/PlatesQuery'
 import PropTypes from 'prop-types'
@@ -68,6 +67,7 @@ const Plate = wrapComponentWithState(
               className="secondary"
               value="Wash Plate"
               onClick={effects.washPlateHandleOpen}
+              style={{ float: 'right' }}
             />
           </Card>
           <EditPlateDialog
