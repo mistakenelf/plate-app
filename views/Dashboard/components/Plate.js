@@ -42,7 +42,8 @@ const Plate = wrapComponentWithState(
       plateId,
       status,
       editPlate,
-      removePlate
+      removePlate,
+      cardImage
     }) => {
       return (
         <div>
@@ -52,6 +53,7 @@ const Plate = wrapComponentWithState(
                 DESCRIPTION
               </h3>
               {description}
+              <img className="card-image" src={cardImage} />
             </div>
             <div className="row">
               <button
@@ -91,6 +93,15 @@ const Plate = wrapComponentWithState(
             </button>
             <button onClick={effects.washPlateHandleClose}>Cancel</button>
           </Modal>
+          <style jsx>{`
+            .card-image {
+              position: absolute;
+              width: 50px;
+              height: 50px;
+              top: 5px;
+              right: 5px;
+            }
+            `}</style>
         </div>
       )
     }
