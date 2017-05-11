@@ -69,6 +69,9 @@ class Dashboard extends Component {
         <style jsx>{`
           .add-button {
             z-index: 200;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
           }
           .plate-padding {
             margin-bottom: 10px;
