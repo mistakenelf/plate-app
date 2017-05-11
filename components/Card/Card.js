@@ -76,7 +76,8 @@ Card.propTypes = {
   headerText: PropTypes.string,
   avatar: PropTypes.string,
   subheader: PropTypes.string,
-  actionIcon: PropTypes.node
+  actionIcon: PropTypes.node,
+  footerItems: PropTypes.array
 }
 
 export default Card
