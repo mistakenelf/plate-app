@@ -4,6 +4,7 @@ import { injectState, provideState } from 'freactal'
 import Card from '../../../components/Card/Card'
 import EditPlateDialog from './EditPlateDialog'
 import EditPlateMutation from '../../../mutations/EditPlateMutation'
+import Icon from '../../../components/Icon/Icon'
 import Link from 'next/link'
 import Modal from '../../../components/Modal/Modal'
 import PlatesQuery from '../../../queries/PlatesQuery'
@@ -41,43 +42,31 @@ const Plate = wrapComponentWithState(
       description,
       plateId,
       status,
+      name,
       editPlate,
       removePlate,
       cardImage
     }) => {
       return (
         <div>
-          <Card>
-            <div>
-              <h3>
-                DESCRIPTION
-              </h3>
-              {description}
-              <img className="card-image" src={cardImage} />
-            </div>
-            <div className="row">
-              <button
-                className="secondary"
-                onClick={effects.washPlateHandleOpen}
-              >
-                Wash
-              </button>
-              <Link prefetch href={`/platefiller?id=${plateId}`}>
-                <a>
-                  <button className="primary">Fill Plate</button>
-                </a>
-              </Link>
-            </div>
-            <EditPlateDialog
-              editPlateOpen={state.editPlateOpen}
-              editPlateHandleClose={effects.editPlateHandleClose}
-              plateId={plateId}
-              plateName={name}
-              plateStatus={status}
-              plateDescription={description}
-              editPlate={editPlate}
-            />
+          <Card
+            headerText={name}
+            avatar={cardImage}
+            subheader={'Status: ' + status}
+            actionIcon={<Icon style={{ color: '#424242' }} type="fa fa-cog" />}
+          >
+            {description}
           </Card>
+
+          <EditPlateDialog
+            editPlateOpen={state.editPlateOpen}
+            editPlateHandleClose={effects.editPlateHandleClose}
+            plateId={plateId}
+            plateName={name}
+            plateStatus={status}
+            plateDescription={description}
+            editPlate={editPlate}
+          />
           <Modal
             open={state.washPlateOpen}
             closeModal={effects.washPlateHandleClose}

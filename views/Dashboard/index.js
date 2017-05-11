@@ -16,13 +16,17 @@ class Dashboard extends Component {
     addPlate: PropTypes.func,
     user: PropTypes.object
   }
+
   render() {
     if (this.props.loading) {
       return <Loader />
     }
 
     return (
-      <div className="container">
+      <div
+        className="container"
+        style={{ paddingLeft: '0.25rem', paddingRight: '0.25rem' }}
+      >
         <div className="row row-margin">
           {this.props.plates.length === 0
             ? <div className="col-sm-12 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3">
