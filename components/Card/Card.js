@@ -14,7 +14,7 @@ const Card = ({
       <div className="header-container">
         {avatar && <img className="avatar" src={avatar} />}
         {headerText && <div className="card-header">{headerText}</div>}
-        {actionIcon && <div className="action-icon">{actionIcon}</div>}
+        {actionIcon && <span className="action-icon">{actionIcon}</span>}
       </div>
       {subheader && <div className="sub-header">{subheader}</div>}
       <div className="card-content">
@@ -29,6 +29,7 @@ const Card = ({
         .avatar {
           margin-right: 10px;
           width: 50px !important;
+          height: 50px !important;
         }
         .header-container {
           display: flex;
@@ -52,6 +53,7 @@ const Card = ({
         }
         .action-icon {
           margin-left: auto;
+          top: 0;
           padding: 5px;
         }
       `}</style>
