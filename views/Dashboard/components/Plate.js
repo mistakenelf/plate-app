@@ -52,6 +52,10 @@ const Plate = wrapComponentWithState(
             headerText={name}
             avatar={cardImage}
             subheader={'Status: ' + status}
+            footerItems={[
+              <button key="1" className="secondary">Wash Plate</button>,
+              <button key="2" className="primary">Fill Plate</button>
+            ]}
             actionIcon={
               <Icon
                 style={{ color: '#424242', cursor: 'pointer' }}
@@ -61,14 +65,6 @@ const Plate = wrapComponentWithState(
             }
           >
             {description}
-            <br />
-            <input
-              type="button"
-              className="secondary"
-              value="Wash Plate"
-              onClick={effects.washPlateHandleOpen}
-              style={{ float: 'right' }}
-            />
           </Card>
           <EditPlateDialog
             editPlateOpen={state.editPlateOpen}

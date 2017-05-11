@@ -7,7 +7,8 @@ const Card = ({
   headerText,
   avatar,
   subheader,
-  actionIcon
+  actionIcon,
+  footerItems
 }) => {
   return (
     <div className="card fluid custom-card" style={style}>
@@ -19,6 +20,9 @@ const Card = ({
       {subheader && <div className="sub-header">{subheader}</div>}
       <div className="card-content">
         {children}
+      </div>
+      <div className="card-footer">
+        {footerItems && footerItems}
       </div>
       <style jsx>{`
         .custom-card {
@@ -55,6 +59,11 @@ const Card = ({
           margin-left: auto;
           top: 0;
           padding: 5px;
+        }
+        .card-footer {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
         }
       `}</style>
     </div>
