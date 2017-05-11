@@ -45,19 +45,48 @@ class AddPlateDialog extends Component {
 
   render() {
     return (
-      <Portal closeOnEsc closeOnOutsideClick isOpened={this.props.open}>
-        <Modal open={this.props.open} closeModal={this.props.closeDialog}>
+      <Modal
+        open={this.props.open}
+        closeModal={this.props.closeDialog}
+        style={{ margin: 20 }}
+      >
+        <div className="form-section">
           <form id="plateForm" onSubmit={() => this.confirmAddPlate()}>
-            <input name="name" id="add_plate_name" type="text" label="Name" />
-            <input
-              name="description"
-              id="add_plate_description"
-              type="text"
-              label="Description"
-            />
+            <fieldset>
+              <legend>Add Plate</legend>
+              <div className="input-group fluid">
+                <label>Plate Name</label>
+                <input
+                  name="name"
+                  id="add_plate_name"
+                  type="text"
+                  label="Name"
+                />
+              </div>
+              <div className="input-group fluid">
+                <label>Plate Description</label>
+                <input
+                  name="description"
+                  id="add_plate_description"
+                  type="text"
+                  label="Description"
+                />
+              </div>
+              <input
+                type="submit"
+                className="primary"
+                value="Create Plate"
+                style={{ float: 'right' }}
+              />
+            </fieldset>
           </form>
-        </Modal>
-      </Portal>
+        </div>
+        <style jsx>{`
+          .form-section {
+            margin: 20px;
+          }
+          `}</style>
+      </Modal>
     )
   }
 }
