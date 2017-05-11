@@ -24,6 +24,7 @@ const AddPlateButton = wrapComponentWithState(
           value="Add Plate"
           onClick={effects.openDialog}
         />
+        <AddPlateDialog user={user} open={state.open} />
       </div>
     )
   })

@@ -3,6 +3,7 @@ import { compose, graphql } from 'react-apollo'
 
 import AddPlateMutation from '../../../mutations/AddPlateMutation'
 import PlatesQuery from '../../../queries/PlatesQuery'
+import Portal from 'react-portal'
 import PropTypes from 'prop-types'
 
 class AddPlateDialog extends Component {
@@ -43,27 +44,17 @@ class AddPlateDialog extends Component {
 
   render() {
     return (
-      <Dialog
-        title="Add A New Plate"
-        modal={false}
-        open={this.props.open}
-        actions={actions}
-        onRequestClose={this.props.closeDialog}
-        contentStyle={{ width: '95%' }}
-      >
+      <Portal closeOnEsc closeOnOutsideClick isOpened={this.props.open}>
         <form id="plateForm" onSubmit={() => this.confirmAddPlate()}>
-          <Field name="name" id="add_plate_name" type="text" label="Name" />
-          <Field
+          <input name="name" id="add_plate_name" type="text" label="Name" />
+          <input
             name="description"
             id="add_plate_description"
             type="text"
             label="Description"
-            rows={4}
-            rowsMax={4}
-            multiLine
           />
         </form>
-      </Dialog>
+      </Portal>
     )
   }
 }
