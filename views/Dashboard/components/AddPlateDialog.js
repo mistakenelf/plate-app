@@ -4,7 +4,6 @@ import { compose, graphql } from 'react-apollo'
 import AddPlateMutation from '../../../mutations/AddPlateMutation'
 import Modal from '../../../components/Modal/Modal'
 import PlatesQuery from '../../../queries/PlatesQuery'
-import Portal from 'react-portal'
 import PropTypes from 'prop-types'
 
 class AddPlateDialog extends Component {
