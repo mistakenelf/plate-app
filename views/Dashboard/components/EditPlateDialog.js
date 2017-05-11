@@ -47,7 +47,10 @@ class EditPlateDialog extends Component {
 
   render() {
     return (
-      <Modal open={this.props.editPlateOpen}>
+      <Modal
+        open={this.props.editPlateOpen}
+        closeModal={this.props.editPlateHandleClose}
+      >
         <h3 className="header-style">Edit Plate</h3>
         <form
           id="editPlateForm"

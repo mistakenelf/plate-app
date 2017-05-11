@@ -53,11 +53,23 @@ const Plate = wrapComponentWithState(
             headerText={name}
             avatar={cardImage}
             subheader={'Status: ' + status}
-            actionIcon={<Icon style={{ color: '#424242' }} type="fa fa-cog" />}
+            actionIcon={
+              <Icon
+                style={{ color: '#424242', cursor: 'pointer' }}
+                type="fa fa-cog"
+                onClick={effects.editPlateHandleOpen}
+              />
+            }
           >
             {description}
+            <br />
+            <input
+              type="button"
+              className="secondary"
+              value="Wash Plate"
+              onClick={effects.washPlateHandleOpen}
+            />
           </Card>
-
           <EditPlateDialog
             editPlateOpen={state.editPlateOpen}
             editPlateHandleClose={effects.editPlateHandleClose}
