@@ -1,58 +1,35 @@
-import { injectState, provideState } from 'freactal'
-
-import Modal from '../../components/Modal/Modal'
+import PageHeader from '../../components/PageHeader/PageHeader'
 import React from 'react'
 
-const wrapComponentWithState = provideState({
-  initialState: () => ({
-    displayModal: false
-  }),
-  effects: {
-    openModal: () => state => Object.assign({}, state, { displayModal: true }),
-    closeModal: () => state => Object.assign({}, state, { displayModal: false })
-  }
-})
-
-const MeetTheTeam = wrapComponentWithState(
-  injectState(({ state, effects }) => {
-    return (
-      <div className="container">
-        <button onClick={effects.openModal}>
-          Open Modal
-        </button>
-        <Modal open={state.displayModal} closeModal={effects.closeModal}>
-          <form>
-            <fieldset>
-              <legend>Login</legend>
-              <div className="input-group fluid">
-                <label className="input-label" htmlFor="username">
-                  Username:
-                </label>
-                <input
-                  type="text"
-                  id="username"
-                  placeholder="username"
-                  required
-                />
-              </div>
-              <div className="input-group fluid">
-                <label className="input-label" htmlFor="pwd">Password:</label>
-                <input
-                  type="password"
-                  id="password"
-                  placeholder="password"
-                  required
-                />
-              </div>
-              <div className="input-group fluid">
-                <button type="submit" className="primary">Login</button>
-              </div>
-            </fieldset>
-          </form>
-        </Modal>
+const MeetTheTeam = () => {
+  return (
+    <div className="container">
+      <PageHeader headerText="Plate Team" />
+      <div className="heading-text">Developers:</div>
+      <div>
+        <span className="lead-text">Tyler Knipfer: </span>
+        <span className="username-text">@knipferrc</span>
       </div>
-    )
-  })
-)
+      <div>
+        <span className="lead-text">Alex Knipfer: </span>
+        <span className="username-text">@alexknipfer</span>
+      </div>
+      <style jsx>{`
+        .lead-text {
+          font-weight: bolder;
+          font-size: 20px;
+        }
+        .username-text {
+          font-style: italic;
+          font-size: 20px;
+        }
+        .heading-text {
+          text-decoration: underline;
+          font-size: 30px;
+        }
+      `}</style>
+    </div>
+  )
+}
 
 export default MeetTheTeam
