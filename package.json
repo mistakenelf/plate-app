@@ -52,6 +52,6 @@
     "sw-precache-webpack-plugin": "^0.11.0"
   },
   "now": {
-    "alias": "plate"
+    "alias": "platemate.io"
   }
 }
