@@ -3,13 +3,8 @@ import React from 'react'
 
 const Alert = ({ message }) => {
   return (
-    <div className="alert critical animated center-text">
+    <div className="toast">
       {message}
-      <style jsx>{`
-        .center-text {
-          text-align: center;
-        }
-      `}</style>
     </div>
   )
 }

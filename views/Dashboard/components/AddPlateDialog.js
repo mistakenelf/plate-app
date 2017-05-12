@@ -16,7 +16,9 @@ class AddPlateDialog extends Component {
     user: PropTypes.object
   }
 
-  confirmAddPlate = async () => {
+  confirmAddPlate = async e => {
+    e.preventDefault()
+
     const plateName = document.getElementById('add_plate_name').value
     const plateDescription = document.getElementById('add_plate_description')
       .value
@@ -39,7 +41,6 @@ class AddPlateDialog extends Component {
       this.props.user.username
     )
     this.props.closeDialog()
-    this.props.reset()
   }
 
   render() {
@@ -50,7 +51,7 @@ class AddPlateDialog extends Component {
         style={{ margin: 20 }}
       >
         <div className="form-section">
-          <form id="plateForm" onSubmit={() => this.confirmAddPlate()}>
+          <form id="plateForm" onSubmit={e => this.confirmAddPlate(e)}>
             <fieldset>
               <legend>Add Plate</legend>
               <div className="input-group fluid">
