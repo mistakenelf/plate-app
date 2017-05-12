@@ -30,34 +30,40 @@ const Navigation = wrapComponentWithState(
           <label
             htmlFor="drawer-checkbox"
             className="drawer-toggle"
-            style={{ marginTop: '-6px', marginRight: 5 }}
+            style={{ marginRight: 5 }}
           />
           <a href="#" className="logo logo-container">
             Plate
           </a>
           {state.loggedIn
             ? <span className="hidden-sm">
-                <Link href="/"><a className="nav-link">Home</a></Link>
-                <Link href="/dashboard">
-                  <a className="nav-link">Dashboard</a>
+                <Link href="/">
+                  <a className="nav-link desktop-nav-link">Home</a>
                 </Link>
-                <Link href="/account"><a className="nav-link">Account</a></Link>
+                <Link href="/dashboard">
+                  <a className="nav-link desktop-nav-link">Dashboard</a>
+                </Link>
+                <Link href="/account">
+                  <a className="nav-link desktop-nav-link">Account</a>
+                </Link>
                 <span className="nav-link">|</span>
                 <a
-                  className="nav-link"
+                  className="nav-link desktop-nav-link"
                   onClick={() => logUserOut(effects.logout)}
                 >
                   Logout
                 </a>
               </span>
             : <span className="hidden-sm">
-                <Link prefetch href="/"><a className="nav-link">Home</a></Link>
-                <span className="nav-link">|</span>
+                <Link prefetch href="/">
+                  <a className="nav-link desktop-nav-link">Home</a>
+                </Link>
+                <span className="nav-link desktop-nav-link">|</span>
                 <Link prefetch href="/login">
-                  <a className="nav-link">Login</a>
+                  <a className="nav-link desktop-nav-link">Login</a>
                 </Link>
                 <Link prefetch href="/register">
-                  <a className="nav-link">Register</a>
+                  <a className="nav-link desktop-nav-link">Register</a>
                 </Link>
               </span>}
         </header>
@@ -67,15 +73,17 @@ const Navigation = wrapComponentWithState(
           <nav style={{ border: 'none' }}>
             {state.loggedIn
               ? <span>
-                  <Link href="/"><a className="nav-link">Home</a></Link>
+                  <Link href="/">
+                    <a className="nav-link mobile-nav-link">Home</a>
+                  </Link>
                   <Link href="/dashboard">
-                    <a className="nav-link">Dashboard</a>
+                    <a className="nav-link mobile-nav-link">Dashboard</a>
                   </Link>
                   <Link href="/account">
-                    <a className="nav-link">Account</a>
+                    <a className="nav-link mobile-nav-link">Account</a>
                   </Link>
                   <a
-                    className="nav-link"
+                    className="nav-link mobile-nav-link"
                     onClick={() => logUserOut(effects.logout)}
                   >
                     Logout
@@ -83,20 +91,27 @@ const Navigation = wrapComponentWithState(
                 </span>
               : <span>
                   <Link prefetch href="/">
-                    <a className="nav-link">Home</a>
+                    <a className="nav-link mobile-nav-link">Home</a>
                   </Link>
                   <Link prefetch href="/login">
-                    <a className="nav-link">Login</a>
+                    <a className="nav-link mobile-nav-link">Login</a>
                   </Link>
                   <Link prefetch href="/register">
-                    <a className="nav-link">Register</a>
+                    <a className="nav-link mobile-nav-link">Register</a>
                   </Link>
                 </span>}
           </nav>
         </div>
         <style jsx>{`
-          a {
+          .desktop-nav-link {
+            color: white;
             text-decoration: none;
+          }
+          .mobile-nav-link {
+            color: black;
+            font-size: 24px;
+            padding: 5px;
+            margin-bottom: 5px;
           }
           .logo-container {
             margin-right: 15px;
