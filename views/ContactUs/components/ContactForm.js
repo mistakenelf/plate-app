@@ -1,9 +1,10 @@
 import ContactUsMutation from '../../../mutations/ContactUsMutation'
 import PropTypes from 'prop-types'
 import React from 'react'
+import Router from 'next/router'
 import { graphql } from 'react-apollo'
 
-const sendEmail = e => {
+const sendEmail = (e, contactUs) => {
   e.preventDefault()
 
   let name = document.getElementById('name').value
@@ -11,8 +12,7 @@ const sendEmail = e => {
   let message = document.getElementById('message').value
 
   contactUs(email, name, message)
-
-  document.getElementById('contactForm').reset()
+  Router.push('/')
 }
 
 const ContactForm = ({ contactUs }) => {
