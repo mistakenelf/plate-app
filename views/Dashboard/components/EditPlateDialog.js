@@ -61,6 +61,10 @@ class EditPlateDialog extends Component {
         >
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-12">
+              <label>
+                Plate Name:
+              </label>
+              <br />
               <input
                 name="currentPlateName"
                 id="currentPlateName"
@@ -72,6 +76,10 @@ class EditPlateDialog extends Component {
           </div>
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-12">
+              <label>
+                Plate Description:
+              </label>
+              <br />
               <textarea
                 name="currentPlateDescription"
                 id="currentPlateDescription"
@@ -102,10 +110,23 @@ class EditPlateDialog extends Component {
             />
             <label htmlFor="inProgress">In Progress</label>
           </div>
+          <br />
+          <div className="button-options">
+            <input
+              type="button"
+              className="secondary"
+              value="Cancel"
+              onClick={this.props.editPlateHandleClose}
+            />
+            <input type="submit" className="primary" value="Submit" />
+          </div>
         </form>
         <style jsx>{`
           .header-style {
             margin-bottom: 10px;
+          }
+          .button-options {
+            float: right;
           }
         `}</style>
       </Modal>
