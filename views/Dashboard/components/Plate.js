@@ -5,6 +5,7 @@ import Card from '../../../components/Card/Card'
 import EditPlateDialog from './EditPlateDialog'
 import EditPlateMutation from '../../../mutations/EditPlateMutation'
 import Icon from '../../../components/Icon/Icon'
+import Link from 'next/link'
 import Modal from '../../../components/Modal/Modal'
 import PlatesQuery from '../../../queries/PlatesQuery'
 import PropTypes from 'prop-types'
@@ -53,8 +54,16 @@ const Plate = wrapComponentWithState(
             avatar={cardImage}
             subheader={'Status: ' + status}
             footerItems={[
-              <button key="1" className="secondary">Wash Plate</button>,
-              <button key="2" className="primary">Fill Plate</button>
+              <button
+                key="1"
+                onClick={effects.washPlateHandleOpen}
+                className="secondary"
+              >
+                Wash Plate
+              </button>,
+              <Link key="2" prefetch href={`/platefiller?id=${plateId}`}>
+                <button className="primary">Fill Plate</button>
+              </Link>
             ]}
             actionIcon={
               <Icon

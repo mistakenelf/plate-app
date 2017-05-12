@@ -74,14 +74,12 @@ const Navigation = wrapComponentWithState(
                   <Link href="/account">
                     <a className="nav-link">Account</a>
                   </Link>
-                  <Link>
-                    <a
-                      className="nav-link"
-                      onClick={() => logUserOut(effects.logout)}
-                    >
-                      Logout
-                    </a>
-                  </Link>
+                  <a
+                    className="nav-link"
+                    onClick={() => logUserOut(effects.logout)}
+                  >
+                    Logout
+                  </a>
                 </span>
               : <span>
                   <Link prefetch href="/">
