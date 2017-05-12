@@ -67,8 +67,8 @@ const Plate = wrapComponentWithState(
             ]}
             actionIcon={
               <Icon
-                style={{ color: '#424242', cursor: 'pointer' }}
-                type="fa fa-cog"
+                style={{ color: '#424242', fontSize: 30, cursor: 'pointer' }}
+                type="fa fa-pencil"
                 onClick={effects.editPlateHandleOpen}
               />
             }

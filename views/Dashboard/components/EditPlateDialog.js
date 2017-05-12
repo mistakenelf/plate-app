@@ -19,7 +19,8 @@ class EditPlateDialog extends Component {
     plateStatusSelected: 'New'
   }
 
-  editPlateDetails = async (id, editPlate, editPlateHandleClose) => {
+  editPlateDetails = async (e, id, editPlate, editPlateHandleClose) => {
+    e.preventDefault()
     const newPlateName = document.getElementById('currentPlateName').value
     const newPlateDescription = document.getElementById(
       'currentPlateDescription'
@@ -43,7 +44,6 @@ class EditPlateDialog extends Component {
   }
 
   render() {
-    console.log(this.props.plateStatus)
     return (
       <Modal
         open={this.props.editPlateOpen}
@@ -52,8 +52,9 @@ class EditPlateDialog extends Component {
         <h3 className="header-style">Edit Plate</h3>
         <form
           id="editPlateForm"
-          onSubmit={() =>
+          onSubmit={e =>
             this.editPlateDetails(
+              e,
               this.props.plateId,
               this.props.editPlate,
               this.props.editPlateHandleClose
