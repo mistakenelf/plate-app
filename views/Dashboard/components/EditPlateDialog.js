@@ -33,16 +33,13 @@ class EditPlateDialog extends Component {
     editPlateHandleClose()
   }
 
-  plateStatusSelection = (e, value) => {
-    if (value === 'plate_complete') {
-      this.setState({
-        plateStatusSelected: 'Complete'
-      })
-    } else {
-      this.setState({
-        plateStatusSelected: 'In Progress'
-      })
-    }
+  plateStatusSelection = () => {
+    var selectedValue = document.querySelector(
+      'input[name = "plateStatus"]:checked'
+    ).value
+    this.setState({
+      plateStatusSelected: selectedValue
+    })
   }
 
   render() {
@@ -85,11 +82,25 @@ class EditPlateDialog extends Component {
             </div>
           </div>
           <div>Status:</div>
-          <div className="input-group" onChange>
-            <input type="radio" id="rad1" tabIndex="0" name="radio-group-1" />
-            <label htmlFor="rad1" style={{ marginRight: 20 }}>Complete</label>
-            <input type="radio" id="rad1" tabIndex="0" name="radio-group-1" />
-            <label htmlFor="rad1">In Progress</label>
+          <div className="input-group" onChange={this.plateStatusSelection}>
+            <input
+              type="radio"
+              id="complete"
+              tabIndex="0"
+              name="plateStatus"
+              value="Complete"
+            />
+            <label htmlFor="complete" style={{ marginRight: 20 }}>
+              Complete
+            </label>
+            <input
+              type="radio"
+              id="inProgress"
+              tabIndex="0"
+              name="plateStatus"
+              value="In-Progress"
+            />
+            <label htmlFor="inProgress">In Progress</label>
           </div>
         </form>
         <style jsx>{`
