@@ -29,10 +29,16 @@ const Modal = ({ open, closeModal, children }) => {
           left: 0;
           top: 0;
           width: 100%;
-          height: 100%;
           overflow: auto;
           background-color: rgb(0,0,0);
           background-color: rgba(0,0,0,0.4);
+        }
+        @media only screen
+        and (min-device-width : 320px)
+        and (max-device-width : 1030px) {
+          .modal {
+            height: 100%;
+          }
         }
         .modal-content {
           background-color: #fefefe;

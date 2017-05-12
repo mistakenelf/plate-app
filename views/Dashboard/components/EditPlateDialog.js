@@ -62,32 +62,36 @@ class EditPlateDialog extends Component {
         >
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-12">
-              <label>
-                Plate Name:
-              </label>
-              <br />
-              <input
-                name="currentPlateName"
-                id="currentPlateName"
-                type="text"
-                value={this.props.plateName}
-                style={{ marginBottom: 20 }}
-              />
+              <div className="input-group" style={{ width: '100%' }}>
+                <label>
+                  Plate Name:
+                </label>
+                <br />
+                <input
+                  name="currentPlateName"
+                  id="currentPlateName"
+                  type="text"
+                  defaultValue={this.props.plateName}
+                  style={{ marginBottom: 20, width: '100%' }}
+                />
+              </div>
             </div>
           </div>
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-12">
-              <label>
-                Plate Description:
-              </label>
-              <br />
-              <textarea
-                name="currentPlateDescription"
-                id="currentPlateDescription"
-                rows={4}
-                value={this.props.plateDescription}
-                style={{ marginBottom: 20 }}
-              />
+              <div className="input-group" style={{ width: '100%' }}>
+                <label>
+                  Plate Description:
+                </label>
+                <br />
+                <textarea
+                  name="currentPlateDescription"
+                  id="currentPlateDescription"
+                  rows={4}
+                  defaultValue={this.props.plateDescription}
+                  style={{ marginBottom: 20, width: '100%' }}
+                />
+              </div>
             </div>
           </div>
           <div>Status:</div>
@@ -112,14 +116,14 @@ class EditPlateDialog extends Component {
             <label htmlFor="inProgress">In Progress</label>
           </div>
           <br />
-          <div className="button-options">
-            <input
-              type="button"
+          <div className="input-group">
+            <button
               className="secondary"
-              value="Cancel"
               onClick={this.props.editPlateHandleClose}
-            />
-            <input type="submit" className="primary" value="Submit" />
+            >
+              Cancel
+            </button>
+            <button className="primary" type="submit">Submit</button>
           </div>
         </form>
         <style jsx>{`
