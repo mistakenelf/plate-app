@@ -46,6 +46,7 @@ class EditPlateDialog extends Component {
   }
 
   render() {
+    console.log(this.props.plateStatus)
     return (
       <Modal
         open={this.props.editPlateOpen}
@@ -61,32 +62,39 @@ class EditPlateDialog extends Component {
               this.props.editPlateHandleClose
             )}
         >
-          <span className="label-style">Name:</span>
-          <input
-            name="currentPlateName"
-            id="currentPlateName"
-            type="text"
-            style={{ marginBottom: 20 }}
-          />
-          <span className="label-style">Description:</span>
-          <textarea
-            name="currentPlateDescription"
-            id="currentPlateDescription"
-            rows={4}
-            style={{ marginBottom: 20 }}
-          />
-          <span>Status:</span>
-          <div className="input-group">
+          <div className="row">
+            <div className="col-sm-12 col-md-12 col-lg-12">
+              <input
+                name="currentPlateName"
+                id="currentPlateName"
+                type="text"
+                value={this.props.plateName}
+                style={{ marginBottom: 20 }}
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-sm-12 col-md-12 col-lg-12">
+              <textarea
+                name="currentPlateDescription"
+                id="currentPlateDescription"
+                rows={4}
+                value={this.props.plateDescription}
+                style={{ marginBottom: 20 }}
+              />
+            </div>
+          </div>
+          <div>Status:</div>
+          <div className="input-group" onChange>
             <input type="radio" id="rad1" tabIndex="0" name="radio-group-1" />
-            <label htmlFor="rad1">Radio</label>
+            <label htmlFor="rad1" style={{ marginRight: 20 }}>Complete</label>
+            <input type="radio" id="rad1" tabIndex="0" name="radio-group-1" />
+            <label htmlFor="rad1">In Progress</label>
           </div>
         </form>
         <style jsx>{`
           .header-style {
             margin-bottom: 10px;
-          }
-          .label-style {
-            margin-right: 10px;
           }
         `}</style>
       </Modal>
