@@ -25,48 +25,94 @@ const logUserOut = logout => {
 const Navigation = wrapComponentWithState(
   injectState(({ state, effects }) => {
     return (
-      <header className="sticky nav-bar">
-        <a href="#" className="logo logo-container">
-          Plate
-        </a>
-        {state.loggedIn
-          ? <span>
-              <Link href="/"><a className="nav-link">Home</a></Link>
-              <Link href="/dashboard">
-                <a className="nav-link">Dashboard</a>
-              </Link>
-              <Link href="/account"><a className="nav-link">Account</a></Link>
-              <span className="nav-link">|</span>
-              <a
-                className="nav-link"
-                onClick={() => logUserOut(effects.logout)}
-              >
-                Logout
-              </a>
-            </span>
-          : <span>
-              <Link href="/"><a className="nav-link">Home</a></Link>
-              <span className="nav-link">|</span>
-              <Link href="/login"><a className="nav-link">Login</a></Link>
-              <Link href="/register"><a className="nav-link">Register</a></Link>
-            </span>}
+      <span>
+        <header className="sticky nav-bar shadowed">
+          <label
+            htmlFor="drawer-checkbox"
+            className="drawer-toggle"
+            style={{ marginTop: '-6px', marginRight: 5 }}
+          />
+          <a href="#" className="logo logo-container">
+            Plate
+          </a>
+          {state.loggedIn
+            ? <span className="hidden-sm">
+                <Link href="/"><a className="nav-link">Home</a></Link>
+                <Link href="/dashboard">
+                  <a className="nav-link">Dashboard</a>
+                </Link>
+                <Link href="/account"><a className="nav-link">Account</a></Link>
+                <span className="nav-link">|</span>
+                <a
+                  className="nav-link"
+                  onClick={() => logUserOut(effects.logout)}
+                >
+                  Logout
+                </a>
+              </span>
+            : <span className="hidden-sm">
+                <Link prefetch href="/"><a className="nav-link">Home</a></Link>
+                <span className="nav-link">|</span>
+                <Link prefetch href="/login">
+                  <a className="nav-link">Login</a>
+                </Link>
+                <Link prefetch href="/register">
+                  <a className="nav-link">Register</a>
+                </Link>
+              </span>}
+        </header>
+        <input type="checkbox" id="drawer-checkbox" />
+        <div className="drawer hidden-md hidden-lg">
+          <label htmlFor="drawer-checkbox" className="close" />
+          <nav style={{ border: 'none' }}>
+            {state.loggedIn
+              ? <span>
+                  <Link href="/"><a className="nav-link">Home</a></Link>
+                  <Link href="/dashboard">
+                    <a className="nav-link">Dashboard</a>
+                  </Link>
+                  <Link href="/account">
+                    <a className="nav-link">Account</a>
+                  </Link>
+                  <Link>
+                    <a
+                      className="nav-link"
+                      onClick={() => logUserOut(effects.logout)}
+                    >
+                      Logout
+                    </a>
+                  </Link>
+                </span>
+              : <span>
+                  <Link prefetch href="/">
+                    <a className="nav-link">Home</a>
+                  </Link>
+                  <Link prefetch href="/login">
+                    <a className="nav-link">Login</a>
+                  </Link>
+                  <Link prefetch href="/register">
+                    <a className="nav-link">Register</a>
+                  </Link>
+                </span>}
+          </nav>
+        </div>
         <style jsx>{`
           a {
             text-decoration: none;
-            color: white;
           }
           .logo-container {
             margin-right: 15px;
           }
           .nav-bar {
-            box-shadow: 0 2px 2px #343f53;
             background: #343f53;
+            display: flex;
+            align-items: center;
           }
           .nav-link {
             margin-right: 10px;
           }
         `}</style>
-      </header>
+      </span>
     )
   })
 )
