@@ -1,8 +1,8 @@
 import { compose, graphql } from 'react-apollo'
 
 import ContentEditor from './components/ContentEditor'
-import Header from './components/Header'
 import Loader from '../../components/Loader/Loader'
+import PageHeader from '../../components/PageHeader/PageHeader'
 import PlateQuery from '../../queries/PlateQuery'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -16,7 +16,7 @@ const PlateFiller = ({ plateId, savePlateContent, plate, loading }) => {
     <div className="container">
       <div className="row">
         <div className="col-sm-12 col-md-12 col-lg-12 full-width">
-          <Header plateName={plate.name} />
+          <PageHeader headerText={plate.name} />
           <ContentEditor
             saveContent={savePlateContent}
             plateContent={plate.content}

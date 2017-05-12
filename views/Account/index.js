@@ -1,4 +1,4 @@
-import BackButton from '../../components/BackButton/BackButton'
+import PageHeader from '../../components/PageHeader/PageHeader'
 import ProfilePage from './components/ProfilePage'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -6,7 +6,7 @@ import React from 'react'
 const Account = ({ user }) => {
   return (
     <div className="container">
-      <BackButton color="black" />
+      <PageHeader headerText="My Account" />
       <ProfilePage user={user} />
     </div>
   )
