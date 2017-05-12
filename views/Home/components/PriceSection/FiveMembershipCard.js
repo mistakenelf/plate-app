@@ -28,7 +28,7 @@ const FiveMembershipCard = () => {
         .member-details {
           margin-top: 10px;
         }
-        `}</style>
+      `}</style>
     </Card>
   )
 }

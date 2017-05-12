@@ -10,7 +10,7 @@ const PriceSection = () => {
         <div className="membership-header col-sm-12 col-md-12 col-lg-12">
           <div
             style={{
-              fontSize: '30px',
+              fontSize: 30,
               display: 'flex',
               justifyContent: 'center',
               textAlign: 'center'

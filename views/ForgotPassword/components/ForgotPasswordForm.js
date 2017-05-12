@@ -9,24 +9,22 @@ const forgotPassword = e => {
 
 const ForgotPasswordForm = () => {
   return (
-    <div>
-      <div className="row">
-        <div className="col-sm-12 col-md-6 col-lg-4 col-md-offset-3 col-lg-offset-4">
-          <form onSubmit={e => forgotPassword(e)}>
-            <fieldset>
-              <legend>Forgot Password</legend>
-              <div className="input-group fluid">
-                <label className="input-label" htmlFor="username">
-                  Email:
-                </label>
-                <input type="email" id="email" placeholder="email" required />
-              </div>
-              <div className="input-group fluid">
-                <button type="submit" className="primary">Submit</button>
-              </div>
-            </fieldset>
-          </form>
-        </div>
+    <div className="row">
+      <div className="col-sm-12 col-md-6 col-lg-4 col-md-offset-3 col-lg-offset-4">
+        <form onSubmit={e => forgotPassword(e)}>
+          <fieldset>
+            <legend>Forgot Password</legend>
+            <div className="input-group fluid">
+              <label className="input-label" htmlFor="username">
+                Email:
+              </label>
+              <input type="email" id="email" placeholder="email" required />
+            </div>
+            <div className="input-group fluid">
+              <button type="submit" className="primary">Submit</button>
+            </div>
+          </fieldset>
+        </form>
       </div>
       <style jsx>{`
         .input-label {
