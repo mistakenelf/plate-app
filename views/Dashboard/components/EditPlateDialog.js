@@ -19,7 +19,8 @@ class EditPlateDialog extends Component {
     plateStatusSelected: 'New'
   }
 
-  editPlateDetails = async (id, editPlate, editPlateHandleClose) => {
+  editPlateDetails = async (e, id, editPlate, editPlateHandleClose) => {
+    e.preventDefault()
     const newPlateName = document.getElementById('currentPlateName').value
     const newPlateDescription = document.getElementById(
       'currentPlateDescription'
@@ -46,7 +47,6 @@ class EditPlateDialog extends Component {
   }
 
   render() {
-    console.log(this.props.plateStatus)
     return (
       <Modal
         open={this.props.editPlateOpen}
@@ -55,8 +55,9 @@ class EditPlateDialog extends Component {
         <h3 className="header-style">Edit Plate</h3>
         <form
           id="editPlateForm"
-          onSubmit={() =>
+          onSubmit={e =>
             this.editPlateDetails(
+              e,
               this.props.plateId,
               this.props.editPlate,
               this.props.editPlateHandleClose
@@ -86,11 +87,19 @@ class EditPlateDialog extends Component {
           </div>
           <div>Status:</div>
           <div className="input-group" onChange>
-            <input type="radio" id="rad1" tabIndex="0" name="radio-group-1" />
-            <label htmlFor="rad1" style={{ marginRight: 20 }}>Complete</label>
-            <input type="radio" id="rad1" tabIndex="0" name="radio-group-1" />
-            <label htmlFor="rad1">In Progress</label>
+            <input type="radio" id="complete" tabIndex="0" name="complete" />
+            <label htmlFor="complete" style={{ marginRight: 20 }}>
+              Complete
+            </label>
+            <input
+              type="radio"
+              id="inProgress"
+              tabIndex="1"
+              name="inProgress"
+            />
+            <label htmlFor="inProgress">In Progress</label>
           </div>
+          <button type="submit" className="primary">Save</button>
         </form>
         <style jsx>{`
           .header-style {
