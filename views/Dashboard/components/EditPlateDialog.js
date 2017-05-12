@@ -34,16 +34,13 @@ class EditPlateDialog extends Component {
     editPlateHandleClose()
   }
 
-  plateStatusSelection = (e, value) => {
-    if (value === 'plate_complete') {
-      this.setState({
-        plateStatusSelected: 'Complete'
-      })
-    } else {
-      this.setState({
-        plateStatusSelected: 'In Progress'
-      })
-    }
+  plateStatusSelection = () => {
+    var selectedValue = document.querySelector(
+      'input[name = "plateStatus"]:checked'
+    ).value
+    this.setState({
+      plateStatusSelected: selectedValue
+    })
   }
 
   render() {
@@ -65,6 +62,10 @@ class EditPlateDialog extends Component {
         >
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-12">
+              <label>
+                Plate Name:
+              </label>
+              <br />
               <input
                 name="currentPlateName"
                 id="currentPlateName"
@@ -76,6 +77,10 @@ class EditPlateDialog extends Component {
           </div>
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-12">
+              <label>
+                Plate Description:
+              </label>
+              <br />
               <textarea
                 name="currentPlateDescription"
                 id="currentPlateDescription"
@@ -86,24 +91,43 @@ class EditPlateDialog extends Component {
             </div>
           </div>
           <div>Status:</div>
-          <div className="input-group" onChange>
-            <input type="radio" id="complete" tabIndex="0" name="complete" />
+          <div className="input-group" onChange={this.plateStatusSelection}>
+            <input
+              type="radio"
+              id="complete"
+              tabIndex="0"
+              name="plateStatus"
+              value="Complete"
+            />
             <label htmlFor="complete" style={{ marginRight: 20 }}>
               Complete
             </label>
             <input
               type="radio"
               id="inProgress"
-              tabIndex="1"
-              name="inProgress"
+              tabIndex="0"
+              name="plateStatus"
+              value="In-Progress"
             />
             <label htmlFor="inProgress">In Progress</label>
           </div>
-          <button type="submit" className="primary">Save</button>
+          <br />
+          <div className="button-options">
+            <input
+              type="button"
+              className="secondary"
+              value="Cancel"
+              onClick={this.props.editPlateHandleClose}
+            />
+            <input type="submit" className="primary" value="Submit" />
+          </div>
         </form>
         <style jsx>{`
           .header-style {
             margin-bottom: 10px;
+          }
+          .button-options {
+            float: right;
           }
         `}</style>
       </Modal>
