@@ -29,6 +29,7 @@ const Modal = ({ open, closeModal, children }) => {
           left: 0;
           top: 0;
           width: 100%;
+          height: 100vh;
           overflow: auto;
           background-color: rgb(0,0,0);
           background-color: rgba(0,0,0,0.4);
@@ -43,7 +44,10 @@ const Modal = ({ open, closeModal, children }) => {
         .modal-content {
           background-color: #fefefe;
           border-radius: 5px;
-          margin: 15% auto;
+          margin-top: 60px;
+          margin-bottom: auto;
+          margin-left: auto;
+          margin-right: auto;
           padding: 20px;
           width: 80%;
         }
