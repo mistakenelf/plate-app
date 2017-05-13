@@ -1798,9 +1798,9 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-prettier@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-2.0.0.tgz#073cdb2760c0ba817c9b3fbf2300110a77a35626"
+eslint-config-prettier@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-2.1.0.tgz#cf78bc7864f98b0f87bcadf702459e933dfa659c"
   dependencies:
     get-stdin "^5.0.1"
 
@@ -3723,9 +3723,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier-eslint@^6.2.1:
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/prettier-eslint/-/prettier-eslint-6.2.1.tgz#d5d6e3b09228dfbc7cc00e2448e11c9db0190068"
+prettier-eslint@^6.2.2:
+  version "6.2.2"
+  resolved "https://registry.yarnpkg.com/prettier-eslint/-/prettier-eslint-6.2.2.tgz#7779147f0e231951c268962985cad3ffcd59f34e"
   dependencies:
     common-tags "^1.4.0"
     dlv "^1.1.0"
@@ -3984,9 +3984,9 @@ react-swipeable-views-utils@^0.12.0:
     react-event-listener "^0.4.5"
     react-swipeable-views-core "^0.11.1"
 
-react-swipeable-views@^0.12.1:
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/react-swipeable-views/-/react-swipeable-views-0.12.1.tgz#c3788f9d353341e10863ef3a012eafa6cd4545bc"
+react-swipeable-views@^0.12.2:
+  version "0.12.2"
+  resolved "https://registry.yarnpkg.com/react-swipeable-views/-/react-swipeable-views-0.12.2.tgz#7d1d2d653753fa0020837d04e4bc9f6a67cd5118"
   dependencies:
     babel-runtime "^6.23.0"
     dom-helpers "^3.2.1"
