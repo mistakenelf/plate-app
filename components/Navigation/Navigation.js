@@ -123,6 +123,7 @@ const Navigation = wrapComponentWithState(
           }
           .nav-link {
             margin-right: 10px;
+            cursor: pointer;
           }
         `}</style>
       </span>
