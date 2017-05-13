@@ -51,7 +51,6 @@ const EditPlateDialog = wrapComponentWithState(
       plateId,
       plateName,
       plateDescription,
-      plateStatus,
       editPlate
     }) => {
       return (

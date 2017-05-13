@@ -49,12 +49,10 @@ const PriceSection = () => {
         }
         .price-card-side {
           margin-top: 50px;
-          width: 300px;
           margin-right: auto;
           margin-left: auto;
         }
         .price-card {
-          width: 300px;
           margin-right: auto;
           margin-left: auto;
         }
