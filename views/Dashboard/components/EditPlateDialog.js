@@ -35,12 +35,10 @@ const editPlateDetails = async (
 }
 
 const plateStatusSelection = (state, effects) => {
-  console.log(effects)
   var selectedValue = document.querySelector(
     'input[name = "plateStatus"]:checked'
   ).value
   effects.updatePlateStatus(selectedValue)
-  console.log(state.plateStatusSelected)
 }
 
 const EditPlateDialog = wrapComponentWithState(
