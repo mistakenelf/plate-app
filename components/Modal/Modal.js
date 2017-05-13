@@ -25,7 +25,7 @@ const Modal = ({ open, closeModal, children }) => {
         <style jsx>{`
         .modal {
           position: fixed;
-          z-index: 2;
+          z-index: 999;
           left: 0;
           top: 0;
           width: 100%;
