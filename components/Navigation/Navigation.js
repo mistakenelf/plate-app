@@ -8,7 +8,7 @@ import Router from 'next/router'
 
 const wrapComponentWithState = provideState({
   initialState: props => ({
-    loggedIn: props.token ? true : false
+    loggedIn: props.token
   }),
   effects: {
     logout: () => state => Object.assign({}, state, { loggedIn: false })
