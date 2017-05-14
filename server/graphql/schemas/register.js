@@ -5,13 +5,13 @@ const env = require('../../../env-config')
 
 const registerTypeDef = `
   extend type Mutation {
-    register(firstName: String!, lastName: String!, username: String!, password: String!): String
+    register(firstName: String!, lastName: String!, username: String!, email: String!, password: String!): String
   }
 `
 
 const registerResolvers = {
   Mutation: {
-    register: async ({ db }, { firstName, lastName, username, password }) => {
+    register: async ({ db }, { firstName, lastName, username, password, email }) => {
       const duplicateUser = await db
         .collection('users')
         .find({ username: username })
@@ -25,7 +25,9 @@ const registerResolvers = {
           firstName,
           lastName,
           username,
-          password: hash
+          password: hash,
+          email,
+          plan: 'free'
         }
 
         await db.collection('users').insertOne(data)

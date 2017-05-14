@@ -24,8 +24,9 @@ const registerUser = async (e, register, showError) => {
   const lastName = document.getElementById('lastName').value
   const username = document.getElementById('username').value
   const password = document.getElementById('password').value
+  const email = document.getElementById('email').value
 
-  const user = await register(firstName, lastName, username, password)
+  const user = await register(firstName, lastName, username, password, email)
 
   if (user.data.register === null) {
     showError()
@@ -68,6 +69,12 @@ const RegisterForm = wrapComponentWithState(
                     placeholder="last name"
                     required
                   />
+                </div>
+                <div className="input-group fluid">
+                  <label className="input-label" htmlFor="email">
+                    Email:
+                  </label>
+                  <input type="text" id="email" placeholder="email" required />
                 </div>
                 <div className="input-group fluid">
                   <label className="input-label" htmlFor="username">
@@ -125,7 +132,7 @@ RegisterForm.propTypes = {
 
 export default graphql(RegisterMutation, {
   props: ({ mutate }) => ({
-    register: (firstName, lastName, username, password) =>
-      mutate({ variables: { firstName, lastName, username, password } })
+    register: (firstName, lastName, username, password, email) =>
+      mutate({ variables: { firstName, lastName, username, password, email } })
   })
 })(RegisterForm)

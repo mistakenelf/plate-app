@@ -8,6 +8,8 @@ const getUserProfileTypeDef = `
     lastName: String
     username: String
     password: String
+    email: String
+    plan: String
   }
   extend type Query {
     getUserProfile(token: String): User
