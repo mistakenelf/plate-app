@@ -24,7 +24,6 @@ const logUserOut = logout => {
 
 const Navigation = wrapComponentWithState(
   injectState(({ state, effects }) => {
-    console.log(state.loggedIn)
     return (
       <span>
         <header className="sticky nav-bar shadowed">
