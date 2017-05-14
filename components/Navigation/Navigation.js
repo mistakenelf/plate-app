@@ -8,7 +8,7 @@ import Router from 'next/router'
 
 const wrapComponentWithState = provideState({
   initialState: props => ({
-    loggedIn: props.token
+    loggedIn: props.token ? true : false
   }),
   effects: {
     logout: () => state => Object.assign({}, state, { loggedIn: false })
@@ -24,6 +24,7 @@ const logUserOut = logout => {
 
 const Navigation = wrapComponentWithState(
   injectState(({ state, effects }) => {
+    console.log(state.loggedIn)
     return (
       <span>
         <header className="sticky nav-bar shadowed">
