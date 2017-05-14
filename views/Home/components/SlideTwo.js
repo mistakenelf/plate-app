@@ -6,7 +6,8 @@ const SlideTwo = () => {
       <div>
         <h1 className="text-padding">
           Never forgot a task again. With plate we make managing tasks fun,
-          and easy for anymore.{' '}
+          <br />
+          and easy for anymore.
         </h1>
       </div>
       <div>

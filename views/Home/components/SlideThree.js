@@ -5,8 +5,9 @@ const SlideThree = () => {
     <div>
       <div>
         <h1 className="text-padding">
-          Plate is one of the simplest task management solutions. Managing tasks has never
-          been this much fun!
+          Plate is one of the simplest task management solutions.
+          <br />
+          Managing tasks has never been this much fun!
         </h1>
       </div>
       <div>
