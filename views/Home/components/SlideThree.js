@@ -3,9 +3,18 @@ import React from 'react'
 const SlideThree = () => {
   return (
     <div>
-      <h1 className="text-padding">
-        Get out there and start creating some plates. Its fun!
-      </h1>
+      <div>
+        <h1 className="text-padding">
+          Plate is one of the simplest task management solutions. Managing tasks has never
+          been this much fun!
+        </h1>
+      </div>
+      <div>
+        <h5 className="text-padding">
+          We hope you enjoy plate, any questions? Just contact us and we will
+          gladly help.
+        </h5>
+      </div>
       <style jsx>{`
         .text-padding {
           margin-bottom: 25px;

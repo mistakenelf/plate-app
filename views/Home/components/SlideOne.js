@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import React from 'react'
 
 const SlideOne = () => {
@@ -17,13 +16,6 @@ const SlideOne = () => {
           Register now
           to begin managing your tasks!
         </h5>
-      </div>
-      <div>
-        <Link prefetch href="/register">
-          <a>
-            <button className="primary">Register Now</button>
-          </a>
-        </Link>
       </div>
       <style jsx>{`
         .text-padding {

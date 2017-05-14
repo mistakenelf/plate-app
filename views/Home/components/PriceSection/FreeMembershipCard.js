@@ -10,13 +10,9 @@ const FreeMembershipCard = () => {
       <span className="membership">Free</span>
       <hr />
       <div className="member-details">
-        <span>Manage 20 Tasks</span>
+        <span>20 plates</span>
         <br />
-        <span>Test</span>
-        <br />
-        <span>Test</span>
-        <br />
-        <button className="primary" style={{ marginTop: 40 }}>Buy Now</button>
+        <span>Plate Support</span>
       </div>
       <style jsx>{`
         .price {

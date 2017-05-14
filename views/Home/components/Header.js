@@ -20,10 +20,10 @@ const styles = {
     background: 'linear-gradient(-90deg, rgb(141, 95, 115), #343f53)'
   },
   slide2: {
-    background: 'linear-gradient(-90deg, #B3DC4A, #343f53)'
+    background: 'linear-gradient(-90deg, rgb(141, 95, 115), #343f53)'
   },
   slide3: {
-    background: 'linear-gradient(-90deg, #B3DC4A, #6AC0FF)'
+    background: 'linear-gradient(-90deg, rgb(141, 95, 115), #343f53)'
   }
 }
 
