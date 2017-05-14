@@ -3,7 +3,7 @@ import React from 'react'
 const Loader = () => {
   return (
     <div className="loader">
-      <div className="spinner-donut" />
+      <div className="spinner-donut large" />
       <style jsx>{`
         .loader {
           display: flex;
