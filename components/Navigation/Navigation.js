@@ -32,18 +32,20 @@ const Navigation = wrapComponentWithState(
             className="drawer-toggle"
             style={{ marginRight: 5 }}
           />
-          <a href="#" className="logo logo-container">
-            Plate
-          </a>
+          <Link prefetch href="/">
+            <a className="logo logo-container">
+              Plate
+            </a>
+          </Link>
           {state.loggedIn
             ? <span className="hidden-sm">
-                <Link href="/">
+                <Link prefetch href="/">
                   <a className="nav-link desktop-nav-link">Home</a>
                 </Link>
-                <Link href="/dashboard">
+                <Link prefetch href="/dashboard">
                   <a className="nav-link desktop-nav-link">Dashboard</a>
                 </Link>
-                <Link href="/account">
+                <Link prefetch href="/account">
                   <a className="nav-link desktop-nav-link">Account</a>
                 </Link>
                 <span className="nav-link">|</span>
