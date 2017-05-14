@@ -13,7 +13,6 @@ import InlineStyleControls from './InlineStyleControls'
 import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
 import { getBlockStyle } from './getBlockStyle'
-import { styleMap } from './styleMap'
 
 class ContentEditor extends Component {
   static propTypes = {
@@ -95,7 +94,6 @@ class ContentEditor extends Component {
         <div className="RichEditor-editor" onClick={this.focus}>
           <Editor
             blockStyleFn={getBlockStyle}
-            customStyleMap={styleMap}
             blockRenderMap={BlockRenderMap}
             editorState={this.state.editorState}
             handleKeyCommand={this.handleKeyCommand}
@@ -119,16 +117,6 @@ class ContentEditor extends Component {
             margin-top: 10px;
             padding: 15px;
             min-height: 400px;
-          }
-          .RichEditor-editor .RichEditor-blockquote {
-            border-left: 5px solid #eee;
-            color: #666;
-            margin: 16px 0;
-            padding: 10px 20px;
-          }
-          .RichEditor-editor .public-DraftStyleDefault-pre {
-            font-size: 16px;
-            padding: 20px;
           }
           .button-container {
             word-wrap: break-word;

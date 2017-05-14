@@ -1,7 +1,7 @@
 export const getBlockStyle = block => {
   switch (block.getType()) {
     case 'blockquote':
-      return 'RichEditor-blockquote'
+      return 'blockquote'
     case 'text-align-right':
       return 'text-align-right'
     case 'text-align-left':
