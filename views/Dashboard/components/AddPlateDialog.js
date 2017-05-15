@@ -51,7 +51,7 @@ class AddPlateDialog extends Component {
             <fieldset>
               <legend>Add Plate</legend>
               <div className="input-group fluid">
-                <label>Plate Name</label>
+                <label style={{ width: 90 }}>Plate Name</label>
                 <input
                   name="name"
                   id="add_plate_name"
@@ -60,7 +60,7 @@ class AddPlateDialog extends Component {
                 />
               </div>
               <div className="input-group fluid">
-                <label>Plate Description</label>
+                <label style={{ width: 90 }}>Plate Description</label>
                 <input
                   name="description"
                   id="add_plate_description"
