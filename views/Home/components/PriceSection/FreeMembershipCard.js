@@ -3,7 +3,7 @@ import React from 'react'
 
 const FreeMembershipCard = () => {
   return (
-    <Card style={{ textAlign: 'center' }}>
+    <Card style={{ textAlign: 'center', minHeight: 200 }}>
       <span className="price">$0</span>
       <span className="month"> /month</span>
       <br />

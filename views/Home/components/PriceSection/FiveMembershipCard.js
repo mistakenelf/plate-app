@@ -3,7 +3,7 @@ import React from 'react'
 
 const FiveMembershipCard = () => {
   return (
-    <Card style={{ textAlign: 'center' }}>
+    <Card style={{ textAlign: 'center', minHeight: 200 }}>
       <span className="price">$5</span>
       <span className="month"> /month</span>
       <br />
@@ -13,6 +13,8 @@ const FiveMembershipCard = () => {
         <span>Unlimited plates</span>
         <br />
         <span>Plate support</span>
+        <br />
+        <em>Coming Soon!</em>
       </div>
       <style jsx>{`
         .price {

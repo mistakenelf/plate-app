@@ -4,58 +4,53 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <div>
-      <div className="footer-main">
-        <div className="row main-content">
-          <div className="section-margins col-sm-12 col-md-6 col-lg-3">
-            <h3>Plate</h3>
-            <p>
-              Plate is the easiest way to manage your tasks
-              Check out our resources to learn more about
-              getting started.
-            </p>
-          </div>
-          <div className="section-margins col-sm-12 col-md-6 col-lg-3">
-            <h3>Quick Links</h3>
-            <Link prefetch href="/terms">
-              <a className="footer-links">Terms and Conditions</a>
-            </Link>
+    <div className="footer-main">
+      <div className="row main-content">
+        <div className="col-sm-12 col-md-4 col-lg-4">
+          <h3>Plate</h3>
+          <p>
+            Plate is the easiest way to manage your tasks
+            Check out our resources to learn more about
+            getting started.
             <br />
-            <Link prefetch href="/team">
-              <a className="footer-links">
-                Meet the Team
-              </a>
-            </Link>
-          </div>
-          <div className="section-margins col-sm-12 col-md-6 col-lg-3">
-            <h3>Get In Touch</h3>
-            <Link prefetch href="/about">
-              <a className="footer-links">About Us</a>
-            </Link>
             <br />
-            <Link prefetch href="/contactus">
-              <a className="footer-links">Contact Us</a>
-            </Link>
-          </div>
-          <div className="col-sm-12 col-md-6 col-lg-3">
             <Icon
-              style={{ color: '#3B5998', marginRight: 30 }}
+              style={{ color: '#3B5998', paddingRight: 30 }}
               type="fa fa-facebook-square fa-3x"
             />
             <Icon
-              style={{ color: '#55ACEE', marginRight: 30 }}
+              style={{ color: '#55ACEE', paddingRight: 30 }}
               type="fa fa-twitter-square fa-3x"
             />
-            <Icon
-              style={{ color: '#5481A3', marginRight: 30 }}
-              type="fa fa-instagram fa-3x"
-            />
-          </div>
+            <Icon style={{ color: '#5481A3' }} type="fa fa-instagram fa-3x" />
+          </p>
+        </div>
+        <div className="col-sm-12 col-md-4 col-lg-4">
+          <h3>Quick Links</h3>
+          <Link prefetch href="/terms">
+            <a className="footer-links">Terms and Conditions</a>
+          </Link>
+          <br />
+          <Link prefetch href="/team">
+            <a className="footer-links">
+              Meet the Team
+            </a>
+          </Link>
+        </div>
+        <div className="col-sm-12 col-md-4 col-lg-4">
+          <h3>Get In Touch</h3>
+          <Link prefetch href="/about">
+            <a className="footer-links">About Us</a>
+          </Link>
+          <br />
+          <Link prefetch href="/contactus">
+            <a className="footer-links">Contact Us</a>
+          </Link>
         </div>
       </div>
-      <div className="copyright">
+      <footer className="copyright">
         © 2017, Plate
-      </div>
+      </footer>
       <style jsx>{`
         h3 {
           text-transform: uppercase;
@@ -69,13 +64,10 @@ const Footer = () => {
           color: white;
           background-color: #223741;
           height: auto;
+          text-align: center;
           padding-top: 100px;
-          padding-bottom: 100px;
           padding-left: 50px;
           padding-right: 50px;
-        }
-        .main-content {
-          margin-top: 50px;
         }
         .footer-main p {
           margin-left: 13px;
@@ -123,22 +115,6 @@ const Footer = () => {
         a:focus::after {
           opacity: 1;
           transform: translateX(0px);
-        }
-        @media only screen
-        and (min-device-width : 320px)
-        and (max-device-width : 1030px) {
-          .footer-main {
-            padding: 50px;
-          }
-          .main-content {
-            text-align: center;
-          }
-          .section-margins {
-            margin-bottom: 40px;
-          }
-          .footer-main p {
-            text-align: center;
-          }
         }
         .copyright {
           color: #7D8A95;
