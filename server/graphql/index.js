@@ -11,6 +11,7 @@ const editPlate = require('./schemas/editPlate')
 const savePlateContent = require('./schemas/savePlateContent')
 const register = require('./schemas/register')
 const contactUs = require('./schemas/contactUs')
+const changePassword = require('./schemas/changePassword')
 
 const rootSchema = `
   type Query {
@@ -46,7 +47,8 @@ const schema = makeExecutableSchema({
     editPlate.editPlateTypeDef,
     savePlateContent.savePlateContentTypeDef,
     register.registerTypeDef,
-    contactUs.contactUsTypeDef
+    contactUs.contactUsTypeDef,
+    changePassword.changePasswordTypeDef
   ],
   resolvers: merge(
     rootResolvers,
@@ -59,7 +61,8 @@ const schema = makeExecutableSchema({
     editPlate.editPlateResolvers,
     savePlateContent.savePlateContentResolvers,
     register.registerResolvers,
-    contactUs.contactUsResolvers
+    contactUs.contactUsResolvers,
+    changePassword.changePasswordResolvers
   )
 })
 

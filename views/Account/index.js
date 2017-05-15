@@ -1,4 +1,5 @@
 import AccountInfo from './components/AccountInfo'
+import ChangePassword from './components/ChangePassword'
 import PageHeader from '../../components/PageHeader/PageHeader'
 import ProfilePage from './components/ProfilePage'
 import PropTypes from 'prop-types'
@@ -8,7 +9,10 @@ const Account = ({ user }) => {
   return (
     <div className="container">
       <PageHeader headerText="My Account" />
-      <ProfilePage user={user} />
+      <div className="row">
+        <ChangePassword user={user} />
+        <ProfilePage user={user} />
+      </div>
       <div className="divider" />
       <AccountInfo user={user} />
       <style jsx>{`
