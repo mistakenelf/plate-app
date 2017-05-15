@@ -9,8 +9,10 @@ const wrapComponentWithState = provideState({
     plateStatusSelected: 'new'
   }),
   effects: {
-    updatePlateStatus: (effects, statusSelected) => state =>
-      Object.assign({}, state, { plateStatusSelected: statusSelected })
+    updatePlateStatus: (effects, statusSelected) =>
+      Promise.resolve(state =>
+        Object.assign({}, state, { plateStatusSelected: statusSelected })
+      )
   }
 })
 
@@ -36,7 +38,7 @@ const editPlateDetails = async (
 
 const plateStatusSelection = (state, effects) => {
   var selectedValue = document.querySelector(
-    'input[name = "plateStatus"]:checked'
+    'input[name = "newPlateStatus"]:checked'
   ).value
   effects.updatePlateStatus(selectedValue)
 }
@@ -112,7 +114,7 @@ const EditPlateDialog = wrapComponentWithState(
                 type="radio"
                 id="complete"
                 tabIndex="0"
-                name="plateStatus"
+                name="newPlateStatus"
                 value="Complete"
               />
               <label htmlFor="complete" style={{ marginRight: 20 }}>
@@ -122,7 +124,7 @@ const EditPlateDialog = wrapComponentWithState(
                 type="radio"
                 id="inProgress"
                 tabIndex="0"
-                name="plateStatus"
+                name="newPlateStatus"
                 value="In-Progress"
               />
               <label htmlFor="inProgress">In Progress</label>
