@@ -88,7 +88,9 @@ const RegisterForm = wrapComponentWithState(
                   />
                 </div>
                 <div className="input-group fluid">
-                  <label className="input-label" htmlFor="pwd">Password:</label>
+                  <label className="input-label" htmlFor="password">
+                    Password:
+                  </label>
                   <input
                     type="password"
                     id="password"
