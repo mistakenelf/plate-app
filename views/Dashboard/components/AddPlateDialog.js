@@ -23,21 +23,27 @@ class AddPlateDialog extends Component {
     const plateDescription = document.getElementById('add_plate_description')
       .value
 
-    const plateColors = [
+    const plateAvatars = [
       '/static/img/wine.png',
       '/static/img/egg.png',
       '/static/img/garlic.png',
       '/static/img/milk.png',
       '/static/img/turkey.png',
-      '/static/img/pizza.png'
+      '/static/img/pizza.png',
+      '/static/img/toaster_pastry_frosted_small.png',
+      '/static/img/Toast_n_Jelly.png',
+      '/static/img/English_breakfast.png',
+      '/static/img/cereal_hot.png',
+      '/static/img/cereal_bowl.png',
+      '/static/img/breakfast_burrito.png'
     ]
 
-    const colorNumber = Math.floor(Math.random() * 6)
+    const randomNum = Math.floor(Math.random() * 11)
 
     await this.props.addPlate(
       plateName,
       plateDescription,
-      plateColors[colorNumber],
+      plateAvatars[randomNum],
       this.props.user.username
     )
     this.props.closeDialog()
