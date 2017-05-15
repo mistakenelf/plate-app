@@ -108,12 +108,10 @@ class ContentEditor extends Component {
         <style jsx global>{`
           RichEditor-root {
             background: #fff;
-            font-size: 14px;
             padding: 15px;
           }
           .RichEditor-editor {
             cursor: text;
-            font-size: 16px;
             margin-top: 10px;
             padding: 15px;
             min-height: 400px;

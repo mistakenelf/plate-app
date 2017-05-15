@@ -24,9 +24,7 @@ const InlineStyleControls = props => {
       ))}
       <style jsx>{`
         .RichEditor-controls {
-          font-family: 'Helvetica', sans-serif;
-          font-size: 14px;
-          margin-bottom: 5px;
+          margin-bottom: 3px;
           user-select: none;
         }
       `}</style>

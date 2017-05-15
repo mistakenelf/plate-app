@@ -55,6 +55,7 @@ const Plate = wrapComponentWithState(
             subheader={'Status: ' + status}
             footerItems={[
               <button
+                type="button"
                 key="1"
                 onClick={effects.washPlateHandleOpen}
                 className="secondary"
@@ -62,7 +63,7 @@ const Plate = wrapComponentWithState(
                 Wash Plate
               </button>,
               <Link key="2" prefetch href={`/platefiller?id=${plateId}`}>
-                <button className="primary">Fill Plate</button>
+                <button type="button" className="primary">Fill Plate</button>
               </Link>
             ]}
             actionIcon={
@@ -88,26 +89,34 @@ const Plate = wrapComponentWithState(
             open={state.washPlateOpen}
             closeModal={effects.washPlateHandleClose}
           >
-            <p>Are you sure you want to remove this plate?</p>
-            <button
-              onClick={() => {
-                deletePlate(removePlate, plateId, effects.washPlateHandleClose)
-              }}
-              className="primary"
-            >
-              Remove
-            </button>
-            <button onClick={effects.washPlateHandleClose}>Cancel</button>
+            <div className="remove-plate-modal">
+              <p>Are you sure you want to remove this plate?</p>
+              <button
+                type="button"
+                onClick={() => {
+                  deletePlate(
+                    removePlate,
+                    plateId,
+                    effects.washPlateHandleClose
+                  )
+                }}
+                className="primary"
+              >
+                Remove
+              </button>
+              <button type="button" onClick={effects.washPlateHandleClose}>
+                Cancel
+              </button>
+            </div>
           </Modal>
           <style jsx>{`
-            .card-image {
-              position: absolute;
-              width: 50px;
-              height: 50px;
-              top: 5px;
-              right: 5px;
+            .remove-plate-modal {
+              background-color: white;
+              padding: 20px;
+              border-radius: 5px;
+              margin-top: 60px;
             }
-            `}</style>
+          `}</style>
         </div>
       )
     }

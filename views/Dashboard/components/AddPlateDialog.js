@@ -45,11 +45,7 @@ class AddPlateDialog extends Component {
 
   render() {
     return (
-      <Modal
-        open={this.props.open}
-        closeModal={this.props.closeDialog}
-        style={{ margin: 20 }}
-      >
+      <Modal open={this.props.open} closeModal={this.props.closeDialog}>
         <div className="form-section">
           <form id="plateForm" onSubmit={e => this.confirmAddPlate(e)}>
             <fieldset>
@@ -72,12 +68,13 @@ class AddPlateDialog extends Component {
                   label="Description"
                 />
               </div>
-              <input
+              <button
                 type="submit"
                 className="primary"
-                value="Create Plate"
                 style={{ float: 'right' }}
-              />
+              >
+                Add Plate
+              </button>
             </fieldset>
           </form>
         </div>

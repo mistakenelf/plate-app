@@ -28,6 +28,7 @@ class StyleButton extends Component {
           .RichEditor-styleButton {
             color: #999;
             cursor: pointer;
+            font-size: 13px;
             margin-right: 16px;
             padding: 2px 0;
           }

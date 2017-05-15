@@ -39,8 +39,6 @@ const BlockStyleControls = props => {
       ))}
       <style jsx>{`
         .RichEditor-controls {
-          font-family: 'Helvetica', sans-serif;
-          font-size: 14px;
           user-select: none;
           margin-bottom: 10px;
         }

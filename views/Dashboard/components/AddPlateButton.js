@@ -18,7 +18,11 @@ const AddPlateButton = wrapComponentWithState(
   injectState(({ state, effects, user }) => {
     return (
       <div>
-        <button className="secondary circular" onClick={effects.openDialog}>
+        <button
+          type="button"
+          className="secondary circular"
+          onClick={effects.openDialog}
+        >
           ＋
         </button>
         <AddPlateDialog

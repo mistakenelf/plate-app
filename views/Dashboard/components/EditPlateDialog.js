@@ -24,85 +24,71 @@ const EditPlateDialog = ({
 }) => {
   return (
     <Modal open={editPlateOpen} closeModal={editPlateHandleClose}>
-      <h3 className="header-style">Edit Plate</h3>
       <form
         id="editPlateForm"
         onSubmit={e =>
           editPlateDetails(e, plateId, editPlate, editPlateHandleClose)}
       >
-        <div className="row">
-          <div className="col-sm-12 col-md-12 col-lg-12">
-            <div className="input-group" style={{ width: '100%' }}>
-              <label>
-                Plate Name:
-              </label>
-              <br />
-              <input
-                name="currentPlateName"
-                id="currentPlateName"
-                type="text"
-                defaultValue={plateName}
-                style={{ marginBottom: 20, width: '100%' }}
-                required
-              />
-            </div>
+        <fieldset>
+          <legend>Edit Plate</legend>
+          <div className="input-group fluid">
+            <label className="input-label" htmlFor="plateName">
+              Plate Name:
+            </label>
+            <input
+              name="currentPlateName"
+              id="currentPlateName"
+              type="text"
+              defaultValue={plateName}
+              required
+            />
           </div>
-        </div>
-        <div className="row">
-          <div className="col-sm-12 col-md-12 col-lg-12">
-            <div className="input-group" style={{ width: '100%' }}>
-              <label>
-                Plate Description:
-              </label>
-              <br />
-              <textarea
-                name="currentPlateDescription"
-                id="currentPlateDescription"
-                rows={4}
-                defaultValue={plateDescription}
-                style={{ marginBottom: 20, width: '100%' }}
-                required
-              />
-            </div>
+          <div className="input-group fluid">
+            <label className="input-label" htmlFor="plateDescription">
+              Plate Description:
+            </label>
+            <textarea
+              name="currentPlateDescription"
+              id="currentPlateDescription"
+              rows={4}
+              defaultValue={plateDescription}
+              style={{ marginBottom: 20, width: '100%' }}
+              required
+            />
           </div>
-        </div>
-        <div>Status:</div>
+          <div className="input-group fluid">
+            <input
+              type="radio"
+              id="inProgress"
+              value="in-progress"
+              name="newPlateStatus"
+            />
+            <label htmlFor="inProgress">In-Progress</label>
+            <input
+              type="radio"
+              id="complete"
+              value="complete"
+              name="newPlateStatus"
+            />
+            <label htmlFor="complete">Complete</label>
+          </div>
+        </fieldset>
         <div className="input-group">
-          <input
-            type="radio"
-            id="complete"
-            tabIndex="0"
-            name="newPlateStatus"
-            value="Complete"
-          />
-          <label htmlFor="complete" style={{ marginRight: 20 }}>
-            Complete
-          </label>
-          <input
-            type="radio"
-            id="inProgress"
-            tabIndex="0"
-            name="newPlateStatus"
-            value="In-Progress"
-          />
-          <label htmlFor="inProgress">In Progress</label>
-        </div>
-        <br />
-        <div className="input-group">
-          <button className="secondary" onClick={editPlateHandleClose}>
+          <button
+            type="button"
+            className="secondary"
+            onClick={editPlateHandleClose}
+          >
             Cancel
           </button>
-          <button className="primary" type="submit">Submit</button>
+          <button type="submit" className="primary">Submit</button>
         </div>
       </form>
       <style jsx>{`
-          .header-style {
-            margin-bottom: 10px;
-          }
-          .button-options {
-            float: right;
-          }
-        `}</style>
+        .input-label {
+          width: 90px;
+        }
+      `}</style>
     </Modal>
   )
 }
