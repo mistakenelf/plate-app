@@ -1,143 +1,101 @@
-import { injectState, provideState } from 'freactal'
-
 import Modal from '../../../components/Modal/Modal'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const wrapComponentWithState = provideState({
-  initialState: () => ({
-    plateStatusSelected: 'new'
-  }),
-  effects: {
-    updatePlateStatus: (effects, statusSelected) =>
-      Promise.resolve(state =>
-        Object.assign({}, state, { plateStatusSelected: statusSelected })
-      )
-  }
-})
-
-const editPlateDetails = async (
-  e,
-  state,
-  id,
-  editPlate,
-  editPlateHandleClose
-) => {
+const editPlateDetails = async (e, id, editPlate, editPlateHandleClose) => {
   e.preventDefault()
   const newPlateName = document.getElementById('currentPlateName').value
   const newPlateDescription = document.getElementById('currentPlateDescription')
     .value
-  await editPlate(
-    id,
-    newPlateName,
-    newPlateDescription,
-    state.plateStatusSelected
-  )
+  var newPlateStatus = document.querySelector(
+    'input[name = "newPlateStatus"]:checked'
+  ).value
+  await editPlate(id, newPlateName, newPlateDescription, newPlateStatus)
   editPlateHandleClose()
 }
 
-const plateStatusSelection = (state, effects) => {
-  var selectedValue = document.querySelector(
-    'input[name = "newPlateStatus"]:checked'
-  ).value
-  effects.updatePlateStatus(selectedValue)
-}
-
-const EditPlateDialog = wrapComponentWithState(
-  injectState(
-    ({
-      state,
-      effects,
-      editPlateOpen,
-      editPlateHandleClose,
-      plateId,
-      plateName,
-      plateDescription,
-      editPlate
-    }) => {
-      return (
-        <Modal open={editPlateOpen} closeModal={editPlateHandleClose}>
-          <h3 className="header-style">Edit Plate</h3>
-          <form
-            id="editPlateForm"
-            onSubmit={e =>
-              editPlateDetails(
-                e,
-                state,
-                plateId,
-                editPlate,
-                editPlateHandleClose
-              )}
-          >
-            <div className="row">
-              <div className="col-sm-12 col-md-12 col-lg-12">
-                <div className="input-group" style={{ width: '100%' }}>
-                  <label>
-                    Plate Name:
-                  </label>
-                  <br />
-                  <input
-                    name="currentPlateName"
-                    id="currentPlateName"
-                    type="text"
-                    defaultValue={plateName}
-                    style={{ marginBottom: 20, width: '100%' }}
-                    required
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-sm-12 col-md-12 col-lg-12">
-                <div className="input-group" style={{ width: '100%' }}>
-                  <label>
-                    Plate Description:
-                  </label>
-                  <br />
-                  <textarea
-                    name="currentPlateDescription"
-                    id="currentPlateDescription"
-                    rows={4}
-                    defaultValue={plateDescription}
-                    style={{ marginBottom: 20, width: '100%' }}
-                    required
-                  />
-                </div>
-              </div>
-            </div>
-            <div>Status:</div>
-            <div
-              className="input-group"
-              onChange={() => plateStatusSelection(state, effects)}
-            >
-              <input
-                type="radio"
-                id="complete"
-                tabIndex="0"
-                name="newPlateStatus"
-                value="Complete"
-              />
-              <label htmlFor="complete" style={{ marginRight: 20 }}>
-                Complete
+const EditPlateDialog = ({
+  editPlateOpen,
+  editPlateHandleClose,
+  plateId,
+  plateName,
+  plateDescription,
+  editPlate
+}) => {
+  return (
+    <Modal open={editPlateOpen} closeModal={editPlateHandleClose}>
+      <h3 className="header-style">Edit Plate</h3>
+      <form
+        id="editPlateForm"
+        onSubmit={e =>
+          editPlateDetails(e, plateId, editPlate, editPlateHandleClose)}
+      >
+        <div className="row">
+          <div className="col-sm-12 col-md-12 col-lg-12">
+            <div className="input-group" style={{ width: '100%' }}>
+              <label>
+                Plate Name:
               </label>
+              <br />
               <input
-                type="radio"
-                id="inProgress"
-                tabIndex="0"
-                name="newPlateStatus"
-                value="In-Progress"
+                name="currentPlateName"
+                id="currentPlateName"
+                type="text"
+                defaultValue={plateName}
+                style={{ marginBottom: 20, width: '100%' }}
+                required
               />
-              <label htmlFor="inProgress">In Progress</label>
             </div>
-            <br />
-            <div className="input-group">
-              <button className="secondary" onClick={editPlateHandleClose}>
-                Cancel
-              </button>
-              <button className="primary" type="submit">Submit</button>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-12 col-md-12 col-lg-12">
+            <div className="input-group" style={{ width: '100%' }}>
+              <label>
+                Plate Description:
+              </label>
+              <br />
+              <textarea
+                name="currentPlateDescription"
+                id="currentPlateDescription"
+                rows={4}
+                defaultValue={plateDescription}
+                style={{ marginBottom: 20, width: '100%' }}
+                required
+              />
             </div>
-          </form>
-          <style jsx>{`
+          </div>
+        </div>
+        <div>Status:</div>
+        <div className="input-group">
+          <input
+            type="radio"
+            id="complete"
+            tabIndex="0"
+            name="newPlateStatus"
+            value="Complete"
+          />
+          <label htmlFor="complete" style={{ marginRight: 20 }}>
+            Complete
+          </label>
+          <input
+            type="radio"
+            id="inProgress"
+            tabIndex="0"
+            name="newPlateStatus"
+            value="In-Progress"
+          />
+          <label htmlFor="inProgress">In Progress</label>
+        </div>
+        <br />
+        <div className="input-group">
+          <button className="secondary" onClick={editPlateHandleClose}>
+            Cancel
+          </button>
+          <button className="primary" type="submit">Submit</button>
+        </div>
+      </form>
+      <style jsx>{`
           .header-style {
             margin-bottom: 10px;
           }
@@ -145,11 +103,9 @@ const EditPlateDialog = wrapComponentWithState(
             float: right;
           }
         `}</style>
-        </Modal>
-      )
-    }
+    </Modal>
   )
-)
+}
 
 EditPlateDialog.propTypes = {
   editPlateOpen: PropTypes.bool,
