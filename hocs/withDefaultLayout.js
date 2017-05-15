@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import Cookies from 'js-cookie'
 import Header from '../components/Header/Header'
 import Navigation from '../components/Navigation/Navigation'
 import PropTypes from 'prop-types'
@@ -20,7 +19,7 @@ export default ComposedComponent => {
       return (
         <div>
           <Header title="Plate" />
-          <Navigation token={Cookies.get('token') || this.props.auth.token} />
+          <Navigation loggedIn={this.props.auth.loggedIn} />
           <ComposedComponent {...this.props} />
         </div>
       )
