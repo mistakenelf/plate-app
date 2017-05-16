@@ -4,6 +4,7 @@ import PageHeader from '../../components/PageHeader/PageHeader'
 import ProfilePage from './components/ProfilePage'
 import PropTypes from 'prop-types'
 import React from 'react'
+import RemovedPlates from './components/RemovedPlates'
 
 const Account = ({ user }) => {
   return (
@@ -12,6 +13,7 @@ const Account = ({ user }) => {
       <div className="row">
         <ChangePassword user={user} />
         <ProfilePage user={user} />
+        <RemovedPlates user={user} />
       </div>
       <div className="divider" />
       <AccountInfo user={user} />
