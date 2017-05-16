@@ -5,6 +5,7 @@ const plates = require('./schemas/plates')
 const getUserProfile = require('./schemas/getUserProfile')
 const plate = require('./schemas/plate')
 const addPlate = require('./schemas/addPlate')
+const recoverPlate = require('./schemas/recoverPlate')
 const login = require('./schemas/login')
 const removePlate = require('./schemas/removePlate')
 const editPlate = require('./schemas/editPlate')
@@ -48,7 +49,8 @@ const schema = makeExecutableSchema({
     savePlateContent.savePlateContentTypeDef,
     register.registerTypeDef,
     contactUs.contactUsTypeDef,
-    changePassword.changePasswordTypeDef
+    changePassword.changePasswordTypeDef,
+    recoverPlate.recoverPlateTypeDef
   ],
   resolvers: merge(
     rootResolvers,
@@ -62,7 +64,8 @@ const schema = makeExecutableSchema({
     savePlateContent.savePlateContentResolvers,
     register.registerResolvers,
     contactUs.contactUsResolvers,
-    changePassword.changePasswordResolvers
+    changePassword.changePasswordResolvers,
+    recoverPlate.recoverPlateResolvers
   )
 })
 
