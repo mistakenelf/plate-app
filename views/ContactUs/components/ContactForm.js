@@ -17,47 +17,39 @@ const sendEmail = (e, contactUs) => {
 
 const ContactForm = ({ contactUs }) => {
   return (
-    <div className="row row-margin">
-      <div className="col-sm-12 col-md-6 col-lg-4 col-md-offset-3 col-lg-offset-4">
-        <form onSubmit={e => sendEmail(e, contactUs)}>
-          <fieldset>
-            <legend>Contact Us</legend>
-            <div className="input-group fluid">
-              <label className="input-label" htmlFor="name">
-                Name:
-              </label>
-              <input type="text" id="name" placeholder="name" required />
-            </div>
-            <div className="input-group fluid">
-              <label className="input-label" htmlFor="pwd">Email:</label>
-              <input type="email" id="email" placeholder="email" required />
-            </div>
-            <div className="input-group fluid">
-              <label className="input-label" htmlFor="pwd">Message:</label>
-              <textarea
-                rows={4}
-                style={{ width: '100%' }}
-                id="message"
-                placeholder="message"
-                required
-              />
-            </div>
-            <div className="input-group fluid">
-              <button type="submit" className="primary">Send</button>
-            </div>
-          </fieldset>
-        </form>
-      </div>
+    <form onSubmit={e => sendEmail(e, contactUs)}>
+      <fieldset>
+        <legend>Contact Us</legend>
+        <div className="input-group fluid">
+          <label className="input-label" htmlFor="name">
+            Name:
+          </label>
+          <input type="text" id="name" placeholder="name" required />
+        </div>
+        <div className="input-group fluid">
+          <label className="input-label" htmlFor="email">Email:</label>
+          <input type="email" id="email" placeholder="email" required />
+        </div>
+        <div className="input-group fluid">
+          <label className="input-label" htmlFor="message">Message:</label>
+          <textarea
+            rows={4}
+            style={{ width: '100%' }}
+            id="message"
+            placeholder="message"
+            required
+          />
+        </div>
+        <div className="input-group fluid">
+          <button type="submit" className="primary">Send</button>
+        </div>
+      </fieldset>
       <style jsx>{`
         .input-label {
-          width: 80px;
-        }
-        .row-margin {
-          margin-top: 50px;
-          margin-bottom: 50px;
+          width: 70px;
         }
       `}</style>
-    </div>
+    </form>
   )
 }
 

@@ -242,8 +242,8 @@ export default compose(
           optimisticResponse: {
             __typename: 'Mutation',
             editPlate: {
-              id,
               __typename: 'Plate',
+              id,
               name,
               description,
               status

@@ -2,15 +2,31 @@ import Modal from '../../../components/Modal/Modal'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const editPlateDetails = async (e, id, editPlate, editPlateHandleClose) => {
+const editPlateDetails = async (
+  e,
+  id,
+  editPlate,
+  status,
+  editPlateHandleClose
+) => {
   e.preventDefault()
   const newPlateName = document.getElementById('currentPlateName').value
   const newPlateDescription = document.getElementById('currentPlateDescription')
     .value
-  var newPlateStatus = document.querySelector(
+  let newPlateStatus = document.querySelector(
     'input[name = "newPlateStatus"]:checked'
-  ).value
-  await editPlate(id, newPlateName, newPlateDescription, newPlateStatus)
+  )
+
+  if (newPlateStatus) {
+    newPlateStatus = newPlateStatus.value
+  }
+
+  await editPlate(
+    id,
+    newPlateName,
+    newPlateDescription,
+    newPlateStatus || status
+  )
   editPlateHandleClose()
 }
 
@@ -20,14 +36,21 @@ const EditPlateDialog = ({
   plateId,
   plateName,
   plateDescription,
-  editPlate
+  editPlate,
+  plateStatus
 }) => {
   return (
     <Modal open={editPlateOpen} closeModal={editPlateHandleClose}>
       <form
         id="editPlateForm"
         onSubmit={e =>
-          editPlateDetails(e, plateId, editPlate, editPlateHandleClose)}
+          editPlateDetails(
+            e,
+            plateId,
+            editPlate,
+            plateStatus,
+            editPlateHandleClose
+          )}
       >
         <fieldset>
           <legend>Edit Plate</legend>
@@ -60,14 +83,14 @@ const EditPlateDialog = ({
             <input
               type="radio"
               id="inProgress"
-              value="in-progress"
+              defaultValue="in-progress"
               name="newPlateStatus"
             />
             <label htmlFor="inProgress">In-Progress</label>
             <input
               type="radio"
               id="complete"
-              value="complete"
+              defaultValue="complete"
               name="newPlateStatus"
             />
             <label htmlFor="complete">Complete</label>

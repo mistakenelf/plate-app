@@ -28,7 +28,7 @@ const updatePassword = (e, id, changePassword, showMessage) => {
 const ChangePassword = wrapComponentWithState(
   injectState(({ state, effects, user, changePassword }) => {
     return (
-      <div className="col-sm-12 col-md-6 col-lg-4">
+      <div>
         <form
           onSubmit={e =>
             updatePassword(e, user.id, changePassword, effects.showMessage)}

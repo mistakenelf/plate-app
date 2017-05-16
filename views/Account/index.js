@@ -11,12 +11,22 @@ const Account = ({ user }) => {
     <div className="container">
       <PageHeader headerText="My Account" />
       <div className="row">
-        <ChangePassword user={user} />
-        <ProfilePage user={user} />
-        <RemovedPlates user={user} />
+        <div className="col-sm-12 col-md-12 col-lg-6">
+          <ChangePassword user={user} />
+        </div>
+        <div className="col-sm-12 col-md-12 col-lg-6">
+          <ProfilePage user={user} />
+        </div>
       </div>
       <div className="divider" />
-      <AccountInfo user={user} />
+      <div className="row">
+        <div className="col-sm-12 col-md-12 col-lg-6">
+          <AccountInfo user={user} />
+        </div>
+        <div className="col-sm-12 col-md-12 col-lg-6">
+          <RemovedPlates />
+        </div>
+      </div>
       <style jsx>{`
         .divider {
           margin-top: 40px;
