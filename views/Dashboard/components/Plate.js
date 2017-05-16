@@ -10,6 +10,7 @@ import Modal from '../../../components/Modal/Modal'
 import PlatesQuery from '../../../queries/PlatesQuery'
 import PropTypes from 'prop-types'
 import React from 'react'
+import RecoverPlateMutation from '../../../mutations/RecoverPlateMutation'
 import RemovePlateMutation from '../../../mutations/RemovePlateMutation'
 
 const wrapComponentWithState = provideState({
@@ -29,7 +30,28 @@ const wrapComponentWithState = provideState({
   }
 })
 
-const deletePlate = async (removePlate, plateId, closeModal) => {
+const deletePlate = async (
+  recoverPlate,
+  removePlate,
+  plateId,
+  name,
+  description,
+  cardImage,
+  status,
+  content,
+  user,
+  closeModal
+) => {
+  console.log(recoverPlate)
+  await recoverPlate(
+    plateId,
+    name,
+    description,
+    cardImage,
+    status,
+    content,
+    user.username
+  )
   await removePlate(plateId)
   closeModal()
 }
@@ -39,13 +61,16 @@ const Plate = wrapComponentWithState(
     ({
       state,
       effects,
+      user,
       description,
       plateId,
       status,
       name,
       editPlate,
       removePlate,
-      cardImage
+      cardImage,
+      content,
+      recoverPlate
     }) => {
       return (
         <div>
@@ -95,8 +120,15 @@ const Plate = wrapComponentWithState(
                 type="button"
                 onClick={() => {
                   deletePlate(
+                    recoverPlate,
                     removePlate,
                     plateId,
+                    name,
+                    description,
+                    cardImage,
+                    status,
+                    content,
+                    user,
                     effects.washPlateHandleClose
                   )
                 }}
@@ -132,7 +164,8 @@ Plate.propTypes = {
   status: PropTypes.string,
   content: PropTypes.string,
   editPlate: PropTypes.func,
-  user: PropTypes.object
+  user: PropTypes.object,
+  recoverPlate: PropTypes.func
 }
 
 export default compose(
@@ -146,6 +179,52 @@ export default compose(
             removePlate: {
               __typename: 'Plate',
               id
+            }
+          }
+        })
+      }
+    }),
+    options: props => ({
+      refetchQueries: [
+        {
+          query: PlatesQuery,
+          variables: { username: props.user.username }
+        }
+      ]
+    })
+  }),
+  graphql(RecoverPlateMutation, {
+    props: ({ mutate }) => ({
+      recoverPlate: (
+        id,
+        name,
+        description,
+        thumbnail,
+        status,
+        content,
+        createdBy
+      ) => {
+        return mutate({
+          variables: {
+            id,
+            name,
+            description,
+            thumbnail,
+            status,
+            content,
+            createdBy
+          },
+          optimisticResponse: {
+            __typename: 'Mutation',
+            removePlate: {
+              __typename: 'Plate',
+              id,
+              name,
+              description,
+              thumbnail,
+              status,
+              content,
+              createdBy
             }
           }
         })
