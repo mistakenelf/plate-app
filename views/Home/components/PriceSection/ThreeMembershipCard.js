@@ -26,7 +26,7 @@ const ThreeMembershipCard = () => {
         .member-details {
           margin-top: 10px;
         }
-        `}</style>
+      `}</style>
     </Card>
   )
 }

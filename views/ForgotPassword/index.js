@@ -7,7 +7,11 @@ const ForgotPassword = () => {
     <div>
       <BackButton color="white" />
       <div className="container">
-        <ForgotPasswordForm />
+        <div className="row">
+          <div className="col-sm-12 col-md-6 col-lg-4 col-md-offset-3 col-lg-offset-4">
+            <ForgotPasswordForm />
+          </div>
+        </div>
       </div>
     </div>
   )

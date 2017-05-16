@@ -42,76 +42,60 @@ const registerUser = async (e, register, showError) => {
 const RegisterForm = wrapComponentWithState(
   injectState(({ state, effects, register }) => {
     return (
-      <div>
-        <div className="row">
-          <div className="col-sm-12 col-md-6 col-lg-4 col-md-offset-3 col-lg-offset-4">
-            <form onSubmit={e => registerUser(e, register, effects.showError)}>
-              <fieldset>
-                <legend>Register</legend>
-                <div className="input-group fluid">
-                  <label className="input-label" htmlFor="firstName">
-                    First Name:
-                  </label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    placeholder="first name"
-                    required
-                  />
-                </div>
-                <div className="input-group fluid">
-                  <label className="input-label" htmlFor="lastName">
-                    Last Name:
-                  </label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    placeholder="last name"
-                    required
-                  />
-                </div>
-                <div className="input-group fluid">
-                  <label className="input-label" htmlFor="email">
-                    Email:
-                  </label>
-                  <input type="text" id="email" placeholder="email" required />
-                </div>
-                <div className="input-group fluid">
-                  <label className="input-label" htmlFor="username">
-                    Username:
-                  </label>
-                  <input
-                    type="text"
-                    id="username"
-                    placeholder="username"
-                    required
-                  />
-                </div>
-                <div className="input-group fluid">
-                  <label className="input-label" htmlFor="password">
-                    Password:
-                  </label>
-                  <input
-                    type="password"
-                    id="password"
-                    placeholder="password"
-                    required
-                  />
-                </div>
-                <div className="input-group fluid">
-                  <button type="submit" className="primary">Register</button>
-                  <button type="button">
-                    <Link href="/login" prefetch>
-                      <a>Already A User?</a>
-                    </Link>
-                  </button>
-                </div>
-                {state.registerError &&
-                  <Alert message="Error! Registration Failed" />}
-              </fieldset>
-            </form>
+      <form onSubmit={e => registerUser(e, register, effects.showError)}>
+        <fieldset>
+          <legend>Register</legend>
+          <div className="input-group fluid">
+            <label className="input-label" htmlFor="firstName">
+              First Name:
+            </label>
+            <input
+              type="text"
+              id="firstName"
+              placeholder="first name"
+              required
+            />
           </div>
-        </div>
+          <div className="input-group fluid">
+            <label className="input-label" htmlFor="lastName">
+              Last Name:
+            </label>
+            <input type="text" id="lastName" placeholder="last name" required />
+          </div>
+          <div className="input-group fluid">
+            <label className="input-label" htmlFor="email">
+              Email:
+            </label>
+            <input type="text" id="email" placeholder="email" required />
+          </div>
+          <div className="input-group fluid">
+            <label className="input-label" htmlFor="username">
+              Username:
+            </label>
+            <input type="text" id="username" placeholder="username" required />
+          </div>
+          <div className="input-group fluid">
+            <label className="input-label" htmlFor="password">
+              Password:
+            </label>
+            <input
+              type="password"
+              id="password"
+              placeholder="password"
+              required
+            />
+          </div>
+          <div className="input-group fluid">
+            <button type="submit" className="primary">Register</button>
+            <button type="button">
+              <Link href="/login" prefetch>
+                <a>Already A User?</a>
+              </Link>
+            </button>
+          </div>
+          {state.registerError &&
+            <Alert message="Error! Registration Failed" />}
+        </fieldset>
         <style jsx>{`
           .input-label {
             width: 100px;
@@ -123,7 +107,7 @@ const RegisterForm = wrapComponentWithState(
             text-align: center;
           }
         `}</style>
-      </div>
+      </form>
     )
   })
 )
