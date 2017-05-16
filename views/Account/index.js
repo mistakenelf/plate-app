@@ -8,7 +8,7 @@ import RemovedPlates from './components/RemovedPlates'
 
 const Account = ({ user }) => {
   return (
-    <div className="container">
+    <div className="container bottom-padding">
       <PageHeader headerText="My Account" />
       <div className="row">
         <div className="col-sm-12 col-md-12 col-lg-6">
@@ -31,6 +31,9 @@ const Account = ({ user }) => {
         .divider {
           margin-top: 40px;
           margin-bottom: 40px;
+        }
+        .bottom-padding {
+          padding-bottom: 30px;
         }
       `}</style>
     </div>
