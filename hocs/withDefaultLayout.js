@@ -17,15 +17,10 @@ export default ComposedComponent => {
 
     render() {
       return (
-        <div className="bottom-padding">
+        <div>
           <Header title="Plate" />
           <Navigation loggedIn={this.props.auth.loggedIn} />
           <ComposedComponent {...this.props} />
-          <style jsx>{`
-            .bottom-padding {
-              padding-bottom: 30px;
-            }
-          `}</style>
         </div>
       )
     }
