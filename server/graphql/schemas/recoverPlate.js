@@ -3,14 +3,14 @@ const recoverPlateTypeDef = `
     id: ID
     name: String
     description: String
-    thumbnail: String
     status: String
+    thumbnail: String
     content: String
     createdBy: String
   }
   extend type Mutation {
-    recoverPlate(id: ID, name: String, description: String, thumbnail: String,
-                 status: String, content: String, createdBy: String): Plate
+    recoverPlate(name: String, description: String, thumbnail: String,
+      status: String, content: String, createdBy: String): Plate
   }
 `
 
@@ -18,10 +18,9 @@ const recoverPlateResolvers = {
   Mutation: {
     recoverPlate: async (
       { db },
-      { id, name, description, thumbnail, status, content, createdBy }
+      { name, description, thumbnail, status, content, createdBy }
     ) => {
       const data = {
-        id,
         name,
         description,
         thumbnail,
@@ -29,9 +28,7 @@ const recoverPlateResolvers = {
         content,
         createdBy: createdBy
       }
-
-      await db.collection('platesRecovered').insert(data)
-      return data
+      return await db.collection('platesRecovered').insert(data)
     }
   },
   Plate: {

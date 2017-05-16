@@ -42,7 +42,6 @@ const deletePlate = async (
   user,
   closeModal
 ) => {
-  console.log(recoverPlate)
   await recoverPlate(
     plateId,
     name,
@@ -118,7 +117,7 @@ const Plate = wrapComponentWithState(
               <p>Are you sure you want to remove this plate?</p>
               <button
                 type="button"
-                onClick={() => {
+                onClick={() =>
                   deletePlate(
                     recoverPlate,
                     removePlate,
@@ -130,8 +129,7 @@ const Plate = wrapComponentWithState(
                     content,
                     user,
                     effects.washPlateHandleClose
-                  )
-                }}
+                  )}
                 className="primary"
               >
                 Remove
@@ -196,7 +194,6 @@ export default compose(
   graphql(RecoverPlateMutation, {
     props: ({ mutate }) => ({
       recoverPlate: (
-        id,
         name,
         description,
         thumbnail,
@@ -206,7 +203,6 @@ export default compose(
       ) => {
         return mutate({
           variables: {
-            id,
             name,
             description,
             thumbnail,
@@ -216,9 +212,8 @@ export default compose(
           },
           optimisticResponse: {
             __typename: 'Mutation',
-            removePlate: {
+            recoverPlate: {
               __typename: 'Plate',
-              id,
               name,
               description,
               thumbnail,
@@ -247,6 +242,7 @@ export default compose(
           optimisticResponse: {
             __typename: 'Mutation',
             editPlate: {
+              id,
               __typename: 'Plate',
               name,
               description,
