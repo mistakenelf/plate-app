@@ -1,10 +1,10 @@
 {
+  "workbench.colorTheme": "Atom One Dark",
   "editor.fontSize": 12,
   "editor.tabSize": 2,
   "editor.fontFamily": "Monaco",
   "editor.fontLigatures": true,
   "editor.minimap.enabled": true,
   "editor.dragAndDrop": true,
-  "editor.formatOnSave": true,
-  "workbench.colorTheme": "Atom One Dark",
+  "editor.formatOnSave": true
 }
