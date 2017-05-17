@@ -1,13 +1,4 @@
 const recoverPlateTypeDef = `
-  type Plate {
-    id: ID
-    name: String
-    description: String
-    status: String
-    thumbnail: String
-    content: String
-    createdBy: String
-  }
   extend type Query {
     recoverPlates(username: String): [Plate]
   }
@@ -41,9 +32,6 @@ const recoverPlateResolvers = {
       }
       return await db.collection('platesRecovered').insert(data)
     }
-  },
-  Plate: {
-    id: ({ _id }) => _id
   }
 }
 

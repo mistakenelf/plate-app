@@ -1,15 +1,6 @@
 const { ContentState, convertToRaw } = require('draft-js')
 
 const addPlateTypeDef = `
-  type Plate {
-    id: ID
-    name: String
-    description: String
-    thumbnail: String
-    status: String
-    content: String
-    createdBy: String
-  }
   extend type Mutation {
     addPlate(name: String, description: String, thumbnail: String, createdBy: String): Plate
   }
@@ -37,9 +28,6 @@ const addPlateResolvers = {
       await db.collection('plates').insert(data)
       return data
     }
-  },
-  Plate: {
-    id: ({ _id }) => _id
   }
 }
 

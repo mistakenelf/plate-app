@@ -13,6 +13,7 @@ const savePlateContent = require('./schemas/savePlateContent')
 const register = require('./schemas/register')
 const contactUs = require('./schemas/contactUs')
 const changePassword = require('./schemas/changePassword')
+const sharedTypes = require('./schemas/sharedTypes')
 
 const rootSchema = `
   type Query {
@@ -39,6 +40,7 @@ const rootResolvers = {
 const schema = makeExecutableSchema({
   typeDefs: [
     rootSchema,
+    sharedTypes.sharedTypesTypeDef,
     plates.platesTypeDef,
     getUserProfile.getUserProfileTypeDef,
     plate.plateTypeDef,
@@ -54,6 +56,7 @@ const schema = makeExecutableSchema({
   ],
   resolvers: merge(
     rootResolvers,
+    sharedTypes.sharedTypesResolvers,
     plates.platesResolvers,
     getUserProfile.getUserProfileResolvers,
     plate.plateResolvers,
