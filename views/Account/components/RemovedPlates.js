@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 
-const RemovedPlates = () => {
+const RemovedPlates = ({ recoverPlates }) => {
   return (
     <table>
       <caption>Recover Plates</caption>
@@ -12,18 +13,24 @@ const RemovedPlates = () => {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td data-label="name">Plate name here</td>
-          <td data-label="recover">
-            <button type="button" className="primary">Recover Plate</button>
-          </td>
-          <td data-label="remove">
-            <button type="button" className="secondary">Remove Plate</button>
-          </td>
-        </tr>
+        {recoverPlates.map((plate, index) => (
+          <tr key={index}>
+            <td data-label="name">{plate.name}</td>
+            <td data-label="recover">
+              <button type="button" className="primary">Recover Plate</button>
+            </td>
+            <td data-label="remove">
+              <button type="button" className="secondary">Remove Plate</button>
+            </td>
+          </tr>
+        ))}
       </tbody>
     </table>
   )
+}
+
+RemovedPlates.propTypes = {
+  recoverPlates: PropTypes.array
 }
 
 export default RemovedPlates

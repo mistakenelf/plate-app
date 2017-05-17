@@ -1,5 +1,6 @@
 import AccountInfo from './components/AccountInfo'
 import ChangePassword from './components/ChangePassword'
+import Loader from '../../components/Loader/Loader'
 import PageHeader from '../../components/PageHeader/PageHeader'
 import ProfilePage from './components/ProfilePage'
 import PropTypes from 'prop-types'
@@ -9,6 +10,9 @@ import RemovedPlates from './components/RemovedPlates'
 import { graphql } from 'react-apollo'
 
 const Account = ({ user, loading, recoverPlates }) => {
+  if (loading) {
+    return <Loader />
+  }
   return (
     <div>
       <PageHeader headerText="My Account" />
@@ -33,7 +37,7 @@ const Account = ({ user, loading, recoverPlates }) => {
         <input type="radio" name="tab-group" id="tab3" aria-hidden="true" />
         <label htmlFor="tab3" aria-hidden="true">Tools</label>
         <div>
-          <RemovedPlates />
+          <RemovedPlates recoverPlates={recoverPlates} />
         </div>
       </div>
       <style jsx>{`
