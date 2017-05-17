@@ -81,12 +81,14 @@ const Plate = wrapComponentWithState(
                 type="button"
                 key="1"
                 onClick={effects.washPlateHandleOpen}
-                className="secondary"
+                className="secondary bordered rounded"
               >
                 Wash Plate
               </button>,
               <Link key="2" prefetch href={`/platefiller?id=${plateId}`}>
-                <button type="button" className="primary">Fill Plate</button>
+                <button type="button" className="primary bordered rounded">
+                  Fill Plate
+                </button>
               </Link>
             ]}
             actionIcon={
