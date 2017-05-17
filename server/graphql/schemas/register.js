@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const moment = require('moment')
 
 const env = require('../../../env-config')
 
@@ -30,7 +31,9 @@ const registerResolvers = {
           username,
           password: hash,
           email,
-          plan: 'free'
+          plan: 'free',
+          dateSignedUp: moment().format('dddd, MMMM Do YYYY, h:mm:ss a'),
+          lastLogin: moment().format('dddd, MMMM Do YYYY, h:mm:ss a')
         }
 
         await db.collection('users').insertOne(data)
