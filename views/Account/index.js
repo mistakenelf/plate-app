@@ -10,22 +10,29 @@ import { graphql } from 'react-apollo'
 
 const Account = ({ user, loading, recoverPlates }) => {
   return (
-    <div className="container bottom-padding">
+    <div>
       <PageHeader headerText="My Account" />
-      <div className="row">
-        <div className="col-sm-12 col-md-12 col-lg-6">
-          <ChangePassword user={user} />
-        </div>
-        <div className="col-sm-12 col-md-12 col-lg-6">
+      <div className="tabs">
+        <input
+          type="radio"
+          name="tab-group"
+          id="tab1"
+          aria-hidden="true"
+          defaultChecked
+        />
+        <label htmlFor="tab1" aria-hidden="true">Account Info</label>
+        <div>
           <ProfilePage user={user} />
-        </div>
-      </div>
-      <div className="divider" />
-      <div className="row">
-        <div className="col-sm-12 col-md-12 col-lg-6">
           <AccountInfo user={user} />
         </div>
-        <div className="col-sm-12 col-md-12 col-lg-6">
+        <input type="radio" name="tab-group" id="tab2" aria-hidden="true" />
+        <label htmlFor="tab2" aria-hidden="true">Account Security</label>
+        <div>
+          <ChangePassword user={user} />
+        </div>
+        <input type="radio" name="tab-group" id="tab3" aria-hidden="true" />
+        <label htmlFor="tab3" aria-hidden="true">Tools</label>
+        <div>
           <RemovedPlates />
         </div>
       </div>
