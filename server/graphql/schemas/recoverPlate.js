@@ -8,6 +8,9 @@ const recoverPlateTypeDef = `
     content: String
     createdBy: String
   }
+  extend type Query {
+    recoverPlates(username: String): [Plate]
+  }
   extend type Mutation {
     recoverPlate(name: String, description: String, thumbnail: String,
       status: String, content: String, createdBy: String): Plate
@@ -15,6 +18,14 @@ const recoverPlateTypeDef = `
 `
 
 const recoverPlateResolvers = {
+  Query: {
+    recoverPlates: ({ db }, { username }) => {
+      return db
+        .collection('platesRecovered')
+        .find({ createdBy: username })
+        .toArray()
+    }
+  },
   Mutation: {
     recoverPlate: async (
       { db },

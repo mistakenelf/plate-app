@@ -4,9 +4,11 @@ import PageHeader from '../../components/PageHeader/PageHeader'
 import ProfilePage from './components/ProfilePage'
 import PropTypes from 'prop-types'
 import React from 'react'
+import RecoverPlatesQuery from '../../queries/RecoverPlatesQuery'
 import RemovedPlates from './components/RemovedPlates'
+import { graphql } from 'react-apollo'
 
-const Account = ({ user }) => {
+const Account = ({ user, loading, recoverPlates }) => {
   return (
     <div className="container bottom-padding">
       <PageHeader headerText="My Account" />
@@ -41,7 +43,18 @@ const Account = ({ user }) => {
 }
 
 Account.propTypes = {
-  user: PropTypes.object
+  user: PropTypes.object,
+  loading: PropTypes.bool,
+  recoverPlates: PropTypes.array
 }
 
-export default Account
+export default graphql(RecoverPlatesQuery, {
+  props: ({ data: { loading, recoverPlates } }) => ({
+    loading,
+    recoverPlates
+  }),
+  options: props => ({
+    fetchPolicy: 'cache-and-network',
+    variables: { username: props.user.username }
+  })
+})(Account)
