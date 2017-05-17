@@ -194,6 +194,7 @@ export default compose(
   graphql(RecoverPlateMutation, {
     props: ({ mutate }) => ({
       recoverPlate: (
+        id,
         name,
         description,
         thumbnail,
@@ -203,6 +204,7 @@ export default compose(
       ) => {
         return mutate({
           variables: {
+            id,
             name,
             description,
             thumbnail,
@@ -214,6 +216,7 @@ export default compose(
             __typename: 'Mutation',
             recoverPlate: {
               __typename: 'Plate',
+              id,
               name,
               description,
               thumbnail,
