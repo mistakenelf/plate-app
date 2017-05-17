@@ -18,7 +18,7 @@ const Account = ({ user, loading, recoverPlates, addRecoveredPlate }) => {
     return <Loader />
   }
   return (
-    <div>
+    <div className="container">
       <PageHeader headerText="My Account" />
       <div className="tabs">
         <input
@@ -29,22 +29,36 @@ const Account = ({ user, loading, recoverPlates, addRecoveredPlate }) => {
           defaultChecked
         />
         <label htmlFor="tab1" aria-hidden="true">Account Info</label>
-        <div>
-          <ProfilePage user={user} />
-          <AccountInfo user={user} />
+        <div className="full-height">
+          <div className="row">
+            <div className="col-sm-12 col-md-12 col-lg-6">
+              <ProfilePage user={user} />
+            </div>
+            <div className="col-sm-12 col-md-12 col-lg-6">
+              <AccountInfo user={user} />
+            </div>
+          </div>
         </div>
         <input type="radio" name="tab-group" id="tab2" aria-hidden="true" />
         <label htmlFor="tab2" aria-hidden="true">Account Security</label>
-        <div>
-          <ChangePassword user={user} />
+        <div className="full-height">
+          <div className="row">
+            <div className="col-sm-12 col-md-12 col-lg-6 col-lg-offset-3">
+              <ChangePassword user={user} />
+            </div>
+          </div>
         </div>
         <input type="radio" name="tab-group" id="tab3" aria-hidden="true" />
         <label htmlFor="tab3" aria-hidden="true">Tools</label>
-        <div>
-          <RemovedPlates
-            recoverPlates={recoverPlates}
-            addRecoveredPlate={addRecoveredPlate}
-          />
+        <div className="full-height">
+          <div className="row">
+            <div className="col-sm-12 col-md-12 col-lg-8 col-lg-offset-2">
+              <RemovedPlates
+                recoverPlates={recoverPlates}
+                addRecoveredPlate={addRecoveredPlate}
+              />
+            </div>
+          </div>
         </div>
       </div>
       <style jsx>{`
@@ -54,6 +68,10 @@ const Account = ({ user, loading, recoverPlates, addRecoveredPlate }) => {
         }
         .bottom-padding {
           padding-bottom: 30px;
+        }
+        .full-height {
+          height: 100% !important;
+          padding-bottom: 20px !important;
         }
       `}</style>
     </div>

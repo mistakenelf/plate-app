@@ -14,7 +14,7 @@ const recoverPlate = (plate, addRecoveredPlate) => {
 
 const RemovedPlates = ({ recoverPlates, addRecoveredPlate }) => {
   return (
-    <table>
+    <table style={{ width: '100%', textAlign: 'center' }}>
       <caption>Recover Plates</caption>
       <thead>
         <tr>
