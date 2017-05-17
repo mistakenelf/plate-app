@@ -21,15 +21,13 @@
     "node": true
   },
   "rules": {
-    "react/display-name": [
-      0
-    ],
-    "semi": [
+    "prettier/prettier": [
       "error",
-      "never"
-    ],
-    "no-unused-vars": [
-      "error"
+      {
+        "singleQuote": true,
+        "semi": false,
+        "trailingComma": "none"
+      }
     ]
   }
 }
