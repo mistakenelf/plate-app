@@ -29,10 +29,9 @@ const recoverPlateResolvers = {
   Mutation: {
     recoverPlate: async (
       { db },
-      { id, name, description, thumbnail, status, content, createdBy }
+      { name, description, thumbnail, status, content, createdBy }
     ) => {
       const data = {
-        id,
         name,
         description,
         thumbnail,
