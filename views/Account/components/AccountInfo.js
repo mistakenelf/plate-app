@@ -15,7 +15,7 @@ const AccountInfo = ({ user }) => {
       <tbody>
         <tr>
           <td data-label="Plan">{user.plan || 'Free'}</td>
-          <td data-label="start">{user.startDate || Date()}</td>
+          <td data-label="start">{user.planStart || Date()}</td>
           <td data-label="end">{user.planEnd || Date()}</td>
         </tr>
       </tbody>

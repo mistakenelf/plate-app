@@ -8,6 +8,9 @@ export default gql`
       thumbnail
       status
       content
+      createdBy
+      dateCreated
+      dateDue
     }
   }
 `

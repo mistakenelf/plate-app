@@ -10,6 +10,8 @@ export default gql`
       status
       content
       createdBy
+      dateCreated
+      dateDue
     }
   }
 `

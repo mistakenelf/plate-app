@@ -20,6 +20,8 @@ const sharedTypesTypeDef = `
     plan: String
     dateSignedUp: String
     lastLogin: String
+    planStart: String
+    planEnd: String
   }
 `
 

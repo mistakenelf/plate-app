@@ -33,7 +33,9 @@ const registerResolvers = {
           email,
           plan: 'free',
           dateSignedUp: moment().format('dddd, MMMM Do YYYY, h:mm:ss a'),
-          lastLogin: moment().format('dddd, MMMM Do YYYY, h:mm:ss a')
+          lastLogin: moment().format('dddd, MMMM Do YYYY, h:mm:ss a'),
+          planStart: moment().format('dddd, MMMM Do YYYY, h:mm:ss a'),
+          planEnd: 'Free plan'
         }
 
         await db.collection('users').insertOne(data)

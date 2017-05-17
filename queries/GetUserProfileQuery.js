@@ -9,6 +9,10 @@ export default gql`
       username
       email
       plan
+      dateSignedUp
+      lastLogin
+      planStart
+      planEnd
     }
   }
 `
