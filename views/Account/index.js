@@ -1,15 +1,19 @@
+import { compose, graphql } from 'react-apollo'
+
 import AccountInfo from './components/AccountInfo'
+import AddRecoveredPlateMutation
+  from '../../mutations/AddRecoveredPlateMutation'
 import ChangePassword from './components/ChangePassword'
 import Loader from '../../components/Loader/Loader'
 import PageHeader from '../../components/PageHeader/PageHeader'
+import PlatesQuery from '../../queries/PlatesQuery'
 import ProfilePage from './components/ProfilePage'
 import PropTypes from 'prop-types'
 import React from 'react'
 import RecoverPlatesQuery from '../../queries/RecoverPlatesQuery'
 import RemovedPlates from './components/RemovedPlates'
-import { graphql } from 'react-apollo'
 
-const Account = ({ user, loading, recoverPlates }) => {
+const Account = ({ user, loading, recoverPlates, addRecoveredPlate }) => {
   if (loading) {
     return <Loader />
   }
@@ -37,7 +41,10 @@ const Account = ({ user, loading, recoverPlates }) => {
         <input type="radio" name="tab-group" id="tab3" aria-hidden="true" />
         <label htmlFor="tab3" aria-hidden="true">Tools</label>
         <div>
-          <RemovedPlates recoverPlates={recoverPlates} />
+          <RemovedPlates
+            recoverPlates={recoverPlates}
+            addRecoveredPlate={addRecoveredPlate}
+          />
         </div>
       </div>
       <style jsx>{`
@@ -56,16 +63,62 @@ const Account = ({ user, loading, recoverPlates }) => {
 Account.propTypes = {
   user: PropTypes.object,
   loading: PropTypes.bool,
-  recoverPlates: PropTypes.array
+  recoverPlates: PropTypes.array,
+  addRecoveredPlate: PropTypes.func
 }
 
-export default graphql(RecoverPlatesQuery, {
-  props: ({ data: { loading, recoverPlates } }) => ({
-    loading,
-    recoverPlates
+export default compose(
+  graphql(RecoverPlatesQuery, {
+    props: ({ data: { loading, recoverPlates } }) => ({
+      loading,
+      recoverPlates
+    }),
+    options: props => ({
+      fetchPolicy: 'cache-and-network',
+      variables: { username: props.user.username }
+    })
   }),
-  options: props => ({
-    fetchPolicy: 'cache-and-network',
-    variables: { username: props.user.username }
+  graphql(AddRecoveredPlateMutation, {
+    props: ({ mutate }) => ({
+      addRecoveredPlate: (
+        name,
+        description,
+        thumbnail,
+        status,
+        content,
+        createdBy
+      ) => {
+        return mutate({
+          variables: {
+            name,
+            description,
+            thumbnail,
+            status,
+            content,
+            createdBy
+          },
+          optimisticResponse: {
+            __typename: 'Mutation',
+            addRecoveredPlate: {
+              __typename: 'Plate',
+              name,
+              description,
+              thumbnail,
+              status,
+              content,
+              createdBy
+            }
+          }
+        })
+      }
+    }),
+    options: props => ({
+      refetchQueries: [
+        {
+          query: PlatesQuery,
+          variables: { username: props.user.username }
+        }
+      ]
+    })
   })
-})(Account)
+)(Account)
