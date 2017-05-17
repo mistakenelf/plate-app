@@ -7,6 +7,8 @@ const sharedTypesTypeDef = `
     status: String
     content: String
     createdBy: String
+    dateCreated: String
+    dateDue: String
   }
   type User {
     id: ID
@@ -16,6 +18,8 @@ const sharedTypesTypeDef = `
     password: String
     email: String
     plan: String
+    dateSignedUp: String
+    lastLogin: String
   }
 `
 

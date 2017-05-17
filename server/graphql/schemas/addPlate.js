@@ -1,4 +1,5 @@
 const { ContentState, convertToRaw } = require('draft-js')
+const moment = require('moment')
 
 const addPlateTypeDef = `
   extend type Mutation {
@@ -22,7 +23,9 @@ const addPlateResolvers = {
         thumbnail,
         status: 'New',
         content: initialContent,
-        createdBy: createdBy
+        createdBy: createdBy,
+        dateCreated: moment().format('dddd, MMMM Do YYYY, h:mm:ss a'),
+        dateDue: moment().format('dddd, MMMM Do YYYY, h:mm:ss a')
       }
 
       await db.collection('plates').insert(data)
