@@ -102,7 +102,6 @@ export default compose(
       recoverPlates
     }),
     options: props => ({
-      fetchPolicy: 'cache-and-network',
       variables: { username: props.user.username }
     })
   }),

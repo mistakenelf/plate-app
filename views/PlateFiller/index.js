@@ -54,8 +54,7 @@ export default compose(
           query: PlateQuery,
           variables: { id: plateId }
         }
-      ],
-      fetchPolicy: 'cache-and-network'
+      ]
     })
   }),
   graphql(PlateQuery, {

@@ -27,11 +27,10 @@ export default ComposedComponent => {
       loading,
       getUserProfile
     }),
-    options: () => ({
+    options: props => ({
       variables: {
-        token: Cookies.get('token') || ''
-      },
-      fetchPolicy: 'cache-and-network'
+        token: props.serverRendered ? props.token : Cookies.get('token')
+      }
     })
   })(WithProfile)
 }
