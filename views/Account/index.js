@@ -37,7 +37,7 @@ const Account = ({
           defaultChecked
         />
         <label htmlFor="tab1" aria-hidden="true">Account Info</label>
-        <div className="full-height">
+        <div>
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-6">
               <ProfilePage user={user} />
@@ -49,7 +49,7 @@ const Account = ({
         </div>
         <input type="radio" name="tab-group" id="tab2" aria-hidden="true" />
         <label htmlFor="tab2" aria-hidden="true">Account Security</label>
-        <div className="full-height">
+        <div>
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-6 col-lg-offset-3">
               <ChangePassword user={user} />
@@ -58,7 +58,7 @@ const Account = ({
         </div>
         <input type="radio" name="tab-group" id="tab3" aria-hidden="true" />
         <label htmlFor="tab3" aria-hidden="true">Tools</label>
-        <div className="full-height">
+        <div>
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-8 col-lg-offset-2">
               <RemovedPlates
@@ -77,10 +77,6 @@ const Account = ({
         }
         .bottom-padding {
           padding-bottom: 30px;
-        }
-        .full-height {
-          height: 100% !important;
-          padding-bottom: 20px !important;
         }
       `}</style>
     </div>
