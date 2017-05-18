@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "bcrypt": "^1.0.2",
-    "body-parser": "^1.17.1",
+    "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "draft-js": "^0.10.1",
     "express": "^4.15.3",
