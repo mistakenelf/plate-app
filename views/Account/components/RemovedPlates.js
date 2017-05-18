@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const recoverPlate = async (plate, addRecoveredPlate, removeRecoveredPlate) => {
-  console.log(plate.id)
   await addRecoveredPlate(
     plate.name,
     plate.description,
