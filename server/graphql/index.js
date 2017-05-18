@@ -15,6 +15,7 @@ const contactUs = require('./schemas/contactUs')
 const changePassword = require('./schemas/changePassword')
 const sharedTypes = require('./schemas/sharedTypes')
 const addRecoveredPlates = require('./schemas/addRecoveredPlates')
+const removeRecoveredPlate = require('./schemas/removeRecoveredPlate')
 const updateProfile = require('./schemas/updateProfile')
 
 const rootSchema = `
@@ -56,6 +57,7 @@ const schema = makeExecutableSchema({
     changePassword.changePasswordTypeDef,
     recoverPlate.recoverPlateTypeDef,
     addRecoveredPlates.addRecoveredPlateTypeDef,
+    removeRecoveredPlate.removeRecoveredPlateTypeDef,
     updateProfile.updateProfileTypeDef
   ],
   resolvers: merge(
@@ -74,6 +76,7 @@ const schema = makeExecutableSchema({
     changePassword.changePasswordResolvers,
     recoverPlate.recoverPlateResolvers,
     addRecoveredPlates.addRecoveredPlateResolvers,
+    removeRecoveredPlate.removeRecoveredPlateResolvers,
     updateProfile.updateProfileResolvers
   )
 })

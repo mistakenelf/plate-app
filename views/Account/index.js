@@ -11,9 +11,17 @@ import ProfilePage from './components/ProfilePage'
 import PropTypes from 'prop-types'
 import React from 'react'
 import RecoverPlatesQuery from '../../queries/RecoverPlatesQuery'
+import RemoveRecoveredPlateMutation
+  from '../../mutations/RemoveRecoveredPlateMutation'
 import RemovedPlates from './components/RemovedPlates'
 
-const Account = ({ user, loading, recoverPlates, addRecoveredPlate }) => {
+const Account = ({
+  user,
+  loading,
+  recoverPlates,
+  addRecoveredPlate,
+  removeRecoveredPlate
+}) => {
   if (loading) {
     return <Loader />
   }
@@ -56,6 +64,7 @@ const Account = ({ user, loading, recoverPlates, addRecoveredPlate }) => {
               <RemovedPlates
                 recoverPlates={recoverPlates}
                 addRecoveredPlate={addRecoveredPlate}
+                removeRecoveredPlate={removeRecoveredPlate}
               />
             </div>
           </div>
@@ -82,7 +91,8 @@ Account.propTypes = {
   user: PropTypes.object,
   loading: PropTypes.bool,
   recoverPlates: PropTypes.array,
-  addRecoveredPlate: PropTypes.func
+  addRecoveredPlate: PropTypes.func,
+  removeRecoveredPlate: PropTypes.func
 }
 
 export default compose(
@@ -134,6 +144,30 @@ export default compose(
       refetchQueries: [
         {
           query: PlatesQuery,
+          variables: { username: props.user.username }
+        }
+      ]
+    })
+  }),
+  graphql(RemoveRecoveredPlateMutation, {
+    props: ({ mutate }) => ({
+      removeRecoveredPlate: id => {
+        return mutate({
+          variables: { id },
+          optimisticResponse: {
+            __typename: 'Mutation',
+            removeRecoveredPlate: {
+              __typename: 'Plate',
+              id
+            }
+          }
+        })
+      }
+    }),
+    options: props => ({
+      refetchQueries: [
+        {
+          query: RecoverPlatesQuery,
           variables: { username: props.user.username }
         }
       ]

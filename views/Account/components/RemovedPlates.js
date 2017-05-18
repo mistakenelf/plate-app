@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const recoverPlate = (plate, addRecoveredPlate) => {
-  addRecoveredPlate(
+const recoverPlate = async (plate, addRecoveredPlate, removeRecoveredPlate) => {
+  console.log(plate.id)
+  await addRecoveredPlate(
     plate.name,
     plate.description,
     plate.thumbnail,
@@ -10,9 +11,19 @@ const recoverPlate = (plate, addRecoveredPlate) => {
     plate.content,
     plate.createdBy
   )
+  await removeRecoveredPlate(plate.id)
 }
 
-const RemovedPlates = ({ recoverPlates, addRecoveredPlate }) => {
+const removePlate = async (plateId, removeRecoveredPlate) => {
+  console.log(plateId)
+  await removeRecoveredPlate(plateId)
+}
+
+const RemovedPlates = ({
+  recoverPlates,
+  addRecoveredPlate,
+  removeRecoveredPlate
+}) => {
   return (
     <table style={{ width: '100%', textAlign: 'center' }}>
       <caption>Recover Plates</caption>
@@ -31,13 +42,20 @@ const RemovedPlates = ({ recoverPlates, addRecoveredPlate }) => {
               <button
                 type="button"
                 className="primary"
-                onClick={() => recoverPlate(plate, addRecoveredPlate)}
+                onClick={() =>
+                  recoverPlate(plate, addRecoveredPlate, removeRecoveredPlate)}
               >
                 Recover Plate
               </button>
             </td>
             <td data-label="remove">
-              <button type="button" className="secondary">Remove Plate</button>
+              <button
+                type="button"
+                className="secondary"
+                onClick={() => removePlate(plate.id, removeRecoveredPlate)}
+              >
+                Remove Plate
+              </button>
             </td>
           </tr>
         ))}
@@ -48,7 +66,8 @@ const RemovedPlates = ({ recoverPlates, addRecoveredPlate }) => {
 
 RemovedPlates.propTypes = {
   recoverPlates: PropTypes.array,
-  addRecoveredPlate: PropTypes.func
+  addRecoveredPlate: PropTypes.func,
+  removeRecoveredPlate: PropTypes.func
 }
 
 export default RemovedPlates
