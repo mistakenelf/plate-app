@@ -2,7 +2,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 const recoverPlate = async (plate, addRecoveredPlate, removeRecoveredPlate) => {
-  console.log(plate.id)
   await addRecoveredPlate(
     plate.name,
     plate.description,
@@ -15,7 +14,6 @@ const recoverPlate = async (plate, addRecoveredPlate, removeRecoveredPlate) => {
 }
 
 const removePlate = async (plateId, removeRecoveredPlate) => {
-  console.log(plateId)
   await removeRecoveredPlate(plateId)
 }
 
@@ -42,6 +40,7 @@ const RemovedPlates = ({
             <th>Plate Name</th>
             <th>Recover Plate</th>
             <th>Remove Plate</th>
+            <th>Date Deleted</th>
           </tr>
         </thead>
         <tbody>
@@ -70,6 +69,9 @@ const RemovedPlates = ({
                 >
                   Remove Plate
                 </button>
+              </td>
+              <td data-label="date-deleted">
+                {plate.dateDeleted}
               </td>
             </tr>
           ))}

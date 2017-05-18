@@ -1,3 +1,5 @@
+const moment = require('moment')
+
 const recoverPlateTypeDef = `
   extend type Query {
     recoverPlates(username: String): [Plate]
@@ -28,7 +30,8 @@ const recoverPlateResolvers = {
         thumbnail,
         status,
         content,
-        createdBy: createdBy
+        createdBy: createdBy,
+        dateDeleted: moment().format('MMMM Do YYYY')
       }
       return await db.collection('platesRecovered').insert(data)
     }

@@ -10,6 +10,7 @@ export default gql`
       status
       content
       createdBy
+      dateDeleted
     }
   }
 `

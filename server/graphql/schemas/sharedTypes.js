@@ -9,6 +9,7 @@ const sharedTypesTypeDef = `
     createdBy: String
     dateCreated: String
     dateDue: String
+    dateDeleted: String
   }
   type User {
     id: ID
