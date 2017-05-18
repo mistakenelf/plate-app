@@ -63,8 +63,7 @@ export default compose(
       plate
     }),
     options: ({ plateId }) => ({
-      variables: { id: plateId },
-      fetchPolicy: 'cache-and-network'
+      variables: { id: plateId }
     })
   })
 )(PlateFiller)
