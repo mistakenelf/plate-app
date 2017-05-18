@@ -1,8 +1,10 @@
+const jwt = require('jsonwebtoken')
+const env = require('../../../env-config')
 const ObjectId = require('mongodb').ObjectId
 
 const updateProfileTypeDef = `
   extend type Mutation {
-    updateProfile(id: ID, firstName: String, lastName: String, email: String): User
+    updateProfile(id: ID, firstName: String, lastName: String, email: String): String
   }
 `
 
@@ -11,12 +13,18 @@ const updateProfileResolvers = {
     updateProfile: async ({ db }, { id, firstName, lastName, email }) => {
       const data = await db
         .collection('users')
-        .findOneAndUpdate(
+        .updateOne(
           { _id: new ObjectId(id) },
           { $set: { firstName: firstName, lastName: lastName, email: email } }
         )
 
-      return data.value
+      const findUser = await db
+        .collection('users')
+        .findOne({ _id: new ObjectId(id) })
+
+      return jwt.sign(findUser, env.JWT_SECRET, {
+        expiresIn: 60 * 60 * 24
+      })
     }
   }
 }

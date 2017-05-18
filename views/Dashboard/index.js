@@ -95,7 +95,6 @@ export default graphql(PlatesQuery, {
     plates
   }),
   options: props => ({
-    fetchPolicy: 'cache-and-network',
     variables: { username: props.user.username }
   })
 })(Dashboard)

@@ -4,16 +4,8 @@ import React from 'react'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
 import { pageWithUserData } from '../hocs/page'
 
-export default pageWithUserData(({ getUserProfile, url }) => {
-  if (getUserProfile === null) {
-    return (
-      <div>
-        <Unauthorized />
-      </div>
-    )
-  }
-
-  if (!Cookies.get('token')) {
+export default pageWithUserData(({ getUserProfile, url, ...props }) => {
+  if (!props.token) {
     return (
       <div>
         <Unauthorized />

@@ -5,24 +5,40 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import UpdateProfileMutation from '../../../mutations/UpdateProfileMutation'
 import UserProfileQuery from '../../../queries/GetUserProfileQuery'
+import debounce from 'lodash/debounce'
 import { graphql } from 'react-apollo'
 
 const wrapComponentWithState = provideState({
   initialState: props => ({
-    inputValue: props.user.firstName
+    fName: props.user.firstName,
+    lName: props.user.lastName,
+    eMail: props.user.email
   }),
   effects: {
-    updateField: (effects, value) => state =>
-      Object.assign({}, state, { inputValue: value })
+    updateFName: (effects, value) => state =>
+      Object.assign({}, state, { fName: value }),
+    updateLName: (effects, value) => state =>
+      Object.assign({}, state, { lName: value }),
+    updateEMail: (effects, value) => state =>
+      Object.assign({}, state, { eMail: value })
   }
 })
 
-const profileUpdate = async (id, updateProfile, updateField) => {
+const profileUpdate = async (
+  id,
+  updateProfile,
+  updateFName,
+  updateLName,
+  updateEMail
+) => {
   const firstName = document.getElementById('firstName').value
-  updateField(firstName)
+  updateFName(firstName)
   const lastName = document.getElementById('lastName').value
+  updateLName(lastName)
   const email = document.getElementById('email').value
+  updateEMail(email)
   const data = await updateProfile(id, firstName, lastName, email)
+  Cookies.set('token', data.data.updateProfile, { path: '/', expires: 7 })
 }
 
 const ProfilePage = wrapComponentWithState(
@@ -39,9 +55,15 @@ const ProfilePage = wrapComponentWithState(
               type="text"
               id="firstName"
               placeholder="first name"
-              value={state.inputValue}
+              value={state.fName}
               onChange={() =>
-                profileUpdate(user.id, updateProfile, effects.updateField)}
+                profileUpdate(
+                  user.id,
+                  updateProfile,
+                  effects.updateFName,
+                  effects.updateLName,
+                  effects.updateEMail
+                )}
               required
             />
           </div>
@@ -53,8 +75,16 @@ const ProfilePage = wrapComponentWithState(
               type="text"
               id="lastName"
               placeholder="last name"
+              value={state.lName}
+              onChange={() =>
+                profileUpdate(
+                  user.id,
+                  updateProfile,
+                  effects.updateFName,
+                  effects.updateLName,
+                  effects.updateEMail
+                )}
               required
-              defaultValue={user.lastName}
             />
           </div>
           <div className="input-group fluid">
@@ -65,8 +95,8 @@ const ProfilePage = wrapComponentWithState(
               type="text"
               id="username"
               placeholder="username"
-              disabled
               defaultValue={user.username}
+              disabled
             />
           </div>
           <div className="input-group fluid">
@@ -77,8 +107,16 @@ const ProfilePage = wrapComponentWithState(
               type="email"
               id="email"
               placeholder="email"
-              disabled
-              defaultValue={user.email}
+              value={state.eMail}
+              onChange={() =>
+                profileUpdate(
+                  user.id,
+                  updateProfile,
+                  effects.updateFName,
+                  effects.updateLName,
+                  effects.updateEMail
+                )}
+              required
             />
           </div>
         </fieldset>
@@ -115,7 +153,7 @@ export default graphql(UpdateProfileMutation, {
       })
     }
   }),
-  options: props => ({
+  options: () => ({
     refetchQueries: [
       {
         query: UserProfileQuery,
