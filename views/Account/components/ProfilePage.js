@@ -8,76 +8,127 @@ import UserProfileQuery from '../../../queries/GetUserProfileQuery'
 import debounce from 'lodash/debounce'
 import { graphql } from 'react-apollo'
 
-const profileUpdate = debounce(async (id, updateProfile) => {
-  const firstName = document.getElementById('firstName').value
-  const lastName = document.getElementById('lastName').value
-  const email = document.getElementById('email').value
-  const data = await updateProfile(id, firstName, lastName, email)
-}, 500)
+const wrapComponentWithState = provideState({
+  initialState: props => ({
+    fName: props.user.firstName,
+    lName: props.user.lastName,
+    eMail: props.user.email
+  }),
+  effects: {
+    updateFName: (effects, value) => state =>
+      Object.assign({}, state, { fName: value }),
+    updateLName: (effects, value) => state =>
+      Object.assign({}, state, { lName: value }),
+    updateEMail: (effects, value) => state =>
+      Object.assign({}, state, { eMail: value })
+  }
+})
 
-const ProfilePage = ({ user, updateProfile }) => {
-  return (
-    <form>
-      <fieldset>
-        <legend>My Profile</legend>
-        <div className="input-group fluid">
-          <label className="input-label" htmlFor="firstName">
-            First Name
-          </label>
-          <input
-            type="text"
-            id="firstName"
-            placeholder="first name"
-            defaultValue={user.firstName}
-            onKeyUp={() => profileUpdate(user.id, updateProfile)}
-            required
-          />
-        </div>
-        <div className="input-group fluid">
-          <label className="input-label" htmlFor="lastName">
-            Last Name
-          </label>
-          <input
-            type="text"
-            id="lastName"
-            placeholder="last name"
-            defaultValue={user.lastName}
-            required
-          />
-        </div>
-        <div className="input-group fluid">
-          <label className="input-label" htmlFor="username">
-            Username
-          </label>
-          <input
-            type="text"
-            id="username"
-            placeholder="username"
-            defaultValue={user.username}
-            disabled
-          />
-        </div>
-        <div className="input-group fluid">
-          <label className="input-label" htmlFor="email">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            placeholder="email"
-            defaultValue={user.email}
-            required
-          />
-        </div>
-      </fieldset>
-      <style jsx>{`
+const profileUpdate = async (
+  id,
+  updateProfile,
+  updateFName,
+  updateLName,
+  updateEMail
+) => {
+  const firstName = document.getElementById('firstName').value
+  updateFName(firstName)
+  const lastName = document.getElementById('lastName').value
+  updateLName(lastName)
+  const email = document.getElementById('email').value
+  updateEMail(email)
+  const data = await updateProfile(id, firstName, lastName, email)
+  Cookies.set('token', data.data.updateProfile, { path: '/', expires: 7 })
+}
+
+const ProfilePage = wrapComponentWithState(
+  injectState(({ state, effects, user, updateProfile }) => {
+    return (
+      <form>
+        <fieldset>
+          <legend>My Profile</legend>
+          <div className="input-group fluid">
+            <label className="input-label" htmlFor="firstName">
+              First Name
+            </label>
+            <input
+              type="text"
+              id="firstName"
+              placeholder="first name"
+              value={state.fName}
+              onChange={() =>
+                profileUpdate(
+                  user.id,
+                  updateProfile,
+                  effects.updateFName,
+                  effects.updateLName,
+                  effects.updateEMail
+                )}
+              required
+            />
+          </div>
+          <div className="input-group fluid">
+            <label className="input-label" htmlFor="lastName">
+              Last Name
+            </label>
+            <input
+              type="text"
+              id="lastName"
+              placeholder="last name"
+              value={state.lName}
+              onChange={() =>
+                profileUpdate(
+                  user.id,
+                  updateProfile,
+                  effects.updateFName,
+                  effects.updateLName,
+                  effects.updateEMail
+                )}
+              required
+            />
+          </div>
+          <div className="input-group fluid">
+            <label className="input-label" htmlFor="username">
+              Username
+            </label>
+            <input
+              type="text"
+              id="username"
+              placeholder="username"
+              defaultValue={user.username}
+              disabled
+            />
+          </div>
+          <div className="input-group fluid">
+            <label className="input-label" htmlFor="email">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              placeholder="email"
+              value={state.eMail}
+              onChange={() =>
+                profileUpdate(
+                  user.id,
+                  updateProfile,
+                  effects.updateFName,
+                  effects.updateLName,
+                  effects.updateEMail
+                )}
+              required
+            />
+          </div>
+        </fieldset>
+        <style jsx>{`
         .input-label {
           width: 100px;
         }
       `}</style>
-    </form>
-  )
-}
+      </form>
+    )
+  })
+)
 
 ProfilePage.propTypes = {
   user: PropTypes.object,
