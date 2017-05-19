@@ -28,7 +28,7 @@ const Account = ({
   return (
     <div className="container">
       <PageHeader headerText="My Account" />
-      <div className="tabs">
+      <div className="tabs" style={{ paddingBottom: 20 }}>
         <input
           type="radio"
           name="tab-group"

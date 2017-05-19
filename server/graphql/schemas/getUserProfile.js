@@ -3,14 +3,14 @@ const env = require('../../../env-config')
 
 const getUserProfileTypeDef = `
   extend type Query {
-    getUserProfile(token: String): User
+    getUserProfile(accesstoken: String): User
   }
 `
 
 const getUserProfileResolvers = {
   Query: {
-    getUserProfile: ({ db }, { token }) => {
-      const user = jwt.decode(token, env.JWT_SECRET)
+    getUserProfile: ({ db }, { accesstoken }) => {
+      const user = jwt.decode(accesstoken, env.JWT_SECRET)
       return user
     }
   },

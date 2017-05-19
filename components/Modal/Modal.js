@@ -5,7 +5,7 @@ import React from 'react'
 
 const Modal = ({ open, closeModal, children }) => {
   return (
-    <Portal closeOnEsc closeOnOutsideClick isOpened={open}>
+    <Portal isOpened={open}>
       <div className="modal">
         <div className="container">
           <div className="row">

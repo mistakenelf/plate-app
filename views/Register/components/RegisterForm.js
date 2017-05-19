@@ -1,13 +1,13 @@
 import { injectState, provideState } from 'freactal'
 
 import Alert from '../../../components/Alert/Alert'
-import Cookies from 'js-cookie'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import React from 'react'
 import RegisterMutation from '../../../mutations/RegisterMutation'
 import Router from 'next/router'
 import { graphql } from 'react-apollo'
+import { saveAccessToken } from '../../../utils/cookieUtils'
 
 const wrapComponentWithState = provideState({
   initialState: () => ({
@@ -31,7 +31,7 @@ const registerUser = async (e, register, showError) => {
   if (user.data.register === null) {
     showError()
   } else {
-    Cookies.set('token', user.data.register, {
+    saveAccessToken(user.data.register, {
       path: '/',
       expires: 7
     })

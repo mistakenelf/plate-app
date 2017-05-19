@@ -2,12 +2,12 @@ import { compose, graphql } from 'react-apollo'
 import { injectState, provideState } from 'freactal'
 
 import Alert from '../../../components/Alert/Alert'
-import Cookies from 'js-cookie'
 import Link from 'next/link'
 import LoginMutation from '../../../mutations/LoginMutation'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Router from 'next/router'
+import { saveAccessToken } from '../../../utils/cookieUtils'
 
 const wrapComponentWithState = provideState({
   initialState: () => ({
@@ -27,7 +27,7 @@ const userLogin = async (e, login, showError) => {
   if (token.data.login === null) {
     showError()
   } else {
-    Cookies.set('token', token.data.login, { path: '/', expires: 7 })
+    saveAccessToken(token.data.login, { path: '/', expires: 7 })
     Router.push('/dashboard')
   }
 }

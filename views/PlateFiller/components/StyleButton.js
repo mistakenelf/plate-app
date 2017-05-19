@@ -32,7 +32,6 @@ class StyleButton extends Component {
             margin-right: 16px;
             padding: 2px 0;
           }
-
           .RichEditor-activeButton {
             color: #5890ff;
           }

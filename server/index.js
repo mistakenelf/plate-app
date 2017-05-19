@@ -32,7 +32,7 @@ module.exports = app
           schema,
           rootValue: {
             db: req.app.locals.db,
-            token: req.cookies.token
+            accesstoken: req.cookies.accesstoken
           }
         }))
       )

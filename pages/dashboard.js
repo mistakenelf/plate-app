@@ -1,4 +1,3 @@
-import Cookies from 'js-cookie'
 import Dashboard from '../views/Dashboard'
 import React from 'react'
 import Unauthorized from '../components/Unauthorized/Unauthorized'

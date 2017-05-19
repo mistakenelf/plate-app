@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-import Cookies from 'js-cookie'
 import GetUserProfile from '../queries/GetUserProfileQuery'
 import Loader from '../components/Loader/Loader'
 import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
+import { loadAccessToken } from '../utils/cookieUtils'
 
 export default ComposedComponent => {
   class WithProfile extends Component {
@@ -29,7 +29,7 @@ export default ComposedComponent => {
     }),
     options: props => ({
       variables: {
-        token: props.serverRendered ? props.token : Cookies.get('token')
+        accesstoken: props.serverRendered ? props.token : loadAccessToken()
       }
     })
   })(WithProfile)

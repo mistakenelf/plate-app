@@ -20,10 +20,6 @@ const recoverPlate = async (
   closeDialog()
 }
 
-const removePlate = async (plateId, removeRecoveredPlate) => {
-  await removeRecoveredPlate(plateId)
-}
-
 const RecoverPlateDialog = ({
   dialogOpen,
   closeDialog,

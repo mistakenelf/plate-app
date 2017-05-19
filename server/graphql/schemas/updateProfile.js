@@ -11,7 +11,7 @@ const updateProfileTypeDef = `
 const updateProfileResolvers = {
   Mutation: {
     updateProfile: async ({ db }, { id, firstName, lastName, email }) => {
-      const data = await db
+      await db
         .collection('users')
         .updateOne(
           { _id: new ObjectId(id) },

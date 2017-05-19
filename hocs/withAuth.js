@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
+import { loadAccessToken } from '../utils/cookieUtils'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
 
 let auth = { loggedIn: false }
@@ -15,10 +15,10 @@ export default ComposedComponent => {
 
     static async getInitialProps(ctx) {
       if (!process.browser) {
-        auth.token = ctx.req.cookies.token
+        auth.token = ctx.req.cookies.accesstoken
         auth.loggedIn = Boolean(auth.token)
       } else {
-        auth.token = Cookies.get('token')
+        auth.token = loadAccessToken()
         auth.loggedIn = Boolean(auth.token)
       }
 

@@ -1,5 +1,3 @@
-const { ContentState, convertToRaw } = require('draft-js')
-
 const addRecoveredPlateTypeDef = `
   extend type Mutation {
     addRecoveredPlate(name: String, description: String, thumbnail: String, status: String, content: String, createdBy: String): Plate

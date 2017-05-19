@@ -95,7 +95,6 @@ const RemovedPlates = wrapComponentWithState(
                 ))}
               </tbody>
             </table>
-
           </div>
         )
       }

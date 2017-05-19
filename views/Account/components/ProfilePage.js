@@ -1,6 +1,5 @@
-import { injectState, provideState } from 'freactal'
+import { loadAccessToken, saveAccessToken } from '../../../utils/cookieUtils'
 
-import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
 import React from 'react'
 import UpdateProfileMutation from '../../../mutations/UpdateProfileMutation'
@@ -13,7 +12,7 @@ const profileUpdate = debounce(async (id, updateProfile) => {
   const lastName = document.getElementById('lastName').value
   const email = document.getElementById('email').value
   const data = await updateProfile(id, firstName, lastName, email)
-  Cookies.set('token', data.data.updateProfile, { path: '/', expires: 7 })
+  saveAccessToken(data.data.updateProfile, { path: '/', expires: 7 })
 }, 500)
 
 const ProfilePage = ({ user, updateProfile }) => {
@@ -109,7 +108,7 @@ export default graphql(UpdateProfileMutation, {
     refetchQueries: [
       {
         query: UserProfileQuery,
-        variables: { token: Cookies.get('token') }
+        variables: { accesstoken: loadAccessToken() }
       }
     ]
   })

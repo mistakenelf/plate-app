@@ -1,12 +1,12 @@
 import 'isomorphic-fetch'
-import '../lib/offline_install'
+import '../utils/offline_install'
 
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
 import React, { Component } from 'react'
 
-import Cookies from 'js-cookie'
 import PropTypes from 'prop-types'
-import { initClient } from '../lib/initClient'
+import { initClient } from '../utils/initClient'
+import { loadAccessToken } from '../utils/cookieUtils'
 import { loadGetInitialProps } from 'next/dist/lib/utils'
 
 export default ComposedComponent =>
@@ -24,12 +24,12 @@ export default ComposedComponent =>
       let token
 
       if (!process.browser) {
-        token = ctx.req.cookies.token
+        token = ctx.req.cookies.accesstoken
       }
 
       const props = {
         url: { query: ctx.query, pathname: ctx.pathname },
-        token: token || Cookies.get('token'),
+        token: token || loadAccessToken(),
         ...subProps
       }
 

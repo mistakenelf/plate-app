@@ -1,7 +1,7 @@
 import { ApolloClient, createBatchingNetworkInterface } from 'react-apollo'
 
-import Cookies from 'js-cookie'
 import fetch from 'isomorphic-fetch'
+import { loadAccessToken } from './cookieUtils'
 
 let apolloClient = null
 
@@ -28,7 +28,7 @@ function _initClient(headers, initialState) {
         if (!req.options.headers) {
           req.options.headers = {}
         }
-        req.options.headers.authorization = Cookies.get('token') || null
+        req.options.headers.authorization = loadAccessToken()
         /* eslint-enable no-param-reassign */
         next()
       }
