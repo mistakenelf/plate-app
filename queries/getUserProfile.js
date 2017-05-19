@@ -1,7 +1,7 @@
 import { gql } from 'react-apollo'
 
 export default gql`
-  query getUserProfile($accesstoken: String!) {
+  query getUserProfile($accesstoken: String) {
     getUserProfile(accesstoken: $accesstoken) {
       id
       firstName

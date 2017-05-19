@@ -28,7 +28,7 @@ function _initClient(headers, initialState) {
         if (!req.options.headers) {
           req.options.headers = {}
         }
-        req.options.headers.authorization = loadAccessToken()
+        req.options.headers.authorization = loadAccessToken() || null
         /* eslint-enable no-param-reassign */
         next()
       }
