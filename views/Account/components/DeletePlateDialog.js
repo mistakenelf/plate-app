@@ -2,6 +2,11 @@ import Modal from '../../../components/Modal/Modal'
 import PropTypes from 'prop-types'
 import React from 'react'
 
+const deletePlate = (removeRecoveredPlate, plateId, closeDialog) => {
+  removeRecoveredPlate(plateId)
+  closeDialog()
+}
+
 const RecoverPlateDialog = ({
   dialogOpen,
   closeDialog,
@@ -19,7 +24,7 @@ const RecoverPlateDialog = ({
       type="submit"
       className="primary"
       style={{ float: 'right' }}
-      onClick={() => removeRecoveredPlate(plateId)}
+      onClick={() => deletePlate(removeRecoveredPlate, plateId, closeDialog)}
     >
       Confirm
     </button>
