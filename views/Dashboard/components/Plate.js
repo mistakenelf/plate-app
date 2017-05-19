@@ -115,40 +115,37 @@ const Plate = wrapComponentWithState(
             open={state.washPlateOpen}
             closeModal={effects.washPlateHandleClose}
           >
-            <div className="remove-plate-modal">
-              <p>Are you sure you want to remove this plate?</p>
-              <button
-                type="button"
-                onClick={() =>
-                  deletePlate(
-                    recoverPlate,
-                    removePlate,
-                    plateId,
-                    name,
-                    description,
-                    cardImage,
-                    status,
-                    content,
-                    user,
-                    effects.washPlateHandleClose
-                  )}
-                className="primary"
-              >
-                Remove
-              </button>
-              <button type="button" onClick={effects.washPlateHandleClose}>
-                Cancel
-              </button>
-            </div>
+            <h3 style={{ color: 'white', marginTop: 150 }}>
+              Are you sure you want to remove this plate?
+            </h3>
+            <button
+              type="button"
+              onClick={() =>
+                deletePlate(
+                  recoverPlate,
+                  removePlate,
+                  plateId,
+                  name,
+                  description,
+                  cardImage,
+                  status,
+                  content,
+                  user,
+                  effects.washPlateHandleClose
+                )}
+              style={{ float: 'right' }}
+              className="primary"
+            >
+              Remove
+            </button>
+            <button
+              type="button"
+              className="secondary"
+              onClick={effects.washPlateHandleClose}
+            >
+              Cancel
+            </button>
           </Modal>
-          <style jsx>{`
-            .remove-plate-modal {
-              background-color: white;
-              padding: 20px;
-              border-radius: 5px;
-              margin-top: 60px;
-            }
-          `}</style>
         </div>
       )
     }
