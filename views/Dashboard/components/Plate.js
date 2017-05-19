@@ -11,6 +11,7 @@ import PlatesQuery from '../../../queries/PlatesQuery'
 import PropTypes from 'prop-types'
 import React from 'react'
 import RecoverPlateMutation from '../../../mutations/RecoverPlateMutation'
+import RecoverPlatesQuery from '../../../queries/RecoverPlatesQuery'
 import RemovePlateMutation from '../../../mutations/RemovePlateMutation'
 
 const wrapComponentWithState = provideState({
@@ -229,7 +230,7 @@ export default compose(
     options: props => ({
       refetchQueries: [
         {
-          query: PlatesQuery,
+          query: RecoverPlatesQuery,
           variables: { username: props.user.username }
         }
       ]
