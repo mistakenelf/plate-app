@@ -93,6 +93,7 @@ class ContentEditor extends Component {
         </div>
         <div className="RichEditor-editor" onClick={this.focus}>
           <Editor
+            editorKey="editor"
             blockStyleFn={getBlockStyle}
             blockRenderMap={BlockRenderMap}
             editorState={this.state.editorState}
@@ -106,6 +107,9 @@ class ContentEditor extends Component {
           />
         </div>
         <style jsx global>{`
+          * {
+            font-size: inherit;
+          }
           RichEditor-root {
             background: #fff;
             padding: 15px;
