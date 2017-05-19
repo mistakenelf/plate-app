@@ -50,7 +50,7 @@ const Navigation = wrapComponentWithState(
                 <span className="nav-link">|</span>
                 <a
                   className="nav-link desktop-nav-link"
-                  onClick={() => logUserOut(effects.logout, client)}
+                  onClick={() => logUserOut(effects.logout)}
                 >
                   Logout
                 </a>
