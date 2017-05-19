@@ -17,7 +17,6 @@ const wrapComponentWithState = provideState({
 })
 
 const logUserOut = (logout, client) => {
-  console.log(client)
   logout()
   client.resetStore()
   removeAccessToken()
