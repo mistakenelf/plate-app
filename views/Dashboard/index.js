@@ -5,7 +5,7 @@ import { Animate } from 'react-move'
 import Loader from '../../components/Loader/Loader'
 import NoPlatesFound from './components/NoPlatesFound'
 import Plate from './components/Plate'
-import PlatesQuery from '../../queries/PlatesQuery'
+import PlatesQuery from '../../queries/plates'
 import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'
 

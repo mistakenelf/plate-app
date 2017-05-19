@@ -1,4 +1,4 @@
-import ContactUsMutation from '../../../mutations/ContactUsMutation'
+import ContactUsMutation from '../../../mutations/contactUs'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Router from 'next/router'

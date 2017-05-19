@@ -3,10 +3,10 @@ import { compose, graphql } from 'react-apollo'
 import ContentEditor from './components/ContentEditor'
 import Loader from '../../components/Loader/Loader'
 import PageHeader from '../../components/PageHeader/PageHeader'
-import PlateQuery from '../../queries/PlateQuery'
+import PlateQuery from '../../queries/plate'
 import PropTypes from 'prop-types'
 import React from 'react'
-import SavePlateContentMutation from '../../mutations/SavePlateContentMutation'
+import SavePlateContentMutation from '../../mutations/savePlateContent'
 
 const PlateFiller = ({ plateId, savePlateContent, plate, loading }) => {
   if (loading) {

@@ -3,16 +3,16 @@ import { injectState, provideState } from 'freactal'
 
 import Card from '../../../components/Card/Card'
 import EditPlateDialog from './EditPlateDialog'
-import EditPlateMutation from '../../../mutations/EditPlateMutation'
+import EditPlateMutation from '../../../mutations/editPlate'
 import Icon from '../../../components/Icon/Icon'
 import Link from 'next/link'
 import Modal from '../../../components/Modal/Modal'
-import PlatesQuery from '../../../queries/PlatesQuery'
+import PlatesQuery from '../../../queries/plates'
 import PropTypes from 'prop-types'
 import React from 'react'
-import RecoverPlateMutation from '../../../mutations/RecoverPlateMutation'
-import RecoverPlatesQuery from '../../../queries/RecoverPlatesQuery'
-import RemovePlateMutation from '../../../mutations/RemovePlateMutation'
+import RecoverPlateMutation from '../../../mutations/recoverPlate'
+import RecoverPlatesQuery from '../../../queries/recoveredPlates'
+import RemovePlateMutation from '../../../mutations/removePlate'
 
 const wrapComponentWithState = provideState({
   initialState: () => ({

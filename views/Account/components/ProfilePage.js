@@ -2,8 +2,8 @@ import { loadAccessToken, saveAccessToken } from '../../../utils/cookieUtils'
 
 import PropTypes from 'prop-types'
 import React from 'react'
-import UpdateProfileMutation from '../../../mutations/UpdateProfileMutation'
-import UserProfileQuery from '../../../queries/GetUserProfileQuery'
+import UpdateProfileMutation from '../../../mutations/updateProfile'
+import UserProfileQuery from '../../../queries/getUserProfile'
 import debounce from 'lodash/debounce'
 import { graphql } from 'react-apollo'
 

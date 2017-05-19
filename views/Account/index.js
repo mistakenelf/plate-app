@@ -1,24 +1,22 @@
 import { compose, graphql } from 'react-apollo'
 
 import AccountInfo from './components/AccountInfo'
-import AddRecoveredPlateMutation
-  from '../../mutations/AddRecoveredPlateMutation'
+import AddRecoveredPlateMutation from '../../mutations/addRecoveredPlate'
 import ChangePassword from './components/ChangePassword'
 import Loader from '../../components/Loader/Loader'
 import PageHeader from '../../components/PageHeader/PageHeader'
-import PlatesQuery from '../../queries/PlatesQuery'
+import PlatesQuery from '../../queries/plates'
 import ProfilePage from './components/ProfilePage'
 import PropTypes from 'prop-types'
 import React from 'react'
-import RecoverPlatesQuery from '../../queries/RecoverPlatesQuery'
-import RemoveRecoveredPlateMutation
-  from '../../mutations/RemoveRecoveredPlateMutation'
+import RecoverPlatesQuery from '../../queries/recoveredPlates'
+import RemoveRecoveredPlateMutation from '../../mutations/removeRecoveredPlate'
 import RemovedPlates from './components/RemovedPlates'
 
 const Account = ({
   user,
   loading,
-  recoverPlates,
+  recoveredPlates,
   addRecoveredPlate,
   removeRecoveredPlate
 }) => {
@@ -62,7 +60,7 @@ const Account = ({
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-8 col-lg-offset-2">
               <RemovedPlates
-                recoverPlates={recoverPlates}
+                recoverPlates={recoveredPlates}
                 addRecoveredPlate={addRecoveredPlate}
                 removeRecoveredPlate={removeRecoveredPlate}
               />
@@ -86,16 +84,16 @@ const Account = ({
 Account.propTypes = {
   user: PropTypes.object,
   loading: PropTypes.bool,
-  recoverPlates: PropTypes.array,
+  recoveredPlates: PropTypes.array,
   addRecoveredPlate: PropTypes.func,
   removeRecoveredPlate: PropTypes.func
 }
 
 export default compose(
   graphql(RecoverPlatesQuery, {
-    props: ({ data: { loading, recoverPlates } }) => ({
+    props: ({ data: { loading, recoveredPlates } }) => ({
       loading,
-      recoverPlates
+      recoveredPlates
     }),
     options: props => ({
       variables: { username: props.user.username }

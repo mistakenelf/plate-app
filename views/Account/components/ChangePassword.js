@@ -1,7 +1,7 @@
 import { injectState, provideState } from 'freactal'
 
 import Alert from '../../../components/Alert/Alert'
-import ChangePasswordMutation from '../../../mutations/ChangePasswordMutation'
+import ChangePasswordMutation from '../../../mutations/changePassword'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { graphql } from 'react-apollo'

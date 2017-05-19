@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import GetUserProfile from '../queries/GetUserProfileQuery'
+import GetUserProfile from '../queries/getUserProfile'
 import Loader from '../components/Loader/Loader'
 import PropTypes from 'prop-types'
 import { graphql } from 'react-apollo'

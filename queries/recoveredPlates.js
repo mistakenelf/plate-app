@@ -1,8 +1,8 @@
 import { gql } from 'react-apollo'
 
 export default gql`
-  query recoverPlates($username: String) {
-    recoverPlates(username: $username) {
+  query recoveredPlates($username: String) {
+    recoveredPlates(username: $username) {
       id
       name
       description

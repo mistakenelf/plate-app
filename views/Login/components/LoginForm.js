@@ -3,7 +3,7 @@ import { injectState, provideState } from 'freactal'
 
 import Alert from '../../../components/Alert/Alert'
 import Link from 'next/link'
-import LoginMutation from '../../../mutations/LoginMutation'
+import LoginMutation from '../../../mutations/login'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Router from 'next/router'

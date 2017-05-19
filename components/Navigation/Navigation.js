@@ -1,10 +1,10 @@
 import { injectState, provideState } from 'freactal'
 
-import Cookies from 'js-cookie'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Router from 'next/router'
+import { removeAccessToken } from '../../utils/cookieUtils'
 
 const wrapComponentWithState = provideState({
   initialState: props => ({
@@ -18,7 +18,7 @@ const wrapComponentWithState = provideState({
 const logUserOut = logout => {
   logout()
 
-  Cookies.remove('token')
+  removeAccessToken()
   Router.push('/login')
 }
 

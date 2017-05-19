@@ -2,7 +2,7 @@ const moment = require('moment')
 
 const recoverPlateTypeDef = `
   extend type Query {
-    recoverPlates(username: String): [Plate]
+    recoveredPlates(username: String): [Plate]
   }
   extend type Mutation {
     recoverPlate(id: ID, name: String, description: String, thumbnail: String,
@@ -12,8 +12,8 @@ const recoverPlateTypeDef = `
 
 const recoverPlateResolvers = {
   Query: {
-    recoverPlates: ({ db }, { username }) => {
-      return db
+    recoveredPlates: async ({ db }, { username }) => {
+      return await db
         .collection('platesRecovered')
         .find({ createdBy: username })
         .toArray()
