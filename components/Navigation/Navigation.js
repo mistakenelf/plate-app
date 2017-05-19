@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import Router from 'next/router'
 import { removeAccessToken } from '../../utils/cookieUtils'
-import { withApollo } from 'react-apollo'
 
 const wrapComponentWithState = provideState({
   initialState: props => ({
@@ -16,15 +15,14 @@ const wrapComponentWithState = provideState({
   }
 })
 
-const logUserOut = (logout, client) => {
+const logUserOut = logout => {
   logout()
-  client.resetStore()
   removeAccessToken()
   Router.push('/login')
 }
 
 const Navigation = wrapComponentWithState(
-  injectState(({ state, effects, client }) => {
+  injectState(({ state, effects }) => {
     return (
       <span>
         <header className="sticky nav-bar shadowed">
@@ -139,4 +137,4 @@ Navigation.propTypes = {
   client: PropTypes.object
 }
 
-export default withApollo(Navigation)
+export default Navigation
