@@ -1,18 +1,24 @@
 import { injectState, provideState } from 'freactal'
 
+import DeletePlateDialog from './DeletePlateDialog'
 import PropTypes from 'prop-types'
 import React from 'react'
 import RecoverPlateDialog from './RecoverPlateDialog'
 
 const wrapComponentWithState = provideState({
   initialState: () => ({
-    recoverDialogOpen: false
+    recoverDialogOpen: false,
+    deleteDialogOpen: false
   }),
   effects: {
     openRecoverDialog: () => state =>
       Object.assign({}, state, { recoverDialogOpen: true }),
     closeRecoverDialog: () => state =>
-      Object.assign({}, state, { recoverDialogOpen: false })
+      Object.assign({}, state, { recoverDialogOpen: false }),
+    openDeleteDialog: () => state =>
+      Object.assign({}, state, { deleteDialogOpen: true }),
+    closeDeleteDialog: () => state =>
+      Object.assign({}, state, { deleteDialogOpen: false })
   }
 })
 
@@ -71,11 +77,16 @@ const RemovedPlates = wrapComponentWithState(
                       <button
                         type="button"
                         className="secondary"
-                        onClick={() =>
-                          removePlate(plate.id, removeRecoveredPlate)}
+                        onClick={effects.openDeleteDialog}
                       >
                         Remove Plate
                       </button>
+                      <DeletePlateDialog
+                        dialogOpen={state.deleteDialogOpen}
+                        closeDialog={effects.closeDeleteDialog}
+                        removeRecoveredPlate={removeRecoveredPlate}
+                        plateId={plate.id}
+                      />
                     </td>
                     <td data-label="date-deleted">
                       {plate.dateDeleted}
