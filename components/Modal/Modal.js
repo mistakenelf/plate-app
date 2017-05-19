@@ -39,7 +39,7 @@ const Modal = ({ open, closeModal, children }) => {
             overflow: auto;
             height: 100vh;
             width: 100%;
-            background-color: rgba(0,0,0,0.8);
+            background-color: rgba(0,0,0,0.88);
           }
           @media only screen
           and (min-device-width : 320px)
