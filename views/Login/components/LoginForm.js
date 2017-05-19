@@ -61,6 +61,11 @@ const LoginForm = wrapComponentWithState(
               </Link>
             </button>
           </div>
+          <div className="register-link">
+            <Link prefetch href="/register">
+              <a>Not Already A Member?</a>
+            </Link>
+          </div>
           {state.loginError && <Alert message="Error! Invalid login" />}
         </fieldset>
         <style jsx>{`
@@ -71,6 +76,9 @@ const LoginForm = wrapComponentWithState(
             text-decoration: none;
           }
           .error-text {
+            text-align: center;
+          }
+          .register-link {
             text-align: center;
           }
         `}</style>
