@@ -1,12 +1,14 @@
 import ForgotPasswordMutation from '../../../mutations/forgotPassword'
 import PropTypes from 'prop-types'
 import React from 'react'
+import Router from 'next/router'
 import { graphql } from 'react-apollo'
 
 const userForgotPassword = async (e, forgotPassword) => {
   e.preventDefault()
   const email = document.getElementById('email').value
   await forgotPassword(email)
+  Router.push('/login')
 }
 
 const ForgotPasswordForm = ({ forgotPassword }) => {
