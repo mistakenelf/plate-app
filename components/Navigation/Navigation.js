@@ -120,6 +120,8 @@ const Navigation = wrapComponentWithState(
           .nav-bar {
             background: #343f53;
             display: flex;
+            position: fixed;
+            width: 100%;
             align-items: center;
           }
           .nav-link {

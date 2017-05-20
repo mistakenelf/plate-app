@@ -21,6 +21,11 @@ export default ComposedComponent => {
           <Header title="Plate" />
           <Navigation loggedIn={this.props.auth.loggedIn} />
           <ComposedComponent {...this.props} />
+          <style jsx global>{`
+            body {
+              padding-top: 45px;
+            }
+          `}</style>
         </div>
       )
     }
