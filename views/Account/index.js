@@ -1,6 +1,5 @@
 import { compose, graphql } from 'react-apollo'
 
-import AccountInfo from './components/AccountInfo'
 import AddRecoveredPlateMutation from '../../mutations/addRecoveredPlate'
 import ChangePassword from './components/ChangePassword'
 import Loader from '../../components/Loader/Loader'
@@ -39,9 +38,6 @@ const Account = ({
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-6">
               <ProfilePage user={user} />
-            </div>
-            <div className="col-sm-12 col-md-12 col-lg-6">
-              <AccountInfo user={user} />
             </div>
           </div>
         </div>

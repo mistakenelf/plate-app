@@ -1,32 +1,32 @@
-import FiveMembershipCard from './FiveMembershipCard'
-import FreeMembershipCard from './FreeMembershipCard'
+import DonateCard from './DonateCard'
 import React from 'react'
-import ThreeMembershipCard from './ThreeMembershipCard'
+import SimplicityCard from './SimplicityCard'
+import SupportCard from './SupportCard'
 
-const PriceSection = () => {
+const DonateSection = () => {
   return (
     <div>
       <div className="row price-section">
         <div className="membership-header col-sm-12 col-md-12 col-lg-12">
           <div className="center-text">
-            Choose the plan depending on how busy you are. Change anytime!
+            Wanna help out the project? Donate to us through PayPal to keep the project alive
           </div>
         </div>
       </div>
       <div className="row price-section">
         <div className="col-sm-12 col-md-4 col-lg-4">
           <div className="price-card-side">
-            <FreeMembershipCard />
+            <SimplicityCard />
           </div>
         </div>
         <div className="col-sm-12 col-md-4 col-lg-4">
           <div className="price-card">
-            <ThreeMembershipCard />
+            <DonateCard />
           </div>
         </div>
         <div className="col-sm-12 col-md-4 col-lg-4">
           <div className="price-card-side">
-            <FiveMembershipCard />
+            <SupportCard />
           </div>
         </div>
       </div>
@@ -47,4 +47,4 @@ const PriceSection = () => {
   )
 }
 
-export default PriceSection
+export default DonateSection

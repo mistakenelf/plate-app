@@ -1,7 +1,7 @@
 import AdvertisingSection from './components/AdvertisingSection'
+import DonateSection from './components/DonateSection'
 import Footer from '../../components/Footer/Footer'
 import Header from './components/Header'
-import PriceSection from './components/PriceSection/PriceSection'
 import React from 'react'
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
     <div>
       <Header />
       <AdvertisingSection />
-      <PriceSection />
+      <DonateSection />
       <Footer />
     </div>
   )
