@@ -1,7 +1,6 @@
 const nodemailer = require('nodemailer')
 const env = require('../../../env-config.js')
 
-// create reusable transporter object using the default SMTP transport
 let transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
@@ -25,15 +24,13 @@ const contactUsTypeDef = `
 const contactUsResolvers = {
   Mutation: {
     contactUs: ({}, { email, name, message }) => {
-      // setup email data with unicode symbols
       let mailOptions = {
-        from: email + ' ' + '(' + name + ')', // sender address
-        to: env.EMAIL_USER, // list of receivers
-        subject: 'Feedback', // Subject line
-        text: message // plain text body
+        from: email + ' ' + '(' + name + ')',
+        to: env.EMAIL_USER,
+        subject: 'Feedback',
+        text: message
       }
 
-      // send mail with defined transport object
       return transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
           return console.log(error)

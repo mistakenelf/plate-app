@@ -17,6 +17,7 @@ const sharedTypes = require('./schemas/sharedTypes')
 const addRecoveredPlates = require('./schemas/addRecoveredPlates')
 const removeRecoveredPlate = require('./schemas/removeRecoveredPlate')
 const updateProfile = require('./schemas/updateProfile')
+const forgotPassword = require('./schemas/forgotPassword')
 
 const rootSchema = `
   type Query {
@@ -58,7 +59,8 @@ const schema = makeExecutableSchema({
     recoverPlate.recoverPlateTypeDef,
     addRecoveredPlates.addRecoveredPlateTypeDef,
     removeRecoveredPlate.removeRecoveredPlateTypeDef,
-    updateProfile.updateProfileTypeDef
+    updateProfile.updateProfileTypeDef,
+    forgotPassword.forgotPasswordTypeDef
   ],
   resolvers: merge(
     rootResolvers,
@@ -77,7 +79,8 @@ const schema = makeExecutableSchema({
     recoverPlate.recoverPlateResolvers,
     addRecoveredPlates.addRecoveredPlateResolvers,
     removeRecoveredPlate.removeRecoveredPlateResolvers,
-    updateProfile.updateProfileResolvers
+    updateProfile.updateProfileResolvers,
+    forgotPassword.forgotPasswordResolvers
   )
 })
 

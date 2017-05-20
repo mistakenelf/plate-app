@@ -20,7 +20,7 @@ const AddPlateButton = wrapComponentWithState(
       <div>
         <button
           type="button"
-          className="secondary large shadowed circular"
+          className="tertiary large shadowed circular"
           onClick={effects.openDialog}
         >
           ＋

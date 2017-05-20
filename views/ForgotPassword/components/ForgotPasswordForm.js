@@ -1,15 +1,17 @@
+import ForgotPasswordMutation from '../../../mutations/forgotPassword'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { graphql } from 'react-apollo'
 
-const forgotPassword = e => {
+const userForgotPassword = async (e, forgotPassword) => {
   e.preventDefault()
   const email = document.getElementById('email').value
-  console.log(email)
+  await forgotPassword(email)
 }
 
-const ForgotPasswordForm = () => {
+const ForgotPasswordForm = ({ forgotPassword }) => {
   return (
-    <form onSubmit={e => forgotPassword(e)}>
+    <form onSubmit={e => userForgotPassword(e, forgotPassword)}>
       <fieldset>
         <legend>Forgot Password</legend>
         <div className="input-group fluid">
@@ -32,7 +34,12 @@ const ForgotPasswordForm = () => {
 }
 
 ForgotPasswordForm.propTypes = {
-  handleSubmit: PropTypes.func
+  handleSubmit: PropTypes.func,
+  forgotPassword: PropTypes.func
 }
 
-export default ForgotPasswordForm
+export default graphql(ForgotPasswordMutation, {
+  props: ({ mutate }) => ({
+    forgotPassword: email => mutate({ variables: { email } })
+  })
+})(ForgotPasswordForm)
