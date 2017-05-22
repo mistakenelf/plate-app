@@ -4,7 +4,6 @@ import { compose, graphql } from 'react-apollo'
 import AddRecoveredPlateMutation from '../../mutations/addRecoveredPlate'
 import ChangePassword from './components/ChangePassword'
 import Loader from '../../components/Loader/Loader'
-import PageHeader from '../../components/PageHeader/PageHeader'
 import PlatesQuery from '../../queries/plates'
 import ProfilePage from './components/ProfilePage'
 import PropTypes from 'prop-types'
@@ -16,7 +15,7 @@ class Account extends Component {
   static propTypes = {
     user: PropTypes.object,
     loading: PropTypes.bool,
-    recoverPlates: PropTypes.array,
+    recoveredPlates: PropTypes.array,
     addRecoveredPlate: PropTypes.func,
     removeRecoveredPlate: PropTypes.func
   }
@@ -47,7 +46,7 @@ class Account extends Component {
     const {
       user,
       loading,
-      recoverPlates,
+      recoveredPlates,
       addRecoveredPlate,
       removeRecoveredPlate
     } = this.props
@@ -76,7 +75,7 @@ class Account extends Component {
           <ChangePassword user={user} />}
         {this.state.currentView === 'tools' &&
           <RemovedPlates
-            recoverPlates={recoverPlates}
+            recoverPlates={recoveredPlates}
             addRecoveredPlate={addRecoveredPlate}
             removeRecoveredPlate={removeRecoveredPlate}
           />}
@@ -162,9 +161,9 @@ class Account extends Component {
 
 export default compose(
   graphql(RecoverPlatesQuery, {
-    props: ({ data: { loading, recoverPlates } }) => ({
+    props: ({ data: { loading, recoveredPlates } }) => ({
       loading,
-      recoverPlates
+      recoveredPlates
     }),
     options: props => ({
       variables: { username: props.user.username }
