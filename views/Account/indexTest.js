@@ -16,7 +16,7 @@ class Account extends Component {
   static propTypes = {
     user: PropTypes.object,
     loading: PropTypes.bool,
-    recoveredPlates: PropTypes.array,
+    recoverPlates: PropTypes.array,
     addRecoveredPlate: PropTypes.func,
     removeRecoveredPlate: PropTypes.func
   }
@@ -47,7 +47,7 @@ class Account extends Component {
     const {
       user,
       loading,
-      recoveredPlates,
+      recoverPlates,
       addRecoveredPlate,
       removeRecoveredPlate
     } = this.props
@@ -76,7 +76,7 @@ class Account extends Component {
           <ChangePassword user={user} />}
         {this.state.currentView === 'tools' &&
           <RemovedPlates
-            recoverPlates={recoveredPlates}
+            recoverPlates={recoverPlates}
             addRecoveredPlate={addRecoveredPlate}
             removeRecoveredPlate={removeRecoveredPlate}
           />}
