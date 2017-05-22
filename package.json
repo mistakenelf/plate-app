@@ -40,7 +40,7 @@
     "react-ga": "^2.2.0",
     "react-move": "^1.1.8",
     "react-portal": "^3.1.0",
-    "react-swipeable-views": "^0.12.2"
+    "react-swipeable-views": "^0.12.3"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
