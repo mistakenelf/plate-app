@@ -33,7 +33,7 @@ const Navigation = wrapComponentWithState(
           />
           <Link prefetch href="/">
             <a className="logo logo-container">
-              Plate
+              🍛 Plate
             </a>
           </Link>
           {state.loggedIn
