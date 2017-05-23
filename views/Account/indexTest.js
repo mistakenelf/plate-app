@@ -59,10 +59,10 @@ class Account extends Component {
       <div>
         <div className="navigation-container">
           <div className="navigation">
-            <span className="nav-link">
+            <span className="nav-link" style={{ marginRight: 30 }}>
               <a href="#" onClick={this.showOverview}>Overview</a>
             </span>
-            <span className="nav-link">
+            <span className="nav-link" style={{ marginRight: 30 }}>
               <a href="#" onClick={this.showSecurity}>Security</a>
             </span>
             <span className="nav-link">
@@ -94,10 +94,8 @@ class Account extends Component {
           @media only screen
           and (min-device-width : 320px)
           and (max-device-width : 1030px) {
-            .navigation-container {
-              text-align: center;
-              display: flex;
-              align-items: center;
+            .nav-link {
+              font-size: 40%;
             }
           }
           .divider {
@@ -117,13 +115,13 @@ class Account extends Component {
           .navigation-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
           }
           .navigation a {
             position: relative;
             display: inline-block;
-            margin: 15px 25px;
             outline: none;
+            margin-top: 20px;
             color: #fff;
             text-decoration: none;
             text-transform: uppercase;
