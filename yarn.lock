@@ -32,8 +32,8 @@
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-0.0.29.tgz#fbcfd330573b912ef59eeee14602bface630754b"
 
 "@types/node@*":
-  version "7.0.21"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.21.tgz#22a890f19b26cff9b6699b493dea1bcee4410da1"
+  version "7.0.22"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.22.tgz#4593f4d828bdd612929478ea40c67b4f403ca255"
 
 "@types/react@^15.0.22":
   version "15.0.24"
@@ -250,8 +250,8 @@ async-each@^1.0.0:
   resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
 
 async@^2.1.2:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/async/-/async-2.4.0.tgz#4990200f18ea5b837c2cc4f8c031a6985c385611"
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/async/-/async-2.4.1.tgz#62a56b279c98a11d0987096a01cc3eeb8eb7bbd7"
   dependencies:
     lodash "^4.14.0"
 
@@ -1726,8 +1726,8 @@ es-to-primitive@^1.1.1:
     is-symbol "^1.0.1"
 
 es5-ext@^0.10.14, es5-ext@^0.10.9, es5-ext@~0.10.14:
-  version "0.10.20"
-  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.20.tgz#72a9b4fd5832797ba1bb65dceb2e25c04241c492"
+  version "0.10.21"
+  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.21.tgz#19a725f9e51d0300bbc1e8e821109fd9daf55925"
   dependencies:
     es6-iterator "2"
     es6-symbol "~3.1"
@@ -2883,12 +2883,6 @@ json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
 
-json2mq@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/json2mq/-/json2mq-0.2.0.tgz#b637bd3ba9eabe122c83e9720483aeb10d2c904a"
-  dependencies:
-    string-convert "^0.2.0"
-
 json5@^0.5.0, json5@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
@@ -3373,8 +3367,8 @@ nocache@2.0.0:
   resolved "https://registry.yarnpkg.com/nocache/-/nocache-2.0.0.tgz#202b48021a0c4cbde2df80de15a17443c8b43980"
 
 node-fetch@^1.0.1:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.6.3.tgz#dc234edd6489982d58e8f0db4f695029abcd8c04"
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.7.0.tgz#3ff6c56544f9b7fb00682338bb55ee6f54a8a0ef"
   dependencies:
     encoding "^0.1.11"
     is-stream "^1.0.1"
@@ -3940,12 +3934,6 @@ react-hot-loader@3.0.0-beta.6:
     redbox-react "^1.2.5"
     source-map "^0.4.4"
 
-react-media@^1.5.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/react-media/-/react-media-1.5.1.tgz#dbb60f4f89fa2735b837d78d13d7ec0172429a6c"
-  dependencies:
-    json2mq "^0.2.0"
-
 react-move@^1.1.8:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/react-move/-/react-move-1.1.8.tgz#deee7e01002580f925afa47520525a821f512d6a"
@@ -4491,10 +4479,6 @@ stream-http@^2.3.1:
     readable-stream "^2.2.6"
     to-arraybuffer "^1.0.0"
     xtend "^4.0.0"
-
-string-convert@^0.2.0:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/string-convert/-/string-convert-0.2.1.tgz#6982cc3049fbb4cd85f8b24568b9d9bf39eeff97"
 
 string-hash@1.1.1:
   version "1.1.1"
