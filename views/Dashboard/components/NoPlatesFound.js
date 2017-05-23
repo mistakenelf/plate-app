@@ -1,11 +1,16 @@
 import Card from '../../../components/Card/Card'
+import PropTypes from 'prop-types'
 import React from 'react'
+import moment from 'moment'
 
-const NoPlatesFound = () => {
+const NoPlatesFound = ({ user }) => {
   return (
-    <Card style={{ textAlign: 'center' }}>
+    <Card style={{ textAlign: 'center', marginTop: 20 }}>
       <div className="content">
-        You currently have nothing on your dashboard. Add a new plate to get started
+        Hey {user.username}! You currently have no plates on your dashboard.
+      </div>
+      <div>
+        {moment().format('dddd, MMMM Do YYYY')}
       </div>
       <style jsx>{`
         .content {
@@ -15,6 +20,10 @@ const NoPlatesFound = () => {
       `}</style>
     </Card>
   )
+}
+
+NoPlatesFound.propTypes = {
+  user: PropTypes.object
 }
 
 export default NoPlatesFound
