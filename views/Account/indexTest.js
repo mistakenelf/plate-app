@@ -89,6 +89,16 @@ class Account extends Component {
         </Media>
 
         <style jsx>{`
+          @media only screen
+          and (min-device-width : 320px)
+          and (max-device-width : 1030px) {
+            .navigation-container {
+              text-align: center;
+              display: flex;
+              align-items: center;
+              margin-top: 100px;
+            }
+          }
         .divider {
           margin-top: 40px;
           margin-bottom: 40px;
