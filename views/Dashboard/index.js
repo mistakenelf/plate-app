@@ -30,7 +30,7 @@ class Dashboard extends Component {
         <div className="row row-margin">
           {this.props.plates.length === 0
             ? <div className="col-sm-12 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3">
-                <NoPlatesFound />
+                <NoPlatesFound user={this.props.user} />
               </div>
             : this.props.plates.map((plate, index) => (
                 <Animate
