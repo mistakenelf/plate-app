@@ -100,7 +100,7 @@ class Account extends Component {
             padding-bottom: 30px;
           }
           .wrapper{
-            margin:3em 0;
+            margin: 3em 0;
           }
           .account-links {
             display: flex;
