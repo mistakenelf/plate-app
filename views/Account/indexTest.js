@@ -71,9 +71,18 @@ class Account extends Component {
           </div>
         </div>
         <div>
-          {this.state.currentView === 'overview' && <ProfilePage user={user} />}
+          {this.state.currentView === 'overview' &&
+            <div className="row">
+              <div className="col-sm-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+                <ProfilePage user={user} />
+              </div>
+            </div>}
           {this.state.currentView === 'security' &&
-            <ChangePassword user={user} />}
+            <div className="row">
+              <div className="col-sm-12 col-md-6 col-md-offset-3  col-lg-6 col-lg-offset-3">
+                <ChangePassword user={user} />
+              </div>
+            </div>}
           {this.state.currentView === 'tools' &&
             <RemovedPlates
               recoverPlates={recoveredPlates}
@@ -89,7 +98,6 @@ class Account extends Component {
               text-align: center;
               display: flex;
               align-items: center;
-              margin-top: 100px;
             }
           }
           .divider {

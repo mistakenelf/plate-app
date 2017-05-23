@@ -4568,9 +4568,9 @@ supports-color@^3.1.0:
   dependencies:
     has-flag "^1.0.0"
 
-sw-precache-webpack-plugin@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/sw-precache-webpack-plugin/-/sw-precache-webpack-plugin-0.11.0.tgz#cff48e5f924bd8c4a71d96b66453d4ebf683427c"
+sw-precache-webpack-plugin@^0.9.2:
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/sw-precache-webpack-plugin/-/sw-precache-webpack-plugin-0.9.2.tgz#34209de819bc6aeab352ea8ce7eba2daf5f93b71"
   dependencies:
     del "^2.2.2"
     sw-precache "^5.0.0"
