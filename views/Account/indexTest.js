@@ -4,6 +4,7 @@ import { compose, graphql } from 'react-apollo'
 import AddRecoveredPlateMutation from '../../mutations/addRecoveredPlate'
 import ChangePassword from './components/ChangePassword'
 import Loader from '../../components/Loader/Loader'
+import Media from 'react-media'
 import PlatesQuery from '../../queries/plates'
 import ProfilePage from './components/ProfilePage'
 import PropTypes from 'prop-types'
@@ -70,15 +71,23 @@ class Account extends Component {
             </span>
           </div>
         </div>
-        {this.state.currentView === 'overview' && <ProfilePage user={user} />}
-        {this.state.currentView === 'security' &&
-          <ChangePassword user={user} />}
-        {this.state.currentView === 'tools' &&
-          <RemovedPlates
-            recoverPlates={recoveredPlates}
-            addRecoveredPlate={addRecoveredPlate}
-            removeRecoveredPlate={removeRecoveredPlate}
-          />}
+        <Media query="(min-width: 599px)">
+          {matches =>
+            matches &&
+            <div>
+              {this.state.currentView === 'overview' &&
+                <ProfilePage user={user} />}
+              {this.state.currentView === 'security' &&
+                <ChangePassword user={user} />}
+              {this.state.currentView === 'tools' &&
+                <RemovedPlates
+                  recoverPlates={recoveredPlates}
+                  addRecoveredPlate={addRecoveredPlate}
+                  removeRecoveredPlate={removeRecoveredPlate}
+                />}
+            </div>}
+        </Media>
+
         <style jsx>{`
         .divider {
           margin-top: 40px;
@@ -97,6 +106,7 @@ class Account extends Component {
         .navigation-container {
           display: flex;
           justify-content: center;
+          margin-bottom: 60px;
         }
         .navigation a {
           position: relative;
