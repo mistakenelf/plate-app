@@ -10,6 +10,7 @@ import PropTypes from 'prop-types'
 import RecoverPlatesQuery from '../../queries/recoveredPlates'
 import RemoveRecoveredPlateMutation from '../../mutations/removeRecoveredPlate'
 import RemovedPlates from './components/RemovedPlates'
+import Router from 'next/router'
 
 class Account extends Component {
   static propTypes = {
@@ -43,6 +44,7 @@ class Account extends Component {
   }
 
   render() {
+    console.log(Router.route)
     const {
       user,
       loading,

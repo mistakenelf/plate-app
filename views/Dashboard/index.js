@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import AddPlateButton from './components/AddPlateButton'
 import { Animate } from 'react-move'
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import Loader from '../../components/Loader/Loader'
 import NoPlatesFound from './components/NoPlatesFound'
 import Plate from './components/Plate'
@@ -27,6 +28,7 @@ class Dashboard extends Component {
         className="container"
         style={{ paddingLeft: '0.25rem', paddingRight: '0.25rem' }}
       >
+        <Breadcrumbs />
         <div className="row row-margin">
           {this.props.plates.length === 0
             ? <div className="col-sm-12 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3">
