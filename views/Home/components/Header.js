@@ -17,7 +17,7 @@ const styles = {
     alignItems: 'center'
   },
   slide1: {
-    background: 'linear-gradient(-90deg, rgb(141, 95, 115), #343f53)'
+    backgroundImage: "url('/static/img/plateHeaderMain-min.png')"
   },
   slide2: {
     background: 'linear-gradient(-90deg, rgb(141, 95, 115), #343f53)'
