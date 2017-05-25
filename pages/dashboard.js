@@ -3,7 +3,7 @@ import React from 'react'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
 import { pageWithUserData } from '../hocs/page'
 
-export default pageWithUserData(({ getUserProfile, ...props }) => {
+export default pageWithUserData(({ url, getUserProfile, ...props }) => {
   if (!props.token) {
     return (
       <div>
@@ -11,5 +11,5 @@ export default pageWithUserData(({ getUserProfile, ...props }) => {
       </div>
     )
   }
-  return <Dashboard user={getUserProfile} />
+  return <Dashboard user={getUserProfile} url={url.pathname} />
 })

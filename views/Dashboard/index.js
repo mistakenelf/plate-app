@@ -15,7 +15,8 @@ class Dashboard extends Component {
     loading: PropTypes.bool,
     plates: PropTypes.array,
     addPlate: PropTypes.func,
-    user: PropTypes.object
+    user: PropTypes.object,
+    url: PropTypes.string
   }
 
   render() {
@@ -28,7 +29,7 @@ class Dashboard extends Component {
         className="container"
         style={{ paddingLeft: '0.25rem', paddingRight: '0.25rem' }}
       >
-        <Breadcrumbs />
+        <Breadcrumbs currentRoute={this.props.url} />
         <div className="row row-margin">
           {this.props.plates.length === 0
             ? <div className="col-sm-12 col-md-6 col-lg-4 col-lg-offset-4 col-md-offset-3">

@@ -1,26 +1,26 @@
-import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 
-class Breadcrumbs extends Component {
-  static async getInitialProps({ asPath }) {
-    return asPath
-  }
-  render() {
-    return (
-      <div>
-        <ul className="breadcrumbs">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">{this.props.asPath}</a></li>
-          <li>File</li>
-        </ul>
-        <style jsx>{`
+const Breadcrumbs = ({ currentRoute }) => {
+  currentRoute = currentRoute.replace('/', '')
+  return (
+    <div>
+      <ul className="breadcrumbs">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">{currentRoute}</a></li>
+      </ul>
+      <style jsx>{`
         a {
           text-decoration: none;
           color: #343F53;
         }
         `}</style>
-      </div>
-    )
-  }
+    </div>
+  )
+}
+
+Breadcrumbs.propTypes = {
+  currentRoute: PropTypes.string
 }
 
 export default Breadcrumbs

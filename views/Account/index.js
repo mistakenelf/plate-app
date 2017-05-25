@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
 
 import AddRecoveredPlateMutation from '../../mutations/addRecoveredPlate'
+import Breadcrumbs from '../../components/Breadcrumbs/Breadcrumbs'
 import ChangePassword from './components/ChangePassword'
 import Loader from '../../components/Loader/Loader'
 import PlatesQuery from '../../queries/plates'
@@ -18,7 +19,8 @@ class Account extends Component {
     loading: PropTypes.bool,
     recoveredPlates: PropTypes.array,
     addRecoveredPlate: PropTypes.func,
-    removeRecoveredPlate: PropTypes.func
+    removeRecoveredPlate: PropTypes.func,
+    url: PropTypes.object
   }
 
   state = {
@@ -59,6 +61,7 @@ class Account extends Component {
 
     return (
       <div>
+        <Breadcrumbs currentRoute={this.props.url.pathname} />
         <div className="navigation-container">
           <div className="navigation">
             <span className="nav-link" style={{ marginRight: 30 }}>
