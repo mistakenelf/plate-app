@@ -3,6 +3,7 @@ import React from 'react'
 
 const Breadcrumbs = ({ currentRoute }) => {
   currentRoute = currentRoute.replace('/', '')
+  currentRoute = currentRoute.charAt(0).toUpperCase() + currentRoute.slice(1)
   return (
     <div>
       <ul className="breadcrumbs">
