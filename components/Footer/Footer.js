@@ -1,57 +1,84 @@
+import React, { Component } from 'react'
+
+import ContactUs from '../../views/ContactUs'
 import Icon from '../Icon/Icon'
 import Link from 'next/link'
-import React from 'react'
 
-const Footer = () => {
-  return (
-    <div className="footer-main">
-      <div className="row main-content">
-        <div className="col-sm-12 col-md-4 col-lg-4">
-          <h3>Plate</h3>
-          <p>
-            Plate is the easiest way to manage your tasks
-            Check out our resources to learn more about
-            getting started.
+class Footer extends Component {
+  state = {
+    contactModalOpen: false
+  }
+
+  openContactModal = () => {
+    this.setState({
+      contactModalOpen: true
+    })
+  }
+
+  closeContactModal = () => {
+    this.setState({
+      contactModalOpen: false
+    })
+  }
+
+  render() {
+    return (
+      <div className="footer-main">
+        <div className="row main-content">
+          <div className="col-sm-12 col-md-4 col-lg-4">
+            <h3>Plate</h3>
+            <p>
+              Plate is the easiest way to manage your tasks
+              Check out our resources to learn more about
+              getting started.
+              <br />
+              <br />
+              <Icon
+                style={{ color: '#3B5998', paddingRight: 30 }}
+                type="fa fa-facebook-square fa-3x"
+              />
+              <Icon
+                style={{ color: '#55ACEE', paddingRight: 30 }}
+                type="fa fa-twitter-square fa-3x"
+              />
+              <Icon style={{ color: '#5481A3' }} type="fa fa-instagram fa-3x" />
+            </p>
+          </div>
+          <div className="col-sm-12 col-md-4 col-lg-4">
+            <h3>Quick Links</h3>
+            <Link prefetch href="/terms">
+              <a className="footer-links">Terms and Conditions</a>
+            </Link>
             <br />
+            <Link prefetch href="/team">
+              <a className="footer-links">
+                Meet the Team
+              </a>
+            </Link>
+          </div>
+          <div className="col-sm-12 col-md-4 col-lg-4">
+            <h3>Get In Touch</h3>
+            <Link prefetch href="/about">
+              <a className="footer-links">About Us</a>
+            </Link>
             <br />
-            <Icon
-              style={{ color: '#3B5998', paddingRight: 30 }}
-              type="fa fa-facebook-square fa-3x"
-            />
-            <Icon
-              style={{ color: '#55ACEE', paddingRight: 30 }}
-              type="fa fa-twitter-square fa-3x"
-            />
-            <Icon style={{ color: '#5481A3' }} type="fa fa-instagram fa-3x" />
-          </p>
-        </div>
-        <div className="col-sm-12 col-md-4 col-lg-4">
-          <h3>Quick Links</h3>
-          <Link prefetch href="/terms">
-            <a className="footer-links">Terms and Conditions</a>
-          </Link>
-          <br />
-          <Link prefetch href="/team">
-            <a className="footer-links">
-              Meet the Team
+            <a
+              className="footer-links"
+              onClick={this.openContactModal}
+              style={{ cursor: 'pointer' }}
+            >
+              Contact Us
             </a>
-          </Link>
+          </div>
+          <ContactUs
+            contactModalOpen={this.state.contactModalOpen}
+            closeContactModal={this.closeContactModal}
+          />
         </div>
-        <div className="col-sm-12 col-md-4 col-lg-4">
-          <h3>Get In Touch</h3>
-          <Link prefetch href="/about">
-            <a className="footer-links">About Us</a>
-          </Link>
-          <br />
-          <Link prefetch href="/contactus">
-            <a className="footer-links">Contact Us</a>
-          </Link>
-        </div>
-      </div>
-      <footer className="copyright">
-        © 2017, Plate
-      </footer>
-      <style jsx>{`
+        <footer className="copyright">
+          © 2017, Plate
+        </footer>
+        <style jsx>{`
         h3 {
           text-transform: uppercase;
           font-size: 14px;
@@ -124,8 +151,9 @@ const Footer = () => {
           text-align: center;
         }
       `}</style>
-    </div>
-  )
+      </div>
+    )
+  }
 }
 
 export default Footer
