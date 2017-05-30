@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -7,7 +8,7 @@ const Breadcrumbs = ({ currentRoute }) => {
   return (
     <div>
       <ul className="breadcrumbs">
-        <li><a href="#">Home</a></li>
+        <li><Link href="/"><a>Home</a></Link></li>
         <li><a href="#">{currentRoute}</a></li>
       </ul>
       <style jsx>{`
@@ -15,7 +16,7 @@ const Breadcrumbs = ({ currentRoute }) => {
           text-decoration: none;
           color: #343F53;
         }
-        `}</style>
+      `}</style>
     </div>
   )
 }
