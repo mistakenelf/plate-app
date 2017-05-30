@@ -21,7 +21,7 @@
     "freactal": "^1.1.0",
     "graphql": "^0.10.1",
     "graphql-server-express": "^0.7.2",
-    "graphql-tools": "^0.11.0",
+    "graphql-tools": "^1.0.0",
     "helmet": "^3.6.1",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
