@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const Card = ({
+export default function Card({
   children,
   style,
   headerText,
@@ -9,7 +9,7 @@ const Card = ({
   subheader,
   actionIcon,
   footerItems
-}) => {
+}) {
   return (
     <div className="card fluid custom-card" style={style}>
       <div className="header-container">
@@ -79,5 +79,3 @@ Card.propTypes = {
   actionIcon: PropTypes.node,
   footerItems: PropTypes.array
 }
-
-export default Card

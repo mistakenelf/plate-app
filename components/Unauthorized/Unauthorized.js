@@ -2,7 +2,7 @@ import Card from '../Card/Card'
 import Icon from '../Icon/Icon'
 import React from 'react'
 
-const Unauthorized = () => {
+export default function Unauthorized() {
   return (
     <div className="container">
       <div className="row">
@@ -28,5 +28,3 @@ const Unauthorized = () => {
     </div>
   )
 }
-
-export default Unauthorized

@@ -2,7 +2,7 @@ import Icon from '../Icon/Icon'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const BackButton = ({ color }) => {
+export default function BackButton({ color }) {
   return (
     <div>
       <a onClick={() => window.history.back()}>
@@ -23,5 +23,3 @@ const BackButton = ({ color }) => {
 BackButton.propTypes = {
   color: PropTypes.string
 }
-
-export default BackButton

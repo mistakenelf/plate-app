@@ -1,28 +1,25 @@
-import { injectState, provideState } from 'freactal'
+import React, { Component } from 'react'
 
 import Link from 'next/link'
 import PropTypes from 'prop-types'
-import React from 'react'
 import Router from 'next/router'
 import { removeAccessToken } from '../../utils/cookieUtils'
 
-const wrapComponentWithState = provideState({
-  initialState: props => ({
-    loggedIn: props.loggedIn
-  }),
-  effects: {
-    logout: () => state => Object.assign({}, state, { loggedIn: false })
+export default class Navigation extends Component {
+  static propTypes = {
+    loggedIn: PropTypes.bool
   }
-})
 
-const logUserOut = logout => {
-  logout()
-  removeAccessToken()
-  Router.push('/login')
-}
+  state = {
+    loggedIn: this.props.loggedIn
+  }
 
-const Navigation = wrapComponentWithState(
-  injectState(({ state, effects }) => {
+  logUserOut = () => {
+    removeAccessToken()
+    Router.push('/login')
+  }
+
+  render() {
     return (
       <span>
         <header className="sticky nav-bar shadowed">
@@ -36,7 +33,7 @@ const Navigation = wrapComponentWithState(
               Plate
             </a>
           </Link>
-          {state.loggedIn
+          {this.state.loggedIn
             ? <span className="hidden-sm">
                 <Link prefetch href="/">
                   <a className="nav-link desktop-nav-link">Home</a>
@@ -50,7 +47,7 @@ const Navigation = wrapComponentWithState(
                 <span className="nav-link">|</span>
                 <a
                   className="nav-link desktop-nav-link"
-                  onClick={() => logUserOut(effects.logout)}
+                  onClick={this.logUserOut}
                 >
                   Logout
                 </a>
@@ -72,7 +69,7 @@ const Navigation = wrapComponentWithState(
         <div className="drawer hidden-md hidden-lg">
           <label htmlFor="drawer-checkbox" className="close" />
           <nav style={{ border: 'none' }}>
-            {state.loggedIn
+            {this.state.loggedIn
               ? <span>
                   <Link href="/">
                     <a className="nav-link mobile-nav-link">Home</a>
@@ -85,7 +82,7 @@ const Navigation = wrapComponentWithState(
                   </Link>
                   <a
                     className="nav-link mobile-nav-link"
-                    onClick={() => logUserOut(effects.logout)}
+                    onClick={this.logUserOut}
                   >
                     Logout
                   </a>
@@ -131,12 +128,5 @@ const Navigation = wrapComponentWithState(
         `}</style>
       </span>
     )
-  })
-)
-
-Navigation.propTypes = {
-  loggedIn: PropTypes.bool,
-  client: PropTypes.object
+  }
 }
-
-export default Navigation

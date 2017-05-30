@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const Alert = ({ message }) => {
+export default function Alert({ message }) {
   return (
     <div className="toast">
       {message}
@@ -12,5 +12,3 @@ const Alert = ({ message }) => {
 Alert.propTypes = {
   message: PropTypes.string
 }
-
-export default Alert

@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const PageHeader = ({ headerText }) => {
+export default function PageHeader({ headerText }) {
   return (
     <div className="header-container">
-      <div className="header">{headerText.toUpperCase()}</div>
+      <div className="header all-caps">{headerText}</div>
       <style jsx>{`
         .header-container {
           display: flex;
@@ -21,6 +21,9 @@ const PageHeader = ({ headerText }) => {
           color: #424242;
           font-weight: bolder;
         }
+        .all-caps {
+          text-transform: uppercase;
+        }
       `}</style>
     </div>
   )
@@ -29,5 +32,3 @@ const PageHeader = ({ headerText }) => {
 PageHeader.propTypes = {
   headerText: PropTypes.string
 }
-
-export default PageHeader

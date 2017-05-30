@@ -45,7 +45,7 @@ function _initClient(headers, initialState) {
   })
 }
 
-export const initClient = (headers, initialState = {}) => {
+export function initClient(headers, initialState = {}) {
   if (!process.browser) {
     return _initClient(headers, initialState)
   }

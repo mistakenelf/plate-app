@@ -58,7 +58,7 @@ class Account extends Component {
     }
 
     return (
-      <div>
+      <div className="container">
         <Breadcrumbs currentRoute={this.props.url.pathname} />
         <div className="navigation-container">
           <div className="navigation">

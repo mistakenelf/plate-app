@@ -1,7 +1,7 @@
 import PageHeader from '../../components/PageHeader/PageHeader'
 import React from 'react'
 
-const About = () => {
+export default function About() {
   return (
     <div className="container">
       <PageHeader headerText="About Us" />
@@ -15,5 +15,3 @@ const About = () => {
     </div>
   )
 }
-
-export default About

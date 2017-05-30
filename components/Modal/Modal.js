@@ -3,7 +3,7 @@ import Portal from 'react-portal'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const Modal = ({ open, closeModal, children }) => {
+export default function Modal({ open, closeModal, children }) {
   return (
     <Portal isOpened={open}>
       <div className="modal">
@@ -59,5 +59,3 @@ Modal.propTypes = {
   open: PropTypes.bool,
   closeModal: PropTypes.func
 }
-
-export default Modal

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const Header = ({ title }) => {
+export default function Header({ title }) {
   return (
     <Head>
       <title>{title}</title>
@@ -31,5 +31,3 @@ const Header = ({ title }) => {
 Header.propTypes = {
   title: PropTypes.string
 }
-
-export default Header

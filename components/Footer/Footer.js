@@ -4,7 +4,7 @@ import ContactUs from '../../views/ContactUs'
 import Icon from '../Icon/Icon'
 import Link from 'next/link'
 
-class Footer extends Component {
+export default class Footer extends Component {
   state = {
     contactModalOpen: false
   }
@@ -155,5 +155,3 @@ class Footer extends Component {
     )
   }
 }
-
-export default Footer
