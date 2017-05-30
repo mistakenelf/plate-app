@@ -67,7 +67,9 @@ class AddPlateDialog extends Component {
               </div>
               <div className="input-group fluid">
                 <label style={{ width: 90 }}>Plate Description</label>
-                <input
+                <textarea
+                  rows={4}
+                  style={{ width: '100%' }}
                   name="description"
                   id="add_plate_description"
                   type="text"

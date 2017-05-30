@@ -1,7 +1,7 @@
 import PageHeader from '../../components/PageHeader/PageHeader'
 import React from 'react'
 
-const TermsAndConditions = () => {
+export default function TermsAndConditions() {
   return (
     <div className="container">
       <PageHeader headerText="Plate Terms of Service and Privacy Policy" />
@@ -98,5 +98,3 @@ const TermsAndConditions = () => {
     </div>
   )
 }
-
-export default TermsAndConditions

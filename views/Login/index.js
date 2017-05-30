@@ -2,7 +2,7 @@ import BackButton from '../../components/BackButton/BackButton'
 import LoginForm from './components/LoginForm'
 import React from 'react'
 
-const Login = () => {
+export default function Login() {
   return (
     <div>
       <BackButton color="white" />
@@ -16,5 +16,3 @@ const Login = () => {
     </div>
   )
 }
-
-export default Login

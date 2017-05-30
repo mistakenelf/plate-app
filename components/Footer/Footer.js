@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import ContactUs from '../../views/ContactUs'
+import ContactUsModal from '../ContactUsModal/ContactUsModal'
 import Icon from '../Icon/Icon'
 import Link from 'next/link'
 
@@ -70,7 +70,7 @@ export default class Footer extends Component {
               Contact Us
             </a>
           </div>
-          <ContactUs
+          <ContactUsModal
             contactModalOpen={this.state.contactModalOpen}
             closeContactModal={this.closeContactModal}
           />

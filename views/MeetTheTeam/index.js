@@ -1,7 +1,7 @@
 import PageHeader from '../../components/PageHeader/PageHeader'
 import React from 'react'
 
-const MeetTheTeam = () => {
+export default function MeetTheTeam() {
   return (
     <div className="container">
       <PageHeader headerText="Plate Team" />
@@ -31,5 +31,3 @@ const MeetTheTeam = () => {
     </div>
   )
 }
-
-export default MeetTheTeam
