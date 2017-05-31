@@ -142,7 +142,7 @@ class Plate extends Component {
           <button
             type="button"
             onClick={() =>
-              deletePlate(
+              this.deletePlate(
                 recoverPlate,
                 removePlate,
                 plateId,
