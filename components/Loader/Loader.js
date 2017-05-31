@@ -8,7 +8,7 @@ export default function Loader() {
         .loader {
           display: flex;
           margin-top: 100px;
-          width: 100%:
+          width: 100%;
           align-items: center;
           justify-content: center;
         }

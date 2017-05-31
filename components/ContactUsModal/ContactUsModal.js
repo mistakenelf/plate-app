@@ -5,14 +5,14 @@ import React from 'react'
 import Router from 'next/router'
 import { graphql } from 'react-apollo'
 
-function sendEmail(e, contactUs) {
+async function sendEmail(e, contactUs) {
   e.preventDefault()
 
   let name = document.getElementById('name').value
   let email = document.getElementById('email').value
   let message = document.getElementById('message').value
 
-  contactUs(email, name, message)
+  await contactUs(email, name, message)
   Router.push('/')
 }
 

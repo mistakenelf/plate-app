@@ -1,3 +1,4 @@
+import { Animate } from 'react-move'
 import Icon from '../Icon/Icon'
 import Portal from 'react-portal'
 import PropTypes from 'prop-types'
@@ -26,7 +27,27 @@ export default function Modal({ open, closeModal, children }) {
         <div className="container">
           <div className="row">
             <div className="col-sm-12 col-md-8 col-lg-4 col-md-offset-2 col-lg-offset-4">
-              {children}
+              <Animate
+                key="modal"
+                easing="circleIn"
+                default={{
+                  scale: 0
+                }}
+                data={{
+                  scale: 1
+                }}
+                duration={200}
+              >
+                {data => (
+                  <div
+                    style={{
+                      transform: `scale(${data.scale})`
+                    }}
+                  >
+                    {children}
+                  </div>
+                )}
+              </Animate>
             </div>
           </div>
         </div>

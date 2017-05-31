@@ -90,7 +90,7 @@ class AddPlateDialog extends Component {
           .form-section {
             margin: 20px;
           }
-          `}</style>
+        `}</style>
       </Modal>
     )
   }
