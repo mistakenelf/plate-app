@@ -3,11 +3,7 @@ import React from 'react'
 import Unauthorized from '../components/Unauthorized/Unauthorized'
 import { pageWithUserData } from '../hocs/page'
 
-export default pageWithUserData(function account({
-  url,
-  getUserProfile,
-  ...props
-}) {
+export default pageWithUserData(({ url, getUserProfile, ...props }) => {
   if (!props.token) {
     return (
       <div>
