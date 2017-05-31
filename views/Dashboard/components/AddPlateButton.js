@@ -1,42 +1,47 @@
-import { injectState, provideState } from 'freactal'
+import React, { Component } from 'react'
 
 import AddPlateDialog from './AddPlateDialog'
 import PropTypes from 'prop-types'
-import React from 'react'
 
-const wrapComponentWithState = provideState({
-  initialState: () => ({
+class AddPlateButton extends Component {
+  state = {
     open: false
-  }),
-  effects: {
-    openDialog: () => state => Object.assign({}, state, { open: true }),
-    closeDialog: () => state => Object.assign({}, state, { open: false })
   }
-})
 
-const AddPlateButton = wrapComponentWithState(
-  injectState(({ state, effects, user }) => {
+  openDialog = () => {
+    this.setState({
+      open: true
+    })
+  }
+
+  closeDialog = () => {
+    this.setState({
+      open: false
+    })
+  }
+
+  static propTypes = {
+    user: PropTypes.object
+  }
+
+  render() {
     return (
       <div>
         <button
           type="button"
           className="tertiary large shadowed circular"
-          onClick={effects.openDialog}
+          onClick={this.openDialog}
         >
           ＋
         </button>
         <AddPlateDialog
-          user={user}
-          open={state.open}
-          closeDialog={effects.closeDialog}
+          user={this.props.user}
+          open={this.state.open}
+          closeDialog={this.closeDialog}
         />
       </div>
     )
-  })
-)
-
-AddPlateButton.propTypes = {
-  user: PropTypes.object
+  }
 }
 
 export default AddPlateButton

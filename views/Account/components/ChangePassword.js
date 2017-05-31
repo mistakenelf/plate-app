@@ -1,55 +1,65 @@
-import { injectState, provideState } from 'freactal'
+import React, { Component } from 'react'
 
 import Alert from '../../../components/Alert/Alert'
 import ChangePasswordMutation from '../../../mutations/changePassword'
 import PropTypes from 'prop-types'
-import React from 'react'
 import { graphql } from 'react-apollo'
 
-const wrapComponentWithState = provideState({
-  initialState: () => ({
+class ChangePassword extends Component {
+  static propTypes = {
+    user: PropTypes.object,
+    changePassword: PropTypes.func
+  }
+
+  state = {
     showMessage: false,
     showMatchError: false
-  }),
-  effects: {
-    showMessage: () => state => Object.assign({}, state, { showMessage: true }),
-    showMatchError: () => state =>
-      Object.assign({}, state, { showMatchError: true }),
-    clearErrors: () => state =>
-      Object.assign({}, state, { showMessage: false, showMatchError: false })
   }
-})
 
-const updatePassword = (e, id, changePassword, showMessage, showMatchError) => {
-  e.preventDefault()
-  const newPassword = document.getElementById('newPassword').value
-  const confirmNewPassword = document.getElementById('confirmNewPassword').value
-
-  if (confirmNewPassword !== newPassword) {
-    showMatchError()
-    return false
-  } else {
-    changePassword(id, newPassword)
-    showMessage()
-    document.getElementById('newPassword').value = ''
-    document.getElementById('confirmNewPassword').value = ''
+  showMessage = () => {
+    this.setState({
+      showMessage: true
+    })
   }
-}
 
-const ChangePassword = wrapComponentWithState(
-  injectState(({ state, effects, user, changePassword }) => {
+  showMatchError = () => {
+    this.setState({
+      showMatchError: true
+    })
+  }
+
+  clearErrors = () => {
+    this.setState({
+      showMessage: false,
+      showMatchError: true
+    })
+  }
+
+  updatePassword = (e, id, changePassword) => {
+    e.preventDefault()
+    const newPassword = document.getElementById('newPassword').value
+    const confirmNewPassword = document.getElementById('confirmNewPassword')
+      .value
+
+    if (confirmNewPassword !== newPassword) {
+      this.showMatchError()
+      return false
+    } else {
+      changePassword(id, newPassword)
+      this.showMessage()
+      document.getElementById('newPassword').value = ''
+      document.getElementById('confirmNewPassword').value = ''
+    }
+  }
+
+  render() {
+    const { user, changePassword } = this.props
+
     return (
       <div>
         <form
-          onFocus={() => effects.clearErrors()}
-          onSubmit={e =>
-            updatePassword(
-              e,
-              user.id,
-              changePassword,
-              effects.showMessage,
-              effects.showMatchError
-            )}
+          onFocus={() => this.clearErrors()}
+          onSubmit={e => this.updatePassword(e, user.id, changePassword)}
         >
           <fieldset>
             <legend>Change Password</legend>
@@ -80,8 +90,8 @@ const ChangePassword = wrapComponentWithState(
             </div>
           </fieldset>
         </form>
-        {state.showMessage && <Alert message="Password Changed" />}
-        {state.showMatchError && <Alert message="Passwords Much Match" />}
+        {this.showMessage && <Alert message="Password Changed" />}
+        {this.state.showMatchError && <Alert message="Passwords Much Match" />}
         <style jsx>{`
         .input-label {
           width: 80px;
@@ -95,12 +105,7 @@ const ChangePassword = wrapComponentWithState(
       `}</style>
       </div>
     )
-  })
-)
-
-ChangePassword.propTypes = {
-  user: PropTypes.object,
-  changePassword: PropTypes.func
+  }
 }
 
 export default graphql(ChangePasswordMutation, {

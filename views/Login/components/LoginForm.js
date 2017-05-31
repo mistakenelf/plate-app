@@ -1,41 +1,45 @@
+import React, { Component } from 'react'
 import { compose, graphql } from 'react-apollo'
-import { injectState, provideState } from 'freactal'
 
 import Alert from '../../../components/Alert/Alert'
 import Link from 'next/link'
 import LoginMutation from '../../../mutations/login'
 import PropTypes from 'prop-types'
-import React from 'react'
 import Router from 'next/router'
 import { saveAccessToken } from '../../../utils/cookieUtils'
 
-const wrapComponentWithState = provideState({
-  initialState: () => ({
+class LoginForm extends Component {
+  static propTypes = {
+    login: PropTypes.func
+  }
+
+  state = {
     loginError: false
-  }),
-  effects: {
-    showError: () => state => Object.assign({}, state, { loginError: true })
   }
-})
 
-const userLogin = async (e, login, showError) => {
-  e.preventDefault()
-  const username = document.getElementById('username').value
-  const password = document.getElementById('password').value
-
-  const token = await login(username, password)
-  if (token.data.login === null) {
-    showError()
-  } else {
-    saveAccessToken(token.data.login, { path: '/', expires: 7 })
-    Router.push('/dashboard')
+  showError = () => {
+    this.setState({
+      loginError: true
+    })
   }
-}
 
-const LoginForm = wrapComponentWithState(
-  injectState(({ state, effects, login }) => {
+  userLogin = async (e, login) => {
+    e.preventDefault()
+    const username = document.getElementById('username').value
+    const password = document.getElementById('password').value
+
+    const token = await login(username, password)
+    if (token.data.login === null) {
+      this.showError()
+    } else {
+      saveAccessToken(token.data.login, { path: '/', expires: 7 })
+      Router.push('/dashboard')
+    }
+  }
+
+  render() {
     return (
-      <form onSubmit={e => userLogin(e, login, effects.showError)}>
+      <form onSubmit={e => this.userLogin(e, this.props.login)}>
         <fieldset>
           <legend>Login</legend>
           <div className="input-group fluid">
@@ -66,7 +70,7 @@ const LoginForm = wrapComponentWithState(
               <a>Not Already A Member?</a>
             </Link>
           </div>
-          {state.loginError && <Alert message="Error! Invalid login" />}
+          {this.state.loginError && <Alert message="Error! Invalid login" />}
         </fieldset>
         <style jsx>{`
           .input-label {
@@ -84,11 +88,7 @@ const LoginForm = wrapComponentWithState(
         `}</style>
       </form>
     )
-  })
-)
-
-LoginForm.propTypes = {
-  login: PropTypes.func
+  }
 }
 
 export default compose(
