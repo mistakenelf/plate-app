@@ -55,9 +55,6 @@
   },
   "now": {
     "alias": "platemate.io",
-    "engines": {
-      "node": "7.x"
-    },
     "files": [
       "env-config.js"
     ]
