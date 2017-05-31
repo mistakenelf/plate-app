@@ -1,48 +1,52 @@
-import { injectState, provideState } from 'freactal'
+import React, { Component } from 'react'
 
 import Alert from '../../../components/Alert/Alert'
 import Link from 'next/link'
 import PropTypes from 'prop-types'
-import React from 'react'
 import RegisterMutation from '../../../mutations/register'
 import Router from 'next/router'
 import { graphql } from 'react-apollo'
 import { saveAccessToken } from '../../../utils/cookieUtils'
 
-const wrapComponentWithState = provideState({
-  initialState: () => ({
+class RegisterForm extends Component {
+  static propTypes = {
+    register: PropTypes.func
+  }
+
+  state = {
     registerError: false
-  }),
-  effects: {
-    showError: () => state => Object.assign({}, state, { registerError: true })
   }
-})
 
-const registerUser = async (e, register, showError) => {
-  e.preventDefault()
-  const firstName = document.getElementById('firstName').value
-  const lastName = document.getElementById('lastName').value
-  const username = document.getElementById('username').value
-  const password = document.getElementById('password').value
-  const email = document.getElementById('email').value
-
-  const user = await register(firstName, lastName, username, password, email)
-
-  if (user.data.register === null) {
-    showError()
-  } else {
-    saveAccessToken(user.data.register, {
-      path: '/',
-      expires: 7
+  showError = () => {
+    this.setState({
+      registerError: true
     })
-    Router.push('/dashboard')
   }
-}
 
-const RegisterForm = wrapComponentWithState(
-  injectState(({ state, effects, register }) => {
+  registerUser = async (e, register) => {
+    e.preventDefault()
+    const firstName = document.getElementById('firstName').value
+    const lastName = document.getElementById('lastName').value
+    const username = document.getElementById('username').value
+    const password = document.getElementById('password').value
+    const email = document.getElementById('email').value
+
+    const user = await register(firstName, lastName, username, password, email)
+
+    if (user.data.register === null) {
+      this.showError()
+    } else {
+      saveAccessToken(user.data.register, {
+        path: '/',
+        expires: 7
+      })
+      Router.push('/dashboard')
+    }
+  }
+
+  render() {
     return (
-      <form onSubmit={e => registerUser(e, register, effects.showError)}>
+      <form onSubmit={e => this.registerUser(e, register)}>
         <fieldset>
           <legend>Register</legend>
           <div className="input-group fluid">
@@ -93,7 +97,7 @@ const RegisterForm = wrapComponentWithState(
               </Link>
             </button>
           </div>
-          {state.registerError &&
+          {this.state.registerError &&
             <Alert message="Error! Registration Failed" />}
         </fieldset>
         <style jsx>{`
@@ -109,11 +113,7 @@ const RegisterForm = wrapComponentWithState(
         `}</style>
       </form>
     )
-  })
-)
-
-RegisterForm.propTypes = {
-  register: PropTypes.func
+  }
 }
 
 export default graphql(RegisterMutation, {
