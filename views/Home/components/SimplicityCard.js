@@ -1,7 +1,7 @@
 import Card from '../../../components/Card/Card'
 import React from 'react'
 
-const SimplicityCard = () => {
+export default function SimplicityCard() {
   return (
     <Card style={{ textAlign: 'center', minHeight: 200 }}>
       <span className="header">Simplicity</span>
@@ -23,5 +23,3 @@ const SimplicityCard = () => {
     </Card>
   )
 }
-
-export default SimplicityCard

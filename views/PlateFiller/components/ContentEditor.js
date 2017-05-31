@@ -14,7 +14,7 @@ import PropTypes from 'prop-types'
 import debounce from 'lodash/debounce'
 import { getBlockStyle } from './getBlockStyle'
 
-class ContentEditor extends Component {
+export default class ContentEditor extends Component {
   static propTypes = {
     saveContent: PropTypes.func,
     plateContent: PropTypes.string,
@@ -139,5 +139,3 @@ class ContentEditor extends Component {
     )
   }
 }
-
-export default ContentEditor

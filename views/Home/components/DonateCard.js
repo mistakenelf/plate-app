@@ -1,7 +1,7 @@
 import Card from '../../../components/Card/Card'
 import React from 'react'
 
-const DonateCard = () => {
+export default function DonateCard() {
   return (
     <Card style={{ textAlign: 'center', minHeight: 200 }}>
       <span className="header">Donate</span>
@@ -44,5 +44,3 @@ const DonateCard = () => {
     </Card>
   )
 }
-
-export default DonateCard

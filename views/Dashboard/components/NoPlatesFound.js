@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import moment from 'moment'
 
-const NoPlatesFound = ({ user }) => {
+export default function NoPlatesFound({ user }) {
   return (
     <Card style={{ textAlign: 'center', marginTop: 20 }}>
       <div className="content">
@@ -25,5 +25,3 @@ const NoPlatesFound = ({ user }) => {
 NoPlatesFound.propTypes = {
   user: PropTypes.object
 }
-
-export default NoPlatesFound

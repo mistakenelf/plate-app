@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SlideTwo = () => {
+export default function SlideTwo() {
   return (
     <div>
       <div>
@@ -25,5 +25,3 @@ const SlideTwo = () => {
     </div>
   )
 }
-
-export default SlideTwo

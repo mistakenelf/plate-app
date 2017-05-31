@@ -2,7 +2,7 @@ import BackButton from '../../components/BackButton/BackButton'
 import React from 'react'
 import RegisterForm from './components/RegisterForm'
 
-const Register = () => {
+export default function Register() {
   return (
     <div>
       <BackButton color="white" />
@@ -16,5 +16,3 @@ const Register = () => {
     </div>
   )
 }
-
-export default Register

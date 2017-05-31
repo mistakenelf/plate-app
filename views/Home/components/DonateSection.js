@@ -3,7 +3,7 @@ import React from 'react'
 import SimplicityCard from './SimplicityCard'
 import SupportCard from './SupportCard'
 
-const DonateSection = () => {
+export default function DonateSection() {
   return (
     <div>
       <div className="row price-section">
@@ -46,5 +46,3 @@ const DonateSection = () => {
     </div>
   )
 }
-
-export default DonateSection

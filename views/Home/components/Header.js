@@ -29,18 +29,18 @@ const styles = {
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews)
 
-const Header = () => (
-  <AutoPlaySwipeableViews enableMouseEvents resistance interval={4000}>
-    <div style={Object.assign({}, styles.slide, styles.slide1)}>
-      <SlideOne />
-    </div>
-    <div style={Object.assign({}, styles.slide, styles.slide2)}>
-      <SlideTwo />
-    </div>
-    <div style={Object.assign({}, styles.slide, styles.slide3)}>
-      <SlideThree />
-    </div>
-  </AutoPlaySwipeableViews>
-)
-
-export default Header
+export default function Header() {
+  return (
+    <AutoPlaySwipeableViews enableMouseEvents resistance interval={4000}>
+      <div style={Object.assign({}, styles.slide, styles.slide1)}>
+        <SlideOne />
+      </div>
+      <div style={Object.assign({}, styles.slide, styles.slide2)}>
+        <SlideTwo />
+      </div>
+      <div style={Object.assign({}, styles.slide, styles.slide3)}>
+        <SlideThree />
+      </div>
+    </AutoPlaySwipeableViews>
+  )
+}

@@ -2,7 +2,7 @@ import Modal from '../../../components/Modal/Modal'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const deletePlate = (removeRecoveredPlate, plateId, closeDialog) => {
+function deletePlate(removeRecoveredPlate, plateId, closeDialog) {
   removeRecoveredPlate(plateId)
   closeDialog()
 }

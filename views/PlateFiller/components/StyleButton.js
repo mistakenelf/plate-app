@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import PropTypes from 'prop-types'
 
-class StyleButton extends Component {
+export default class StyleButton extends Component {
   static propTypes = {
     onToggle: PropTypes.func,
     style: PropTypes.string,
@@ -28,7 +28,7 @@ class StyleButton extends Component {
           .RichEditor-styleButton {
             color: #999;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 14px;
             margin-right: 16px;
             padding: 2px 0;
           }
@@ -40,5 +40,3 @@ class StyleButton extends Component {
     )
   }
 }
-
-export default StyleButton

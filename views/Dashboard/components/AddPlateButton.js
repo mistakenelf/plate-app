@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import AddPlateDialog from './AddPlateDialog'
 import PropTypes from 'prop-types'
 
-class AddPlateButton extends Component {
+export default class AddPlateButton extends Component {
   state = {
     open: false
   }
@@ -43,5 +43,3 @@ class AddPlateButton extends Component {
     )
   }
 }
-
-export default AddPlateButton

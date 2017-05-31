@@ -8,10 +8,11 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import SavePlateContentMutation from '../../mutations/savePlateContent'
 
-const PlateFiller = ({ plateId, savePlateContent, plate, loading }) => {
+function PlateFiller({ plateId, savePlateContent, plate, loading }) {
   if (loading) {
     return <Loader />
   }
+
   return (
     <div className="container">
       <div className="row">

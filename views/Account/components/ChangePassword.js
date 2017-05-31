@@ -93,16 +93,16 @@ class ChangePassword extends Component {
         {this.state.showMessage && <Alert message="Password Changed" />}
         {this.state.showMatchError && <Alert message="Passwords Much Match" />}
         <style jsx>{`
-        .input-label {
-          width: 80px;
-        }
-        a {
-          text-decoration: none;
-        }
-        .error-text {
-          text-align: center;
-        }
-      `}</style>
+          .input-label {
+            width: 80px;
+          }
+          a {
+            text-decoration: none;
+          }
+          .error-text {
+            text-align: center;
+          }
+        `}</style>
       </div>
     )
   }

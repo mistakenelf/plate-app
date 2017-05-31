@@ -2,12 +2,12 @@ import Modal from '../../../components/Modal/Modal'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const recoverPlate = async (
+async function recoverPlate(
   plate,
   addRecoveredPlate,
   removeRecoveredPlate,
   closeDialog
-) => {
+) {
   await addRecoveredPlate(
     plate.name,
     plate.description,

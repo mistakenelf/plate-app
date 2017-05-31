@@ -2,13 +2,13 @@ import Modal from '../../../components/Modal/Modal'
 import PropTypes from 'prop-types'
 import React from 'react'
 
-const editPlateDetails = async (
+async function editPlateDetails(
   e,
   id,
   editPlate,
   status,
   editPlateHandleClose
-) => {
+) {
   e.preventDefault()
   const newPlateName = document.getElementById('currentPlateName').value
   const newPlateDescription = document.getElementById('currentPlateDescription')
@@ -30,7 +30,7 @@ const editPlateDetails = async (
   editPlateHandleClose()
 }
 
-const EditPlateDialog = ({
+export default function EditPlateDialog({
   editPlateOpen,
   editPlateHandleClose,
   plateId,
@@ -38,7 +38,7 @@ const EditPlateDialog = ({
   plateDescription,
   editPlate,
   plateStatus
-}) => {
+}) {
   return (
     <Modal open={editPlateOpen} closeModal={editPlateHandleClose}>
       <form
@@ -125,5 +125,3 @@ EditPlateDialog.propTypes = {
   plateStatus: PropTypes.string,
   editPlate: PropTypes.func
 }
-
-export default EditPlateDialog

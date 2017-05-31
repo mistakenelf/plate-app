@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AdvertisingSection = () => {
+export default function AdvertisingSection() {
   return (
     <section className="section">
       <div className="row row-padding">
@@ -41,5 +41,3 @@ const AdvertisingSection = () => {
     </section>
   )
 }
-
-export default AdvertisingSection

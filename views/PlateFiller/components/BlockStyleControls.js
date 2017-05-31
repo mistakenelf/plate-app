@@ -18,7 +18,7 @@ const BLOCK_TYPES = [
   { label: 'Center', style: 'text-align-center' }
 ]
 
-const BlockStyleControls = props => {
+export default function BlockStyleControls(props) {
   const { editorState } = props
   const selection = editorState.getSelection()
   const blockType = editorState
@@ -51,5 +51,3 @@ BlockStyleControls.propTypes = {
   editorState: PropTypes.object,
   onToggle: PropTypes.func
 }
-
-export default BlockStyleControls

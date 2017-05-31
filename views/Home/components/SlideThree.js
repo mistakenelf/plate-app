@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SlideThree = () => {
+export default function SlideThree() {
   return (
     <div>
       <div>
@@ -24,5 +24,3 @@ const SlideThree = () => {
     </div>
   )
 }
-
-export default SlideThree

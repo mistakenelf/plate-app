@@ -9,7 +9,7 @@ var INLINE_STYLES = [
   { label: 'Monospace', style: 'CODE' }
 ]
 
-const InlineStyleControls = props => {
+export default function InlineStyleControls(props) {
   var currentStyle = props.editorState.getCurrentInlineStyle()
   return (
     <div className="RichEditor-controls">
@@ -36,5 +36,3 @@ InlineStyleControls.propTypes = {
   editorState: PropTypes.object,
   onToggle: PropTypes.func
 }
-
-export default InlineStyleControls
