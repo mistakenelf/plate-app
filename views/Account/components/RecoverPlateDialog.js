@@ -20,36 +20,38 @@ const recoverPlate = async (
   closeDialog()
 }
 
-const RecoverPlateDialog = ({
+export default function RecoverPlateDialog({
   dialogOpen,
   closeDialog,
   addRecoveredPlate,
   removeRecoveredPlate,
   plate
-}) => (
-  <Modal open={dialogOpen} closeModal={closeDialog}>
-    <h3 style={{ color: 'white', marginTop: 150 }}>
-      Are you sure you want to recover this plate?
-    </h3>
-    <button type="secondary" className="secondary" onClick={closeDialog}>
-      Cancel
-    </button>
-    <button
-      type="submit"
-      className="primary"
-      style={{ float: 'right' }}
-      onClick={() =>
-        recoverPlate(
-          plate,
-          addRecoveredPlate,
-          removeRecoveredPlate,
-          closeDialog
-        )}
-    >
-      Confirm
-    </button>
-  </Modal>
-)
+}) {
+  return (
+    <Modal open={dialogOpen} closeModal={closeDialog}>
+      <h3 style={{ color: 'white', marginTop: 150 }}>
+        Are you sure you want to recover this plate?
+      </h3>
+      <button type="secondary" className="secondary" onClick={closeDialog}>
+        Cancel
+      </button>
+      <button
+        type="submit"
+        className="primary"
+        style={{ float: 'right' }}
+        onClick={() =>
+          recoverPlate(
+            plate,
+            addRecoveredPlate,
+            removeRecoveredPlate,
+            closeDialog
+          )}
+      >
+        Confirm
+      </button>
+    </Modal>
+  )
+}
 
 RecoverPlateDialog.propTypes = {
   dialogOpen: PropTypes.bool,
@@ -58,5 +60,3 @@ RecoverPlateDialog.propTypes = {
   removeRecoveredPlate: PropTypes.func,
   plate: PropTypes.object
 }
-
-export default RecoverPlateDialog

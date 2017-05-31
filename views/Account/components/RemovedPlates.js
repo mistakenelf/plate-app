@@ -4,7 +4,7 @@ import DeletePlateDialog from './DeletePlateDialog'
 import PropTypes from 'prop-types'
 import RecoverPlateDialog from './RecoverPlateDialog'
 
-class RemovedPlates extends Component {
+export default class RemovedPlates extends Component {
   static propTypes = {
     recoverPlates: PropTypes.array,
     addRecoveredPlate: PropTypes.func,
@@ -116,5 +116,3 @@ class RemovedPlates extends Component {
     }
   }
 }
-
-export default RemovedPlates

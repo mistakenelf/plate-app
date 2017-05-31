@@ -31,7 +31,7 @@ class ChangePassword extends Component {
   clearErrors = () => {
     this.setState({
       showMessage: false,
-      showMatchError: true
+      showMatchError: false
     })
   }
 
@@ -90,7 +90,7 @@ class ChangePassword extends Component {
             </div>
           </fieldset>
         </form>
-        {this.showMessage && <Alert message="Password Changed" />}
+        {this.state.showMessage && <Alert message="Password Changed" />}
         {this.state.showMatchError && <Alert message="Passwords Much Match" />}
         <style jsx>{`
         .input-label {

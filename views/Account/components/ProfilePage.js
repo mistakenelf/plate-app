@@ -15,7 +15,7 @@ const profileUpdate = debounce(async (id, updateProfile) => {
   saveAccessToken(data.data.updateProfile, { path: '/', expires: 7 })
 }, 500)
 
-const ProfilePage = ({ user, updateProfile }) => {
+function ProfilePage({ user, updateProfile }) {
   return (
     <form>
       <fieldset>
