@@ -29,7 +29,7 @@ export default class AddPlateButton extends Component {
       <div>
         <button
           type="button"
-          className="tertiary large shadowed circular"
+          className="add-button large shadowed circular"
           onClick={this.openDialog}
         >
           ＋
@@ -39,6 +39,12 @@ export default class AddPlateButton extends Component {
           open={this.state.open}
           closeDialog={this.closeDialog}
         />
+        <style jsx>{`
+          .add-button {
+            background-color: #E91E63;
+            color: white;
+          }
+        `}</style>
       </div>
     )
   }

@@ -1,4 +1,4 @@
-import Icon from '../Icon/Icon'
+import ArrowLeft from 'react-icons/lib/ti/arrow-left-outline'
 import PropTypes from 'prop-types'
 import React from 'react'
 
@@ -6,10 +6,7 @@ export default function BackButton({ color }) {
   return (
     <div>
       <a onClick={() => window.history.back()}>
-        <Icon
-          style={{ color: color, fontSize: 25, padding: 5 }}
-          type="fa fa-arrow-circle-o-left"
-        />
+        <ArrowLeft style={{ color: color, fontSize: 25, padding: 5 }} />
       </a>
       <style jsx>{`
         a {

@@ -4,7 +4,6 @@ import { compose, graphql } from 'react-apollo'
 import Card from '../../../components/Card/Card'
 import EditPlateDialog from './EditPlateDialog'
 import EditPlateMutation from '../../../mutations/editPlate'
-import Icon from '../../../components/Icon/Icon'
 import Link from 'next/link'
 import Modal from '../../../components/Modal/Modal'
 import PlatesQuery from '../../../queries/plates'
@@ -12,6 +11,7 @@ import PropTypes from 'prop-types'
 import RecoverPlateMutation from '../../../mutations/recoverPlate'
 import RecoverPlatesQuery from '../../../queries/recoveredPlates'
 import RemovePlateMutation from '../../../mutations/removePlate'
+import SpannerOutline from 'react-icons/lib/ti/spanner-outline'
 
 class Plate extends Component {
   static propTypes = {
@@ -114,9 +114,9 @@ class Plate extends Component {
             </Link>
           ]}
           actionIcon={
-            <Icon
-              style={{ color: '#424242', fontSize: 30, cursor: 'pointer' }}
-              type="fa fa-pencil"
+            <SpannerOutline
+              size={40}
+              style={{ color: '#424242', cursor: 'pointer' }}
               onClick={this.editPlateHandleOpen}
             />
           }

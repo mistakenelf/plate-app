@@ -1,5 +1,5 @@
 import { Animate } from 'react-move'
-import Icon from '../Icon/Icon'
+import DeleteOutline from 'react-icons/lib/ti/delete-outline'
 import Portal from 'react-portal'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -11,8 +11,8 @@ export default function Modal({ open, closeModal, children }) {
         <div className="container">
           <div className="row">
             <div className="col-sm-12">
-              <Icon
-                type="fa fa-times fa-lg"
+              <DeleteOutline
+                size={30}
                 style={{
                   cursor: 'pointer',
                   color: 'white',

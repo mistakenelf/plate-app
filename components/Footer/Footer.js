@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 
 import ContactUsModal from '../ContactUsModal/ContactUsModal'
-import Icon from '../Icon/Icon'
+import Facebook from 'react-icons/lib/ti/social-facebook-circular'
+import Instagram from 'react-icons/lib/ti/social-instagram'
 import Link from 'next/link'
+import Twitter from 'react-icons/lib/ti/social-twitter-circular'
 
 export default class Footer extends Component {
   state = {
@@ -33,15 +35,17 @@ export default class Footer extends Component {
               getting started.
               <br />
               <br />
-              <Icon
-                style={{ color: '#3B5998', paddingRight: 30 }}
-                type="fa fa-facebook-square fa-3x"
-              />
-              <Icon
-                style={{ color: '#55ACEE', paddingRight: 30 }}
-                type="fa fa-twitter-square fa-3x"
-              />
-              <Icon style={{ color: '#5481A3' }} type="fa fa-instagram fa-3x" />
+              <span className="icon-container">
+                <Facebook
+                  size={60}
+                  style={{ color: '#3B5998', paddingRight: 30 }}
+                />
+                <Twitter
+                  size={60}
+                  style={{ color: '#55ACEE', paddingRight: 30 }}
+                />
+                <Instagram size={60} style={{ color: '#5481A3' }} />
+              </span>
             </p>
           </div>
           <div className="col-sm-12 col-md-4 col-lg-4">
@@ -79,6 +83,11 @@ export default class Footer extends Component {
           © 2017, Plate
         </footer>
         <style jsx>{`
+          .icon-container {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+          }
           h3 {
             text-transform: uppercase;
             font-size: 14px;
