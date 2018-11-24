@@ -4,7 +4,21 @@ export default {
   JSON: GraphQLJSON,
 
   Query: {
-    hello: (root, { name }) => `Hello ${name || 'World'}!`
+    todoLists: (root, { limit }, { db }) => {
+      if (limit) {
+        return db
+          .get('todoLists')
+          .take(limit)
+          .value()
+      } else {
+        return db.get('todoLists').value()
+      }
+    },
+    todoList: (root, { id }, { db }) =>
+      db
+        .get('todoLists')
+        .find({ id: Number(id) })
+        .value()
   },
 
   Mutation: {

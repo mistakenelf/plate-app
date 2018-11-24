@@ -1,0 +1,11 @@
+query todoList($id: ID!) {
+  todoList(id: $id) {
+    id
+    title
+    description
+    todos {
+      name
+      description
+    }
+  }
+}

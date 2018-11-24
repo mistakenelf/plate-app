@@ -2,20 +2,29 @@
 scalar JSON
 scalar Upload
 
+type TodoItem {
+  id: ID
+  name: String
+  description: String
+}
 
+type TodoList {
+  id: ID
+  title: String
+  description: String
+  totalTodos: Int
+  todos: [TodoItem]
+}
 
 type Query {
-  # Test query with a parameter
-  hello(name: String): String!
-
+  todoLists(limit: Int): [TodoList]
+  todoList(id: ID!): TodoList
 }
 
 type Mutation {
   myMutation: String!
-
 }
 
 type Subscription {
   mySub: String!
-
 }
