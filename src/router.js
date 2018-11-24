@@ -1,26 +1,59 @@
-import Vue from "vue";
-import Router from "vue-router";
-import Home from "./views/Home.vue";
+import Vue from 'vue'
+import Router from 'vue-router'
 
-Vue.use(Router);
+Vue.use(Router)
 
 export default new Router({
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/",
-      name: "home",
-      component: Home
+      path: '/',
+      name: 'Login',
+      component: () =>
+        import(/* webpackChunkName: "Login" */ './views/Login/Login.vue')
     },
     {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      path: '/dashboard',
+      name: 'Dashboard',
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+        import(/* webpackChunkName: "Dashboard" */ './views/Dashboard/Dashboard.vue')
+    },
+    {
+      path: '/events-listing',
+      name: 'EventsListing',
+      component: () =>
+        import(/* webpackChunkName: "EventsListing" */ './views/EventsListing/EventsListing.vue')
+    },
+    {
+      path: '/todos-listing',
+      name: 'TodosListing',
+      component: () =>
+        import(/* webpackChunkName: "TodosListing" */ './views/TodosListing/TodosListing.vue')
+    },
+    {
+      path: '/todo-details/:id',
+      name: 'TodoDetails',
+      component: () =>
+        import(/* webpackChunkName: "TodoDetails" */ './views/TodoDetails/TodoDetails.vue')
+    },
+    {
+      path: '/new-todo-list',
+      name: 'NewTodoList',
+      component: () =>
+        import(/* webpackChunkName: "NewTodoList" */ './views/NewTodoList/NewTodoList.vue')
+    },
+    {
+      path: '/notes-listing',
+      name: 'NotesListing',
+      component: () =>
+        import(/* webpackChunkName: "NotesListing" */ './views/NotesListing/NotesListing.vue')
+    },
+    {
+      path: '/reminders-listing',
+      name: 'RemindersListing',
+      component: () =>
+        import(/* webpackChunkName: "RemindersListing" */ './views/RemindersListing/RemindersListing.vue')
     }
   ]
-});
+})
