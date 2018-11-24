@@ -5,6 +5,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Vue from 'vue'
+
 import {
   faList,
   faCalendar,
@@ -13,6 +14,8 @@ import {
   faClipboard,
   faPlus
 } from '@fortawesome/free-solid-svg-icons'
+
+import { createProvider } from './vue-apollo'
 
 library.add(
   faList,
@@ -30,5 +33,6 @@ Vue.config.productionTip = false
 new Vue({
   router,
   store,
+  apolloProvider: createProvider(),
   render: h => h(App)
 }).$mount('#app')

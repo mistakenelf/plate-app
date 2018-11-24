@@ -2,8 +2,8 @@
   "name": "plate",
   "version": "0.0.1",
   "description": "Whats on your plate?",
-  "license": "GPL-3.0",
   "author": "Tyler Knipfer <knipferrc@gmail.com>",
+  "license": "GPL-3.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/knipferrc/plate.git"
@@ -20,14 +20,19 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "apollo": "vue-cli-service apollo:watch --run \"vue-cli-service serve\"",
+    "apollo:run": "vue-cli-service apollo:run",
+    "start": "cross-env NODE_ENV=production yarn run apollo:run --mode production",
     "format": "prettier --write \"**/*.{tsx,ts,css,md,js,vue,html}\""
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
     "@fortawesome/free-solid-svg-icons": "^5.5.0",
     "@fortawesome/vue-fontawesome": "^0.1.2",
+    "graphql-type-json": "^0.2.1",
     "register-service-worker": "^1.5.2",
     "vue": "^2.5.17",
+    "vue-apollo": "^3.0.0-beta.26",
     "vue-router": "^3.0.2",
     "vuex": "^3.0.1"
   },
@@ -39,10 +44,13 @@
     "@vue/eslint-config-prettier": "^4.0.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.9.0",
+    "eslint-plugin-graphql": "^3.0.1",
     "eslint-plugin-vue": "^5.0.0-0",
+    "graphql-tag": "^2.10.0",
     "lint-staged": "^8.1.0",
     "prettier": "^1.15.2",
     "tailwindcss": "^0.7.2",
+    "vue-cli-plugin-apollo": "^0.18.0",
     "vue-template-compiler": "^2.5.17"
   },
   "gitHooks": {
