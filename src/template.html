@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <meta name="Description" content="What's on your plate?" />
+    <meta name="theme-color" content="#16161d" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <meta name="keywords" content="vue, tasks, plate, social" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="plate" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="plate" />
+    <meta name="msapplication-TileColor" content="#0a382b" />
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="plate" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title>Plate</title>
+
+    %sapper.base%
+
+    <link rel="stylesheet" href="global.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <!--
+      Sapper generates a <style> tag containing critical CSS
+      for the current page. CSS for the rest of the app is
+      lazily loaded when it precaches secondary pages
+    -->
+    %sapper.styles%
+
+    <!--
+      This contains the contents of the <svelte:head> component, if
+      the current page has one
+    -->
+    %sapper.head%
+  </head>
+
+  <body>
+    <!--
+      The application will be rendered inside this element,
+      because `app/client.js` references it
+    -->
+    <div id="sapper">%sapper.html%</div>
+
+    <!--
+      Sapper creates a <script> tag containing `app/client.js`
+      and anything else it needs to hydrate the app and
+      initialise the router
+    -->
+    %sapper.scripts%
+  </body>
+</html>

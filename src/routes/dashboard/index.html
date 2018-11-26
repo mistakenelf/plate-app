@@ -1,0 +1,11 @@
+<h1>Dashboard { data.value }</h1>
+
+<script>
+	export default {
+		preload({ params, query }) {
+			return this.fetch(`dashboard.json`).then(r => r.json()).then(data => {
+				return { data };
+			});
+		}
+	};
+</script>
