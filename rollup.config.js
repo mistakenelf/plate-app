@@ -29,33 +29,33 @@ export default {
       commonjs(),
 
       legacy &&
-      babel({
-        extensions: ['.js', '.html'],
-        runtimeHelpers: true,
-        exclude: ['node_modules/@babel/**'],
-        presets: [
-          [
-            '@babel/preset-env',
-            {
-              targets: '> 0.25%, not dead'
-            }
+        babel({
+          extensions: ['.js', '.html'],
+          runtimeHelpers: true,
+          exclude: ['node_modules/@babel/**'],
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                targets: '> 0.25%, not dead'
+              }
+            ]
+          ],
+          plugins: [
+            '@babel/plugin-syntax-dynamic-import',
+            [
+              '@babel/plugin-transform-runtime',
+              {
+                useESModules: true
+              }
+            ]
           ]
-        ],
-        plugins: [
-          '@babel/plugin-syntax-dynamic-import',
-          [
-            '@babel/plugin-transform-runtime',
-            {
-              useESModules: true
-            }
-          ]
-        ]
-      }),
+        }),
 
       !dev &&
-      terser({
-        module: true
-      })
+        terser({
+          module: true
+        })
     ],
 
     // temporary, pending Rollup 1.0
@@ -79,7 +79,7 @@ export default {
     ],
     external: Object.keys(pkg.dependencies).concat(
       require('module').builtinModules ||
-      Object.keys(process.binding('natives'))
+        Object.keys(process.binding('natives'))
     ),
 
     // temporary, pending Rollup 1.0

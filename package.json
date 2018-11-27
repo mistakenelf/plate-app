@@ -27,10 +27,7 @@
     "format": "prettier --write \"**/*.{tsx,ts,css,md,js,vue,html}\""
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.8",
-    "@fortawesome/free-solid-svg-icons": "^5.5.0",
     "compression": "^1.7.3",
-    "ionicons": "^4.4.7",
     "lowdb": "^1.0.0",
     "mkdirp": "^0.5.1",
     "polka": "^0.5.1",

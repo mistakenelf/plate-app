@@ -1,8 +1,0 @@
-query todoLists($limit: Int) {
-  todoLists(limit: $limit) {
-    id
-    title
-    description
-    totalTodos
-  }
-}
