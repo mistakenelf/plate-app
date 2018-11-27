@@ -5,11 +5,17 @@
         {#each todoLists as todoList}
         <div
           class="border-b-2 p-4 h-16 cursor-pointer items-center hover:bg-grey-lighter"
+          on:click="goToDetailView(todoList.id)"
         >
           <div class="text-grey-black text-md">{todoList.title}</div>
           <div class="text-grey-darker text-sm">{todoList.description}</div>
         </div>
         {/each}
+        <a
+          href="/todos"
+          class="flex justify-center uppercase p-4 h-16 items-center text-grey-darker no-underline hover:bg-grey-lighter"
+          >View More</a
+        >
       </AppPanel>
     </div>
     <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-2">
@@ -29,6 +35,8 @@
 </div>
 
 <script>
+  import { goto } from '../../../__sapper__/client'
+
   export default {
     components: {
       AppPanel: '../../components/AppPanel.html'
@@ -39,6 +47,11 @@
         .then(todoLists => {
           return { todoLists }
         })
+    },
+    methods: {
+      goToDetailView(id) {
+        goto(`/todos/${id}`)
+      }
     }
   }
 </script>
