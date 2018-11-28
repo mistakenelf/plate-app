@@ -1,0 +1,32 @@
+<AppPanel title="Todos">
+  {#each todos.todoLists as todoList}
+  <div
+    class="border-b-2 p-4 h-16 cursor-pointer items-center hover:bg-grey-lighter"
+    on:click="goToDetailView(todoList.id)"
+  >
+    <div class="text-grey-black text-md">{todoList.title}</div>
+    <div class="text-grey-darker text-sm">{todoList.description}</div>
+  </div>
+  {/each} {#if todos.total > 5}
+  <a
+    href="/todos"
+    class="flex justify-center uppercase p-4 h-16 items-center text-grey-darker no-underline hover:bg-grey-lighter"
+    >View More</a
+  >
+  {/if}
+</AppPanel>
+
+<script>
+  import { goto } from '../../../../__sapper__/client'
+
+  export default {
+    components: {
+      AppPanel: '../../../components/AppPanel.html'
+    },
+    methods: {
+      goToDetailView(id) {
+        goto(`/todos/${id}`)
+      }
+    }
+  }
+</script>

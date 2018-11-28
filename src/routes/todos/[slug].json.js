@@ -1,20 +1,13 @@
 import { db } from '../../utils/db'
 
 export async function get(req, res, next) {
+  const { slug } = req.params
+
   const data = {
-    todos: {
-      total: db
-        .get('todoLists')
-        .size()
-        .value(),
-      todoLists: db
-        .get('todoLists')
-        .take(5)
-        .value()
-    },
-    reminders: {},
-    notes: {},
-    events: {}
+    todoDetail: db
+      .get('todoLists')
+      .find({ id: parseInt(slug, 10) })
+      .value()
   }
 
   if (data !== null) {

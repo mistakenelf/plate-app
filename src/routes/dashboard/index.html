@@ -1,22 +1,7 @@
 <div class="px-2 pt-2">
   <div class="flex flex-wrap -mx-2">
     <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-2">
-      <AppPanel title="Todos">
-        {#each todoLists as todoList}
-        <div
-          class="border-b-2 p-4 h-16 cursor-pointer items-center hover:bg-grey-lighter"
-          on:click="goToDetailView(todoList.id)"
-        >
-          <div class="text-grey-black text-md">{todoList.title}</div>
-          <div class="text-grey-darker text-sm">{todoList.description}</div>
-        </div>
-        {/each}
-        <a
-          href="/todos"
-          class="flex justify-center uppercase p-4 h-16 items-center text-grey-darker no-underline hover:bg-grey-lighter"
-          >View More</a
-        >
-      </AppPanel>
+      <TodosPanel todos={data.todos} />
     </div>
     <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-2">
       <AppPanel title="Reminders"> reminders </AppPanel>
@@ -39,14 +24,15 @@
 
   export default {
     components: {
-      AppPanel: '../../components/AppPanel.html'
+      AppPanel: '../../components/AppPanel.html',
+      TodosPanel: './_components/TodosPanel.html'
     },
-    preload({ params, query }) {
-      return this.fetch(`dashboard.json`)
-        .then(r => r.json())
-        .then(todoLists => {
-          return { todoLists }
-        })
+    async preload({ params, query }) {
+      const res = await this.fetch(`dashboard.json`);
+      const data = await res.json();
+      return {
+        data
+      }
     },
     methods: {
       goToDetailView(id) {

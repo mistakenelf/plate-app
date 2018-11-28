@@ -1,1 +1,21 @@
-<h1>Todo Detail</h1>
+<pre>
+  {details}
+</pre>
+
+<script>
+  export default {
+    async preload({ params, query }) {
+      const res = await this.fetch(`todos/${params.slug}.json`)
+      const data = await res.json()
+
+      if (res.status === 200) {
+        return { data }
+      } else {
+        this.error(res.status, data.message)
+      }
+    },
+    computed: {
+      details: ({ data }) => JSON.stringify(data, null, 2)
+    }
+  }
+</script>
