@@ -1,6 +1,15 @@
-<pre>
-  {details}
-</pre>
+<div class="p-4">
+  <h1 class="mb-4">{data.todoDetail.title}</h1>
+  <h3 class="text-dark">{data.todoDetail.description}</h3>
+  <div class="flex flex-row">
+    {#each data.todoDetail.todos as todo}
+    <div class="shadow-lg rounded w-1/4 p-4 mr-4">
+      <div>{todo.name}</div>
+      <div>{todo.description}</div>
+    </div>
+    {/each}
+  </div>
+</div>
 
 <script>
   export default {
@@ -13,9 +22,6 @@
       } else {
         this.error(res.status, data.message)
       }
-    },
-    computed: {
-      details: ({ data }) => JSON.stringify(data, null, 2)
     }
   }
 </script>
