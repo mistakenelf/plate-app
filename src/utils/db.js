@@ -19,7 +19,62 @@ db.defaults({
         {
           id: 1,
           name: 'Milk',
-          description: 'Go get milk from Kroger'
+          description: 'Go get milk from Kroger',
+          completed: false
+        },
+        {
+          id: 2,
+          name: 'Milk',
+          description: 'Go get milk from Kroger',
+          completed: true
+        },
+        {
+          id: 3,
+          name: 'Milk',
+          description: 'Go get milk from Kroger',
+          completed: false
+        },
+        {
+          id: 4,
+          name: 'Milk',
+          description: 'Go get milk from Kroger',
+          completed: true
+        },
+        {
+          id: 5,
+          name: 'Milk',
+          description: 'Go get milk from Kroger',
+          completed: true
+        },
+        {
+          id: 6,
+          name: 'Milk',
+          description: 'Go get milk from Kroger',
+          completed: false
+        },
+        {
+          id: 7,
+          name: 'Milk',
+          description: 'Go get milk from Kroger',
+          completed: false
+        },
+        {
+          id: 8,
+          name: 'Milk',
+          description: 'Go get milk from Kroger',
+          completed: false
+        },
+        {
+          id: 9,
+          name: 'Milk',
+          description: 'Go get milk from Kroger',
+          completed: false
+        },
+        {
+          id: 10,
+          name: 'Milk',
+          description: 'Go get milk from Kroger',
+          completed: true
         }
       ]
     },
@@ -32,12 +87,14 @@ db.defaults({
         {
           id: 1,
           name: 'Plates',
-          description: 'Get some plates so we have something to eat off'
+          description: 'Get some plates so we have something to eat off',
+          completed: false
         },
         {
           id: 2,
           name: 'Utencils',
-          description: 'Get some utencils so we can eat'
+          description: 'Get some utencils so we can eat',
+          completed: false
         }
       ]
     },
@@ -50,12 +107,14 @@ db.defaults({
         {
           id: 1,
           name: 'Plates',
-          description: 'Get some plates so we have something to eat off'
+          description: 'Get some plates so we have something to eat off',
+          completed: false
         },
         {
           id: 2,
           name: 'Utencils',
-          description: 'Get some utencils so we can eat'
+          description: 'Get some utencils so we can eat',
+          completed: false
         }
       ]
     },
@@ -68,12 +127,14 @@ db.defaults({
         {
           id: 1,
           name: 'Plates',
-          description: 'Get some plates so we have something to eat off'
+          description: 'Get some plates so we have something to eat off',
+          completed: false
         },
         {
           id: 2,
           name: 'Utencils',
-          description: 'Get some utencils so we can eat'
+          description: 'Get some utencils so we can eat',
+          completed: false
         }
       ]
     },
@@ -86,12 +147,14 @@ db.defaults({
         {
           id: 1,
           name: 'Plates',
-          description: 'Get some plates so we have something to eat off'
+          description: 'Get some plates so we have something to eat off',
+          completed: false
         },
         {
           id: 2,
           name: 'Utencils',
-          description: 'Get some utencils so we can eat'
+          description: 'Get some utencils so we can eat',
+          completed: false
         }
       ]
     },
@@ -104,12 +167,14 @@ db.defaults({
         {
           id: 1,
           name: 'Plates',
-          description: 'Get some plates so we have something to eat off'
+          description: 'Get some plates so we have something to eat off',
+          completed: false
         },
         {
           id: 2,
           name: 'Utencils',
-          description: 'Get some utencils so we can eat'
+          description: 'Get some utencils so we can eat',
+          completed: false
         }
       ]
     }
