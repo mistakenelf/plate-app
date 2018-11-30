@@ -1,13 +1,11 @@
-<AppNav segment={child.segment}/>
+<AppNav segment="{child.segment}" />
 
-<main>
-	<svelte:component this={child.component} {...child.props} />
-</main>
+<main><svelte:component this="{child.component}" {...child.props} /></main>
 
 <script>
-	export default {
-		components: {
-			AppNav: '../components/AppNav.html'
-		}
-	};
+  export default {
+    components: {
+      AppNav: '../components/AppNav.html'
+    }
+  }
 </script>

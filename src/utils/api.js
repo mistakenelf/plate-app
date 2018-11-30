@@ -12,7 +12,7 @@ function send({ method, path, data, token }) {
     opts.headers['Authorization'] = `Token ${token}`
   }
 
-  return fetch(path, opts)
+  return fetch('http://localhost:3000/' + path, opts)
     .then(r => r.text())
     .then(json => {
       try {

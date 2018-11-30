@@ -20,7 +20,6 @@ class PlateStore extends Store {
     if (response.user) {
       this.set({ user: response.user })
     }
-
     return response
   }
 

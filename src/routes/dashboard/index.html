@@ -1,7 +1,7 @@
 <div class="px-2 pt-2">
   <div class="flex flex-wrap -mx-2">
     <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-2">
-      <TodosPanel todos={data.todos} />
+      <TodosPanel todos="{data.todos}" />
     </div>
     <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-2">
       <AppPanel title="Reminders"> reminders </AppPanel>
@@ -28,8 +28,8 @@
       TodosPanel: './_components/TodosPanel.html'
     },
     async preload({ params, query }) {
-      const res = await this.fetch(`dashboard.json`);
-      const data = await res.json();
+      const res = await this.fetch(`dashboard.json`)
+      const data = await res.json()
       return {
         data
       }
