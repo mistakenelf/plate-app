@@ -29,9 +29,12 @@
   },
   "dependencies": {
     "compression": "^1.7.3",
+    "express-session": "^1.15.6",
+    "helmet": "^3.15.0",
     "lowdb": "^1.0.0",
     "mkdirp": "^0.5.1",
     "polka": "^0.5.1",
+    "session-file-store": "^1.2.0",
     "sirv": "^0.2.2"
   },
   "devDependencies": {

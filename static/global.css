@@ -1,3 +1,5 @@
-body {
+html,
+body,
+#sapper {
   height: 100%;
 }
