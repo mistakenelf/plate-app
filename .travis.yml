@@ -1,12 +1,16 @@
-sudo: false
-language: node_js
-node_js:
-  - "stable"
-env:
-  global:
-    - BUILD_TIMEOUT=10000
+sudo: required
+services:
+  - docker
+script:
+  - docker build --pull --cache-from "$IMAGE_NAME" --tag "$IMAGE_NAME" .
+after_script:
+  - docker images
+
+before_deploy:
+  - docker login "$REGISTRY" -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
+  - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:latest"
 deploy:
   provider: script
-  script: bash deploy.sh
+  script: docker push "${IMAGE_NAME}:latest"
   on:
     branch: master
