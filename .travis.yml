@@ -8,7 +8,7 @@ after_script:
 
 before_deploy:
   - echo "$REGISTRY_PASS" | docker login -u "$REGISTRY_USER" --password-stdin "$REGISTRY"
-  - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:latest"
+  - docker tag "$IMAGE_NAME" "${REGISTRY}/${IMAGE_NAME}"
 deploy:
   provider: script
   script: docker push "${REGISTRY}/${IMAGE_NAME}"
