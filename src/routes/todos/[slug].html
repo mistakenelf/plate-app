@@ -6,6 +6,7 @@
   {#each data.todoDetail.todos as todo}
   <div
     class="bg-grey-lighter shadow rounded w-full sm:w-full md:w-1/4 lg:w-1/5 m-2 sm:m-2 lg:m-4 p-4 flex-grow"
+    on:click="updateStatus(params.slug, todo.id, todo.completed)"
   >
     <div class="flex justify-between items-center">
       <div class="flex flex-col">
@@ -23,6 +24,8 @@
 </div>
 
 <script>
+  import * as api from '../../utils/api'
+
   export default {
     async preload({ params, query }) {
       const res = await this.fetch(`todos/${params.slug}.json`)
@@ -32,6 +35,12 @@
         return { data }
       } else {
         this.error(res.status, data.message)
+      }
+    },
+    methods: {
+      async updateStatus(id, currentTodo, status) {
+        await api.post(`todos/${id}.json`, { currentTodo, status })
+        await api.get(`todos/${id}.json`)
       }
     }
   }

@@ -5,6 +5,7 @@ import helmet from 'helmet'
 import session from 'express-session'
 import sessionFileStore from 'session-file-store'
 import { Store } from 'svelte/store.js'
+import { json } from 'body-parser'
 
 import * as sapper from '../__sapper__/server.js'
 import './utils/db'
@@ -16,6 +17,7 @@ const FileStore = sessionFileStore(session)
 
 polka()
   .use(
+    json(),
     compression({ threshold: 0 }),
     helmet(),
     session({

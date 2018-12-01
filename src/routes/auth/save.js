@@ -10,7 +10,7 @@ export function post(req, res) {
         req.session.user = response.user
       }
 
-      res.setHeader('Content-Type', 'application/json')
+      res.writeHead(200, { 'Content-Type': 'application/json' })
 
       res.end(JSON.stringify(response))
     })

@@ -10,7 +10,7 @@
           "id": 1,
           "name": "Milk",
           "description": "Go get milk from Kroger",
-          "completed": false
+          "completed": true
         },
         {
           "id": 2,
@@ -22,7 +22,7 @@
           "id": 3,
           "name": "Milk",
           "description": "Go get milk from Kroger",
-          "completed": false
+          "completed": true
         },
         {
           "id": 4,
@@ -40,25 +40,25 @@
           "id": 6,
           "name": "Milk",
           "description": "Go get milk from Kroger",
-          "completed": false
+          "completed": true
         },
         {
           "id": 7,
           "name": "Milk",
           "description": "Go get milk from Kroger",
-          "completed": false
+          "completed": true
         },
         {
           "id": 8,
           "name": "Milk",
           "description": "Go get milk from Kroger",
-          "completed": false
+          "completed": true
         },
         {
           "id": 9,
           "name": "Milk",
           "description": "Go get milk from Kroger",
-          "completed": false
+          "completed": true
         },
         {
           "id": 10,
