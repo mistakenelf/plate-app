@@ -1,3 +1,10 @@
+sudo: false
+language: node_js
+node_js:
+  - "stable"
+env:
+  global:
+    - BUILD_TIMEOUT=10000
 deploy:
   provider: script
   script: bash deploy.sh
