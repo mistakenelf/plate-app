@@ -11,6 +11,6 @@ before_deploy:
   - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:latest"
 deploy:
   provider: script
-  script: docker push "${IMAGE_NAME}:latest"
+  script: docker push "${REGISTRY}/${IMAGE_NAME}"
   on:
     branch: master
