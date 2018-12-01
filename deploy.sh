@@ -1,5 +1,5 @@
 docker login $DOCKER_REGISTRY -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
-docker build -f Dockerfile.$DOCKER_ENV -t plate-dev:$DOCKER_ENV
-docker tag plate-dev:$DOCKER_ENV $DOCKER_REGISTRY/plate-dev:$DOCKER_ENV
-docker push $DOCKER_REGISTRY/plate-dev:$DOCKER_ENV
+docker build -f Dockerfile -t plate-dev
+docker tag plate-dev: $DOCKER_REGISTRY/plate-dev:
+docker push $DOCKER_REGISTRY/plate-dev
