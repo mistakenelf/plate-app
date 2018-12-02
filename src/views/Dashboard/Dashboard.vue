@@ -1,28 +1,39 @@
 <template>
-  <AppLayout>
-    <ApolloQuery :query="require('./queries/hello.gql')">
-      <template slot-scope="{ result: { loading, error, data } }">
-        <!-- Loading -->
-        <div v-if="loading" class="loading apollo">Loading...</div>
-
-        <!-- Error -->
-        <div v-else-if="error" class="error apollo">An error occured</div>
-
-        <!-- Result -->
-        <div v-else-if="data" class="result apollo">{{ data.hello }}</div>
-
-        <!-- No result -->
-        <div v-else class="no-result apollo">No result :(</div>
-      </template>
-    </ApolloQuery>
-  </AppLayout>
+  <div>
+    <div class="px-2 pt-2">
+      <div class="flex flex-wrap -mx-2">
+        <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-2">
+          <TodoListsPanel />
+        </div>
+        <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-2">
+          <TodoListsPanel />
+        </div>
+      </div>
+    </div>
+    <div class="px-2 pt-2">
+      <div class="flex flex-wrap -mx-2">
+        <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-2">
+          <TodoListsPanel />
+        </div>
+        <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-2">
+          <TodoListsPanel />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 import AppLayout from '@/components/AppLayout'
+import TodoListsPanel from './components/TodoListsPanel'
 
 export default {
+  name: 'Home',
+  created() {
+    this.$emit('update:layout', AppLayout)
+  },
   components: {
+    TodoListsPanel,
     AppLayout
   }
 }
