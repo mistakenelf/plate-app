@@ -4,10 +4,14 @@ import router from './router'
 import store from './store'
 import './registerServiceWorker'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faTachometerAlt } from '@fortawesome/free-solid-svg-icons'
+import {
+  faTachometerAlt,
+  faCheckCircle,
+  faPlus
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faTachometerAlt)
+library.add(faTachometerAlt, faCheckCircle, faPlus)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

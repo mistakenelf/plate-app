@@ -14,10 +14,22 @@ export default new Router({
       component: Dashboard
     },
     {
+      path: '/new-todo-list',
+      name: 'newTodoList',
+      component: () =>
+        import(/* webpackChunkName: "newTodoList" */ './views/NewTodoList/NewTodoList')
+    },
+    {
       path: '/todo-lists',
       name: 'todoLists',
       component: () =>
         import(/* webpackChunkName: "todoLists" */ './views/TodoLists/TodoLists')
+    },
+    {
+      path: '/todo-list-details/:id',
+      name: 'todoListDetails',
+      component: () =>
+        import(/* webpackChunkName: "todoListDetails" */ './views/TodoListDetails/TodoListDetails')
     }
   ]
 })

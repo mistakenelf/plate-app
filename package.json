@@ -28,8 +28,6 @@
     "@fortawesome/free-solid-svg-icons": "^5.5.0",
     "@fortawesome/vue-fontawesome": "^0.1.2",
     "register-service-worker": "^1.5.2",
-    "rxdb": "^8.0.4",
-    "rxjs": "^6.3.3",
     "vue": "^2.5.17",
     "vue-router": "^3.0.2",
     "vuex": "^3.0.1"

@@ -4,6 +4,7 @@
       class="flex justify-between items-center bg-teal-dark p-4 text-white rounded-t"
     >
       <div class="text-xl">{{ title }}</div>
+      <slot name="addNew" />
     </div>
     <slot />
   </div>
