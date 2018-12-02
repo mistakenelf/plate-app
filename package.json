@@ -18,19 +18,19 @@
     "social"
   ],
   "scripts": {
-    "dev": "vue-cli-service apollo:watch --run \"vue-cli-service serve\"",
-    "prod": "cross-env NODE_ENV=production npm run apollo:run --mode production",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "apollo:run": "vue-cli-service apollo:run",
     "lint": "vue-cli-service lint",
     "format": "prettier --write \"**/*.{tsx,ts,css,md,js,vue,html}\""
   },
   "dependencies": {
-    "graphql-type-json": "^0.2.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.8",
+    "@fortawesome/free-solid-svg-icons": "^5.5.0",
+    "@fortawesome/vue-fontawesome": "^0.1.2",
     "register-service-worker": "^1.5.2",
+    "rxdb": "^8.0.4",
+    "rxjs": "^6.3.3",
     "vue": "^2.5.17",
-    "vue-apollo": "^3.0.0-beta.26",
     "vue-router": "^3.0.2",
     "vuex": "^3.0.1"
   },
@@ -41,14 +41,10 @@
     "@vue/cli-service": "^3.2.0",
     "@vue/eslint-config-prettier": "^4.0.1",
     "babel-eslint": "^10.0.1",
-    "cross-env": "^5.2.0",
     "eslint": "^5.9.0",
-    "eslint-plugin-graphql": "^3.0.1",
     "eslint-plugin-vue": "^5.0.0-0",
-    "graphql-tag": "^2.10.0",
     "prettier": "^1.15.3",
     "tailwindcss": "^0.7.2",
-    "vue-cli-plugin-apollo": "^0.18.1",
     "vue-template-compiler": "^2.5.17"
   }
 }

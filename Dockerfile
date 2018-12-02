@@ -1,16 +1,13 @@
-FROM node:alpine
-
-RUN mkdir -p /usr/src/app
+FROM node:alpine as build-deps
 WORKDIR /usr/src/app
-
-COPY package.json /usr/src/app/
-COPY package-lock.json /usr/src/app/
+COPY package.json package-lock.json ./
 RUN npm install
-
-COPY . /usr/src/app
-
+COPY . ./
 RUN npm run build
 
-EXPOSE 4000
-
-CMD [ "npm", "run", "prod" ]
+FROM nginx:alpine
+RUN rm -rf /etc/nginx/conf.d
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build-deps /usr/src/app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

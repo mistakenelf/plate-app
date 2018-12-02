@@ -5,18 +5,10 @@ module.exports = {
   },
   extends: ['plugin:vue/essential', '@vue/prettier'],
   rules: {
-    'no-console': 'off',
-    'no-debugger': 'off',
-    'graphql/template-strings': [
-      'error',
-      {
-        env: 'literal',
-        projectName: 'app'
-      }
-    ]
+    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
   },
   parserOptions: {
     parser: 'babel-eslint'
-  },
-  plugins: ['graphql']
+  }
 }

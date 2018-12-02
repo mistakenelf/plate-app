@@ -1,5 +1,7 @@
 <template>
-  <component :is="layout"> <router-view :layout.sync="layout" /> </component>
+  <component :is="layout" class="h-full">
+    <router-view :layout.sync="layout" />
+  </component>
 </template>
 
 <script>
