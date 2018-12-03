@@ -25,18 +25,17 @@
 
 <script>
 import AppPanel from '@/components/AppPanel'
-import { db } from '@/utils/db'
+import { mapState } from 'vuex'
 
 export default {
   name: 'TodoListsPanel',
   components: {
     AppPanel
   },
-  data() {
-    return {
-      todoLists: db.get('todoLists').value()
-    }
+  mounted() {
+    this.$store.dispatch('loadTodoLists')
   },
+  computed: mapState(['todoLists']),
   methods: {
     goToDetailView(id) {
       this.$router.push(`/todo-list-details/${id}`)
