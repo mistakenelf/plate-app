@@ -27,6 +27,7 @@
 
 <script>
 import AppLayout from '@/components/AppLayout'
+import { db } from '@/utils/db'
 
 export default {
   name: 'TodoListDetails',
@@ -35,74 +36,10 @@ export default {
   },
   data() {
     return {
-      todoListDetails: {
-        id: 1,
-        title: 'Grocery List',
-        description: 'Grocery list for this weekend',
-        totalTodos: 1,
-        todos: [
-          {
-            id: 1,
-            name: 'Milk',
-            description: 'Go get milk from Kroger',
-            completed: false
-          },
-          {
-            id: 2,
-            name: 'Milk',
-            description: 'Go get milk from Kroger',
-            completed: true
-          },
-          {
-            id: 3,
-            name: 'Milk',
-            description: 'Go get milk from Kroger',
-            completed: false
-          },
-          {
-            id: 4,
-            name: 'Milk',
-            description: 'Go get milk from Kroger',
-            completed: false
-          },
-          {
-            id: 5,
-            name: 'Milk',
-            description: 'Go get milk from Kroger',
-            completed: false
-          },
-          {
-            id: 6,
-            name: 'Milk',
-            description: 'Go get milk from Kroger',
-            completed: true
-          },
-          {
-            id: 7,
-            name: 'Milk',
-            description: 'Go get milk from Kroger',
-            completed: true
-          },
-          {
-            id: 8,
-            name: 'Milk',
-            description: 'Go get milk from Kroger',
-            completed: true
-          },
-          {
-            id: 9,
-            name: 'Milk',
-            description: 'Go get milk from Kroger',
-            completed: false
-          },
-          {
-            id: 10,
-            name: 'Milk',
-            description: 'Go get milk from Kroger',
-            completed: true
-          }
-        ]
-      }
+      todoListDetails: db
+        .get('todoLists')
+        .find({ id: parseInt(this.$route.params.id, 10) })
+        .value()
     }
   }
 }
