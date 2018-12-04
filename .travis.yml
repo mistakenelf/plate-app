@@ -1,15 +1,15 @@
-# sudo: required
-# services:
-#   - docker
-# script:
-#   - docker build --pull --cache-from "$IMAGE_NAME" --tag "$IMAGE_NAME" .
-# after_script:
-#   - docker images
-# before_deploy:
-#   - echo "$REGISTRY_PASS" | docker login -u "$REGISTRY_USER" --password-stdin "$REGISTRY"
-#   - docker tag "$IMAGE_NAME" "${REGISTRY}/${IMAGE_NAME}"
-# deploy:
-#   provider: script
-#   script: docker push "${REGISTRY}/${IMAGE_NAME}"
-#   on:
-#     branch: master
+sudo: required
+services:
+  - docker
+script:
+  - docker build --pull --cache-from "$IMAGE_NAME" --tag "$IMAGE_NAME" .
+after_script:
+  - docker images
+before_deploy:
+  - echo "$REGISTRY_PASS" | docker login -u "$REGISTRY_USER" --password-stdin "$REGISTRY"
+  - docker tag "$IMAGE_NAME" "${REGISTRY}/${IMAGE_NAME}"
+deploy:
+  provider: script
+  script: docker push "${REGISTRY}/${IMAGE_NAME}"
+  on:
+    branch: master
