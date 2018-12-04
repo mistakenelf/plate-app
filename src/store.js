@@ -6,19 +6,30 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    todoLists: []
+    todoLists: [],
+    todoList: {}
   },
   mutations: {
-    SET_TODO_LISTS(state, todoLists) {
+    GET_TODO_LISTS(state, todoLists) {
       state.todoLists = todoLists
+    },
+    GET_TODO_LIST(state, todoList) {
+      state.todoList = todoList
     }
   },
   actions: {
-    loadTodoLists({ commit }) {
-      API.get('/api/todos')
+    getTodoLists({ commit }) {
+      API.get('/api/todo-lists')
         .then(r => r.data)
         .then(todoLists => {
-          commit('SET_TODO_LISTS', todoLists)
+          commit('GET_TODO_LISTS', todoLists)
+        })
+    },
+    getTodoList({ commit }, id) {
+      API.get(`/api/todo-lists/${id}`)
+        .then(res => res.data)
+        .then(todoList => {
+          commit('GET_TODO_LIST', todoList)
         })
     }
   }

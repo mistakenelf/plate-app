@@ -17,8 +17,17 @@ app.get('/api/health', (req, res) => {
   res.json({ health: '100%' })
 })
 
-app.get('/api/todos', (req, res) => {
+app.get('/api/todo-lists', (req, res) => {
   res.json(db.get('todoLists').value())
+})
+
+app.get('/api/todo-lists/:id', (req, res) => {
+  res.json(
+    db
+      .get('todoLists')
+      .find({ id: parseInt(req.params.id, 10) })
+      .value()
+  )
 })
 
 if (process.env.NODE_ENV === 'production') {

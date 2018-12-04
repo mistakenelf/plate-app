@@ -26,10 +26,10 @@ export default new Router({
         import(/* webpackChunkName: "todoLists" */ './views/TodoLists/TodoLists')
     },
     {
-      path: '/todo-list-details/:id',
-      name: 'todoListDetails',
+      path: '/todo-list/:id',
+      name: 'todoList',
       component: () =>
-        import(/* webpackChunkName: "todoListDetails" */ './views/TodoListDetails/TodoListDetails')
+        import(/* webpackChunkName: "todoList" */ './views/TodoList/TodoList')
     }
   ]
 })

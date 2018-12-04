@@ -33,12 +33,12 @@ export default {
     AppPanel
   },
   mounted() {
-    this.$store.dispatch('loadTodoLists')
+    this.$store.dispatch('getTodoLists')
   },
   computed: mapState(['todoLists']),
   methods: {
     goToDetailView(id) {
-      this.$router.push(`/todo-list-details/${id}`)
+      this.$router.push(`/todo-list/${id}`)
     }
   }
 }
