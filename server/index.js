@@ -30,6 +30,12 @@ app.get('/api/todo-lists/:id', (req, res) => {
   )
 })
 
+app.post('/api/login', (req, res) => {
+  res.json({
+    token: 'need to implement token'
+  })
+})
+
 if (process.env.NODE_ENV === 'production') {
   app.use(
     '/service-worker.js',

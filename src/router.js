@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Dashboard from './views/Dashboard/Dashboard'
+import Login from './views/Login/Login'
 
 Vue.use(Router)
 
@@ -10,8 +10,14 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/dashboard',
       name: 'dashboard',
-      component: Dashboard
+      component: () =>
+        import(/* webpackChunkName: "dashboard" */ './views/Dashboard/Dashboard')
     },
     {
       path: '/new-todo-list',
