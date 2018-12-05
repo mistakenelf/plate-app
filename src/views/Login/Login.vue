@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import AppBasicLayout from '@/components/AppBasicLayout'
 import AppInput from '@/components/AppInput'
 
 export default {
@@ -44,6 +45,9 @@ export default {
       email: '',
       password: ''
     }
+  },
+  created() {
+    this.$emit('update:layout', AppBasicLayout)
   },
   methods: {
     handleSubmit() {
