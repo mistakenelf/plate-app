@@ -13,14 +13,14 @@
   },
   "keywords": [
     "vue",
-    "graphql",
+    "REST",
     "plate",
     "social"
   ],
   "scripts": {
     "dev": "run-p api:dev serve",
-    "prod": "cross-env NODE_ENV=production node server",
-    "api:dev": "cross-env NODE_ENV=development node server",
+    "start": "cross-env NODE_ENV=production node server",
+    "api:dev": "cross-env NODE_ENV=development nodemon --watch server",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",

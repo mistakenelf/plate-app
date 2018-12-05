@@ -14,7 +14,7 @@ app.use(compression())
 app.use(helmet())
 
 app.get('/api/health', (req, res) => {
-  res.json({ health: '100%' })
+  res.json({ health: '102%' })
 })
 
 app.get('/api/todo-lists', (req, res) => {
