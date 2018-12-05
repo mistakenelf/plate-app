@@ -3,10 +3,10 @@
 </template>
 
 <script>
-import AppLayout from '@/components/AppLayout'
+import AppCoreLayout from '@/components/AppCoreLayout'
 export default {
   created() {
-    this.$emit('update:layout', AppLayout)
+    this.$emit('update:layout', AppCoreLayout)
   }
 }
 </script>

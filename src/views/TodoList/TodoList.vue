@@ -28,12 +28,12 @@
 <script>
 import { mapState } from 'vuex'
 
-import AppLayout from '@/components/AppLayout'
+import AppCoreLayout from '@/components/AppCoreLayout'
 
 export default {
   name: 'TodoList',
   created() {
-    this.$emit('update:layout', AppLayout)
+    this.$emit('update:layout', AppCoreLayout)
   },
   mounted() {
     this.$store.dispatch('getTodoList', this.$route.params.id)

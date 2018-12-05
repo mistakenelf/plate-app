@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import AppLayout from '@/components/AppLayout'
+import AppCoreLayout from '@/components/AppCoreLayout'
 import TodoListsPanel from './components/TodoListsPanel'
 import RemindersPanel from './components/RemindersPanel'
 import NotesPanel from './components/NotesPanel'
@@ -33,7 +33,7 @@ import EventsPanel from './components/EventsPanel'
 export default {
   name: 'Dashboard',
   created() {
-    this.$emit('update:layout', AppLayout)
+    this.$emit('update:layout', AppCoreLayout)
   },
   components: {
     TodoListsPanel,

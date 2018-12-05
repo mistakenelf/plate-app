@@ -3,11 +3,11 @@
 </template>
 
 <script>
-import AppLayout from '@/components/AppLayout'
+import AppCoreLayout from '@/components/AppCoreLayout'
 export default {
   name: 'NewTodoList',
   created() {
-    this.$emit('update:layout', AppLayout)
+    this.$emit('update:layout', AppCoreLayout)
   }
 }
 </script>
