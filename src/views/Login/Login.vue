@@ -7,17 +7,21 @@
       <div class="mb-4">
         <AppInput
           type="email"
+          name="email"
           placeholder="Email"
           label="Email"
           v-model="email"
+          validations="required|email"
         />
       </div>
       <div class="mb-6">
         <AppInput
           type="password"
+          name="password"
           placeholder="******************"
           label="Password"
           v-model="password"
+          validations="required"
         />
       </div>
       <div class="flex items-center justify-between">
@@ -40,23 +44,25 @@ export default {
   components: {
     AppInput
   },
-  data() {
-    return {
-      email: '',
-      password: ''
-    }
-  },
+  data: () => ({
+    email: '',
+    password: ''
+  }),
   created() {
     this.$emit('update:layout', AppBasicLayout)
   },
   methods: {
     handleSubmit() {
-      const payload = {
-        email: this.email,
-        password: this.password
-      }
-      this.$store.dispatch('login', payload)
-      this.$router.push('/dashboard')
+      console.log(this.errors)
+      this.$validator.validateAll().then(() => {
+        const payload = {
+          email: this.email,
+          password: this.password
+        }
+
+        this.$store.dispatch('login', payload)
+        this.$router.push('/dashboard')
+      })
     }
   }
 }
