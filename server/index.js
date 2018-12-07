@@ -1,9 +1,9 @@
-const express = require('express')
-const compression = require('compression')
-const helmet = require('helmet')
-const path = require('path')
+import express from 'express'
+import compression from 'compression'
+import helmet from 'helmet'
+import path from 'path'
 
-const db = require('./db')
+import db from './db'
 
 const app = express()
 const port = process.env.PORT || 5000
@@ -41,9 +41,9 @@ if (process.env.NODE_ENV === 'production') {
     '/service-worker.js',
     express.static(path.join(__dirname, '../dist/service-worker.js'))
   )
-  app.use(express.static(path.join(__dirname, '../dist')))
+  app.use(express.static(path.join(__dirname, '../build')))
   app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, '../dist', 'index.html'))
+    res.sendFile(path.join(__dirname, '../build', 'index.html'))
   })
 }
 

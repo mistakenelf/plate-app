@@ -13,8 +13,7 @@
 <script>
 export default {
   props: {
-    title: String,
-    height: String
+    title: String
   }
 }
 </script>

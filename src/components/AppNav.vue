@@ -4,7 +4,7 @@
   >
     <div class="text-white text-2xl">Plate</div>
     <ul class="flex list-reset ml-6 text-2xl">
-      <router-link to="/" class="cursor-pointer text-white mr-4">
+      <router-link to="/dashboard" class="cursor-pointer text-white mr-4">
         <font-awesome-icon icon="tachometer-alt" />
       </router-link>
     </ul>

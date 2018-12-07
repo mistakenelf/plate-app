@@ -13,7 +13,6 @@
 import AppPanel from '@/components/AppPanel'
 
 export default {
-  name: 'RemindersPanel',
   components: {
     AppPanel
   }

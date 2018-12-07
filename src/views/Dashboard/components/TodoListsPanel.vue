@@ -39,7 +39,6 @@ import AppPanelLoader from '@/components/AppPanelLoader'
 import { mapState } from 'vuex'
 
 export default {
-  name: 'TodoListsPanel',
   components: {
     AppPanel,
     AppPanelLoader

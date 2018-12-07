@@ -5,7 +5,6 @@
 <script>
 import AppCoreLayout from '@/components/AppCoreLayout'
 export default {
-  name: 'NewTodoList',
   created() {
     this.$emit('update:layout', AppCoreLayout)
   }

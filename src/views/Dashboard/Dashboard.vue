@@ -31,7 +31,6 @@ import NotesPanel from './components/NotesPanel'
 import EventsPanel from './components/EventsPanel'
 
 export default {
-  name: 'Dashboard',
   created() {
     this.$emit('update:layout', AppCoreLayout)
   },

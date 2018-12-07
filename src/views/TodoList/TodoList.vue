@@ -31,7 +31,6 @@ import { mapState } from 'vuex'
 import AppCoreLayout from '@/components/AppCoreLayout'
 
 export default {
-  name: 'TodoList',
   created() {
     this.$emit('update:layout', AppCoreLayout)
   },

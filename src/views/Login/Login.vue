@@ -11,7 +11,9 @@
           placeholder="Email"
           label="Email"
           v-model="email"
-          validations="required|email"
+          v-validate="'required|email'"
+          :hasErrors="errors.has('email')"
+          :errorMessage="errors.first('email')"
         />
       </div>
       <div class="mb-6">
@@ -21,7 +23,9 @@
           placeholder="******************"
           label="Password"
           v-model="password"
-          validations="required"
+          v-validate="'required'"
+          :hasErrors="errors.has('password')"
+          :errorMessage="errors.first('password')"
         />
       </div>
       <div class="flex items-center justify-between">
@@ -53,8 +57,11 @@ export default {
   },
   methods: {
     handleSubmit() {
-      console.log(this.errors)
-      this.$validator.validateAll().then(() => {
+      this.$validator.validateAll().then(result => {
+        if (!result) {
+          return
+        }
+
         const payload = {
           email: this.email,
           password: this.password
