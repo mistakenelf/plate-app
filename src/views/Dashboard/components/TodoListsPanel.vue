@@ -28,7 +28,7 @@
       to="/todo-lists"
       class="flex justify-center uppercase p-4 h-16 items-center text-grey-darker no-underline hover:bg-grey-lighter"
     >
-      View More
+      View All
     </router-link>
   </AppPanel>
 </template>
