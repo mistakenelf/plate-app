@@ -106,13 +106,12 @@ func NewApp() *iris.Application {
 	})
 
 	if GetEnv() == "production" {
-    app.use(iris.Gzip)
 		app.Get("/", func(ctx iris.Context) {
 			ctx.ViewData("Page", page)
 			ctx.View("index.html")
 		})
 
-		assetHandler := app.StaticHandler("build", false, false)
+		assetHandler := app.StaticHandler("build", false, true)
 		app.SPA(assetHandler)
 	}
 
