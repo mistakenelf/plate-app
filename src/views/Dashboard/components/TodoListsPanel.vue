@@ -43,7 +43,7 @@ export default {
     AppPanel,
     AppPanelLoader
   },
-  mounted() {
+  created() {
     this.$store.dispatch('getTodoLists')
   },
   computed: mapState(['todoLists']),

@@ -5,12 +5,9 @@ RUN npm install
 COPY . ./
 RUN npm run build
 
-FROM golang:alpine
-COPY --from=build-deps /usr/src/app /usr/src/app
-WORKDIR /usr/src/app
-ENV APP_ENV=production
-RUN apk update && apk add git
-RUN go get github.com/kataras/iris
-RUN go build server/main.go server/app.go server/models.go server/utils.go
-EXPOSE 5000
-ENTRYPOINT /usr/src/app/main
+FROM nginx:alpine
+RUN rm -rf /etc/nginx/conf.d
+COPY conf /etc/nginx
+COPY --from=build-deps /usr/src/app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
