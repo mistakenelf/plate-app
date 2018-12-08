@@ -1,6 +1,22 @@
-language: generic
+sudo: required
+services:
+  - docker
+
+script:
+  - docker-compose build
+
+after_script:
+  - docker images
+
+before_deploy:
+  - echo "$REGISTRY_PASS" | docker login -u "$REGISTRY_USER" --password-stdin "$REGISTRY"
+  - docker tag "plate_app" "${REGISTRY}/plate_app"
+  - docker tag "plate_app" "${REGISTRY}/plate_api"
+
 deploy:
   provider: script
-  script: bash deploy
+  script:
+    - docker push "${REGISTRY}/plate_app"
+    - docker push "${REGISTRY}/plate_api"
   on:
     branch: master
