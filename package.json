@@ -19,8 +19,8 @@
   ],
   "scripts": {
     "start": "run-p server:dev serve",
-    "server:dev": "cross-env APP_ENV=development go run server/app.go server/main.go server/models.go server/utils.go",
-    "build:server": "cross-env APP_ENV=production go build server/app.go server/main.go server/models.go server/utils.go",
+    "server:dev": "cross-env APP_ENV=development go run server/main.go server/app.go server/models.go server/utils.go",
+    "build:server": "cross-env APP_ENV=production go build server/main.go server/app.go server/models.go server/utils.go",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
