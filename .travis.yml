@@ -15,8 +15,7 @@ before_deploy:
 
 deploy:
   provider: script
-  script:
-    - docker push "${REGISTRY}/plate_app"
-    - docker push "${REGISTRY}/plate_api"
+  skip_cleanup: true
+  script: sh ./deploy.sh
   on:
     branch: master
