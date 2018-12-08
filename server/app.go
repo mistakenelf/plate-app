@@ -111,7 +111,7 @@ func NewApp() *iris.Application {
 			ctx.View("index.html")
 		})
 
-		assetHandler := app.StaticHandler("build", false, true)
+		assetHandler := app.StaticHandler("build", false, false)
 		app.SPA(assetHandler)
 	}
 
