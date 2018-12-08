@@ -1,7 +1,5 @@
-services:
-  - docker
 deploy:
   provider: script
-  script: bash deploy.sh
+  script: bash deploy
   on:
     branch: master
