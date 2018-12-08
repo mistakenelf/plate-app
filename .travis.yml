@@ -1,3 +1,4 @@
+language: generic
 deploy:
   provider: script
   script: bash deploy
