@@ -1,6 +1,5 @@
 services:
   - docker
-before_install: gem install bundler
 deploy:
   provider: script
   script: bash deploy.sh
