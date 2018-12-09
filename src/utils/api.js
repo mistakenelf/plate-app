@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const API = axios.create({
-  baseUrl:
+  baseURL:
     process.env.NODE_ENV === 'production'
       ? 'https://plate-api.azurewebsites.net'
       : 'http://localhost:5000',

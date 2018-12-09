@@ -18,8 +18,8 @@
     "social"
   ],
   "scripts": {
-    "start": "run-p server:dev serve",
-    "server:dev": "cross-env APP_ENV=development go run server/main.go server/app.go server/models.go",
+    "start": "cross-env NODE_ENV=development run-p server:dev serve",
+    "server:dev": "go run server/main.go server/app.go server/models.go",
     "build:server": "go build server/main.go server/app.go server/models.go",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
