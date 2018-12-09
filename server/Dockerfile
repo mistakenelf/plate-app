@@ -1,10 +1,7 @@
-FROM golang:alpine
+FROM golang
 COPY . /usr/src/app
 WORKDIR /usr/src/app
 ENV APP_ENV=production
-RUN apk update && apk add git
-RUN go get github.com/kataras/iris
-RUN go get github.com/iris-contrib/middleware/cors
-RUN go build
+RUN go build .
 EXPOSE 5000
 ENTRYPOINT /usr/src/app/plate-api
