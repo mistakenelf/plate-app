@@ -5,6 +5,6 @@ ENV APP_ENV=production
 RUN apk update && apk add git
 RUN go get github.com/kataras/iris
 RUN go get github.com/iris-contrib/middleware/cors
-RUN go build ./main.go ./app.go ./models.go
+RUN go build
 EXPOSE 5000
-ENTRYPOINT /usr/src/app/main
+ENTRYPOINT /usr/src/app/plate-api
