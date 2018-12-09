@@ -1,14 +1,25 @@
 package main
 
-import "github.com/kataras/iris"
+import (
+	"github.com/iris-contrib/middleware/cors"
+	"github.com/kataras/iris"
+)
 
 var page = struct {
 	Title string
 }{"Welcome"}
 
+// NewApp export the apps routes
 func NewApp() *iris.Application {
 	app := iris.New()
-	app.RegisterView(iris.HTML("build", ".html"))
+
+	crs := cors.New(cors.Options{
+		AllowedOrigins:   []string{"*"},
+		AllowedMethods:   []string{"GET", "POST", "PUT", "PATCH", "DELETE"},
+		AllowCredentials: true,
+	})
+
+	app.Use(crs)
 
 	app.Get("/api/todo-lists", func(ctx iris.Context) {
 		todoLists := []TodoList{
@@ -104,16 +115,5 @@ func NewApp() *iris.Application {
 		}
 		ctx.JSON(token)
 	})
-
-	if GetEnv() == "production" {
-		app.Get("/", func(ctx iris.Context) {
-			ctx.ViewData("Page", page)
-			ctx.View("index.html")
-		})
-
-		assetHandler := app.StaticHandler("build", false, false)
-		app.SPA(assetHandler)
-	}
-
 	return app
 }
