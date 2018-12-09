@@ -25,5 +25,6 @@ require (
 	github.com/ryanuber/columnize v2.1.0+incompatible // indirect
 	github.com/shurcooL/sanitized_anchor_name v0.0.0-20170918181015-86672fcb3f95 // indirect
 	golang.org/x/crypto v0.0.0-20181203042331-505ab145d0a9 // indirect
+	golang.org/x/sys v0.0.0-20181208175041-ad97f365e150 // indirect
 	gopkg.in/yaml.v2 v2.2.2 // indirect
 )
