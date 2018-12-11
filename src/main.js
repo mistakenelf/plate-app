@@ -7,12 +7,13 @@ import store from './store'
 import VeeValidate from 'vee-validate'
 import Vue from 'vue'
 import {
-  faTachometerAlt,
+  faBars,
   faCheckCircle,
-  faPlus
+  faPlus,
+  faTachometerAlt
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faTachometerAlt, faCheckCircle, faPlus)
+library.add(faBars, faCheckCircle, faPlus, faTachometerAlt)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

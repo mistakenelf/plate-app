@@ -3,7 +3,7 @@
     <div
       v-for="todoList in todoLists"
       :key="todoList.id"
-      class="bg-grey-lighter shadow rounded w-full sm:w-full md:w-1/4 lg:w-1/5 m-2 sm:m-2 lg:m-4 p-4 flex-grow"
+      class="bg-white shadow rounded w-full sm:w-full md:w-1/4 lg:w-1/5 m-2 sm:m-2 lg:m-4 p-4 flex-grow"
     >
       <div class="flex justify-between items-center">
         <div class="flex flex-col">
