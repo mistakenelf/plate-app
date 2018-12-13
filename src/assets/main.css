@@ -65,4 +65,11 @@ html,
 body {
   height: 100%;
   background: #f1f5f8;
+  color: #444;
+}
+
+.no-scroll {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
 }

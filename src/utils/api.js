@@ -7,6 +7,7 @@ export const API = axios.create({
       : 'http://localhost:5000',
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${localStorage.getItem('token')}`
   }
 })

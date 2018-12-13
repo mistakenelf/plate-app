@@ -10,10 +10,19 @@ import {
   faBars,
   faCheckCircle,
   faPlus,
-  faTachometerAlt
+  faTachometerAlt,
+  faUserCircle,
+  faCogs
 } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faBars, faCheckCircle, faPlus, faTachometerAlt)
+library.add(
+  faBars,
+  faCheckCircle,
+  faPlus,
+  faTachometerAlt,
+  faUserCircle,
+  faCogs
+)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

@@ -1,16 +1,16 @@
 <template>
   <div>
-    <AppNav />
+    <Navbar />
     <slot />
   </div>
 </template>
 
 <script>
-import AppNav from './AppNav'
+import Navbar from './Navbar'
 
 export default {
   components: {
-    AppNav
+    Navbar
   }
 }
 </script>

@@ -1,20 +1,20 @@
 <template>
-  <AppPanel title="Reminders">
+  <Panel title="Reminders" height="385px">
     <template slot="addNew">
       <router-link to="/new-reminder" class="text-white">
         <font-awesome-icon icon="plus" />
       </router-link>
     </template>
     <div>Reminders</div>
-  </AppPanel>
+  </Panel>
 </template>
 
 <script>
-import AppPanel from '@/components/AppPanel'
+import Panel from '@/components/Panel'
 
 export default {
   components: {
-    AppPanel
+    Panel
   }
 }
 </script>

@@ -15,15 +15,15 @@
         icon="bars"
       />
     </ul>
-    <AppMainMenu :open="menuOpen" :handleClose="handleClose" />
+    <Sidenav :open="menuOpen" :handleClose="handleClose" />
   </nav>
 </template>
 
 <script>
-import AppMainMenu from './AppMainMenu'
+import Sidenav from './Sidenav'
 export default {
   components: {
-    AppMainMenu
+    Sidenav
   },
   data() {
     return {
@@ -33,9 +33,11 @@ export default {
   methods: {
     openMenu() {
       this.menuOpen = true
+      document.body.classList.add('no-scroll')
     },
     handleClose() {
       this.menuOpen = false
+      document.body.classList.remove('no-scroll')
     }
   }
 }

@@ -13,6 +13,7 @@ export default new Vuex.Store({
   mutations: {
     LOGIN(state, token) {
       state.token = token
+      localStorage.setItem('token', token)
     },
     GET_TODO_LISTS(state, todoLists) {
       state.todoLists = todoLists
@@ -22,29 +23,20 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    login({ commit }, payload) {
-      API.post('/api/login', {
+    async login({ commit }, payload) {
+      const { data } = await API.post('/api/login', {
         email: payload.email,
         password: payload.password
       })
-        .then(r => r.data)
-        .then(token => {
-          commit('LOGIN', token)
-        })
+      commit('LOGIN', data.token)
     },
-    getTodoLists({ commit }) {
-      API.get('/api/todo-lists')
-        .then(r => r.data)
-        .then(todoLists => {
-          commit('GET_TODO_LISTS', todoLists)
-        })
+    async getTodoLists({ commit }) {
+      const { data } = await API.get('/api/todo-lists')
+      commit('GET_TODO_LISTS', data)
     },
-    getTodoList({ commit }, id) {
-      API.get(`/api/todo-lists/${id}`)
-        .then(res => res.data)
-        .then(todoList => {
-          commit('GET_TODO_LIST', todoList)
-        })
+    async getTodoList({ commit }, id) {
+      const { data } = await API.get(`/api/todo-lists/${id}`)
+      commit('GET_TODO_LIST', data)
     }
   }
 })

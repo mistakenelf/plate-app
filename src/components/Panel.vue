@@ -6,14 +6,15 @@
       <div class="text-xl">{{ title }}</div>
       <slot name="addNew" />
     </div>
-    <slot style="{ height }" />
+    <div :style="{ height }"><slot /></div>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    title: String
+    title: String,
+    height: String
   }
 }
 </script>

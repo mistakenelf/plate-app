@@ -2,7 +2,7 @@
   <form class="p-2">
     <div class="flex flex-row justify-between flex-wrap">
       <div class="w-full sm:w-full md:w-1/2 p-2">
-        <AppInput
+        <TextField
           type="text"
           name="title"
           placeholder="Title"
@@ -14,7 +14,7 @@
         />
       </div>
       <div class="sm:w-full md:w-1/2 p-2">
-        <AppInput
+        <TextField
           type="text"
           name="description"
           placeholder="Description"
@@ -30,18 +30,18 @@
 </template>
 
 <script>
-import AppCoreLayout from '@/components/AppCoreLayout'
-import AppInput from '@/components/AppInput'
+import DefaultLayout from '@/components/DefaultLayout'
+import TextField from '@/components/TextField'
 export default {
   components: {
-    AppInput
+    TextField
   },
   data: () => ({
     title: '',
     description: ''
   }),
   created() {
-    this.$emit('update:layout', AppCoreLayout)
+    this.$emit('update:layout', DefaultLayout)
   },
   methods: {
     handleSubmit() {

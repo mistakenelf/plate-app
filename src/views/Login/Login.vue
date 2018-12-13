@@ -5,7 +5,7 @@
       class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full sm:w-full md:w-1/2 lg:w-1/3"
     >
       <div class="mb-4">
-        <AppInput
+        <TextField
           type="email"
           name="email"
           placeholder="Email"
@@ -17,7 +17,7 @@
         />
       </div>
       <div class="mb-6">
-        <AppInput
+        <TextField
           type="password"
           name="password"
           placeholder="******************"
@@ -41,19 +41,19 @@
 </template>
 
 <script>
-import AppBasicLayout from '@/components/AppBasicLayout'
-import AppInput from '@/components/AppInput'
+import BasicLayout from '@/components/BasicLayout'
+import TextField from '@/components/TextField'
 
 export default {
   components: {
-    AppInput
+    TextField
   },
   data: () => ({
     email: '',
     password: ''
   }),
   created() {
-    this.$emit('update:layout', AppBasicLayout)
+    this.$emit('update:layout', BasicLayout)
   },
   methods: {
     handleSubmit() {

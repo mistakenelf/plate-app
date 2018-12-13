@@ -1,11 +1,11 @@
 <template>
-  <AppPanel title="Todos" height="400px">
+  <Panel title="Todos" height="385px">
     <template slot="addNew">
       <router-link to="/new-todo-list" class="text-white">
         <font-awesome-icon icon="plus" />
       </router-link>
     </template>
-    <AppPanelLoader v-if="todoLists.length === 0" />
+    <PanelLoader v-if="todoLists.length === 0" />
     <div v-if="todoLists.length > 0">
       <div
         class="border-b-2 p-4 h-16 cursor-pointer items-center hover:bg-grey-lighter"
@@ -30,18 +30,18 @@
     >
       View All
     </router-link>
-  </AppPanel>
+  </Panel>
 </template>
 
 <script>
-import AppPanel from '@/components/AppPanel'
-import AppPanelLoader from '@/components/AppPanelLoader'
+import Panel from '@/components/Panel'
+import PanelLoader from '@/components/PanelLoader'
 import { mapState } from 'vuex'
 
 export default {
   components: {
-    AppPanel,
-    AppPanelLoader
+    Panel,
+    PanelLoader
   },
   created() {
     this.$store.dispatch('getTodoLists')

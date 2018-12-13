@@ -1,20 +1,20 @@
 <template>
-  <AppPanel title="Events">
+  <Panel title="Events" height="385px">
     <template slot="addNew">
       <router-link to="/new-event" class="text-white">
         <font-awesome-icon icon="plus" />
       </router-link>
     </template>
     <div>Events</div>
-  </AppPanel>
+  </Panel>
 </template>
 
 <script>
-import AppPanel from '@/components/AppPanel'
+import Panel from '@/components/Panel'
 
 export default {
   components: {
-    AppPanel
+    Panel
   }
 }
 </script>
