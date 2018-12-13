@@ -57,7 +57,7 @@ export default {
   },
   methods: {
     handleSubmit() {
-      this.$validator.validateAll().then(result => {
+      this.$validator.validateAll().then(async result => {
         if (!result) {
           return
         }
@@ -67,7 +67,7 @@ export default {
           password: this.password
         }
 
-        this.$store.dispatch('login', payload)
+        await this.$store.dispatch('login', payload)
         this.$router.push('/dashboard')
       })
     }

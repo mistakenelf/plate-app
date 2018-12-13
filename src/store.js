@@ -4,16 +4,19 @@ import { API } from './utils/api'
 
 Vue.use(Vuex)
 
+const headers = {
+  Authorization: `Bearer ${localStorage.getItem('token')}`
+}
+
 export default new Vuex.Store({
   state: {
     todoLists: [],
     todoList: {},
-    token: ''
+    token: localStorage.getItem('token') || ''
   },
   mutations: {
     LOGIN(state, token) {
       state.token = token
-      localStorage.setItem('token', token)
     },
     GET_TODO_LISTS(state, todoLists) {
       state.todoLists = todoLists
@@ -28,14 +31,15 @@ export default new Vuex.Store({
         email: payload.email,
         password: payload.password
       })
+      localStorage.setItem('token', data.token)
       commit('LOGIN', data.token)
     },
     async getTodoLists({ commit }) {
-      const { data } = await API.get('/api/todo-lists')
+      const { data } = await API.get('/api/todo-lists', { headers })
       commit('GET_TODO_LISTS', data)
     },
     async getTodoList({ commit }, id) {
-      const { data } = await API.get(`/api/todo-lists/${id}`)
+      const { data } = await API.get(`/api/todo-lists/${id}`, { headers })
       commit('GET_TODO_LIST', data)
     }
   }
