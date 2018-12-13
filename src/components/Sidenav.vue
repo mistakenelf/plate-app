@@ -38,6 +38,6 @@ export default {
   transform: translate(100%, 0);
 }
 .slide-leave-to {
-  transform: translate(100%, 0%);
+  transform: translate(100%, 0);
 }
 </style>
