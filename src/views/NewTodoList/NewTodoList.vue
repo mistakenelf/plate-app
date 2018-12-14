@@ -1,40 +1,18 @@
 <template>
-  <form class="p-2">
-    <div class="flex flex-row justify-between flex-wrap">
-      <div class="w-full sm:w-full md:w-1/2 p-2">
-        <TextField
-          type="text"
-          name="title"
-          placeholder="Title"
-          label="Title"
-          v-model="title"
-          v-validate="'required'"
-          :hasErrors="errors.has('title')"
-          :errorMessage="errors.first('title')"
-        />
-      </div>
-      <div class="sm:w-full md:w-1/2 p-2">
-        <TextField
-          type="text"
-          name="description"
-          placeholder="Description"
-          label="Description"
-          v-model="description"
-          v-validate="'required'"
-          :hasErrors="errors.has('description')"
-          :errorMessage="errors.first('description')"
-        />
-      </div>
-    </div>
+  <form class="p-2" @submit.prevent="handleSubmit">
+    <BasicInfo :title="title" :description="description" />
+    <NewTodo />
   </form>
 </template>
 
 <script>
 import DefaultLayout from '@/components/DefaultLayout'
-import TextField from '@/components/TextField'
+import BasicInfo from './components/BasicInfo'
+import NewTodo from './components/NewTodo'
 export default {
   components: {
-    TextField
+    BasicInfo,
+    NewTodo
   },
   data: () => ({
     title: '',

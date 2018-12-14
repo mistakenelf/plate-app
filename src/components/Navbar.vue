@@ -1,16 +1,30 @@
 <template>
   <nav
-    class="bg-blue-darker flex items-start flex-row px-4 justify-between p-4"
+    class="bg-blue-darker flex items-center flex-row px-4 justify-between p-4"
   >
     <div
       @click="handleClose()"
       :class="menuOpen ? 'block' : 'hidden'"
       class="overlay"
     ></div>
-    <div class="text-white text-2xl">Plate</div>
+    <div class="flex flex-row items-center">
+      <font-awesome-icon
+        @click="goBack()"
+        v-if="showBack"
+        class="text-white text-2xl w-4 cursor-pointer"
+        icon="arrow-left"
+      />
+      <div v-else class="text-2xl">🍛</div>
+      <div class="text-white text-2xl ml-2">Plate</div>
+    </div>
     <ul class="flex list-reset ml-6 text-2xl">
       <font-awesome-icon
         class="text-white cursor-pointer"
+        @click="logout()"
+        icon="sign-out-alt"
+      />
+      <font-awesome-icon
+        class="text-white cursor-pointer ml-4"
         @click="openMenu()"
         icon="bars"
       />
@@ -38,6 +52,21 @@ export default {
     handleClose() {
       this.menuOpen = false
       document.body.classList.remove('no-scroll')
+    },
+    goBack() {
+      this.$router.back()
+    },
+    logout() {
+      this.$router.push('/')
+    }
+  },
+  computed: {
+    showBack() {
+      if (this.$route.path === '/' || this.$route.path === '/dashboard') {
+        return false
+      } else {
+        return true
+      }
     }
   }
 }

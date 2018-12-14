@@ -4,19 +4,19 @@
   >
     <div class="flex flex-col justify-center text-center">
       <div class="text-xl md:text-5xl">2</div>
-      <div class="text-xs md:text-lg">Total todos</div>
+      <div class="text-xs md:text-lg">Todo Lists</div>
     </div>
     <div class="flex flex-col justify-center text-center">
       <div class="text-xl md:text-5xl">8</div>
-      <div class="text-xs md:text-lg">Total Reminders</div>
+      <div class="text-xs md:text-lg">Reminders</div>
     </div>
     <div class="flex flex-col justify-center text-center">
       <div class="text-xl md:text-5xl">10</div>
-      <div class="text-xs md:text-lg">Total Events</div>
+      <div class="text-xs md:text-lg">Events</div>
     </div>
     <div class="flex flex-col justify-center text-center">
       <div class="text-xl md:text-5xl">50</div>
-      <div class="text-xs md:text-lg">Total Notes</div>
+      <div class="text-xs md:text-lg">Notes</div>
     </div>
   </div>
 </template>

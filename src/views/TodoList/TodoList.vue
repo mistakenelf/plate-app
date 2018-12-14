@@ -27,9 +27,7 @@
 
 <script>
 import { mapState } from 'vuex'
-
 import DefaultLayout from '@/components/DefaultLayout'
-
 export default {
   created() {
     this.$emit('update:layout', DefaultLayout)

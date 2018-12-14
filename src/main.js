@@ -12,7 +12,9 @@ import {
   faPlus,
   faTachometerAlt,
   faUserCircle,
-  faCogs
+  faCogs,
+  faArrowLeft,
+  faSignOutAlt
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -21,7 +23,9 @@ library.add(
   faPlus,
   faTachometerAlt,
   faUserCircle,
-  faCogs
+  faCogs,
+  faArrowLeft,
+  faSignOutAlt
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
