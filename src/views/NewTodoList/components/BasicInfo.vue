@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 bg-white shadow rounded">
+  <div class="p-4 bg-white shadow rounded">
     <div class="text-4xl">Basic Info</div>
     <div class="flex flex-row justify-between flex-wrap">
       <div class="w-full sm:w-full md:w-1/2 p-2">
