@@ -14,6 +14,12 @@ export default new Router({
       component: Login
     },
     {
+      path: '/register',
+      name: 'register',
+      component: () =>
+        import(/* webpackChunkName: "register" */ './views/Register/Register')
+    },
+    {
       path: '/dashboard',
       name: 'dashboard',
       component: () =>

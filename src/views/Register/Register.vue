@@ -7,8 +7,32 @@
       class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full sm:w-full md:w-1/2 lg:w-1/3"
     >
       <div class="flex justify-between items-center flex-row w-full mb-4">
-        <div class="text-2xl">Login</div>
+        <div class="text-2xl">Register</div>
         <div class="text-2xl">🍛</div>
+      </div>
+      <div class="mb-4">
+        <TextField
+          type="text"
+          name="firstName"
+          placeholder="First Name"
+          label="First Name"
+          v-model="firstName"
+          v-validate="'required'"
+          :hasErrors="errors.has('firstName')"
+          :errorMessage="errors.first('firstName')"
+        />
+      </div>
+      <div class="mb-4">
+        <TextField
+          type="text"
+          name="lastName"
+          placeholder="Last Name"
+          label="Last Name"
+          v-model="lastName"
+          v-validate="'required'"
+          :hasErrors="errors.has('lastName')"
+          :errorMessage="errors.first('lastName')"
+        />
       </div>
       <div class="mb-4">
         <TextField
@@ -38,9 +62,8 @@
         class="bg-teal w-full hover:bg-teal-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4"
         type="submit"
       >
-        Login
+        Register
       </button>
-      <router-link to="/register">Dont have an account?</router-link>
     </form>
   </div>
 </template>
@@ -54,6 +77,8 @@ export default {
     TextField
   },
   data: () => ({
+    firstName: '',
+    lastName: '',
     email: '',
     password: ''
   }),
@@ -68,11 +93,13 @@ export default {
         }
 
         const payload = {
+          firstName: this.firstName,
+          lastName: this.lastName,
           email: this.email,
           password: this.password
         }
 
-        await this.$store.dispatch('login', payload)
+        await this.$store.dispatch('register', payload)
         this.$router.push('/dashboard')
       })
     }
