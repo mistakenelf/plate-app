@@ -5,7 +5,10 @@
         <font-awesome-icon icon="plus" />
       </router-link>
     </template>
-    <div>Events</div>
+    <div class="flex items-center justify-center flex-col h-full">
+      <font-awesome-icon icon="calendar-check" class="text-huge mb-4" />
+      <div class="text-xl">You currently have no events</div>
+    </div>
   </Panel>
 </template>
 
