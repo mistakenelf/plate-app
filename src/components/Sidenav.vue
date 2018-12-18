@@ -16,6 +16,13 @@
         <font-awesome-icon class="text-4xl mb-2" icon="cogs" />
         <div>Settings</div>
       </div>
+      <div
+        class="flex flex-col justify-center items-center mb-4 cursor-pointer"
+        @click="logout()"
+      >
+        <font-awesome-icon class="text-4xl mb-2" icon="sign-out-alt" />
+        <div>Logout</div>
+      </div>
     </div>
   </transition>
 </template>
@@ -25,6 +32,12 @@ export default {
   props: {
     open: Boolean,
     handleClose: Function
+  },
+  methods: {
+    async logout() {
+      await this.$store.dispatch('logout')
+      this.$router.push('/')
+    }
   }
 }
 </script>

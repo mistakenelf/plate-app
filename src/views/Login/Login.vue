@@ -72,7 +72,7 @@ export default {
           password: this.password
         }
 
-        await this.$store.dispatch('login', payload)
+        await this.$store.dispatch('login', payload, this.$router)
         this.$router.push('/dashboard')
       })
     }

@@ -19,11 +19,6 @@
     </div>
     <ul class="flex list-reset ml-6 text-2xl">
       <font-awesome-icon
-        class="text-white cursor-pointer"
-        @click="logout()"
-        icon="sign-out-alt"
-      />
-      <font-awesome-icon
         class="text-white cursor-pointer ml-4"
         @click="openMenu()"
         icon="bars"
@@ -55,9 +50,6 @@ export default {
     },
     goBack() {
       this.$router.back()
-    },
-    logout() {
-      this.$router.push('/')
     }
   },
   computed: {
