@@ -2,7 +2,7 @@
   <div class="flex flex-row flex-wrap">
     <div
       class="cursor-pointer p-2 m-2 mt-6 border-4 h-32 border-dashed border-grey flex justify-center flex-col items-center rounded w-full sm:w-full md:w-1/4 lg:w-1/5"
-      @click="addTodo()"
+      @click="addNewTodo()"
     >
       <font-awesome-icon icon="plus" class="text-5xl mb-4" />
       <div class="text-xl">Add New todo</div>
@@ -24,16 +24,16 @@
 
 <script>
 export default {
-  data: () => ({
-    todos: [],
-    count: 0
-  }),
+  props: {
+    todos: Array,
+    count: Number
+  },
   methods: {
-    addTodo() {
-      this.todos.push({
+    addNewTodo() {
+      this.$emit('addTodo', {
         title: 'New Todo',
         description: 'Todo Description',
-        id: this.count++
+        id: this.count
       })
     }
   }
