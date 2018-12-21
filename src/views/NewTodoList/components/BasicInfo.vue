@@ -36,9 +36,18 @@ export default {
   components: {
     TextField
   },
+  inject: ['$validator'],
   data: () => ({
     title: '',
     description: ''
-  })
+  }),
+  watch: {
+    title(newTitle, oldTitle) {
+      this.$emit('updateTitle', newTitle)
+    },
+    description(newDescription, oldDescription) {
+      this.$emit('updateDescription', newDescription)
+    }
+  }
 }
 </script>
