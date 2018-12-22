@@ -5,7 +5,14 @@
         <font-awesome-icon icon="plus" />
       </router-link>
     </template>
-    <PanelLoader v-if="todoLists.length === 0" />
+    <div
+      v-if="todoLists.length === 0 && !loading"
+      class="flex items-center justify-center flex-col h-full"
+    >
+      <font-awesome-icon icon="clipboard-list" class="text-huge mb-4" />
+      <div class="text-xl">You currently have no todo lists created</div>
+    </div>
+    <PanelLoader v-if="todoLists.length === 0 && loading" />
     <div v-if="todoLists.length > 0">
       <div
         class="border-b-2 p-4 h-16 cursor-pointer items-center hover:bg-grey-lighter"
@@ -43,10 +50,15 @@ export default {
     Panel,
     PanelLoader
   },
-  created() {
-    this.$store.dispatch('todoList/getTodoLists')
-  },
   computed: mapState('todoList', ['todoLists']),
+  data: () => ({
+    loading: false
+  }),
+  async created() {
+    this.loading = true
+    await this.$store.dispatch('todoList/getTodoLists')
+    this.loading = false
+  },
   methods: {
     goToDetailView(id) {
       this.$router.push(`/todo-list/${id}`)

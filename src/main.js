@@ -17,7 +17,8 @@ import {
   faSignOutAlt,
   faNewspaper,
   faCalendarCheck,
-  faBell
+  faBell,
+  faClipboardList
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -31,7 +32,8 @@ library.add(
   faSignOutAlt,
   faNewspaper,
   faCalendarCheck,
-  faBell
+  faBell,
+  faClipboardList
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
