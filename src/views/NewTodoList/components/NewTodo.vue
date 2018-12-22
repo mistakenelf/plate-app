@@ -58,8 +58,7 @@
 import TextField from '@/components/TextField'
 export default {
   props: {
-    todos: Array,
-    count: Number
+    todos: Array
   },
   components: {
     TextField
@@ -77,8 +76,7 @@ export default {
 
         this.$emit('addTodo', {
           title: this.title,
-          description: this.description,
-          id: this.count
+          description: this.description
         })
       })
     }

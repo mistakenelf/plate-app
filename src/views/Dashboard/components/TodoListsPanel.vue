@@ -44,9 +44,9 @@ export default {
     PanelLoader
   },
   created() {
-    this.$store.dispatch('getTodoLists')
+    this.$store.dispatch('todoList/getTodoLists')
   },
-  computed: mapState(['todoLists']),
+  computed: mapState('todoList', ['todoLists']),
   methods: {
     goToDetailView(id) {
       this.$router.push(`/todo-list/${id}`)

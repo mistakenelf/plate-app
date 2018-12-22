@@ -12,7 +12,7 @@
       >
         <div class="flex justify-between items-center">
           <div class="flex flex-col">
-            <div class="text-xl font-bold">{{ todo.name }}</div>
+            <div class="text-xl font-bold">{{ todo.title }}</div>
             <div>{{ todo.description }}</div>
           </div>
           <font-awesome-icon
@@ -33,8 +33,8 @@ export default {
     this.$emit('update:layout', DefaultLayout)
   },
   mounted() {
-    this.$store.dispatch('getTodoList', this.$route.params.id)
+    this.$store.dispatch('todoList/getTodoList', this.$route.params.id)
   },
-  computed: mapState(['todoList'])
+  computed: mapState('todoList', ['todoList'])
 }
 </script>

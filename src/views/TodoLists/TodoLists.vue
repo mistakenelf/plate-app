@@ -23,8 +23,8 @@ export default {
     this.$emit('update:layout', DefaultLayout)
   },
   mounted() {
-    this.$store.dispatch('getTodoLists')
+    this.$store.dispatch('todoList/getTodoLists')
   },
-  computed: mapState(['todoLists'])
+  computed: mapState('todoList', ['todoLists'])
 }
 </script>

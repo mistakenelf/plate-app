@@ -99,7 +99,7 @@ export default {
           password: this.password
         }
 
-        await this.$store.dispatch('register', payload)
+        await this.$store.dispatch('auth/register', payload)
         this.$router.push('/dashboard')
       })
     }

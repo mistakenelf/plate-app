@@ -10,3 +10,7 @@ export const API = axios.create({
     'Content-Type': 'application/json'
   }
 })
+
+export function getHeaders(token) {
+  return { Authorization: `Bearer ${token}` }
+}

@@ -11,7 +11,7 @@
         v-on:updateTitle="updateTitle"
         v-on:updateDescription="updateDescription"
       />
-      <NewTodo :todos="todos" :count="count" v-on:addTodo="addTodo" />
+      <NewTodo :todos="todos" v-on:addTodo="addTodo" />
     </form>
   </div>
 </template>
@@ -28,9 +28,7 @@ export default {
   data: () => ({
     title: '',
     description: '',
-    todos: [],
-    count: 0,
-    submitSuccess: false
+    todos: []
   }),
   created() {
     this.$emit('update:layout', DefaultLayout)
@@ -45,15 +43,15 @@ export default {
         const payload = {
           title: this.title,
           description: this.description,
-          totalTodos: this.count,
           todos: this.todos
         }
-        console.log(payload)
+
+        this.$store.dispatch('todoList/addTodoList', payload)
+        this.$router.push('/dashboard')
       })
     },
     addTodo(todo) {
       this.todos.push(todo)
-      this.count++
     },
     updateTitle(title) {
       this.title = title

@@ -10,7 +10,7 @@ import Navbar from './Navbar'
 
 export default {
   created() {
-    this.$store.dispatch('getUser')
+    this.$store.dispatch('auth/getUser')
   },
   components: {
     Navbar
