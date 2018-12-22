@@ -11,6 +11,22 @@ const getters = {
   currentUesr: state => state.user
 }
 
+const mutations = {
+  LOGIN(state, token) {
+    state.token = token
+  },
+  LOGOUT(state) {
+    state.user = {}
+    state.token = ''
+  },
+  REGISTER(state, token) {
+    state.token = token
+  },
+  GET_USER(state, user) {
+    state.user = user
+  }
+}
+
 const actions = {
   async login({ commit }, payload) {
     const { data } = await API.post(`/api/${API_VERSION}/login`, {
@@ -45,26 +61,10 @@ const actions = {
   }
 }
 
-const mutations = {
-  LOGIN(state, token) {
-    state.token = token
-  },
-  LOGOUT(state) {
-    state.user = {}
-    state.token = ''
-  },
-  REGISTER(state, token) {
-    state.token = token
-  },
-  GET_USER(state, user) {
-    state.user = user
-  }
-}
-
 export default {
   namespaced: true,
   state,
   getters,
-  actions,
-  mutations
+  mutations,
+  actions
 }

@@ -11,6 +11,20 @@ const getters = {
   todoList: state => state.todoList
 }
 
+const mutations = {
+  ADD_TODO_LIST(state, todoList) {
+    if (state.todoLists.length < 5) {
+      state.todoLists.push(todoList)
+    }
+  },
+  GET_TODO_LISTS(state, todoLists) {
+    state.todoLists = todoLists
+  },
+  GET_TODO_LIST(state, todoList) {
+    state.todoList = todoList
+  }
+}
+
 const actions = {
   async addTodoList({ commit, rootState }, payload) {
     const { data } = await API.post(
@@ -36,22 +50,10 @@ const actions = {
   }
 }
 
-const mutations = {
-  ADD_TODO_LIST(state, todoList) {
-    state.todoLists.push(todoList)
-  },
-  GET_TODO_LISTS(state, todoLists) {
-    state.todoLists = todoLists
-  },
-  GET_TODO_LIST(state, todoList) {
-    state.todoList = todoList
-  }
-}
-
 export default {
   namespaced: true,
   state,
   getters,
-  actions,
-  mutations
+  mutations,
+  actions
 }
