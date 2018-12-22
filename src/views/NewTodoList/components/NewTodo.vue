@@ -1,11 +1,11 @@
 <template>
   <form @submit.prevent="addNewTodo()">
-    <div class="p-4 mt-6 bg-white rounded shadow w-full">
+    <div class="p-4 mt-6 bg-white rounded shadow-md w-full">
       <div class="flex flex-row items-center justify-between">
         <div class="text-3xl">New Todo</div>
         <button
           type="submit"
-          class="bg-grey-darker hover:bg-grey-dark rounded text-white p-2 focus:outline-none"
+          class="bg-grey-light hover:bg-grey text-grey-darkest font-bold py-2 px-4 rounded inline-flex items-center"
         >
           Add Todo
         </button>
