@@ -42,10 +42,10 @@ export default {
     description: ''
   }),
   watch: {
-    title(newTitle, oldTitle) {
+    title(newTitle) {
       this.$emit('updateTitle', newTitle)
     },
-    description(newDescription, oldDescription) {
+    description(newDescription) {
       this.$emit('updateDescription', newDescription)
     }
   }
