@@ -41,7 +41,7 @@
     "@vue/cli-service": "^3.2.0",
     "@vue/eslint-config-prettier": "^4.0.1",
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.10.0",
+    "eslint": "^5.11.0",
     "eslint-plugin-vue": "^5.0.0",
     "prettier": "^1.15.3",
     "tailwindcss": "^0.7.3",
