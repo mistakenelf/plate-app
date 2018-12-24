@@ -43,7 +43,8 @@ export default {
         const payload = {
           title: this.title,
           description: this.description,
-          todos: this.todos
+          todos: this.todos,
+          createdBy: this.$store.state.auth.user.id
         }
 
         this.$store.dispatch('todoList/addTodoList', payload)
