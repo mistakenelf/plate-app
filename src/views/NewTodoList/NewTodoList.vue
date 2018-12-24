@@ -1,17 +1,22 @@
 <template>
   <div>
-    <form class="p-2" @submit.prevent="handleSubmit">
-      <button
-        type="submit"
-        class="bg-teal-dark text-white w-full p-4 mb-4 hover:bg-teal focus:outline-none"
-      >
-        Create List
-      </button>
-      <BasicInfo
-        v-on:updateTitle="updateTitle"
-        v-on:updateDescription="updateDescription"
-      />
-      <NewTodo :todos="todos" v-on:addTodo="addTodo" />
+    <form @submit.prevent="handleSubmit">
+      <div class="p-2">
+        <button
+          type="submit"
+          class="bg-teal-dark text-white w-full p-4 hover:bg-teal focus:outline-none"
+        >
+          Create List
+        </button>
+      </div>
+      <div class="flex flex-row flex-wrap justify-between p-2 md:p-0 md:m-4">
+        <BasicInfo
+          v-on:updateTitle="updateTitle"
+          v-on:updateDescription="updateDescription"
+        />
+        <NewTodo :todos="todos" v-on:addTodo="addTodo" />
+      </div>
+      <TodoListing :todos="todos" />
     </form>
   </div>
 </template>
@@ -20,10 +25,12 @@
 import DefaultLayout from '@/components/DefaultLayout'
 import BasicInfo from './components/BasicInfo'
 import NewTodo from './components/NewTodo'
+import TodoListing from './components/TodoListing'
 export default {
   components: {
     BasicInfo,
-    NewTodo
+    NewTodo,
+    TodoListing
   },
   data: () => ({
     title: '',

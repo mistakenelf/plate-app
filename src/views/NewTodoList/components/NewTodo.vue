@@ -1,6 +1,9 @@
 <template>
-  <form @submit.prevent="addNewTodo()">
-    <div class="p-4 mt-6 bg-white rounded shadow-md w-full">
+  <form
+    @submit.prevent="addNewTodo()"
+    class="p-4 bg-white rounded shadow-md w-full sm:w-full md:w-1/2 h-128 md:-mx-2 mt-4 md:mt-0"
+  >
+    <div>
       <div class="flex flex-row items-center justify-between">
         <div class="text-3xl">New Todo</div>
         <button
@@ -34,20 +37,6 @@
             :hasErrors="errors.has('description')"
             :errorMessage="errors.first('description')"
           />
-        </div>
-      </div>
-    </div>
-    <div class="flex flex-row flex-wrap">
-      <div
-        v-for="todo in todos"
-        :key="todo.id"
-        class="flex flex-row flex-wrap mt-4 w-full sm:w-full md:w-1/4 lg:w-1/5 flex-grow"
-      >
-        <div
-          class="bg-white shadow p-2 m-2 h-32 flex justify-center flex-col items-center rounded w-full"
-        >
-          <div>{{ todo.title }}</div>
-          <div>{{ todo.description }}</div>
         </div>
       </div>
     </div>

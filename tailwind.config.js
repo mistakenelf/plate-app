@@ -518,7 +518,8 @@ module.exports = {
     '48': '12rem',
     '64': '16rem',
     full: '100%',
-    screen: '100vh'
+    screen: '100vh',
+    '128': '18rem'
   },
 
   /*
