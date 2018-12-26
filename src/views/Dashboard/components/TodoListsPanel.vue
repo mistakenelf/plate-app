@@ -6,14 +6,14 @@
       </router-link>
     </template>
     <div
-      v-if="todoLists.length === 0 && !loading"
+      v-if="todoLists && !loading && todoLists.length === 0"
       class="flex items-center justify-center flex-col h-full"
     >
       <font-awesome-icon icon="clipboard-list" class="text-huge mb-4" />
       <div class="text-xl">You currently have no todo lists created</div>
     </div>
-    <PanelLoader v-if="todoLists.length === 0 && loading" />
-    <div v-if="todoLists.length > 0">
+    <PanelLoader v-if="loading" />
+    <div v-if="todoLists">
       <div
         class="border-b-2 p-4 h-16 cursor-pointer items-center hover:bg-grey-lighter"
         v-for="todoList in todoLists"
@@ -31,7 +31,7 @@
       </div>
     </div>
     <router-link
-      v-if="todoLists.length > 0"
+      v-if="todoLists"
       to="/todo-lists"
       class="flex justify-center uppercase p-4 h-16 items-center text-grey-darker no-underline hover:bg-grey-lighter"
     >
@@ -43,21 +43,15 @@
 <script>
 import Panel from '@/components/Panel'
 import PanelLoader from '@/components/PanelLoader'
-import { mapState } from 'vuex'
 
 export default {
   components: {
     Panel,
     PanelLoader
   },
-  computed: mapState('todoList', ['todoLists']),
-  data: () => ({
-    loading: false
-  }),
-  async created() {
-    this.loading = true
-    await this.$store.dispatch('todoList/getTodoLists')
-    this.loading = false
+  props: {
+    todoLists: Array,
+    loading: Boolean
   },
   methods: {
     goToDetailView(id) {

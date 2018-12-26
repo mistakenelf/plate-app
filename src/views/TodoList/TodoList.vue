@@ -29,11 +29,9 @@
 import { mapState } from 'vuex'
 import DefaultLayout from '@/components/DefaultLayout'
 export default {
-  created() {
+  async created() {
     this.$emit('update:layout', DefaultLayout)
-  },
-  mounted() {
-    this.$store.dispatch('todoList/getTodoList', this.$route.params.id)
+    await this.$store.dispatch('todoList/getTodoList', this.$route.params.id)
   },
   computed: mapState('todoList', ['todoList'])
 }

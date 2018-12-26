@@ -41,7 +41,7 @@ export default {
     this.$emit('update:layout', DefaultLayout)
   },
   methods: {
-    handleSubmit() {
+    async handleSubmit() {
       this.$validator.validateAll().then(async result => {
         if (!result) {
           return
@@ -54,7 +54,7 @@ export default {
           createdBy: this.$store.state.auth.user.id
         }
 
-        this.$store.dispatch('todoList/addTodoList', payload)
+        await this.$store.dispatch('todoList/addTodoList', payload)
         this.$router.push('/dashboard')
       })
     },

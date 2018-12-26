@@ -46,6 +46,9 @@ const actions = {
     const { data } = await API.get(`/api/${API_VERSION}/todo-lists/${id}`, {
       headers: getHeaders(rootState.auth.token)
     })
+    await API.get(`/api/${API_VERSION}/dashboard`, {
+      headers: getHeaders(rootState.auth.token)
+    })
     commit('GET_TODO_LIST', data)
   }
 }
