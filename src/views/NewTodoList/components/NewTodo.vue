@@ -5,7 +5,7 @@
         <div class="text-3xl mb-2">New Todo</div>
         <button
           type="submit"
-          class="bg-grey-darker hover:bg-grey-darkest text-grey-light font-bold py-2 px-4 inline-flex items-center"
+          class="bg-grey-darker hover:bg-grey-darkest text-grey-light text-sm border-b-4 border-grey-darkest font-bold py-2 px-4 inline-flex items-center rounded focus:outline-none"
         >
           Add Item
         </button>
@@ -44,7 +44,8 @@
 import TextField from '@/components/TextField'
 export default {
   props: {
-    todos: Array
+    todos: Array,
+    todoIndex: Number
   },
   components: {
     TextField
@@ -62,7 +63,8 @@ export default {
 
         this.$emit('addTodo', {
           title: this.title,
-          description: this.description
+          description: this.description,
+          todoIndex: this.todoIndex
         })
       })
     }

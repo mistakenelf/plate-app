@@ -8,7 +8,6 @@ import VeeValidate from 'vee-validate'
 import Vue from 'vue'
 import {
   faBars,
-  faCheckCircle,
   faPlus,
   faTachometerAlt,
   faUserCircle,
@@ -18,12 +17,12 @@ import {
   faNewspaper,
   faCalendarCheck,
   faBell,
-  faClipboardList
+  faClipboardList,
+  faTimes
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
   faBars,
-  faCheckCircle,
   faPlus,
   faTachometerAlt,
   faUserCircle,
@@ -33,7 +32,8 @@ library.add(
   faNewspaper,
   faCalendarCheck,
   faBell,
-  faClipboardList
+  faClipboardList,
+  faTimes
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

@@ -4,7 +4,7 @@
   >
     <form
       @submit.prevent="handleSubmit"
-      class="bg-grey-light shadow-md px-8 pt-6 pb-8 mb-4 w-full sm:w-full md:w-1/2 lg:w-1/3"
+      class="bg-grey-light shadow-md px-8 pt-6 pb-8 mb-4 w-full sm:w-full md:w-1/2 lg:w-1/3 rounded"
     >
       <div class="flex justify-between items-center flex-row w-full mb-4">
         <div class="text-2xl">Login</div>
@@ -35,7 +35,7 @@
         />
       </div>
       <button
-        class="bg-teal-dark w-full hover:bg-teal-dark text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline mb-4"
+        class="bg-teal-dark border-b-4 border-teal-darker rounded w-full hover:bg-teal-dark text-white font-bold py-2 px-4 focus:outline-none hover:bg-teal mb-4"
         type="submit"
       >
         Login

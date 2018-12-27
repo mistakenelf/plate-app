@@ -4,7 +4,7 @@
       <div class="p-4">
         <button
           type="submit"
-          class="bg-teal-dark text-white w-full p-4 hover:bg-teal focus:outline-none"
+          class="bg-teal-dark text-white w-full p-4 hover:bg-teal focus:outline-none rounded border-b-4 border-teal-darker font-bold"
         >
           Create List
         </button>
@@ -15,7 +15,8 @@
       />
       <div class="m-4 border-b-4 border-dashed border-grey-darker" />
       <NewTodo :todos="todos" v-on:addTodo="addTodo" />
-      <TodoListing :todos="todos" />
+      <div class="m-4 border-b-4 border-dashed border-grey-darker" />
+      <TodoListing :todos="todos" v-on:removeTodo="removeTodo" />
     </form>
   </div>
 </template>
@@ -59,6 +60,10 @@ export default {
     },
     addTodo(todo) {
       this.todos.push(todo)
+    },
+    removeTodo(todo) {
+      const index = this.todos.indexOf(todo)
+      this.todos.splice(index, 1)
     },
     updateTitle(title) {
       this.title = title
