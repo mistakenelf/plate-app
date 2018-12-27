@@ -1,7 +1,7 @@
 <template>
   <div>
     <form @submit.prevent="handleSubmit">
-      <div class="p-2">
+      <div class="p-4">
         <button
           type="submit"
           class="bg-teal-dark text-white w-full p-4 hover:bg-teal focus:outline-none"
@@ -9,13 +9,12 @@
           Create List
         </button>
       </div>
-      <div class="flex flex-row flex-wrap justify-between p-2 md:p-0 md:m-4">
-        <BasicInfo
-          v-on:updateTitle="updateTitle"
-          v-on:updateDescription="updateDescription"
-        />
-        <NewTodo :todos="todos" v-on:addTodo="addTodo" />
-      </div>
+      <BasicInfo
+        v-on:updateTitle="updateTitle"
+        v-on:updateDescription="updateDescription"
+      />
+      <div class="m-4 border-b-4 border-dashed border-grey-darker" />
+      <NewTodo :todos="todos" v-on:addTodo="addTodo" />
       <TodoListing :todos="todos" />
     </form>
   </div>

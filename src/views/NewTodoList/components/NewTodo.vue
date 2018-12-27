@@ -1,20 +1,17 @@
 <template>
-  <form
-    @submit.prevent="addNewTodo()"
-    class="p-4 bg-white rounded shadow-md w-full sm:w-full md:w-1/2 h-128 md:-mx-2 mt-4 md:mt-0"
-  >
+  <form @submit.prevent="addNewTodo()" class="p-4">
     <div>
       <div class="flex flex-row items-center justify-between">
-        <div class="text-3xl">New Todo</div>
+        <div class="text-3xl mb-2">New Todo</div>
         <button
           type="submit"
-          class="bg-grey-light hover:bg-grey text-grey-darkest font-bold py-2 px-4 rounded inline-flex items-center"
+          class="bg-grey-darker hover:bg-grey-darkest text-grey-light font-bold py-2 px-4 inline-flex items-center"
         >
-          Add Todo
+          Add Item
         </button>
       </div>
-      <div class="flex flex-col">
-        <div class="mt-4">
+      <div class="flex flex-row justify-between flex-wrap">
+        <div class="p-2 w-full sm:w-full md:w-1/2">
           <TextField
             type="text"
             name="title"
@@ -26,7 +23,7 @@
             :errorMessage="errors.first('title')"
           />
         </div>
-        <div class="mt-4">
+        <div class="p-2 w-full sm:w-full md:w-1/2">
           <TextField
             type="text"
             name="description"
