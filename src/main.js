@@ -11,14 +11,16 @@ import {
   faPlus,
   faTachometerAlt,
   faUserCircle,
-  faCogs,
   faArrowLeft,
   faSignOutAlt,
   faNewspaper,
   faCalendarCheck,
   faBell,
   faClipboardList,
-  faTimes
+  faTimes,
+  faSpinner,
+  faExclamationTriangle,
+  faCheckCircle
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -26,14 +28,16 @@ library.add(
   faPlus,
   faTachometerAlt,
   faUserCircle,
-  faCogs,
   faArrowLeft,
   faSignOutAlt,
   faNewspaper,
   faCalendarCheck,
   faBell,
   faClipboardList,
-  faTimes
+  faTimes,
+  faSpinner,
+  faExclamationTriangle,
+  faCheckCircle
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

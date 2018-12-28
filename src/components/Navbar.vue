@@ -24,7 +24,7 @@
         icon="bars"
       />
     </ul>
-    <Sidenav :open="menuOpen" :handleClose="handleClose" />
+    <Sidenav :open="menuOpen" v-on:handleClose="handleClose" />
   </nav>
 </template>
 

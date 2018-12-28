@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import auth from './modules/auth'
 import todoList from './modules/todoList'
 import dashboard from './modules/dashboard'
+import todos from './modules/todos'
 
 Vue.use(Vuex)
 
@@ -12,7 +13,8 @@ export default new Vuex.Store({
   modules: {
     auth,
     dashboard,
-    todoList
+    todoList,
+    todos
   },
   strict: debug
 })

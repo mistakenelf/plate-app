@@ -23,18 +23,16 @@ const mutations = {
   GET_TODO_LIST(state, todoList) {
     state.todoList = todoList
   },
-  DELETE_TODO(state, todoIndex) {
-    state.todoList.todos.splice(todoIndex, 1)
+  DELETE_TODO_LIST(state, todoListIndex) {
+    state.todoLists.splice(todoListIndex, 1)
   }
 }
 
 const actions = {
   async addTodoList({ commit, rootState }, payload) {
-    const { data } = await API.post(
-      `/api/${API_VERSION}/todo-lists/add`,
-      payload,
-      { headers: getHeaders(rootState.auth.token) }
-    )
+    const { data } = await API.post(`/api/${API_VERSION}/todo-lists`, payload, {
+      headers: getHeaders(rootState.auth.token)
+    })
     commit('ADD_TODO_LIST', data)
   },
 
@@ -55,12 +53,12 @@ const actions = {
     commit('GET_TODO_LIST', data)
   },
 
-  async deleteTodo({ commit, rootState }, payload) {
-    await API.delete(`/api/${API_VERSION}/todo/delete`, {
+  async deleteTodoList({ commit, rootState }, payload) {
+    await API.delete(`/api/${API_VERSION}/todo-lists`, {
       headers: getHeaders(rootState.auth.token),
-      data: payload.todo
+      data: payload.todoList
     })
-    commit('DELETE_TODO', payload.index)
+    commit('DELETE_TODO_LIST', payload.index)
   }
 }
 
