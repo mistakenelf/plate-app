@@ -38,7 +38,7 @@
         class="bg-teal-dark border-b-4 border-teal-darker rounded w-full hover:bg-teal-dark text-white font-bold py-2 px-4 focus:outline-none hover:bg-teal mb-4"
         type="submit"
       >
-        Login
+        {{ loading ? 'loading...' : 'Login' }}
       </button>
       <router-link to="/register">Dont have an account?</router-link>
     </form>
@@ -55,7 +55,8 @@ export default {
   },
   data: () => ({
     email: '',
-    password: ''
+    password: '',
+    loading: false
   }),
   created() {
     this.$emit('update:layout', BasicLayout)
@@ -72,7 +73,10 @@ export default {
           password: this.password
         }
 
+        this.loading = true
         await this.$store.dispatch('auth/login', payload)
+        this.loading = false
+
         this.$router.push('/dashboard')
       })
     }

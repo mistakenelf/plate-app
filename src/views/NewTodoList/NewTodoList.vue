@@ -6,7 +6,7 @@
           type="submit"
           class="bg-teal-dark text-white w-full p-4 hover:bg-teal focus:outline-none rounded border-b-4 border-teal-darker font-bold"
         >
-          Create List
+          {{ loading ? 'loading...' : 'Create List' }}
         </button>
       </div>
       <BasicInfo
@@ -35,7 +35,8 @@ export default {
   data: () => ({
     title: '',
     description: '',
-    todos: []
+    todos: [],
+    loading: false
   }),
   created() {
     this.$emit('update:layout', DefaultLayout)
@@ -54,7 +55,10 @@ export default {
           createdBy: this.$store.state.auth.user.id
         }
 
+        this.loading = true
         await this.$store.dispatch('todoList/addTodoList', payload)
+        this.loading = false
+
         this.$router.push('/dashboard')
       })
     },

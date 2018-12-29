@@ -7,7 +7,11 @@
     >
       <div
         class="bg-white shadow m-2 h-32 flex flex-col rounded"
-        v-bind:class="{ 'opacity-50': todo.completed }"
+        v-bind:class="{
+          'opacity-50':
+            todo.completed ||
+            (todoLoading.loading && todoLoading.index === todos.indexOf(todo))
+        }"
       >
         <div
           class="flex flex-row items-center justify-between bg-grey-darker rounded-t p-2 text-white"
@@ -27,7 +31,15 @@
             />
           </div>
         </div>
-        <div class="p-2">
+        <div
+          class="p-2 h-16 flex items-center justify-center"
+          v-if="
+            todoLoading.loading && todoLoading.index === todos.indexOf(todo)
+          "
+        >
+          <Spinner />
+        </div>
+        <div class="p-2 h-16" v-else>
           <div class="text-lg text-grey-darkest">{{ todo.description }}</div>
         </div>
       </div>
@@ -36,9 +48,14 @@
 </template>
 
 <script>
+import Spinner from '@/components/Spinner'
 export default {
+  components: {
+    Spinner
+  },
   props: {
-    todos: Array
+    todos: Array,
+    todoLoading: Object
   }
 }
 </script>

@@ -9,6 +9,7 @@
         v-on:deleteTodo="deleteTodo"
         v-on:toggleCompleted="toggleCompleted"
         :todos="todoList.todos"
+        :todoLoading="todoLoading"
       />
     </div>
   </div>
@@ -27,7 +28,11 @@ export default {
     Spinner
   },
   data: () => ({
-    loading: false
+    loading: false,
+    todoLoading: {
+      loading: false,
+      index: 0
+    }
   }),
   async created() {
     this.loading = true
@@ -43,7 +48,9 @@ export default {
         index,
         todo
       }
+      this.todoLoading = { loading: true, index }
       await this.$store.dispatch('todos/deleteTodo', payload)
+      this.todoLoading = { loading: false, index }
     },
     async toggleCompleted(todo) {
       const index = this.todoList.todos.indexOf(todo)
@@ -51,7 +58,9 @@ export default {
         index,
         todo
       }
+      this.todoLoading = { loading: true, index }
       await this.$store.dispatch('todos/toggleCompleted', payload)
+      this.todoLoading = { loading: false, index }
     }
   }
 }

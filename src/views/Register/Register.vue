@@ -62,7 +62,7 @@
         class="bg-teal-dark w-full hover:bg-teal-dark text-white font-bold py-2 px-4 focus:outline-none rounded border-b-4 border-teal-darker hover:bg-teal mb-4"
         type="submit"
       >
-        Register
+        {{ loading ? 'loading...' : 'Register' }}
       </button>
     </form>
   </div>
@@ -80,7 +80,8 @@ export default {
     firstName: '',
     lastName: '',
     email: '',
-    password: ''
+    password: '',
+    loading: false
   }),
   created() {
     this.$emit('update:layout', BasicLayout)
@@ -99,7 +100,10 @@ export default {
           password: this.password
         }
 
+        this.loading = true
         await this.$store.dispatch('auth/register', payload)
+        this.loading = false
+
         this.$router.push('/dashboard')
       })
     }

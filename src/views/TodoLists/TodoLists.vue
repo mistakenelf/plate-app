@@ -5,6 +5,8 @@
       :todoLists="todoLists"
       v-on:deleteTodoList="deleteTodoList"
       v-on:openList="openList"
+      :todoListLoading="todoListLoading"
+      v-on:toggleCompleted="toggleCompleted"
     />
     <div v-if="loading" class="h-full flex w-full justify-center items-center">
       <Spinner />
@@ -31,7 +33,11 @@ export default {
     Spinner
   },
   data: () => ({
-    loading: false
+    loading: false,
+    todoListLoading: {
+      loading: false,
+      index: 0
+    }
   }),
   async created() {
     this.loading = true
@@ -50,7 +56,19 @@ export default {
         index,
         todoList
       }
+      this.todoListLoading = { loading: true, index }
       await this.$store.dispatch('todoList/deleteTodoList', payload)
+      this.todoLoading = { loading: false, index }
+    },
+    async toggleCompleted(todoList) {
+      const index = this.$store.state.todoList.todoLists.indexOf(todoList)
+      const payload = {
+        index,
+        todoList
+      }
+      this.todoListLoading = { loading: true, index }
+      await this.$store.dispatch('todoList/toggleCompleted', payload)
+      this.todoListLoading = { loading: false, index }
     }
   }
 }

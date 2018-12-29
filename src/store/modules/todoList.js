@@ -23,6 +23,10 @@ const mutations = {
   },
   DELETE_TODO_LIST(state, todoListIndex) {
     state.todoLists.splice(todoListIndex, 1)
+  },
+  TOGGLE_COMPLETED(state, payload) {
+    state.todoLists[payload.payload.index].completed = !payload.payload.todoList
+      .completed
   }
 }
 
@@ -57,6 +61,23 @@ const actions = {
       data: payload.todoList
     })
     commit('DELETE_TODO_LIST', payload.index)
+  },
+
+  async toggleCompleted({ commit, rootState }, payload) {
+    const todoList = {
+      ...payload.todoList,
+      completed: !payload.todoList.completed
+    }
+
+    await API.put(`/api/${API_VERSION}/todo-lists`, todoList, {
+      headers: getHeaders(rootState.auth.token)
+    })
+
+    const todoPayload = {
+      payload,
+      rootState
+    }
+    commit('TOGGLE_COMPLETED', todoPayload)
   }
 }
 
