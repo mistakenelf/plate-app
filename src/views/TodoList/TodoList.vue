@@ -49,7 +49,7 @@ export default {
         todo
       }
       this.todoLoading = { loading: true, index }
-      await this.$store.dispatch('todos/deleteTodo', payload)
+      await this.$store.dispatch('todoList/deleteTodo', payload)
       this.todoLoading = { loading: false, index }
     },
     async toggleCompleted(todo) {
@@ -59,7 +59,7 @@ export default {
         todo
       }
       this.todoLoading = { loading: true, index }
-      await this.$store.dispatch('todos/toggleCompleted', payload)
+      await this.$store.dispatch('todoList/toggleTodoCompleted', payload)
       this.todoLoading = { loading: false, index }
     }
   }

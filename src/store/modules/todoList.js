@@ -24,9 +24,16 @@ const mutations = {
   DELETE_TODO_LIST(state, todoListIndex) {
     state.todoLists.splice(todoListIndex, 1)
   },
-  TOGGLE_COMPLETED(state, payload) {
+  TOGGLE_LIST_COMPLETED(state, payload) {
     state.todoLists[payload.payload.index].completed = !payload.payload.todoList
       .completed
+  },
+  DELETE_TODO(state, payload) {
+    state.todoList.todos.splice(payload.payload.index, 1)
+  },
+  TOGGLE_TODO_COMPLETED(state, payload) {
+    state.todoList.todos[payload.payload.index].completed = !payload.payload
+      .todo.completed
   }
 }
 
@@ -63,7 +70,7 @@ const actions = {
     commit('DELETE_TODO_LIST', payload.index)
   },
 
-  async toggleCompleted({ commit, rootState }, payload) {
+  async toggleListCompleted({ commit, rootState }, payload) {
     const todoList = {
       ...payload.todoList,
       completed: !payload.todoList.completed
@@ -77,7 +84,38 @@ const actions = {
       payload,
       rootState
     }
-    commit('TOGGLE_COMPLETED', todoPayload)
+    commit('TOGGLE_LIST_COMPLETED', todoPayload)
+  },
+
+  async deleteTodo({ commit, rootState }, payload) {
+    await API.delete(`/api/${API_VERSION}/todos`, {
+      headers: getHeaders(rootState.auth.token),
+      data: payload.todo
+    })
+
+    const rootPayload = {
+      rootState,
+      payload
+    }
+
+    commit('DELETE_TODO', rootPayload)
+  },
+
+  async toggleTodoCompleted({ commit, rootState }, payload) {
+    const todo = {
+      ...payload.todo,
+      completed: !payload.todo.completed
+    }
+
+    await API.put(`/api/${API_VERSION}/todos`, todo, {
+      headers: getHeaders(rootState.auth.token)
+    })
+
+    const todoPayload = {
+      payload,
+      rootState
+    }
+    commit('TOGGLE_TODO_COMPLETED', todoPayload)
   }
 }
 

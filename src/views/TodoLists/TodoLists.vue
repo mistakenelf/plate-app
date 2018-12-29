@@ -67,7 +67,7 @@ export default {
         todoList
       }
       this.todoListLoading = { loading: true, index }
-      await this.$store.dispatch('todoList/toggleCompleted', payload)
+      await this.$store.dispatch('todoList/toggleListCompleted', payload)
       this.todoListLoading = { loading: false, index }
     }
   }
