@@ -12,17 +12,17 @@ const getters = {
 }
 
 const mutations = {
-  LOGIN(state, token) {
+  LOGIN_SUCCESS(state, token) {
     state.token = token
   },
-  LOGOUT(state) {
+  LOGOUT_SUCCESS(state) {
     state.user = {}
     state.token = ''
   },
-  REGISTER(state, token) {
+  REGISTER_SUCCESS(state, token) {
     state.token = token
   },
-  GET_USER(state, user) {
+  GET_USER_SUCCESS(state, user) {
     state.user = user
   }
 }
@@ -34,12 +34,12 @@ const actions = {
       password: payload.password
     })
     localStorage.setItem('token', data.token)
-    commit('LOGIN', data.token)
+    commit('LOGIN_SUCCESS', data.token)
   },
 
   async logout({ commit }) {
     localStorage.removeItem('token')
-    commit('LOGOUT')
+    commit('LOGOUT_SUCCESS')
   },
 
   async register({ commit }, payload) {
@@ -50,14 +50,14 @@ const actions = {
       password: payload.password
     })
     localStorage.setItem('token', data.token)
-    commit('REGISTER', data.token)
+    commit('REGISTER_SUCCESS', data.token)
   },
 
   async getUser({ state, commit }) {
     const { data } = await API.get(`/api/${API_VERSION}/me`, {
       headers: getHeaders(state.token)
     })
-    commit('GET_USER', data)
+    commit('GET_USER_SUCCESS', data)
   }
 }
 

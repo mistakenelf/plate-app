@@ -10,7 +10,7 @@ const state = {
 }
 
 const mutations = {
-  GET_DASHBOARD(state, dashboard) {
+  GET_DASHBOARD_SUCCESS(state, dashboard) {
     state.dashboard = dashboard
   }
 }
@@ -20,7 +20,7 @@ const actions = {
     const { data } = await API.get(`/api/${API_VERSION}/dashboard`, {
       headers: getHeaders(rootState.auth.token)
     })
-    commit('GET_DASHBOARD', data)
+    commit('GET_DASHBOARD_SUCCESS', data)
   }
 }
 

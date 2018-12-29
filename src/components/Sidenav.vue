@@ -14,7 +14,7 @@
         <div>{{ $store.state.auth.user.firstName }}</div>
       </div>
       <div
-        @click="goToRoute('todo-lists')"
+        @click="goToRoute('/todo-lists')"
         class="flex flex-col justify-center items-center mb-6 cursor-pointer"
       >
         <font-awesome-icon class="text-3xl mb-2" icon="clipboard-list" />

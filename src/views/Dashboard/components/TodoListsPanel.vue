@@ -10,7 +10,7 @@
       class="flex items-center justify-center flex-col h-full"
     >
       <font-awesome-icon icon="clipboard-list" class="text-huge mb-4" />
-      <div class="text-xl">You currently have no todo lists created</div>
+      <div class="text-xl text-center">You currently have no todo lists created</div>
     </div>
     <PanelLoader v-if="loading" />
     <div v-if="todoLists">

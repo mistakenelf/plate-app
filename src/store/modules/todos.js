@@ -8,9 +8,7 @@ const mutations = {
   TOGGLE_COMPLETED(state, payload) {
     payload.rootState.todoList.todoList.todos[
       payload.payload.index
-    ].completed = !payload.rootState.todoList.todoList.todos[
-      payload.payload.index
-    ].completed
+    ].completed = !payload.payload.todo.completed
   }
 }
 
@@ -36,12 +34,7 @@ const actions = {
     }
     commit('TOGGLE_COMPLETED', todoPayload)
 
-    const data = {
-      ...payload.todo,
-      completed: !payload.todo.completed
-    }
-
-    await API.put(`/api/${API_VERSION}/todos`, data, {
+    await API.put(`/api/${API_VERSION}/todos`, payload.todo, {
       headers: getHeaders(rootState.auth.token)
     })
   }

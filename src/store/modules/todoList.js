@@ -13,9 +13,7 @@ const getters = {
 
 const mutations = {
   ADD_TODO_LIST(state, todoList) {
-    if (state.todoLists.length < 5) {
-      state.todoLists.push(todoList)
-    }
+    state.todoLists.push(todoList)
   },
   GET_TODO_LISTS(state, todoLists) {
     state.todoLists = todoLists
