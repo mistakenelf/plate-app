@@ -64,7 +64,8 @@ export default {
         this.$emit('addTodo', {
           title: this.title,
           description: this.description,
-          todoIndex: this.todoIndex
+          todoIndex: this.todoIndex,
+          createdBy: this.$store.state.auth.user.id
         })
       })
     }

@@ -42,32 +42,32 @@ export default {
   async created() {
     this.loading = true
     this.$emit('update:layout', DefaultLayout)
-    await this.$store.dispatch('todoList/getTodoLists')
+    await this.$store.dispatch('todos/getTodoLists')
     this.loading = false
   },
-  computed: mapState('todoList', ['todoLists']),
+  computed: mapState('todos', ['todoLists']),
   methods: {
     openList(id) {
       this.$router.push(`/todo-list/${id}`)
     },
     async deleteTodoList(todoList) {
-      const index = this.$store.state.todoList.todoLists.indexOf(todoList)
+      const index = this.$store.state.todos.todoLists.indexOf(todoList)
       const payload = {
         index,
         todoList
       }
       this.todoListLoading = { loading: true, index }
-      await this.$store.dispatch('todoList/deleteTodoList', payload)
+      await this.$store.dispatch('todos/deleteTodoList', payload)
       this.todoLoading = { loading: false, index }
     },
     async toggleCompleted(todoList) {
-      const index = this.$store.state.todoList.todoLists.indexOf(todoList)
+      const index = this.$store.state.todos.todoLists.indexOf(todoList)
       const payload = {
         index,
         todoList
       }
       this.todoListLoading = { loading: true, index }
-      await this.$store.dispatch('todoList/toggleListCompleted', payload)
+      await this.$store.dispatch('todos/toggleListCompleted', payload)
       this.todoListLoading = { loading: false, index }
     }
   }

@@ -26,7 +26,6 @@
 
 <script>
 import { mapState } from 'vuex'
-
 import DefaultLayout from '@/components/DefaultLayout'
 import TotalsBar from './components/TotalsBar'
 import TodoListsPanel from './components/TodoListsPanel'

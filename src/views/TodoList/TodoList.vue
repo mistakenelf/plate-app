@@ -5,6 +5,7 @@
     </div>
     <div v-else>
       <div class="p-4"><BasicInfo :todoList="todoList" /></div>
+      <div class="m-4 border-b-4 border-dashed border-grey-darker" />
       <TodoListing
         v-on:deleteTodo="deleteTodo"
         v-on:toggleCompleted="toggleCompleted"
@@ -37,10 +38,10 @@ export default {
   async created() {
     this.loading = true
     this.$emit('update:layout', DefaultLayout)
-    await this.$store.dispatch('todoList/getTodoList', this.$route.params.id)
+    await this.$store.dispatch('todos/getTodoList', this.$route.params.id)
     this.loading = false
   },
-  computed: mapState('todoList', ['todoList']),
+  computed: mapState('todos', ['todoList']),
   methods: {
     async deleteTodo(todo) {
       const index = this.todoList.todos.indexOf(todo)
@@ -49,7 +50,7 @@ export default {
         todo
       }
       this.todoLoading = { loading: true, index }
-      await this.$store.dispatch('todoList/deleteTodo', payload)
+      await this.$store.dispatch('todos/deleteTodo', payload)
       this.todoLoading = { loading: false, index }
     },
     async toggleCompleted(todo) {
@@ -59,7 +60,7 @@ export default {
         todo
       }
       this.todoLoading = { loading: true, index }
-      await this.$store.dispatch('todoList/toggleTodoCompleted', payload)
+      await this.$store.dispatch('todos/toggleTodoCompleted', payload)
       this.todoLoading = { loading: false, index }
     }
   }

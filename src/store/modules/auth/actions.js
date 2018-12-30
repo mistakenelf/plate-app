@@ -1,33 +1,7 @@
-import { API, getHeaders } from '../../helpers/api'
-import { API_VERSION } from '../../helpers/constants'
+import { API, getHeaders } from '@/helpers/api'
+import { API_VERSION } from '@/helpers/constants'
 
-const state = {
-  user: {},
-  token: localStorage.getItem('token') || ''
-}
-
-const getters = {
-  isLoggedIn: state => !!state.token,
-  currentUesr: state => state.user
-}
-
-const mutations = {
-  LOGIN_SUCCESS(state, token) {
-    state.token = token
-  },
-  LOGOUT_SUCCESS(state) {
-    state.user = {}
-    state.token = ''
-  },
-  REGISTER_SUCCESS(state, token) {
-    state.token = token
-  },
-  GET_USER_SUCCESS(state, user) {
-    state.user = user
-  }
-}
-
-const actions = {
+export default {
   async login({ commit }, payload) {
     const { data } = await API.post(`/api/${API_VERSION}/login`, {
       email: payload.email,
@@ -59,12 +33,4 @@ const actions = {
     })
     commit('GET_USER_SUCCESS', data)
   }
-}
-
-export default {
-  namespaced: true,
-  state,
-  getters,
-  mutations,
-  actions
 }

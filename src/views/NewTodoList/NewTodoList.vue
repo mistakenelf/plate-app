@@ -56,7 +56,7 @@ export default {
         }
 
         this.loading = true
-        await this.$store.dispatch('todoList/addTodoList', payload)
+        await this.$store.dispatch('todos/addTodoList', payload)
         this.loading = false
 
         this.$router.push('/dashboard')
