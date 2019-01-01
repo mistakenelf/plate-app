@@ -42,6 +42,14 @@ library.add(
   faSave
 )
 
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.style.color = '#ffffff'
+  document.body.style.background = '#3d4852'
+} else {
+  document.body.style.color = '#444'
+  document.body.style.background = '#dae1e7'
+}
+
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(VeeValidate)
