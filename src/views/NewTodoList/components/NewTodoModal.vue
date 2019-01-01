@@ -2,7 +2,7 @@
   <Modal :isOpen="isOpen" v-on:closeModal="closeModal">
     <form @submit.prevent="addNewTodo()" class="p-4">
       <div>
-        <div class="text-3xl mb-2">New Todo</div>
+        <div class="text-3xl mb-4">New Todo</div>
         <div class="flex flex-col">
           <div class="w-full">
             <TextField
@@ -17,8 +17,7 @@
             />
           </div>
           <div class="w-full mt-4">
-            <TextField
-              type="text"
+            <TextArea
               name="description"
               placeholder="Description"
               label="Description"
@@ -43,9 +42,11 @@
 <script>
 import TextField from '@/components/TextField'
 import Modal from '@/components/Modal'
+import TextArea from '@/components/TextArea'
 export default {
   components: {
     TextField,
+    TextArea,
     Modal
   },
   props: {
