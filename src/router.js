@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from './views/Login/Login'
+import Login from './modules/auth/views/Login'
 import store from './store'
 
 Vue.use(Router)
@@ -18,22 +18,13 @@ const router = new Router({
       path: '/register',
       name: 'register',
       component: () =>
-        import(/* webpackChunkName: "register" */ './views/Register/Register')
+        import(/* webpackChunkName: "register" */ './modules/auth/views/Register')
     },
     {
       path: '/dashboard',
       name: 'dashboard',
       component: () =>
-        import(/* webpackChunkName: "dashboard" */ './views/Dashboard/Dashboard'),
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/new-todo-list',
-      name: 'newTodoList',
-      component: () =>
-        import(/* webpackChunkName: "newTodoList" */ './views/NewTodoList/NewTodoList'),
+        import(/* webpackChunkName: "dashboard" */ './modules/dashboard/views/Dashboard'),
       meta: {
         requiresAuth: true
       }
@@ -42,16 +33,25 @@ const router = new Router({
       path: '/todo-lists',
       name: 'todoLists',
       component: () =>
-        import(/* webpackChunkName: "todoLists" */ './views/TodoLists/TodoLists'),
+        import(/* webpackChunkName: "todoLists" */ './modules/todos/views/TodoListListing'),
       meta: {
         requiresAuth: true
       }
     },
     {
-      path: '/todo-list/:id',
+      path: '/todo-lists/new',
+      name: 'newTodoList',
+      component: () =>
+        import(/* webpackChunkName: "newTodoList" */ './modules/todos/views/NewTodoList'),
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/todo-lists/:id',
       name: 'todoList',
       component: () =>
-        import(/* webpackChunkName: "todoList" */ './views/TodoList/TodoList'),
+        import(/* webpackChunkName: "todoList" */ './modules/todos/views/TodoListDetails'),
       meta: {
         requiresAuth: true
       }

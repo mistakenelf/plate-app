@@ -2,42 +2,55 @@
   <div>
     <form @submit.prevent="handleSubmit">
       <div class="p-4">
-        <button
-          type="submit"
-          class="bg-teal-dark text-white w-full p-4 hover:bg-teal focus:outline-none rounded border-b-4 border-teal-darker font-bold"
-        >
-          {{ loading ? 'loading...' : 'Create List' }}
-        </button>
+        <BasicInfo
+          v-on:updateTitle="updateTitle"
+          v-on:updateDescription="updateDescription"
+        />
       </div>
-      <BasicInfo
-        v-on:updateTitle="updateTitle"
-        v-on:updateDescription="updateDescription"
+      <NewTodoModal
+        v-on:addTodo="addTodo"
+        :closeModal="closeModal"
+        v-on:close="closeModal"
+        :isOpen="isOpen"
       />
-      <div class="m-4 border-b-4 border-dashed border-grey-darker" />
-      <NewTodo :todos="todos" v-on:addTodo="addTodo" />
-      <div class="m-4 border-b-4 border-dashed border-grey-darker" />
+      <NewTodoButton v-on:openModal="openModal" />
       <TodoListing :todos="todos" v-on:removeTodo="removeTodo" />
+      <button
+        type="submit"
+        class="bg-teal-dark shadow-lg m-2 fixed pin-b pin-r h-16 w-16 text-white p-4 hover:bg-teal focus:outline-none rounded-full font-bold"
+      >
+        <font-awesome-icon
+          class="text-2xl"
+          :icon="!loading ? 'save' : 'spinner'"
+          :spin="loading"
+        />
+      </button>
     </form>
   </div>
 </template>
 
 <script>
 import DefaultLayout from '@/components/DefaultLayout'
-import BasicInfo from './components/BasicInfo'
-import NewTodo from './components/NewTodo'
-import TodoListing from './components/TodoListing'
+import BasicInfo from '../_components/NewTodoList/BasicInfo'
+import NewTodoButton from '../_components/NewTodoList/NewTodoButton'
+import TodoListing from '../_components/NewTodoList/TodoListing'
+import NewTodoModal from '../_components/NewTodoList/NewTodoModal'
 export default {
   components: {
     BasicInfo,
-    NewTodo,
-    TodoListing
+    NewTodoButton,
+    TodoListing,
+    NewTodoModal
   },
-  data: () => ({
-    title: '',
-    description: '',
-    todos: [],
-    loading: false
-  }),
+  data() {
+    return {
+      title: '',
+      description: '',
+      todos: [],
+      loading: false,
+      isOpen: false
+    }
+  },
   created() {
     this.$emit('update:layout', DefaultLayout)
   },
@@ -74,6 +87,12 @@ export default {
     },
     updateDescription(description) {
       this.description = description
+    },
+    openModal() {
+      this.isOpen = true
+    },
+    closeModal() {
+      this.isOpen = false
     }
   }
 }

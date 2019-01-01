@@ -24,28 +24,32 @@
 import { mapState } from 'vuex'
 import DefaultLayout from '@/components/DefaultLayout'
 import Spinner from '@/components/Spinner'
-import TodoListsListing from './components/TodoListsListing'
-import NoTodoLists from './components/NoTodoLists'
+import TodoListsListing from '../_components/TodoListListing/TodoListsListing'
+import NoTodoLists from '../_components/TodoListListing/NoTodoLists'
 export default {
   components: {
     TodoListsListing,
     NoTodoLists,
     Spinner
   },
-  data: () => ({
-    loading: false,
-    todoListLoading: {
+  data() {
+    return {
       loading: false,
-      index: 0
+      todoListLoading: {
+        loading: false,
+        index: 0
+      }
     }
-  }),
-  async created() {
-    this.loading = true
+  },
+  computed: mapState('todos', ['todoLists']),
+  created() {
     this.$emit('update:layout', DefaultLayout)
+  },
+  async mounted() {
+    this.loading = true
     await this.$store.dispatch('todos/getTodoLists')
     this.loading = false
   },
-  computed: mapState('todos', ['todoLists']),
   methods: {
     openList(id) {
       this.$router.push(`/todo-list/${id}`)
@@ -58,7 +62,7 @@ export default {
       }
       this.todoListLoading = { loading: true, index }
       await this.$store.dispatch('todos/deleteTodoList', payload)
-      this.todoLoading = { loading: false, index }
+      this.todoListLoading = { loading: false, index }
     },
     async toggleCompleted(todoList) {
       const index = this.$store.state.todos.todoLists.indexOf(todoList)

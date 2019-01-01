@@ -41,11 +41,15 @@
         {{ loading ? 'loading...' : 'Login' }}
       </button>
       <router-link to="/register">Dont have an account?</router-link>
+      <div class="text-red mt-4 uppercase" v-if="loginError">
+        {{ loginError }}
+      </div>
     </form>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import BasicLayout from '@/components/BasicLayout'
 import TextField from '@/components/TextField'
 
@@ -53,11 +57,14 @@ export default {
   components: {
     TextField
   },
-  data: () => ({
-    email: '',
-    password: '',
-    loading: false
-  }),
+  data() {
+    return {
+      email: '',
+      password: '',
+      loading: false
+    }
+  },
+  computed: mapState('auth', ['loginError']),
   created() {
     this.$emit('update:layout', BasicLayout)
   },

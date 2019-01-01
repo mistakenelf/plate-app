@@ -1,7 +1,7 @@
 <template>
   <Panel title="Todos" height="385px">
     <template slot="addNew">
-      <router-link to="/new-todo-list" class="text-white">
+      <router-link to="/todo-lists/new" class="text-white">
         <font-awesome-icon icon="plus" />
       </router-link>
     </template>
@@ -67,7 +67,7 @@ export default {
   },
   methods: {
     goToDetailView(id) {
-      this.$router.push(`/todo-list/${id}`)
+      this.$router.push(`/todo-lists/${id}`)
     }
   }
 }

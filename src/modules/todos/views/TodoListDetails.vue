@@ -5,7 +5,7 @@
     </div>
     <div v-else>
       <div class="p-4"><BasicInfo :todoList="todoList" /></div>
-      <div class="m-4 border-b-4 border-dashed border-grey-darker" />
+      <Divider />
       <TodoListing
         v-on:deleteTodo="deleteTodo"
         v-on:toggleCompleted="toggleCompleted"
@@ -19,29 +19,35 @@
 <script>
 import { mapState } from 'vuex'
 import DefaultLayout from '@/components/DefaultLayout'
-import BasicInfo from './components/BasicInfo'
-import TodoListing from './components/TodoListing'
+import Divider from '@/components/Divider'
+import BasicInfo from '../_components/TodoListDetails/BasicInfo'
+import TodoListing from '../_components/TodoListDetails/TodoListing'
 import Spinner from '@/components/Spinner'
 export default {
   components: {
+    Divider,
     BasicInfo,
     TodoListing,
     Spinner
   },
-  data: () => ({
-    loading: false,
-    todoLoading: {
+  data() {
+    return {
       loading: false,
-      index: 0
+      todoLoading: {
+        loading: false,
+        index: 0
+      }
     }
-  }),
-  async created() {
-    this.loading = true
+  },
+  computed: mapState('todos', ['todoList']),
+  created() {
     this.$emit('update:layout', DefaultLayout)
+  },
+  async mounted() {
+    this.loading = true
     await this.$store.dispatch('todos/getTodoList', this.$route.params.id)
     this.loading = false
   },
-  computed: mapState('todos', ['todoList']),
   methods: {
     async deleteTodo(todo) {
       const index = this.todoList.todos.indexOf(todo)

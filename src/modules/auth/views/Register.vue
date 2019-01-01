@@ -64,11 +64,15 @@
       >
         {{ loading ? 'loading...' : 'Register' }}
       </button>
+      <div class="text-red mt-4 uppercase" v-if="registerError">
+        {{ registerError }}
+      </div>
     </form>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import BasicLayout from '@/components/BasicLayout'
 import TextField from '@/components/TextField'
 
@@ -76,13 +80,16 @@ export default {
   components: {
     TextField
   },
-  data: () => ({
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    loading: false
-  }),
+  data() {
+    return {
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      loading: false
+    }
+  },
+  computed: mapState('auth', ['registerError']),
   created() {
     this.$emit('update:layout', BasicLayout)
   },
