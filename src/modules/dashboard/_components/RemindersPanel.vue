@@ -5,7 +5,10 @@
         <font-awesome-icon icon="plus" />
       </router-link>
     </template>
-    <div class="flex items-center justify-center flex-col h-full">
+    <div
+      class="flex items-center justify-center flex-col h-full"
+      :class="$store.state.theme.selectedThemeClasses.remindersPanelBg"
+    >
       <font-awesome-icon icon="bell" class="text-huge mb-4" />
       <div class="text-xl text-center">You currently have no reminders</div>
     </div>

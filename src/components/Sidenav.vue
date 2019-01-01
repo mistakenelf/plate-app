@@ -3,31 +3,17 @@
     <div
       v-if="open"
       class="fixed h-full pin-r pin-t z-10 w-24 p-2"
-      :class="
-        $store.state.theme.selectedTheme === 'light'
-          ? 'bg-grey-lighter'
-          : 'bg-black'
-      "
+      :class="$store.state.theme.selectedThemeClasses.sideNavBg"
     >
       <div
         class="flex flex-col justify-center items-center mb-6 cursor-pointer"
       >
         <font-awesome-icon
           class="text-3xl mb-2 text-grey-darkest"
-          :class="
-            $store.state.theme.selectedTheme === 'light'
-              ? 'text-grey-darkest'
-              : 'text-white'
-          "
+          :class="$store.state.theme.selectedThemeClasses.textColor"
           icon="user-circle"
         />
-        <div
-          :class="
-            $store.state.theme.selectedTheme === 'light'
-              ? 'text-grey-darkest'
-              : 'text-white'
-          "
-        >
+        <div :class="$store.state.theme.selectedThemeClasses.textColor">
           {{ $store.state.auth.user.firstName }}
         </div>
       </div>
@@ -38,19 +24,9 @@
         <font-awesome-icon
           class="text-3xl mb-2"
           icon="clipboard-list"
-          :class="
-            $store.state.theme.selectedTheme === 'light'
-              ? 'text-grey-darkest'
-              : 'text-white'
-          "
+          :class="$store.state.theme.selectedThemeClasses.textColor"
         />
-        <div
-          :class="
-            $store.state.theme.selectedTheme === 'light'
-              ? 'text-grey-darkest'
-              : 'text-white'
-          "
-        >
+        <div :class="$store.state.theme.selectedThemeClasses.textColor">
           Todo Lists
         </div>
       </div>
@@ -60,19 +36,9 @@
         <font-awesome-icon
           class="text-3xl mb-2"
           icon="bell"
-          :class="
-            $store.state.theme.selectedTheme === 'light'
-              ? 'text-grey-darkest'
-              : 'text-white'
-          "
+          :class="$store.state.theme.selectedThemeClasses.textColor"
         />
-        <div
-          :class="
-            $store.state.theme.selectedTheme === 'light'
-              ? 'text-grey-darkest'
-              : 'text-white'
-          "
-        >
+        <div :class="$store.state.theme.selectedThemeClasses.textColor">
           Reminders
         </div>
       </div>
@@ -82,19 +48,9 @@
         <font-awesome-icon
           class="text-3xl mb-2"
           icon="newspaper"
-          :class="
-            $store.state.theme.selectedTheme === 'light'
-              ? 'text-grey-darkest'
-              : 'text-white'
-          "
+          :class="$store.state.theme.selectedThemeClasses.textColor"
         />
-        <div
-          :class="
-            $store.state.theme.selectedTheme === 'light'
-              ? 'text-grey-darkest'
-              : 'text-white'
-          "
-        >
+        <div :class="$store.state.theme.selectedThemeClasses.textColor">
           Notes
         </div>
       </div>
@@ -104,19 +60,9 @@
         <font-awesome-icon
           class="text-3xl mb-2"
           icon="calendar-check"
-          :class="
-            $store.state.theme.selectedTheme === 'light'
-              ? 'text-grey-darkest'
-              : 'text-white'
-          "
+          :class="$store.state.theme.selectedThemeClasses.textColor"
         />
-        <div
-          :class="
-            $store.state.theme.selectedTheme === 'light'
-              ? 'text-grey-darkest'
-              : 'text-white'
-          "
-        >
+        <div :class="$store.state.theme.selectedThemeClasses.textColor">
           Reminders
         </div>
       </div>
@@ -127,19 +73,9 @@
         <font-awesome-icon
           class="text-3xl mb-2"
           icon="sign-out-alt"
-          :class="
-            $store.state.theme.selectedTheme === 'light'
-              ? 'text-grey-darkest'
-              : 'text-white'
-          "
+          :class="$store.state.theme.selectedThemeClasses.textColor"
         />
-        <div
-          :class="
-            $store.state.theme.selectedTheme === 'light'
-              ? 'text-grey-darkest'
-              : 'text-white'
-          "
-        >
+        <div :class="$store.state.theme.selectedThemeClasses.textColor">
           Logout
         </div>
       </div>
@@ -147,7 +83,7 @@
         class="flex flex-col justify-center items-center mb-6 cursor-pointer"
         @click="toggleTheme()"
       >
-        <div>{{ $store.state.theme.selectedTheme }}</div>
+        <div>{{ $store.state.theme.selectedThemeName }}</div>
       </div>
     </div>
   </transition>
@@ -168,15 +104,15 @@ export default {
       this.$router.push(route)
     },
     toggleTheme() {
-      const { selectedTheme } = this.$store.state.theme
+      const { selectedThemeName } = this.$store.state.theme
 
-      if (selectedTheme === 'light') {
+      if (selectedThemeName === 'light') {
         this.$store.dispatch('theme/toggleTheme', {
-          selectedTheme: 'dark'
+          selectedThemeName: 'dark'
         })
       } else {
         this.$store.dispatch('theme/toggleTheme', {
-          selectedTheme: 'light'
+          selectedThemeName: 'light'
         })
       }
     }

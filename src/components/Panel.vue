@@ -2,11 +2,7 @@
   <div class="bg-white shadow-md rounded">
     <div
       class="flex justify-between items-center p-4 text-white rounded-t"
-      :class="
-        $store.state.theme.selectedTheme === 'light'
-          ? 'bg-teal-dark'
-          : 'bg-black'
-      "
+      :class="$store.state.theme.selectedThemeClasses.panelHeaderBg"
     >
       <div class="text-xl">{{ title }}</div>
       <slot name="addNew" />
