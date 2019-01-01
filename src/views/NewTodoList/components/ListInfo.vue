@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="text-3xl mb-4">Basic Info</div>
+    <div class="text-3xl mb-4">List Info</div>
     <div class="flex flex-col">
       <div class="w-full mb-4">
         <TextField
