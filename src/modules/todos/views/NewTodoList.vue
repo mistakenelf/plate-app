@@ -13,9 +13,8 @@
         v-on:updateTitle="updateTitle"
         v-on:updateDescription="updateDescription"
       />
-      <div class="m-4 border-b-4 border-dashed border-grey-darker" />
+      <Divider />
       <NewTodo :todos="todos" v-on:addTodo="addTodo" />
-      <div class="m-4 border-b-4 border-dashed border-grey-darker" />
       <TodoListing :todos="todos" v-on:removeTodo="removeTodo" />
     </form>
   </div>
@@ -23,21 +22,25 @@
 
 <script>
 import DefaultLayout from '@/components/DefaultLayout'
-import BasicInfo from './components/BasicInfo'
-import NewTodo from './components/NewTodo'
-import TodoListing from './components/TodoListing'
+import Divider from '@/components/Divider'
+import BasicInfo from '../_components/NewTodoList/BasicInfo'
+import NewTodo from '../_components/NewTodoList/NewTodo'
+import TodoListing from '../_components/NewTodoList/TodoListing'
 export default {
   components: {
+    Divider,
     BasicInfo,
     NewTodo,
     TodoListing
   },
-  data: () => ({
-    title: '',
-    description: '',
-    todos: [],
-    loading: false
-  }),
+  data() {
+    return {
+      title: '',
+      description: '',
+      todos: [],
+      loading: false
+    }
+  },
   created() {
     this.$emit('update:layout', DefaultLayout)
   },

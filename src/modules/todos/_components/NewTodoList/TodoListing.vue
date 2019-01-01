@@ -2,7 +2,7 @@
   <div class="p-2 flex flex-row flex-wrap">
     <div
       v-for="todo in todos"
-      :key="todo.title"
+      :key="todo.key"
       class="mt-4 w-full sm:w-full md:w-1/4"
     >
       <div class="bg-white shadow m-2 h-32 flex flex-col rounded">

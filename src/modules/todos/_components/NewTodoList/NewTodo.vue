@@ -43,17 +43,20 @@
 <script>
 import TextField from '@/components/TextField'
 export default {
+  components: {
+    TextField
+  },
   props: {
     todos: Array,
     todoIndex: Number
   },
-  components: {
-    TextField
+  data() {
+    return {
+      title: '',
+      description: '',
+      count: 0
+    }
   },
-  data: () => ({
-    title: '',
-    description: ''
-  }),
   methods: {
     addNewTodo() {
       this.$validator.validateAll().then(async result => {
@@ -65,7 +68,8 @@ export default {
           title: this.title,
           description: this.description,
           todoIndex: this.todoIndex,
-          createdBy: this.$store.state.auth.user.id
+          createdBy: this.$store.state.auth.user.id,
+          key: this.count++
         })
       })
     }

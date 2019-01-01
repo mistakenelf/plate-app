@@ -37,10 +37,12 @@ export default {
     TextField
   },
   inject: ['$validator'],
-  data: () => ({
-    title: '',
-    description: ''
-  }),
+  data() {
+    return {
+      title: '',
+      description: ''
+    }
+  },
   watch: {
     title(newTitle) {
       this.$emit('updateTitle', newTitle)
