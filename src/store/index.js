@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 import auth from '../modules/auth/_store'
 import todos from '../modules/todos/_store'
 import dashboard from '../modules/dashboard/_store'
-import theme from './modules/theme'
+import theme from '../modules/theme/_store'
 
 Vue.use(Vuex)
 
