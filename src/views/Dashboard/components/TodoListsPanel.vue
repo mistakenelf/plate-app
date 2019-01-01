@@ -8,6 +8,11 @@
     <div
       v-if="todoLists && !loading && todoLists.length === 0"
       class="flex items-center justify-center flex-col h-full"
+      :class="
+        $store.state.theme.selectedTheme === 'light'
+          ? 'bg-blue-darker'
+          : 'bg-black'
+      "
     >
       <font-awesome-icon icon="clipboard-list" class="text-huge mb-4" />
       <div class="text-xl text-center">
@@ -17,7 +22,12 @@
     <PanelLoader v-if="loading" />
     <div v-if="todoLists">
       <div
-        class="border-b-2 p-4 h-16 cursor-pointer items-center hover:bg-grey-lighter"
+        class="border-b-2 p-4 h-16 cursor-pointer items-center"
+        :class="
+          $store.state.theme.selectedTheme === 'light'
+            ? 'hover:bg-grey-lighter'
+            : 'bg-black hover:bg-grey-darkest'
+        "
         v-for="todoList in todoLists"
         :key="todoList.id"
         @click="goToDetailView(todoList.id)"

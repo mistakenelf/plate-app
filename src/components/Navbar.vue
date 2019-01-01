@@ -1,6 +1,11 @@
 <template>
   <nav
-    class="bg-blue-darker flex items-center flex-row px-4 justify-between p-4"
+    class="flex items-center flex-row px-4 justify-between p-4"
+    :class="
+      $store.state.theme.selectedTheme === 'light'
+        ? 'bg-blue-darker'
+        : 'bg-black'
+    "
   >
     <div
       @click="handleClose()"

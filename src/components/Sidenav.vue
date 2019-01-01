@@ -3,52 +3,145 @@
     <div
       v-if="open"
       class="fixed h-full pin-r pin-t z-10 w-24 p-2"
-      :class="$store.state.theme.selectedTheme === 'light' ? 'bg-grey-lighter' : 'bg-black'"
+      :class="
+        $store.state.theme.selectedTheme === 'light'
+          ? 'bg-grey-lighter'
+          : 'bg-black'
+      "
     >
       <div
         class="flex flex-col justify-center items-center mb-6 cursor-pointer"
       >
         <font-awesome-icon
           class="text-3xl mb-2 text-grey-darkest"
-          :class="$store.state.theme.selectedTheme === 'light' ? 'text-grey-darkest' : 'text-white'"
+          :class="
+            $store.state.theme.selectedTheme === 'light'
+              ? 'text-grey-darkest'
+              : 'text-white'
+          "
           icon="user-circle"
         />
-        <div :class="$store.state.theme.selectedTheme === 'light' ? 'text-grey-darkest' : 'text-white'">{{ $store.state.auth.user.firstName }}</div>
+        <div
+          :class="
+            $store.state.theme.selectedTheme === 'light'
+              ? 'text-grey-darkest'
+              : 'text-white'
+          "
+        >
+          {{ $store.state.auth.user.firstName }}
+        </div>
       </div>
       <div
         @click="goToRoute('/todo-lists')"
         class="flex flex-col justify-center items-center mb-6 cursor-pointer"
       >
         <font-awesome-icon
-          class="text-3xl mb-2" icon="clipboard-list"
-          :class="$store.state.theme.selectedTheme === 'light' ? 'text-grey-darkest' : 'text-white'"
+          class="text-3xl mb-2"
+          icon="clipboard-list"
+          :class="
+            $store.state.theme.selectedTheme === 'light'
+              ? 'text-grey-darkest'
+              : 'text-white'
+          "
         />
-        <div :class="$store.state.theme.selectedTheme === 'light' ? 'text-grey-darkest' : 'text-white'">Todo Lists</div>
+        <div
+          :class="
+            $store.state.theme.selectedTheme === 'light'
+              ? 'text-grey-darkest'
+              : 'text-white'
+          "
+        >
+          Todo Lists
+        </div>
       </div>
       <div
         class="flex flex-col justify-center items-center mb-6 cursor-pointer"
       >
-        <font-awesome-icon class="text-3xl mb-2" icon="bell" :class="$store.state.theme.selectedTheme === 'light' ? 'text-grey-darkest' : 'text-white'" />
-        <div :class="$store.state.theme.selectedTheme === 'light' ? 'text-grey-darkest' : 'text-white'">Reminders</div>
+        <font-awesome-icon
+          class="text-3xl mb-2"
+          icon="bell"
+          :class="
+            $store.state.theme.selectedTheme === 'light'
+              ? 'text-grey-darkest'
+              : 'text-white'
+          "
+        />
+        <div
+          :class="
+            $store.state.theme.selectedTheme === 'light'
+              ? 'text-grey-darkest'
+              : 'text-white'
+          "
+        >
+          Reminders
+        </div>
       </div>
       <div
         class="flex flex-col justify-center items-center mb-6 cursor-pointer"
       >
-        <font-awesome-icon class="text-3xl mb-2" icon="newspaper" :class="$store.state.theme.selectedTheme === 'light' ? 'text-grey-darkest' : 'text-white'" />
-        <div :class="$store.state.theme.selectedTheme === 'light' ? 'text-grey-darkest' : 'text-white'">Notes</div>
+        <font-awesome-icon
+          class="text-3xl mb-2"
+          icon="newspaper"
+          :class="
+            $store.state.theme.selectedTheme === 'light'
+              ? 'text-grey-darkest'
+              : 'text-white'
+          "
+        />
+        <div
+          :class="
+            $store.state.theme.selectedTheme === 'light'
+              ? 'text-grey-darkest'
+              : 'text-white'
+          "
+        >
+          Notes
+        </div>
       </div>
       <div
         class="flex flex-col justify-center items-center mb-6 cursor-pointer"
       >
-        <font-awesome-icon class="text-3xl mb-2" icon="calendar-check" :class="$store.state.theme.selectedTheme === 'light' ? 'text-grey-darkest' : 'text-white'" />
-        <div :class="$store.state.theme.selectedTheme === 'light' ? 'text-grey-darkest' : 'text-white'">Reminders</div>
+        <font-awesome-icon
+          class="text-3xl mb-2"
+          icon="calendar-check"
+          :class="
+            $store.state.theme.selectedTheme === 'light'
+              ? 'text-grey-darkest'
+              : 'text-white'
+          "
+        />
+        <div
+          :class="
+            $store.state.theme.selectedTheme === 'light'
+              ? 'text-grey-darkest'
+              : 'text-white'
+          "
+        >
+          Reminders
+        </div>
       </div>
       <div
         class="flex flex-col justify-center items-center mb-6 cursor-pointer"
         @click="logout()"
       >
-        <font-awesome-icon class="text-3xl mb-2" icon="sign-out-alt" :class="$store.state.theme.selectedTheme === 'light' ? 'text-grey-darkest' : 'text-white'" />
-        <div :class="$store.state.theme.selectedTheme === 'light' ? 'text-grey-darkest' : 'text-white'">Logout</div>
+        <font-awesome-icon
+          class="text-3xl mb-2"
+          icon="sign-out-alt"
+          :class="
+            $store.state.theme.selectedTheme === 'light'
+              ? 'text-grey-darkest'
+              : 'text-white'
+          "
+        />
+        <div
+          :class="
+            $store.state.theme.selectedTheme === 'light'
+              ? 'text-grey-darkest'
+              : 'text-white'
+          "
+        >
+          Logout
+        </div>
       </div>
       <div
         class="flex flex-col justify-center items-center mb-6 cursor-pointer"

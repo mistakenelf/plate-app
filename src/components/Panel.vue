@@ -1,7 +1,12 @@
 <template>
   <div class="bg-white shadow-md rounded">
     <div
-      class="flex justify-between items-center bg-teal-dark p-4 text-white rounded-t"
+      class="flex justify-between items-center p-4 text-white rounded-t"
+      :class="
+        $store.state.theme.selectedTheme === 'light'
+          ? 'bg-teal-dark'
+          : 'bg-black'
+      "
     >
       <div class="text-xl">{{ title }}</div>
       <slot name="addNew" />
