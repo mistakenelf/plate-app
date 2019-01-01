@@ -1,8 +1,8 @@
 <template>
-  <div class="p-4 w-full">
+  <div class="h-64">
     <div class="text-3xl mb-2">Basic Info</div>
-    <div class="flex flex-row justify-between flex-wrap">
-      <div class="p-2 w-full sm:w-full md:w-1/2">
+    <div class="flex flex-col">
+      <div class="p-2 w-full">
         <TextField
           type="text"
           name="title"
@@ -14,7 +14,7 @@
           :errorMessage="errors.first('title')"
         />
       </div>
-      <div class="p-2 w-full sm:w-full md:w-1/2">
+      <div class="p-2 w-full">
         <TextField
           type="text"
           name="description"

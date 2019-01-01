@@ -9,12 +9,23 @@
           {{ loading ? 'loading...' : 'Create List' }}
         </button>
       </div>
-      <BasicInfo
-        v-on:updateTitle="updateTitle"
-        v-on:updateDescription="updateDescription"
+      <div class="flex flex-row justify-between items-center flex-wrap p-4">
+        <div class="w-full sm:w-full md:w-1/2">
+          <BasicInfo
+            v-on:updateTitle="updateTitle"
+            v-on:updateDescription="updateDescription"
+          />
+        </div>
+        <div class="w-full sm:w-full md:w-1/2">
+          <NewTodoButton v-on:openModal="openModal" />
+        </div>
+      </div>
+      <NewTodoModal
+        v-on:addTodo="addTodo"
+        :closeModal="closeModal"
+        v-on:close="closeModal"
+        :isOpen="isOpen"
       />
-      <Divider />
-      <NewTodo :todos="todos" v-on:addTodo="addTodo" />
       <TodoListing :todos="todos" v-on:removeTodo="removeTodo" />
     </form>
   </div>
@@ -22,23 +33,24 @@
 
 <script>
 import DefaultLayout from '@/components/DefaultLayout'
-import Divider from '@/components/Divider'
 import BasicInfo from '../_components/NewTodoList/BasicInfo'
-import NewTodo from '../_components/NewTodoList/NewTodo'
+import NewTodoButton from '../_components/NewTodoList/NewTodoButton'
 import TodoListing from '../_components/NewTodoList/TodoListing'
+import NewTodoModal from '../_components/NewTodoList/NewTodoModal'
 export default {
   components: {
-    Divider,
     BasicInfo,
-    NewTodo,
-    TodoListing
+    NewTodoButton,
+    TodoListing,
+    NewTodoModal
   },
   data() {
     return {
       title: '',
       description: '',
       todos: [],
-      loading: false
+      loading: false,
+      isOpen: false
     }
   },
   created() {
@@ -77,6 +89,12 @@ export default {
     },
     updateDescription(description) {
       this.description = description
+    },
+    openModal() {
+      this.isOpen = true
+    },
+    closeModal() {
+      this.isOpen = false
     }
   }
 }
