@@ -31,10 +31,10 @@
 
 <script>
 import DefaultLayout from '@/components/DefaultLayout'
-import BasicInfo from '../_components/NewTodoList/BasicInfo'
-import NewTodoButton from '../_components/NewTodoList/NewTodoButton'
-import TodoListing from '../_components/NewTodoList/TodoListing'
-import NewTodoModal from '../_components/NewTodoList/NewTodoModal'
+import BasicInfo from './components/BasicInfo'
+import NewTodoButton from './components/NewTodoButton'
+import TodoListing from './components/TodoListing'
+import NewTodoModal from './components/NewTodoModal'
 export default {
   components: {
     BasicInfo,

@@ -24,8 +24,8 @@
 import { mapState } from 'vuex'
 import DefaultLayout from '@/components/DefaultLayout'
 import Spinner from '@/components/Spinner'
-import TodoListsListing from '../_components/TodoListListing/TodoListsListing'
-import NoTodoLists from '../_components/TodoListListing/NoTodoLists'
+import TodoListsListing from './components/TodoListsListing'
+import NoTodoLists from './components/NoTodoLists'
 export default {
   components: {
     TodoListsListing,
