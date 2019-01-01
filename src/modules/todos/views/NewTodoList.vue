@@ -2,23 +2,10 @@
   <div>
     <form @submit.prevent="handleSubmit">
       <div class="p-4">
-        <button
-          type="submit"
-          class="bg-teal-dark text-white w-full p-4 hover:bg-teal focus:outline-none rounded border-b-4 border-teal-darker font-bold"
-        >
-          {{ loading ? 'loading...' : 'Create List' }}
-        </button>
-      </div>
-      <div class="flex flex-row justify-between items-center flex-wrap p-4">
-        <div class="w-full sm:w-full md:w-1/2">
-          <BasicInfo
-            v-on:updateTitle="updateTitle"
-            v-on:updateDescription="updateDescription"
-          />
-        </div>
-        <div class="w-full sm:w-full md:w-1/2">
-          <NewTodoButton v-on:openModal="openModal" />
-        </div>
+        <BasicInfo
+          v-on:updateTitle="updateTitle"
+          v-on:updateDescription="updateDescription"
+        />
       </div>
       <NewTodoModal
         v-on:addTodo="addTodo"
@@ -26,7 +13,18 @@
         v-on:close="closeModal"
         :isOpen="isOpen"
       />
+      <NewTodoButton v-on:openModal="openModal" />
       <TodoListing :todos="todos" v-on:removeTodo="removeTodo" />
+      <button
+        type="submit"
+        class="bg-teal-dark shadow-lg m-2 fixed pin-b pin-r h-16 w-16 text-white p-4 hover:bg-teal focus:outline-none rounded-full font-bold"
+      >
+        <font-awesome-icon
+          class="text-2xl"
+          :icon="!loading ? 'save' : 'spinner'"
+          :spin="loading"
+        />
+      </button>
     </form>
   </div>
 </template>

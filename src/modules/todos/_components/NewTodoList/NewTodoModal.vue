@@ -16,7 +16,7 @@
               :errorMessage="errors.first('title')"
             />
           </div>
-          <div class="w-full">
+          <div class="w-full mt-4">
             <TextField
               type="text"
               name="description"
@@ -72,10 +72,12 @@ export default {
           description: this.description,
           todoIndex: this.todoIndex,
           createdBy: this.$store.state.auth.user.id,
-          key: this.count++
+          key: ++this.count
         })
 
         this.$emit('close')
+        this.title = null
+        this.description = null
       })
     }
   }

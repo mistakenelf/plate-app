@@ -1,5 +1,5 @@
 <template>
-  <div class="h-64">
+  <div>
     <div class="text-3xl mb-2">Basic Info</div>
     <div class="flex flex-col">
       <div class="p-2 w-full">

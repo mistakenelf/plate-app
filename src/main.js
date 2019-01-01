@@ -20,7 +20,8 @@ import {
   faTimes,
   faSpinner,
   faExclamationTriangle,
-  faCheckCircle
+  faCheckCircle,
+  faSave
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -37,7 +38,8 @@ library.add(
   faTimes,
   faSpinner,
   faExclamationTriangle,
-  faCheckCircle
+  faCheckCircle,
+  faSave
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

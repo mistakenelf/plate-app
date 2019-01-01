@@ -62,7 +62,7 @@ export default {
       }
       this.todoListLoading = { loading: true, index }
       await this.$store.dispatch('todos/deleteTodoList', payload)
-      this.todoLoading = { loading: false, index }
+      this.todoListLoading = { loading: false, index }
     },
     async toggleCompleted(todoList) {
       const index = this.$store.state.todos.todoLists.indexOf(todoList)

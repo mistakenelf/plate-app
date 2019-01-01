@@ -1,9 +1,11 @@
 <template>
   <div
     @click="$emit('openModal')"
-    class="h-64 cursor-pointer border-4 border-dashed border-grey-darker rounded flex items-center justify-center flex-col"
+    class="p-4 m-4 cursor-pointer border-4 border-dashed border-grey-darker rounded flex items-center justify-center items-center"
   >
-    <font-awesome-icon class="text-5xl mb-4" icon="plus" />
-    Add Todo
+    <div class="flex items-center">
+      <font-awesome-icon class="text-xl mr-2" icon="plus" />
+      <div class="text-xl">Add Todo</div>
+    </div>
   </div>
 </template>

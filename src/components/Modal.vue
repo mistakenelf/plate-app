@@ -8,7 +8,7 @@
       class="fixed pin z-10 overflow-auto flex smoke-darkest"
     />
     <div
-      class="bg-white shadow-md p-4 w-full sm:w-full md:w-1/2 z-50 lg:w-1/3 rounded relative flex flex-col"
+      class="bg-white m-4 shadow-md p-4 w-full sm:w-full md:w-1/2 z-50 lg:w-1/3 rounded relative flex flex-col"
     >
       <slot />
     </div>
