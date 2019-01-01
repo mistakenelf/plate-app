@@ -1,3 +1,7 @@
+import { lightTheme, darkTheme } from '../../../helpers/theme'
+
 export default {
-  selectedTheme: localStorage.getItem('theme') || 'light'
+  selectedThemeName: localStorage.getItem('theme') || 'dark',
+  selectedThemeClasses:
+    localStorage.getItem('theme') === 'light' ? lightTheme : darkTheme
 }
