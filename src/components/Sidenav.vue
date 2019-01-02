@@ -81,16 +81,24 @@
       </div>
       <div
         class="flex flex-col justify-center items-center mb-6 cursor-pointer"
-        @click="toggleTheme()"
       >
-        <div>{{ $store.state.theme.selectedThemeName }}</div>
+        <ToggleSwitch
+          :label="$store.state.theme.selectedThemeName"
+          :handleClick="handleClick"
+          :isChecked="$store.state.theme.selectedThemeName === 'dark'"
+        />
       </div>
     </div>
   </transition>
 </template>
 
 <script>
+import ToggleSwitch from '@/components/ToggleSwitch'
+
 export default {
+  components: {
+    ToggleSwitch
+  },
   props: {
     open: Boolean
   },
@@ -103,7 +111,7 @@ export default {
       this.$emit('handleClose')
       this.$router.push(route)
     },
-    toggleTheme() {
+    handleClick() {
       const { selectedThemeName } = this.$store.state.theme
 
       if (selectedThemeName === 'light') {
