@@ -13,7 +13,10 @@
       :placeholder="placeholder"
       @input="$emit('input', $event.target.value)"
       class="appearance-none block w-full bg-white text-grey-darker border-2 rounded py-3 px-4 mb-1 leading-tight focus:outline-none"
-      :class="hasErrors ? 'border-2 border-red-light' : ''"
+      :class="{
+        'border-2 border-red-light': hasErrors,
+        'text-2xl md:text-3xl': isLarge
+      }"
     />
     <span class="text-sm text-red-light" v-if="errorMessage">{{
       errorMessage
@@ -28,6 +31,7 @@ export default {
     type: String,
     name: String,
     id: String,
+    isLarge: Boolean,
     placeholder: String,
     hasErrors: Boolean,
     errorMessage: String

@@ -5,7 +5,6 @@
     </div>
     <div v-else>
       <div class="p-4"><BasicInfo :todoList="todoList" /></div>
-      <Divider />
       <TodoListing
         v-on:deleteTodo="deleteTodo"
         v-on:toggleCompleted="toggleCompleted"
