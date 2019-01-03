@@ -1,5 +1,5 @@
-import { API, getHeaders } from '@/helpers/api'
-import { API_VERSION } from '@/helpers/constants'
+import { API, getHeaders } from '@/api'
+import { API_VERSION } from '@/constants/api'
 
 export default {
   async addTodoList({ commit, rootState }, payload) {

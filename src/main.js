@@ -1,55 +1,17 @@
 import './registerServiceWorker'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import VeeValidate from 'vee-validate'
 import Vue from 'vue'
-import {
-  faBars,
-  faPlus,
-  faTachometerAlt,
-  faUserCircle,
-  faArrowLeft,
-  faSignOutAlt,
-  faNewspaper,
-  faCalendarCheck,
-  faBell,
-  faClipboardList,
-  faTimes,
-  faSpinner,
-  faExclamationTriangle,
-  faCheckCircle,
-  faSave
-} from '@fortawesome/free-solid-svg-icons'
-
-library.add(
-  faBars,
-  faPlus,
-  faTachometerAlt,
-  faUserCircle,
-  faArrowLeft,
-  faSignOutAlt,
-  faNewspaper,
-  faCalendarCheck,
-  faBell,
-  faClipboardList,
-  faTimes,
-  faSpinner,
-  faExclamationTriangle,
-  faCheckCircle,
-  faSave
-)
-
-Vue.component('font-awesome-icon', FontAwesomeIcon)
-
-Vue.use(VeeValidate)
+import './plugins/fontAwesome'
+import './plugins/veeValidate'
+import { i18n } from './plugins/i18n'
 
 Vue.config.productionTip = false
 
 new Vue({
   router,
+  i18n,
   store,
   render: h => h(App)
 }).$mount('#app')
