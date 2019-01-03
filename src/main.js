@@ -21,7 +21,8 @@ import {
   faSpinner,
   faExclamationTriangle,
   faCheckCircle,
-  faSave
+  faSave,
+  faMoon
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -39,7 +40,8 @@ library.add(
   faSpinner,
   faExclamationTriangle,
   faCheckCircle,
-  faSave
+  faSave,
+  faMoon
 )
 
 if (localStorage.getItem('theme') === 'dark') {
