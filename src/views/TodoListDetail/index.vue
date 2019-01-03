@@ -20,8 +20,8 @@
 import { mapState } from 'vuex'
 import DefaultLayout from '@/components/DefaultLayout'
 import Divider from '@/components/Divider'
-import BasicInfo from '../_components/TodoListDetails/BasicInfo'
-import TodoListing from '../_components/TodoListDetails/TodoListing'
+import BasicInfo from './components/BasicInfo'
+import TodoListing from './components/TodoListing'
 import Spinner from '@/components/Spinner'
 export default {
   components: {

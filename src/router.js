@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from './modules/auth/views/Login'
+import Login from './views/Login'
 import store from './store'
 
 Vue.use(Router)
@@ -18,13 +18,13 @@ const router = new Router({
       path: '/register',
       name: 'register',
       component: () =>
-        import(/* webpackChunkName: "register" */ './modules/auth/views/Register')
+        import(/* webpackChunkName: "register" */ './views/Register')
     },
     {
       path: '/dashboard',
       name: 'dashboard',
       component: () =>
-        import(/* webpackChunkName: "dashboard" */ './modules/dashboard/views/Dashboard'),
+        import(/* webpackChunkName: "dashboard" */ './views/Dashboard'),
       meta: {
         requiresAuth: true
       }
@@ -33,7 +33,7 @@ const router = new Router({
       path: '/todo-lists',
       name: 'todoLists',
       component: () =>
-        import(/* webpackChunkName: "todoLists" */ './modules/todos/views/TodoListListing'),
+        import(/* webpackChunkName: "todoLists" */ './views/TodoLists'),
       meta: {
         requiresAuth: true
       }
@@ -42,7 +42,7 @@ const router = new Router({
       path: '/todo-lists/new',
       name: 'newTodoList',
       component: () =>
-        import(/* webpackChunkName: "newTodoList" */ './modules/todos/views/NewTodoList'),
+        import(/* webpackChunkName: "newTodoList" */ './views/NewTodoList'),
       meta: {
         requiresAuth: true
       }
@@ -51,7 +51,7 @@ const router = new Router({
       path: '/todo-lists/:id',
       name: 'todoList',
       component: () =>
-        import(/* webpackChunkName: "todoList" */ './modules/todos/views/TodoListDetails'),
+        import(/* webpackChunkName: "todoList" */ './views/TodoListDetail'),
       meta: {
         requiresAuth: true
       }

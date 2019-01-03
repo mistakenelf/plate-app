@@ -2,18 +2,12 @@
   <div>
     <form @submit.prevent="handleSubmit">
       <div class="p-4">
-        <BasicInfo
+        <ListInfo
           v-on:updateTitle="updateTitle"
           v-on:updateDescription="updateDescription"
         />
       </div>
-      <NewTodoModal
-        v-on:addTodo="addTodo"
-        :closeModal="closeModal"
-        v-on:close="closeModal"
-        :isOpen="isOpen"
-      />
-      <NewTodoButton v-on:openModal="openModal" />
+      <NewTodo v-on:addTodo="addTodo" />
       <TodoListing :todos="todos" v-on:removeTodo="removeTodo" />
       <button
         type="submit"
@@ -31,24 +25,21 @@
 
 <script>
 import DefaultLayout from '@/components/DefaultLayout'
-import BasicInfo from '../_components/NewTodoList/BasicInfo'
-import NewTodoButton from '../_components/NewTodoList/NewTodoButton'
-import TodoListing from '../_components/NewTodoList/TodoListing'
-import NewTodoModal from '../_components/NewTodoList/NewTodoModal'
+import ListInfo from './components/ListInfo'
+import TodoListing from './components/TodoListing'
+import NewTodo from './components/NewTodo'
 export default {
   components: {
-    BasicInfo,
-    NewTodoButton,
+    ListInfo,
     TodoListing,
-    NewTodoModal
+    NewTodo
   },
   data() {
     return {
       title: '',
       description: '',
       todos: [],
-      loading: false,
-      isOpen: false
+      loading: false
     }
   },
   created() {
@@ -87,12 +78,6 @@ export default {
     },
     updateDescription(description) {
       this.description = description
-    },
-    openModal() {
-      this.isOpen = true
-    },
-    closeModal() {
-      this.isOpen = false
     }
   }
 }

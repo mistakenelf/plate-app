@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 flex flex-row flex-wrap">
+  <div class="p-2 flex flex-row flex-wrap pb-20">
     <div
       v-for="todo in todos"
       :key="todo.key"

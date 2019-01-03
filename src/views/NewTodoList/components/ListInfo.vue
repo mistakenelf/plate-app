@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="text-3xl mb-2">Basic Info</div>
+    <div class="text-3xl mb-4">List Info</div>
     <div class="flex flex-col">
-      <div class="p-2 w-full">
+      <div class="w-full mb-4">
         <TextField
           type="text"
           name="title"
@@ -14,9 +14,8 @@
           :errorMessage="errors.first('title')"
         />
       </div>
-      <div class="p-2 w-full">
-        <TextField
-          type="text"
+      <div class="w-full">
+        <TextArea
           name="description"
           placeholder="Description"
           label="Description"
@@ -32,9 +31,11 @@
 
 <script>
 import TextField from '@/components/TextField'
+import TextArea from '@/components/TextArea'
 export default {
   components: {
-    TextField
+    TextField,
+    TextArea
   },
   inject: ['$validator'],
   data() {

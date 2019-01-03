@@ -16,7 +16,7 @@
         icon="arrow-left"
       />
       <div v-else class="text-2xl">🍛</div>
-      <div class="text-white text-2xl ml-2">Plate</div>
+      <div class="text-white text-2xl ml-2">{{ $t('brand_text') }}</div>
     </div>
     <ul class="flex list-reset ml-6 text-2xl">
       <font-awesome-icon

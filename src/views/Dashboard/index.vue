@@ -27,11 +27,11 @@
 <script>
 import { mapState } from 'vuex'
 import DefaultLayout from '@/components/DefaultLayout'
-import TotalsBar from '../_components/TotalsBar'
-import TodoListsPanel from '../_components/TodoListsPanel'
-import RemindersPanel from '../_components/RemindersPanel'
-import NotesPanel from '../_components/NotesPanel'
-import EventsPanel from '../_components/EventsPanel'
+import TotalsBar from './components/TotalsBar'
+import TodoListsPanel from './components/TodoListsPanel'
+import RemindersPanel from './components/RemindersPanel'
+import NotesPanel from './components/NotesPanel'
+import EventsPanel from './components/EventsPanel'
 
 export default {
   components: {

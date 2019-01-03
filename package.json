@@ -29,8 +29,9 @@
     "@fortawesome/vue-fontawesome": "^0.1.4",
     "axios": "^0.18.0",
     "register-service-worker": "^1.5.2",
-    "vee-validate": "^2.1.4",
+    "vee-validate": "^2.1.5",
     "vue": "^2.5.21",
+    "vue-i18n": "^8.7.0",
     "vue-router": "^3.0.2",
     "vuex": "^3.0.1"
   },
@@ -42,7 +43,7 @@
     "@vue/eslint-config-prettier": "^4.0.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.11.1",
-    "eslint-plugin-vue": "^5.0.0",
+    "eslint-plugin-vue": "^5.1.0",
     "prettier": "^1.15.3",
     "tailwindcss": "^0.7.3",
     "vue-template-compiler": "^2.5.21"
