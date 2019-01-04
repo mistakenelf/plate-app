@@ -6,7 +6,7 @@
       @change="onChange"
       id="checkbox"
     />
-    <span class="slider round" @click="handleClick()"></span>
+    <span class="slider round" @click="handleToggle()"></span>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
   props: {
     isChecked: Boolean,
     label: String,
-    handleClick: Function
+    handleToggle: Function
   },
   methods: {
     onChange() {

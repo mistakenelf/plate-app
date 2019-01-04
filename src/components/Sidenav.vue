@@ -92,7 +92,7 @@
         />
         <ToggleSwitch
           :label="$store.state.theme.selectedThemeName"
-          :handleClick="handleClick"
+          :handleToggle="toggleTheme"
           :isChecked="$store.state.theme.selectedThemeName === 'dark'"
         />
       </div>
@@ -119,7 +119,7 @@ export default {
       this.$emit('handleClose')
       this.$router.push(route)
     },
-    handleClick() {
+    toggleTheme() {
       const { selectedThemeName } = this.$store.state.theme
 
       if (selectedThemeName === 'light') {

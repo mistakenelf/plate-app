@@ -1,8 +1,4 @@
 export default {
-  selectedThemeName: state => {
-    return state.theme.selectedThemeName
-  },
-  selectedThemeClasses: state => {
-    return state.theme.selectedThemeClasses
-  }
+  selectedThemeName: state => state.theme.selectedThemeName,
+  selectedThemeClasses: state => state.theme.selectedThemeClasses
 }

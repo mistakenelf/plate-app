@@ -11,5 +11,9 @@ export default {
     }
 
     commit('TOGGLE_THEME_SUCCESS', payload.selectedThemeName)
+  },
+  setTheme({ commit }, payload) {
+    localStorage.setItem('theme', payload.theme)
+    commit('SET_THEME_SUCCESS', payload.theme)
   }
 }

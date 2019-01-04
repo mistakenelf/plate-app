@@ -61,6 +61,7 @@
   * @import "utilities/skew-transforms";
   */
 
+html,
 body {
   height: 100%;
   background: #dae1e7;
