@@ -1,7 +1,11 @@
 <template>
-  <div class="bg-white shadow-md rounded">
+  <div
+    class="shadow-md rounded"
+    :class="$store.state.theme.selectedThemeClasses.panelBg"
+  >
     <div
-      class="flex justify-between items-center bg-teal-dark p-4 text-white rounded-t"
+      class="flex justify-between items-center p-4 text-white rounded-t"
+      :class="$store.state.theme.selectedThemeClasses.panelHeaderBg"
     >
       <div class="text-xl">{{ title }}</div>
       <slot name="addNew" />

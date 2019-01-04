@@ -11,6 +11,9 @@ export default {
     return {
       layout: 'div'
     }
+  },
+  created() {
+    this.$store.dispatch('theme/setTheme', { theme: 'light' })
   }
 }
 </script>

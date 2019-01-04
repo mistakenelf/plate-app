@@ -8,6 +8,7 @@
     <div
       v-if="todoLists && !loading && todoLists.length === 0"
       class="flex items-center justify-center flex-col h-full"
+      :class="$store.state.theme.selectedThemeClasses.todoListPanelBg"
     >
       <font-awesome-icon icon="clipboard-list" class="text-huge mb-4" />
       <div class="text-xl text-center">
@@ -17,6 +18,7 @@
     <PanelLoader v-if="loading" />
     <div v-if="todoLists">
       <div
+        :class="$store.state.theme.selectedThemeClasses.todoListHover"
         class="border-b-2 p-4 h-16 cursor-pointer items-center hover:bg-grey-lighter flex items-center"
         v-for="todoList in todoLists"
         :key="todoList.id"
@@ -32,7 +34,12 @@
     <router-link
       v-if="todoLists"
       to="/todo-lists"
-      class="flex justify-center uppercase p-4 h-16 items-center text-grey-darker no-underline hover:bg-grey-lighter"
+      class="flex justify-center uppercase p-4 h-16 items-center no-underline"
+      :class="
+        $store.state.theme.selectedThemeClasses.textColor +
+          ' ' +
+          $store.state.theme.selectedThemeClasses.todoListHover
+      "
     >
       View All
     </router-link>
