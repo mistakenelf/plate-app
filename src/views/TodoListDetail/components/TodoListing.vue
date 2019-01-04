@@ -2,7 +2,7 @@
   <div class="p-2 flex flex-row flex-wrap">
     <div v-for="todo in todos" :key="todo.id" class="w-full sm:w-full md:w-1/4">
       <div
-        class="bg-grey-lightest shadow flex flex-col rounded m-2 h-48"
+        class="bg-grey-lightest shadow flex flex-col rounded m-2 h-24"
         v-bind:class="{
           'opacity-50':
             todo.completed ||
