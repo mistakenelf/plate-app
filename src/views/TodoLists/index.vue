@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     openList(id) {
-      this.$router.push(`/todo-list/${id}`)
+      this.$router.push(`/todo-lists/${id}`)
     },
     async deleteTodoList(todoList) {
       const index = this.$store.state.todos.todoLists.indexOf(todoList)

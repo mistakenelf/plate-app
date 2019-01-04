@@ -9,7 +9,7 @@
     <textarea
       :name="name"
       :id="id"
-      rows="4"
+      rows="5"
       :placeholder="placeholder"
       @input="$emit('input', $event.target.value)"
       class="appearance-none block w-full bg-white text-grey-darker border-2 rounded py-3 px-4 mb-1 leading-tight focus:outline-none"

@@ -1,12 +1,8 @@
 <template>
   <div class="p-2 flex flex-row flex-wrap">
-    <div
-      v-for="todo in todos"
-      :key="todo.id"
-      class="mt-4 w-full sm:w-full md:w-1/4"
-    >
+    <div v-for="todo in todos" :key="todo.id" class="w-full sm:w-full md:w-1/4">
       <div
-        class="bg-white shadow m-2 h-32 flex flex-col rounded"
+        class="bg-grey-lightest shadow flex flex-col rounded m-2 h-48"
         v-bind:class="{
           'opacity-50':
             todo.completed ||
@@ -14,9 +10,9 @@
         }"
       >
         <div
-          class="flex flex-row items-center justify-between bg-grey-darker rounded-t p-2 text-white"
+          class="flex flex-row items-center justify-between bg-grey-darkest rounded-t px-2 py-1 text-grey-lightest"
         >
-          <div class="text-lg truncate mr-2">{{ todo.title }}</div>
+          <div class="text-lg">Todo</div>
           <div class="flex items-center">
             <font-awesome-icon
               @click="$emit('toggleCompleted', todo)"

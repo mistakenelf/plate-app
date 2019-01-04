@@ -18,27 +18,16 @@
     <PanelLoader v-if="loading" />
     <div v-if="todoLists">
       <div
-        class="border-b-2 p-4 h-16 cursor-pointer items-center"
         :class="$store.state.theme.selectedThemeClasses.todoListHover"
+        class="border-b-2 p-4 h-16 cursor-pointer items-center hover:bg-grey-lighter flex items-center"
         v-for="todoList in todoLists"
         :key="todoList.id"
         @click="goToDetailView(todoList.id)"
       >
         <div v-if="!todoList" class="bg-grey-light w-32 rounded h-3 mb-2" />
         <div v-if="!todoList" class="bg-grey-light w-64 rounded h-3" />
-        <div
-          v-if="todoList"
-          class="text-md"
-          :class="$store.state.theme.selectedThemeClasses.textColor"
-        >
+        <div v-if="todoList" class="text-grey-black text-lg">
           {{ todoList.title }}
-        </div>
-        <div
-          v-if="todoList"
-          class="text-grey-darker text-sm"
-          :class="$store.state.theme.selectedThemeClasses.textColor"
-        >
-          {{ todoList.description }}
         </div>
       </div>
     </div>

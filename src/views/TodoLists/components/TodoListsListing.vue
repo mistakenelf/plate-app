@@ -15,11 +15,11 @@
         }"
       >
         <div
-          class="flex flex-row items-center justify-between bg-grey-darker rounded-t p-2 text-white"
+          class="flex flex-row items-center justify-between bg-grey-darkest rounded-t p-2 text-white"
         >
           <div
             @click="$emit('openList', todoList.id)"
-            class="cursor-pointer text-lg truncate mr-2"
+            class="cursor-pointer text-md truncate mr-2"
           >
             {{ todoList.title }}
           </div>
@@ -38,7 +38,7 @@
           </div>
         </div>
         <div
-          class="p-2 h-16 flex items-center justify-center"
+          class="p-2 h-32 flex items-center justify-center"
           v-if="
             todoListLoading.loading &&
               todoListLoading.index === todoLists.indexOf(todoList)
@@ -46,9 +46,9 @@
         >
           <Spinner />
         </div>
-        <div class="p-2 h-16" v-else>
-          <div class="text-lg text-grey-darkest">
-            {{ todoList.description }}
+        <div class="p-2 h-32 flex items-center justify-center" v-else>
+          <div class="text-2xl text-grey-darkest">
+            {{ todoList.todos.length }} Todos
           </div>
         </div>
       </div>

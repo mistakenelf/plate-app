@@ -1,14 +1,12 @@
 <template>
   <div>
     <form @submit.prevent="handleSubmit">
-      <div class="p-4">
-        <ListInfo
-          v-on:updateTitle="updateTitle"
-          v-on:updateDescription="updateDescription"
-        />
-      </div>
-      <NewTodo v-on:addTodo="addTodo" />
-      <TodoListing :todos="todos" v-on:removeTodo="removeTodo" />
+      <ListInfo v-on:updateTitle="updateTitle" />
+      <TodoListing
+        :todos="todos"
+        v-on:addTodo="addTodo"
+        v-on:removeTodo="removeTodo"
+      />
       <button
         type="submit"
         class="bg-teal-dark shadow-lg m-2 fixed pin-b pin-r h-16 w-16 text-white p-4 hover:bg-teal focus:outline-none rounded-full font-bold"
@@ -27,19 +25,17 @@
 import DefaultLayout from '@/components/DefaultLayout'
 import ListInfo from './components/ListInfo'
 import TodoListing from './components/TodoListing'
-import NewTodo from './components/NewTodo'
 export default {
   components: {
     ListInfo,
-    TodoListing,
-    NewTodo
+    TodoListing
   },
   data() {
     return {
       title: '',
-      description: '',
       todos: [],
-      loading: false
+      loading: false,
+      count: 0
     }
   },
   created() {
@@ -54,7 +50,6 @@ export default {
 
         const payload = {
           title: this.title,
-          description: this.description,
           todos: this.todos,
           createdBy: this.$store.state.auth.user.id
         }
@@ -66,8 +61,11 @@ export default {
         this.$router.push('/dashboard')
       })
     },
-    addTodo(todo) {
-      this.todos.push(todo)
+    addTodo() {
+      this.todos.push({
+        description: 'Describe your todo item',
+        index: this.count++
+      })
     },
     removeTodo(todo) {
       const index = this.todos.indexOf(todo)
@@ -75,9 +73,6 @@ export default {
     },
     updateTitle(title) {
       this.title = title
-    },
-    updateDescription(description) {
-      this.description = description
     }
   }
 }
