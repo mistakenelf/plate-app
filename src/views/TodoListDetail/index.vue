@@ -4,7 +4,9 @@
       <Spinner />
     </div>
     <div v-else>
-      <div class="p-4"><BasicInfo :todoList="todoList" /></div>
+      <div class="p-4">
+        <Header :todoList="todoList" v-on:openModal="openModal" />
+      </div>
       <TodoListing
         v-on:deleteTodo="deleteTodo"
         v-on:toggleCompleted="toggleCompleted"
@@ -12,20 +14,28 @@
         :todoLoading="todoLoading"
       />
     </div>
+    <AddTodoModal
+      :isOpen="modalOpen"
+      :closeModal="closeModal"
+      v-on:addTodo="addTodo"
+      :addingTodo="addingTodo"
+    />
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 import DefaultLayout from '@/components/DefaultLayout'
-import BasicInfo from './components/BasicInfo'
+import Header from './components/Header'
 import TodoListing from './components/TodoListing'
 import Spinner from '@/components/Spinner'
+import AddTodoModal from './components/AddTodoModal'
 export default {
   components: {
-    BasicInfo,
+    Header,
     TodoListing,
-    Spinner
+    Spinner,
+    AddTodoModal
   },
   data() {
     return {
@@ -33,7 +43,9 @@ export default {
       todoLoading: {
         loading: false,
         index: 0
-      }
+      },
+      modalOpen: false,
+      addingTodo: false
     }
   },
   computed: mapState('todos', ['todoList']),
@@ -65,6 +77,28 @@ export default {
       this.todoLoading = { loading: true, index }
       await this.$store.dispatch('todos/toggleTodoCompleted', payload)
       this.todoLoading = { loading: false, index }
+    },
+    async addTodo(description) {
+      const payload = {
+        ...this.todoList,
+        todos: [
+          ...this.todoList.todos,
+          {
+            description
+          }
+        ]
+      }
+
+      this.addingTodo = true
+      await this.$store.dispatch('todos/updateTodoList', payload)
+      this.addingTodo = false
+      this.modalOpen = false
+    },
+    openModal() {
+      this.modalOpen = true
+    },
+    closeModal() {
+      this.modalOpen = false
     }
   }
 }

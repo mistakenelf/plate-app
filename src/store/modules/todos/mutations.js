@@ -8,6 +8,9 @@ export default {
   GET_TODO_LIST(state, todoList) {
     state.todoList = todoList
   },
+  UPDATE_TODO_LIST(state, todoList) {
+    state.todoList = todoList
+  },
   DELETE_TODO_LIST(state, todoListIndex) {
     state.todoLists.splice(todoListIndex, 1)
   },
