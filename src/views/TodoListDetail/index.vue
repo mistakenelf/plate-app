@@ -14,11 +14,12 @@
         :todoLoading="todoLoading"
       />
     </div>
+    <AddTodoButton v-on:openModal="openModal" />
     <AddTodoModal
       :isOpen="modalOpen"
       :closeModal="closeModal"
-      v-on:addTodo="addTodo"
-      :addingTodo="addingTodo"
+      :todoList="todoList"
+      v-on:handleClose="closeModal"
     />
   </div>
 </template>
@@ -30,12 +31,14 @@ import Header from './components/Header'
 import TodoListing from './components/TodoListing'
 import Spinner from '@/components/Spinner'
 import AddTodoModal from './components/AddTodoModal'
+import AddTodoButton from './components/AddTodoButton'
 export default {
   components: {
     Header,
     TodoListing,
     Spinner,
-    AddTodoModal
+    AddTodoModal,
+    AddTodoButton
   },
   data() {
     return {
@@ -44,15 +47,13 @@ export default {
         loading: false,
         index: 0
       },
-      modalOpen: false,
-      addingTodo: false
+      modalOpen: false
     }
   },
   computed: mapState('todos', ['todoList']),
-  created() {
+  async created() {
     this.$emit('update:layout', DefaultLayout)
-  },
-  async mounted() {
+
     this.loading = true
     await this.$store.dispatch('todos/getTodoList', this.$route.params.id)
     this.loading = false
@@ -68,6 +69,7 @@ export default {
       await this.$store.dispatch('todos/deleteTodo', payload)
       this.todoLoading = { loading: false, index }
     },
+
     async toggleCompleted(todo) {
       const index = this.todoList.todos.indexOf(todo)
       const payload = {
@@ -78,25 +80,11 @@ export default {
       await this.$store.dispatch('todos/toggleTodoCompleted', payload)
       this.todoLoading = { loading: false, index }
     },
-    async addTodo(description) {
-      const payload = {
-        ...this.todoList,
-        todos: [
-          ...this.todoList.todos,
-          {
-            description
-          }
-        ]
-      }
 
-      this.addingTodo = true
-      await this.$store.dispatch('todos/updateTodoList', payload)
-      this.addingTodo = false
-      this.modalOpen = false
-    },
     openModal() {
       this.modalOpen = true
     },
+
     closeModal() {
       this.modalOpen = false
     }

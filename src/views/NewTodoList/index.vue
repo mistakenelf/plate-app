@@ -64,6 +64,7 @@ export default {
     addTodo() {
       this.todos.push({
         description: 'Describe your todo item',
+        createdBy: this.$store.state.auth.user.id,
         index: this.count++
       })
     },
