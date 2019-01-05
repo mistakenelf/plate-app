@@ -17,12 +17,7 @@
         <div
           class="flex flex-row items-center justify-between bg-grey-darkest rounded-t px-2 py-3 text-grey-lightest"
         >
-          <div
-            @click="$emit('openList', todoList.id)"
-            class="cursor-pointer text-lg truncate mr-2"
-          >
-            {{ todoList.title }}
-          </div>
+          <div class="cursor-pointer text-lg">Todo List</div>
           <div class="flex items-center">
             <font-awesome-icon
               @click="$emit('toggleCompleted', todoList)"
@@ -46,10 +41,12 @@
         >
           <Spinner />
         </div>
-        <div class="p-2 h-32 flex items-center justify-center" v-else>
-          <div class="text-2xl text-grey-darkest">
-            {{ todoList.todos.length }} Todos
-          </div>
+        <div
+          v-else
+          class="p-2 h-32 cursor-pointer"
+          @click="$emit('openList', todoList.id)"
+        >
+          <div class="text-2xl text-grey-darkest">{{ todoList.title }}</div>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-5xl">{{ todoList.title }}</h1>
+    <h1 class="text-3xl md:text-5xl">{{ todoList.title }}</h1>
   </div>
 </template>
 

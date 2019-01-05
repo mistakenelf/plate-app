@@ -19,14 +19,18 @@
     <div v-if="todoLists">
       <div
         :class="$store.state.theme.selectedThemeClasses.todoListHover"
-        class="border-b-2 p-4 h-16 cursor-pointer items-center hover:bg-grey-lighter flex items-center"
+        class="border-b-2 p-4 h-16 cursor-pointer items-center flex items-center"
         v-for="todoList in todoLists"
         :key="todoList.id"
         @click="goToDetailView(todoList.id)"
       >
         <div v-if="!todoList" class="bg-grey-light w-32 rounded h-3 mb-2" />
         <div v-if="!todoList" class="bg-grey-light w-64 rounded h-3" />
-        <div v-if="todoList" class="text-grey-black text-lg">
+        <div
+          v-if="todoList"
+          class="text-lg"
+          :class="$store.state.theme.selectedThemeClasses.textColor"
+        >
           {{ todoList.title }}
         </div>
       </div>

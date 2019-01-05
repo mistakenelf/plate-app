@@ -1,31 +1,31 @@
 const darkTheme = {
   // Background colors
-  sideNavBg: 'bg-black',
-  totalsPanelBg: 'bg-black',
-  panelHeaderBg: 'bg-black',
+  sideNavBg: 'bg-grey-darkest',
+  totalsPanelBg: 'bg-grey-darkest',
+  panelHeaderBg: 'bg-grey-darkest',
   panelBg: 'bg-grey-darker',
   todoListPanelBg: 'bg-grey-darker',
   todoListHover: 'hover:bg-grey-dark',
   remindersPanelBg: 'bg-grey-darker',
   notesPanelBg: 'bg-grey-darker',
   eventsPanelBg: 'bg-grey-darker',
-  navbarBg: 'bg-black',
+  navbarBg: 'bg-blue-darkest',
 
   // General colors
-  textColor: 'text-white'
+  textColor: 'text-grey-lightest'
 }
 
 const lightTheme = {
   // Background colors
   sideNavBg: 'bg-grey-lighter',
-  totalsPanelBg: 'bg-white',
+  totalsPanelBg: 'bg-grey-lightest',
   panelHeaderBg: 'bg-teal-dark',
-  panelBg: 'bg-white',
-  todoListPanelBg: 'bg-white',
+  panelBg: 'bg-grey-lightest',
+  todoListPanelBg: 'bg-grey-lightest',
   todoListHover: 'hover:bg-grey-lighter',
-  remindersPanelBg: 'bg-white',
-  notesPanelBg: 'bg-white',
-  eventsPanelBg: 'bg-white',
+  remindersPanelBg: 'bg-grey-lightest',
+  notesPanelBg: 'bg-grey-lightest',
+  eventsPanelBg: 'bg-grey-lightest',
   navbarBg: 'bg-blue-darker',
 
   // General colors

@@ -13,7 +13,7 @@ export default {
     }
   },
   created() {
-    this.$store.dispatch('theme/setTheme', { theme: 'light' })
+    this.$store.dispatch('theme/setTheme')
   }
 }
 </script>
