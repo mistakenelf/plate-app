@@ -31,6 +31,7 @@
     "register-service-worker": "^1.5.2",
     "vee-validate": "^2.1.5",
     "vue": "^2.5.21",
+    "vue-flag-icon": "^1.0.6",
     "vue-i18n": "^8.7.0",
     "vue-router": "^3.0.2",
     "vuex": "^3.0.1"

@@ -5,6 +5,7 @@ import store from './store'
 import Vue from 'vue'
 import './plugins/fontAwesome'
 import './plugins/veeValidate'
+import './plugins/vueFlags'
 import { i18n } from './plugins/i18n'
 
 Vue.config.productionTip = false
