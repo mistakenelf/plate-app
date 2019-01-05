@@ -7,12 +7,7 @@
       <div class="p-4">
         <Header :todoList="todoList" v-on:openModal="openModal" />
       </div>
-      <TodoListing
-        v-on:deleteTodo="deleteTodo"
-        v-on:toggleCompleted="toggleCompleted"
-        :todos="todoList.todos"
-        :todoLoading="todoLoading"
-      />
+      <TodoListing :todos="todoList.todos" :todoList="todoList" />
     </div>
     <AddTodoButton v-on:openModal="openModal" />
     <AddTodoModal
@@ -43,10 +38,6 @@ export default {
   data() {
     return {
       loading: false,
-      todoLoading: {
-        loading: false,
-        index: 0
-      },
       modalOpen: false
     }
   },
@@ -59,28 +50,6 @@ export default {
     this.loading = false
   },
   methods: {
-    async deleteTodo(todo) {
-      const index = this.todoList.todos.indexOf(todo)
-      const payload = {
-        index,
-        todo
-      }
-      this.todoLoading = { loading: true, index }
-      await this.$store.dispatch('todos/deleteTodo', payload)
-      this.todoLoading = { loading: false, index }
-    },
-
-    async toggleCompleted(todo) {
-      const index = this.todoList.todos.indexOf(todo)
-      const payload = {
-        index,
-        todo
-      }
-      this.todoLoading = { loading: true, index }
-      await this.$store.dispatch('todos/toggleTodoCompleted', payload)
-      this.todoLoading = { loading: false, index }
-    },
-
     openModal() {
       this.modalOpen = true
     },

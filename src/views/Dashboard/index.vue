@@ -47,10 +47,9 @@ export default {
     }
   },
   computed: mapState('dashboard', ['dashboard']),
-  created() {
+  async created() {
     this.$emit('update:layout', DefaultLayout)
-  },
-  async mounted() {
+
     this.loading = true
     await this.$store.dispatch('dashboard/getDashboard')
     this.loading = false
