@@ -48,15 +48,10 @@ export default {
         if (!result) {
           return
         }
+
         const payload = {
-          ...this.todoList,
-          todos: [
-            ...this.todoList.todos,
-            {
-              description: this.description,
-              createdBy: this.$store.state.auth.user.id
-            }
-          ]
+          description: this.description,
+          createdBy: this.$store.state.auth.user.id
         }
 
         this.loading = true

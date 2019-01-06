@@ -34,11 +34,19 @@ export default {
     commit('DELETE_TODO_LIST', payload.index)
   },
 
-  async updateTodoList({ commit, rootState }, payload) {
-    await API.put(`/api/${API_VERSION}/todo-lists`, payload, {
+  async updateTodoList({ commit, state, rootState }, payload) {
+    const todoList = {
+      ...state.todoList,
+      todos: [
+        ...state.todoList.todos,
+        payload
+      ]
+    }
+
+    await API.put(`/api/${API_VERSION}/todo-lists`, todoList, {
       headers: getHeaders(rootState.auth.token)
     })
-    commit('UPDATE_TODO_LIST', payload)
+    commit('UPDATE_TODO_LIST', todoList)
   },
 
   async toggleListCompleted({ commit, rootState }, payload) {

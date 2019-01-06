@@ -7,16 +7,10 @@
         v-on:addTodo="addTodo"
         v-on:removeTodo="removeTodo"
       />
-      <button
-        type="submit"
-        class="bg-teal-dark shadow-lg m-2 fixed pin-b pin-r h-16 w-16 text-white p-4 hover:bg-teal focus:outline-none rounded-full font-bold"
-      >
-        <font-awesome-icon
-          class="text-2xl"
-          :icon="!loading ? 'save' : 'spinner'"
-          :spin="loading"
-        />
-      </button>
+      <div class="fixed pin-b flex justify-between w-full items-center bg-white">
+      <AddTodoButton v-on:addTodo="addTodo" />
+      <SaveTodoButton :loading="loading" />
+      </div>
     </form>
   </div>
 </template>
@@ -25,10 +19,14 @@
 import DefaultLayout from '@/components/DefaultLayout'
 import ListInfo from './components/ListInfo'
 import TodoListing from './components/TodoListing'
+import AddTodoButton from './components/AddTodoButton'
+import SaveTodoButton from './components/SaveTodoButton'
 export default {
   components: {
     ListInfo,
-    TodoListing
+    TodoListing,
+    AddTodoButton,
+    SaveTodoButton
   },
   data() {
     return {

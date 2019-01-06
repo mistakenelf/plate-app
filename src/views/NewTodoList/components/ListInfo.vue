@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex flex-col">
-      <div class="w-full mb-4">
+      <div class="w-full">
         <TextField
           type="text"
           name="title"
