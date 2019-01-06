@@ -7,9 +7,11 @@
         v-on:addTodo="addTodo"
         v-on:removeTodo="removeTodo"
       />
-      <div class="fixed pin-b flex justify-between w-full items-center bg-white">
-      <AddTodoButton v-on:addTodo="addTodo" />
-      <SaveTodoButton :loading="loading" />
+      <div
+        class="fixed pin-b flex justify-between w-full items-center bg-white"
+      >
+        <AddTodoButton v-on:addTodo="addTodo" />
+        <SaveTodoButton :loading="loading" />
       </div>
     </form>
   </div>

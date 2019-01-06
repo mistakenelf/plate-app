@@ -14,6 +14,7 @@ export default {
   },
   created() {
     this.$store.dispatch('theme/setTheme')
+    this.$store.dispatch('translation/loadLocale')
   }
 }
 </script>

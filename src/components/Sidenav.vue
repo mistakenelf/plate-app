@@ -80,14 +80,6 @@
             Logout
           </div>
         </div>
-        <div
-          class="flex flex-col justify-center items-center mb-6 cursor-pointer"
-        >
-          <flag iso="us" class="text-4xl" />
-          <div :class="$store.state.theme.selectedThemeClasses.textColor">
-            {{ $store.state.translation.locale }}
-          </div>
-        </div>
       </div>
       <div class="flex justify-center items-center">
         <font-awesome-icon

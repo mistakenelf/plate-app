@@ -37,10 +37,7 @@ export default {
   async updateTodoList({ commit, state, rootState }, payload) {
     const todoList = {
       ...state.todoList,
-      todos: [
-        ...state.todoList.todos,
-        payload
-      ]
+      todos: [...state.todoList.todos, payload]
     }
 
     await API.put(`/api/${API_VERSION}/todo-lists`, todoList, {

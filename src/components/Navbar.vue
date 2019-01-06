@@ -18,26 +18,38 @@
       <div v-else class="text-2xl">🍛</div>
       <div class="text-white text-2xl ml-2">{{ $t('brand_text') }}</div>
     </div>
-    <ul class="flex list-reset ml-6 text-2xl">
+    <div class="flex ml-6 text-2xl">
+      <div @click="openModal" class="cursor-pointer">
+        <flag v-if="$store.state.translation.locale === 'us'" iso="us" />
+        <flag v-if="$store.state.translation.locale === 'fr'" iso="fr" />
+      </div>
       <font-awesome-icon
         class="text-white cursor-pointer ml-4"
         @click="openMenu()"
         icon="bars"
       />
-    </ul>
+    </div>
     <Sidenav :open="menuOpen" v-on:handleClose="handleClose" />
+    <CountrySelectModal
+      :isOpen="modalOpen"
+      v-on:closeModal="closeModal"
+      :closeModal="closeModal"
+    />
   </nav>
 </template>
 
 <script>
-import Sidenav from './Sidenav'
+import Sidenav from '@/components/Sidenav'
+import CountrySelectModal from '@/components/CountrySelectModal'
 export default {
   components: {
-    Sidenav
+    Sidenav,
+    CountrySelectModal
   },
   data() {
     return {
-      menuOpen: false
+      menuOpen: false,
+      modalOpen: false
     }
   },
   methods: {
@@ -47,6 +59,14 @@ export default {
     },
     handleClose() {
       this.menuOpen = false
+      document.body.classList.remove('no-scroll')
+    },
+    openModal() {
+      this.modalOpen = true
+      document.body.classList.add('no-scroll')
+    },
+    closeModal() {
+      this.modalOpen = false
       document.body.classList.remove('no-scroll')
     },
     goBack() {

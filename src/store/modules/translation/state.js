@@ -1,3 +1,3 @@
 export default {
-  locale: 'en'
+  locale: localStorage.getItem('locale') || 'us'
 }
