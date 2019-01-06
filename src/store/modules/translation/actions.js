@@ -5,9 +5,9 @@ export default {
     let locale = localStorage.getItem('locale')
     if (!locale) {
       import(`@/lang/en.json`).then(msgs => {
-        i18n.setLocaleMessage('us', msgs.default || msgs)
-        i18n.locale = 'us'
-        locale = localStorage.setItem('locale', 'us')
+        i18n.setLocaleMessage('en', msgs.default || msgs)
+        i18n.locale = 'en'
+        locale = localStorage.setItem('locale', 'en')
       })
     } else {
       import(`@/lang/${locale}.json`).then(msgs => {

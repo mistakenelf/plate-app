@@ -20,7 +20,7 @@
     </div>
     <div class="flex ml-6 text-2xl">
       <div @click="openModal" class="cursor-pointer">
-        <flag v-if="$store.state.translation.locale === 'us'" iso="us" />
+        <flag v-if="$store.state.translation.locale === 'en'" iso="us" />
         <flag v-if="$store.state.translation.locale === 'fr'" iso="fr" />
       </div>
       <font-awesome-icon
