@@ -16,6 +16,7 @@ export default {
         localStorage.setItem('locale', locale)
       })
     }
+    console.log(locale)
     commit('LOAD_LOCALE_SUCCESS', locale)
   },
   setLocale({ commit }, payload) {

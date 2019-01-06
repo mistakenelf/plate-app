@@ -11,10 +11,6 @@ export default {
     return {
       layout: 'div'
     }
-  },
-  created() {
-    this.$store.dispatch('theme/setTheme')
-    this.$store.dispatch('translation/loadLocale')
   }
 }
 </script>

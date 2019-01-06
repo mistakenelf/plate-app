@@ -7,7 +7,7 @@
       class="bg-grey-light shadow-md px-8 pt-6 pb-8 mb-4 w-full sm:w-full md:w-1/2 lg:w-1/3 rounded"
     >
       <div class="flex justify-between items-center flex-row w-full mb-4">
-        <div class="text-2xl">Login</div>
+        <div class="text-2xl">{{ $t('login') }}</div>
         <div class="text-2xl">🍛</div>
       </div>
       <div class="mb-4">
