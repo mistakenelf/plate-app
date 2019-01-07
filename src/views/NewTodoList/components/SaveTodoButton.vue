@@ -1,7 +1,7 @@
 <template>
   <button
     type="submit"
-    class="bg-teal-dark shadow-lg h-16 w-16 text-white p-4 hover:bg-teal focus:outline-none rounded-full font-bold"
+    class="bg-teal-dark text-white py-3 px-2 w-16 hover:bg-teal focus:outline-none font-bold"
   >
     <font-awesome-icon
       class="text-2xl"

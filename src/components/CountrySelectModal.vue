@@ -24,7 +24,7 @@ export default {
   },
   methods: {
     async setLocale(locale) {
-      await this.$store.dispatch('translation/setLocale', { locale })
+      this.$store.dispatch('translation/setLocale', { locale })
       this.$emit('closeModal')
     }
   }

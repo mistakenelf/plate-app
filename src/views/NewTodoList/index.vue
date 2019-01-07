@@ -1,17 +1,21 @@
 <template>
   <div>
     <form @submit.prevent="handleSubmit">
-      <ListInfo v-on:updateTitle="updateTitle" />
+      <div class="flex flex-row h-12 w-full">
+        <ListInfo v-on:updateTitle="updateTitle" />
+        <SaveTodoButton :loading="loading" />
+      </div>
+      <NoTodos v-if="todos.length === 0" />
       <TodoListing
         :todos="todos"
+        v-else
         v-on:addTodo="addTodo"
         v-on:removeTodo="removeTodo"
       />
       <div
         class="fixed pin-b flex justify-between w-full items-center bg-white"
       >
-        <AddTodoButton v-on:addTodo="addTodo" />
-        <SaveTodoButton :loading="loading" />
+        <NewTodo v-on:addTodo="addTodo" />
       </div>
     </form>
   </div>
@@ -21,13 +25,15 @@
 import DefaultLayout from '@/components/DefaultLayout'
 import ListInfo from './components/ListInfo'
 import TodoListing from './components/TodoListing'
-import AddTodoButton from './components/AddTodoButton'
+import NewTodo from './components/NewTodo'
+import NoTodos from './components/NoTodos'
 import SaveTodoButton from './components/SaveTodoButton'
 export default {
   components: {
     ListInfo,
     TodoListing,
-    AddTodoButton,
+    NewTodo,
+    NoTodos,
     SaveTodoButton
   },
   data() {
@@ -61,9 +67,9 @@ export default {
         this.$router.push('/dashboard')
       })
     },
-    addTodo() {
+    addTodo(description) {
       this.todos.push({
-        description: 'Describe your todo item',
+        description,
         createdBy: this.$store.state.auth.user.id,
         index: this.count++
       })

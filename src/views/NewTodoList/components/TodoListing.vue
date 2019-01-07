@@ -16,24 +16,14 @@
             icon="times"
           />
         </div>
-        <div class="p-2">
-          <TextField
-            name="description"
-            placeholder="Describe your todo"
-            v-model="todo.description"
-          />
-        </div>
+        <div class="p-2">{{ todo.description }}</div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import TextField from '@/components/TextField'
 export default {
-  components: {
-    TextField
-  },
   props: {
     todos: Array
   }

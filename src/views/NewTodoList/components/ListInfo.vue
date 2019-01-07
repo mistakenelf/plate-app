@@ -1,19 +1,15 @@
 <template>
-  <div>
-    <div class="flex flex-col">
-      <div class="w-full">
-        <TextField
-          type="text"
-          name="title"
-          :isLarge="true"
-          placeholder="Give your list a title"
-          v-model="title"
-          v-validate="'required'"
-          :hasErrors="errors.has('title')"
-          :errorMessage="errors.first('title')"
-        />
-      </div>
-    </div>
+  <div class="w-full">
+    <TextField
+      type="text"
+      name="title"
+      :isLarge="true"
+      placeholder="Give your list a title"
+      v-model="title"
+      v-validate="'required'"
+      :hasErrors="errors.has('title')"
+      :errorMessage="errors.first('title')"
+    />
   </div>
 </template>
 
