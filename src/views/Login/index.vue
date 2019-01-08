@@ -85,7 +85,7 @@ export default {
         await this.$store.dispatch('auth/login', payload)
         this.loading = false
 
-        this.$router.push('/dashboard')
+        this.$router.push({ name: 'dashboard' })
       })
     }
   }

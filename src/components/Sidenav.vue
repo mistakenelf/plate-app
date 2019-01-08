@@ -19,7 +19,7 @@
           </div>
         </div>
         <div
-          @click="goToRoute('/todo-lists')"
+          @click="goToRoute('todo-lists')"
           class="flex flex-col justify-center items-center mb-6 cursor-pointer"
         >
           <font-awesome-icon
@@ -110,11 +110,11 @@ export default {
   methods: {
     async logout() {
       await this.$store.dispatch('auth/logout')
-      this.$router.push('/')
+      this.$router.push(`/${this.$i18n.locale}`)
     },
     goToRoute(route) {
       this.$emit('handleClose')
-      this.$router.push(route)
+      this.$router.push({ name: route })
     },
     toggleTheme() {
       const { selectedThemeName } = this.$store.state.theme

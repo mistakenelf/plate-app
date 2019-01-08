@@ -20,8 +20,8 @@
     </div>
     <div class="flex ml-6 text-2xl">
       <div @click="openModal" class="cursor-pointer">
-        <flag v-if="$store.state.translation.locale === 'en'" iso="us" />
-        <flag v-if="$store.state.translation.locale === 'fr'" iso="fr" />
+        <flag v-if="$i18n.locale === 'en'" iso="us" />
+        <flag v-if="$i18n.locale === 'fr'" iso="fr" />
       </div>
       <font-awesome-icon
         class="text-white cursor-pointer ml-4"
@@ -75,7 +75,10 @@ export default {
   },
   computed: {
     showBack() {
-      if (this.$route.path === '/' || this.$route.path === '/dashboard') {
+      if (
+        this.$route.path === '/' ||
+        this.$route.path === `/${this.$i18n.locale}/dashboard`
+      ) {
         return false
       } else {
         return true

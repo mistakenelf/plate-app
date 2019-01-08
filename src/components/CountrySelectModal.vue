@@ -14,6 +14,7 @@
 
 <script>
 import Modal from '@/components/Modal'
+import { Trans } from '@/plugins/translation'
 export default {
   components: {
     Modal
@@ -23,9 +24,12 @@ export default {
     closeModal: Function
   },
   methods: {
-    async setLocale(locale) {
-      this.$store.dispatch('translation/setLocale', { locale })
-      this.$emit('closeModal')
+    setLocale(lang) {
+      const to = this.$router.resolve({ params: { lang } })
+      return Trans.changeLanguage(lang).then(() => {
+        this.$emit('closeModal')
+        this.$router.push(to.location)
+      })
     }
   }
 }

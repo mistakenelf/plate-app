@@ -1,7 +1,7 @@
 <template>
   <Panel title="Todos" height="385px">
     <template slot="addNew">
-      <router-link to="/todo-lists/new" class="text-white">
+      <router-link to="todo-lists/new" class="text-white">
         <font-awesome-icon icon="plus" />
       </router-link>
     </template>
@@ -37,7 +37,7 @@
     </div>
     <router-link
       v-if="todoLists"
-      to="/todo-lists"
+      to="todo-lists"
       class="flex justify-center uppercase p-4 h-16 items-center no-underline"
       :class="
         $store.state.theme.selectedThemeClasses.textColor +
@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     goToDetailView(id) {
-      this.$router.push(`/todo-lists/${id}`)
+      this.$router.push({ name: 'todo-list', params: { id } })
     }
   }
 }

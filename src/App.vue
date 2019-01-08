@@ -1,22 +1,6 @@
 <template>
-  <component :is="layout" class="h-full">
-    <router-view :layout.sync="layout" />
-  </component>
+  <router-view />
 </template>
-
-<script>
-export default {
-  name: 'App',
-  data() {
-    return {
-      layout: 'div'
-    }
-  },
-  created() {
-    this.$store.dispatch('theme/setTheme')
-  }
-}
-</script>
 
 <style>
 @import './assets/main.css';
