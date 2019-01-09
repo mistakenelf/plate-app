@@ -33,7 +33,7 @@
           </div>
         </div>
         <div
-          class="p-2 flex items-center justify-center"
+          class="p-2 h-32 flex items-center justify-center"
           v-if="
             todoListLoading.loading &&
               todoListLoading.index === todoLists.indexOf(todoList)
