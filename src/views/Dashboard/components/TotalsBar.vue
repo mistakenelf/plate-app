@@ -2,14 +2,14 @@
   <div>
     <div
       v-if="loading"
-      class="shadow rounded mb-4 p-2 md:p-4 w-full flex items-center justify-center"
+      class="shadow rounded p-2 md:p-5 w-full flex items-center justify-center"
       :class="$store.state.theme.selectedThemeClasses.totalsPanelBg"
     >
       <Spinner />
     </div>
     <div
       v-else
-      class="shadow rounded p-2 mb-4 w-full flex flex-row justify-between flex-wrap"
+      class="shadow rounded p-2 w-full flex flex-row justify-between flex-wrap"
       :class="$store.state.theme.selectedThemeClasses.totalsPanelBg"
     >
       <div class="flex flex-col justify-center text-center">

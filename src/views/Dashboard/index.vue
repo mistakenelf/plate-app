@@ -1,22 +1,24 @@
 <template>
   <div>
-    <div class="px-2 pt-2">
+    <div class="p-4">
       <TotalsBar :loading="loading" :totals="dashboard.dashboardCounts" />
-      <div class="flex flex-wrap -mx-2">
-        <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-2">
+    </div>
+    <div class="px-2">
+      <div class="flex flex-wrap -mx-0">
+        <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-6">
           <TodoListsPanel :loading="loading" :todoLists="dashboard.todoLists" />
         </div>
-        <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-2">
+        <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-6">
           <RemindersPanel />
         </div>
       </div>
     </div>
     <div class="px-2 pt-2">
-      <div class="flex flex-wrap -mx-2">
-        <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-2">
+      <div class="flex flex-wrap -mx-0">
+        <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-6">
           <NotesPanel />
         </div>
-        <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-2">
+        <div class="w-full sm:w-full md:w-1/2 lg:w-1/2 px-2 mb-6">
           <EventsPanel />
         </div>
       </div>

@@ -1,5 +1,5 @@
 <template>
-  <Panel title="Events" height="240px">
+  <Panel title="Events" height="290px">
     <template slot="addNew">
       <router-link to="/new-event" class="text-white">
         <font-awesome-icon icon="plus" />

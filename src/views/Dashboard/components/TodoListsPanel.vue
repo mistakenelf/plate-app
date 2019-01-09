@@ -1,5 +1,5 @@
 <template>
-  <Panel title="Todo Lists" height="240px">
+  <Panel title="Todo Lists" height="290px">
     <template slot="addNew">
       <router-link to="todo-lists/new" class="text-white">
         <font-awesome-icon icon="plus" />
@@ -29,7 +29,10 @@
           class="text-md"
           :class="$store.state.theme.selectedThemeClasses.textColor"
         >
-          {{ todoList.title }}
+          <span class="font-medium">{{ todoList.title }}</span>
+          <span class="text-grey-dark text-sm">
+            - {{ todoList.todos.length }} Todos</span
+          >
         </div>
       </div>
     </div>
