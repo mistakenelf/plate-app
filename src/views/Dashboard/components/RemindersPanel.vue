@@ -1,5 +1,5 @@
 <template>
-  <Panel title="Reminders" height="385px">
+  <Panel title="Reminders" height="240px">
     <template slot="addNew">
       <router-link to="/new-reminder" class="text-white">
         <font-awesome-icon icon="plus" />

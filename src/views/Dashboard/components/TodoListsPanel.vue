@@ -1,5 +1,5 @@
 <template>
-  <Panel title="Todos" height="385px">
+  <Panel title="Todo Lists" height="240px">
     <template slot="addNew">
       <router-link to="todo-lists/new" class="text-white">
         <font-awesome-icon icon="plus" />
@@ -19,16 +19,14 @@
     <div v-if="todoLists">
       <div
         :class="$store.state.theme.selectedThemeClasses.todoListHover"
-        class="border-b-2 p-4 h-16 cursor-pointer items-center flex items-center"
+        class="border-b-2 p-3 h-12 cursor-pointer items-center flex items-center"
         v-for="todoList in todoLists"
         :key="todoList.id"
         @click="goToDetailView(todoList.id)"
       >
-        <div v-if="!todoList" class="bg-grey-light w-32 rounded h-3 mb-2" />
-        <div v-if="!todoList" class="bg-grey-light w-64 rounded h-3" />
         <div
           v-if="todoList"
-          class="text-lg"
+          class="text-md"
           :class="$store.state.theme.selectedThemeClasses.textColor"
         >
           {{ todoList.title }}
@@ -38,7 +36,7 @@
     <router-link
       v-if="todoLists"
       to="todo-lists"
-      class="flex justify-center uppercase p-4 h-16 items-center no-underline"
+      class="flex text-md font-bold justify-center p-4 h-12 items-center no-underline"
       :class="
         $store.state.theme.selectedThemeClasses.textColor +
           ' ' +

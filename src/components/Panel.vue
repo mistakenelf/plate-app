@@ -4,10 +4,10 @@
     :class="$store.state.theme.selectedThemeClasses.panelBg"
   >
     <div
-      class="flex justify-between items-center p-4 text-white rounded-t"
+      class="flex justify-between items-center px-4 py-3 text-white rounded-t"
       :class="$store.state.theme.selectedThemeClasses.panelHeaderBg"
     >
-      <div class="text-xl">{{ title }}</div>
+      <div class="text-lg">{{ title }}</div>
       <slot name="addNew" />
     </div>
     <div :style="{ height }"><slot /></div>
