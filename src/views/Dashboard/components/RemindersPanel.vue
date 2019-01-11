@@ -6,7 +6,7 @@
       </router-link>
     </template>
     <div
-      class="flex items-center justify-center flex-col h-full"
+      class="flex items-center justify-center flex-col h-full rounded"
       :class="$store.state.theme.selectedThemeClasses.remindersPanelBg"
     >
       <font-awesome-icon icon="bell" class="text-huge mb-4" />

@@ -64,7 +64,7 @@
             :class="$store.state.theme.selectedThemeClasses.textColor"
           />
           <div :class="$store.state.theme.selectedThemeClasses.textColor">
-            Reminders
+            Events
           </div>
         </div>
         <div
@@ -110,6 +110,7 @@ export default {
   methods: {
     async logout() {
       await this.$store.dispatch('auth/logout')
+      document.body.classList.remove('no-scroll')
       this.$router.push(`/${this.$i18n.locale}`)
     },
     goToRoute(route) {

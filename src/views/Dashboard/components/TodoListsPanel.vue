@@ -31,15 +31,15 @@
         >
           <span class="font-medium">{{ todoList.title }}</span>
           <span class="text-grey-dark text-sm">
-            - {{ todoList.todos.length }} Todos</span
+            - {{ todoList.todos.length }} Todo(s)</span
           >
         </div>
       </div>
     </div>
     <router-link
-      v-if="todoLists"
+      v-if="todoLists && todoLists.length > 0 && !loading"
       to="todo-lists"
-      class="flex text-md font-bold justify-center p-4 h-12 items-center no-underline"
+      class="flex text-md mt-auto font-bold justify-center p-4 h-12 items-center no-underline"
       :class="
         $store.state.theme.selectedThemeClasses.textColor +
           ' ' +

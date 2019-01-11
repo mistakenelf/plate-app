@@ -20,7 +20,6 @@
           v-validate="'required|email'"
           :hasErrors="errors.has('email')"
           :errorMessage="errors.first('email')"
-          :autofocus="true"
         />
       </div>
       <div class="mb-6">

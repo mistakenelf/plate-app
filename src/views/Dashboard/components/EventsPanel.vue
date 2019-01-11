@@ -6,7 +6,7 @@
       </router-link>
     </template>
     <div
-      class="flex items-center justify-center flex-col h-full"
+      class="flex items-center justify-center flex-col h-full rounded"
       :class="$store.state.theme.selectedThemeClasses.eventsPanelBg"
     >
       <font-awesome-icon icon="calendar-check" class="text-huge mb-4" />

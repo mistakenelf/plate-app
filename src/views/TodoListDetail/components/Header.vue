@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-between">
-    <h1 class="text-3xl md:text-5xl">{{ todoList.title }}</h1>
+    <div class="text-3xl uppercase font-bold">{{ todoList.title }}</div>
   </div>
 </template>
 

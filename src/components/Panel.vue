@@ -10,7 +10,7 @@
       <div class="text-lg">{{ title }}</div>
       <slot name="addNew" />
     </div>
-    <div :style="{ height }"><slot /></div>
+    <div class="flex flex-col" :style="{ height }"><slot /></div>
   </div>
 </template>
 

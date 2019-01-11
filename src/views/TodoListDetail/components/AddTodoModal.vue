@@ -5,7 +5,6 @@
       <TextField
         type="text"
         name="description"
-        :autofocus="true"
         placeholder="Describe your todo"
         v-model="description"
         v-validate="'required'"
@@ -13,10 +12,14 @@
         :errorMessage="errors.first('description')"
       />
       <button
-        class="bg-teal-dark mt-4 border-b-4 border-teal-darker rounded w-full hover:bg-teal-dark text-white font-bold py-2 px-4 focus:outline-none hover:bg-teal mb-4"
+        class="bg-teal-dark mt-4 border-b-4 border-teal-darker rounded w-full hover:bg-teal-dark text-white font-bold py-1 px-4 focus:outline-none hover:bg-teal mb-4"
         type="submit"
       >
-        {{ loading ? 'adding...' : 'Add' }}
+        <font-awesome-icon
+          class="text-2xl"
+          :icon="!loading ? 'plus' : 'spinner'"
+          :spin="loading"
+        />
       </button>
     </form>
   </Modal>
