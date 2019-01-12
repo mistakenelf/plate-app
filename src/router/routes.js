@@ -53,6 +53,14 @@ export default [
         meta: {
           requiresAuth: true
         }
+      },
+      {
+        path: 'notes/new',
+        name: 'new-note',
+        component: load('NewNote'),
+        meta: {
+          requiresAuth: true
+        }
       }
     ]
   },

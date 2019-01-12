@@ -1,7 +1,7 @@
 <template>
   <Panel title="Notes" height="290px">
     <template slot="addNew">
-      <router-link to="/new-note" class="text-white">
+      <router-link to="notes/new" class="text-white">
         <font-awesome-icon icon="plus" />
       </router-link>
     </template>
