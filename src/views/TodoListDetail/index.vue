@@ -7,7 +7,12 @@
       <div class="p-4">
         <Header :todoList="todoList" v-on:openModal="openModal" />
       </div>
-      <TodoListing :todos="todoList.todos" :todoList="todoList" />
+      <TodoListing
+        v-if="todoList.todos.length > 0"
+        :todos="todoList.todos"
+        :todoList="todoList"
+      />
+      <NoTodos v-else />
     </div>
     <AddTodoButton v-on:openModal="openModal" />
     <AddTodoModal
@@ -27,13 +32,15 @@ import TodoListing from './components/TodoListing'
 import Spinner from '@/components/Spinner'
 import AddTodoModal from './components/AddTodoModal'
 import AddTodoButton from './components/AddTodoButton'
+import NoTodos from './components/NoTodos'
 export default {
   components: {
     Header,
     TodoListing,
     Spinner,
     AddTodoModal,
-    AddTodoButton
+    AddTodoButton,
+    NoTodos
   },
   data() {
     return {
