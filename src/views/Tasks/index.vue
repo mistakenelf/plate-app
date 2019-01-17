@@ -1,7 +1,7 @@
 <template>
-  <div class="p-4">
+  <div class="p-4 h-full">
     <Header />
-    <div class="mt-32"><NoTasks /></div>
+    <div class="mt-30p"><NoTasks /></div>
   </div>
 </template>
 

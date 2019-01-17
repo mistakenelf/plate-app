@@ -40,7 +40,9 @@
       >
         {{ loading ? 'loading...' : 'Login' }}
       </button>
-      <router-link to="/register">Dont have an account?</router-link>
+      <div @click="goToRegister()" class="cursor-pointer">
+        Dont have an account?
+      </div>
       <div class="text-red mt-4 uppercase" v-if="loginError">
         {{ loginError }}
       </div>
@@ -86,6 +88,9 @@ export default {
 
         this.$router.push({ name: 'dashboard' })
       })
+    },
+    goToRegister() {
+      this.$router.push(`/${this.$i18n.locale}/register`)
     }
   }
 }

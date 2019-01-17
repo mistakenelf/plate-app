@@ -1,8 +1,8 @@
 <template>
-  <div class="lg:flex">
-    <div class="flex-none w-64 md:max-w-xs hidden lg:block"><Sidebar /></div>
+  <div>
+    <div class="fixed pin-l hidden lg:block w-64 h-full"><Sidebar /></div>
     <div class="lg:hidden"><Navbar /></div>
-    <div class="lg:flex-1"><slot /></div>
+    <div class="ml-0 lg:ml-64"><slot /></div>
   </div>
 </template>
 

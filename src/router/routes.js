@@ -37,6 +37,14 @@ export default [
         meta: {
           requiresAuth: true
         }
+      },
+      {
+        path: 'tasks/new',
+        name: 'new-task',
+        component: load('NewTask'),
+        meta: {
+          requiresAuth: true
+        }
       }
     ]
   },

@@ -11,7 +11,21 @@ import {
   faSpinner,
   faMoon,
   faChartLine,
-  faTasks
+  faTasks,
+  faSave,
+  faBan,
+  faBold,
+  faItalic,
+  faStrikethrough,
+  faUnderline,
+  faCode,
+  faParagraph,
+  faList,
+  faListOl,
+  faQuoteRight,
+  faFileCode,
+  faUndo,
+  faRedo
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -24,7 +38,21 @@ library.add(
   faSpinner,
   faMoon,
   faChartLine,
-  faTasks
+  faTasks,
+  faSave,
+  faBan,
+  faBold,
+  faItalic,
+  faStrikethrough,
+  faUnderline,
+  faCode,
+  faParagraph,
+  faList,
+  faListOl,
+  faQuoteRight,
+  faFileCode,
+  faUndo,
+  faRedo
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)

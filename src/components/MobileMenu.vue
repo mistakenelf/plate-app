@@ -20,6 +20,19 @@
         </div>
         <div
           class="flex flex-col justify-center items-center mb-6 cursor-pointer"
+          @click="goToRoute('tasks')"
+        >
+          <font-awesome-icon
+            class="text-3xl mb-2 text-grey-darkest"
+            :class="$store.state.theme.selectedThemeClasses.textColor"
+            icon="tasks"
+          />
+          <div :class="$store.state.theme.selectedThemeClasses.textColor">
+            Tasks
+          </div>
+        </div>
+        <div
+          class="flex flex-col justify-center items-center mb-6 cursor-pointer"
           @click="logout()"
         >
           <font-awesome-icon

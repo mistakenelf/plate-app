@@ -1,7 +1,7 @@
 <template>
   <button
     :type="type"
-    class="text-grey-darkest font-bold py-2 px-4 rounded inline-flex items-center focus:outline-none text-grey-lightest"
+    class="text-grey-darkest font-bold py-2 px-4 rounded inline-flex items-center focus:outline-none text-grey-lightest text-sm"
     :class="colorClass + ' ' + widthClasses"
     @click="$emit('onClick')"
   >
