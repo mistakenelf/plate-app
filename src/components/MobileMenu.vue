@@ -19,55 +19,6 @@
           </div>
         </div>
         <div
-          @click="goToRoute('todo-lists')"
-          class="flex flex-col justify-center items-center mb-6 cursor-pointer"
-        >
-          <font-awesome-icon
-            class="text-3xl mb-2"
-            icon="clipboard-list"
-            :class="$store.state.theme.selectedThemeClasses.textColor"
-          />
-          <div :class="$store.state.theme.selectedThemeClasses.textColor">
-            Todo Lists
-          </div>
-        </div>
-        <div
-          class="flex flex-col justify-center items-center mb-6 cursor-pointer"
-        >
-          <font-awesome-icon
-            class="text-3xl mb-2"
-            icon="bell"
-            :class="$store.state.theme.selectedThemeClasses.textColor"
-          />
-          <div :class="$store.state.theme.selectedThemeClasses.textColor">
-            Reminders
-          </div>
-        </div>
-        <div
-          class="flex flex-col justify-center items-center mb-6 cursor-pointer"
-        >
-          <font-awesome-icon
-            class="text-3xl mb-2"
-            icon="newspaper"
-            :class="$store.state.theme.selectedThemeClasses.textColor"
-          />
-          <div :class="$store.state.theme.selectedThemeClasses.textColor">
-            Notes
-          </div>
-        </div>
-        <div
-          class="flex flex-col justify-center items-center mb-6 cursor-pointer"
-        >
-          <font-awesome-icon
-            class="text-3xl mb-2"
-            icon="calendar-check"
-            :class="$store.state.theme.selectedThemeClasses.textColor"
-          />
-          <div :class="$store.state.theme.selectedThemeClasses.textColor">
-            Events
-          </div>
-        </div>
-        <div
           class="flex flex-col justify-center items-center mb-6 cursor-pointer"
           @click="logout()"
         >

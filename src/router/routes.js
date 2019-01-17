@@ -31,33 +31,9 @@ export default [
         }
       },
       {
-        path: 'todo-lists',
-        name: 'todo-lists',
-        component: load('TodoLists'),
-        meta: {
-          requiresAuth: true
-        }
-      },
-      {
-        path: 'todo-lists/new',
-        name: 'new-todo-list',
-        component: load('NewTodoList'),
-        meta: {
-          requiresAuth: true
-        }
-      },
-      {
-        path: 'todo-lists/:id',
-        name: 'todo-list',
-        component: load('TodoListDetail'),
-        meta: {
-          requiresAuth: true
-        }
-      },
-      {
-        path: 'notes/new',
-        name: 'new-note',
-        component: load('NewNote'),
+        path: 'tasks',
+        name: 'tasks',
+        component: load('Tasks'),
         meta: {
           requiresAuth: true
         }

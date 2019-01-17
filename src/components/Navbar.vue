@@ -29,7 +29,7 @@
         icon="bars"
       />
     </div>
-    <Sidenav :open="menuOpen" v-on:handleClose="handleClose" />
+    <MobileMenu :open="menuOpen" v-on:handleClose="handleClose" />
     <CountrySelectModal
       :isOpen="modalOpen"
       v-on:closeModal="closeModal"
@@ -39,11 +39,11 @@
 </template>
 
 <script>
-import Sidenav from '@/components/Sidenav'
+import MobileMenu from '@/components/MobileMenu'
 import CountrySelectModal from '@/components/CountrySelectModal'
 export default {
   components: {
-    Sidenav,
+    MobileMenu,
     CountrySelectModal
   },
   data() {

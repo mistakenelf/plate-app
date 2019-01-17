@@ -7,13 +7,13 @@
       {{ label }}
     </label>
     <input
-      :type="type"
+      type="date"
       :name="name"
       :id="id"
       :autofocus="autofocus"
       :placeholder="placeholder"
       @input="$emit('input', $event.target.value)"
-      class="appearance-none block text-md w-full bg-white text-grey-darker border-2 py-3 px-4 leading-tight focus:outline-none"
+      class="appearance-none block text-sm w-full bg-white text-grey-darker border-2 py-3 px-4 leading-tight focus:outline-none"
       :class="{
         'border-2 border-red-light': hasErrors,
         'text-xl md:text-2xl h-12 rounded-none border-none': isLarge
@@ -29,7 +29,6 @@
 export default {
   props: {
     label: String,
-    type: String,
     name: String,
     autofocus: Boolean,
     id: String,
