@@ -25,7 +25,8 @@ import {
   faQuoteRight,
   faFileCode,
   faUndo,
-  faRedo
+  faRedo,
+  faEye
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(
@@ -52,7 +53,8 @@ library.add(
   faQuoteRight,
   faFileCode,
   faUndo,
-  faRedo
+  faRedo,
+  faEye
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
