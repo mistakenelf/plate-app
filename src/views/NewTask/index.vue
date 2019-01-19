@@ -69,7 +69,8 @@ export default {
           createdBy: this.$store.state.auth.user.id
         }
 
-        this.$store.dispatch('tasks/createTask', payload)
+        await this.$store.dispatch('tasks/createTask', payload)
+        this.$router.push({ name: 'tasks' })
       })
     },
     updateName(name) {

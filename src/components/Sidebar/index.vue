@@ -29,6 +29,15 @@
         Tasks
       </div>
     </div>
+    <div
+      class="h-12 text-grey-lightest hover:bg-blue-darkest flex items-center cursor-pointer pl-6"
+      @click="logout()"
+    >
+      <div class="flex flex-row items-center">
+        <font-awesome-icon icon="sign-out-alt" class="mr-2" />
+        Logout
+      </div>
+    </div>
     <div class="flex justify-center items-center absolute pin-b w-64 p-4">
       <font-awesome-icon
         class="text-lg mr-2 text-grey-lightest"
@@ -53,6 +62,10 @@ export default {
   methods: {
     goToRoute(route) {
       this.$router.push({ name: route })
+    },
+    async logout() {
+      await this.$store.dispatch('auth/logout')
+      this.$router.push(`/${this.$i18n.locale}`)
     },
     toggleTheme() {
       const { selectedThemeName } = this.$store.state.theme

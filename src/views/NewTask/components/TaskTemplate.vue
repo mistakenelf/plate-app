@@ -1,5 +1,5 @@
 <template>
-  <div class="mb-6 md:mb-0 w-full">
+  <div class="mb-6 md:mb-0 w-full mr-0 md:mr-2">
     <Select
       name="template"
       placeholder="Select a template"

@@ -12,7 +12,7 @@
       rows="5"
       :placeholder="placeholder"
       @input="$emit('input', $event.target.value)"
-      class="appearance-none block w-full bg-white text-grey-darker border-2 rounded py-3 px-4 mb-1 leading-tight focus:outline-none"
+      class="appearance-none block w-full bg-white text-grey-darker border-2 rounded py-3 px-4 mb-1 leading-tight focus:outline-none rounded"
       :class="hasErrors ? 'border-2 border-red-light' : ''"
     />
     <span class="text-sm text-red-light" v-if="errorMessage">{{
