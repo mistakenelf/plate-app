@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="flex sm:flex-col flex-wrap md:flex-row items-center justify-between"
-  >
+  <div class="flex flex-row flex-wrap items-center justify-between">
     <div class="text-2xl md:text-3xl">Create A Task</div>
     <div class="flex flex-row items-center">
       <Button

@@ -4,7 +4,7 @@
       🍛 Plate
     </div>
     <div
-      class="h-12 text-grey-lightest hover:bg-blue-darkest flex items-center cursor-pointer mb-4 pl-6"
+      class="h-12 text-grey-lightest hover:bg-blue-darkest flex items-center cursor-pointer pl-6"
       :class="
         $route.name === 'dashboard' &&
           'border-l-4 border-blue-dark bg-blue-darkest'
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div
-      class="h-12 text-grey-lightest hover:bg-blue-darkest border-l-4 border-blue-darker flex items-center cursor-pointer mb-4 pl-6"
+      class="h-12 text-grey-lightest hover:bg-blue-darkest border-l-4 border-blue-darker flex items-center cursor-pointer pl-6"
       :class="
         ($route.name === 'tasks' || $route.name === 'new-task') &&
           'border-l-4 border-blue-dark bg-blue-darkest'

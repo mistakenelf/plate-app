@@ -125,7 +125,8 @@ export default {
   },
   data() {
     return {
-      contents: '',
+      contents:
+        '<h1><strong>Your new task</strong></h1><p></p><h3>Create a new task here</h3><p></p><p>You can group a list of items like below:</p><p></p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3</p></li></ul>',
       editor: new Editor({
         extensions: [
           new Blockquote(),
@@ -152,6 +153,9 @@ export default {
         }
       })
     }
+  },
+  created() {
+    this.$emit('updateContent', this.contents)
   },
   beforeDestroy() {
     this.editor.destroy()

@@ -3,7 +3,19 @@
     <form @submit.prevent="handleSubmit()">
       <Header />
       <div class="mb-6" />
-      <TaskName v-on:updateName="updateName" />
+      <div
+        class="flex flex-row justify-between mb-6 w-full flex-wrap sm:flex-wrap md:flex-no-wrap"
+      >
+        <TaskName v-on:updateName="updateName" />
+        <TaskDueDate v-on:updateDueDate="updateDueDate" />
+      </div>
+      <div class="mb-6" />
+      <div
+        class="flex flex-row justify-between mb-6 w-full flex-wrap sm:flex-wrap md:flex-no-wrap"
+      >
+        <TaskTemplate v-on:updateTemplate="updateTemplate" />
+        <TaskStatus v-on:updateStatus="updateStatus" />
+      </div>
       <div class="mb-6" />
       <TaskContent :updateContent="updateContent" />
     </form>
@@ -16,17 +28,26 @@ import DefaultLayout from '@/components/DefaultLayout'
 import TaskName from './components/TaskName'
 import Header from './components/Header'
 import TaskContent from './components/TaskContent'
+import TaskDueDate from './components/TaskDueDate'
+import TaskTemplate from './components/TaskTemplate'
+import TaskStatus from './components/TaskStatus'
 
 export default {
   components: {
     Header,
     TaskName,
-    TaskContent
+    TaskContent,
+    TaskDueDate,
+    TaskTemplate,
+    TaskStatus
   },
   data() {
     return {
       name: '',
-      content: ''
+      content: '',
+      dueDate: '',
+      template: '',
+      status
     }
   },
   created() {
@@ -38,13 +59,17 @@ export default {
         if (!result) {
           return
         }
+
         const payload = {
           name: this.name,
           content: this.content,
+          dueDate: this.dueDate,
+          template: this.template,
+          status: this.status,
           createdBy: this.$store.state.auth.user.id
         }
 
-        console.log(payload)
+        this.$store.dispatch('tasks/createTask', payload)
       })
     },
     updateName(name) {
@@ -52,6 +77,15 @@ export default {
     },
     updateContent(content) {
       this.content = content
+    },
+    updateDueDate(date) {
+      this.dueDate = date
+    },
+    updateTemplate(template) {
+      this.template = template
+    },
+    updateStatus(status) {
+      this.status = status
     }
   }
 }
