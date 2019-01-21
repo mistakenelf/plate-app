@@ -22,7 +22,7 @@
           :errorMessage="errors.first('email')"
         />
       </div>
-      <div class="mb-6">
+      <div class="mb-4">
         <TextField
           type="password"
           name="password"
@@ -34,12 +34,8 @@
           :errorMessage="errors.first('password')"
         />
       </div>
-      <button
-        class="bg-teal-dark border-b-4 border-teal-darker rounded w-full hover:bg-teal-dark text-white font-bold py-2 px-4 focus:outline-none hover:bg-teal mb-4"
-        type="submit"
-      >
-        {{ loading ? 'loading...' : 'Login' }}
-      </button>
+      <Button type="submit" color="blue" text="Login" :fullWidth="true" />
+      <div class="mb-4" />
       <div @click="goToRegister()" class="cursor-pointer">
         Dont have an account?
       </div>
@@ -54,10 +50,12 @@
 import { mapState } from 'vuex'
 import BasicLayout from '@/components/BasicLayout'
 import TextField from '@/components/TextField'
+import Button from '@/components/Button'
 
 export default {
   components: {
-    TextField
+    TextField,
+    Button
   },
   data() {
     return {

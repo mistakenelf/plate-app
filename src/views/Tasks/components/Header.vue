@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-row items-center justify-end">
     <Button
-      color="teal"
+      color="blue"
       type="button"
       text="New Task"
       icon="plus"

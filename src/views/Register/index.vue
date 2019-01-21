@@ -58,12 +58,7 @@
           :errorMessage="errors.first('password')"
         />
       </div>
-      <button
-        class="bg-teal-dark w-full hover:bg-teal-dark text-white font-bold py-2 px-4 focus:outline-none rounded border-b-4 border-teal-darker hover:bg-teal mb-4"
-        type="submit"
-      >
-        {{ loading ? 'loading...' : 'Register' }}
-      </button>
+      <Button type="submit" color="blue" :fullWidth="true" text="Register" />
       <div class="text-red mt-4 uppercase" v-if="registerError">
         {{ registerError }}
       </div>
@@ -75,10 +70,12 @@
 import { mapState } from 'vuex'
 import BasicLayout from '@/components/BasicLayout'
 import TextField from '@/components/TextField'
+import Button from '@/components/Button'
 
 export default {
   components: {
-    TextField
+    TextField,
+    Button
   },
   data() {
     return {

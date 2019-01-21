@@ -123,10 +123,11 @@ export default {
     EditorContent,
     EditorMenuBar
   },
+  props: {
+    content: String
+  },
   data() {
     return {
-      contents:
-        '<h1><strong>Your new task</strong></h1><p></p><h3>Create a new task here</h3><p></p><p>You can group a list of items like below:</p><p></p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3</p></li></ul>',
       editor: new Editor({
         extensions: [
           new Blockquote(),
@@ -146,24 +147,15 @@ export default {
           new Underline(),
           new History()
         ],
-        content:
-          '<h1><strong>Your new task</strong></h1><p></p><h3>Create a new task here</h3><p></p><p>You can group a list of items like below:</p><p></p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3</p></li></ul>',
+        content: this.content,
         onUpdate: ({ getHTML }) => {
-          this.contents = getHTML()
+          this.$emit('updateContent', getHTML())
         }
       })
     }
   },
-  created() {
-    this.$emit('updateContent', this.contents)
-  },
   beforeDestroy() {
     this.editor.destroy()
-  },
-  watch: {
-    contents() {
-      this.$emit('updateContent', this.contents)
-    }
   }
 }
 </script>

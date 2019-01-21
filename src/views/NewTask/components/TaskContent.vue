@@ -1,5 +1,5 @@
 <template>
-  <TextEditor v-on:updateContent="updateContent" />
+  <TextEditor v-on:updateContent="updateContent" :content="content" />
 </template>
 
 <script>
@@ -9,7 +9,8 @@ export default {
     TextEditor
   },
   props: {
-    updateContent: Function
+    updateContent: Function,
+    content: String
   }
 }
 </script>

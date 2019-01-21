@@ -13,5 +13,17 @@ export default {
       headers: getHeaders(rootState.auth.token)
     })
     commit('GET_TASKS_SUCCESS', tasks.data)
+  },
+  async getTaskDetails({ commit, rootState }, id) {
+    const taskDetails = await API.get(`/api/${API_VERSION}/tasks/${id}`, {
+      headers: getHeaders(rootState.auth.token)
+    })
+    commit('GET_TASK_DETAILS_SUCCESS', taskDetails.data)
+  },
+  async deleteTask({ commit, rootState }, id) {
+    const deletedTask = await API.delete(`/api/${API_VERSION}/tasks/${id}`, {
+      headers: getHeaders(rootState.auth.token)
+    })
+    commit('DELETE_TASK_SUCCESS', deletedTask.data)
   }
 }

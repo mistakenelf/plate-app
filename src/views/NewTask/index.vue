@@ -17,7 +17,7 @@
         <TaskStatus v-on:updateStatus="updateStatus" />
       </div>
       <div class="mb-6" />
-      <TaskContent :updateContent="updateContent" />
+      <TaskContent :updateContent="updateContent" :content="content" />
     </form>
   </div>
 </template>
@@ -44,7 +44,8 @@ export default {
   data() {
     return {
       name: '',
-      content: '',
+      content:
+        '<h1><strong>Your new task</strong></h1><p></p><h3>Create a new task here</h3><p></p><p>You can group a list of items like below:</p><p></p><ul><li><p>List item 1</p></li><li><p>List item 2</p></li><li><p>List item 3</p></li></ul>',
       dueDate: '',
       template: '',
       status

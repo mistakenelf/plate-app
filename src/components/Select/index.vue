@@ -10,7 +10,7 @@
         :name="name"
         :id="id"
         :placeholder="placeholder"
-        v-model="selectedOption"
+        :value="value"
         @input="$emit('input', $event.target.value)"
         class="appearance-none block text-md w-full bg-white text-grey-darker border-2 py-3 px-4 leading-tight focus:outline-none rounded"
         :class="{
@@ -55,7 +55,8 @@ export default {
     isLarge: Boolean,
     placeholder: String,
     hasErrors: Boolean,
-    errorMessage: String
+    errorMessage: String,
+    value: String
   },
   $_veeValidate: {
     value() {
@@ -74,7 +75,7 @@ export default {
     this.selectedOption = this.value
   },
   watch: {
-    value: function(newValue) {
+    value(newValue) {
       this.selectedOption = newValue
     }
   }
