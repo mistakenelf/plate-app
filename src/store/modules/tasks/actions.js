@@ -25,5 +25,15 @@ export default {
       headers: getHeaders(rootState.auth.token)
     })
     commit('DELETE_TASK_SUCCESS', deletedTask.data)
+  },
+  async updateTask({ commit, rootState }, payload) {
+    const updatedTask = await API.put(
+      `/api/${API_VERSION}/tasks/${payload.id}`,
+      payload,
+      {
+        headers: getHeaders(rootState.auth.token)
+      }
+    )
+    commit('UPDATE_TASK_SUCCESS', updatedTask.data)
   }
 }

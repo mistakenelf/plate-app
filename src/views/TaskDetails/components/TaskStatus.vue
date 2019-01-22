@@ -32,6 +32,11 @@ export default {
   },
   created() {
     this.status = this.taskStatus
+  },
+  watch: {
+    status(newStatus) {
+      this.$emit('updateStatus', newStatus)
+    }
   }
 }
 </script>

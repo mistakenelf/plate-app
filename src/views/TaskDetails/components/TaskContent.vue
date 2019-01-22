@@ -1,5 +1,5 @@
 <template>
-  <TextEditor :content="content" />
+  <TextEditor :content="content" :updateContent="updateContent" />
 </template>
 
 <script>
@@ -9,7 +9,8 @@ export default {
     TextEditor
   },
   props: {
-    taskContent: String
+    taskContent: String,
+    updateContent: Function
   },
   data() {
     return {
@@ -18,6 +19,11 @@ export default {
   },
   created() {
     this.content = this.taskContent
+  },
+  watch: {
+    content(newContent) {
+      this.$emit('updateContent', newContent)
+    }
   }
 }
 </script>

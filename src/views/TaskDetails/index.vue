@@ -19,11 +19,13 @@
       <div
         class="flex flex-row justify-between mb-6 w-full flex-wrap sm:flex-wrap md:flex-no-wrap"
       >
-        <TaskTemplate :taskTemplate="task.template" />
-        <TaskStatus :taskStatus="task.status" />
+        <TaskStatus
+          :taskStatus="task.status"
+          v-on:updateStatus="updateStatus"
+        />
       </div>
       <div class="mb-6" />
-      <TaskContent :taskContent="task.content" />
+      <TaskContent :taskContent="task.content" :updateContent="updateContent" />
     </form>
   </div>
 </template>
@@ -36,7 +38,6 @@ import Header from './components/Header'
 import TaskName from './components/TaskName'
 import TaskContent from './components/TaskContent'
 import TaskDueDate from './components/TaskDueDate'
-import TaskTemplate from './components/TaskTemplate'
 import TaskStatus from './components/TaskStatus'
 export default {
   components: {
@@ -45,7 +46,6 @@ export default {
     TaskName,
     TaskContent,
     TaskDueDate,
-    TaskTemplate,
     TaskStatus
   },
   data() {
@@ -54,7 +54,6 @@ export default {
       name: '',
       content: '',
       dueDate: '',
-      template: '',
       status: ''
     }
   },
@@ -74,15 +73,15 @@ export default {
         }
 
         const payload = {
+          ...this.task,
           name: this.name,
           content: this.content,
           dueDate: this.dueDate,
-          template: this.template,
           status: this.status,
           createdBy: this.$store.state.auth.user.id
         }
 
-        console.log(payload)
+        await this.$store.dispatch('tasks/updateTask', payload)
       })
     },
     updateName(name) {
@@ -93,9 +92,6 @@ export default {
     },
     updateDueDate(date) {
       this.dueDate = date
-    },
-    updateTemplate(template) {
-      this.template = template
     },
     updateStatus(status) {
       this.status = status

@@ -9,6 +9,9 @@ export default {
     state.task = task
   },
   DELETE_TASK_SUCCESS(state, task) {
-    console.log(task)
+    state.tasks.slice(task, 0)
+  },
+  UPDATE_TASK_SUCCESS(state, task) {
+    state.task = task
   }
 }
