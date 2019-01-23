@@ -1,16 +1,16 @@
 <template>
-  <TextEditor :content="content" :updateContent="updateContent" />
+  <TextEditor :content="taskContent" v-on:updateContent="updateContent" />
 </template>
 
 <script>
 import TextEditor from '@/components/TextEditor'
+
 export default {
   components: {
     TextEditor
   },
   props: {
-    taskContent: String,
-    updateContent: Function
+    taskContent: String
   },
   data() {
     return {
@@ -20,9 +20,9 @@ export default {
   created() {
     this.content = this.taskContent
   },
-  watch: {
-    content(newContent) {
-      this.$emit('updateContent', newContent)
+  methods: {
+    updateContent(content) {
+      this.$emit('updateParentContent', content)
     }
   }
 }

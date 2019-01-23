@@ -3,8 +3,9 @@
     <label
       class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2"
       v-if="label"
-      >{{ label }}</label
     >
+      {{ label }}
+    </label>
     <div class="relative">
       <select
         :name="name"

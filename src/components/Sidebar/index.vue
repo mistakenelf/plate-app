@@ -19,7 +19,7 @@
     <div
       class="h-12 text-grey-lightest hover:bg-blue-darkest border-l-4 border-blue-darker flex items-center cursor-pointer pl-6"
       :class="
-        ($route.name === 'tasks' || $route.name === 'new-task') &&
+        $route.path.includes('tasks') &&
           'border-l-4 border-blue-dark bg-blue-darkest'
       "
       @click="goToRoute('tasks')"
@@ -55,6 +55,7 @@
 
 <script>
 import ToggleSwitch from '@/components/ToggleSwitch'
+
 export default {
   components: {
     ToggleSwitch

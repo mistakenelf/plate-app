@@ -25,7 +25,10 @@
         />
       </div>
       <div class="mb-6" />
-      <TaskContent :taskContent="task.content" :updateContent="updateContent" />
+      <TaskContent
+        :taskContent="task.content"
+        v-on:updateParentContent="updateParentContent"
+      />
     </form>
   </div>
 </template>
@@ -34,11 +37,13 @@
 import { mapState } from 'vuex'
 import DefaultLayout from '@/components/DefaultLayout'
 import Spinner from '@/components/Spinner'
+
 import Header from './components/Header'
 import TaskName from './components/TaskName'
 import TaskContent from './components/TaskContent'
 import TaskDueDate from './components/TaskDueDate'
 import TaskStatus from './components/TaskStatus'
+
 export default {
   components: {
     Spinner,
@@ -87,7 +92,7 @@ export default {
     updateName(name) {
       this.name = name
     },
-    updateContent(content) {
+    updateParentContent(content) {
       this.content = content
     },
     updateDueDate(date) {

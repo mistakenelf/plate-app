@@ -15,6 +15,7 @@
 <script>
 import Modal from '@/components/Modal'
 import { Trans } from '@/plugins/translation'
+
 export default {
   components: {
     Modal
