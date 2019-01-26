@@ -2,7 +2,7 @@ import { render } from 'react-dom'
 import React from 'react'
 
 import * as serviceWorker from './serviceWorker'
-import { App } from './components/App/App'
+import App from './components/App/App'
 
 render(<App />, document.getElementById('root'))
 

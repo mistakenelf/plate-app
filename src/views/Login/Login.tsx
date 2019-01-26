@@ -1,14 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
+import Card from '../../components/Card/Card'
 
 import { Container } from './style'
 
-export function Login() {
+function Login() {
   return (
     <Container>
-      <Link to="/dashboard" style={{ color: 'white' }}>
-        Dashboard
-      </Link>
+      <Card title="Login">login here</Card>
     </Container>
   )
 }
+
+export default Login

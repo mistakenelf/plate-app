@@ -1,9 +1,9 @@
 import { Route, RouteProps } from 'react-router-dom'
 import React from 'react'
 
-import { DefaultLayout } from '../../components/DefaultLayout/DefaultLayout'
+import DefaultLayout from '../../components/DefaultLayout/DefaultLayout'
 
-export function DefaultLayoutRoute({ component, render, ...rest }: RouteProps) {
+function DefaultLayoutRoute({ component, render, ...rest }: RouteProps) {
   if (component !== undefined) {
     const Component = component
     return (
@@ -28,3 +28,5 @@ export function DefaultLayoutRoute({ component, render, ...rest }: RouteProps) {
   }
   return null
 }
+
+export default DefaultLayoutRoute

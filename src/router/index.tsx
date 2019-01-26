@@ -1,13 +1,13 @@
 import { Switch } from 'react-router-dom'
 import React from 'react'
 
-import { Login } from '../views/Login/Login'
-import { Dashboard } from '../views/Dashboard/Dashboard'
+import Login from '../views/Login/Login'
+import Dashboard from '../views/Dashboard/Dashboard'
 
-import { DefaultLayoutRoute } from './components/DefaultLayoutRoute'
-import { SimpleLayoutRoute } from './components/SimpleLayoutRoute'
+import DefaultLayoutRoute from './components/DefaultLayoutRoute'
+import SimpleLayoutRoute from './components/SimpleLayoutRoute'
 
-export function Router() {
+function Router() {
   return (
     <Switch>
       <SimpleLayoutRoute exact path="/" component={Login} />
@@ -15,3 +15,5 @@ export function Router() {
     </Switch>
   )
 }
+
+export default Router

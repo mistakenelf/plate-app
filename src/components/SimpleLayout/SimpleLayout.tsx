@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 interface SimpleLayoutProps {
   children: React.ReactNode
 }
 
-export function SimpleLayout({ children }: SimpleLayoutProps) {
-  return <>{children}</>
+function SimpleLayout({ children }: SimpleLayoutProps) {
+  return <Fragment>{children}</Fragment>
 }
+
+export default SimpleLayout

@@ -1,9 +1,9 @@
 import { BrowserRouter } from 'react-router-dom'
-import React from 'react'
+import React, { Fragment } from 'react'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 
-import { theme } from '../../lib/theme'
-import { Router } from '../../router'
+import theme from '../../lib/theme'
+import Router from '../../router'
 
 const GlobalStyle = createGlobalStyle`
   html, body, main, #root {
@@ -15,15 +15,17 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
-export function App() {
+function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <>
+        <Fragment>
           <GlobalStyle />
           <Router />
-        </>
+        </Fragment>
       </ThemeProvider>
     </BrowserRouter>
   )
 }
+
+export default App

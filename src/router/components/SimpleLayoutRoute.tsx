@@ -1,9 +1,9 @@
 import { Route, RouteProps } from 'react-router-dom'
 import React from 'react'
 
-import { SimpleLayout } from '../../components/SimpleLayout/SimpleLayout'
+import SimpleLayout from '../../components/SimpleLayout/SimpleLayout'
 
-export function SimpleLayoutRoute({ component, render, ...rest }: RouteProps) {
+function SimpleLayoutRoute({ component, render, ...rest }: RouteProps) {
   if (component !== undefined) {
     const Component = component
     return (
@@ -28,3 +28,5 @@ export function SimpleLayoutRoute({ component, render, ...rest }: RouteProps) {
   }
   return null
 }
+
+export default SimpleLayoutRoute
