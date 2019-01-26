@@ -3,11 +3,14 @@ import React from 'react'
 import Card from '../../components/Card/Card'
 
 import { Container } from './style'
+import LoginForm from './components/LoginForm'
 
 function Login() {
   return (
     <Container>
-      <Card title="Login">login here</Card>
+      <Card title="Login">
+        <LoginForm />
+      </Card>
     </Container>
   )
 }
