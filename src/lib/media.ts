@@ -1,10 +1,9 @@
 import { css, ThemedCssFunction } from 'styled-components'
 
 const sizes = {
-  small: 600,
-  medium: 1024,
-  large: 1440,
-  xlarge: 1920
+  desktop: 992,
+  tablet: 768,
+  phone: 576
 }
 
 const media = (Object.keys(sizes) as (keyof typeof sizes)[]).reduce(

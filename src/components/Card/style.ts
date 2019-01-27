@@ -3,6 +3,7 @@ import styled from 'styled-components/macro'
 export const Container = styled.div`
   background: ${props => props.theme.greyLightest};
   border-radius: 3px;
+  width: 100%;
 `
 
 export const Header = styled.div`

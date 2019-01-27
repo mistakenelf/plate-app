@@ -12,7 +12,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  ${media.medium`
+  ${media.tablet`
     grid-template-columns: 400px;
   `}
 `

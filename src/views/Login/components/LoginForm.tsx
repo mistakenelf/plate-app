@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import Input from '../../../components/Input/Input'
+
+import TextField from '../../../components/TextField/TextField'
 
 function LoginForm() {
   const [username, updateUsername] = useState('')
   return (
     <form>
-      <Input
+      <TextField
         type="text"
         value={username}
         handleChange={e => updateUsername(e.target.value)}
