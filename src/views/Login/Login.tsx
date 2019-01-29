@@ -1,17 +1,18 @@
 import React from 'react'
 
 import Card from '../../components/Card/Card'
-import Spacer from '../../components/Spacer/Spacer'
 
-import { Container } from './style'
-import LoginForm from './components/LoginForm'
+import { Container, Icon, FormContainer } from './style'
+import LoginForm from './components/LoginForm/LoginForm'
 
 function Login() {
   return (
     <Container>
-      <Card title="Login">
-        <LoginForm />
-      </Card>
+      <FormContainer>
+        <Card title="Login" extra={<Icon>🍛</Icon>}>
+          <LoginForm />
+        </Card>
+      </FormContainer>
     </Container>
   )
 }

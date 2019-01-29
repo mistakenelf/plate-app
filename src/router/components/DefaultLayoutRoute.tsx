@@ -1,7 +1,7 @@
 import { Route, RouteProps } from 'react-router-dom'
 import React from 'react'
 
-import DefaultLayout from '../../components/DefaultLayout/DefaultLayout'
+import DefaultLayout from '../../layouts/DefaultLayout/DefaultLayout'
 
 function DefaultLayoutRoute({ component, render, ...rest }: RouteProps) {
   if (component !== undefined) {

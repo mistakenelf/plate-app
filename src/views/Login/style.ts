@@ -1,18 +1,24 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 import media from '../../lib/media'
 
 export const Container = styled.div`
   height: 100%;
   background: ${props => props.theme.blueDarker};
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 15px;
-  width: 100%;
-  justify-content: center;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 15px;
+`
+
+export const Icon = styled.div`
+  font-size: 30px;
+`
+
+export const FormContainer = styled.div`
+  width: 100%;
 
   ${media.tablet`
-    grid-template-columns: 400px;
+    width: 500px;
   `}
 `

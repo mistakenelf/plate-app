@@ -1,8 +1,3 @@
 # Plate
 
-## Whats on your plate?
-
-### Requirements
-
-- Go
-- Node
+### Whats on your plate?
