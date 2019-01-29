@@ -1,11 +1,13 @@
-import React, { Fragment } from 'react'
+import React from 'react'
+
+import { LayoutContainer } from './style'
 
 interface SimpleLayoutProps {
   children: React.ReactNode
 }
 
 function SimpleLayout({ children }: SimpleLayoutProps) {
-  return <Fragment>{children}</Fragment>
+  return <LayoutContainer>{children}</LayoutContainer>
 }
 
 export default SimpleLayout

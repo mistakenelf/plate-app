@@ -4,7 +4,7 @@ import media from '../../../../lib/media'
 
 export const Nav = styled.div`
   background: ${props => props.theme.blueDarker};
-  height: 60px;
+  height: 55px;
   display: flex;
   flex-direction: row;
   align-items: center;

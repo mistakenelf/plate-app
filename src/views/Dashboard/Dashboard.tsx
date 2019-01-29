@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Dashboard() {
   return (
-    <div style={{ height: 1000 }}>
+    <div>
       <Link to="/">Login</Link>
     </div>
   )
