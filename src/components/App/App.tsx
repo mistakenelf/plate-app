@@ -1,9 +1,11 @@
+import { ApolloProvider } from 'react-apollo'
 import { BrowserRouter } from 'react-router-dom'
-import React, { Fragment } from 'react'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import React, { Fragment } from 'react'
 
-import theme from '../../lib/theme'
+import client from '../../apollo'
 import Router from '../../router'
+import theme from '../../lib/theme'
 
 const GlobalStyle = createGlobalStyle`
   html, body, main, #root {
@@ -17,14 +19,16 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <Fragment>
-          <GlobalStyle />
-          <Router />
-        </Fragment>
-      </ThemeProvider>
-    </BrowserRouter>
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <Fragment>
+            <GlobalStyle />
+            <Router />
+          </Fragment>
+        </ThemeProvider>
+      </BrowserRouter>
+    </ApolloProvider>
   )
 }
 

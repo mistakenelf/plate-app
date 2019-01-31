@@ -26,10 +26,13 @@
   },
   "dependencies": {
     "@types/jest": "23.3.13",
-    "@types/node": "10.12.19",
+    "@types/node": "10.12.20",
     "@types/react": "16.7.22",
     "@types/react-dom": "16.0.11",
+    "apollo-boost": "^0.1.27",
+    "graphql": "^14.1.1",
     "react": "^16.8.0-alpha.1",
+    "react-apollo": "^2.4.1",
     "react-dom": "^16.8.0-alpha.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.3",
@@ -39,7 +42,7 @@
   "devDependencies": {
     "@types/react-router-dom": "^4.3.1",
     "@types/styled-components": "^4.1.6",
-    "prettier": "^1.16.1"
+    "prettier": "^1.16.3"
   },
   "eslintConfig": {
     "extends": "react-app"
