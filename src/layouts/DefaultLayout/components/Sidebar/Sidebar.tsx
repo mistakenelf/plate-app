@@ -6,7 +6,8 @@ function Sidebar() {
   return (
     <SidebarContainer>
       <Title>Plate</Title>
-      <LinkContainer>Dashboard</LinkContainer>
+      <LinkContainer to="/dashboard">Dashboard</LinkContainer>
+      <LinkContainer to="/tasks">Tasks</LinkContainer>
     </SidebarContainer>
   )
 }

@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
+import { RouteComponentProps, RouteChildrenProps } from 'react-router'
 
 import TextField from '../../../../components/TextField/TextField'
 import Button from '../../../../components/Button/Button'
 
 import { Form, FormField } from './style'
 
-function LoginForm() {
+interface LoginFormProps extends Partial<RouteComponentProps> {
+  history: any
+}
+
+function LoginForm({ history }: LoginFormProps) {
   const [inputs, setFieldValue] = useState({ email: '', password: '' })
   const [touchedFields, setTouchedFields] = useState({
     email: false,
@@ -24,8 +29,9 @@ function LoginForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-
-    console.log(inputs)
+    if (inputs.email !== '' || inputs.password !== '') {
+      history.push('/dashboard')
+    }
   }
 
   return (

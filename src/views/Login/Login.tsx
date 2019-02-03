@@ -1,16 +1,17 @@
 import React from 'react'
+import { RouteComponentProps } from 'react-router-dom'
 
 import Card from '../../components/Card/Card'
 
 import { Container, Icon, FormContainer } from './style'
 import LoginForm from './components/LoginForm/LoginForm'
 
-function Login() {
+function Login({ history }: RouteComponentProps) {
   return (
     <Container>
       <FormContainer>
         <Card title="Login" extra={<Icon>🍛</Icon>}>
-          <LoginForm />
+          <LoginForm history={history} />
         </Card>
       </FormContainer>
     </Container>
