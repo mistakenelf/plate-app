@@ -1,7 +1,13 @@
 <script>
+  import { navigate } from 'svelte-routing'
   import { faBars } from '@fortawesome/free-solid-svg-icons/faBars'
+  import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle'
 
   import Icon from '../../../components/Icon'
+
+  function handleNavigate(path) {
+    navigate(path)
+  }
 </script>
 
 <style>
@@ -36,17 +42,26 @@
     align-items: center;
     height: 100%;
   }
+
+  .account-icon {
+    margin-right: 10px;
+    cursor: pointer;
+  }
 </style>
 
 <nav class="nav">
   <div class="nav-left">
     <div class="menu-container">
-      <Icon fill="#fff" icon={faBars} />
+      <Icon height="1.5em" width="1.5em" fill="#fff" icon={faBars} />
     </div>
-    <div>profile</div>
-    <div>search</div>
   </div>
   <div class="nav-right">
-    <div>my account</div>
+    <div
+      class="account-icon"
+      aria-label="profile"
+      role="button"
+      on:click={() => handleNavigate('profile')}>
+      <Icon width="1.5em" height="1.5em" fill="#fff" icon={faUserCircle} />
+    </div>
   </div>
 </nav>

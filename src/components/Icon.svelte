@@ -1,6 +1,8 @@
 <script>
   export let icon
   export let fill = '#000'
+  export let width = '1em'
+  export let height = '1em'
   let path = []
   let classes = ''
   let viewBox = ''
@@ -11,8 +13,6 @@
 
 <style>
   .fa-svelte {
-    width: 1em;
-    height: 1em;
     overflow: visible;
     display: inline-block;
   }
@@ -21,6 +21,8 @@
 <svg
   aria-hidden="true"
   class={classes}
+  {width}
+  {height}
   role="img"
   xmlns="http://www.w3.org/2000/svg"
   {viewBox}>
