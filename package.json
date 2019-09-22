@@ -12,45 +12,32 @@
     "url": "https://github.com/knipferrc/plate/issues"
   },
   "keywords": [
-    "react",
-    "REST",
+    "svelte",
+    "firebase",
     "plate",
     "social"
   ],
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "format": "prettier --write \"**/*.{tsx,ts,css,md,js,vue,html}\""
-  },
-  "dependencies": {
-    "apollo-boost": "^0.1.27",
-    "graphql": "^14.1.1",
-    "react": "^16.8.0-alpha.1",
-    "react-apollo": "^2.4.1",
-    "react-dom": "^16.8.0-alpha.1",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.3",
-    "styled-components": "^4.1.3",
-    "typescript": "3.3.1"
+    "start": "webpack-dev-server --content-base public",
+    "build": "cross-env NODE_ENV=production webpack",
+    "format": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\""
   },
   "devDependencies": {
-    "@types/jest": "^23.3.13",
-    "@types/node": "^10.12.21",
-    "@types/react": "^16.8.1",
-    "@types/react-dom": "^16.0.11",
-    "@types/react-router-dom": "^4.3.1",
-    "@types/styled-components": "^4.1.6",
-    "prettier": "^1.16.4"
+    "cross-env": "^6.0.0",
+    "css-loader": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "prettier-plugin-svelte": "^0.7.0",
+    "style-loader": "^1.0.0",
+    "svelte": "^3.12.1",
+    "svelte-loader": "^2.13.6",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.11.1",
+    "svelte-routing": "^1.4.0"
+  }
 }
