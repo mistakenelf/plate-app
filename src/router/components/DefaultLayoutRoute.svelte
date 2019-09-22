@@ -1,6 +1,8 @@
 <script>
   import { Route } from 'svelte-routing'
-  import DefaultLayout from '../../layouts/DefaultLayout.svelte'
+
+  import DefaultLayout from '../../layouts/DefaultLayout/DefaultLayout.svelte'
+
   export let path
   export let component
 </script>
