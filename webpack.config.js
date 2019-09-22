@@ -1,3 +1,4 @@
+const Dotenv = require('dotenv-webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 
@@ -43,7 +44,8 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: '[name].css'
-    })
+    }),
+    !prod && new Dotenv()
   ],
   devtool: prod ? false : 'source-map'
 }
