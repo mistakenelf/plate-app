@@ -1,7 +1,6 @@
 <script>
-  import { navigate } from 'svelte-routing'
-  import { faHome } from '@fortawesome/free-solid-svg-icons/faHome'
   import { faTh } from '@fortawesome/free-solid-svg-icons/faTh'
+  import { navigate } from 'svelte-routing'
 
   import Icon from '../../../components/Icon'
 
@@ -30,14 +29,7 @@
 <div class="sidebar">
   <div
     class="sidebar-icon"
-    on:click={() => handleNavigate('home')}
-    aria-label="home"
-    role="button">
-    <Icon height="1.5em" width="1.5em" icon={faHome} fill="#fff" />
-  </div>
-  <div
-    class="sidebar-icon"
-    on:click={() => handleNavigate('dashboard')}
+    on:click={() => handleNavigate('/')}
     aria-label="dashboard"
     role="button">
     <Icon height="1.5em" width="1.5em" icon={faTh} fill="#fff" />

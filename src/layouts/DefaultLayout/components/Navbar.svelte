@@ -2,11 +2,24 @@
   import { navigate } from 'svelte-routing'
   import { faBars } from '@fortawesome/free-solid-svg-icons/faBars'
   import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle'
+  import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt'
 
   import Icon from '../../../components/Icon'
+  import firebase, { app, loggedIn$ } from '../../../lib/firebase'
+
+  const user = loggedIn$
 
   function handleNavigate(path) {
     navigate(path)
+  }
+
+  function signIn() {
+    const authProvider = new firebase.auth.GoogleAuthProvider()
+    app.auth().signInWithPopup(authProvider)
+  }
+
+  async function signOut() {
+    await firebase.auth().signOut()
   }
 </script>
 
@@ -37,6 +50,13 @@
     align-items: center;
   }
 
+  .brand {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
   .nav-right {
     display: flex;
     align-items: center;
@@ -54,14 +74,25 @@
     <div class="menu-container">
       <Icon height="1.5em" width="1.5em" fill="#fff" icon={faBars} />
     </div>
+    <div class="brand">Plate</div>
   </div>
   <div class="nav-right">
-    <div
-      class="account-icon"
-      aria-label="profile"
-      role="button"
-      on:click={() => handleNavigate('profile')}>
-      <Icon width="1.5em" height="1.5em" fill="#fff" icon={faUserCircle} />
-    </div>
+    {#if $user}
+      <div
+        class="account-icon"
+        aria-label="profile"
+        role="button"
+        on:click={() => handleNavigate('profile')}>
+        <Icon width="1.5em" height="1.5em" fill="#fff" icon={faUserCircle} />
+      </div>
+    {:else}
+      <div
+        class="login-icon"
+        aria-label="login"
+        role="button"
+        on:click={signIn}>
+        <Icon width="1.5em" height="1.5em" fill="#fff" icon={faSignInAlt} />
+      </div>
+    {/if}
   </div>
 </nav>

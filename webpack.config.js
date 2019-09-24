@@ -10,6 +10,9 @@ module.exports = {
   entry: {
     bundle: ['./src/main.js']
   },
+  devServer: {
+    historyApiFallback: true
+  },
   resolve: {
     alias: {
       svelte: path.resolve('node_modules', 'svelte')
