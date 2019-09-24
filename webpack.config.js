@@ -1,6 +1,9 @@
 const Dotenv = require('dotenv-webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
+const webpack = require('webpack')
+
+const env = require('dotenv').config({ path: __dirname + '/.env.example' })
 
 const mode = process.env.NODE_ENV || 'development'
 
@@ -48,7 +51,11 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].css'
     }),
-    new Dotenv()
+    new Dotenv({
+      silent: true,
+      safe: true
+    }),
+    new webpack.EnvironmentPlugin(Object.keys(env.parsed))
   ],
   devtool: prod ? false : 'source-map'
 }
