@@ -53,7 +53,7 @@ module.exports = {
     }),
     new Dotenv({
       silent: true,
-      safe: true
+      safe: false
     }),
     new webpack.EnvironmentPlugin(Object.keys(env.parsed))
   ],
