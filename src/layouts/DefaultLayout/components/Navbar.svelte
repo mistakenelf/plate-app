@@ -67,6 +67,11 @@
     margin-right: 10px;
     cursor: pointer;
   }
+
+  .login-icon {
+    margin-right: 10px;
+    cursor: pointer;
+  }
 </style>
 
 <nav class="nav">
