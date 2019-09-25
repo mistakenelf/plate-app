@@ -3,6 +3,7 @@
   import { faBars } from '@fortawesome/free-solid-svg-icons/faBars'
   import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle'
   import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt'
+  import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons/faSignOutAlt'
 
   import Icon from '../../../components/Icon'
   import firebase, { app, loggedIn$ } from '../../../lib/firebase'
@@ -63,12 +64,7 @@
     height: 100%;
   }
 
-  .account-icon {
-    margin-right: 10px;
-    cursor: pointer;
-  }
-
-  .login-icon {
+  .nav-icon {
     margin-right: 10px;
     cursor: pointer;
   }
@@ -84,18 +80,21 @@
   <div class="nav-right">
     {#if $user}
       <div
-        class="account-icon"
+        class="nav-icon"
         aria-label="profile"
         role="button"
         on:click={() => handleNavigate('profile')}>
         <Icon width="1.5em" height="1.5em" fill="#fff" icon={faUserCircle} />
       </div>
-    {:else}
       <div
-        class="login-icon"
-        aria-label="login"
+        class="nav-icon"
+        aria-label="logout"
         role="button"
-        on:click={signIn}>
+        on:click={() => signOut()}>
+        <Icon width="1.5em" height="1.5em" fill="#fff" icon={faSignOutAlt} />
+      </div>
+    {:else}
+      <div class="nav-icon" aria-label="login" role="button" on:click={signIn}>
         <Icon width="1.5em" height="1.5em" fill="#fff" icon={faSignInAlt} />
       </div>
     {/if}
