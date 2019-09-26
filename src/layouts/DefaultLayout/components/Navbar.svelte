@@ -34,6 +34,7 @@
     background-color: plum;
     position: fixed;
     z-index: 10;
+    left: 0;
   }
 
   .nav-left {
