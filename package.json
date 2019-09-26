@@ -23,10 +23,13 @@
     "format": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\""
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "^3.0.0",
     "cross-env": "^6.0.0",
     "css-loader": "^3.2.0",
     "dotenv": "^8.1.0",
     "dotenv-webpack": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
@@ -40,8 +43,8 @@
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "firebase": "^6.6.2",
-    "rxfire": "^3.8.2",
+    "firebase": "^7.0.0",
+    "rxfire": "^3.8.3",
     "rxjs": "^6.5.3",
     "svelte-routing": "^1.4.0"
   }
