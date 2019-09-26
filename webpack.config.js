@@ -1,4 +1,7 @@
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
+const HtmlWebPackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 const webpack = require('webpack')
@@ -13,8 +16,26 @@ module.exports = {
   entry: {
     bundle: ['./src/main.js']
   },
+  output: {
+    filename: '[name].js',
+    chunkFilename: '[name].[id].js',
+    publicPath: '/'
+  },
   devServer: {
     historyApiFallback: true
+  },
+  optimization: {
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          enforce: true,
+          chunks: 'initial'
+        }
+      }
+    }
   },
   resolve: {
     alias: {
@@ -22,11 +43,6 @@ module.exports = {
     },
     extensions: ['.mjs', '.js', '.svelte'],
     mainFields: ['svelte', 'browser', 'module', 'main']
-  },
-  output: {
-    path: __dirname + '/public',
-    filename: '[name].js',
-    chunkFilename: '[name].[id].js'
   },
   module: {
     rules: [
@@ -48,6 +64,14 @@ module.exports = {
   },
   mode,
   plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebPackPlugin({
+      template: './public/index.html',
+      filename: './index.html',
+      minify: process.env.NODE_ENV === 'production',
+      favicon: path.join(__dirname, './public/favicon.png')
+    }),
+    new CompressionPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css'
     }),
