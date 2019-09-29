@@ -1,6 +1,12 @@
 <script>
   import Navbar from './components/Navbar'
   import Sidebar from './components/Sidebar'
+
+  let sidebarOpen = false
+
+  function toggleSidebar() {
+    sidebarOpen = !sidebarOpen
+  }
 </script>
 
 <style>
@@ -44,11 +50,14 @@
 
 <main>
   <div class="navbar-container">
-    <Navbar />
+    <Navbar on:toggleSidebar={toggleSidebar} />
   </div>
   <div class="sidebar-container">
     <Sidebar />
   </div>
+  {#if sidebarOpen}
+    <Sidebar />
+  {/if}
   <div class="content-container">
     <slot />
   </div>

@@ -19,6 +19,7 @@
 </style>
 
 <svg
+  on:click
   aria-hidden="true"
   class={classes}
   {width}

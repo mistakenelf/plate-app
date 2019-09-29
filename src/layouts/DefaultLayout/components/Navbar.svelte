@@ -1,12 +1,15 @@
 <script>
-  import { navigate } from 'svelte-routing'
+  import { createEventDispatcher } from 'svelte'
   import { faBars } from '@fortawesome/free-solid-svg-icons/faBars'
-  import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle'
   import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt'
   import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons/faSignOutAlt'
+  import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle'
+  import { navigate } from 'svelte-routing'
 
-  import Icon from '../../../components/Icon'
   import firebase, { app, loggedIn$ } from '../../../lib/firebase'
+  import Icon from '../../../components/Icon'
+
+  const dispatch = createEventDispatcher()
 
   const user = loggedIn$
 
@@ -74,7 +77,12 @@
 <nav class="nav">
   <div class="nav-left">
     <div class="menu-container">
-      <Icon height="1.5em" width="1.5em" fill="#fff" icon={faBars} />
+      <Icon
+        on:click={() => dispatch('toggleSidebar')}
+        height="1.5em"
+        width="1.5em"
+        fill="#fff"
+        icon={faBars} />
     </div>
     <div class="brand">Plate</div>
   </div>

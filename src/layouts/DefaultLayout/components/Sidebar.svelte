@@ -14,10 +14,13 @@
     width: 90px;
     background: plum;
     height: 100%;
+    top: 55px;
+    z-index: 10;
+    left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
+    position: fixed;
   }
 
   .sidebar-icon {
