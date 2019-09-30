@@ -11,8 +11,8 @@
 
 <style>
   .sidebar {
-    width: 90px;
-    background: plum;
+    width: 70px;
+    background: var(--primary);
     height: 100%;
     top: 55px;
     z-index: 10;

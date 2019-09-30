@@ -34,7 +34,7 @@
     width: 100%;
     justify-content: space-between;
     height: 55px;
-    background-color: plum;
+    background-color: var(--primary);
     position: fixed;
     z-index: 10;
     left: 0;
@@ -47,8 +47,8 @@
   }
 
   .menu-container {
-    width: 90px;
-    background: purple;
+    width: 70px;
+    background: var(--secondary);
     height: 100%;
     display: flex;
     justify-content: center;
@@ -90,6 +90,8 @@
       display: flex;
       font-size: 40px;
       line-height: 40px;
+      position: absolute;
+      top: 3px;
     }
   }
 </style>
@@ -98,12 +100,12 @@
   <div class="nav-left">
     <div class="menu-container">
       <div class="hamburger-menu">
-      <Icon
-        on:click={() => dispatch('toggleSidebar')}
-        height="1.5em"
-        width="1.5em"
-        fill="#fff"
-        icon={faBars} />
+        <Icon
+          on:click={() => dispatch('toggleSidebar')}
+          height="1.5em"
+          width="1.5em"
+          fill="#fff"
+          icon={faBars} />
       </div>
       <div class="logo">🍛</div>
     </div>

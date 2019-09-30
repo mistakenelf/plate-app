@@ -3,7 +3,7 @@
 </script>
 
 <style>
-  @import '../assets/styles/reset.css';
+  @import '../assets/styles/index.css';
 </style>
 
 <Router />

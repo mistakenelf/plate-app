@@ -39,7 +39,7 @@
 
     .content-container {
       position: fixed;
-      left: 90px;
+      left: 70px;
       top: 55px;
       height: 100%;
       width: 100%;
