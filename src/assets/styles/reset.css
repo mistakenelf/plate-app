@@ -40,11 +40,3 @@ img {
   max-width: 100%;
   height: auto;
 }
-
-:root {
-  --darkGrey: #333;
-  --grey: #545f66;
-  --white: #fff;
-  --black: #000;
-  --defaultShadow: rgb(171, 171, 171) -1px 1px 10px 1px;
-}

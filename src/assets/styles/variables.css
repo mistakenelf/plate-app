@@ -1,0 +1,9 @@
+:root {
+  --primary: #45a7a5;
+  --secondary: #4a4a4a;
+  --tertiary: #ed8936;
+  --darkGrey: #333;
+  --white: #fff;
+  --black: #000;
+  --defaultShadow: rgb(171, 171, 171) -1px 1px 10px 1px;
+}
