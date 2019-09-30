@@ -55,6 +55,14 @@
     align-items: center;
   }
 
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .logo {
+    display: none;
+  }
+
   .brand {
     margin-left: 10px;
     font-size: 1.5rem;
@@ -72,17 +80,32 @@
     margin-right: 10px;
     cursor: pointer;
   }
+
+  @media only screen and (min-width: 992px) {
+    .hamburger-menu {
+      display: none;
+    }
+
+    .logo {
+      display: flex;
+      font-size: 40px;
+      line-height: 40px;
+    }
+  }
 </style>
 
 <nav class="nav">
   <div class="nav-left">
     <div class="menu-container">
+      <div class="hamburger-menu">
       <Icon
         on:click={() => dispatch('toggleSidebar')}
         height="1.5em"
         width="1.5em"
         fill="#fff"
         icon={faBars} />
+      </div>
+      <div class="logo">🍛</div>
     </div>
     <div class="brand">Plate</div>
   </div>
