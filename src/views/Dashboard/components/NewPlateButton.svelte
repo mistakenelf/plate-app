@@ -3,7 +3,7 @@
   import { createEventDispatcher } from 'svelte'
   import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus'
 
-  import Icon from '../../components/Icon'
+  import Icon from '../../../components/Icon'
 
   const dispatch = createEventDispatcher()
 </script>

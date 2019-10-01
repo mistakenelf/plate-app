@@ -1,5 +1,5 @@
 <script>
-  import NewPlateButton from './NewPlateButton/NewPlateButton'
+  import NewPlateButton from './components/NewPlateButton'
 </script>
 
 <NewPlateButton />
