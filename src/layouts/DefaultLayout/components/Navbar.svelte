@@ -6,7 +6,7 @@
   import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle'
   import { navigate } from 'svelte-routing'
 
-  import firebase, { app, loggedIn$ } from '../../../lib/firebase'
+  import firebase, { loggedIn$ } from '../../../lib/firebase'
   import Icon from '../../../components/Icon'
 
   const dispatch = createEventDispatcher()
@@ -15,11 +15,6 @@
 
   function handleNavigate(path) {
     navigate(path)
-  }
-
-  function signIn() {
-    const authProvider = new firebase.auth.GoogleAuthProvider()
-    app.auth().signInWithPopup(authProvider)
   }
 
   async function signOut() {
@@ -128,7 +123,11 @@
         <Icon width="1.5em" height="1.5em" fill="#fff" icon={faSignOutAlt} />
       </div>
     {:else}
-      <div class="nav-icon" aria-label="login" role="button" on:click={signIn}>
+      <div
+        class="nav-icon"
+        aria-label="login"
+        role="button"
+        on:click={() => handleNavigate('login')}>
         <Icon width="1.5em" height="1.5em" fill="#fff" icon={faSignInAlt} />
       </div>
     {/if}
