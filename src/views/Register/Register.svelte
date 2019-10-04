@@ -22,7 +22,7 @@
     console.log(email, password)
   }
 
-  function handleGoogleLogin() {
+  function handleGoogleRegister() {
     const authProvider = new firebase.auth.GoogleAuthProvider()
     app.auth().signInWithPopup(authProvider)
   }
@@ -72,7 +72,7 @@
 
 <div class="login-container">
   <form class="login-form" on:submit|preventDefault={handleSubmit}>
-    <div class="header">Login</div>
+    <div class="header">Register</div>
     <Input
       label="Email"
       type="email"
@@ -83,7 +83,7 @@
       type="password"
       isFormField
       on:change={handlePasswordChange} />
-    <Button variant="secondary" type="submit" fullWidth>Login</Button>
+    <Button variant="secondary" type="submit" fullWidth>Register</Button>
     <div class="footer">
       <div>
         <div class="icon">
@@ -92,11 +92,11 @@
             width="1.5em"
             height="1.5em"
             fill="#DB4437"
-            on:click={handleGoogleLogin} />
+            on:click={handleGoogleRegister} />
         </div>
       </div>
       <div>
-        <Link to="/register">Dont have an account?</Link>
+        <Link to="/login">Already have an account?</Link>
       </div>
     </div>
   </form>
