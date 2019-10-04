@@ -42,6 +42,7 @@
     "webpack-dev-server": "^3.8.2"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "firebase": "^7.1.0",
     "rxfire": "^3.8.4",
