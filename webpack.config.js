@@ -17,12 +17,6 @@ module.exports = {
   entry: {
     bundle: ['./src/main.js']
   },
-  resolve: {
-    extensions: ['.mjs', '.js', '.svelte', '.json'],
-    alias: {
-      '@': path.resolve(__dirname),
-    },
-  },
   output: {
     filename: '[name].js',
     chunkFilename: '[name].[id].js',
