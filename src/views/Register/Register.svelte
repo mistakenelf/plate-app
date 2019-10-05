@@ -19,7 +19,9 @@
   }
 
   function handleSubmit() {
-    console.log(email, password)
+    app.auth().createUserWithEmailAndPassword(email, password).catch(error => {
+      console.log(error)
+    })
   }
 
   function handleGoogleRegister() {

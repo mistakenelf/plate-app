@@ -19,7 +19,9 @@
   }
 
   function handleSubmit() {
-    console.log(email, password)
+    app.auth().signInWithEmailAndPassword(email, password).catch(error => {
+      console.log(error)
+    })
   }
 
   function handleGoogleLogin() {
