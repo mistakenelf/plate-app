@@ -13,8 +13,15 @@ const mode = process.env.NODE_ENV || 'development'
 const prod = mode === 'production'
 
 module.exports = {
+  stats: 'minimal',
   entry: {
     bundle: ['./src/main.js']
+  },
+  resolve: {
+    extensions: ['.mjs', '.js', '.svelte', '.json'],
+    alias: {
+      '@': path.resolve(__dirname),
+    },
   },
   output: {
     filename: '[name].js',
@@ -22,20 +29,27 @@ module.exports = {
     publicPath: '/'
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 3000,
+    open: true,
+    overlay: {
+      warnings: true,
+      errors: true,
+    },
   },
   optimization: {
-    runtimeChunk: 'single',
     splitChunks: {
       cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
+        vendor: {
+          test: /node_modules/,
+          chunks: 'initial',
           name: 'vendor',
           enforce: true,
-          chunks: 'initial'
-        }
-      }
-    }
+        },
+      },
+    },
   },
   resolve: {
     alias: {
@@ -59,6 +73,22 @@ module.exports = {
       {
         test: /\.css$/,
         use: [prod ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader']
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: ['file-loader'],
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg|woff|ttf)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 4000,
+              name: '[path][name].[ext]',
+            },
+          },
+        ],
       }
     ]
   },
@@ -73,7 +103,7 @@ module.exports = {
     }),
     new CompressionPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].css'
+      filename: '[name].[hash].css'
     }),
     new Dotenv({
       silent: true,
