@@ -5,6 +5,7 @@
   import Dashboard from '../views/Dashboard/Dashboard'
   import Login from '../views/Login/Login'
   import Register from '../views/Register/Register'
+  import Profile from '../views/Profile/Profile'
 
   import DefaultLayoutRoute from './DefaultLayoutRoute'
 </script>
@@ -14,4 +15,5 @@
   <DefaultLayoutRoute path="create-plate" component={CreatePlate} />
   <DefaultLayoutRoute path="login" component={Login} />
   <DefaultLayoutRoute path="register" component={Register} />
+  <DefaultLayoutRoute path="profile" component={Profile} />
 </Router>
