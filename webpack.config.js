@@ -13,7 +13,6 @@ const mode = process.env.NODE_ENV || 'development'
 const prod = mode === 'production'
 
 module.exports = {
-  stats: 'minimal',
   entry: {
     bundle: ['./src/main.js']
   },
@@ -30,8 +29,8 @@ module.exports = {
     open: true,
     overlay: {
       warnings: true,
-      errors: true,
-    },
+      errors: true
+    }
   },
   optimization: {
     splitChunks: {
@@ -40,10 +39,10 @@ module.exports = {
           test: /node_modules/,
           chunks: 'initial',
           name: 'vendor',
-          enforce: true,
-        },
-      },
-    },
+          enforce: true
+        }
+      }
+    }
   },
   resolve: {
     alias: {
@@ -70,7 +69,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader'],
+        use: ['file-loader']
       },
       {
         test: /\.(gif|png|jpe?g|svg|woff|ttf)$/,
@@ -79,10 +78,10 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 4000,
-              name: '[path][name].[ext]',
-            },
-          },
-        ],
+              name: '[path][name].[ext]'
+            }
+          }
+        ]
       }
     ]
   },
