@@ -1,5 +1,5 @@
 <script>
-  import { onMount, createEventDispatcher } from 'svelte'
+  import { createEventDispatcher } from 'svelte'
   import { faBars } from '@fortawesome/free-solid-svg-icons/faBars'
   import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt'
   import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons/faSignOutAlt'
@@ -9,12 +9,6 @@
   import firebase from '../../lib/firebase'
   import { currentUser } from '../../store/auth'
   import Icon from '../../components/Icon'
-
-  let user
-
-  onMount(() => {
-    currentUser.subscribe(res => (user = res))
-  })
 
   const dispatch = createEventDispatcher()
 
@@ -113,7 +107,7 @@
     <div class="brand">Plate</div>
   </div>
   <div class="nav-right">
-    {#if user}
+    {#if $currentUser}
       <div
         class="nav-icon"
         aria-label="profile"
