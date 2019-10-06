@@ -19,9 +19,12 @@
   }
 
   function handleSubmit() {
-    app.auth().createUserWithEmailAndPassword(email, password).catch(error => {
-      console.log(error)
-    })
+    app
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   function handleGoogleRegister() {
@@ -71,6 +74,10 @@
     }
   }
 </style>
+
+<svelte:head>
+	<title>Plate - Register</title>
+</svelte:head>
 
 <div class="login-container">
   <form class="login-form" on:submit|preventDefault={handleSubmit}>

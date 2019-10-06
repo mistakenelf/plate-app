@@ -2,7 +2,7 @@
   import { faTh } from '@fortawesome/free-solid-svg-icons/faTh'
   import { navigate } from 'svelte-routing'
 
-  import Icon from '../../../components/Icon'
+  import Icon from '../../components/Icon'
 
   function handleNavigate(path) {
     navigate(path)

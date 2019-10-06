@@ -1,17 +1,22 @@
 <script>
-  import { createEventDispatcher } from 'svelte'
+  import { onMount, createEventDispatcher } from 'svelte'
   import { faBars } from '@fortawesome/free-solid-svg-icons/faBars'
   import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt'
   import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons/faSignOutAlt'
   import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle'
   import { navigate } from 'svelte-routing'
 
-  import firebase, { loggedIn$ } from '../../../lib/firebase'
-  import Icon from '../../../components/Icon'
+  import firebase from '../../lib/firebase'
+  import { currentUser } from '../../store/auth'
+  import Icon from '../../components/Icon'
+
+  let user
+
+  onMount(() => {
+    currentUser.subscribe(res => (user = res))
+  })
 
   const dispatch = createEventDispatcher()
-
-  const user = loggedIn$
 
   function handleNavigate(path) {
     navigate(path)
@@ -19,6 +24,7 @@
 
   async function signOut() {
     await firebase.auth().signOut()
+    navigate('/login')
   }
 </script>
 
@@ -107,7 +113,7 @@
     <div class="brand">Plate</div>
   </div>
   <div class="nav-right">
-    {#if $user}
+    {#if user}
       <div
         class="nav-icon"
         aria-label="profile"

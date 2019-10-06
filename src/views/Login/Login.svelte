@@ -1,5 +1,5 @@
 <script>
-  import { Link } from 'svelte-routing'
+  import { Link, navigate } from 'svelte-routing'
   import { faGoogle } from '@fortawesome/free-brands-svg-icons/faGoogle'
 
   import Button from '../../components/Button'
@@ -19,9 +19,15 @@
   }
 
   function handleSubmit() {
-    app.auth().signInWithEmailAndPassword(email, password).catch(error => {
-      console.log(error)
-    })
+    app
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        navigate('/')
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   function handleGoogleLogin() {
@@ -71,6 +77,10 @@
     }
   }
 </style>
+
+<svelte:head>
+	<title>Plate - Login</title>
+</svelte:head>
 
 <div class="login-container">
   <form class="login-form" on:submit|preventDefault={handleSubmit}>
