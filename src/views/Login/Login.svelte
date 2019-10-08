@@ -79,7 +79,7 @@
 </style>
 
 <svelte:head>
-	<title>Plate - Login</title>
+  <title>Plate - Login</title>
 </svelte:head>
 
 <div class="login-container">

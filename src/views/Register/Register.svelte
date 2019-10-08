@@ -76,7 +76,7 @@
 </style>
 
 <svelte:head>
-	<title>Plate - Register</title>
+  <title>Plate - Register</title>
 </svelte:head>
 
 <div class="login-container">
