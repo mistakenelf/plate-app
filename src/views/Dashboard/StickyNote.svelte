@@ -10,6 +10,9 @@
 
   .title {
     margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
   }
 
   textarea {
@@ -20,6 +23,6 @@
 </style>
 
 <div class="sticky-note">
-  <div class="title">Quick Notes:</div>
+  <div class="title">Quick Note:</div>
   <textarea rows="8" placeholder="Write a note" on:change {value} />
 </div>
