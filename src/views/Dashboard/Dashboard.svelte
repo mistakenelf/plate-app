@@ -1,6 +1,30 @@
 <script>
+  import { db } from '../../lib/firebase'
+  import { currentUser } from '../../store/auth'
+
   import NewPlateButton from './NewPlateButton'
   import StickyNote from './StickyNote'
+
+  let firstStickyNote = ''
+  let secondStickyNote = ''
+
+  function handleFirstStickyNoteChange(e) {
+    firstStickyNote = e.target.value
+
+    db.collection('notes').add({
+      createdBy: $currentUser.uid,
+      value: firstStickyNote
+    })
+  }
+
+  function handleSecondStickyNoteChange(e) {
+    secondStickyNote = e.target.value
+
+    db.collection('notes').add({
+      createdBy: $currentUser.uid,
+      value: secondStickyNote
+    })
+  }
 </script>
 
 <style>
@@ -19,6 +43,6 @@
 
 <NewPlateButton />
 <div class="row">
-  <StickyNote />
-  <StickyNote />
+  <StickyNote on:change={handleFirstStickyNoteChange} />
+  <StickyNote on:change={handleSecondStickyNoteChange} />
 </div>

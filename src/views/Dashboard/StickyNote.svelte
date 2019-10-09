@@ -1,5 +1,5 @@
 <script>
-
+  let value = ''
 </script>
 
 <style>
@@ -21,5 +21,5 @@
 
 <div class="sticky-note">
   <div class="title">Quick Notes:</div>
-  <textarea rows="8" placeholder="Write a note" />
+  <textarea rows="8" placeholder="Write a note" on:change {value} />
 </div>
