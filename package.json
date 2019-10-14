@@ -39,15 +39,15 @@
     "svelte": "^3.12.1",
     "svelte-loader": "^2.13.6",
     "url-loader": "^2.2.0",
-    "webpack": "^4.41.0",
+    "webpack": "^4.41.1",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.8.2"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "firebase": "^7.1.0",
-    "rxfire": "^3.8.4",
+    "firebase": "^7.2.0",
+    "rxfire": "^3.8.5",
     "rxjs": "^6.5.3",
     "svelte-routing": "^1.4.0"
   }
