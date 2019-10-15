@@ -22,6 +22,9 @@
     app
       .auth()
       .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        navigate('/')
+      })
       .catch(error => {
         console.log(error)
       })

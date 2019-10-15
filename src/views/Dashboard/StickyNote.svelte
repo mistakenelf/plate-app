@@ -1,5 +1,5 @@
 <script>
-  let value = ''
+  export let noteText = ''
 </script>
 
 <style>
@@ -24,5 +24,9 @@
 
 <div class="sticky-note">
   <div class="title">Quick Note:</div>
-  <textarea rows="8" placeholder="Write a note" on:change {value} />
+  <textarea
+    rows="8"
+    placeholder="Write a note"
+    on:change
+    bind:value={noteText} />
 </div>

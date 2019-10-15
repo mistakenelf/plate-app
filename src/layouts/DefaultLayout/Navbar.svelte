@@ -17,8 +17,8 @@
   }
 
   async function signOut() {
-    await firebase.auth().signOut()
     navigate('/login')
+    await firebase.auth().signOut()
   }
 </script>
 
