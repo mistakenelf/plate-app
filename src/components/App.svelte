@@ -2,12 +2,13 @@
   import { onMount } from 'svelte'
   import { authState } from 'rxfire/auth'
 
-  import Router from '../router/Router'
   import { auth } from '../lib/firebase'
   import { currentUser } from '../store/auth'
-  import Spinner from './Spinner'
+  import Router from '../router/Router'
 
-  let initializing
+  import Loader from './Loader'
+
+  let initializing = true
 
   onMount(() => {
     initializing = true
@@ -23,7 +24,7 @@
 </style>
 
 {#if initializing}
-  <Spinner fullPage />
+  <Loader fullPage />
 {:else}
   <Router />
 {/if}

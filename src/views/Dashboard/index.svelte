@@ -12,7 +12,8 @@
   let firstStickyNote = ''
   let secondStickyNote = ''
 
-  onMount(async () => {
+  onMount(() => {
+    console.log($currentUser.uid)
     const query = db
       .collection('notes')
       .where('createdBy', '==', $currentUser.uid)

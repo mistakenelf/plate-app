@@ -3,14 +3,14 @@
 </script>
 
 <style>
-  .spinner {
+  .loader {
     display: inline-block;
     position: relative;
     width: 64px;
     height: 64px;
   }
 
-  .spinner div {
+  .loader div {
     position: absolute;
     border: 4px solid var(--secondary);
     opacity: 1;
@@ -18,7 +18,7 @@
     animation: ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
   }
 
-  .spinner div:nth-child(2) {
+  .loader div:nth-child(2) {
     animation-delay: -0.5s;
   }
 
@@ -50,7 +50,7 @@
 </style>
 
 <div class:full-page={fullPage}>
-  <div class="spinner">
+  <div class="loader">
     <div />
     <div />
   </div>
