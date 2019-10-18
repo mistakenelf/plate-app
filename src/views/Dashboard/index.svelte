@@ -1,5 +1,8 @@
 <script>
   import { onMount } from 'svelte'
+  import { collectionData } from 'rxfire/firestore'
+  import { tap } from 'rxjs/operators'
+
   import { db } from '../../lib/firebase'
   import { currentUser } from '../../store/auth'
 
@@ -10,23 +13,14 @@
   let secondStickyNote = ''
 
   onMount(async () => {
-    await db
+    const query = db
       .collection('notes')
-      .doc(`${$currentUser.uid} NOTE 1`)
-      .onSnapshot(doc => {
-        if (doc.exists) {
-          firstStickyNote = doc.data().value
-        }
-      })
+      .where('createdBy', '==', $currentUser.uid)
 
-    await db
-      .collection('notes')
-      .doc(`${$currentUser.uid} NOTE 2`)
-      .onSnapshot(doc => {
-        if (doc.exists) {
-          secondStickyNote = doc.data().value
-        }
-      })
+    collectionData(query, 'id').subscribe(res => {
+      firstStickyNote = res[0].value
+      secondStickyNote = res[1].value
+    })
   })
 
   function handleFirstStickyNoteChange(e) {
