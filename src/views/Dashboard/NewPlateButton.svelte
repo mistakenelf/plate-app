@@ -1,11 +1,8 @@
 <script>
   import { navigate } from 'svelte-routing'
-  import { createEventDispatcher } from 'svelte'
   import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus'
 
   import Icon from '../../components/Icon'
-
-  const dispatch = createEventDispatcher()
 </script>
 
 <style>
