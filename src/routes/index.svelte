@@ -1,13 +1,13 @@
 <script>
   import { Router } from 'svelte-routing'
 
-  import CreatePlate from '../views/CreatePlate'
-  import Dashboard from '../views/Dashboard'
-  import Login from '../views/Login'
-  import Register from '../views/Register'
-  import Profile from '../views/Profile'
+  import DefaultLayoutRoute from '../components/DefaultLayoutRoute'
 
-  import DefaultLayoutRoute from './DefaultLayoutRoute'
+  import CreatePlate from './CreatePlate'
+  import Dashboard from './Dashboard'
+  import Login from './Login'
+  import Profile from './Profile'
+  import Register from './Register'
 </script>
 
 <Router url="">

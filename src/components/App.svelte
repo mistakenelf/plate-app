@@ -4,7 +4,7 @@
 
   import { auth } from '../lib/firebase'
   import { currentUser } from '../store/auth'
-  import Router from '../router/Router'
+  import Routes from '../routes'
 
   import Loader from './Loader'
 
@@ -26,5 +26,5 @@
 {#if initializing}
   <Loader fullPage />
 {:else}
-  <Router />
+  <Routes />
 {/if}
