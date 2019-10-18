@@ -60,9 +60,10 @@
 
   .brand {
     margin-left: 10px;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     text-transform: uppercase;
     color: var(--white);
+    font-weight: 600;
   }
 
   .nav-right {
