@@ -10,7 +10,7 @@
   export let isProtected
 
   onMount(() => {
-    if (isProtected & $currentUser && !$currentUser.uid) {
+    if (isProtected && !$currentUser) {
       navigate('/login')
     }
   })
