@@ -1,6 +1,5 @@
 <script>
-  import { onMount } from 'svelte'
-  import { Route, navigate } from 'svelte-routing'
+  import { Route } from 'svelte-routing'
 
   import { currentUser } from '../store/auth'
   import DefaultLayout from '../layouts/DefaultLayout'
@@ -8,12 +7,6 @@
   export let path
   export let component
   export let isProtected
-
-  onMount(() => {
-    if (isProtected && !$currentUser) {
-      navigate('/login')
-    }
-  })
 </script>
 
 <Route {path}>

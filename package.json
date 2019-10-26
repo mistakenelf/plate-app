@@ -45,8 +45,8 @@
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "firebase": "^7.2.1",
-    "rxfire": "^3.8.6",
+    "firebase": "^7.2.2",
+    "rxfire": "^3.8.7",
     "rxjs": "^6.5.3",
     "svelte-routing": "^1.4.0"
   }

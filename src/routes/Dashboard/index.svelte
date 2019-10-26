@@ -2,6 +2,7 @@
   import { onMount } from 'svelte'
   import { collectionData } from 'rxfire/firestore'
   import { tap } from 'rxjs/operators'
+  import { navigate } from 'svelte-routing'
 
   import { db } from '../../lib/firebase'
   import { currentUser } from '../../store/auth'
@@ -13,6 +14,11 @@
   let secondStickyNote = ''
 
   onMount(() => {
+    if (!$currentUser) {
+      navigate('/login')
+      return
+    }
+
     const query = db
       .collection('notes')
       .where('createdBy', '==', $currentUser.uid)
