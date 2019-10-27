@@ -10,21 +10,8 @@
   }
 
   .content-container {
-    position: fixed;
-    top: 55px;
+    padding-top: 55px;
     height: 100%;
-    width: 100%;
-    overflow: auto;
-  }
-
-  @media only screen and (min-width: 992px) {
-    .content-container {
-      position: fixed;
-      top: 55px;
-      height: 100%;
-      width: 100%;
-      overflow: auto;
-    }
   }
 </style>
 
