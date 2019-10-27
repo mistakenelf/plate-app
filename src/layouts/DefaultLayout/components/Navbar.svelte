@@ -1,24 +1,22 @@
 <script>
-  import { createEventDispatcher } from 'svelte'
   import { faBars } from '@fortawesome/free-solid-svg-icons/faBars'
   import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt'
   import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons/faSignOutAlt'
   import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle'
   import { navigate } from 'svelte-routing'
 
-  import firebase from '../../lib/firebase'
-  import { currentUser } from '../../store/auth'
-  import Icon from '../../components/Icon'
-
-  const dispatch = createEventDispatcher()
+  import firebase from '../../../lib/firebase'
+  import { currentUser } from '../../../store/auth'
+  import Icon from '../../../components/Icon'
 
   function handleNavigate(path) {
     navigate(path)
   }
 
-  async function signOut() {
+  function signOut() {
+    currentUser.set(null)
+    firebase.auth().signOut()
     navigate('/login')
-    await firebase.auth().signOut()
   }
 </script>
 
@@ -50,12 +48,12 @@
     align-items: center;
   }
 
-  .hamburger-menu {
-    display: flex;
-  }
-
   .logo {
-    display: none;
+    display: flex;
+    font-size: 40px;
+    line-height: 40px;
+    position: absolute;
+    top: 3px;
   }
 
   .brand {
@@ -76,33 +74,11 @@
     margin-right: 10px;
     cursor: pointer;
   }
-
-  @media only screen and (min-width: 992px) {
-    .hamburger-menu {
-      display: none;
-    }
-
-    .logo {
-      display: flex;
-      font-size: 40px;
-      line-height: 40px;
-      position: absolute;
-      top: 3px;
-    }
-  }
 </style>
 
 <nav class="nav">
   <div class="nav-left">
     <div class="menu-container">
-      <div class="hamburger-menu">
-        <Icon
-          on:click={() => dispatch('toggleSidebar')}
-          height="1.5em"
-          width="1.5em"
-          fill="#fff"
-          icon={faBars} />
-      </div>
       <div class="logo">🍛</div>
     </div>
     <div class="brand">Plate</div>

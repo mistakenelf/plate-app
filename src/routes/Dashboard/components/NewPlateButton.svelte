@@ -2,7 +2,7 @@
   import { navigate } from 'svelte-routing'
   import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus'
 
-  import Icon from '../../components/Icon'
+  import Icon from '../../../components/Icon'
 </script>
 
 <style>

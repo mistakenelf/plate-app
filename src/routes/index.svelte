@@ -11,7 +11,7 @@
 </script>
 
 <Router url="">
-  <DefaultLayoutRoute path="/" component={Dashboard} isProtected />
+  <DefaultLayoutRoute path="/" component={Dashboard} />
   <DefaultLayoutRoute path="create-plate" component={CreatePlate} />
   <DefaultLayoutRoute path="login" component={Login} />
   <DefaultLayoutRoute path="register" component={Register} />

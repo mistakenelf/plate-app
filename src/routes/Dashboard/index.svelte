@@ -1,14 +1,13 @@
 <script>
-  import { onMount } from 'svelte'
   import { collectionData } from 'rxfire/firestore'
-  import { tap } from 'rxjs/operators'
   import { navigate } from 'svelte-routing'
+  import { onMount } from 'svelte'
 
-  import { db } from '../../lib/firebase'
   import { currentUser } from '../../store/auth'
+  import { db } from '../../lib/firebase'
 
-  import NewPlateButton from './NewPlateButton'
-  import StickyNote from './StickyNote'
+  import NewPlateButton from './components/NewPlateButton'
+  import StickyNote from './components/StickyNote'
 
   let firstStickyNote = ''
   let secondStickyNote = ''
