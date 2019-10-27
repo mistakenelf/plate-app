@@ -23,8 +23,13 @@
     "format": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\""
   },
   "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "^3.0.0",
+    "core-js": "^3.3.4",
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
     "dotenv": "^8.2.0",
@@ -48,6 +53,7 @@
     "firebase": "^7.2.2",
     "rxfire": "^3.8.7",
     "rxjs": "^6.5.3",
+    "svelte-router-spa": "^5.1.1",
     "svelte-routing": "^1.4.0"
   }
 }

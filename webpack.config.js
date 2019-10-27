@@ -32,18 +32,6 @@ module.exports = {
       errors: true
     }
   },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /node_modules/,
-          chunks: 'initial',
-          name: 'vendor',
-          enforce: true
-        }
-      }
-    }
-  },
   resolve: {
     alias: {
       svelte: path.resolve('node_modules', 'svelte')
@@ -54,14 +42,21 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.m?js$/,
+        include: [/svelte/],
+        use: ['babel-loader']
+      },
+      {
         test: /\.svelte$/,
-        use: {
-          loader: 'svelte-loader',
-          options: {
-            emitCss: true,
-            hotReload: true
+        use: [
+          'babel-loader',
+          {
+            loader: 'svelte-loader',
+            options: {
+              emitCss: true
+            }
           }
-        }
+        ]
       },
       {
         test: /\.css$/,
@@ -87,7 +82,7 @@ module.exports = {
   },
   mode,
   plugins: [
-    new CleanWebpackPlugin(),
+    prod && new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
       template: './public/index.html',
       filename: './index.html',
@@ -103,6 +98,27 @@ module.exports = {
       safe: false
     }),
     new webpack.EnvironmentPlugin(Object.keys(env.parsed))
-  ],
-  devtool: prod ? false : 'source-map'
+  ].filter(Boolean),
+  devtool: prod ? false : 'source-map',
+  optimization: {
+    runtimeChunk: { name: 'runtime' },
+    splitChunks: {
+      chunks: 'all',
+      minSize: 0,
+      minChunks: 1,
+      automaticNameDelimiter: '_',
+      cacheGroups: {
+        vendors: false,
+        libs: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        },
+        polyfills: {
+          test: /core-js/,
+          name: 'polyfills',
+          priority: 10
+        }
+      }
+    }
+  }
 }
