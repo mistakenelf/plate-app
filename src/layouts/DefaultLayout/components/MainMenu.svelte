@@ -5,15 +5,7 @@
   import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle'
   import { navigate } from 'svelte-routing'
 
-  import { currentUser } from '../../../store/auth'
-  import firebase from '../../../lib/firebase'
   import Icon from '../../../components/Icon'
-
-  function signOut() {
-    currentUser.set(null)
-    firebase.auth().signOut()
-    navigate('/login')
-  }
 </script>
 
 <style>
@@ -63,10 +55,6 @@
     <div class="menu-item" on:click={() => navigate('/login')}>
       <Icon height="1.5em" width="1.5em" icon={faSignInAlt} />
       <div class="menu-text">Login</div>
-    </div>
-    <div class="menu-item" on:click={() => signOut()}>
-      <Icon height="1.5em" width="1.5em" icon={faSignOutAlt} />
-      <div class="menu-text">Logout</div>
     </div>
     <div class="menu-item" on:click={() => navigate('/register')}>
       <Icon height="1.5em" width="1.5em" icon={faSignInAlt} />

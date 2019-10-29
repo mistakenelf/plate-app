@@ -1,10 +1,6 @@
 <script>
-  import { collectionData } from 'rxfire/firestore'
   import { navigate } from 'svelte-routing'
   import { onMount } from 'svelte'
-
-  import { currentUser } from '../../store/auth'
-  import { db } from '../../lib/firebase'
 
   import NewPlateButton from './components/NewPlateButton'
   import StickyNote from './components/StickyNote'
@@ -12,42 +8,12 @@
   let firstStickyNote = ''
   let secondStickyNote = ''
 
-  onMount(() => {
-    if (!$currentUser) {
-      navigate('/login')
-      return
-    }
-
-    const query = db
-      .collection('notes')
-      .where('createdBy', '==', $currentUser.uid)
-
-    collectionData(query, 'id').subscribe(res => {
-      firstStickyNote = res[0].value
-      secondStickyNote = res[1].value
-    })
-  })
-
   function handleFirstStickyNoteChange(e) {
     firstStickyNote = e.target.value
-
-    db.collection('notes')
-      .doc(`${$currentUser.uid} NOTE 1`)
-      .set({
-        createdBy: $currentUser.uid,
-        value: firstStickyNote
-      })
   }
 
   function handleSecondStickyNoteChange(e) {
     secondStickyNote = e.target.value
-
-    db.collection('notes')
-      .doc(`${$currentUser.uid} NOTE 2`)
-      .set({
-        createdBy: $currentUser.uid,
-        value: secondStickyNote
-      })
   }
 </script>
 
