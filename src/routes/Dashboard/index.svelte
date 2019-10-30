@@ -1,7 +1,4 @@
 <script>
-  import { navigate } from 'svelte-routing'
-  import { onMount } from 'svelte'
-
   import NewPlateButton from './components/NewPlateButton'
   import StickyNote from './components/StickyNote'
 
