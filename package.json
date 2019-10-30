@@ -45,6 +45,9 @@
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "pouchdb-adapter-idb": "^7.1.1",
+    "rxdb": "^8.7.2",
+    "rxjs": "^6.5.3",
     "svelte-routing": "^1.4.0"
   }
 }
