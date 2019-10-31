@@ -3,8 +3,8 @@
 
   import DefaultLayout from '../layouts/DefaultLayout'
 
-  export let path
   export let component
+  export let path
 </script>
 
 <Route {path}>

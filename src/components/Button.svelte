@@ -1,6 +1,6 @@
 <script>
-  export let type = 'button'
   export let fullWidth = false
+  export let type = 'button'
   export let variant = 'primary'
 </script>
 

@@ -1,16 +1,28 @@
 <script>
+  import { db } from '../../store/db'
+
   import NewPlateButton from './components/NewPlateButton'
   import StickyNote from './components/StickyNote'
 
   let firstStickyNote = ''
   let secondStickyNote = ''
 
-  function handleFirstStickyNoteChange(e) {
+  async function handleFirstStickyNoteChange(e) {
     firstStickyNote = e.target.value
+
+    await $db.collections.notes.upsert({
+      _id: '123456',
+      noteDesc: e.target.value
+    })
   }
 
-  function handleSecondStickyNoteChange(e) {
+  async function handleSecondStickyNoteChange(e) {
     secondStickyNote = e.target.value
+
+    await $db.collections.notes.upsert({
+      _id: '342234',
+      noteDesc: e.target.value
+    })
   }
 </script>
 

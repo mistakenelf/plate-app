@@ -3,9 +3,11 @@
   export let fill = '#000'
   export let width = '1em'
   export let height = '1em'
+
   let path = []
   let classes = ''
   let viewBox = ''
+
   $: viewBox = '0 0 ' + icon.icon[0] + ' ' + icon.icon[1]
   $: classes = 'fa-svelte ' + ($$props.class ? $$props.class : '')
   $: path = icon.icon[4]

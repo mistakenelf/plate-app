@@ -2,6 +2,7 @@
   import { onMount } from 'svelte'
 
   import { createDatabase } from '../lib/db'
+  import { db } from '../store/db'
   import Routes from '../routes'
 
   import Loader from './Loader'
@@ -10,6 +11,9 @@
 
   onMount(async () => {
     initializing = true
+
+    const database = await createDatabase()
+    db.set(database)
 
     initializing = false
   })

@@ -1,8 +1,7 @@
 <script>
   import { fade } from 'svelte/transition'
-  import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt'
-  import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons/faSignOutAlt'
-  import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle'
+  import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle'
+  import { faTachometerAlt } from '@fortawesome/free-solid-svg-icons/faTachometerAlt'
   import { navigate } from 'svelte-routing'
 
   import Icon from '../../../components/Icon'
@@ -48,17 +47,13 @@
 
 <div class="container" transition:fade={{ duration: 500 }}>
   <div class="row">
-    <div class="menu-item" on:click={() => navigate('/profile')}>
-      <Icon height="1.5em" width="1.5em" icon={faUserCircle} />
-      <div class="menu-text">Profile</div>
+    <div class="menu-item" on:click={() => navigate('/')}>
+      <Icon height="1.5em" width="1.5em" icon={faTachometerAlt} />
+      <div class="menu-text">Dashboard</div>
     </div>
-    <div class="menu-item" on:click={() => navigate('/login')}>
-      <Icon height="1.5em" width="1.5em" icon={faSignInAlt} />
-      <div class="menu-text">Login</div>
-    </div>
-    <div class="menu-item" on:click={() => navigate('/register')}>
-      <Icon height="1.5em" width="1.5em" icon={faSignInAlt} />
-      <div class="menu-text">Register</div>
+    <div class="menu-item" on:click={() => navigate('/create-plate')}>
+      <Icon height="1.5em" width="1.5em" icon={faPlusCircle} />
+      <div class="menu-text">Create Plate</div>
     </div>
   </div>
 </div>
