@@ -1,13 +1,13 @@
 import RxDB from 'rxdb'
 
-import { noteSchema } from '../schemas/note'
+import { stickyNoteSchema } from '../schemas/stickyNote'
 
 RxDB.plugin(require('pouchdb-adapter-idb'))
 
 const collections = [
   {
-    name: 'notes',
-    schema: noteSchema
+    name: 'stickyNotes',
+    schema: stickyNoteSchema
   }
 ]
 

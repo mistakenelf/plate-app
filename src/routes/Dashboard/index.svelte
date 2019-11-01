@@ -11,8 +11,8 @@
     firstStickyNote = e.target.value
 
     await $db.collections.notes.upsert({
-      _id: '123456',
-      noteDesc: e.target.value
+      id: '123456',
+      noteText: e.target.value
     })
   }
 
@@ -21,7 +21,7 @@
 
     await $db.collections.notes.upsert({
       _id: '342234',
-      noteDesc: e.target.value
+      noteText: e.target.value
     })
   }
 </script>

@@ -19,10 +19,8 @@
   }
 
   .row {
-    display: grid;
-    align-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-    grid-gap: 1rem;
+    display: flex;
+    flex-direction: column;
     padding: 10px;
   }
 
@@ -36,6 +34,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    margin-bottom: 10px;
   }
 
   .menu-text {
@@ -45,13 +44,13 @@
   }
 </style>
 
-<div class="container" transition:fade={{ duration: 500 }}>
+<div class="container" transition:fade={{ duration: 200 }}>
   <div class="row">
     <div class="menu-item" on:click={() => navigate('/')}>
       <Icon height="1.5em" width="1.5em" icon={faTachometerAlt} />
       <div class="menu-text">Dashboard</div>
     </div>
-    <div class="menu-item" on:click={() => navigate('/create-plate')}>
+    <div class="menu-item" on:click={() => navigate('create-plate')}>
       <Icon height="1.5em" width="1.5em" icon={faPlusCircle} />
       <div class="menu-text">Create Plate</div>
     </div>
