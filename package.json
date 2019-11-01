@@ -42,7 +42,8 @@
     "url-loader": "^2.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.9.0",
+    "workbox-webpack-plugin": "^4.3.1"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
@@ -50,6 +51,7 @@
     "pouchdb-adapter-idb": "^7.1.1",
     "rxdb": "^8.7.2",
     "rxjs": "^6.5.3",
-    "svelte-routing": "^1.4.0"
+    "svelte-routing": "^1.4.0",
+    "workbox-window": "^4.3.1"
   }
 }

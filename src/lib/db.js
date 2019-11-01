@@ -6,7 +6,7 @@ RxDB.plugin(require('pouchdb-adapter-idb'))
 
 const collections = [
   {
-    name: 'stickyNotes',
+    name: 'stickynotes',
     schema: stickyNoteSchema
   }
 ]

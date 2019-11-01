@@ -5,6 +5,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
 const webpack = require('webpack')
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 
 const env = require('dotenv').config({ path: __dirname + '/.env.example' })
 
@@ -103,6 +104,10 @@ module.exports = {
       silent: true,
       safe: false
     }),
-    new webpack.EnvironmentPlugin(Object.keys(env.parsed))
+    new webpack.EnvironmentPlugin(Object.keys(env.parsed)),
+    new WorkboxWebpackPlugin.InjectManifest({
+      swSrc: './src/src-sw.js',
+      swDest: 'sw.js'
+    })
   ]
 }

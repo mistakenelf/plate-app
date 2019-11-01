@@ -10,7 +10,7 @@
   async function handleFirstStickyNoteChange(e) {
     firstStickyNote = e.target.value
 
-    await $db.collections.notes.upsert({
+    await $db.collections.stickynotes.upsert({
       id: '123456',
       noteText: e.target.value
     })
@@ -19,8 +19,8 @@
   async function handleSecondStickyNoteChange(e) {
     secondStickyNote = e.target.value
 
-    await $db.collections.notes.upsert({
-      _id: '342234',
+    await $db.collections.stickynotes.upsert({
+      id: '342234',
       noteText: e.target.value
     })
   }
