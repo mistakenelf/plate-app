@@ -1,13 +1,14 @@
 <script>
-  import { Route } from 'svelte-routing'
+  import { Route } from 'svero'
 
   import DefaultLayout from '../layouts/DefaultLayout'
 
   export let component
+  export let exact
   export let path
 </script>
 
-<Route {path}>
+<Route {path} {exact}>
   <DefaultLayout>
     <svelte:component this={component} />
   </DefaultLayout>

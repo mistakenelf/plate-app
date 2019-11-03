@@ -49,7 +49,6 @@
   <title>Plate - Dashboard</title>
 </svelte:head>
 
-<NewPlateButton />
 <div class="row">
   <StickyNote
     on:change={handleFirstStickyNoteChange}
@@ -58,3 +57,5 @@
     on:change={handleSecondStickyNoteChange}
     noteText={secondStickyNote} />
 </div>
+
+<NewPlateButton />

@@ -1,5 +1,5 @@
 <script>
-  import { Router } from 'svelte-routing'
+  import { Router } from 'svero'
 
   import DefaultLayoutRoute from '../components/DefaultLayoutRoute'
 
@@ -7,7 +7,7 @@
   import Dashboard from './Dashboard'
 </script>
 
-<Router url="">
-  <DefaultLayoutRoute path="/" component={Dashboard} />
-  <DefaultLayoutRoute path="create-plate" component={CreatePlate} />
+<Router>
+  <DefaultLayoutRoute exact path="/" component={Dashboard} />
+  <DefaultLayoutRoute exact path="/create-plate" component={CreatePlate} />
 </Router>

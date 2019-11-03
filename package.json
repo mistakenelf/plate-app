@@ -51,7 +51,7 @@
     "pouchdb-adapter-idb": "^7.1.1",
     "rxdb": "^8.7.2",
     "rxjs": "^6.5.3",
-    "svelte-routing": "^1.4.0",
+    "svero": "^1.0.0",
     "workbox-window": "^4.3.1"
   }
 }
