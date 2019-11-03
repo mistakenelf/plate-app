@@ -1,4 +1,6 @@
 <script>
+  import { onMount } from 'svelte'
+
   import { db } from '../../store/db'
 
   import NewPlateButton from './components/NewPlateButton'
@@ -6,6 +8,13 @@
 
   let firstStickyNote = ''
   let secondStickyNote = ''
+
+  onMount(async () => {
+    $db.collections.stickynotes.find().$.subscribe(res => {
+      firstStickyNote = res[0].toJSON().noteText
+      secondStickyNote = res[1].toJSON().noteText
+    })
+  })
 
   async function handleFirstStickyNoteChange(e) {
     firstStickyNote = e.target.value
