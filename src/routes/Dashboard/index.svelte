@@ -11,8 +11,13 @@
 
   onMount(async () => {
     $db.collections.stickynotes.find().$.subscribe(res => {
-      firstStickyNote = res[0].toJSON().noteText
-      secondStickyNote = res[1].toJSON().noteText
+      if (res[0]) {
+        firstStickyNote = res[0].toJSON().noteText
+      }
+
+      if (res[1]) {
+        secondStickyNote = res[1].toJSON().noteText
+      }
     })
   })
 

@@ -3,6 +3,7 @@
   export let type = 'text'
   export let value = ''
   export let isFormField = false
+  export let fullWidth = false
 </script>
 
 <style>
@@ -33,9 +34,18 @@
   .form-field {
     margin-bottom: 30px;
   }
+
+  .full-width {
+    width: 100%;
+  }
 </style>
 
-<div class="input-container">
+<div class:full-width={fullWidth} class="input-container">
   <label>{label}</label>
-  <input class:form-field={isFormField} {type} {value} on:change />
+  <input
+    class:full-width={fullWidth}
+    class:form-field={isFormField}
+    {type}
+    {value}
+    on:change />
 </div>
