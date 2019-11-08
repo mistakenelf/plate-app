@@ -20,6 +20,6 @@
   }
 </style>
 
-<button class="save-plate-btn">
+<button type="submit" class="save-plate-btn">
   <Icon width="1.5em" height="1.5em" fill="#fff" icon={faSave} />
 </button>

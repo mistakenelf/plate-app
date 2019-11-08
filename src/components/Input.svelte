@@ -2,6 +2,7 @@
   export let label = ''
   export let type = 'text'
   export let value = ''
+  export let name = ''
   export let isFormField = false
   export let fullWidth = false
 </script>
@@ -43,6 +44,7 @@
 <div class:full-width={fullWidth} class="input-container">
   <label>{label}</label>
   <input
+    {name}
     class:full-width={fullWidth}
     class:form-field={isFormField}
     {type}

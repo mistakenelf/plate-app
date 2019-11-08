@@ -1,8 +1,26 @@
 <script>
   import Input from '../../components/Input'
   import Textarea from '../../components/Textarea'
+  import { db } from '../../store/db'
 
   import SavePlateButton from './components/SavePlateButton'
+
+  let formValues = {
+    name: '',
+    dueDate: '',
+    description: ''
+  }
+
+  function handleChange(e) {
+    formValues[e.target.name] = e.target.value
+  }
+
+  async function handleSubmit() {
+    await $db.collections.plates.insert({
+      id: new Date().getTime().toString(),
+      ...formValues
+    })
+  }
 </script>
 
 <style>
@@ -43,10 +61,32 @@
   </p>
   <hr />
   <div class="input-row">
-    <Input type="text" label="Name" isFormField placeholder="plate name" />
-    <Input type="date" label="Due Date" isFormField />
+    <Input
+      name="name"
+      type="text"
+      label="Name"
+      isFormField
+      placeholder="plate name"
+      on:change={handleChange}
+      value={formValues.name} />
+    <Input
+      name="dueDate"
+      type="date"
+      label="Due Date"
+      isFormField
+      fullWidth
+      on:change={handleChange}
+      value={formValues.dueDate} />
   </div>
-  <Textarea rows={10} label="Description" isFormField />
+  <Textarea
+    name="description"
+    rows={10}
+    label="Description"
+    isFormField
+    on:change={handleChange}
+    value={formValues.description} />
 </div>
 
-<SavePlateButton />
+<form on:submit|preventDefault={handleSubmit}>
+  <SavePlateButton />
+</form>

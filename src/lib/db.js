@@ -1,5 +1,6 @@
 import RxDB from 'rxdb'
 
+import { plateSchema } from '../schemas/plate'
 import { stickyNoteSchema } from '../schemas/stickyNote'
 
 RxDB.plugin(require('pouchdb-adapter-idb'))
@@ -8,6 +9,10 @@ const collections = [
   {
     name: 'stickynotes',
     schema: stickyNoteSchema
+  },
+  {
+    name: 'plates',
+    schema: plateSchema
   }
 ]
 

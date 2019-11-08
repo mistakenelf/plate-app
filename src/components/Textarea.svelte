@@ -1,6 +1,7 @@
 <script>
   export let label = ''
   export let value = ''
+  export let name = ''
   export let isFormField = false
   export let rows = 5
 </script>
@@ -37,5 +38,5 @@
 
 <div class="textarea-container">
   <label>{label}</label>
-  <textarea class:form-field={isFormField} {value} on:change {rows} />
+  <textarea {name} class:form-field={isFormField} {value} on:change {rows} />
 </div>
