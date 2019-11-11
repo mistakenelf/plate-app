@@ -1,4 +1,5 @@
 <script>
+  import { Link } from 'svero'
   import { faTh } from '@fortawesome/free-solid-svg-icons/faTh'
 
   import Icon from '../../../components/Icon'
@@ -70,9 +71,11 @@
 
 <nav class="nav">
   <div class="nav-left">
-    <div class="menu-container">
-      <div class="logo">🍛</div>
-    </div>
+    <Link class="menu-container" to="/">
+      <div class="menu-container">
+        <div class="logo">🍛</div>
+      </div>
+    </Link>
     <div class="brand">Plate</div>
   </div>
   <div class="nav-right">
