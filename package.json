@@ -37,7 +37,7 @@
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
     "style-loader": "^1.0.0",
-    "svelte": "^3.12.1",
+    "svelte": "^3.13.0",
     "svelte-loader": "^2.13.6",
     "url-loader": "^2.2.0",
     "webpack": "^4.41.2",
@@ -49,7 +49,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "pouchdb-adapter-idb": "^7.1.1",
-    "rxdb": "^8.7.2",
+    "rxdb": "^8.7.3",
     "rxjs": "^6.5.3",
     "svero": "^1.0.0",
     "workbox-window": "^4.3.1"
