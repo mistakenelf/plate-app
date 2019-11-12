@@ -1,6 +1,6 @@
 <script>
   import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus'
-  import { navigateTo } from 'svero'
+  import page from 'page'
 
   import Icon from '../../../components/Icon'
 </script>
@@ -21,6 +21,6 @@
   }
 </style>
 
-<button class="new-plate-btn" on:click={() => navigateTo('/create-plate')}>
+<button class="new-plate-btn" on:click={() => page('/create-plate')}>
   <Icon width="1.5em" height="1.5em" fill="#fff" icon={faPlus} />
 </button>

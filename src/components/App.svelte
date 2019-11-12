@@ -1,36 +1,42 @@
 <script>
   import { onMount } from 'svelte'
   import { Workbox } from 'workbox-window'
+  import router from 'page'
 
-  import { createDatabase } from '../lib/db'
+  import { createDatabase } from '../helpers/db'
   import { db } from '../store/db'
-  import Routes from '../routes'
+  import CreatePlate from '../routes/CreatePlate'
+  import Dashboard from '../routes/Dashboard'
+  import DefaultLayout from '../layouts/DefaultLayout'
 
   import Loader from './Loader'
 
   let initializing = true
 
+  let routeProps = {
+    component: Dashboard,
+    layout: DefaultLayout
+  }
+
+  router('/', () => {
+    routeProps = {
+      component: Dashboard,
+      layout: DefaultLayout
+    }
+  })
+
+  router('/create-plate', () => {
+    routeProps = {
+      component: CreatePlate,
+      layout: DefaultLayout
+    }
+  })
+
+  router.start()
+
   onMount(async () => {
     if (process.env.NODE_ENV === 'production') {
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          const wb = new Workbox('/sw.js')
-
-          const updateButton = document.querySelector('#app-update')
-
-          wb.addEventListener('waiting', event => {
-            updateButton.classList.add('show')
-            updateButton.addEventListener('click', () => {
-              wb.addEventListener('controlling', event => {
-                window.location.reload()
-              })
-              wb.messageSW({ type: 'SKIP_WAITING' })
-            })
-          })
-
-          wb.register()
-        })
-      }
+      registerServiceWorker()
     }
 
     initializing = true
@@ -49,5 +55,7 @@
 {#if initializing}
   <Loader fullPage />
 {:else}
-  <Routes />
+  <svelte:component this={routeProps.layout}>
+    <svelte:component this={routeProps.component} {...routeProps} />
+  </svelte:component>
 {/if}

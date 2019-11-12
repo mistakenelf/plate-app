@@ -1,15 +1,20 @@
 <script>
-  import { Link } from 'svero'
   import { faTh } from '@fortawesome/free-solid-svg-icons/faTh'
 
+  import ClickOutside from '../../../components/ClickOutside'
   import Icon from '../../../components/Icon'
 
   import MainMenu from './MainMenu'
 
+  let triggerEl
   let menuOpen = false
 
   function toggleMenu() {
     menuOpen = !menuOpen
+  }
+
+  function closeMenu() {
+    menuOpen = false
   }
 </script>
 
@@ -71,15 +76,14 @@
 
 <nav class="nav">
   <div class="nav-left">
-    <Link class="menu-container" to="/">
-      <div class="menu-container">
-        <div class="logo">🍛</div>
-      </div>
-    </Link>
+    <div class="menu-container">
+      <div class="logo">🍛</div>
+    </div>
     <div class="brand">Plate</div>
   </div>
   <div class="nav-right">
     <div
+      bind:this={triggerEl}
       class="menu-icon"
       aria-label="main menu"
       role="button"
@@ -87,7 +91,9 @@
       <Icon width="1.5em" height="1.5em" fill="#fff" icon={faTh} />
     </div>
     {#if menuOpen}
-      <MainMenu />
+      <ClickOutside on:clickoutside={closeMenu} exclude={[triggerEl]}>
+        <MainMenu />
+      </ClickOutside>
     {/if}
   </div>
 </nav>
