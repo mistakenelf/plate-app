@@ -8,6 +8,7 @@
   import CreatePlate from '../routes/CreatePlate'
   import Dashboard from '../routes/Dashboard'
   import DefaultLayout from '../layouts/DefaultLayout'
+  import { registerServiceWorker } from '../helpers/registerServiceWorker'
 
   import Loader from './Loader'
 
