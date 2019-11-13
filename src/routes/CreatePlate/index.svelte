@@ -2,6 +2,7 @@
   import Input from '../../components/Input'
   import Textarea from '../../components/Textarea'
   import { db } from '../../store/db'
+  import RichTextEditor from '../../components/RichTextEditor'
 
   import SavePlateButton from './components/SavePlateButton'
 
@@ -26,6 +27,7 @@
 <style>
   .container {
     padding: 20px;
+    margin-bottom: 75px;
   }
 
   h1 {
@@ -85,6 +87,7 @@
     isFormField
     on:change={handleChange}
     value={formValues.description} />
+  <RichTextEditor />
 </div>
 
 <form on:submit|preventDefault={handleSubmit}>
