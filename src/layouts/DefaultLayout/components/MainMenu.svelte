@@ -1,10 +1,10 @@
 <script>
-  import { fade } from 'svelte/transition'
-  import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle'
-  import { faTachometerAlt } from '@fortawesome/free-solid-svg-icons/faTachometerAlt'
-  import page from 'page'
+  import { fade } from 'svelte/transition';
+  import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+  import { faTachometerAlt } from '@fortawesome/free-solid-svg-icons/faTachometerAlt';
+  import page from 'page';
 
-  import Icon from '../../../components/Icon'
+  import Icon from '../../../components/Icon';
 </script>
 
 <style>

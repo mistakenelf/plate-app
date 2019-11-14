@@ -1,5 +1,5 @@
 <script>
-  export let fullPage = false
+  export let fullPage = false;
 </script>
 
 <style>

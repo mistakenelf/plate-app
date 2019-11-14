@@ -1,7 +1,7 @@
 {
-  "trailingComma": "none",
+  "trailingComma": "all",
   "singleQuote": true,
-  "semi": false,
+  "semi": true,
   "plugins": [
     "svelte"
   ]

@@ -1,10 +1,10 @@
 <script>
-  export let label = ''
-  export let type = 'text'
-  export let value = ''
-  export let name = ''
-  export let isFormField = false
-  export let fullWidth = false
+  export let label = '';
+  export let type = 'text';
+  export let value = '';
+  export let name = '';
+  export let isFormField = false;
+  export let fullWidth = false;
 </script>
 
 <style>

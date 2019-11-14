@@ -6,11 +6,11 @@ export const stickyNoteSchema = {
   properties: {
     id: {
       type: 'string',
-      primary: true
+      primary: true,
     },
     noteText: {
-      type: 'string'
-    }
+      type: 'string',
+    },
   },
-  required: ['noteText']
-}
+  required: ['noteText'],
+};

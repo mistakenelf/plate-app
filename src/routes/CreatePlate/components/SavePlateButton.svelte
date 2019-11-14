@@ -1,7 +1,7 @@
 <script>
-  import { faSave } from '@fortawesome/free-solid-svg-icons/faSave'
+  import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
 
-  import Icon from '../../../components/Icon'
+  import Icon from '../../../components/Icon';
 </script>
 
 <style>

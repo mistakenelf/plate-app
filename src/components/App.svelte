@@ -1,52 +1,52 @@
 <script>
-  import { onMount } from 'svelte'
-  import { Workbox } from 'workbox-window'
-  import router from 'page'
+  import { onMount } from 'svelte';
+  import { Workbox } from 'workbox-window';
+  import router from 'page';
 
-  import { createDatabase } from '../helpers/db'
-  import { db } from '../store/db'
-  import CreatePlate from '../routes/CreatePlate'
-  import Dashboard from '../routes/Dashboard'
-  import DefaultLayout from '../layouts/DefaultLayout'
-  import { registerServiceWorker } from '../helpers/registerServiceWorker'
+  import { createDatabase } from '../helpers/db';
+  import { db } from '../store/db';
+  import CreatePlate from '../routes/CreatePlate';
+  import Dashboard from '../routes/Dashboard';
+  import DefaultLayout from '../layouts/DefaultLayout';
+  import { registerServiceWorker } from '../helpers/registerServiceWorker';
 
-  import Loader from './Loader'
+  import Loader from './Loader';
 
-  let initializing = true
+  let initializing = true;
 
   let routeProps = {
     component: Dashboard,
-    layout: DefaultLayout
-  }
+    layout: DefaultLayout,
+  };
 
   router('/', () => {
     routeProps = {
       component: Dashboard,
-      layout: DefaultLayout
-    }
-  })
+      layout: DefaultLayout,
+    };
+  });
 
   router('/create-plate', () => {
     routeProps = {
       component: CreatePlate,
-      layout: DefaultLayout
-    }
-  })
+      layout: DefaultLayout,
+    };
+  });
 
-  router.start()
+  router.start();
 
   onMount(async () => {
     if (process.env.NODE_ENV === 'production') {
-      registerServiceWorker()
+      registerServiceWorker();
     }
 
-    initializing = true
+    initializing = true;
 
-    const database = await createDatabase()
-    db.set(database)
+    const database = await createDatabase();
+    db.set(database);
 
-    initializing = false
-  })
+    initializing = false;
+  });
 </script>
 
 <style>

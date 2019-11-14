@@ -1,30 +1,30 @@
-import RxDB from 'rxdb'
+import RxDB from 'rxdb';
 
-import { plateSchema } from '../schemas/plate'
-import { stickyNoteSchema } from '../schemas/stickyNote'
+import { plateSchema } from '../schemas/plate';
+import { stickyNoteSchema } from '../schemas/stickyNote';
 
-RxDB.plugin(require('pouchdb-adapter-idb'))
+RxDB.plugin(require('pouchdb-adapter-idb'));
 
 const collections = [
   {
     name: 'stickynotes',
-    schema: stickyNoteSchema
+    schema: stickyNoteSchema,
   },
   {
     name: 'plates',
-    schema: plateSchema
-  }
-]
+    schema: plateSchema,
+  },
+];
 
 export async function createDatabase() {
   const db = await RxDB.create({
     name: 'platedb',
     adapter: 'idb',
     multiInstance: true,
-    queryChangeDetection: true
-  })
+    queryChangeDetection: true,
+  });
 
-  await Promise.all(collections.map(colData => db.collection(colData)))
+  await Promise.all(collections.map(colData => db.collection(colData)));
 
-  return db
+  return db;
 }

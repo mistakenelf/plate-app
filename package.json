@@ -37,7 +37,7 @@
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
     "style-loader": "^1.0.0",
-    "svelte": "^3.14.0",
+    "svelte": "^3.14.1",
     "svelte-loader": "^2.13.6",
     "url-loader": "^2.2.0",
     "webpack": "^4.41.2",
@@ -48,11 +48,11 @@
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "jodit": "^3.2.60",
     "page": "^1.11.5",
     "pouchdb-adapter-idb": "^7.1.1",
     "rxdb": "^8.7.3",
     "rxjs": "^6.5.3",
-    "tui-editor": "^1.4.7",
     "workbox-window": "^4.3.1"
   }
 }
