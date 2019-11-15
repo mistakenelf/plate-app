@@ -6,17 +6,17 @@ export const plateSchema = {
   properties: {
     id: {
       type: 'string',
-      primary: true
+      primary: true,
     },
     name: {
-      type: 'string'
+      type: 'string',
     },
     dueDate: {
-      type: 'string'
+      type: 'string',
     },
     description: {
-      type: 'string'
-    }
+      type: 'string',
+    },
   },
-  required: ['name', 'description']
-}
+  required: ['name', 'description'],
+};

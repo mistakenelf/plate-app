@@ -20,7 +20,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack",
-    "format": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\""
+    "format": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\"",
+    "eslint": "eslint . --fix"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",

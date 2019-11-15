@@ -1,9 +1,9 @@
 <script>
-  export let label = ''
-  export let value = ''
-  export let name = ''
-  export let isFormField = false
-  export let rows = 5
+  export let label = '';
+  export let value = '';
+  export let name = '';
+  export let isFormField = false;
+  export let rows = 5;
 </script>
 
 <style>

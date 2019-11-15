@@ -1,7 +1,7 @@
 <script>
-  export let fullWidth = false
-  export let type = 'button'
-  export let variant = 'primary'
+  export let fullWidth = false;
+  export let type = 'button';
+  export let variant = 'primary';
 </script>
 
 <style>

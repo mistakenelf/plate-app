@@ -1,8 +1,8 @@
 <script>
-  import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus'
-  import page from 'page'
+  import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
+  import page from 'page';
 
-  import Icon from '../../../components/Icon'
+  import Icon from '../../../components/Icon';
 </script>
 
 <style>

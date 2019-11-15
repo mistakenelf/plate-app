@@ -1,26 +1,26 @@
 <script>
-  import Input from '../../components/Input'
-  import Textarea from '../../components/Textarea'
-  import { db } from '../../store/db'
-  import RichTextEditor from '../../components/RichTextEditor'
+  import Input from '../../components/Input';
+  import Textarea from '../../components/Textarea';
+  import { db } from '../../store/db';
+  import RichTextEditor from '../../components/RichTextEditor';
 
-  import SavePlateButton from './components/SavePlateButton'
+  import SavePlateButton from './components/SavePlateButton';
 
   let formValues = {
     name: '',
     dueDate: '',
-    description: ''
-  }
+    description: '',
+  };
 
   function handleChange(e) {
-    formValues[e.target.name] = e.target.value
+    formValues[e.target.name] = e.target.value;
   }
 
   async function handleSubmit() {
     await $db.collections.plates.insert({
       id: new Date().getTime().toString(),
-      ...formValues
-    })
+      ...formValues,
+    });
   }
 </script>
 
@@ -40,6 +40,13 @@
 
   hr {
     margin-bottom: 40px;
+  }
+
+  .label {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 5px;
   }
 
   .input-row {
@@ -87,6 +94,7 @@
     isFormField
     on:change={handleChange}
     value={formValues.description} />
+  <div class="label">Add to your plate</div>
   <RichTextEditor />
 </div>
 

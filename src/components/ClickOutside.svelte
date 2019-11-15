@@ -1,28 +1,28 @@
 <script>
-  import { createEventDispatcher } from 'svelte'
+  import { createEventDispatcher } from 'svelte';
 
-  export let exclude = []
+  export let exclude = [];
 
-  let child
+  let child;
 
-  const dispatch = createEventDispatcher()
+  const dispatch = createEventDispatcher();
 
   function isExcluded(target) {
-    var parent = target
+    var parent = target;
 
     while (parent) {
       if (exclude.indexOf(parent) >= 0 || parent === child) {
-        return true
+        return true;
       }
 
-      parent = parent.parentNode
+      parent = parent.parentNode;
     }
-    return false
+    return false;
   }
 
   function onClickOutside(event) {
     if (!isExcluded(event.target)) {
-      dispatch('clickoutside')
+      dispatch('clickoutside');
     }
   }
 </script>

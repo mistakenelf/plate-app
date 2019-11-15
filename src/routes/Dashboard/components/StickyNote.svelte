@@ -1,5 +1,5 @@
 <script>
-  export let noteText = ''
+  export let noteText = '';
 </script>
 
 <style>

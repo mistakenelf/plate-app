@@ -1,20 +1,20 @@
 <script>
-  import { faTh } from '@fortawesome/free-solid-svg-icons/faTh'
+  import { faTh } from '@fortawesome/free-solid-svg-icons/faTh';
 
-  import ClickOutside from '../../../components/ClickOutside'
-  import Icon from '../../../components/Icon'
+  import ClickOutside from '../../../components/ClickOutside';
+  import Icon from '../../../components/Icon';
 
-  import MainMenu from './MainMenu'
+  import MainMenu from './MainMenu';
 
-  let triggerEl
-  let menuOpen = false
+  let triggerEl;
+  let menuOpen = false;
 
   function toggleMenu() {
-    menuOpen = !menuOpen
+    menuOpen = !menuOpen;
   }
 
   function closeMenu() {
-    menuOpen = false
+    menuOpen = false;
   }
 </script>
 

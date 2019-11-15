@@ -1,46 +1,46 @@
 <script>
-  import { onMount } from 'svelte'
+  import { onMount } from 'svelte';
 
-  import { db } from '../../store/db'
+  import { db } from '../../store/db';
 
-  import NewPlateButton from './components/NewPlateButton'
-  import StickyNote from './components/StickyNote'
+  import NewPlateButton from './components/NewPlateButton';
+  import StickyNote from './components/StickyNote';
 
-  let firstStickyNote = ''
-  let secondStickyNote = ''
+  let firstStickyNote = '';
+  let secondStickyNote = '';
 
   onMount(async () => {
     $db.collections.stickynotes.find().$.subscribe(res => {
       if (res[0]) {
-        firstStickyNote = res[0].toJSON().noteText
+        firstStickyNote = res[0].toJSON().noteText;
       }
 
       if (res[1]) {
-        secondStickyNote = res[1].toJSON().noteText
+        secondStickyNote = res[1].toJSON().noteText;
       }
-    })
+    });
 
     $db.collections.plates.find().$.subscribe(res => {
-      console.log(res)
-    })
-  })
+      console.log(res);
+    });
+  });
 
   async function handleFirstStickyNoteChange(e) {
-    firstStickyNote = e.target.value
+    firstStickyNote = e.target.value;
 
     await $db.collections.stickynotes.upsert({
       id: '123456',
-      noteText: e.target.value
-    })
+      noteText: e.target.value,
+    });
   }
 
   async function handleSecondStickyNoteChange(e) {
-    secondStickyNote = e.target.value
+    secondStickyNote = e.target.value;
 
     await $db.collections.stickynotes.upsert({
       id: '342234',
-      noteText: e.target.value
-    })
+      noteText: e.target.value,
+    });
   }
 </script>
 
