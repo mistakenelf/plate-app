@@ -7,10 +7,10 @@ export function registerServiceWorker() {
 
       const updateButton = document.querySelector('#app-update');
 
-      wb.addEventListener('waiting', event => {
+      wb.addEventListener('waiting', () => {
         updateButton.classList.add('show');
         updateButton.addEventListener('click', () => {
-          wb.addEventListener('controlling', event => {
+          wb.addEventListener('controlling', () => {
             window.location.reload();
           });
           wb.messageSW({ type: 'SKIP_WAITING' });

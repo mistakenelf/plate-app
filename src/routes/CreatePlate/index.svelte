@@ -6,7 +6,7 @@
 
   import SavePlateButton from './components/SavePlateButton';
 
-  let formValues = {
+  const formValues = {
     name: '',
     dueDate: '',
     description: '',

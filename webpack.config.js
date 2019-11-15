@@ -56,6 +56,12 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        loader: 'eslint-loader',
+        exclude: /node_modules/,
+        test: /\.(js|svelte)$/,
+      },
+      {
         test: /\.svelte$/,
         use: {
           loader: 'svelte-loader',
@@ -109,7 +115,7 @@ module.exports = {
     }),
     new webpack.EnvironmentPlugin(Object.keys(env.parsed)),
     new WorkboxWebpackPlugin.InjectManifest({
-      swSrc: './src/src-sw.js',
+      swSrc: './src/sw.js',
       swDest: 'sw.js',
     }),
   ],

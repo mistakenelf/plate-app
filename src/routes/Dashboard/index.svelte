@@ -19,10 +19,6 @@
         secondStickyNote = res[1].toJSON().noteText;
       }
     });
-
-    $db.collections.plates.find().$.subscribe(res => {
-      console.log(res);
-    });
   });
 
   async function handleFirstStickyNoteChange(e) {

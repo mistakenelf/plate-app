@@ -8,7 +8,7 @@
   const dispatch = createEventDispatcher();
 
   function isExcluded(target) {
-    var parent = target;
+    let parent = target;
 
     while (parent) {
       if (exclude.indexOf(parent) >= 0 || parent === child) {
@@ -17,6 +17,7 @@
 
       parent = parent.parentNode;
     }
+
     return false;
   }
 

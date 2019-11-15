@@ -1,6 +1,5 @@
 <script>
   import { onMount } from 'svelte';
-  import { Workbox } from 'workbox-window';
   import router from 'page';
 
   import { createDatabase } from '../helpers/db';
