@@ -1,11 +1,14 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const env = require('dotenv').config({ path: __dirname + '/.env.example' });
 
@@ -29,12 +32,20 @@ module.exports = {
     compress: true,
     port: 3000,
     open: false,
+    quiet: true,
     overlay: {
-      warnings: true,
+      warnings: false,
       errors: true,
     },
   },
   optimization: {
+    minimize: prod,
+    minimizer: [
+      new TerserPlugin({
+        cache: true,
+        parallel: true,
+      }),
+    ],
     splitChunks: {
       cacheGroups: {
         vendor: {
@@ -60,6 +71,12 @@ module.exports = {
         loader: 'eslint-loader',
         exclude: /node_modules/,
         test: /\.(js|svelte)$/,
+        options: {
+          cache: true,
+          emitWarning: true,
+          failOnWarning: prod ? true : false,
+          failOnError: true,
+        },
       },
       {
         test: /\.svelte$/,
@@ -76,6 +93,7 @@ module.exports = {
         use: [
           prod ? MiniCssExtractPlugin.loader : 'style-loader',
           'css-loader',
+          'postcss-loader',
         ],
       },
       {
@@ -98,7 +116,15 @@ module.exports = {
   },
   mode,
   plugins: [
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({ cleanAfterEveryBuildPatterns: ['dist'] }),
+    new FriendlyErrorsPlugin({
+      compilationSuccessInfo: {
+        messages: ['You application is running on http://localhost:3000'],
+      },
+      clearConsole: true,
+      additionalFormatters: [],
+      additionalTransformers: [],
+    }),
     new HtmlWebPackPlugin({
       template: './public/index.html',
       filename: './index.html',
@@ -113,10 +139,22 @@ module.exports = {
       silent: true,
       safe: false,
     }),
+    new ErrorOverlayPlugin(),
     new webpack.EnvironmentPlugin(Object.keys(env.parsed)),
-    new WorkboxWebpackPlugin.InjectManifest({
-      swSrc: './src/sw.js',
-      swDest: 'sw.js',
+    new WorkboxPlugin.GenerateSW({
+      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
+      runtimeCaching: [
+        {
+          urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
+          handler: 'CacheFirst',
+          options: {
+            cacheName: 'images',
+            expiration: {
+              maxEntries: 10,
+            },
+          },
+        },
+      ],
     }),
   ],
 };

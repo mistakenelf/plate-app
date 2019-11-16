@@ -25,7 +25,6 @@
     width: 100%;
     justify-content: space-between;
     height: 55px;
-    background-color: var(--primary);
     position: fixed;
     z-index: 10;
     left: 0;
@@ -74,7 +73,7 @@
   }
 </style>
 
-<nav class="nav">
+<nav class="nav bg-teal-500">
   <div class="nav-left">
     <div class="menu-container">
       <div class="logo">🍛</div>

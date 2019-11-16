@@ -49,7 +49,9 @@
 </script>
 
 <style>
-  @import '../assets/styles/index.css';
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 </style>
 
 {#if initializing}

@@ -4,42 +4,12 @@
   export let variant = 'primary';
 </script>
 
-<style>
-  button {
-    border: none;
-    font-size: 16px;
-    font-weight: 700;
-    padding: 10px;
-    text-transform: uppercase;
-    border-radius: 3px;
-    cursor: pointer;
-  }
-
-  .full-width {
-    width: 100%;
-  }
-
-  .primary {
-    background: var(--primary);
-    color: var(--white);
-  }
-
-  .secondary {
-    background: var(--secondary);
-    color: var(--white);
-  }
-
-  .tertiary {
-    background: var(--tertiary);
-    color: var(--white);
-  }
-</style>
-
 <button
-  class:primary={variant === 'primary'}
-  class:secondary={variant === 'secondary'}
-  class:tertiary={variant === 'tertiary'}
-  class:full-width={fullWidth}
+  class="border-none p-2 uppercase rounded pointer"
+  class:bg-teal-500={variant === 'primary'}
+  class:bg-orange-500={variant === 'secondary'}
+  class:blue-500={variant === 'tertiary'}
+  class:w-full={fullWidth}
   {type}>
   <slot />
 </button>

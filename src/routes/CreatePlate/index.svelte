@@ -25,11 +25,6 @@
 </script>
 
 <style>
-  .container {
-    padding: 20px;
-    margin-bottom: 75px;
-  }
-
   h1 {
     margin-bottom: 20px;
   }
@@ -61,8 +56,8 @@
   <title>Plate - Create Plate</title>
 </svelte:head>
 
-<div class="container">
-  <h1>Create a Plate</h1>
+<div class="p-4">
+  <h1 class="text-5xl">Create a Plate</h1>
   <p>
     Create a new plate to get started. Once a new plate is created, you'll be
     able to go into the newly created plate and edit details, add new things,
