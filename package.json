@@ -20,7 +20,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack",
-    "format": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\"",
+    "prettier": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\"",
     "eslint": "eslint --ext js,svelte ."
   },
   "husky": {
