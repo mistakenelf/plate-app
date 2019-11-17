@@ -57,7 +57,6 @@
     margin-left: 10px;
     font-size: 1.7rem;
     text-transform: uppercase;
-    color: var(--white);
     font-weight: 600;
   }
 
@@ -78,7 +77,7 @@
     <div class="menu-container">
       <div class="logo">🍛</div>
     </div>
-    <div class="brand">Plate</div>
+    <div class="brand text-white">Plate</div>
   </div>
   <div class="nav-right">
     <div
