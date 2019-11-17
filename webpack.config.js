@@ -8,7 +8,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
-const WorkboxPlugin = require('workbox-webpack-plugin');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 const env = require('dotenv').config({ path: __dirname + '/.env.example' });
 
@@ -17,7 +17,7 @@ const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
 
 module.exports = {
-  devtool: prod ? false : 'source-map',
+  devtool: prod ? false : 'cheap-module-source-map',
   entry: {
     bundle: ['./src/main.js'],
   },
@@ -133,7 +133,7 @@ module.exports = {
     }),
     new CompressionPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].[hash].css',
+      filename: !prod ? '[name].css' : '[name].[hash].css'
     }),
     new Dotenv({
       silent: true,
@@ -141,20 +141,9 @@ module.exports = {
     }),
     new ErrorOverlayPlugin(),
     new webpack.EnvironmentPlugin(Object.keys(env.parsed)),
-    new WorkboxPlugin.GenerateSW({
-      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
-      runtimeCaching: [
-        {
-          urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-          handler: 'CacheFirst',
-          options: {
-            cacheName: 'images',
-            expiration: {
-              maxEntries: 10,
-            },
-          },
-        },
-      ],
+    new WorkboxWebpackPlugin.InjectManifest({
+      swSrc: './src/sw.js',
+      swDest: 'sw.js',
     }),
   ],
 };
