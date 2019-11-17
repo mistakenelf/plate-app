@@ -46,7 +46,7 @@
     "dotenv-webpack": "^1.7.0",
     "error-overlay-webpack-plugin": "^0.4.1",
     "eslint": "^6.6.0",
-    "eslint-config-prettier": "^6.5.0",
+    "eslint-config-prettier": "^6.6.0",
     "eslint-loader": "^3.0.2",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-svelte3": "^2.7.3",
