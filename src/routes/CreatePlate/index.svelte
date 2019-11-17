@@ -2,6 +2,7 @@
   import Input from '../../components/Input';
   import Textarea from '../../components/Textarea';
   import { db } from '../../store/db';
+  import StickyNote from '../../components/StickyNote';
 
   import SavePlateButton from './components/SavePlateButton';
 
@@ -36,7 +37,7 @@
   <title>Plate - Create Plate</title>
 </svelte:head>
 
-<div class="p-4">
+<form class="p-4" on:submit|preventDefault={handleSubmit}>
   <h1 class="text-5xl text-gray-900">Create a Plate</h1>
   <p class="mb-4 text-gray-900">
     Create a new plate to get started. Once a new plate is created, you'll be
@@ -69,8 +70,9 @@
     isFormField
     on:change={handleChange}
     value={formValues.description} />
-</div>
-
-<form on:submit|preventDefault={handleSubmit}>
+  <div class="flex">
+    <StickyNote class="w-1/2" noteText={''} />
+    <StickyNote class="w-1/2" noteText={''} />
+  </div>
   <SavePlateButton />
 </form>

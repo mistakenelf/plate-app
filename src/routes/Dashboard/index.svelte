@@ -4,7 +4,7 @@
   import { db } from '../../store/db';
 
   import NewPlateButton from './components/NewPlateButton';
-  import StickyNote from './components/StickyNote';
+  import StickyNote from '../../components/StickyNote';
 
   let firstStickyNote = '';
   let secondStickyNote = '';
