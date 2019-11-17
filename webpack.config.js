@@ -133,7 +133,7 @@ module.exports = {
     }),
     new CompressionPlugin(),
     new MiniCssExtractPlugin({
-      filename: !prod ? '[name].css' : '[name].[hash].css'
+      filename: !prod ? '[name].css' : '[name].[hash].css',
     }),
     new Dotenv({
       silent: true,
