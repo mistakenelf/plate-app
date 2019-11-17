@@ -24,25 +24,6 @@
 </script>
 
 <style>
-  h1 {
-    margin-bottom: 20px;
-  }
-
-  p {
-    margin-bottom: 20px;
-  }
-
-  hr {
-    margin-bottom: 40px;
-  }
-
-  .label {
-    font-size: 14px;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-
   .input-row {
     display: grid;
     align-items: center;
@@ -56,13 +37,13 @@
 </svelte:head>
 
 <div class="p-4">
-  <h1 class="text-5xl">Create a Plate</h1>
-  <p>
+  <h1 class="text-5xl text-gray-900">Create a Plate</h1>
+  <p class="mb-4 text-gray-900">
     Create a new plate to get started. Once a new plate is created, you'll be
     able to go into the newly created plate and edit details, add new things,
     and start organizing your stuff.
   </p>
-  <hr />
+  <hr class="mb-12" />
   <div class="input-row">
     <Input
       name="name"
@@ -88,7 +69,6 @@
     isFormField
     on:change={handleChange}
     value={formValues.description} />
-  <div class="label">Add to your plate</div>
 </div>
 
 <form on:submit|preventDefault={handleSubmit}>

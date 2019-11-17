@@ -2,24 +2,11 @@
   import Navbar from './components/Navbar';
 </script>
 
-<style>
-  .navbar-container {
-    position: fixed;
-    top: 0;
-    width: 100%;
-  }
-
-  .content-container {
-    padding-top: 55px;
-    height: 100%;
-  }
-</style>
-
 <main>
-  <div class="navbar-container">
+  <div class="fixed top-9 w-full">
     <Navbar />
   </div>
-  <div class="content-container">
+  <div class="pt-12 h-full">
     <slot />
   </div>
 </main>

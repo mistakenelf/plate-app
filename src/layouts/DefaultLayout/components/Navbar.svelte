@@ -18,70 +18,19 @@
   }
 </script>
 
-<style>
-  .nav {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-    height: 55px;
-    position: fixed;
-    z-index: 10;
-    left: 0;
-  }
-
-  .nav-left {
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-
-  .menu-container {
-    width: 70px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .logo {
-    display: flex;
-    font-size: 40px;
-    line-height: 40px;
-    position: absolute;
-    top: 3px;
-  }
-
-  .brand {
-    margin-left: 10px;
-    font-size: 1.7rem;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-
-  .nav-right {
-    display: flex;
-    align-items: center;
-    height: 100%;
-  }
-
-  .menu-icon {
-    margin-right: 10px;
-    cursor: pointer;
-  }
-</style>
-
-<nav class="nav bg-teal-500">
-  <div class="nav-left">
-    <div class="menu-container bg-gray-700">
-      <div class="logo">🍛</div>
+<nav
+  class="flex items-center w-full justify-between h-12 fixed z-10 left-0
+  bg-teal-500">
+  <div class="flex items-center h-full">
+    <div class="w-16 h-full flex justify-center items-center bg-gray-700">
+      <div class="flex text-3xl mb-2">🍛</div>
     </div>
-    <div class="brand text-white">Plate</div>
+    <div class="ml-4 text-2xl uppercase font-semibold text-white">Plate</div>
   </div>
-  <div class="nav-right">
+  <div class="flex items-center h-full pr-4">
     <div
       bind:this={triggerEl}
-      class="menu-icon"
+      class="ml-4 cursor-pointer"
       aria-label="main menu"
       role="button"
       on:click={toggleMenu}>

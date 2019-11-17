@@ -2,30 +2,11 @@
   export let noteText = '';
 </script>
 
-<style>
-  .sticky-note {
-    background: #fffd75;
-    padding: 10px;
-  }
-
-  .title {
-    margin-bottom: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-
-  textarea {
-    background: transparent;
-    border: none;
-    width: 100%;
-  }
-</style>
-
-<div class="sticky-note">
-  <div class="title">Quick Note:</div>
+<div class="p-4 bg-yellow-300">
+  <div class="mb-4 text-md font-bold uppercase">Quick Note:</div>
   <textarea
-    rows="8"
+    class="bg-transparent border-none w-full"
+    rows="6"
     placeholder="Write a note"
     on:change
     bind:value={noteText} />
