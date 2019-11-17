@@ -38,7 +38,6 @@
 
   .menu-container {
     width: 70px;
-    background: var(--secondary);
     height: 100%;
     display: flex;
     justify-content: center;
@@ -74,7 +73,7 @@
 
 <nav class="nav bg-teal-500">
   <div class="nav-left">
-    <div class="menu-container">
+    <div class="menu-container bg-gray-700">
       <div class="logo">🍛</div>
     </div>
     <div class="brand text-white">Plate</div>
