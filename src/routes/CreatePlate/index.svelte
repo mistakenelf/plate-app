@@ -2,7 +2,6 @@
   import Input from '../../components/Input';
   import Textarea from '../../components/Textarea';
   import { db } from '../../store/db';
-  import RichTextEditor from '../../components/RichTextEditor';
 
   import SavePlateButton from './components/SavePlateButton';
 
@@ -90,7 +89,6 @@
     on:change={handleChange}
     value={formValues.description} />
   <div class="label">Add to your plate</div>
-  <RichTextEditor />
 </div>
 
 <form on:submit|preventDefault={handleSubmit}>
