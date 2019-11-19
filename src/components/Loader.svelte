@@ -12,7 +12,6 @@
 
   .loader div {
     position: absolute;
-    border: 4px solid var(--secondary);
     opacity: 1;
     border-radius: 50%;
     animation: ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -51,7 +50,7 @@
 
 <div class:full-page={fullPage}>
   <div class="loader">
-    <div />
-    <div />
+    <div class="border-gray-500 border-4" />
+    <div class="border-gray-500 border-4" />
   </div>
 </div>

@@ -9,16 +9,10 @@
   let viewBox = '';
 
   $: viewBox = '0 0 ' + icon.icon[0] + ' ' + icon.icon[1];
-  $: classes = 'fa-svelte ' + ($$props.class ? $$props.class : '');
+  $: classes =
+    'overflow-visible inline-block ' + ($$props.class ? $$props.class : '');
   $: path = icon.icon[4];
 </script>
-
-<style>
-  .fa-svelte {
-    overflow: visible;
-    display: inline-block;
-  }
-</style>
 
 <svg
   on:click

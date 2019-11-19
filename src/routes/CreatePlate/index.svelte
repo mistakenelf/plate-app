@@ -25,15 +25,6 @@
   }
 </script>
 
-<style>
-  .input-row {
-    display: grid;
-    align-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(49%, 1fr));
-    grid-gap: 1rem;
-  }
-</style>
-
 <svelte:head>
   <title>Plate - Create Plate</title>
 </svelte:head>
@@ -46,23 +37,27 @@
     and start organizing your stuff.
   </p>
   <hr class="mb-12" />
-  <div class="input-row">
-    <Input
-      name="name"
-      type="text"
-      label="Name"
-      isFormField
-      placeholder="plate name"
-      on:change={handleChange}
-      value={formValues.name} />
-    <Input
-      name="dueDate"
-      type="date"
-      label="Due Date"
-      isFormField
-      fullWidth
-      on:change={handleChange}
-      value={formValues.dueDate} />
+  <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
+    <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
+      <Input
+        name="name"
+        type="text"
+        label="Name"
+        isFormField
+        placeholder="plate name"
+        on:change={handleChange}
+        value={formValues.name} />
+    </div>
+    <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
+      <Input
+        name="dueDate"
+        type="date"
+        label="Due Date"
+        isFormField
+        fullWidth
+        on:change={handleChange}
+        value={formValues.dueDate} />
+    </div>
   </div>
   <Textarea
     name="description"
