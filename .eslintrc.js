@@ -17,8 +17,8 @@ module.exports = {
     },
   ],
   rules: {
-    'newline-before-return': 2,
-    'prefer-const': 2,
+    'newline-before-return': 'warn',
+    'prefer-const': 'warn',
     'no-console': 'warn',
   },
   settings: {},
