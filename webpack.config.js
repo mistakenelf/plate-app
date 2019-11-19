@@ -5,6 +5,7 @@ const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
@@ -22,8 +23,8 @@ module.exports = {
     bundle: ['./src/main.js'],
   },
   output: {
-    filename: '[name].js',
-    chunkFilename: '[name].[id].js',
+    filename: '[name].[hash].js',
+    chunkFilename: '[name].[hash].js',
     publicPath: '/',
   },
   devServer: {
@@ -116,7 +117,7 @@ module.exports = {
   },
   mode,
   plugins: [
-    new CleanWebpackPlugin({ cleanAfterEveryBuildPatterns: ['dist'] }),
+    new CleanWebpackPlugin(),
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {
         messages: ['You application is running on http://localhost:3000'],
@@ -128,13 +129,14 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './public/index.html',
       filename: './index.html',
-      minify: process.env.NODE_ENV === 'production',
+      minify: process.env.NODE_ENV === 'production' ? true : false,
       favicon: path.join(__dirname, './public/favicon.png'),
     }),
     new CompressionPlugin(),
     new MiniCssExtractPlugin({
       filename: !prod ? '[name].css' : '[name].[hash].css',
     }),
+    new OptimizeCSSAssetsPlugin({}),
     new Dotenv({
       silent: true,
       safe: false,
