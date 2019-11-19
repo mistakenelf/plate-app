@@ -1,9 +1,9 @@
 <script>
   import { onMount } from 'svelte';
+  import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
 
   import { db } from '../../store/db';
-
-  import NewPlateButton from './components/NewPlateButton';
+  import FAB from '../../components/FAB';
   import StickyNote from '../../components/StickyNote';
 
   let firstStickyNote = '';
@@ -63,4 +63,4 @@
     noteText={secondStickyNote} />
 </div>
 
-<NewPlateButton />
+<FAB icon={faPlus} />

@@ -1,10 +1,11 @@
 <script>
+  import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+
   import Input from '../../components/Input';
   import Textarea from '../../components/Textarea';
   import { db } from '../../store/db';
   import StickyNote from '../../components/StickyNote';
-
-  import SavePlateButton from './components/SavePlateButton';
+  import FAB from '../../components/FAB';
 
   const formValues = {
     name: '',
@@ -74,5 +75,5 @@
     <StickyNote class="w-1/2" noteText={''} />
     <StickyNote class="w-1/2" noteText={''} />
   </div>
-  <SavePlateButton />
+  <FAB icon={faSave} />
 </form>
