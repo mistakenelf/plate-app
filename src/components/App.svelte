@@ -52,6 +52,8 @@
   @tailwind base;
   @tailwind components;
   @tailwind utilities;
+
+  @import '../assets/styles/index.css';
 </style>
 
 {#if initializing}

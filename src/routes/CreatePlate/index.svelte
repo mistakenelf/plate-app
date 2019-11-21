@@ -29,7 +29,7 @@
   <title>Plate - Create Plate</title>
 </svelte:head>
 
-<form class="p-4" on:submit|preventDefault={handleSubmit}>
+<form class="p-4 pb-24" on:submit|preventDefault={handleSubmit}>
   <h1 class="text-5xl text-gray-900">Create a Plate</h1>
   <p class="mb-4 text-gray-900">
     Create a new plate to get started. Once a new plate is created, you'll be
@@ -66,9 +66,17 @@
     isFormField
     on:change={handleChange}
     value={formValues.description} />
-  <div class="flex">
-    <StickyNote class="w-1/2" noteText={''} />
-    <StickyNote class="w-1/2" noteText={''} />
+  <div class="flex flex-wrap -mx-2 overflow-hidden sm:-mx-1 md:-mx-2 xl:-mx-2">
+    <div
+      class="my-2 px-2 w-full overflow-hidden sm:my-1 sm:px-1 sm:w-full md:my-2
+      md:px-2 md:w-1/2 xl:my-2 xl:px-2 xl:w-1/4">
+      <StickyNote noteText="" />
+    </div>
+    <div
+      class="my-2 px-2 w-full overflow-hidden sm:my-1 sm:px-1 sm:w-full md:my-2
+      md:px-2 md:w-1/2 xl:my-2 xl:px-2 xl:w-1/4">
+      <StickyNote noteText="" />
+    </div>
   </div>
   <FAB icon={faSave} />
 </form>
