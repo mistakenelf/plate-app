@@ -17,6 +17,12 @@ export const plateSchema = {
     description: {
       type: 'string',
     },
+    noteOneText: {
+      type: 'string',
+    },
+    noteTwoText: {
+      type: 'string',
+    },
   },
   required: ['name', 'description'],
 };

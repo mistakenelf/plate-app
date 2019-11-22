@@ -11,9 +11,15 @@
     name: '',
     dueDate: '',
     description: '',
+    noteOneText: '',
+    noteTwoText: '',
   };
 
   function handleChange(e) {
+    formValues[e.target.name] = e.target.value;
+  }
+
+  function handleNoteChange(e) {
     formValues[e.target.name] = e.target.value;
   }
 
@@ -70,12 +76,18 @@
     <div
       class="my-2 px-2 w-full overflow-hidden sm:my-1 sm:px-1 sm:w-full md:my-2
       md:px-2 md:w-1/2 xl:my-2 xl:px-2 xl:w-1/4">
-      <StickyNote noteText="" />
+      <StickyNote
+        name="noteOneText"
+        noteText={formValues.noteOneText}
+        on:change={handleNoteChange} />
     </div>
     <div
       class="my-2 px-2 w-full overflow-hidden sm:my-1 sm:px-1 sm:w-full md:my-2
       md:px-2 md:w-1/2 xl:my-2 xl:px-2 xl:w-1/4">
-      <StickyNote noteText="" />
+      <StickyNote
+        name="noteTwoText"
+        noteText={formValues.noteTwoText}
+        on:change={handleNoteChange} />
     </div>
   </div>
   <FAB icon={faSave} />
