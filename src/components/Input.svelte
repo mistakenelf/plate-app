@@ -15,9 +15,9 @@
     {name}
     class:w-full={fullWidth}
     class:mb-8={isFormField}
-    class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full
-    py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white
-    focus:border-teal-500"
+    class="bg-gray-300 appearance-none border-2 border-gray-300 rounded w-full
+    py-3 px-4 text-gray-800 leading-tight focus:outline-none focus:bg-white
+    focus:border-blue-500"
     {type}
     {value}
     on:change />

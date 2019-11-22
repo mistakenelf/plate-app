@@ -7,6 +7,8 @@
   import StickyNote from '../../components/StickyNote';
   import FAB from '../../components/FAB';
 
+  import Header from './components/Header';
+
   const formValues = {
     name: '',
     dueDate: '',
@@ -36,13 +38,7 @@
 </svelte:head>
 
 <form class="p-4 pb-24" on:submit|preventDefault={handleSubmit}>
-  <h1 class="text-5xl text-gray-900">Create a Plate</h1>
-  <p class="mb-4 text-gray-900">
-    Create a new plate to get started. Once a new plate is created, you'll be
-    able to go into the newly created plate and edit details, add new things,
-    and start organizing your stuff.
-  </p>
-  <hr class="mb-12" />
+  <Header />
   <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
     <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
       <Input

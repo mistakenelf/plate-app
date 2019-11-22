@@ -20,7 +20,7 @@
 
 <nav
   class="flex items-center w-full justify-between h-12 fixed z-10 left-0
-  bg-teal-500">
+  bg-blue-500">
   <div class="flex items-center h-full">
     <div class="w-16 h-full flex justify-center items-center bg-gray-700">
       <div class="flex text-3xl mb-2">🍛</div>
