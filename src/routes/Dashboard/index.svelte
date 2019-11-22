@@ -1,9 +1,7 @@
 <script>
-  import { onMount } from 'svelte';
   import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
   import page from 'page';
 
-  import { db } from '../../store/db';
   import FAB from '../../components/FAB';
 </script>
 
