@@ -75,6 +75,7 @@ module.exports = {
         options: {
           cache: true,
           emitWarning: true,
+          emitError: false,
           failOnWarning: prod ? true : false,
           failOnError: true,
         },
