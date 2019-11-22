@@ -22,20 +22,17 @@
     });
   });
 
-  async function handleFirstStickyNoteChange(e) {
-    firstStickyNote = e.target.value;
+  async function handleNoteChange(e) {
+    if (e.target.name === 'firstStickyNote') {
+      firstStickyNote = e.target.value
+    }
+
+    if (e.target.name === 'secondStickyNote') {
+      secondStickyNote = e.target.value
+    }
 
     await $db.collections.stickynotes.upsert({
-      id: '123456',
-      noteText: e.target.value,
-    });
-  }
-
-  async function handleSecondStickyNoteChange(e) {
-    secondStickyNote = e.target.value;
-
-    await $db.collections.stickynotes.upsert({
-      id: '342234',
+      id: e.target.id,
       noteText: e.target.value,
     });
   }
@@ -51,14 +48,18 @@
     class="my-2 px-2 w-full overflow-hidden sm:my-1 sm:px-1 sm:w-full md:my-2
     md:px-2 md:w-1/2 xl:my-2 xl:px-2 xl:w-1/4">
     <StickyNote
-      on:change={handleFirstStickyNoteChange}
+      id="firstStickyNote"
+      name="firstStickyNote"
+      on:change={handleNoteChange}
       noteText={firstStickyNote} />
   </div>
   <div
     class="my-2 px-2 w-full overflow-hidden sm:my-1 sm:px-1 sm:w-full md:my-2
     md:px-2 md:w-1/2 xl:my-2 xl:px-2 xl:w-1/4">
     <StickyNote
-      on:change={handleSecondStickyNoteChange}
+      id="secondStickyNote"
+      name="secondStickyNote"
+      on:change={handleNoteChange}
       noteText={secondStickyNote} />
   </div>
 </div>

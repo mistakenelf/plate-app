@@ -1,6 +1,7 @@
 <script>
   export let noteText = '';
   export let name = '';
+  export let id = '';
 </script>
 
 <div class="p-4 bg-yellow-300">
@@ -8,6 +9,7 @@
   <textarea
     class="bg-transparent border-none w-full"
     {name}
+    {id}
     rows="6"
     placeholder="Write a note"
     on:change
