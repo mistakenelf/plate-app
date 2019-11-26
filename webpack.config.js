@@ -36,7 +36,7 @@ module.exports = {
     quiet: true,
     overlay: {
       warnings: false,
-      errors: true,
+      errors: false,
     },
   },
   optimization: {
