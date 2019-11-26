@@ -27,7 +27,11 @@
     </div>
     <div class="ml-4 text-2xl uppercase font-semibold text-white">Plate</div>
   </div>
-  <div class="flex items-center h-full pr-4">
+  <div class="sm:hidden lg:flex flex items-center h-full pr-4">
+    <a class="text-white font-bold text-sm uppercase mr-4" href="/create-plate">Create Plate</a>
+    <a class="text-white font-bold text-sm uppercase" href="/">Dashboard</a>
+  </div>
+  <div class="lg:hidden flex items-center h-full pr-4">
     <div
       bind:this={triggerEl}
       class="ml-4 cursor-pointer"
