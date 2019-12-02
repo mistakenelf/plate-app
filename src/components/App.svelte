@@ -1,17 +1,9 @@
 <script>
-  import { onMount } from 'svelte';
   import router from 'page';
 
-  import { createDatabase } from '../helpers/db';
-  import { db } from '../store/db';
   import CreatePlate from '../routes/CreatePlate';
   import Dashboard from '../routes/Dashboard';
   import DefaultLayout from '../layouts/DefaultLayout';
-  import { registerServiceWorker } from '../helpers/registerServiceWorker';
-
-  import Loader from './Loader';
-
-  let initializing = true;
 
   let routeProps = {
     component: Dashboard,
@@ -33,33 +25,8 @@
   });
 
   router.start();
-
-  onMount(async () => {
-    if (process.env.NODE_ENV === 'production') {
-      registerServiceWorker();
-    }
-
-    initializing = true;
-
-    const database = await createDatabase();
-    db.set(database);
-
-    initializing = false;
-  });
 </script>
 
-<style>
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-
-  @import '../assets/styles/index.css';
-</style>
-
-{#if initializing}
-  <Loader fullPage />
-{:else}
-  <svelte:component this={routeProps.layout}>
-    <svelte:component this={routeProps.component} {...routeProps} />
-  </svelte:component>
-{/if}
+<svelte:component this={routeProps.layout}>
+  <svelte:component this={routeProps.component} {...routeProps} />
+</svelte:component>

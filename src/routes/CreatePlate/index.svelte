@@ -3,7 +3,6 @@
 
   import Input from '../../components/Input';
   import Textarea from '../../components/Textarea';
-  import { db } from '../../store/db';
   import StickyNote from '../../components/StickyNote';
   import FAB from '../../components/FAB';
 
@@ -25,12 +24,7 @@
     formValues[e.target.name] = e.target.value;
   }
 
-  async function handleSubmit() {
-    await $db.collections.plates.insert({
-      id: new Date().getTime().toString(),
-      ...formValues,
-    });
-  }
+  async function handleSubmit() {}
 </script>
 
 <svelte:head>
