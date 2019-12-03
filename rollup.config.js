@@ -4,6 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import postcss from 'rollup-plugin-postcss';
+import { eslint } from 'rollup-plugin-eslint';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -17,7 +18,7 @@ const serve = () => {
 
         require('child_process').spawn(
           'npm',
-          ['run', 'start', '--', '--dev', '-s'],
+          ['run', 'serve', '--', '--dev', '-s', '--port 3000'],
           {
             stdio: ['ignore', 'inherit', 'inherit'],
             shell: true,
@@ -37,6 +38,7 @@ export default {
     file: 'public/build/bundle.js',
   },
   plugins: [
+    eslint({}),
     postcss({ extract: true }),
     svelte({
       dev: !production,
@@ -52,10 +54,14 @@ export default {
     }),
     commonjs(),
     !production && serve(),
-    !production && livereload('public'),
+    !production &&
+      livereload({
+        watch: 'public',
+        port: 8080,
+      }),
     production && terser(),
   ],
   watch: {
-    clearScreen: false,
+    clearScreen: true,
   },
 };

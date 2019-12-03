@@ -2,6 +2,9 @@
   command = "npm run build"
   publish = "public"
 
+[dev]
+  command = "rollup -c -w"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

@@ -17,9 +17,11 @@
     "social"
   ],
   "scripts": {
-    "dev": "rollup -c -w",
+    "bootstrap": "netlify dev:exec node ./scripts/bootstrap-fauna-database.js",
+    "start": "netlify dev",
+    "prebuild": "echo 'setup faunaDB' && npm run bootstrap",
     "build": "rollup -c",
-    "start": "sirv public",
+    "serve": "sirv public",
     "prettier": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\"",
     "eslint": "eslint --ext js,svelte ."
   },
@@ -45,11 +47,13 @@
     "eslint-plugin-svelte3": "^2.7.3",
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
+    "netlify-cli": "^2.21.0",
     "postcss": "^7.0.23",
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
     "rollup": "^1.27.8",
     "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-livereload": "^1.0.4",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^2.0.3",
@@ -61,6 +65,7 @@
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "faunadb": "^2.10.0",
     "page": "^1.11.5",
     "tailwindcss": "^1.1.4"
   }
