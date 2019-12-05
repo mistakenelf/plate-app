@@ -4,11 +4,12 @@
   import { onMount } from 'svelte'
 
   import FAB from '../../components/FAB';
-  let json
+
+  let dashboardData = ''
 
   onMount(async () => {
     const data = await fetch("/.netlify/functions/hello")
-    json = await data.json()
+    dashboardData = await data.json();
   })
 </script>
 
@@ -16,7 +17,6 @@
   <title>Plate - Dashboard</title>
 </svelte:head>
 
-<div>Dashboard</div>
-<div>{json}</div>>
-
+<h1>Dashboard</h1>
+<div>{dashboardData}</div>
 <FAB icon={faPlus} on:click={() => page('/create-plate')} />
