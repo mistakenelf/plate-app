@@ -17,9 +17,7 @@
     "social"
   ],
   "scripts": {
-    "bootstrap": "netlify dev:exec node ./scripts/bootstrap-fauna-database.js",
     "start": "netlify dev",
-    "prebuild": "echo 'setup faunaDB' && npm run bootstrap",
     "build": "rollup -c",
     "serve": "sirv public",
     "prettier": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\"",
