@@ -18,7 +18,7 @@ const serve = () => {
 
         require('child_process').spawn(
           'npm',
-          ['run', 'serve', '--', '--dev', '-s', '--port 3000'],
+          ['run', 'serve', '--', '--dev', '-s', '--port 5000'],
           {
             stdio: ['ignore', 'inherit', 'inherit'],
             shell: true,
@@ -57,11 +57,11 @@ export default {
     !production &&
       livereload({
         watch: 'public',
-        port: 8080,
+        port: 3000
       }),
     production && terser(),
   ],
   watch: {
-    clearScreen: true,
+    clearScreen: false,
   },
 };
