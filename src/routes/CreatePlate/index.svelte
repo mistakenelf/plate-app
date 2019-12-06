@@ -19,7 +19,7 @@
   };
 
   const handleSubmit = () => {
-    plateApi.create(formValues).then(res => console.log(res));
+    plateApi.create(formValues).then(res => res);
   };
 </script>
 
