@@ -1,6 +1,0 @@
-exports.handler = function(event, context, callback) {
-  callback(null, {
-    statusCode: 200,
-    body: JSON.stringify("This is some dashboard data")
-  });
-};
