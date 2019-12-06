@@ -57,7 +57,7 @@ export default {
     !production &&
       livereload({
         watch: 'public',
-        port: 3000
+        port: 3000,
       }),
     production && terser(),
   ],
