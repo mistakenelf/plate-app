@@ -17,7 +17,7 @@
     "social"
   ],
   "scripts": {
-    "start": "netlify dev --port 8080",
+    "start": "netlify dev",
     "build": "rollup -c",
     "serve": "sirv public",
     "prettier": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\"",
