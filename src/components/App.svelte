@@ -3,7 +3,7 @@
   import { onMount } from 'svelte';
   import GoTrue from 'gotrue-js';
 
-  import { auth } from '../store/auth'
+  import { authApi } from '../store/auth';
   import CreatePlate from '../routes/CreatePlate';
   import Dashboard from '../routes/Dashboard';
   import Login from '../routes/Login';
@@ -17,7 +17,7 @@
       setCookie: false,
     });
 
-    $auth.set(authClient);
+    authApi.set(authClient);
   });
 
   let routeProps = {

@@ -5,6 +5,7 @@
   export let name = '';
   export let isFormField = false;
   export let fullWidth = false;
+  export let placeholder = '';
 </script>
 
 <div class:w-full={fullWidth} class="flex flex-col">
@@ -19,5 +20,6 @@
     px-4 text-gray-800 leading-tight focus:outline-none focus:border-blue-500"
     {type}
     {value}
+    {placeholder}
     on:change />
 </div>

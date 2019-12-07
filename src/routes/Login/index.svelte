@@ -1,7 +1,7 @@
 <script>
   import Input from '../../components/Input';
   import Button from '../../components/Button';
-  import { auth } from '../../store/auth';
+  import { authApi, currentUser } from '../../store/auth';
 
   const formValues = {
     email: '',
@@ -13,17 +13,18 @@
   };
 
   const handleSubmit = () => {
-    $auth
+    $authApi
       .login(formValues.email, formValues.password)
-      .then(response => {
-        console.log('Success! Response: ' + JSON.stringify({ response }), form);
+      .then(res => {
+        currentUser.set(res);
       })
-      .catch(error => console.log('Failed :( ' + JSON.stringify(error), form));
+      .catch(err => console.log('Failed :( ' + JSON.stringify(err)));
   };
 </script>
 
 <div class="w-full h-full flex items-center justify-center p-4">
   <form
+    on:submit|preventDefault={handleSubmit}
     class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 w-full md:w-3/4
     lg:w-1/3 xl:w-1/4">
     <h1 class="text-3xl text-gray-800 mb-4 font-bold">Login</h1>
@@ -32,13 +33,17 @@
       type="email"
       label="Email"
       isFormField
-      placeholder="email address" />
+      placeholder="email address"
+      on:change={handleChange}
+      value={formValues.email} />
     <Input
       name="password"
       type="password"
       label="Password"
       isFormField
-      placeholder="password" />
+      placeholder="password"
+      on:change={handleChange}
+      value={formValues.password} />
     <Button type="submit" fullWidth>Login</Button>
   </form>
 </div>

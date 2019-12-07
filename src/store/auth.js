@@ -1,3 +1,5 @@
 import { writable } from 'svelte/store';
 
-export const auth = writable({});
+export const authApi = writable({});
+
+export const currentUser = writable({});
