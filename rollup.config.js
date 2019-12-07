@@ -38,7 +38,7 @@ export default {
     file: 'public/build/bundle.js',
   },
   plugins: [
-    eslint({}),
+    eslint(),
     postcss({ extract: true }),
     svelte({
       dev: !production,

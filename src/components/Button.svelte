@@ -1,14 +1,12 @@
 <script>
   export let fullWidth = false;
   export let type = 'button';
-  export let variant = 'primary';
 </script>
 
 <button
-  class="border-none p-2 uppercase rounded pointer"
-  class:bg-teal-500={variant === 'primary'}
-  class:bg-orange-500={variant === 'secondary'}
-  class:blue-500={variant === 'tertiary'}
+  class="rounded px-4 md:px-5 xl:px-4 py-3 md:py-4 xl:py-3 bg-teal-500
+  hover:bg-teal-600 md:text-xl uppercase xl:text-base text-white font-semibold
+  leading-tight shadow-md"
   class:w-full={fullWidth}
   {type}>
   <slot />

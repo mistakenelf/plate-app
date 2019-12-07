@@ -10,6 +10,25 @@
   let triggerEl;
   let menuOpen = false;
 
+  const navItems = [
+    {
+      label: 'Dashboard',
+      href: '/',
+    },
+    {
+      label: 'Create Plate',
+      href: '/create-plate',
+    },
+    {
+      label: 'Login',
+      href: '/login',
+    },
+    {
+      label: 'Register',
+      href: '/register',
+    },
+  ];
+
   function toggleMenu() {
     menuOpen = !menuOpen;
   }
@@ -36,14 +55,13 @@
     </div>
   </div>
   <div class="hidden lg:flex items-center h-full pr-4">
-    <a
-      class="text-white font-extrabold text-sm uppercase mr-4"
-      href="/create-plate">
-      Create Plate
-    </a>
-    <a class="text-white font-extrabold text-sm uppercase" href="/">
-      Dashboard
-    </a>
+    {#each navItems as navItem}
+      <a
+        class="text-white font-extrabold text-sm uppercase mr-4"
+        href={navItem.href}>
+        {navItem.label}
+      </a>
+    {/each}
   </div>
   <div class="lg:hidden flex items-center h-full pr-4">
     <div
