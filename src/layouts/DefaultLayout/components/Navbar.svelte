@@ -4,6 +4,7 @@
 
   import ClickOutside from '../../../components/ClickOutside';
   import Icon from '../../../components/Icon';
+  import authApi from '../../../api/auth'
 
   import MainMenu from './MainMenu';
 
@@ -37,7 +38,9 @@
     menuOpen = false;
   };
 
-  const handleLogout = () => {};
+  const handleLogout = () => {
+    authApi.logout().then(res => res);
+  };
 </script>
 
 <nav
