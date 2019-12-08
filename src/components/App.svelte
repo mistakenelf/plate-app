@@ -14,7 +14,7 @@
     const authClient = new GoTrue({
       APIUrl: 'https://plate-app.netlify.com/.netlify/identity',
       audience: '',
-      setCookie: false,
+      setCookie: true,
     });
 
     authApi.set(authClient);

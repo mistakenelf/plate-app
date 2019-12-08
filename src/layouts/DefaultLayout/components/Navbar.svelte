@@ -2,6 +2,7 @@
   import { faTh } from '@fortawesome/free-solid-svg-icons/faTh';
   import page from 'page';
 
+  import { currentUser } from '../../../store/auth';
   import ClickOutside from '../../../components/ClickOutside';
   import Icon from '../../../components/Icon';
 
@@ -14,28 +15,36 @@
     {
       label: 'Dashboard',
       href: '/',
+      shouldShow: $currentUser !== {},
     },
     {
       label: 'Create Plate',
       href: '/create-plate',
+      shouldShow: $currentUser !== {},
     },
     {
       label: 'Login',
       href: '/login',
+      shouldShow: $currentUser === {},
     },
     {
       label: 'Register',
       href: '/register',
+      shouldShow: $currentUser === {},
     },
   ];
 
-  function toggleMenu() {
+  const toggleMenu = () => {
     menuOpen = !menuOpen;
-  }
+  };
 
-  function closeMenu() {
+  const closeMenu = () => {
     menuOpen = false;
-  }
+  };
+
+  const handleLogout = () => {
+    $currentUser.logout().then(res => console.log(res));
+  };
 </script>
 
 <nav
@@ -56,12 +65,19 @@
   </div>
   <div class="hidden lg:flex items-center h-full pr-4">
     {#each navItems as navItem}
-      <a
-        class="text-white font-extrabold text-sm uppercase mr-4"
-        href={navItem.href}>
-        {navItem.label}
-      </a>
+      {#if navItem.shouldShow}
+        <a
+          class="text-white font-extrabold text-sm uppercase mr-4"
+          href={navItem.href}>
+          {navItem.label}
+        </a>
+      {/if}
     {/each}
+    <div
+      on:click={() => handleLogout()}
+      class="text-white font-extrabold text-sm uppercase mr-4 cursor-pointer">
+      Logout
+    </div>
   </div>
   <div class="lg:hidden flex items-center h-full pr-4">
     <div

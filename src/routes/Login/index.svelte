@@ -1,4 +1,6 @@
 <script>
+  import page from 'page';
+
   import Input from '../../components/Input';
   import Button from '../../components/Button';
   import { authApi, currentUser } from '../../store/auth';
@@ -17,6 +19,8 @@
       .login(formValues.email, formValues.password)
       .then(res => {
         currentUser.set(res);
+        console.log($currentUser);
+        page('/');
       })
       .catch(err => console.log('Failed :( ' + JSON.stringify(err)));
   };
@@ -26,7 +30,7 @@
   <form
     on:submit|preventDefault={handleSubmit}
     class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 w-full md:w-3/4
-    lg:w-1/3 xl:w-1/4">
+    lg:w-1/2 xl:w-1/3">
     <h1 class="text-3xl text-gray-800 mb-4 font-bold">Login</h1>
     <Input
       name="email"
