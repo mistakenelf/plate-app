@@ -15,22 +15,18 @@
     {
       label: 'Dashboard',
       href: '/',
-      shouldShow: $currentUser !== {},
     },
     {
       label: 'Create Plate',
       href: '/create-plate',
-      shouldShow: $currentUser !== {},
     },
     {
       label: 'Login',
       href: '/login',
-      shouldShow: $currentUser === {},
     },
     {
       label: 'Register',
       href: '/register',
-      shouldShow: $currentUser === {},
     },
   ];
 
@@ -65,13 +61,11 @@
   </div>
   <div class="hidden lg:flex items-center h-full pr-4">
     {#each navItems as navItem}
-      {#if navItem.shouldShow}
-        <a
-          class="text-white font-extrabold text-sm uppercase mr-4"
-          href={navItem.href}>
-          {navItem.label}
-        </a>
-      {/if}
+      <a
+        class="text-white font-extrabold text-sm uppercase mr-4"
+        href={navItem.href}>
+        {navItem.label}
+      </a>
     {/each}
     <div
       on:click={() => handleLogout()}
