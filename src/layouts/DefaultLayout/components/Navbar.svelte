@@ -2,7 +2,6 @@
   import { faTh } from '@fortawesome/free-solid-svg-icons/faTh';
   import page from 'page';
 
-  import { currentUser } from '../../../store/auth';
   import ClickOutside from '../../../components/ClickOutside';
   import Icon from '../../../components/Icon';
 
@@ -38,9 +37,7 @@
     menuOpen = false;
   };
 
-  const handleLogout = () => {
-    $currentUser.logout().then(res => console.log(res));
-  };
+  const handleLogout = () => {};
 </script>
 
 <nav

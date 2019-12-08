@@ -1,9 +1,7 @@
 <script>
-  import page from 'page';
-
+  import authApi from '../../api/auth';
   import Input from '../../components/Input';
   import Button from '../../components/Button';
-  import { authApi, currentUser } from '../../store/auth';
 
   const formValues = {
     email: '',
@@ -15,14 +13,7 @@
   };
 
   const handleSubmit = () => {
-    $authApi
-      .login(formValues.email, formValues.password)
-      .then(res => {
-        currentUser.set(res);
-        console.log($currentUser);
-        page('/');
-      })
-      .catch(err => console.log('Failed :( ' + JSON.stringify(err)));
+    authApi.login(formValues).then(res => res);
   };
 </script>
 

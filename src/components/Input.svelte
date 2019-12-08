@@ -9,7 +9,7 @@
 </script>
 
 <div class:w-full={fullWidth} class="flex flex-col">
-  <label class="block text-gray-600 font-bold mb-1 uppercase text-sm">
+  <label class="block text-gray-700 font-bold mb-1 uppercase text-sm">
     {label}
   </label>
   <input
