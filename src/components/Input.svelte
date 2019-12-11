@@ -6,6 +6,7 @@
   export let isFormField = false;
   export let fullWidth = false;
   export let placeholder = '';
+  export let required = false;
 </script>
 
 <div class:w-full={fullWidth} class="flex flex-col">
@@ -21,5 +22,6 @@
     {type}
     {value}
     {placeholder}
+    {required}
     on:change />
 </div>

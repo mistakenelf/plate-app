@@ -4,7 +4,7 @@
 
   import ClickOutside from '../../../components/ClickOutside';
   import Icon from '../../../components/Icon';
-  import authApi from '../../../api/auth'
+  import authApi from '../../../api/auth';
 
   import MainMenu from './MainMenu';
 

@@ -6,11 +6,9 @@ const client = new faunadb.Client({
   secret: process.env.FAUNADB_SERVER_SECRET,
 });
 
-exports.handler = (event, context) => {
+exports.handler = () => {
   return client
-    .query(
-      q.HasIdentity()
-    )
+    .query(q.HasIdentity())
     .then(response => {
       return {
         statusCode: 200,

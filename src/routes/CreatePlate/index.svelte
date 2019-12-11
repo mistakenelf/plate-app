@@ -5,6 +5,7 @@
   import Textarea from '../../components/Textarea';
   import FAB from '../../components/FAB';
   import plateApi from '../../api/plateApi';
+  import Select from '../../components/Select';
 
   import Header from './components/Header';
 
@@ -12,14 +13,15 @@
     name: '',
     dueDate: '',
     description: '',
+    status: '',
   };
 
   const handleChange = e => {
     formValues[e.target.name] = e.target.value;
   };
 
-  const handleSubmit = () => {
-    plateApi.create(formValues).then(res => res);
+  const handleSubmit = async () => {
+    await plateApi.create(formValues);
   };
 </script>
 
@@ -36,7 +38,8 @@
         type="text"
         label="Name"
         isFormField
-        placeholder="plate name"
+        placeholder="name"
+        required
         on:change={handleChange}
         value={formValues.name} />
     </div>
@@ -49,6 +52,19 @@
         fullWidth
         on:change={handleChange}
         value={formValues.dueDate} />
+    </div>
+  </div>
+  <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
+    <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
+      <Select
+        name="status"
+        label="Status"
+        isFormField
+        value={formValues.status}
+        on:change={handleChange}>
+        <option value="todo">To Do</option>
+        <option value="complete">Complete</option>
+      </Select>
     </div>
   </div>
   <Textarea

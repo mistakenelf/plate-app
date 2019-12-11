@@ -18,15 +18,15 @@ const login = data => {
 
 const logout = () => {
   return fetch('/.netlify/functions/logout').then(res => res.json());
-}
+};
 
 const currentUser = () => {
-  return fetch('/.netlify/functions/user').then(res => res);
-}
+  return fetch('/.netlify/functions/user').then(res => res.json());
+};
 
 export default {
   register,
   login,
   logout,
-  currentUser
+  currentUser,
 };

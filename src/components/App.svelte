@@ -1,11 +1,13 @@
 <script>
   import router from 'page';
+  import { onMount } from 'svelte';
 
   import CreatePlate from '../routes/CreatePlate';
   import Dashboard from '../routes/Dashboard';
   import Login from '../routes/Login';
   import Register from '../routes/Register';
   import DefaultLayout from '../layouts/DefaultLayout';
+  import { registerServiceWorker } from '../helpers/registerServiceWorker';
 
   let routeProps = {
     component: Dashboard,
@@ -40,8 +42,22 @@
     };
   });
 
+  onMount(() => {
+    if (process.env.NODE_ENV === 'production') {
+      registerServiceWorker();
+    }
+  });
+
   router.start();
 </script>
+
+<style>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @import '../assets/styles/index.css';
+</style>
 
 <svelte:component this={routeProps.layout}>
   <svelte:component this={routeProps.component} {...routeProps} />

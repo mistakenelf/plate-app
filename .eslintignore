@@ -1,4 +1,5 @@
 node_modules/
-src/main.css
-public/index.html
-public/build
+src/sw.js
+dist/
+src/assets
+public

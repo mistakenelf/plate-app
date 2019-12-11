@@ -1,10 +1,10 @@
 [build]
   functions = "functions"
   command = "npm run build"
-  publish = "public"
+  publish = "dist"
 
 [dev]
-  command = "rollup -c -w"
+  port = 3000
 
 [[redirects]]
   from = "/*"

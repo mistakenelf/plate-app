@@ -7,7 +7,7 @@ const client = new faunadb.Client({
   secret: process.env.FAUNADB_SERVER_SECRET,
 });
 
-exports.handler = (event, context) => {
+exports.handler = () => {
   return client
     .query(q.Paginate(q.Match(q.Ref('indexes/all_plates'))))
     .then(response => {

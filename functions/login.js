@@ -6,7 +6,7 @@ const client = new faunadb.Client({
   secret: process.env.FAUNADB_SERVER_SECRET,
 });
 
-exports.handler = (event, context) => {
+exports.handler = event => {
   const data = JSON.parse(event.body);
 
   return client
