@@ -1,19 +1,24 @@
 <script>
   import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+  import page from 'page';
 
   import Input from '../../components/Input';
   import Textarea from '../../components/Textarea';
   import FAB from '../../components/FAB';
   import plateApi from '../../api/plateApi';
   import Select from '../../components/Select';
+  import Loader from '../../components/Loader';
 
   import Header from './components/Header';
+
+  let loading = false;
 
   const formValues = {
     name: '',
     dueDate: '',
     description: '',
     status: '',
+    category: '',
   };
 
   const handleChange = e => {
@@ -21,7 +26,10 @@
   };
 
   const handleSubmit = async () => {
+    loading = true;
     await plateApi.create(formValues);
+    loading = false;
+    page('/');
   };
 </script>
 
@@ -29,50 +37,67 @@
   <title>Plate - Create Plate</title>
 </svelte:head>
 
-<form class="p-4 pb-24" on:submit|preventDefault={handleSubmit}>
-  <Header />
-  <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
-    <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
-      <Input
-        name="name"
-        type="text"
-        label="Name"
-        isFormField
-        placeholder="name"
-        required
-        on:change={handleChange}
-        value={formValues.name} />
+{#if loading}
+  <Loader fullPage />
+{:else}
+  <form class="p-4 pb-24" on:submit|preventDefault={handleSubmit}>
+    <Header />
+    <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
+      <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
+        <Input
+          name="name"
+          type="text"
+          label="Name"
+          isFormField
+          placeholder="name"
+          required
+          on:change={handleChange}
+          value={formValues.name} />
+      </div>
+      <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
+        <Input
+          name="dueDate"
+          type="date"
+          label="Due Date"
+          isFormField
+          fullWidth
+          on:change={handleChange}
+          value={formValues.dueDate} />
+      </div>
     </div>
-    <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
-      <Input
-        name="dueDate"
-        type="date"
-        label="Due Date"
-        isFormField
-        fullWidth
-        on:change={handleChange}
-        value={formValues.dueDate} />
+    <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
+      <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
+        <Select
+          name="status"
+          label="Status"
+          isFormField
+          value={formValues.status}
+          on:change={handleChange}>
+          <option value="todo">To Do</option>
+          <option value="complete">Complete</option>
+        </Select>
+      </div>
+      <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
+        <Select
+          name="category"
+          label="Category"
+          isFormField
+          value={formValues.category}
+          on:change={handleChange}>
+          <option value="grocery">Groceries</option>
+          <option value="work">Work</option>
+          <option value="home">Home</option>
+          <option value="school">School</option>
+        </Select>
+      </div>
     </div>
-  </div>
-  <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
-    <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
-      <Select
-        name="status"
-        label="Status"
-        isFormField
-        value={formValues.status}
-        on:change={handleChange}>
-        <option value="todo">To Do</option>
-        <option value="complete">Complete</option>
-      </Select>
-    </div>
-  </div>
-  <Textarea
-    name="description"
-    rows={10}
-    label="Description"
-    isFormField
-    on:change={handleChange}
-    value={formValues.description} />
-  <FAB icon={faSave} />
-</form>
+    <Textarea
+      name="description"
+      rows={10}
+      label="Description"
+      isFormField
+      on:change={handleChange}
+      value={formValues.description} />
+    <FAB icon={faSave} />
+  </form>
+{/if}
