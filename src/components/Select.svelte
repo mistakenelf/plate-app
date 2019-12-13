@@ -5,6 +5,8 @@
   export let value = '';
   export let placeholder = '';
   export let required = false;
+  export let name = '';
+  export let id = '';
 </script>
 
 <div class:w-full={fullWidth} class="flex flex-col relative">
@@ -16,6 +18,8 @@
     class:w-full={fullWidth}
     class:mb-8={isFormField}
     {value}
+    {name}
+    {id}
     {placeholder}
     {required}
     class="bg-white appearance-none border-2 border-gray-400 rounded w-full py-3

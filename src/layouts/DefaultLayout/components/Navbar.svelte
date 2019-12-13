@@ -38,8 +38,8 @@
     menuOpen = false;
   };
 
-  const handleLogout = () => {
-    authApi.logout().then(res => res);
+  const handleLogout = async () => {
+    await authApi.logout();
   };
 </script>
 

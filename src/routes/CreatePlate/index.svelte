@@ -17,7 +17,7 @@
     name: '',
     dueDate: '',
     description: '',
-    status: '',
+    status: 'open',
     category: '',
   };
 
@@ -73,7 +73,8 @@
           isFormField
           value={formValues.status}
           on:change={handleChange}>
-          <option value="todo">To Do</option>
+          <option value="open">Open</option>
+          <option value="in progress">In Progress</option>
           <option value="complete">Complete</option>
         </Select>
       </div>
