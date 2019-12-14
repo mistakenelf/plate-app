@@ -5,7 +5,7 @@
   import Input from '../../components/Input';
   import Textarea from '../../components/Textarea';
   import FAB from '../../components/FAB';
-  import plateApi from '../../api/plateApi';
+  import plateApi from '../../api/plate';
   import Select from '../../components/Select';
   import Loader from '../../components/Loader';
 

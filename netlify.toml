@@ -4,7 +4,7 @@
   publish = "dist"
 
 [dev]
-  port = 3000
+  functionsPort = 3000
 
 [[redirects]]
   from = "/*"

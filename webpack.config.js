@@ -32,6 +32,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 5000,
+    disableHostCheck: true,
     open: false,
     quiet: true,
     overlay: {

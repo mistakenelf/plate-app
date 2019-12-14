@@ -6,7 +6,7 @@
   export let placeholder = '';
   export let required = false;
   export let name = '';
-  export let id = '';
+  export let id;
 </script>
 
 <div class:w-full={fullWidth} class="flex flex-col relative">

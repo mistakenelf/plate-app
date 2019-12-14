@@ -7,7 +7,7 @@
   import { getId } from '../../helpers/getId';
   import Icon from '../../components/Icon';
   import Plate from '../../components/Plate';
-  import plateApi from '../../api/plateApi';
+  import plateApi from '../../api/plate';
   import FAB from '../../components/FAB';
   import Loader from '../../components/Loader';
 
@@ -35,7 +35,7 @@
     </div>
   </div>
 {:else}
-  <div class="m-4">
+  <div class="m-4 mb-24">
     {#each plates as plate, i}
       <Plate
         name={plate.data.name}

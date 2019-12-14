@@ -1,34 +1,16 @@
 <script>
   import { faTh } from '@fortawesome/free-solid-svg-icons/faTh';
   import page from 'page';
+  import netlifyIdentity from 'netlify-identity-widget';
 
+  import { currentUser } from '../../../store/auth';
   import ClickOutside from '../../../components/ClickOutside';
   import Icon from '../../../components/Icon';
-  import authApi from '../../../api/auth';
 
   import MainMenu from './MainMenu';
 
   let triggerEl;
   let menuOpen = false;
-
-  const navItems = [
-    {
-      label: 'Dashboard',
-      href: '/',
-    },
-    {
-      label: 'Create Plate',
-      href: '/create-plate',
-    },
-    {
-      label: 'Login',
-      href: '/login',
-    },
-    {
-      label: 'Register',
-      href: '/register',
-    },
-  ];
 
   const toggleMenu = () => {
     menuOpen = !menuOpen;
@@ -38,8 +20,13 @@
     menuOpen = false;
   };
 
-  const handleLogout = async () => {
-    await authApi.logout();
+  const handleLogin = () => {
+    netlifyIdentity.open('login');
+
+    netlifyIdentity.on('login', user => {
+      currentUser.set(user);
+      netlifyIdentity.close();
+    });
   };
 </script>
 
@@ -60,17 +47,23 @@
     </div>
   </div>
   <div class="hidden lg:flex items-center h-full pr-4">
-    {#each navItems as navItem}
-      <a
-        class="text-white font-extrabold text-sm uppercase mr-4"
-        href={navItem.href}>
-        {navItem.label}
-      </a>
-    {/each}
+    <a class="text-white font-extrabold text-sm uppercase mr-4" href="/">
+      Dashboard
+    </a>
+    <a
+      class="text-white font-extrabold text-sm uppercase mr-4"
+      href="/create-plate">
+      Create Plate
+    </a>
     <div
-      on:click={() => handleLogout()}
-      class="text-white font-extrabold text-sm uppercase mr-4 cursor-pointer">
-      Logout
+      class="text-white cursor-pointer font-extrabold text-sm uppercase mr-4"
+      on:click={() => handleLogin()}>
+      Login
+    </div>
+    <div
+      class="text-white cursor-pointer font-extrabold text-sm uppercase mr-4"
+      on:click={() => netlifyIdentity.open('signup')}>
+      Sign Up
     </div>
   </div>
   <div class="lg:hidden flex items-center h-full pr-4">
