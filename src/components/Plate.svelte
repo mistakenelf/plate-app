@@ -11,7 +11,7 @@
 
 <div class="shadow p-3 bg-white mb-4">
   <div class="flex items-center justify-between">
-    <div class="text-xl">{name}</div>
+    <div class="text-xl w-1/2 truncate">{name}</div>
     <div class="items-center flex justify-center">
       <div
         class:bg-green-500={status === 'complete'}
