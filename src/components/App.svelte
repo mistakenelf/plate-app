@@ -45,6 +45,10 @@
       registerServiceWorker();
     }
 
+    if (netlifyIdentity.currentUser()) {
+      currentUser.set(netlifyIdentity.currentUser());
+    }
+
     netlifyIdentity.on('init', user => {
       if (user) {
         currentUser.set(user);

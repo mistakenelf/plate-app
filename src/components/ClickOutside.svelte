@@ -7,7 +7,7 @@
 
   const dispatch = createEventDispatcher();
 
-  function isExcluded(target) {
+  const isExcluded = target => {
     let parent = target;
 
     while (parent) {
@@ -19,13 +19,13 @@
     }
 
     return false;
-  }
+  };
 
-  function onClickOutside(event) {
+  const onClickOutside = event => {
     if (!isExcluded(event.target)) {
       dispatch('clickoutside');
     }
-  }
+  };
 </script>
 
 <svelte:body on:click={onClickOutside} />

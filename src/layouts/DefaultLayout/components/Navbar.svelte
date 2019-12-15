@@ -28,6 +28,12 @@
       netlifyIdentity.close();
     });
   };
+
+  const handleLogout = () => {
+    netlifyIdentity.logout();
+
+    currentUser.set(null);
+  };
 </script>
 
 <nav
@@ -50,21 +56,32 @@
     <a class="text-white font-extrabold text-sm uppercase mr-4" href="/">
       Dashboard
     </a>
-    <a
-      class="text-white font-extrabold text-sm uppercase mr-4"
-      href="/create-plate">
-      Create Plate
-    </a>
-    <div
-      class="text-white cursor-pointer font-extrabold text-sm uppercase mr-4"
-      on:click={() => handleLogin()}>
-      Login
-    </div>
-    <div
-      class="text-white cursor-pointer font-extrabold text-sm uppercase mr-4"
-      on:click={() => netlifyIdentity.open('signup')}>
-      Sign Up
-    </div>
+    {#if $currentUser}
+      <a
+        class="text-white font-extrabold text-sm uppercase mr-4"
+        href="/create-plate">
+        Create Plate
+      </a>
+    {/if}
+    {#if !$currentUser}
+      <div
+        class="text-white cursor-pointer font-extrabold text-sm uppercase mr-4"
+        on:click={() => handleLogin()}>
+        Login
+      </div>
+      <div
+        class="text-white cursor-pointer font-extrabold text-sm uppercase mr-4"
+        on:click={() => netlifyIdentity.open('signup')}>
+        Sign Up
+      </div>
+    {/if}
+    {#if $currentUser}
+      <div
+        class="text-white cursor-pointer font-extrabold text-sm uppercase mr-4"
+        on:click={() => handleLogout()}>
+        Logout
+      </div>
+    {/if}
   </div>
   <div class="lg:hidden flex items-center h-full pr-4">
     <div
