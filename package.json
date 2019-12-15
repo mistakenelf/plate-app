@@ -17,7 +17,7 @@
     "social"
   ],
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server",
+    "start": "netlify dev",
     "build": "cross-env NODE_ENV=production webpack",
     "prettier": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\"",
     "eslint": "eslint --ext js,svelte ."
