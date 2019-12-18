@@ -1,5 +1,6 @@
 <script>
   import { faTh } from '@fortawesome/free-solid-svg-icons/faTh';
+  import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
   import page from 'page';
   import netlifyIdentity from 'netlify-identity-widget';
 
@@ -38,7 +39,15 @@
     </div>
   </div>
   <div class="hidden lg:flex items-center h-full pr-4">
-    <a class="text-white font-extrabold text-sm uppercase mr-4" href="/">
+    <a
+      class="text-white font-extrabold text-sm uppercase mr-4 flex items-center"
+      href="/">
+      <Icon
+        icon={faChartLine}
+        fill="#fff"
+        width="1em"
+        height="1em"
+        class="mr-2" />
       Dashboard
     </a>
     {#if $currentUser}
