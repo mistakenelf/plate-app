@@ -1,6 +1,9 @@
 <script>
-  import { faTh } from '@fortawesome/free-solid-svg-icons/faTh';
   import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
+  import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
+  import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt';
+  import { faUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
+  import { faBars } from '@fortawesome/free-solid-svg-icons/faBars'
   import page from 'page';
   import netlifyIdentity from 'netlify-identity-widget';
 
@@ -8,7 +11,7 @@
   import ClickOutside from '../../../components/ClickOutside';
   import Icon from '../../../components/Icon';
 
-  import MainMenu from './MainMenu';
+  import MobileMenu from './MobileMenu';
 
   let triggerEl;
   let menuOpen = false;
@@ -40,7 +43,7 @@
   </div>
   <div class="hidden lg:flex items-center h-full pr-4">
     <a
-      class="text-white font-extrabold text-sm uppercase mr-4 flex items-center"
+      class="text-white font-extrabold text-sm uppercase mr-6 flex items-center"
       href="/">
       <Icon
         icon={faChartLine}
@@ -52,27 +55,51 @@
     </a>
     {#if $currentUser}
       <a
-        class="text-white font-extrabold text-sm uppercase mr-4"
+        class="text-white font-extrabold text-sm uppercase mr-6 flex items-center"
         href="/create-plate">
+        <Icon
+          icon={faPlusCircle}
+          fill="#fff"
+          width="1em"
+          height="1em"
+          class="mr-2" />
         Create Plate
       </a>
     {/if}
     {#if !$currentUser}
       <div
-        class="text-white cursor-pointer font-extrabold text-sm uppercase mr-4"
+        class="text-white cursor-pointer font-extrabold text-sm uppercase mr-6 flex items-center"
         on:click={() => handleLogin()}>
+        <Icon
+          icon={faSignInAlt}
+          fill="#fff"
+          width="1em"
+          height="1em"
+          class="mr-2" />
         Login
       </div>
       <div
-        class="text-white cursor-pointer font-extrabold text-sm uppercase mr-4"
+        class="text-white cursor-pointer font-extrabold text-sm uppercase mr-6 flex items-center"
         on:click={() => netlifyIdentity.open('signup')}>
+        <Icon
+          icon={faUserPlus}
+          fill="#fff"
+          width="1em"
+          height="1em"
+          class="mr-2" />
         Sign Up
       </div>
     {/if}
     {#if $currentUser}
       <div
-        class="text-white cursor-pointer font-extrabold text-sm uppercase mr-4"
+        class="text-white cursor-pointer font-extrabold text-sm uppercase mr-6 flex items-center"
         on:click={() => handleLogout()}>
+        <Icon
+          icon={faSignInAlt}
+          fill="#fff"
+          width="1em"
+          height="1em"
+          class="mr-2" />
         Logout
       </div>
     {/if}
@@ -84,11 +111,11 @@
       aria-label="main menu"
       role="button"
       on:click={toggleMenu}>
-      <Icon width="1.5em" height="1.5em" fill="#fff" icon={faTh} />
+      <Icon width="1.5em" height="1.5em" fill="#fff" icon={faBars} />
     </div>
     {#if menuOpen}
       <ClickOutside on:clickoutside={closeMenu} exclude={[triggerEl]}>
-        <MainMenu />
+        <MobileMenu />
       </ClickOutside>
     {/if}
   </div>
