@@ -13,7 +13,17 @@ const readAll = () => {
   });
 };
 
+const get = id => {
+  return fetch('/.netlify/functions/get-plate', {
+    body: JSON.stringify(id),
+    method: 'POST',
+  }).then(response => {
+    return response.json();
+  });
+};
+
 export default {
   create,
   readAll,
+  get,
 };
