@@ -13,7 +13,7 @@
     <div class="text-md md:text-xl w-1/2 truncate">{name}</div>
     <div class="items-center flex justify-center">
       <Icon
-        class="cursor-pointer"
+        fill="#4a5568"
         icon={faExternalLinkAlt}
         height="1.5rem"
         width="1.5rem"
