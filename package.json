@@ -67,13 +67,13 @@
     "url-loader": "^3.0.0",
     "webpack": "^4.41.3",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0",
+    "webpack-dev-server": "^3.10.0",
     "workbox-webpack-plugin": "^4.3.1"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
-    "faunadb": "^2.10.0",
+    "faunadb": "^2.10.1",
     "netlify-identity-widget": "^1.5.6",
     "page": "^1.11.5",
     "tailwindcss": "^1.1.4"
