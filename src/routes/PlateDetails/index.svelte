@@ -5,7 +5,7 @@
   import Loader from '../../components/Loader';
 
   const urlArray = window.location.href.split('/');
-  let plateId = urlArray[urlArray.length - 1];
+  const plateId = urlArray[urlArray.length - 1];
 
   let plateData;
   let loading = true;
