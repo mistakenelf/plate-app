@@ -14,7 +14,7 @@
   <div class="flex items-center justify-between">
     <div class="text-md md:text-xl w-1/2 truncate">{name}</div>
     <div class="items-center flex justify-center">
-      <StatusChip status={status} />
+      <StatusChip {status} />
       <Icon
         fill="#4a5568"
         icon={faExternalLinkAlt}

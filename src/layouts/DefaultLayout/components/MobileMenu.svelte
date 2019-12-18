@@ -4,9 +4,9 @@
   import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
   import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt';
   import { faUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
-  import netlifyIdentity from 'netlify-identity-widget'
+  import netlifyIdentity from 'netlify-identity-widget';
 
-  import { currentUser, handleLogin, handleLogout } from '../../../store/auth'
+  import { currentUser, handleLogin, handleLogout } from '../../../store/auth';
   import Icon from '../../../components/Icon';
 </script>
 
@@ -20,9 +20,7 @@
   class="menu-container w-full bg-white absolute left-0"
   transition:slide={{ duration: 200 }}>
   <div class="flex flex-col p-4">
-    <a
-      class="font-extrabold text-lg uppercase mb-6 flex items-center"
-      href="/">
+    <a class="font-extrabold text-lg uppercase mb-6 flex items-center" href="/">
       <Icon
         icon={faChartLine}
         fill="#333"
@@ -46,7 +44,8 @@
     {/if}
     {#if !$currentUser}
       <div
-        class="cursor-pointer font-extrabold text-lg uppercase mb-6 flex items-center"
+        class="cursor-pointer font-extrabold text-lg uppercase mb-6 flex
+        items-center"
         on:click={() => handleLogin()}>
         <Icon
           icon={faSignInAlt}
@@ -57,7 +56,8 @@
         Login
       </div>
       <div
-        class="cursor-pointer font-extrabold text-lg uppercase mb-6 flex items-center"
+        class="cursor-pointer font-extrabold text-lg uppercase mb-6 flex
+        items-center"
         on:click={() => netlifyIdentity.open('signup')}>
         <Icon
           icon={faUserPlus}
@@ -70,7 +70,8 @@
     {/if}
     {#if $currentUser}
       <div
-        class="cursor-pointer font-extrabold text-lg uppercase mb-6 flex items-center"
+        class="cursor-pointer font-extrabold text-lg uppercase mb-6 flex
+        items-center"
         on:click={() => handleLogout()}>
         <Icon
           icon={faSignInAlt}

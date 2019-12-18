@@ -66,7 +66,7 @@
       </div>
     </div>
     <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
-    <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
+      <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
         <Select
           name="status"
           label="Status"

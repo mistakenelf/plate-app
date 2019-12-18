@@ -3,7 +3,7 @@
   import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
   import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt';
   import { faUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
-  import { faBars } from '@fortawesome/free-solid-svg-icons/faBars'
+  import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
   import page from 'page';
   import netlifyIdentity from 'netlify-identity-widget';
 
@@ -55,7 +55,8 @@
     </a>
     {#if $currentUser}
       <a
-        class="text-white font-extrabold text-sm uppercase mr-6 flex items-center"
+        class="text-white font-extrabold text-sm uppercase mr-6 flex
+        items-center"
         href="/create-plate">
         <Icon
           icon={faPlusCircle}
@@ -68,7 +69,8 @@
     {/if}
     {#if !$currentUser}
       <div
-        class="text-white cursor-pointer font-extrabold text-sm uppercase mr-6 flex items-center"
+        class="text-white cursor-pointer font-extrabold text-sm uppercase mr-6
+        flex items-center"
         on:click={() => handleLogin()}>
         <Icon
           icon={faSignInAlt}
@@ -79,7 +81,8 @@
         Login
       </div>
       <div
-        class="text-white cursor-pointer font-extrabold text-sm uppercase mr-6 flex items-center"
+        class="text-white cursor-pointer font-extrabold text-sm uppercase mr-6
+        flex items-center"
         on:click={() => netlifyIdentity.open('signup')}>
         <Icon
           icon={faUserPlus}
@@ -92,7 +95,8 @@
     {/if}
     {#if $currentUser}
       <div
-        class="text-white cursor-pointer font-extrabold text-sm uppercase mr-6 flex items-center"
+        class="text-white cursor-pointer font-extrabold text-sm uppercase mr-6
+        flex items-center"
         on:click={() => handleLogout()}>
         <Icon
           icon={faSignInAlt}
