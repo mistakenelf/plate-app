@@ -11,3 +11,9 @@ export const handleLogin = () => {
     netlifyIdentity.close();
   });
 };
+
+export const handleLogout = () => {
+  netlifyIdentity.logout();
+
+  currentUser.set(null);
+};
