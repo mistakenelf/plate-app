@@ -3,7 +3,7 @@
   import page from 'page';
   import netlifyIdentity from 'netlify-identity-widget';
 
-  import { currentUser } from '../../../store/auth';
+  import { currentUser, handleLogin } from '../../../store/auth';
   import ClickOutside from '../../../components/ClickOutside';
   import Icon from '../../../components/Icon';
 
@@ -18,15 +18,6 @@
 
   const closeMenu = () => {
     menuOpen = false;
-  };
-
-  const handleLogin = () => {
-    netlifyIdentity.open('login');
-
-    netlifyIdentity.on('login', user => {
-      currentUser.set(user);
-      netlifyIdentity.close();
-    });
   };
 
   const handleLogout = () => {
