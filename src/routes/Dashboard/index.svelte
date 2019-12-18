@@ -1,15 +1,15 @@
 <script>
   import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
-  import { faBatteryEmpty } from '@fortawesome/free-solid-svg-icons/faBatteryEmpty';
   import page from 'page';
   import { onMount } from 'svelte';
 
   import { getId } from '../../helpers/getId';
-  import Icon from '../../components/Icon';
   import Plate from '../../components/Plate';
   import plateApi from '../../api/plate';
   import FAB from '../../components/FAB';
   import Loader from '../../components/Loader';
+
+  import NoPlatesFound from './components/NoPlatesFound';
 
   let plates = [];
   let loadingPlates = false;
@@ -28,12 +28,7 @@
 {#if loadingPlates}
   <Loader fullPage />
 {:else if plates.length === 0}
-  <div class="flex items-center justify-center h-full">
-    <div class="flex flex-col items-center">
-      <Icon height="6rem" width="6rem" icon={faBatteryEmpty} />
-      <p class="text-3xl uppercase font-bold">No Plates Found</p>
-    </div>
-  </div>
+  <NoPlatesFound />
 {:else}
   <div class="m-4 mb-24">
     {#each plates as plate, i}
