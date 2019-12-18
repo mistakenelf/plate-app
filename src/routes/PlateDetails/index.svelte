@@ -25,7 +25,10 @@
   <Loader fullPage />
 {:else}
   <div class="p-4">
-    <h1 class="text-2xl">{plateData.data.name}</h1>
-    <p>{plateData.data.description}</p>
+    <div class="flex justify-between items-center">
+      <h1 class="font-bold text-5xl mb-2">{plateData.data.name}</h1>
+    </div>
+    <div class="mb-4">Due On: {plateData.data.dueDate}</div>
+    <p class="text-xl">{plateData.data.description}</p>
   </div>
 {/if}
