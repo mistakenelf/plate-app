@@ -17,10 +17,13 @@
 </style>
 
 <div
-  class="menu-container w-full bg-white absolute left-0"
+  class="menu-container w-full bg-white absolute left-0 shadow"
   transition:slide={{ duration: 200 }}>
   <div class="flex flex-col p-4">
-    <a class="font-extrabold text-lg uppercase mb-6 flex items-center" href="/">
+    <a
+      class="font-extrabold text-md uppercase mb-4 flex items-center border-b-2
+      pb-2"
+      href="/">
       <Icon
         icon={faChartLine}
         fill="#333"
@@ -31,7 +34,8 @@
     </a>
     {#if $currentUser}
       <a
-        class="font-extrabold text-lg uppercase mb-6 flex items-center"
+        class="font-extrabold text-md uppercase mb-4 pb-2 border-b-2 flex
+        items-center"
         href="/create-plate">
         <Icon
           icon={faPlusCircle}
@@ -44,8 +48,8 @@
     {/if}
     {#if !$currentUser}
       <div
-        class="cursor-pointer font-extrabold text-lg uppercase mb-6 flex
-        items-center"
+        class="cursor-pointer font-extrabold text-md uppercase mb-4 pb-2
+        border-b-2 flex items-center"
         on:click={() => handleLogin()}>
         <Icon
           icon={faSignInAlt}
@@ -56,8 +60,7 @@
         Login
       </div>
       <div
-        class="cursor-pointer font-extrabold text-lg uppercase mb-6 flex
-        items-center"
+        class="cursor-pointer font-extrabold text-md uppercase flex items-center"
         on:click={() => netlifyIdentity.open('signup')}>
         <Icon
           icon={faUserPlus}
@@ -70,8 +73,7 @@
     {/if}
     {#if $currentUser}
       <div
-        class="cursor-pointer font-extrabold text-lg uppercase mb-6 flex
-        items-center"
+        class="cursor-pointer font-extrabold text-md uppercase flex items-center"
         on:click={() => handleLogout()}>
         <Icon
           icon={faSignInAlt}
