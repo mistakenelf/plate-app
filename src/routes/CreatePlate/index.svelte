@@ -97,7 +97,7 @@
     </div>
     <Textarea
       name="description"
-      rows={10}
+      rows={7}
       label="Description"
       isFormField
       on:change={handleChange}
