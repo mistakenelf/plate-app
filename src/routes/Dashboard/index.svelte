@@ -7,7 +7,7 @@
   import FAB from '../../components/FAB';
   import Loader from '../../components/Loader';
 
-  import PlateList from './components/PlateList'
+  import PlateList from './components/PlateList';
   import NoPlatesFound from './components/NoPlatesFound';
 
   let plates = [];
@@ -29,7 +29,7 @@
 {:else if plates.length === 0}
   <NoPlatesFound />
 {:else}
-  <PlateList plates={plates} />
+  <PlateList {plates} />
 {/if}
 
 <FAB icon={faPlus} on:click={() => page('/create-plate')} />

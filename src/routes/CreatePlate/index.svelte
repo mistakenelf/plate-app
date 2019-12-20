@@ -9,6 +9,7 @@
   import plateApi from '../../api/plate';
   import Select from '../../components/Select';
   import Loader from '../../components/Loader';
+  import TodoList from '../../components/TodoList';
 
   import Header from './components/Header';
 
@@ -103,5 +104,8 @@
       on:change={handleChange}
       value={formValues.description} />
     <FAB icon={faSave} />
+    <div class="bg-white p-2 w-full md:w-1/2">
+      <TodoList />
+    </div>
   </form>
 {/if}
