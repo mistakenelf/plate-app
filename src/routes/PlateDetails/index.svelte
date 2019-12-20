@@ -3,6 +3,7 @@
 
   import plateApi from '../../api/plate';
   import Loader from '../../components/Loader';
+  import StatusChip from '../../components/StatusChip';
 
   const urlArray = window.location.href.split('/');
   const plateId = urlArray[urlArray.length - 1];
@@ -27,6 +28,7 @@
   <div class="p-4">
     <div class="flex justify-between items-center">
       <h1 class="font-bold text-5xl mb-2">{plateData.data.name}</h1>
+      <StatusChip status={plateData.data.status} isLarge />
     </div>
     <div class="mb-4">Due On: {plateData.data.dueDate}</div>
     <p class="text-xl">{plateData.data.description}</p>

@@ -3,12 +3,11 @@
   import page from 'page';
   import { onMount } from 'svelte';
 
-  import { getId } from '../../helpers/getId';
-  import Plate from '../../components/Plate';
   import plateApi from '../../api/plate';
   import FAB from '../../components/FAB';
   import Loader from '../../components/Loader';
 
+  import PlateList from './components/PlateList'
   import NoPlatesFound from './components/NoPlatesFound';
 
   let plates = [];
@@ -30,14 +29,7 @@
 {:else if plates.length === 0}
   <NoPlatesFound />
 {:else}
-  <div class="m-4 mb-24">
-    {#each plates as plate, i}
-      <Plate
-        name={plate.data.name}
-        status={plate.data.status}
-        id={getId(plate)} />
-    {/each}
-  </div>
+  <PlateList plates={plates} />
 {/if}
 
 <FAB icon={faPlus} on:click={() => page('/create-plate')} />

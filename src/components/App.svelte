@@ -49,13 +49,9 @@
       currentUser.set(netlifyIdentity.currentUser());
     }
 
-    netlifyIdentity.on('init', user => {
-      if (user) {
-        currentUser.set(user);
-      } else {
-        currentUser.set(null);
-      }
-    });
+    netlifyIdentity.on('init', user =>
+      user ? currentUser.set(user) : currentUser.set(null),
+    );
   });
 
   router.start();
