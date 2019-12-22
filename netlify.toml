@@ -5,6 +5,7 @@
 
 [dev]
   functionsPort = 3000
+  autoLaunch = false
   command = "cross-env NODE_ENV=development webpack-dev-server"
 
 [[redirects]]
