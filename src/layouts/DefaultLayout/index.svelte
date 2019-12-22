@@ -1,15 +1,13 @@
 <script>
-  import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
-
   import ClickOutside from '../../components/ClickOutside';
-  import Icon from '../../components/Icon';
 
-  import NavItems from './components/NavItems';
+  import Navbar from './components/Navbar';
   import MobileMenu from './components/MobileMenu';
   import Brand from './components/Brand';
+  import MobileTrigger from './components/MobileTrigger';
 
-  let triggerEl;
   let menuOpen = false;
+  let triggerEl;
 
   const toggleMenu = () => {
     menuOpen = !menuOpen;
@@ -27,23 +25,14 @@
       bg-blue-500">
       <Brand />
       <div class="hidden lg:flex items-center h-full pr-4">
-        <NavItems />
+        <Navbar />
       </div>
-      <div class="lg:hidden flex items-center h-full pr-4">
-        <div
-          bind:this={triggerEl}
-          class="ml-4 cursor-pointer"
-          aria-label="main menu"
-          role="button"
-          on:click={toggleMenu}>
-          <Icon width="1.5em" height="1.5em" fill="#fff" icon={faBars} />
-        </div>
-        {#if menuOpen}
-          <ClickOutside on:clickoutside={closeMenu} exclude={[triggerEl]}>
-            <MobileMenu />
-          </ClickOutside>
-        {/if}
-      </div>
+      <MobileTrigger on:toggleMenu={toggleMenu} />
+      {#if menuOpen}
+        <ClickOutside on:clickoutside={closeMenu} exclude={[triggerEl]}>
+          <MobileMenu />
+        </ClickOutside>
+      {/if}
     </nav>
   </div>
   <div class="pt-12 h-full">
