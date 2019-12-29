@@ -15,7 +15,7 @@
   class:mr-0={isMobile}
   class:pb-2={isMobile}
   class:text-sm={!isMobile}
-  class="text-white font-extrabold mr-6 flex items-center"
+  class="text-white font-extrabold mr-6 flex text-md items-center"
   {href}>
   <Icon
     {icon}
