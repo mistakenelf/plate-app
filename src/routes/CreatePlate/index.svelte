@@ -15,7 +15,7 @@
   let loading = false;
 
   const formValues = {
-    name: '',
+    title: '',
     dueDate: '',
     description: '',
     category: '',
@@ -47,14 +47,14 @@
     <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
       <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
         <Input
-          name="name"
+          name="title"
           type="text"
-          label="Name"
+          label="title"
           isFormField
-          placeholder="name"
+          placeholder="title"
           required
           on:change={handleChange}
-          value={formValues.name} />
+          value={formValues.title} />
       </div>
       <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
         <Input
