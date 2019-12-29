@@ -1,7 +1,7 @@
 <script>
   import Icon from './Icon';
 
-  export let isMobile;
+  export let isMobile = false;
   export let href;
   export let label;
   export let icon;
@@ -15,7 +15,7 @@
   class:mr-0={isMobile}
   class:pb-2={isMobile}
   class:text-sm={!isMobile}
-  class="text-white font-extrabold uppercase mr-6 flex items-center"
+  class="text-white font-extrabold mr-6 flex items-center"
   {href}>
   <Icon
     {icon}

@@ -5,7 +5,7 @@
 
   const dispatch = createEventDispatcher();
 
-  export let isMobile;
+  export let isMobile = false;
   export let icon;
   export let label;
 </script>
@@ -18,7 +18,7 @@
   class:mr-0={isMobile}
   class:pb-2={isMobile}
   class:text-sm={!isMobile}
-  class="text-white cursor-pointer font-extrabold text-sm uppercase mr-6 flex
+  class="text-white cursor-pointer font-extrabold text-sm mr-6 flex
   items-center"
   on:click={() => dispatch('handleClick')}>
   <Icon

@@ -6,7 +6,7 @@
 
   const dispatch = createEventDispatcher();
 
-  export let triggerEl;
+  export let triggerEl = null;
 </script>
 
 <div class="lg:hidden flex items-center h-full pr-4">

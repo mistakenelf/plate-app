@@ -2,7 +2,6 @@
   import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
   import page from 'page';
 
-  import { currentUser } from '../../store/auth';
   import Input from '../../components/Input';
   import Textarea from '../../components/Textarea';
   import FAB from '../../components/FAB';
@@ -30,7 +29,6 @@
 
   const handleSubmit = async () => {
     loading = true;
-    formValues.createdBy = $currentUser.id;
     await plateApi.create(formValues);
     loading = false;
     page('/');

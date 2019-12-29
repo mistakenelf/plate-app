@@ -1,14 +1,10 @@
 <script>
   import router from 'page';
-  import { onMount } from 'svelte';
-  import netlifyIdentity from 'netlify-identity-widget';
 
-  import { currentUser } from '../store/auth';
   import CreatePlate from '../routes/CreatePlate';
   import Dashboard from '../routes/Dashboard';
   import DefaultLayout from '../layouts/DefaultLayout';
   import PlateDetails from '../routes/PlateDetails';
-  import { registerServiceWorker } from '../helpers/registerServiceWorker';
 
   let routeProps = {
     component: Dashboard,
@@ -36,33 +32,13 @@
     };
   });
 
-  onMount(() => {
-    netlifyIdentity.init({
-      APIUrl: 'https://plate-app.netlify.com/.netlify/identity',
-    });
-
-    if (process.env.NODE_ENV === 'production') {
-      registerServiceWorker();
-    }
-
-    if (netlifyIdentity.currentUser()) {
-      currentUser.set(netlifyIdentity.currentUser());
-    }
-
-    netlifyIdentity.on('init', user =>
-      user ? currentUser.set(user) : currentUser.set(null),
-    );
-  });
-
   router.start();
 </script>
 
-<style>
+<style global>
   @tailwind base;
   @tailwind components;
   @tailwind utilities;
-
-  @import '../assets/styles/index.css';
 </style>
 
 <svelte:component this={routeProps.layout}>
