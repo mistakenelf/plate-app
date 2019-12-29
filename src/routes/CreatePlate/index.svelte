@@ -72,6 +72,7 @@
         <Select
           name="status"
           label="Status"
+          id="status"
           isFormField
           value={formValues.status}
           on:change={handleChange}>
@@ -83,6 +84,7 @@
       <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
         <Select
           name="category"
+          id="category"
           label="Category"
           isFormField
           value={formValues.category}
@@ -102,7 +104,7 @@
       on:change={handleChange}
       value={formValues.description} />
     <FAB icon={faSave} />
-    <div class="bg-white p-2 w-full md:w-1/2">
+    <div class="w-full md:w-1/2">
       <TodoList />
     </div>
   </form>
