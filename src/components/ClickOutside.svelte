@@ -2,8 +2,11 @@
   import { createEventDispatcher } from 'svelte';
 
   export let exclude = [];
+  let classes = '';
 
   let child;
+
+  $: classes = $$props.class ? $$props.class : '';
 
   const dispatch = createEventDispatcher();
 
@@ -29,6 +32,6 @@
 </script>
 
 <svelte:body on:click={onClickOutside} />
-<div bind:this={child}>
+<div class={classes} bind:this={child}>
   <slot />
 </div>

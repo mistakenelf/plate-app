@@ -10,8 +10,8 @@
     <div class="flex text-3xl mb-2">🍛</div>
   </div>
   <div
-    class="ml-4 text-2xl cursor-pointer font-semibold text-white"
+    class="ml-4 text-3xl cursor-pointer text-white"
     on:click={() => page('/')}>
-    plate
+    Plate
   </div>
 </div>

@@ -19,10 +19,14 @@
   class="menu-container w-full bg-white absolute left-0 shadow"
   transition:slide={{ duration: 200 }}>
   <div class="flex flex-col p-4">
-    <NavLink href="/" icon={faChartLine} label="Dashboard" />
-    <NavLink href="/create-plate" icon={faPlusCircle} label="Create Plate" />
-    <NavItem icon={faSignInAlt} label="Login" />
-    <NavItem icon={faUserPlus} label="Sign Up" />
-    <NavItem icon={faSignInAlt} label="Logout" />
+    <NavLink isMobile href="/" icon={faChartLine} label="dashboard" />
+    <NavLink
+      isMobile
+      href="/create-plate"
+      icon={faPlusCircle}
+      label="create plate" />
+    <NavItem isMobile icon={faSignInAlt} label="login" />
+    <NavItem isMobile icon={faUserPlus} label="sign up" />
+    <NavItem isMobile icon={faSignInAlt} label="logout" />
   </div>
 </div>

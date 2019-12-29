@@ -4,7 +4,9 @@
   import Navbar from './components/Navbar';
   import MobileMenu from './components/MobileMenu';
   import Brand from './components/Brand';
-  import MobileTrigger from './components/MobileTrigger';
+  import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
+
+  import Icon from '../../components/Icon';
 
   let menuOpen = false;
   let triggerEl;
@@ -24,12 +26,24 @@
       class="flex items-center w-full justify-between h-12 fixed z-10 left-0
       bg-blue-500">
       <Brand />
-      <div class="hidden lg:flex items-center h-full pr-4">
+      <div class="hidden lg:flex items-center h-full">
         <Navbar />
       </div>
-      <MobileTrigger on:toggleMenu={toggleMenu} />
+      <div class="lg:hidden flex items-center h-full pr-4">
+        <div
+          bind:this={triggerEl}
+          class="ml-4 cursor-pointer"
+          aria-label="main menu"
+          role="button"
+          on:click={() => toggleMenu()}>
+          <Icon width="1.5em" height="1.5em" fill="#fff" icon={faBars} />
+        </div>
+      </div>
       {#if menuOpen}
-        <ClickOutside on:clickoutside={closeMenu} exclude={[triggerEl]}>
+        <ClickOutside
+          class="absolute w-full top-0"
+          on:clickoutside={closeMenu}
+          exclude={[triggerEl]}>
           <MobileMenu />
         </ClickOutside>
       {/if}
