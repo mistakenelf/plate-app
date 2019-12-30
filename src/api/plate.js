@@ -1,25 +1,25 @@
-const create = data => {
-  return fetch('/api/create-plate', {
+const create = async data => {
+  const res = await fetch('/api/create-plate', {
     body: JSON.stringify(data),
     method: 'POST',
-  }).then(response => {
-    return response.json();
   });
+
+  return await res.json();
 };
 
-const readAll = () => {
-  return fetch('/api/get-plates').then(response => {
-    return response.json();
-  });
+const readAll = async () => {
+  const res = await fetch('/api/get-plates');
+
+  return await res.json();
 };
 
-const get = id => {
-  return fetch('/api/get-plate', {
+const get = async id => {
+  const res = await fetch('/api/get-plate', {
     body: JSON.stringify(id),
     method: 'POST',
-  }).then(response => {
-    return response.json();
   });
+
+  return await res.json();
 };
 
 export default {
