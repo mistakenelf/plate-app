@@ -4,7 +4,7 @@ import livereload from 'rollup-plugin-livereload';
 import resolve from '@rollup/plugin-node-resolve';
 import svelte from 'rollup-plugin-svelte';
 import sveltePreprocess from 'svelte-preprocess';
-import { eslint } from 'rollup-plugin-eslint'
+import { eslint } from 'rollup-plugin-eslint';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -16,14 +16,10 @@ const serve = () => {
       if (!started) {
         started = true;
 
-        require('child_process').spawn(
-          'npm',
-          ['run', 'start', '--', '--dev'],
-          {
-            stdio: ['ignore', 'inherit', 'inherit'],
-            shell: true,
-          },
-        );
+        require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
+          stdio: ['ignore', 'inherit', 'inherit'],
+          shell: true,
+        });
       }
     },
   };
