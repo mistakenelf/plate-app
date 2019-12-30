@@ -1,30 +1,20 @@
 const faunadb = require('faunadb');
 
+const secret = process.env.FAUNADB_SECRET_KEY;
 const q = faunadb.query;
+const client = new faunadb.Client({ secret });
 
-const client = new faunadb.Client({
-  secret: process.env.FAUNADB_SERVER_SECRET,
-});
-
-exports.handler = async event => {
-  const data = JSON.parse(event.body);
+module.exports = async (req, res) => {
+  const data = JSON.parse(req.body);
 
   const todoItem = {
-    data: data,
+    data,
   };
 
-  return client
-    .query(q.Create(q.Collection('plates'), todoItem))
-    .then(response => {
-      return {
-        statusCode: 200,
-        body: JSON.stringify(response),
-      };
-    })
-    .catch(error => {
-      return {
-        statusCode: 400,
-        body: JSON.stringify(error),
-      };
-    });
+  try {
+    const dbs = await client.query(q.Create(q.Collection('plates'), todoItem));
+    res.status(200).json(dbs);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
 };

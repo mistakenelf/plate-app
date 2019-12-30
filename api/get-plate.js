@@ -1,25 +1,16 @@
 const faunadb = require('faunadb');
 
+const secret = process.env.FAUNADB_SECRET_KEY;
 const q = faunadb.query;
-const client = new faunadb.Client({
-  secret: process.env.FAUNADB_SERVER_SECRET,
-});
+const client = new faunadb.Client({ secret });
 
-exports.handler = (event, context) => {
-  const id = JSON.parse(event.body);
+module.exports = async (req, res) => {
+  const id = JSON.parse(req.body);
 
-  return client
-    .query(q.Get(q.Ref(`classes/plates/${id}`)))
-    .then(response => {
-      return {
-        statusCode: 200,
-        body: JSON.stringify(response),
-      };
-    })
-    .catch(error => {
-      return {
-        statusCode: 400,
-        body: JSON.stringify(error),
-      };
-    });
+  try {
+    const dbs = await client.query(q.Get(q.Ref(`classes/plates/${id}`)));
+    res.status(200).json(dbs);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
+  }
 };
