@@ -19,7 +19,7 @@
     dueDate: '',
     description: '',
     category: '',
-    status: '',
+    status: 'open',
     createdBy: '',
   };
 

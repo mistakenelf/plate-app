@@ -5,14 +5,14 @@
   import StatusChip from './StatusChip';
   import Icon from './Icon';
 
-  export let name;
+  export let title;
   export let id;
   export let status;
 </script>
 
 <div class="shadow p-3 bg-white mb-4">
   <div class="flex items-center justify-between">
-    <div class="text-md md:text-xl w-1/2 truncate">{name}</div>
+    <div class="text-md md:text-xl w-1/2 truncate">{title}</div>
     <div class="items-center flex justify-center">
       <StatusChip {status} />
       <Icon

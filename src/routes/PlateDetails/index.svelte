@@ -27,7 +27,7 @@
 {:else}
   <div class="p-4">
     <div class="flex justify-between items-center">
-      <h1 class="font-bold text-5xl mb-2">{plateData.data.name}</h1>
+      <h1 class="font-bold text-5xl mb-2">{plateData.data.title}</h1>
       <StatusChip status={plateData.data.status} isLarge />
     </div>
     <div class="mb-4">Due On: {plateData.data.dueDate}</div>

@@ -22,6 +22,5 @@
     label="todo item"
     isFormField
     placeholder="todo item"
-    required
     value={''} />
 </div>
