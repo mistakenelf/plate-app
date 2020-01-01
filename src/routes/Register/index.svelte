@@ -1,7 +1,9 @@
 <script>
+  import page from 'page';
+
   import Input from '../../components/Input';
   import Button from '../../components/Button';
-  import authApi from '../../api/auth';
+  import { register } from '../../store/auth';
 
   const formValues = {
     email: '',
@@ -12,8 +14,9 @@
     formValues[e.target.name] = e.target.value;
   };
 
-  const handleSubmit = () => {
-    authApi.register(formValues).then(res => res);
+  const handleSubmit = async () => {
+    await register(formValues);
+    page('/');
   };
 </script>
 

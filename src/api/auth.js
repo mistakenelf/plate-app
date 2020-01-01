@@ -16,7 +16,12 @@ const login = async data => {
   return await res.json();
 };
 
+const logout = async () => {
+  return await fetch('/api/logout');
+};
+
 export default {
   register,
   login,
+  logout,
 };

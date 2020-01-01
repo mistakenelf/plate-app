@@ -1,4 +1,6 @@
 <script>
+  import page from 'page';
+
   import { login } from '../../store/auth';
   import Input from '../../components/Input';
   import Button from '../../components/Button';
@@ -14,6 +16,7 @@
 
   const handleSubmit = async () => {
     await login(formValues);
+    page('/');
   };
 </script>
 

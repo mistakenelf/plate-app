@@ -1,5 +1,6 @@
 <script>
-  import router from 'page';
+  import page from 'page';
+  import { onMount } from 'svelte';
 
   import CreatePlate from '../routes/CreatePlate';
   import Dashboard from '../routes/Dashboard';
@@ -7,48 +8,59 @@
   import PlateDetails from '../routes/PlateDetails';
   import Login from '../routes/Login';
   import Register from '../routes/Register';
+  import { getCurrentUser } from '../store/auth';
 
-  let routeProps = {
+  import Loader from './Loader';
+
+  let pageProps = {
     component: Dashboard,
     layout: DefaultLayout,
   };
 
-  router('/', () => {
-    routeProps = {
+  page('/', () => {
+    pageProps = {
       component: Dashboard,
       layout: DefaultLayout,
     };
   });
 
-  router('/login', () => {
-    routeProps = {
+  page('/login', () => {
+    pageProps = {
       component: Login,
       layout: DefaultLayout,
     };
   });
 
-  router('/register', () => {
-    routeProps = {
+  page('/register', () => {
+    pageProps = {
       component: Register,
       layout: DefaultLayout,
     };
   });
 
-  router('/create-plate', () => {
-    routeProps = {
+  page('/create-plate', () => {
+    pageProps = {
       component: CreatePlate,
       layout: DefaultLayout,
     };
   });
 
-  router('/plate/:id', () => {
-    routeProps = {
+  page('/plate/:id', () => {
+    pageProps = {
       component: PlateDetails,
       layout: DefaultLayout,
     };
   });
 
-  router.start();
+  page.start();
+
+  let loading;
+
+  onMount(() => {
+    loading = true;
+    getCurrentUser();
+    loading = false;
+  });
 </script>
 
 <style global>
@@ -71,6 +83,10 @@
   }
 </style>
 
-<svelte:component this={routeProps.layout}>
-  <svelte:component this={routeProps.component} {...routeProps} />
-</svelte:component>
+{#if loading}
+  <Loader fullPage />
+{:else}
+  <svelte:component this={pageProps.layout}>
+    <svelte:component this={pageProps.component} {...pageProps} />
+  </svelte:component>
+{/if}

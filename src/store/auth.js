@@ -15,6 +15,34 @@ export const login = async data => {
 
   currentUser.set(user);
 
+  localStorage.setItem('user', JSON.stringify(user));
+};
+
+export const register = async data => {
+  const res = await authApi.register(data);
+
+  const user = {
+    id: getId(res),
+    secret: res.secret,
+  };
+
+  currentUser.set(user);
 
   localStorage.setItem('user', JSON.stringify(user));
+};
+
+export const getCurrentUser = () => {
+  const user = localStorage.getItem('user');
+
+  if (user) {
+    currentUser.set(user);
+  } else {
+    currentUser.set(null);
+  }
+};
+
+export const logout = async () => {
+  currentUser.set(null);
+  localStorage.removeItem('user');
+  await authApi.logout();
 };

@@ -18,7 +18,8 @@
   class:mr-0={isMobile}
   class:pb-2={isMobile}
   class:text-sm={!isMobile}
-  class="text-white cursor-pointer font-extrabold text-md mr-6 flex items-center"
+  class="text-white cursor-pointer font-bold text-base text-md mr-6 flex
+  items-center"
   on:click={() => dispatch('handleClick')}>
   <Icon
     {icon}
