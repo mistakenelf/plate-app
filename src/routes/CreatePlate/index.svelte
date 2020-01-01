@@ -21,11 +21,16 @@
     description: '',
     category: '',
     status: 'open',
+    todos: [],
     createdBy: $currentUser.id,
   };
 
   const handleChange = e => {
     formValues[e.target.name] = e.target.value;
+  };
+
+  const addTodo = event => {
+    formValues.todos.push(event.detail);
   };
 
   const handleSubmit = async () => {
@@ -106,7 +111,7 @@
       value={formValues.description} />
     <FAB icon={faSave} />
     <div class="w-full md:w-1/2">
-      <TodoList />
+      <TodoList todos={formValues.todos} on:addTodo={addTodo} />
     </div>
   </form>
 {/if}
