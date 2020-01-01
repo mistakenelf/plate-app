@@ -1,5 +1,5 @@
 <script>
-  import authApi from '../../api/auth';
+  import { login } from '../../store/auth';
   import Input from '../../components/Input';
   import Button from '../../components/Button';
 
@@ -12,8 +12,8 @@
     formValues[e.target.name] = e.target.value;
   };
 
-  const handleSubmit = () => {
-    authApi.login(formValues).then(res => res);
+  const handleSubmit = async () => {
+    await login(formValues);
   };
 </script>
 
