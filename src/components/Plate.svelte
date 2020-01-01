@@ -1,6 +1,6 @@
 <script>
   import page from 'page';
-  import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons/faExternalLinkAlt';
+  import { faCaretRight } from '@fortawesome/free-solid-svg-icons/faCaretRight';
 
   import StatusChip from './StatusChip';
   import Icon from './Icon';
@@ -16,8 +16,9 @@
     <div class="items-center flex justify-center">
       <StatusChip {status} />
       <Icon
+        class="cursor-pointer"
         fill="#4a5568"
-        icon={faExternalLinkAlt}
+        icon={faCaretRight}
         height="1.5rem"
         width="1.5rem"
         on:click={() => page(`/plate/${id}`)} />
