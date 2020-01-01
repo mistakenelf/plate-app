@@ -9,6 +9,7 @@
   import Select from '../../components/Select';
   import Loader from '../../components/Loader';
   import TodoList from '../../components/TodoList';
+  import { currentUser } from '../../store/auth';
 
   import Header from './components/Header';
 
@@ -20,7 +21,7 @@
     description: '',
     category: '',
     status: 'open',
-    createdBy: '',
+    createdBy: $currentUser.id,
   };
 
   const handleChange = e => {
