@@ -10,6 +10,6 @@
 
 <NavLink href="/" icon={faChartLine} label="dashboard" />
 <NavLink href="/create-plate" icon={faPlusCircle} label="create plate" />
-<NavItem icon={faSignInAlt} label="login" />
-<NavItem icon={faUserPlus} label="sign up" />
+<NavLink href="/login" icon={faSignInAlt} label="login" />
+<NavLink href="/register" icon={faUserPlus} label="register" />
 <NavItem icon={faSignInAlt} label="logout" />

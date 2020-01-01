@@ -25,8 +25,8 @@
       href="/create-plate"
       icon={faPlusCircle}
       label="create plate" />
-    <NavItem isMobile icon={faSignInAlt} label="login" />
-    <NavItem isMobile icon={faUserPlus} label="sign up" />
+    <NavLink href="/login" isMobile icon={faSignInAlt} label="login" />
+    <NavLink href="/register" isMobile icon={faUserPlus} label="register" />
     <NavItem isMobile icon={faSignInAlt} label="logout" />
   </div>
 </div>

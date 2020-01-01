@@ -5,6 +5,8 @@
   import Dashboard from '../routes/Dashboard';
   import DefaultLayout from '../layouts/DefaultLayout';
   import PlateDetails from '../routes/PlateDetails';
+  import Login from '../routes/Login';
+  import Register from '../routes/Register';
 
   let routeProps = {
     component: Dashboard,
@@ -14,6 +16,20 @@
   router('/', () => {
     routeProps = {
       component: Dashboard,
+      layout: DefaultLayout,
+    };
+  });
+
+  router('/login', () => {
+    routeProps = {
+      component: Login,
+      layout: DefaultLayout,
+    };
+  });
+
+  router('/register', () => {
+    routeProps = {
+      component: Register,
       layout: DefaultLayout,
     };
   });
