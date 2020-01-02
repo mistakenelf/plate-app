@@ -7,30 +7,35 @@
 
   const dispatch = createEventDispatcher();
 
+  let todoItem = '';
+
   export let todos;
 
-  console.log(todos)
+  const handleChange = event => {
+    todoItem = event.target.value;
+  };
 </script>
 
-<div class="flex flex-col p-4 rounded shadow bg-white">
+<div class="flex flex-col p-4 rounded shadow bg-white border-2 border-gray-400">
   <div class="flex justify-between items-center flex-row mb-4">
-    <div class="text-2xl font-bold">Todos</div>
+    <div class="text-xl text-gray-700">What needs done?</div>
     <Icon
       class="cursor-pointer"
       fill="#4a5568"
       icon={faPlus}
       height="1.5rem"
       width="1.5rem"
-      on:click={() => dispatch('addTodo', { title: 'new todo' })} />
+      on:click={() => dispatch('addTodo', { title: todoItem })} />
   </div>
   <Input
     name="todoItem"
     type="text"
-    isFormField
     placeholder="todo item"
-    value={''} />
-  <hr />
-  {#each todos as todo}
-    <div>{todo.title}</div>
-  {/each}
+    value={todoItem}
+    on:change={handleChange} />
+  <ul class="mt-4 p-2">
+    {#each todos as todo}
+      <li class="hover:bg-gray-200 text-lg mb-2">{todo.title}</li>
+    {/each}
+  </ul>
 </div>

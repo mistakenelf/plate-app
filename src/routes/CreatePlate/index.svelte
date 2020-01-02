@@ -30,7 +30,7 @@
   };
 
   const addTodo = event => {
-    formValues.todos.push(event.detail);
+    formValues.todos = [...formValues.todos, event.detail];
   };
 
   const handleSubmit = async () => {

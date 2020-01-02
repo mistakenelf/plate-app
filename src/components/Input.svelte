@@ -1,5 +1,5 @@
 <script>
-  export let label = '';
+  export let label;
   export let type = 'text';
   export let value = '';
   export let name = '';
@@ -10,9 +10,11 @@
 </script>
 
 <div class:w-full={fullWidth} class="flex flex-col">
-  <label class="block text-gray-700 font-bold mb-1 uppercase text-sm">
-    {label}
-  </label>
+  {#if label}
+    <label class="block text-gray-700 font-bold mb-1 uppercase text-sm">
+      {label}
+    </label>
+  {/if}
   <input
     {name}
     {type}
