@@ -26,11 +26,18 @@
   <Loader fullPage />
 {:else}
   <div class="p-4">
-    <div class="flex justify-between items-center">
-      <h1 class="font-bold text-5xl mb-2">{plateData.data.title}</h1>
-      <StatusChip status={plateData.data.status} isLarge />
+    <h1 class="font-bold text-4xl mb-3">{plateData.data.title}</h1>
+    <div class="mb-3">Due On: {plateData.data.dueDate}</div>
+    <div class="flex items-center mb-3">
+      <span class="mr-2">Status:</span>
+      <StatusChip status={plateData.data.status} />
     </div>
-    <div class="mb-4">Due On: {plateData.data.dueDate}</div>
-    <p class="text-xl">{plateData.data.description}</p>
+    <p class="text-xl mb-3">{plateData.data.description}</p>
+    <h4 class="font-bold uppercase">Todo Items</h4>
+    <ul class="p-2">
+      {#each plateData.data.todos as todo}
+        <li class="hover:bg-gray-200 text-lg mb-2">{todo.title}</li>
+      {/each}
+    </ul>
   </div>
 {/if}

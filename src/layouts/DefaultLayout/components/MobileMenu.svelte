@@ -1,5 +1,6 @@
 <script>
   import page from 'page';
+  import { createEventDispatcher } from 'svelte';
   import { slide } from 'svelte/transition';
   import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
   import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
@@ -7,12 +8,19 @@
   import { faUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
 
   import NavLink from '../../../components/NavLink';
-  import NavItem from '../../../components/NavItem';
   import { currentUser, logout } from '../../../store/auth';
 
+  const dispatch = createEventDispatcher();
+
   const handleLogout = () => {
+    dispatch('closeMenu');
     logout();
     page('/login');
+  };
+
+  const navigate = path => {
+    dispatch('closeMenu');
+    page(path);
   };
 </script>
 
@@ -27,20 +35,32 @@
   transition:slide={{ duration: 200 }}>
   <div class="flex flex-col p-4">
     {#if $currentUser}
-      <NavItem isMobile to="/" icon={faChartLine} label="Dashboard" />
       <NavLink
         isMobile
-        href="/create-plate"
+        on:click={() => navigate('/')}
+        icon={faChartLine}
+        label="Dashboard" />
+      <NavLink
+        isMobile
+        on:click={() => navigate('/create-plate')}
         icon={faPlusCircle}
         label="Create Plate" />
-      <NavItem
+      <NavLink
         isMobile
-        on:handleClick={handleLogout}
+        on:click={handleLogout}
         icon={faSignInAlt}
         label="Logout" />
     {:else}
-      <NavLink isMobile href="/login" icon={faSignInAlt} label="Login" />
-      <NavLink isMobile href="/register" icon={faUserPlus} label="Register" />
+      <NavLink
+        on:click={() => navigate('/login')}
+        isMobile
+        icon={faSignInAlt}
+        label="Login" />
+      <NavLink
+        on:click={() => navigate('/register')}
+        isMobile
+        icon={faUserPlus}
+        label="Register" />
     {/if}
   </div>
 </div>

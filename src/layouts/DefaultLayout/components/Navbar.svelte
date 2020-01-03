@@ -6,20 +6,35 @@
   import { faUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
 
   import NavLink from '../../../components/NavLink';
-  import NavItem from '../../../components/NavItem';
   import { currentUser, logout } from '../../../store/auth';
 
   const handleLogout = () => {
     logout();
     page('/login');
   };
+
+  const navigate = path => {
+    page(path);
+  };
 </script>
 
 {#if $currentUser}
-  <NavLink href="/" icon={faChartLine} label="Dashboard" />
-  <NavLink href="/create-plate" icon={faPlusCircle} label="Create Plate" />
-  <NavItem on:handleClick={handleLogout} icon={faSignInAlt} label="Logout" />
+  <NavLink
+    on:click={() => navigate('/')}
+    icon={faChartLine}
+    label="Dashboard" />
+  <NavLink
+    on:click={() => navigate('/create-plate')}
+    icon={faPlusCircle}
+    label="Create Plate" />
+  <NavLink on:click={handleLogout} icon={faSignInAlt} label="Logout" />
 {:else}
-  <NavLink href="/login" icon={faSignInAlt} label="Login" />
-  <NavLink href="/register" icon={faUserPlus} label="Register" />
+  <NavLink
+    on:click={() => navigate('/login')}
+    icon={faSignInAlt}
+    label="Login" />
+  <NavLink
+    on:click={() => navigate('/register')}
+    icon={faUserPlus}
+    label="Register" />
 {/if}

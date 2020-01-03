@@ -44,7 +44,7 @@
           class="absolute w-full top-0"
           on:clickoutside={closeMenu}
           exclude={[triggerEl]}>
-          <MobileMenu />
+          <MobileMenu on:closeMenu={closeMenu} />
         </ClickOutside>
       {/if}
     </nav>

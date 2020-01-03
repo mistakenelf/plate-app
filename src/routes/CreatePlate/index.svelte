@@ -109,9 +109,9 @@
       isFormField
       on:change={handleChange}
       value={formValues.description} />
-    <FAB icon={faSave} />
     <div class="w-full md:w-1/2">
       <TodoList todos={formValues.todos} on:addTodo={addTodo} />
     </div>
+    <FAB icon={faSave} />
   </form>
 {/if}
