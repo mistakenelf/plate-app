@@ -1,5 +1,5 @@
 <script>
-  export let label;
+  export let label = undefined;
   export let type = 'text';
   export let value = '';
   export let name = '';
