@@ -15,9 +15,12 @@
 
   onMount(async () => {
     const user = JSON.parse(localStorage.getItem('user'));
-    loadingPlates = true;
-    await getPlates(user.id);
-    loadingPlates = false;
+
+    if (user) {
+      loadingPlates = true;
+      await getPlates(user.id);
+      loadingPlates = false;
+    }
   });
 </script>
 

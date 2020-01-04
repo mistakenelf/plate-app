@@ -18,38 +18,58 @@
   };
 
   page('/', () => {
-    pageProps = {
-      component: Dashboard,
-      layout: DefaultLayout,
-    };
+    if (localStorage.getItem('user')) {
+      pageProps = {
+        component: Dashboard,
+        layout: DefaultLayout,
+      };
+    } else {
+      page.redirect('/login');
+    }
   });
 
   page('/login', () => {
-    pageProps = {
-      component: Login,
-      layout: DefaultLayout,
-    };
+    if (localStorage.getItem('user')) {
+      page.redirect('/');
+    } else {
+      pageProps = {
+        component: Login,
+        layout: DefaultLayout,
+      };
+    }
   });
 
   page('/register', () => {
-    pageProps = {
-      component: Register,
-      layout: DefaultLayout,
-    };
+    if (localStorage.getItem('user')) {
+      page.redirect('/');
+    } else {
+      pageProps = {
+        component: Register,
+        layout: DefaultLayout,
+      };
+    }
   });
 
   page('/create-plate', () => {
-    pageProps = {
-      component: CreatePlate,
-      layout: DefaultLayout,
-    };
+    if (localStorage.getItem('user')) {
+      pageProps = {
+        component: CreatePlate,
+        layout: DefaultLayout,
+      };
+    } else {
+      page.redirect('/login');
+    }
   });
 
   page('/plate/:id', () => {
-    pageProps = {
-      component: PlateDetails,
-      layout: DefaultLayout,
-    };
+    if (localStorage.getItem('user')) {
+      pageProps = {
+        component: PlateDetails,
+        layout: DefaultLayout,
+      };
+    } else {
+      page.redirect('/login');
+    }
   });
 
   page.start();
