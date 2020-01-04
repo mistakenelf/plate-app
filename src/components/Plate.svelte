@@ -1,6 +1,7 @@
 <script>
   import page from 'page';
-  import { faCaretRight } from '@fortawesome/free-solid-svg-icons/faCaretRight';
+  import { faFolderOpen } from '@fortawesome/free-solid-svg-icons/faFolderOpen';
+  import { faTrashAlt } from '@fortawesome/free-solid-svg-icons/faTrashAlt';
 
   import StatusChip from './StatusChip';
   import Icon from './Icon';
@@ -16,9 +17,16 @@
     <div class="items-center flex justify-center">
       <StatusChip {status} />
       <Icon
+        class="cursor-pointer mr-4"
+        fill="#4a5568"
+        icon={faTrashAlt}
+        height="1.5rem"
+        width="1.5rem"
+        on:click={() => console.log('delete')} />
+      <Icon
         class="cursor-pointer"
         fill="#4a5568"
-        icon={faCaretRight}
+        icon={faFolderOpen}
         height="1.5rem"
         width="1.5rem"
         on:click={() => page(`/plate/${id}`)} />
