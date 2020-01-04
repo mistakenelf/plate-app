@@ -1,9 +1,9 @@
 <script>
   import { onMount } from 'svelte';
 
-  import plateApi from '../../api/plate';
   import Loader from '../../components/Loader';
   import StatusChip from '../../components/StatusChip';
+  import { getPlate } from '../../store/plate';
 
   const urlArray = window.location.href.split('/');
   const plateId = urlArray[urlArray.length - 1];
@@ -13,7 +13,7 @@
 
   onMount(async () => {
     loading = true;
-    plateData = await plateApi.get(plateId);
+    plateData = await getPlate(plateId);
     loading = false;
   });
 </script>

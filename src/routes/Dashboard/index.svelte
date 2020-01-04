@@ -3,19 +3,18 @@
   import page from 'page';
   import { onMount } from 'svelte';
 
-  import plateApi from '../../api/plate';
+  import { plates, getPlates } from '../../store/plate';
   import FAB from '../../components/FAB';
   import Loader from '../../components/Loader';
 
   import PlateList from './components/PlateList';
   import NoPlatesFound from './components/NoPlatesFound';
 
-  let plates = [];
   let loadingPlates = false;
 
   onMount(async () => {
     loadingPlates = true;
-    plates = await plateApi.readAll();
+    await getPlates();
     loadingPlates = false;
   });
 </script>
@@ -26,10 +25,10 @@
 
 {#if loadingPlates}
   <Loader fullPage />
-{:else if plates.length === 0}
+{:else if $plates.length === 0}
   <NoPlatesFound />
 {:else}
-  <PlateList {plates} />
+  <PlateList plates={$plates} />
 {/if}
 
 <FAB icon={faPlus} on:click={() => page('/create-plate')} />

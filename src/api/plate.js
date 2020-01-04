@@ -22,8 +22,18 @@ const get = async id => {
   return await res.json();
 };
 
+const deletePlate = async id => {
+  const res = await fetch('/api/delete-plate', {
+    body: JSON.stringify(id),
+    method: 'DELETE',
+  });
+
+  return await res.json();
+};
+
 export default {
   create,
   readAll,
   get,
+  deletePlate,
 };

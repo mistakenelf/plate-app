@@ -3,12 +3,18 @@
   import { faFolderOpen } from '@fortawesome/free-solid-svg-icons/faFolderOpen';
   import { faTrashAlt } from '@fortawesome/free-solid-svg-icons/faTrashAlt';
 
+  import { deletePlate } from '../store/plate';
+
   import StatusChip from './StatusChip';
   import Icon from './Icon';
 
   export let title;
   export let id;
   export let status;
+
+  const handleDelete = async () => {
+    await deletePlate(id);
+  };
 </script>
 
 <div class="shadow p-3 bg-white mb-4">
@@ -22,7 +28,7 @@
         icon={faTrashAlt}
         height="1.5rem"
         width="1.5rem"
-        on:click={() => console.log('delete')} />
+        on:click={() => handleDelete()} />
       <Icon
         class="cursor-pointer"
         fill="#4a5568"

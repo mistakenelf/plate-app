@@ -3,10 +3,10 @@
   import page from 'page';
 
   import FAB from '../../components/FAB';
-  import plateApi from '../../api/plate';
   import Loader from '../../components/Loader';
   import TodoList from '../../components/TodoList';
   import { currentUser } from '../../store/auth';
+  import { createPlate } from '../../store/plate';
 
   import Title from './components/Title';
   import DueDate from './components/DueDate';
@@ -37,7 +37,7 @@
 
   const handleSubmit = async () => {
     loading = true;
-    await plateApi.create(formValues);
+    await createPlate(formValues);
     loading = false;
     page('/');
   };
