@@ -35,7 +35,7 @@ export const getCurrentUser = () => {
   const user = localStorage.getItem('user');
 
   if (user) {
-    currentUser.set(user);
+    currentUser.set(JSON.parse(user));
   } else {
     currentUser.set(null);
   }

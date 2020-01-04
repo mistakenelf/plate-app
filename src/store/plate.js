@@ -5,8 +5,8 @@ import plateApi from '../api/plate';
 
 export const plates = writable([]);
 
-export const getPlates = async () => {
-  const res = await plateApi.readAll();
+export const getPlates = async userId => {
+  const res = await plateApi.readAll(userId);
 
   plates.set(res);
 };

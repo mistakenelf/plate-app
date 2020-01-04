@@ -24,7 +24,7 @@
     category: '',
     status: 'open',
     todos: [],
-    createdBy: $currentUser.id,
+    createdBy: '',
   };
 
   const handleChange = e => {
@@ -36,6 +36,7 @@
   };
 
   const handleSubmit = async () => {
+    formValues.createdBy = $currentUser.id;
     loading = true;
     await createPlate(formValues);
     loading = false;
