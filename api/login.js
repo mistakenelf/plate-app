@@ -41,6 +41,10 @@ module.exports = async (req, res) => {
     const payload = {
       auth: true,
       token,
+      user: {
+        ...dbs.data,
+        id: dbs.ref.value.id,
+      },
     };
 
     res.status(200).json(payload);

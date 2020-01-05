@@ -8,19 +8,24 @@ const client = new faunadb.Client({
 });
 
 module.exports = async (req, res) => {
-  const data = JSON.parse(req.body);
+  const token = JSON.parse(req.body);
 
-  const decoded = await jwt.verify(data.token, process.env.JWT_SECRET);
+  const decodedToken = await jwt.verify(token, process.env.JWT_SECRET);
 
-  if (decoded) {
+  if (decodedToken) {
     try {
       const dbs = await client.query(
-        q.Get(q.Ref(q.Collection('users'), decoded.id)),
+        q.Get(q.Ref(q.Collection('users'), decodedToken.id)),
       );
 
-      res.status(200).json(dbs);
+      res.status(200).json({
+        ...dbs.data,
+        id: dbs.ref.value.id,
+      });
     } catch (e) {
       res.status(500).json({ error: e.message });
     }
+  } else {
+    res.status(401).json({ error: 'unauthorized user' });
   }
 };

@@ -29,6 +29,10 @@ module.exports = async (req, res) => {
     const result = {
       auth: true,
       token: signToken(dbs.ref.value.id),
+      user: {
+        ...dbs.data,
+        id: dbs.ref.value.id,
+      },
     };
 
     res.status(200).json(result);

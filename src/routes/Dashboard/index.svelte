@@ -4,6 +4,7 @@
   import { onMount } from 'svelte';
 
   import { plates, getPlates, loadingPlates } from '../../store/plate';
+  import { currentUser } from '../../store/auth';
   import FAB from '../../components/FAB';
   import Loader from '../../components/Loader';
 
@@ -11,10 +12,8 @@
   import NoPlatesFound from './components/NoPlatesFound';
 
   onMount(async () => {
-    const user = JSON.parse(localStorage.getItem('user'));
-
-    if (user) {
-      await getPlates(user.id);
+    if ($currentUser) {
+      await getPlates($currentUser.id);
     }
   });
 </script>
