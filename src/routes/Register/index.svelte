@@ -20,6 +20,14 @@
   };
 </script>
 
+<svelte:head>
+  <title>Plate - Register</title>
+  <meta
+    name="description"
+    content="Welcome to Plate, a place to manage your stuff, register now to get
+    started" />
+</svelte:head>
+
 <div class="w-full h-full flex items-center justify-center p-4">
   <form
     on:submit|preventDefault={handleSubmit}

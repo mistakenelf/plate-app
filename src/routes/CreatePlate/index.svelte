@@ -46,6 +46,10 @@
 
 <svelte:head>
   <title>Plate - Create Plate</title>
+  <meta
+    name="description"
+    content="Create a plate to get started today, manage your tasks and a simple
+    platform" />
 </svelte:head>
 
 {#if loading}

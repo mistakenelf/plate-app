@@ -20,6 +20,10 @@
 
 <svelte:head>
   <title>Plate - Dashboard</title>
+  <meta
+    name="description"
+    content="Plate dashboard is where you get an overview of your plates and can
+    start managing them" />
 </svelte:head>
 
 {#if $loadingPlates}

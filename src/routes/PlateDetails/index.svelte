@@ -14,6 +14,10 @@
 
 <svelte:head>
   <title>Plate - Details</title>
+  <meta
+    name="description"
+    content="View all the details of your plate, complete tasks and get stuff
+    done" />
 </svelte:head>
 
 {#if $loadingPlateDetails}
