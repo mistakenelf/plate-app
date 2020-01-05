@@ -16,12 +16,17 @@ const login = async data => {
   return await res.json();
 };
 
-const logout = async () => {
-  return await fetch('/api/logout');
+const me = async token => {
+  const res = await fetch('/api/me', {
+    body: JSON.stringify(token),
+    method: 'POST',
+  });
+
+  return await res.json();
 };
 
 export default {
   register,
   login,
-  logout,
+  me,
 };

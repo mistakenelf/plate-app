@@ -8,7 +8,7 @@
   import PlateDetails from '../routes/PlateDetails';
   import Login from '../routes/Login';
   import Register from '../routes/Register';
-  import { getCurrentUser } from '../store/auth';
+  import { me } from '../store/auth';
 
   import Loader from './Loader';
 
@@ -18,58 +18,38 @@
   };
 
   page('/', () => {
-    if (localStorage.getItem('user')) {
-      pageProps = {
-        component: Dashboard,
-        layout: DefaultLayout,
-      };
-    } else {
-      page.redirect('/login');
-    }
+    pageProps = {
+      component: Dashboard,
+      layout: DefaultLayout,
+    };
   });
 
   page('/login', () => {
-    if (localStorage.getItem('user')) {
-      page.redirect('/');
-    } else {
-      pageProps = {
-        component: Login,
-        layout: DefaultLayout,
-      };
-    }
+    pageProps = {
+      component: Login,
+      layout: DefaultLayout,
+    };
   });
 
   page('/register', () => {
-    if (localStorage.getItem('user')) {
-      page.redirect('/');
-    } else {
-      pageProps = {
-        component: Register,
-        layout: DefaultLayout,
-      };
-    }
+    pageProps = {
+      component: Register,
+      layout: DefaultLayout,
+    };
   });
 
   page('/create-plate', () => {
-    if (localStorage.getItem('user')) {
-      pageProps = {
-        component: CreatePlate,
-        layout: DefaultLayout,
-      };
-    } else {
-      page.redirect('/login');
-    }
+    pageProps = {
+      component: CreatePlate,
+      layout: DefaultLayout,
+    };
   });
 
   page('/plate/:id', () => {
-    if (localStorage.getItem('user')) {
-      pageProps = {
-        component: PlateDetails,
-        layout: DefaultLayout,
-      };
-    } else {
-      page.redirect('/login');
-    }
+    pageProps = {
+      component: PlateDetails,
+      layout: DefaultLayout,
+    };
   });
 
   page.start();
@@ -78,7 +58,7 @@
 
   onMount(() => {
     loading = true;
-    getCurrentUser();
+    me();
     loading = false;
   });
 </script>

@@ -4,7 +4,6 @@
   import { onMount } from 'svelte';
 
   import { plates, getPlates, loadingPlates } from '../../store/plate';
-  import { currentUser } from '../../store/auth';
   import FAB from '../../components/FAB';
   import Loader from '../../components/Loader';
 
