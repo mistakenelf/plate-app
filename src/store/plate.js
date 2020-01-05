@@ -28,10 +28,10 @@ export const getPlate = async id => {
   plate.set(plateDetails);
 };
 
-export const deletePlate = async id => {
+export const deletePlate = async (id, userId) => {
   loadingPlates.set(true);
   await plateApi.deletePlate(id);
-  const res = await plateApi.readAll();
+  const res = await plateApi.readAll(userId);
   plates.set(res);
   loadingPlates.set(false);
 };

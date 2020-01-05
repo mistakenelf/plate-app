@@ -12,7 +12,9 @@
   export let status;
 
   const handleDelete = async () => {
-    await deletePlate(id);
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    await deletePlate(id, user.id);
   };
 </script>
 

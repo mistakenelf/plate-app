@@ -7,9 +7,11 @@ const client = new faunadb.Client({
 });
 
 module.exports = async (req, res) => {
+  const id = JSON.parse(req.body);
+
   try {
     const dbs = await client.query(
-      q.Map(q.Paginate(q.Match(q.Index('all_plates'))), ref => q.Get(ref)),
+      q.Map(q.Paginate(q.Match(q.Index('plates_createdby'), id)), ref => q.Get(ref)),
     );
     res.status(200).json(dbs.data);
   } catch (e) {
