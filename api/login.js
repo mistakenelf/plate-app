@@ -1,10 +1,28 @@
 const faunadb = require('faunadb');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const q = faunadb.query;
 
 const client = new faunadb.Client({
   secret: process.env.FAUNADB_SECRET_KEY,
 });
+
+const signToken = id => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: 86400,
+  });
+};
+
+const comparePassword = async (eventPassword, userPassword, userId) => {
+  const passwordIsValid = await bcrypt.compare(eventPassword, userPassword);
+
+  if (passwordIsValid) {
+    return signToken(userId);
+  } else {
+    return Promise.reject(new Error('The credentials do not match'));
+  }
+};
 
 module.exports = async (req, res) => {
   const data = JSON.parse(req.body);
@@ -14,7 +32,18 @@ module.exports = async (req, res) => {
       q.Get(q.Match(q.Index('users_by_email'), data.email)),
     );
 
-    res.status(200).json(dbs);
+    const token = await comparePassword(
+      data.password,
+      dbs.data.password,
+      dbs.ref.value.id,
+    );
+
+    const payload = {
+      auth: true,
+      token,
+    };
+
+    res.status(200).json(payload);
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
