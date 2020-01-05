@@ -1,2 +1,4 @@
 node_modules/
-public/build
+public/
+dist/
+.cache/
