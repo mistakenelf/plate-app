@@ -5,6 +5,8 @@
   import Input from '../../components/Input.svelte';
   import Button from '../../components/Button.svelte';
 
+  let submitting = false;
+
   const formValues = {
     email: '',
     password: '',
@@ -15,8 +17,10 @@
   };
 
   const handleSubmit = async () => {
+    submitting = true;
     await authStore.login(formValues);
     page('/');
+    submitting = false;
   };
 </script>
 
@@ -50,6 +54,6 @@
       placeholder="password"
       on:change={handleChange}
       value={formValues.password} />
-    <Button type="submit" fullWidth>Login</Button>
+    <Button type="submit" fullWidth loading={submitting}>Login</Button>
   </form>
 </div>
