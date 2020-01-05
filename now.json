@@ -1,5 +1,6 @@
 {
   "env": {
-    "FAUNADB_SECRET_KEY": "@faunadb_secret_key"
+    "FAUNADB_SECRET_KEY": "@faunadb_secret_key",
+    "JWT_SECRET": "@jwt_secret"
   }
 }
