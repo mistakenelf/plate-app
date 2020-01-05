@@ -8,7 +8,7 @@
   import PlateDetails from '../routes/PlateDetails';
   import Login from '../routes/Login';
   import Register from '../routes/Register';
-  import { me } from '../store/auth';
+  import { me, fetchingUser } from '../store/auth';
 
   import Loader from './Loader';
 
@@ -54,12 +54,8 @@
 
   page.start();
 
-  let loading;
-
   onMount(() => {
-    loading = true;
     me();
-    loading = false;
   });
 </script>
 
@@ -83,7 +79,7 @@
   }
 </style>
 
-{#if loading}
+{#if $fetchingUser}
   <Loader fullPage />
 {:else}
   <svelte:component this={pageProps.layout}>
