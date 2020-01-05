@@ -8,13 +8,13 @@
   import { faUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
 
   import NavLink from '../../../components/NavLink.svelte';
-  import { currentUser, logout } from '../../../store/auth';
+  import authStore, { currentUser } from '../../../store/auth';
 
   const dispatch = createEventDispatcher();
 
   const handleLogout = () => {
     dispatch('closeMenu');
-    logout();
+    authStore.logout();
     page('/login');
   };
 

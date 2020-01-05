@@ -3,7 +3,7 @@
 
   import Input from '../../components/Input.svelte';
   import Button from '../../components/Button.svelte';
-  import { register } from '../../store/auth';
+  import authStore from '../../store/auth';
 
   const formValues = {
     email: '',
@@ -15,7 +15,7 @@
   };
 
   const handleSubmit = async () => {
-    await register(formValues);
+    await authStore.register(formValues);
     page('/');
   };
 </script>

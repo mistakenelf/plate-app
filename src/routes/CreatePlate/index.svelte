@@ -6,7 +6,7 @@
   import Loader from '../../components/Loader.svelte';
   import TodoList from '../../components/TodoList.svelte';
   import { currentUser } from '../../store/auth';
-  import { createPlate } from '../../store/plate';
+  import plateStore from '../../store/plate';
 
   import Title from './components/Title.svelte';
   import DueDate from './components/DueDate.svelte';
@@ -38,7 +38,7 @@
   const handleSubmit = async () => {
     formValues.createdBy = $currentUser.id;
     loading = true;
-    await createPlate(formValues);
+    await plateStore.createPlate(formValues);
     loading = false;
     page('/');
   };

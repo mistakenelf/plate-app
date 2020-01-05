@@ -1,7 +1,7 @@
 <script>
   import page from 'page';
 
-  import { login } from '../../store/auth';
+  import authStore from '../../store/auth';
   import Input from '../../components/Input.svelte';
   import Button from '../../components/Button.svelte';
 
@@ -15,7 +15,7 @@
   };
 
   const handleSubmit = async () => {
-    await login(formValues);
+    await authStore.login(formValues);
     page('/');
   };
 </script>

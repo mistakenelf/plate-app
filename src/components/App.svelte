@@ -8,7 +8,7 @@
   import PlateDetails from '../routes/PlateDetails/index.svelte';
   import Login from '../routes/Login/index.svelte';
   import Register from '../routes/Register/index.svelte';
-  import { me, fetchingUser } from '../store/auth';
+  import authStore, { fetchingUser } from '../store/auth';
 
   import Loader from './Loader.svelte';
 
@@ -55,7 +55,7 @@
   page.start();
 
   onMount(() => {
-    me();
+    authStore.me();
   });
 </script>
 

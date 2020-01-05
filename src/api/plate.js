@@ -8,7 +8,7 @@ const create = async data => {
 };
 
 const readAll = async id => {
-  const res = await fetch('/api/get-plates', {
+  const res = await fetch('/api/plates', {
     body: JSON.stringify(id),
     method: 'POST',
   });
@@ -17,7 +17,7 @@ const readAll = async id => {
 };
 
 const get = async id => {
-  const res = await fetch('/api/get-plate', {
+  const res = await fetch('/api/plate', {
     body: JSON.stringify(id),
     method: 'POST',
   });

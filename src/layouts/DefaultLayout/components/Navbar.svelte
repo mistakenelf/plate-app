@@ -6,10 +6,10 @@
   import { faUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
 
   import NavLink from '../../../components/NavLink.svelte';
-  import { currentUser, logout } from '../../../store/auth';
+  import authStore, { currentUser } from '../../../store/auth';
 
   const handleLogout = () => {
-    logout();
+    authStore.logout();
     page('/login');
   };
 

@@ -3,7 +3,8 @@
   import { faFolderOpen } from '@fortawesome/free-solid-svg-icons/faFolderOpen';
   import { faTrashAlt } from '@fortawesome/free-solid-svg-icons/faTrashAlt';
 
-  import { deletePlate } from '../store/plate';
+  import plateStore from '../store/plate';
+  import { currentUser } from '../store/auth';
 
   import Icon from './Icon.svelte';
 
@@ -12,9 +13,7 @@
   export let status;
 
   const handleDelete = async () => {
-    const user = JSON.parse(localStorage.getItem('user'));
-
-    await deletePlate(id, user.id);
+    await plateStore.deletePlate(id, $currentUser.id);
   };
 </script>
 

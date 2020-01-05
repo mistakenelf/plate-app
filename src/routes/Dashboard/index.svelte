@@ -3,8 +3,8 @@
   import page from 'page';
   import { onMount } from 'svelte';
 
-  import { plates, getPlates, loadingPlates } from '../../store/plate';
-  import { currentUser } from '../../store/auth';
+  import plateStore, { plates, loadingPlates } from '../../store/plate';
+  import authStore, { currentUser } from '../../store/auth';
   import FAB from '../../components/FAB.svelte';
   import Loader from '../../components/Loader.svelte';
 
@@ -13,7 +13,7 @@
 
   onMount(async () => {
     if ($currentUser) {
-      await getPlates($currentUser.id);
+      await plateStore.getPlates($currentUser.id);
     }
   });
 </script>

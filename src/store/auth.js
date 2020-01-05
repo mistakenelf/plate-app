@@ -5,7 +5,7 @@ import authApi from '../api/auth';
 export const currentUser = writable(null);
 export const fetchingUser = writable(false);
 
-export const login = async data => {
+const login = async data => {
   const res = await authApi.login(data);
 
   currentUser.set(res.user);
@@ -13,7 +13,7 @@ export const login = async data => {
   localStorage.setItem('token', res.token);
 };
 
-export const register = async data => {
+const register = async data => {
   const res = await authApi.register(data);
 
   currentUser.set(res.user);
@@ -21,12 +21,12 @@ export const register = async data => {
   localStorage.setItem('token', JSON.stringify(res.token));
 };
 
-export const logout = async () => {
+const logout = async () => {
   localStorage.removeItem('token');
   currentUser.set(null);
 };
 
-export const me = async () => {
+const me = async () => {
   fetchingUser.set(true);
 
   const jwt = localStorage.getItem('token');
@@ -39,4 +39,11 @@ export const me = async () => {
     currentUser.set(null);
     fetchingUser.set(false);
   }
+};
+
+export default {
+  login,
+  register,
+  logout,
+  me,
 };

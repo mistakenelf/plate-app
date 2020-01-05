@@ -3,11 +3,11 @@ import { writable } from 'svelte/store';
 import plateApi from '../api/plate';
 
 export const plates = writable([]);
-export const plate = writable({});
+export const plate = writable(null);
 export const loadingPlates = writable(true);
 export const loadingPlateDetails = writable(true);
 
-export const getPlates = async userId => {
+const getPlates = async userId => {
   loadingPlates.set(true);
   const res = await plateApi.readAll(userId);
 
@@ -16,11 +16,11 @@ export const getPlates = async userId => {
   loadingPlates.set(false);
 };
 
-export const createPlate = async data => {
+const createPlate = async data => {
   await plateApi.create(data);
 };
 
-export const getPlate = async id => {
+const getPlate = async id => {
   loadingPlateDetails.set(true);
   const plateDetails = await plateApi.get(id);
   loadingPlateDetails.set(false);
@@ -28,10 +28,17 @@ export const getPlate = async id => {
   plate.set(plateDetails);
 };
 
-export const deletePlate = async (id, userId) => {
+const deletePlate = async (id, userId) => {
   loadingPlates.set(true);
   await plateApi.deletePlate(id);
   const res = await plateApi.readAll(userId);
   plates.set(res);
   loadingPlates.set(false);
+};
+
+export default {
+  getPlates,
+  createPlate,
+  getPlate,
+  deletePlate,
 };

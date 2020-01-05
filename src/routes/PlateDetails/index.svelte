@@ -2,13 +2,13 @@
   import { onMount } from 'svelte';
 
   import Loader from '../../components/Loader.svelte';
-  import { getPlate, loadingPlateDetails, plate } from '../../store/plate';
+  import plateStore, { loadingPlateDetails, plate } from '../../store/plate';
 
   const urlArray = window.location.href.split('/');
   const plateId = urlArray[urlArray.length - 1];
 
   onMount(async () => {
-    await getPlate(plateId);
+    await plateStore.getPlate(plateId);
   });
 </script>
 
