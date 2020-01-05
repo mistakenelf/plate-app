@@ -1,5 +1,5 @@
 <script>
-  import Plate from '../../../components/Plate';
+  import Plate from '../../../components/Plate.svelte';
   import { getId } from '../../../helpers/getId';
 
   export let plates;

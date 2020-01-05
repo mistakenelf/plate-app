@@ -1,5 +1,5 @@
 <script>
-  import Input from '../../../components/Input';
+  import Input from '../../../components/Input.svelte';
 
   export let title;
 </script>

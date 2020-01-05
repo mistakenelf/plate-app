@@ -1,5 +1,5 @@
 <script>
-  import Select from '../../../components/Select';
+  import Select from '../../../components/Select.svelte';
 
   export let status;
 </script>

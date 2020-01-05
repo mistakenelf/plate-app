@@ -1,12 +1,12 @@
 <script>
   import ClickOutside from '../../components/ClickOutside';
 
-  import Navbar from './components/Navbar';
-  import MobileMenu from './components/MobileMenu';
-  import Brand from './components/Brand';
+  import Navbar from './components/Navbar.svelte';
+  import MobileMenu from './components/MobileMenu.svelte';
+  import Brand from './components/Brand.svelte';
   import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 
-  import Icon from '../../components/Icon';
+  import Icon from '../../components/Icon.svelte';
 
   let menuOpen = false;
   let triggerEl;

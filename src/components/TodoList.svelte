@@ -2,8 +2,8 @@
   import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
   import { createEventDispatcher } from 'svelte';
 
-  import Input from './Input';
-  import Icon from './Icon';
+  import Input from './Input.svelte';
+  import Icon from './Icon.svelte';
 
   const dispatch = createEventDispatcher();
 

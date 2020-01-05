@@ -5,11 +5,11 @@
 
   import { plates, getPlates, loadingPlates } from '../../store/plate';
   import { currentUser } from '../../store/auth';
-  import FAB from '../../components/FAB';
-  import Loader from '../../components/Loader';
+  import FAB from '../../components/FAB.svelte';
+  import Loader from '../../components/Loader.svelte';
 
-  import PlateList from './components/PlateList';
-  import NoPlatesFound from './components/NoPlatesFound';
+  import PlateList from './components/PlateList.svelte';
+  import NoPlatesFound from './components/NoPlatesFound.svelte';
 
   onMount(async () => {
     if ($currentUser) {

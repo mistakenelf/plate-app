@@ -2,15 +2,15 @@
   import page from 'page';
   import { onMount } from 'svelte';
 
-  import CreatePlate from '../routes/CreatePlate';
-  import Dashboard from '../routes/Dashboard';
-  import DefaultLayout from '../layouts/DefaultLayout';
-  import PlateDetails from '../routes/PlateDetails';
-  import Login from '../routes/Login';
-  import Register from '../routes/Register';
+  import CreatePlate from '../routes/CreatePlate/index.svelte';
+  import Dashboard from '../routes/Dashboard/index.svelte';
+  import DefaultLayout from '../layouts/DefaultLayout/index.svelte';
+  import PlateDetails from '../routes/PlateDetails/index.svelte';
+  import Login from '../routes/Login/index.svelte';
+  import Register from '../routes/Register/index.svelte';
   import { me, fetchingUser } from '../store/auth';
 
-  import Loader from './Loader';
+  import Loader from './Loader.svelte';
 
   let pageProps = {
     component: Dashboard,
@@ -58,26 +58,6 @@
     me();
   });
 </script>
-
-<style global>
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
-
-  html,
-  body,
-  main {
-    height: 100%;
-    width: 100%;
-    background: #f5f5f5;
-  }
-
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-</style>
 
 {#if $fetchingUser}
   <Loader fullPage />

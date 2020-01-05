@@ -1,5 +1,5 @@
 <script>
-  import Textarea from '../../../components/Textarea';
+  import Textarea from '../../../components/Textarea.svelte';
 
   export let description;
 </script>

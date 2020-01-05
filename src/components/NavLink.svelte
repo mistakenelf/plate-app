@@ -1,5 +1,5 @@
 <script>
-  import Icon from './Icon';
+  import Icon from './Icon.svelte';
 
   export let isMobile = false;
   export let label;

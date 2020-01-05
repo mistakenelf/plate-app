@@ -5,7 +5,7 @@
 
   import { deletePlate } from '../store/plate';
 
-  import Icon from './Icon';
+  import Icon from './Icon.svelte';
 
   export let title;
   export let id;

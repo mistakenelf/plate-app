@@ -1,8 +1,8 @@
 <script>
   import page from 'page';
 
-  import Input from '../../components/Input';
-  import Button from '../../components/Button';
+  import Input from '../../components/Input.svelte';
+  import Button from '../../components/Button.svelte';
   import { register } from '../../store/auth';
 
   const formValues = {

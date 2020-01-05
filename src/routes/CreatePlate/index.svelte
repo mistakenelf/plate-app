@@ -2,18 +2,18 @@
   import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
   import page from 'page';
 
-  import FAB from '../../components/FAB';
-  import Loader from '../../components/Loader';
-  import TodoList from '../../components/TodoList';
+  import FAB from '../../components/FAB.svelte';
+  import Loader from '../../components/Loader.svelte';
+  import TodoList from '../../components/TodoList.svelte';
   import { currentUser } from '../../store/auth';
   import { createPlate } from '../../store/plate';
 
-  import Title from './components/Title';
-  import DueDate from './components/DueDate';
-  import Status from './components/Status';
-  import Header from './components/Header';
-  import Category from './components/Category';
-  import Description from './components/Description';
+  import Title from './components/Title.svelte';
+  import DueDate from './components/DueDate.svelte';
+  import Status from './components/Status.svelte';
+  import Header from './components/Header.svelte';
+  import Category from './components/Category.svelte';
+  import Description from './components/Description.svelte';
 
   let loading = false;
 

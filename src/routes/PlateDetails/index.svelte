@@ -1,7 +1,7 @@
 <script>
   import { onMount } from 'svelte';
 
-  import Loader from '../../components/Loader';
+  import Loader from '../../components/Loader.svelte';
   import { getPlate, loadingPlateDetails, plate } from '../../store/plate';
 
   const urlArray = window.location.href.split('/');
