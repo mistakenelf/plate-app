@@ -22,8 +22,8 @@
 
 <main>
   <nav
-    class="flex items-center shadow w-full justify-between h-12 fixed z-10 left-0 top-0
-    bg-blue-500">
+    class="flex items-center shadow w-full justify-between h-12 fixed z-10
+    left-0 top-0 bg-blue-500">
     <Brand />
     <div class="hidden lg:flex items-center h-full">
       <Navbar />
