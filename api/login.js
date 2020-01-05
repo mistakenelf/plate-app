@@ -11,9 +11,7 @@ module.exports = async (req, res) => {
 
   try {
     const dbs = await client.query(
-      q.Login(q.Match(q.Index('users_by_email'), data.email), {
-        password: data.password,
-      }),
+      q.Get(q.Match(q.Index('users_by_email'), data.email)),
     );
 
     res.status(200).json(dbs);

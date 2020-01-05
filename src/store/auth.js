@@ -21,14 +21,7 @@ export const login = async data => {
 export const register = async data => {
   const res = await authApi.register(data);
 
-  const user = {
-    id: getId(res),
-    secret: res.secret,
-  };
-
-  currentUser.set(user);
-
-  localStorage.setItem('user', JSON.stringify(user));
+  localStorage.setItem('token', JSON.stringify(res.token));
 };
 
 export const getCurrentUser = () => {
