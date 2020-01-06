@@ -3,7 +3,7 @@ import { writable } from 'svelte/store';
 import authApi from '../api/auth';
 
 export const currentUser = writable(null);
-export const fetchingUser = writable(false);
+export const fetchingUser = writable(true);
 
 const login = async data => {
   const res = await authApi.login(data);
