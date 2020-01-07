@@ -4,21 +4,28 @@ import authApi from '../api/auth';
 
 export const currentUser = writable(null);
 export const fetchingUser = writable(true);
+export const errorMessage = writable(null);
 
 const login = async data => {
   const res = await authApi.login(data);
 
-  currentUser.set(res.user);
-
-  localStorage.setItem('token', res.token);
+  if (res.error) {
+    errorMessage.set(res.error);
+  } else {
+    currentUser.set(res.user);
+    localStorage.setItem('token', res.token);
+  }
 };
 
 const register = async data => {
   const res = await authApi.register(data);
 
-  currentUser.set(res.user);
-
-  localStorage.setItem('token', JSON.stringify(res.token));
+  if (res.error) {
+    errorMessage.set(res.error);
+  } else {
+    currentUser.set(res.user);
+    localStorage.setItem('token', JSON.stringify(res.token));
+  }
 };
 
 const logout = async () => {

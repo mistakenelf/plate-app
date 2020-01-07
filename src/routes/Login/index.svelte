@@ -1,7 +1,7 @@
 <script>
   import page from 'page';
 
-  import authStore from '../../store/auth';
+  import authStore, { errorMessage } from '../../store/auth';
   import Input from '../../components/Input.svelte';
   import Button from '../../components/Button.svelte';
 
@@ -57,5 +57,10 @@
       on:change={handleChange}
       value={formValues.password} />
     <Button type="submit" fullWidth loading={submitting}>Login</Button>
+    {#if $errorMessage}
+      <div class="mt-4 bg-red-500 rounded p-2 font-bold text-white text-xl">
+        {$errorMessage}
+      </div>
+    {/if}
   </form>
 </div>
