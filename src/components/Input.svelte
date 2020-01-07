@@ -13,6 +13,9 @@
   {#if label}
     <label class="block text-gray-700 font-bold mb-1 uppercase text-sm">
       {label}
+      {#if required}
+        <span class="text-red-500">*</span>
+      {/if}
     </label>
   {/if}
   <input
