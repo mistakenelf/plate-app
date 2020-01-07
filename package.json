@@ -47,6 +47,7 @@
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
     "parcel-bundler": "^1.12.4",
+    "parcel-plugin-compress": "^1.1.0",
     "parcel-plugin-svelte": "^4.0.5",
     "postcss": "^7.0.26",
     "prettier": "^1.19.1",
