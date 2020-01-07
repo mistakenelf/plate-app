@@ -4,7 +4,6 @@
 
   import FAB from '../../components/FAB.svelte';
   import Loader from '../../components/Loader.svelte';
-  import TodoList from '../../components/TodoList.svelte';
   import { currentUser } from '../../store/auth';
   import plateStore from '../../store/plate';
 
@@ -14,6 +13,8 @@
   import Header from './components/Header.svelte';
   import Category from './components/Category.svelte';
   import Description from './components/Description.svelte';
+  import Notes from './components/Notes.svelte';
+  import TodoList from './components/TodoList.svelte';
 
   let loading = false;
 
@@ -22,6 +23,7 @@
     dueDate: '',
     description: '',
     category: '',
+    notes: '',
     status: 'open',
     todos: [],
     createdBy: '',
@@ -33,6 +35,12 @@
 
   const addTodo = event => {
     formValues.todos = [...formValues.todos, event.detail];
+  };
+
+  const removeTodo = event => {
+    formValues.todos = formValues.todos.filter(
+      res => res.id !== event.detail.id,
+    );
   };
 
   const handleSubmit = async () => {
@@ -65,11 +73,17 @@
       <Status on:change={handleChange} status={formValues.status} />
       <Category on:change={handleChange} category={formValues.category} />
     </div>
-    <Description
-      on:change={handleChange}
-      description={formValues.description} />
+    <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
+      <Description
+        on:change={handleChange}
+        description={formValues.description} />
+      <Notes on:change={handleChange} notes={formValues.notes} />
+    </div>
     <div class="w-full md:w-1/2">
-      <TodoList todos={formValues.todos} on:addTodo={addTodo} />
+      <TodoList
+        todos={formValues.todos}
+        on:addTodo={addTodo}
+        on:removeTodo={removeTodo} />
     </div>
     <FAB icon={faSave} />
   </form>
