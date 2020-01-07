@@ -43,6 +43,7 @@
       type="email"
       label="Email"
       isFormField
+      required
       placeholder="email address"
       on:change={handleChange}
       value={formValues.email} />
@@ -51,6 +52,7 @@
       type="password"
       label="Password"
       isFormField
+      required
       placeholder="password"
       on:change={handleChange}
       value={formValues.password} />
