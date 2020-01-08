@@ -33,7 +33,7 @@
       </div>
     </div>
   </div>
-  <div class="m-4 flex flex-row flex-wrap w-full">
+  <div class="p-4 flex flex-row flex-wrap w-full">
     <div class="w-full md:w-1/2">
       <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">Notes</h3>
       {@html $plate.data.notes}
@@ -45,8 +45,8 @@
       {@html $plate.data.description}
     </div>
   </div>
-  <h4 class="font-bold uppercase">Todo Items</h4>
-  <ul class="p-2 m-4">
+  <h4 class="font-bold uppercase pl-4">Todo Items</h4>
+  <ul class="p-4">
     {#each $plate.data.todos as todo}
       <li class="hover:bg-gray-200 text-lg mb-2">{todo.title}</li>
     {/each}
