@@ -1,6 +1,7 @@
 <script>
   import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
   import page from 'page';
+  import marked from 'marked';
 
   import FAB from '../../components/FAB.svelte';
   import Loader from '../../components/Loader.svelte';
@@ -9,7 +10,6 @@
 
   import Title from './components/Title.svelte';
   import DueDate from './components/DueDate.svelte';
-  import Status from './components/Status.svelte';
   import Header from './components/Header.svelte';
   import Category from './components/Category.svelte';
   import Description from './components/Description.svelte';
@@ -45,6 +45,8 @@
 
   const handleSubmit = async () => {
     formValues.createdBy = $currentUser.id;
+    formValues.notes = marked(formValues.notes);
+    formValues.description = marked(formValues.description);
     loading = true;
     await plateStore.createPlate(formValues);
     loading = false;
@@ -70,7 +72,6 @@
       <DueDate on:change={handleChange} dueDate={formValues.dueDate} />
     </div>
     <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
-      <Status on:change={handleChange} status={formValues.status} />
       <Category on:change={handleChange} category={formValues.category} />
     </div>
     <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">

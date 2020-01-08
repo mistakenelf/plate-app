@@ -8,7 +8,7 @@
   <Textarea
     name="notes"
     rows={7}
-    label="notes"
+    label="Notes (can use markdown)"
     isFormField
     on:change
     value={notes} />

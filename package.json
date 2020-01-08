@@ -61,6 +61,7 @@
     "bcrypt": "^3.0.7",
     "faunadb": "^2.10.2",
     "jsonwebtoken": "^8.5.1",
+    "marked": "^0.8.0",
     "page": "^1.11.5",
     "sirv-cli": "^0.4.5"
   }
