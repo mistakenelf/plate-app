@@ -4,6 +4,12 @@
   export let fullWidth = false;
   export let type = 'button';
   export let loading = false;
+
+  let classes = '';
+
+  $: classes =
+    'rounded px-4 md:px-5 xl:px-4 py-3 bg-teal-500 hover:bg-teal-600 text-lg uppercase xl:text-base text-white flex justify-center items-center flex-row font-semibold leading-tight shadow-md ' +
+    ($$props.class ? $$props.class : '');
 </script>
 
 <style>
@@ -33,12 +39,7 @@
   }
 </style>
 
-<button
-  class="rounded px-4 md:px-5 xl:px-4 py-3 bg-teal-500 hover:bg-teal-600 text-lg
-  uppercase xl:text-base text-white flex justify-center items-center flex-row
-  font-semibold leading-tight shadow-md"
-  class:w-full={fullWidth}
-  {type}>
+<button {type} on:click class:w-full={fullWidth} class={classes}>
   {#if loading}
     <div class="spinner" />
   {:else}
