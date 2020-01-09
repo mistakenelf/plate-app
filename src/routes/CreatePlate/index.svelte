@@ -44,11 +44,15 @@
   };
 
   const handleSubmit = async () => {
+    loading = true;
+
     formValues.createdBy = $currentUser.id;
     formValues.notes = marked(formValues.notes);
     formValues.description = marked(formValues.description);
-    loading = true;
+    formValues.dueDate = new Date(formValues.dueDate);
+
     await plateStore.createPlate(formValues);
+
     loading = false;
     page('/');
   };
