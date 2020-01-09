@@ -10,12 +10,23 @@
 
   import PlateList from './components/PlateList.svelte';
   import NoPlatesFound from './components/NoPlatesFound.svelte';
+  import StatCard from './components/StatCard.svelte';
+  import StatCardList from './components/StatCardList.svelte';
+
+  export let completedCount;
+  export let openCount;
+  export let inProgress;
 
   onMount(async () => {
     if ($currentUser) {
       await plateStore.getPlates($currentUser.id);
     }
   });
+    openCount = $plates.filter(plate => plate.status === 'open').length;
+    console.log(openCount);
+
+    completedCount = $plates.length;
+    console.log(completedCount);
 </script>
 
 <svelte:head>
@@ -31,6 +42,7 @@
 {:else if $plates.length === 0}
   <NoPlatesFound />
 {:else}
+  <StatCard status={openCount} />
   <PlateList plates={$plates} />
 {/if}
 
