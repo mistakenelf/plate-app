@@ -10,12 +10,12 @@ const client = new faunadb.Client({
 module.exports = async (req, res) => {
   const token = JSON.parse(req.body);
 
-  const decodedToken = await jwt.verify(token, process.env.JWT_SECRET);
+  const verifiedToken = await jwt.verify(token, process.env.JWT_SECRET);
 
-  if (decodedToken) {
+  if (verifiedToken) {
     try {
       const dbs = await client.query(
-        q.Get(q.Ref(q.Collection('users'), decodedToken.id)),
+        q.Get(q.Ref(q.Collection('users'), verifiedToken.id)),
       );
 
       res.status(200).json({
