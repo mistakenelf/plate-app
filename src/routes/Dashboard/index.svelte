@@ -13,20 +13,43 @@
   import StatCard from './components/StatCard.svelte';
   import StatCardList from './components/StatCardList.svelte';
 
-  export let completedCount;
-  export let openCount;
-  export let inProgress;
+ let completedCount = 0;
+ let openCount = 0;
+ let inProgress = 0;
+ let completedCountObject = {};
+ let openCountObject ={};
+ let inProgressObject = {};
 
-  onMount(async () => {
+onMount(async () => {
     if ($currentUser) {
       await plateStore.getPlates($currentUser.id);
     }
-  });
-    openCount = $plates.filter(plate => plate.status === 'open').length;
+    completedCount = $plates.filter(res => res.data.status === 'complete').length;
+    console.log(completedCount);
+        
+    openCount = $plates.filter(res => res.data.status === 'open').length;
     console.log(openCount);
 
-    completedCount = $plates.length;
-    console.log(completedCount);
+    inProgress = $plates.filter(res => res.data.status === 'in progress').length;
+        console.log(inProgress);
+
+
+        completedCountObject = {
+        'count': completedCount,
+        'text': "Completed Plates"
+      }
+         openCountObject = {
+        'count': openCount,
+        'text': "open Plates"
+      }
+       inProgressObject = {
+        'count': inProgress,
+        'text': "in Progress Plates"
+      }
+});
+  
+
+  
 </script>
 
 <svelte:head>
@@ -42,7 +65,12 @@
 {:else if $plates.length === 0}
   <NoPlatesFound />
 {:else}
-  <StatCard status={openCount} />
+  <div class="flex items-stretch">
+
+  <StatCard class="flex-1" statData={completedCountObject} />
+  <StatCard class="flex-1" statData={openCountObject} />
+  <StatCard class="flex-1" statData={inProgressObject} />
+  </div>
   <PlateList plates={$plates} />
 {/if}
 
