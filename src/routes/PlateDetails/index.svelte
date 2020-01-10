@@ -4,6 +4,10 @@
   import Loader from '../../components/Loader.svelte';
   import plateStore, { loadingPlateDetails, plate } from '../../store/plate';
 
+  import BasicInfo from './components/BasicInfo';
+  import Notes from './components/Notes';
+  import Description from './components/Description';
+
   const urlArray = window.location.href.split('/');
   const plateId = urlArray[urlArray.length - 1];
 
@@ -23,27 +27,13 @@
 {#if $loadingPlateDetails}
   <Loader fullPage />
 {:else}
-  <div class="m-4 text-gray-700">
-    <div class="p-4 bg-white rounded w-full md:w-1/2 shadow mb-6">
-      <h1 class="font-bold text-3xl md:text-5xl mb-3">{$plate.data.title}</h1>
-      <hr class="mb-2" />
-      <div class="mb-3 text-lg md:text-xl">Due On: {$plate.data.dueDate}</div>
-      <div class="flex items-center mb-3 text-lg md:text-xl">
-        Status: {$plate.data.status}
-      </div>
-    </div>
-  </div>
-  <div class="p-4 flex flex-row flex-wrap w-full">
-    <div class="w-full md:w-1/2">
-      <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">Notes</h3>
-      {@html $plate.data.notes}
-    </div>
-    <div class="w-full md:w-1/2">
-      <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">
-        Description
-      </h3>
-      {@html $plate.data.description}
-    </div>
+  <BasicInfo
+    title={$plate.data.title}
+    dueDate={$plate.data.dueDate}
+    status={$plate.data.status} />
+  <div class="flex flex-wrap overflow-hidden">
+    <Notes notes={$plate.data.notes} />
+    <Description description={$plate.data.description} />
   </div>
   <h4 class="font-bold uppercase pl-4">Todo Items</h4>
   <ul class="p-4">
