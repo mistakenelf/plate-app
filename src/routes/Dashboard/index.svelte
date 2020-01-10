@@ -25,26 +25,23 @@ onMount(async () => {
       await plateStore.getPlates($currentUser.id);
     }
     completedCount = $plates.filter(res => res.data.status === 'complete').length;
-    console.log(completedCount);
         
     openCount = $plates.filter(res => res.data.status === 'open').length;
-    console.log(openCount);
 
     inProgress = $plates.filter(res => res.data.status === 'in progress').length;
-        console.log(inProgress);
 
 
         completedCountObject = {
         'count': completedCount,
-        'text': "Completed Plates"
+        'text': "Completed"
       }
          openCountObject = {
         'count': openCount,
-        'text': "open Plates"
+        'text': "Open"
       }
        inProgressObject = {
         'count': inProgress,
-        'text': "in Progress Plates"
+        'text': "In Progress"
       }
 });
   
