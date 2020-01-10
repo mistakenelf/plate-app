@@ -10,14 +10,12 @@
 
   import PlateList from './components/PlateList.svelte';
   import NoPlatesFound from './components/NoPlatesFound.svelte';
- 
 
   onMount(async () => {
     if ($currentUser) {
       await plateStore.getPlates($currentUser.id);
     }
   });
- 
 </script>
 
 <svelte:head>
