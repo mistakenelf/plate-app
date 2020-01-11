@@ -40,8 +40,16 @@ const me = async () => {
 
   if (jwt) {
     const user = await authApi.me(jwt);
-    currentUser.set(user);
-    fetchingUser.set(false);
+
+    if (user.error) {
+      localStorage.removeItem('token');
+      currentUser.set(null);
+      fetchingUser.set(false);
+      return;
+    } else {
+      currentUser.set(user);
+      fetchingUser.set(false);
+    }
   } else {
     currentUser.set(null);
     fetchingUser.set(false);

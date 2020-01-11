@@ -9,8 +9,13 @@ const client = new faunadb.Client({
 
 module.exports = async (req, res) => {
   const token = JSON.parse(req.body);
+  let verifiedToken;
 
-  const verifiedToken = await jwt.verify(token, process.env.JWT_SECRET);
+  try {
+    verifiedToken = await jwt.verify(token, process.env.JWT_SECRET);
+  } catch (e) {
+    console.log('error', e);
+  }
 
   if (verifiedToken) {
     try {
