@@ -70,27 +70,43 @@
 {#if loading}
   <Loader fullPage />
 {:else}
-  <form class="p-6 pb-24" on:submit|preventDefault={handleSubmit}>
-    <Header />
-    <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
-      <Title on:change={handleChange} title={formValues.title} />
-      <DueDate on:change={handleChange} dueDate={formValues.dueDate} />
+  <form class="pb-24" on:submit|preventDefault={handleSubmit}>
+    <div class="p-4">
+      <Header />
     </div>
-    <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
-      <Category on:change={handleChange} category={formValues.category} />
+    <div class="flex flex-wrap mt-2 mx-4">
+      <div class="w-full md:w-1/2 px-2 my-2">
+        <Title on:change={handleChange} title={formValues.title} />
+      </div>
+      <div class="w-full md:w-1/2 px-2 my-2">
+        <DueDate on:change={handleChange} dueDate={formValues.dueDate} />
+      </div>
     </div>
-    <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
-      <Description
-        on:change={handleChange}
-        description={formValues.description} />
-      <Notes on:change={handleChange} notes={formValues.notes} />
+    <div class="flex flex-wrap mt-2 mx-4">
+      <div class="w-full md:w-1/2 px-2 my-2">
+        <Category on:change={handleChange} category={formValues.category} />
+      </div>
     </div>
-    <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
-      <TodoList
-        todos={formValues.todos}
-        on:addTodo={addTodo}
-        on:removeTodo={removeTodo} />
-      <Documents />
+    <div class="flex flex-wrap mt-2 mx-4">
+      <div class="w-full md:w-1/2 px-2 my-2">
+        <Description
+          on:change={handleChange}
+          description={formValues.description} />
+      </div>
+      <div class="w-full md:w-1/2 px-2 my-2">
+        <Notes on:change={handleChange} notes={formValues.notes} />
+      </div>
+    </div>
+    <div class="flex flex-wrap mt-2 mx-4">
+      <div class="w-full md:w-1/2 px-2 my-2 mb-12 md:mb-0">
+        <TodoList
+          todos={formValues.todos}
+          on:addTodo={addTodo}
+          on:removeTodo={removeTodo} />
+      </div>
+      <div class="w-full md:w-1/2 px-2 my-2">
+        <Documents />
+      </div>
     </div>
     <FAB icon={faSave} />
   </form>

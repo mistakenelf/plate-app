@@ -8,10 +8,8 @@
   });
 </script>
 
-<div
-  class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2 bg-white
-  rounded shadow border-2 border-gray-400">
-  <h3 class="text-2xl text-gray-700 mb-4 p-4">Documents</h3>
+<div class="bg-white rounded shadow border-2 border-gray-400 p-4">
+  <h3 class="text-3xl text-gray-700 mb-4">Documents</h3>
   <input
     type="file"
     id="fileUpload"

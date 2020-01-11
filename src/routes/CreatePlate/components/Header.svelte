@@ -4,4 +4,4 @@
   to go into the newly created plate and edit details, add new things, and start
   organizing your stuff.
 </p>
-<hr class="mb-12" />
+<hr />
