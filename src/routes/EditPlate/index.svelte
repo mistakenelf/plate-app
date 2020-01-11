@@ -1,12 +1,13 @@
 <script>
   import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
   import page from 'page';
+  import { onMount } from 'svelte';
 
   import FAB from '../../components/FAB.svelte';
   import Loader from '../../components/Loader.svelte';
   import { currentUser } from '../../store/auth';
   import { getId } from '../../helpers/getId';
-  import plateStore, { plate } from '../../store/plate';
+  import plateStore, { plate, loadingPlateDetails } from '../../store/plate';
 
   import Title from './components/Title.svelte';
   import DueDate from './components/DueDate.svelte';
@@ -17,20 +18,31 @@
   import TodoList from './components/TodoList.svelte';
   import Documents from './components/Documents.svelte';
 
-  let loading = false;
+  const urlArray = window.location.href.split('/');
+  const plateId = urlArray[urlArray.length - 2];
+  let formValues;
+  let loadingPlate = true;
 
-  const formValues = {
-    createdBy: '',
-    title: '',
-    dueDate: '',
-    description: '',
-    category: '',
-    notes: '',
-    status: 'open',
-    todos: [],
-    files: [],
-    sharedWith: [],
-  };
+  onMount(async () => {
+    loadingPlate = true;
+
+    await plateStore.getPlate(plateId);
+
+    formValues = {
+      createdBy: $plate.data.createdBy,
+      dueDate: $plate.data.dueDate,
+      title: $plate.data.title,
+      description: $plate.data.description,
+      category: $plate.data.category,
+      notes: $plate.data.notes,
+      status: $plate.data.status,
+      todos: $plate.data.todos,
+      files: $plate.data.files,
+      sharedWith: $plate.data.sharedWith,
+    };
+
+    loadingPlate = false;
+  });
 
   const handleChange = e => {
     formValues[e.target.name] = e.target.value;
@@ -51,30 +63,22 @@
   };
 
   const handleSubmit = async () => {
-    loading = true;
-
     formValues.createdBy = $currentUser.id;
     formValues.notes = formValues.notes;
     formValues.description = formValues.description;
     formValues.dueDate = new Date(formValues.dueDate);
-
-    await plateStore.createPlate(formValues);
-
-    loading = false;
-
-    page(`/plate/${getId($plate)}/edit`);
   };
 </script>
 
 <svelte:head>
-  <title>Plate - Create Plate</title>
+  <title>Plate - Edit Plate</title>
   <meta
     name="description"
     content="Create a plate to get started today, manage your tasks and a simple
     platform" />
 </svelte:head>
 
-{#if loading}
+{#if loadingPlate}
   <Loader fullPage />
 {:else}
   <form class="pb-24" on:submit|preventDefault={handleSubmit}>
