@@ -3,8 +3,11 @@
   import { onMount } from 'svelte';
 
   onMount(() => {
-    const inputElement = document.getElementById('fileUpload');
-    FilePond.create(inputElement, { multiple: true, name: 'filepond' });
+    const pond = document.getElementById('fileUpload');
+    FilePond.create(pond, {
+      multiple: true,
+      name: 'filepond',
+    });
   });
 </script>
 
