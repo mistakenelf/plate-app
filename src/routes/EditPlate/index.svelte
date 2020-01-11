@@ -74,8 +74,7 @@
   <title>Plate - Edit Plate</title>
   <meta
     name="description"
-    content="Create a plate to get started today, manage your tasks and a simple
-    platform" />
+    content="Now that you got a plate created, lets get it edited" />
 </svelte:head>
 
 {#if loadingPlate}
@@ -116,7 +115,7 @@
           on:removeTodo={removeTodo} />
       </div>
       <div class="w-full md:w-1/2 px-2 my-2">
-        <Documents on:addFile={addFile} />
+        <Documents on:addFile={addFile} files={formValues.files} />
       </div>
     </div>
     <FAB icon={faSave} />

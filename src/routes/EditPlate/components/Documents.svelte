@@ -4,11 +4,15 @@
 
   const dispatch = createEventDispatcher();
 
+  export let files;
+
   onMount(() => {
     const pond = document.getElementById('fileUpload');
+    const decodedFiles = files.map(file => atob(file.fileData));
     FilePond.create(pond, {
       multiple: true,
       name: 'filepond',
+      files: decodedFiles,
       onaddfile: (err, fileItem) => {
         dispatch('addFile', fileItem);
       },

@@ -6,7 +6,7 @@
   import Loader from '../../components/Loader.svelte';
   import { currentUser } from '../../store/auth';
   import { getId } from '../../helpers/getId';
-  import plateStore, { plate } from '../../store/plate';
+  import plateStore from '../../store/plate';
 
   import Title from './components/Title.svelte';
   import DueDate from './components/DueDate.svelte';
@@ -62,7 +62,7 @@
 
     loading = false;
 
-    page(`/plate/${getId($plate)}/edit`);
+    page('/');
   };
 </script>
 
@@ -112,7 +112,7 @@
           on:removeTodo={removeTodo} />
       </div>
       <div class="w-full md:w-1/2 px-2 my-2">
-        <Documents on:addFile={addFile} />
+        <Documents on:addFile={addFile} files={formValues.files} />
       </div>
     </div>
     <FAB icon={faSave} />

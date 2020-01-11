@@ -1,16 +1,21 @@
 <script>
   import * as FilePond from 'filepond';
   import { onMount, createEventDispatcher } from 'svelte';
+  import FilePondPluginFileEncode from 'filepond-plugin-file-encode';
 
   const dispatch = createEventDispatcher();
 
   onMount(() => {
     const pond = document.getElementById('fileUpload');
+
+    FilePond.registerPlugin(FilePondPluginFileEncode);
     FilePond.create(pond, {
       multiple: true,
       name: 'filepond',
       onaddfile: (err, fileItem) => {
-        dispatch('addFile', fileItem);
+        dispatch('addFile', {
+          fileData: fileItem.getFileEncodeDataURL(),
+        });
       },
     });
   });
