@@ -7,7 +7,7 @@
 <div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
   <Textarea
     name="description"
-    rows={10}
+    rows={14}
     label="Description"
     isFormField
     on:change

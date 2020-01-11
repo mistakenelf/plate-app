@@ -15,6 +15,7 @@
   import Description from './components/Description.svelte';
   import Notes from './components/Notes.svelte';
   import TodoList from './components/TodoList.svelte';
+  import Documents from './components/Documents.svelte';
 
   let loading = false;
 
@@ -69,7 +70,7 @@
 {#if loading}
   <Loader fullPage />
 {:else}
-  <form class="p-4 pb-24" on:submit|preventDefault={handleSubmit}>
+  <form class="p-6 pb-24" on:submit|preventDefault={handleSubmit}>
     <Header />
     <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
       <Title on:change={handleChange} title={formValues.title} />
@@ -84,11 +85,12 @@
         description={formValues.description} />
       <Notes on:change={handleChange} notes={formValues.notes} />
     </div>
-    <div class="w-full md:w-1/2">
+    <div class="flex flex-wrap -mx-2 overflow-hidden xl:-mx-2">
       <TodoList
         todos={formValues.todos}
         on:addTodo={addTodo}
         on:removeTodo={removeTodo} />
+      <Documents />
     </div>
     <FAB icon={faSave} />
   </form>
