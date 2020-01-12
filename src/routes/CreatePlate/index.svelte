@@ -47,7 +47,7 @@
   };
 
   const addFile = event => {
-    formValues.files = [...formValues.files, event.detail];
+    console.log(event.detail);
   };
 
   const handleSubmit = async () => {

@@ -9,7 +9,6 @@
   import PlateDetails from './PlateDetails/index.svelte';
   import Login from './Login/index.svelte';
   import Register from './Register/index.svelte';
-  import EditPlate from './EditPlate/index.svelte';
 
   let pageProps = {
     component: Dashboard,
@@ -64,17 +63,6 @@
     if ($currentUser) {
       pageProps = {
         component: PlateDetails,
-        layout: DefaultLayout,
-      };
-    } else {
-      page.redirect('/login');
-    }
-  });
-
-  page('/plate/:id/edit', () => {
-    if ($currentUser) {
-      pageProps = {
-        component: EditPlate,
         layout: DefaultLayout,
       };
     } else {

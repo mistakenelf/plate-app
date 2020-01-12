@@ -61,7 +61,6 @@
     "bcrypt": "^3.0.7",
     "faunadb": "^2.10.2",
     "filepond": "^4.9.3",
-    "filepond-plugin-file-encode": "^2.1.4",
     "jsonwebtoken": "^8.5.1",
     "page": "^1.11.5",
     "sirv-cli": "^0.4.5"

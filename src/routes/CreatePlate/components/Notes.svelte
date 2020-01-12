@@ -6,7 +6,7 @@
 
 <Textarea
   name="notes"
-  rows={14}
+  rows={12}
   label="Notes"
   isFormField
   on:change
