@@ -2,7 +2,6 @@
   import page from 'page';
   import { faFolderOpen } from '@fortawesome/free-solid-svg-icons/faFolderOpen';
   import { faTrashAlt } from '@fortawesome/free-solid-svg-icons/faTrashAlt';
-  import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
 
   import plateStore from '../store/plate';
   import { currentUser } from '../store/auth';
@@ -33,13 +32,6 @@
   <div class="flex items-center justify-between">
     <div class="text-md md:text-xl w-1/2 truncate text-gray-700">{title}</div>
     <div class="items-center flex justify-center">
-      <Icon
-        class="cursor-pointer mr-4"
-        fill="#4a5568"
-        icon={faEdit}
-        height="1.5rem"
-        width="1.5rem"
-        on:click={() => page(`/plate/${id}/edit`)} />
       <Icon
         class="cursor-pointer mr-4"
         fill="#4a5568"

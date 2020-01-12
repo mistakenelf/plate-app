@@ -3,10 +3,14 @@
 
   import Loader from '../../components/Loader.svelte';
   import plateStore, { loadingPlateDetails, plate } from '../../store/plate';
+  import Icon from '../../components/Icon.svelte';
 
-  import BasicInfo from './components/BasicInfo';
-  import Notes from './components/Notes';
-  import Description from './components/Description';
+  import BasicInfo from './components/BasicInfo.svelte';
+  import Notes from './components/Notes.svelte';
+  import Description from './components/Description.svelte';
+  import TodoList from './components/TodoList.svelte';
+  import Status from './components/Status.svelte';
+  import TodoCount from './components/TodoCount.svelte';
 
   const urlArray = window.location.href.split('/');
   const plateId = urlArray[urlArray.length - 1];
@@ -27,18 +31,30 @@
 {#if $loadingPlateDetails}
   <Loader fullPage />
 {:else}
-  <BasicInfo
-    title={$plate.data.title}
-    dueDate={$plate.data.dueDate}
-    status={$plate.data.status} />
-  <div class="flex flex-wrap overflow-hidden">
-    <Notes notes={$plate.data.notes} />
-    <Description description={$plate.data.description} />
+  <div class="p-4">
+    <div class="flex flex-wrap mt-2 md:h-48 md:mb-6">
+      <div class="w-full md:w-1/2 px-2">
+        <BasicInfo title={$plate.data.title} dueDate={$plate.data.dueDate} />
+      </div>
+      <div class="w-full md:w-1/4 px-2">
+        <TodoCount count={$plate.data.todos.length} />
+      </div>
+      <div class="w-full md:w-1/4 px-2">
+        <Status status={$plate.data.status} />
+      </div>
+    </div>
+    <div class="flex flex-wrap">
+      <div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+        <Notes notes={$plate.data.notes} />
+      </div>
+      <div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+        <Description description={$plate.data.description} />
+      </div>
+    </div>
+    <div class="flex flex-wrap mt-0 md:mt-6">
+      <div class="w-full md:w-1/2 px-2">
+        <TodoList todos={$plate.data.todos} />
+      </div>
+    </div>
   </div>
-  <h4 class="font-bold uppercase pl-4">Todo Items</h4>
-  <ul class="p-4">
-    {#each $plate.data.todos as todo}
-      <li class="hover:bg-gray-200 text-lg mb-2">{todo.title}</li>
-    {/each}
-  </ul>
 {/if}
