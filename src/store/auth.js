@@ -24,7 +24,7 @@ const register = async data => {
     errorMessage.set(res.error);
   } else {
     currentUser.set(res.user);
-    localStorage.setItem('token', JSON.stringify(res.token));
+    localStorage.setItem('token', res.token);
   }
 };
 

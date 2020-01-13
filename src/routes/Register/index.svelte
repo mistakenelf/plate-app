@@ -8,7 +8,10 @@
   let submitting = false;
 
   const formValues = {
+    firstName: '',
+    lastName: '',
     email: '',
+    username: '',
     password: '',
   };
 
@@ -36,17 +39,56 @@
   <form
     on:submit|preventDefault={handleSubmit}
     class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 w-full md:w-3/4
-    lg:w-1/2 xl:w-1/3">
+    lg:w-1/2 xl:w-1/2">
     <h1 class="text-3xl text-gray-800 mb-4 font-bold">Register</h1>
-    <Input
-      name="email"
-      type="email"
-      label="Email"
-      isFormField
-      required
-      placeholder="email address"
-      on:change={handleChange}
-      value={formValues.email} />
+    <div class="flex flex-wrap">
+      <div class="w-full md:w-1/2 md:pr-2">
+        <Input
+          required
+          isFormField
+          name="firstName"
+          type="text"
+          label="First Name"
+          placeholder="first name"
+          on:change={handleChange}
+          value={formValues.firstName} />
+      </div>
+      <div class="w-full md:w-1/2 md:pl-2">
+        <Input
+          required
+          isFormField
+          name="lastName"
+          type="text"
+          label="Last Name"
+          placeholder="last name"
+          on:change={handleChange}
+          value={formValues.lastName} />
+      </div>
+    </div>
+    <div class="flex flex-wrap">
+      <div class="w-full md:w-1/2 md:pr-2">
+        <Input
+          name="email"
+          type="email"
+          label="Email"
+          isFormField
+          required
+          placeholder="email address"
+          on:change={handleChange}
+          value={formValues.email} />
+      </div>
+      <div class="w-full md:w-1/2 md:pr-2">
+        <Input
+          required
+          isFormField
+          name="username"
+          type="text"
+          label="Username"
+          placeholder="username"
+          on:change={handleChange}
+          value={formValues.username} />
+      </div>
+    </div>
     <Input
       name="password"
       type="password"

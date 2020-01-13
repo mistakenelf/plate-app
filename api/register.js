@@ -22,7 +22,13 @@ module.exports = async (req, res) => {
   try {
     const dbs = await client.query(
       q.Create(q.Collection('users'), {
-        data: { email: data.email, password },
+        data: {
+          email: data.email,
+          password,
+          firstName: data.firstName,
+          lastName: data.lastName,
+          username: data.username,
+        },
       }),
     );
 
