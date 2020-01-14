@@ -2,3 +2,4 @@ node_modules/
 dist/
 public/
 .cache/
+src/assets/styles/index.css

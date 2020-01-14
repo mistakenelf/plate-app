@@ -15,7 +15,7 @@
     {value}
     {rows}
     on:change
-    class="bg-white appearance-none border-2 border-gray-400 rounded w-full py-3
-    px-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500"
+    class="bg-white appearance-none shadow rounded w-full py-3 px-4
+    text-gray-700 leading-tight focus:outline-none"
     class:mb-8={isFormField} />
 </div>

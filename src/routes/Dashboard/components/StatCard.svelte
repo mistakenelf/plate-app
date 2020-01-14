@@ -1,25 +1,15 @@
 <script>
-
-export let statData
+  export let count;
+  export let label;
 </script>
 
-
-<style>
-  .StatCard:hover {
-    transition: 0.2s ease-in-out;
-    transform: scale(1.01);
-    }
-</style>
-
-<!-- <statCard status="completed" count={completedCount} />
-<statCard status="open" count={openCount} /> -->
-<div class= " StatCard max-w-sm rounded-lg m-10 flex-1 overflow-hidden shadow-lg">
-  <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">{statData.text} </div>
-     <div class="text-6xl">{statData.count} </div>
-   </div>
+<div
+  class:bg-green-500={label === 'Completed'}
+  class:bg-yellow-600={label === 'In Progress'}
+  class:bg-blue-700={label === 'Open'}
+  class="rounded shadow text-center text-white">
+  <div class="px-2 md:px-6 py-2 md:py-4">
+    <div class="font-bold text-xs md:text-xl mb-2">{label}</div>
+    <div class="text-xl md:text-6xl">{count}</div>
+  </div>
 </div>
-
-
-
-

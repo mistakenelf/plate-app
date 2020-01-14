@@ -30,7 +30,7 @@
   class:border-yellow-400={status === 'in progress'}
   class:border-blue-700={status === 'open'}>
   <div class="flex items-center justify-between">
-    <div class="text-md md:text-xl w-1/2 truncate">{title}</div>
+    <div class="text-md md:text-xl w-1/2 truncate text-gray-700">{title}</div>
     <div class="items-center flex justify-center">
       <Icon
         class="cursor-pointer mr-4"

@@ -4,12 +4,10 @@
   export let description;
 </script>
 
-<div class="my-2 px-2 w-full overflow-hidden md:w-1/2 xl:my-2 xl:px-2">
-  <Textarea
-    name="description"
-    rows={10}
-    label="Description"
-    isFormField
-    on:change
-    value={description} />
-</div>
+<Textarea
+  name="description"
+  rows={12}
+  label="Description"
+  isFormField
+  on:change
+  value={description} />
