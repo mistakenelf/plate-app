@@ -8,7 +8,7 @@
   let submitting = false;
 
   const formValues = {
-    email: '',
+    username: '',
     password: '',
   };
 
@@ -39,14 +39,14 @@
     lg:w-1/2 xl:w-1/3">
     <h1 class="text-3xl text-gray-800 mb-4 font-bold">Login</h1>
     <Input
-      name="email"
-      type="email"
-      label="Email"
+      name="username"
+      type="text"
+      label="Username"
       isFormField
       required
-      placeholder="email address"
+      placeholder="username"
       on:change={handleChange}
-      value={formValues.email} />
+      value={formValues.username} />
     <Input
       name="password"
       type="password"

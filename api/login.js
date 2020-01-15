@@ -29,7 +29,7 @@ module.exports = async (req, res) => {
 
   try {
     const dbs = await client.query(
-      q.Get(q.Match(q.Index('users_by_email'), data.email)),
+      q.Get(q.Match(q.Index('users_by_username'), data.username)),
     );
 
     const token = await comparePassword(

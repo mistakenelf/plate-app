@@ -7,6 +7,6 @@
   class:bg-yellow-400={status === 'in progress'}
   class:bg-blue-700={status === 'open'}
   class="rounded text-white shadow bg-white md:h-full flex items-center
-  justify-center mb-6 md:md-0 text-5xl">
+  justify-center mb-6 md:md-0 p-1 text-3xl md:text-5xl">
   {status}
 </div>
