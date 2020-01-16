@@ -34,9 +34,19 @@ const deletePlate = async id => {
   return await res.json();
 };
 
+const updatePlate = async data => {
+  const res = await fetch('/api/update-plate', {
+    body: JSON.stringify(data),
+    method: 'POST',
+  });
+
+  return await res.json();
+};
+
 export default {
   create,
   readAll,
   get,
   deletePlate,
+  updatePlate,
 };

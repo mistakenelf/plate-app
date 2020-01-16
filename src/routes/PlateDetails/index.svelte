@@ -3,7 +3,6 @@
 
   import Loader from '../../components/Loader.svelte';
   import plateStore, { loadingPlateDetails, plate } from '../../store/plate';
-  import Icon from '../../components/Icon.svelte';
 
   import BasicInfo from './components/BasicInfo.svelte';
   import Notes from './components/Notes.svelte';
@@ -45,7 +44,7 @@
     </div>
     <div class="flex flex-wrap">
       <div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
-        <Notes notes={$plate.data.notes} />
+        <Notes notes={$plate.data.notes} {plateId} />
       </div>
       <div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
         <Description description={$plate.data.description} />

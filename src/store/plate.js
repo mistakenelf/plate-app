@@ -6,6 +6,7 @@ export const plates = writable([]);
 export const plate = writable(null);
 export const loadingPlates = writable(true);
 export const loadingPlateDetails = writable(true);
+export const updatingPlateData = writable(false);
 
 const getPlates = async userId => {
   loadingPlates.set(true);
@@ -37,9 +38,16 @@ const deletePlate = async (id, userId) => {
   loadingPlates.set(false);
 };
 
+const updatePlate = async data => {
+  updatingPlateData.set(true);
+  await plateApi.updatePlate(data);
+  updatingPlateData.set(false);
+};
+
 export default {
   getPlates,
   createPlate,
   getPlate,
   deletePlate,
+  updatePlate,
 };
