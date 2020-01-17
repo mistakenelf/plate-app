@@ -47,7 +47,7 @@
         <Notes notes={$plate.data.notes} {plateId} />
       </div>
       <div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
-        <Description description={$plate.data.description} />
+        <Description description={$plate.data.description} {plateId} />
       </div>
     </div>
     <div class="flex flex-wrap mt-0 md:mt-6">

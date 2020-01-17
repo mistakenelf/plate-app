@@ -4,18 +4,30 @@
 
   import Icon from '../../../components/Icon.svelte';
   import Textarea from '../../../components/Textarea.svelte';
+  import plateApi from '../../../store/plate';
+  import Loader from '../../../components/Loader.svelte';
 
   export let description;
-  export let editing = false;
+  export let plateId;
 
+  let editing = false;
+  let updatingDescription = false;
   let newDescription = description;
 
   const handleEdit = () => {
     editing = true;
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     editing = false;
+    updatingDescription = true;
+
+    await plateApi.updatePlate({
+      id: plateId,
+      description: newDescription,
+    });
+
+    updatingDescription = false;
   };
 
   const handleChange = e => {
@@ -50,6 +62,10 @@
       rows={7}
       on:change={handleChange}
       value={newDescription} />
+  {:else if updatingDescription}
+    <div class="flex items-center justify-center">
+      <Loader />
+    </div>
   {:else}
     <p class="text-gray-700">{newDescription}</p>
   {/if}

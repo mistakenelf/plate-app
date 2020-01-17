@@ -4,14 +4,14 @@
 
   import Icon from '../../../components/Icon.svelte';
   import Textarea from '../../../components/Textarea.svelte';
-  import plateApi, { updatingPlateData } from '../../../store/plate';
+  import plateApi from '../../../store/plate';
   import Loader from '../../../components/Loader.svelte';
 
   export let notes;
   export let plateId;
 
   let editing = false;
-
+  let updatingNotes = false;
   let newNotes = notes;
 
   const handleEdit = () => {
@@ -20,11 +20,14 @@
 
   const handleSave = async () => {
     editing = false;
+    updatingNotes = true;
 
     await plateApi.updatePlate({
       id: plateId,
       notes: newNotes,
     });
+
+    updatingNotes = false;
   };
 
   const handleChange = e => {
@@ -54,12 +57,8 @@
     {/if}
   </div>
   {#if editing}
-    <Textarea
-      name="description"
-      rows={7}
-      on:change={handleChange}
-      value={newNotes} />
-  {:else if $updatingPlateData}
+    <Textarea name="notes" rows={7} on:change={handleChange} value={newNotes} />
+  {:else if updatingNotes}
     <div class="flex items-center justify-center">
       <Loader />
     </div>
