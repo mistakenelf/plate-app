@@ -4,7 +4,7 @@
 
   import Icon from '../../../components/Icon.svelte';
   import Textarea from '../../../components/Textarea.svelte';
-  import plateApi from '../../../store/plate';
+  import plateStore from '../../../store/plate';
   import Loader from '../../../components/Loader.svelte';
 
   export let notes;
@@ -22,7 +22,7 @@
     editing = false;
     updatingNotes = true;
 
-    await plateApi.updatePlate({
+    await plateStore.updatePlate({
       id: plateId,
       notes: newNotes,
     });

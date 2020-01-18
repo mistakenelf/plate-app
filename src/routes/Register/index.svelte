@@ -21,9 +21,12 @@
 
   const handleSubmit = async () => {
     submitting = true;
+
     await authStore.register(formValues);
-    page('/');
+
     submitting = false;
+
+    page('/');
   };
 </script>
 
