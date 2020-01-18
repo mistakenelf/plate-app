@@ -35,7 +35,7 @@
   };
 </script>
 
-<div class="shadow bg-white rounded p-4">
+<div class="shadow bg-white rounded p-4 h-full">
   <div class="flex flex-row justify-between items-center">
     <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">Notes</h3>
     {#if editing}

@@ -31,7 +31,7 @@
   <Loader fullPage />
 {:else}
   <div class="p-4">
-    <div class="flex flex-wrap mt-2 md:h-48 md:mb-6">
+    <div class="flex flex-wrap mt-2 md:h-64 md:mb-6">
       <div class="w-full md:w-1/2 px-2">
         <BasicInfo
           title={$plate.data.title}
@@ -45,7 +45,7 @@
         <Status status={$plate.data.status} />
       </div>
     </div>
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap md:h-64">
       <div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
         <Notes notes={$plate.data.notes} {plateId} />
       </div>
