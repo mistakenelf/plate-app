@@ -33,7 +33,10 @@
   <div class="p-4">
     <div class="flex flex-wrap mt-2 md:h-48 md:mb-6">
       <div class="w-full md:w-1/2 px-2">
-        <BasicInfo title={$plate.data.title} dueDate={$plate.data.dueDate} />
+        <BasicInfo
+          title={$plate.data.title}
+          dueDate={$plate.data.dueDate}
+          {plateId} />
       </div>
       <div class="w-full md:w-1/4 px-2">
         <TodoCount count={$plate.data.todos.length} />
