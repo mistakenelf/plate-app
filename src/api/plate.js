@@ -1,4 +1,4 @@
-const create = async data => {
+const createPlate = async data => {
   const res = await fetch('/api/create-plate', {
     body: JSON.stringify(data),
     method: 'POST',
@@ -7,7 +7,7 @@ const create = async data => {
   return await res.json();
 };
 
-const readAll = async id => {
+const getPlates = async id => {
   const res = await fetch('/api/plates', {
     body: JSON.stringify(id),
     method: 'POST',
@@ -16,7 +16,7 @@ const readAll = async id => {
   return await res.json();
 };
 
-const get = async id => {
+const getPlate = async id => {
   const res = await fetch('/api/plate', {
     body: JSON.stringify(id),
     method: 'POST',
@@ -44,9 +44,9 @@ const updatePlate = async data => {
 };
 
 export default {
-  create,
-  readAll,
-  get,
+  createPlate,
+  getPlates,
+  getPlate,
   deletePlate,
   updatePlate,
 };
