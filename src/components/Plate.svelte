@@ -19,7 +19,7 @@
 
 <div
   class="plate shadow p-3 bg-white mb-4 border-l-8 rounded border-solid"
-  class:border-green-500={status === 'complete'}
+  class:border-green-500={status === 'completed'}
   class:border-yellow-400={status === 'in progress'}
   class:border-blue-700={status === 'open'}>
   <div class="flex items-center justify-between">

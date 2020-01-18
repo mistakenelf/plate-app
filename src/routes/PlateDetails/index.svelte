@@ -42,7 +42,7 @@
         <TodoCount count={$plate.data.todos.length} />
       </div>
       <div class="w-full md:w-1/4 px-2">
-        <Status status={$plate.data.status} />
+        <Status status={$plate.data.status} {plateId} />
       </div>
     </div>
     <div class="flex flex-wrap md:h-64">
