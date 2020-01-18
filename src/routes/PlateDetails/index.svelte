@@ -55,7 +55,7 @@
     </div>
     <div class="flex flex-wrap mt-0 md:mt-6">
       <div class="w-full md:w-1/2 px-2">
-        <TodoList todos={$plate.data.todos} />
+        <TodoList todos={$plate.data.todos} {plateId} />
       </div>
     </div>
   </div>

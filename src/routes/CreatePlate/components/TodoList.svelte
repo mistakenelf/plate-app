@@ -22,7 +22,7 @@
     if (todoItem !== '') {
       dispatch('addTodo', {
         title: todoItem,
-        status: 'open',
+        completed: false,
         id: generateId(),
       });
       todoItem = '';
