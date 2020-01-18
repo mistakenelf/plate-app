@@ -17,13 +17,6 @@
   };
 </script>
 
-<style>
-  .plate:hover {
-    transition: 0.2s ease-in-out;
-    transform: scale(1.01);
-  }
-</style>
-
 <div
   class="plate shadow p-3 bg-white mb-4 border-l-8 rounded border-solid"
   class:border-green-500={status === 'complete'}
