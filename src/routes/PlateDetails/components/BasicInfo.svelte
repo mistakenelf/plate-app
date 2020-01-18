@@ -83,7 +83,6 @@
     </div>
   {:else}
     <h1 class="font-bold text-3xl md:text-5xl mb-3">{newTitle}</h1>
-    <hr class="mb-2" />
     <div class="mb-3 text-lg md:text-xl">
       Due On: {dayjs(newDueDate).format('MMMM D, YYYY')}
     </div>
