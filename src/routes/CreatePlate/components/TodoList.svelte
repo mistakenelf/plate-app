@@ -30,7 +30,8 @@
   };
 </script>
 
-<div class="flex flex-col p-4 rounded shadow bg-white px-4">
+<div
+  class="flex flex-col p-4 rounded shadow bg-white px-4 border border-gray-400">
   <h3 class="text-3xl text-gray-700 mb-4">Todos</h3>
   <div class="flex flex-row items-center mb-4">
     <Input

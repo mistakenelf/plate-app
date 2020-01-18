@@ -26,7 +26,8 @@
     {required}
     class:w-full={fullWidth}
     class:mb-8={isFormField}
-    class="bg-white appearance-none shadow rounded w-full py-3 px-4
-    text-gray-700 leading-tight focus:outline-none"
+    class="block appearance-none w-full bg-white border border-gray-400
+    hover:border-gray-500 px-4 py-3 pr-8 rounded shadow leading-tight
+    focus:outline-none focus:shadow-outline"
     on:change />
 </div>
