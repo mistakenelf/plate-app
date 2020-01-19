@@ -15,7 +15,6 @@
   import Description from './components/Description.svelte';
   import Notes from './components/Notes.svelte';
   import TodoList from './components/TodoList.svelte';
-  import Documents from './components/Documents.svelte';
 
   let loading = false;
 
@@ -44,10 +43,6 @@
     formValues.todos = formValues.todos.filter(
       res => res.id !== event.detail.id,
     );
-  };
-
-  const addFile = event => {
-    console.log(event.detail);
   };
 
   const handleSubmit = async () => {
@@ -110,9 +105,6 @@
           todos={formValues.todos}
           on:addTodo={addTodo}
           on:removeTodo={removeTodo} />
-      </div>
-      <div class="w-full md:w-1/2 px-2 my-2">
-        <Documents on:addFile={addFile} files={formValues.files} />
       </div>
     </div>
     <FAB icon={faSave} />
