@@ -21,7 +21,7 @@
       await plateStore.getPlates($currentUser.id);
     }
 
-    completedCount = $plates.filter(res => res.data.status === 'complete')
+    completedCount = $plates.filter(res => res.data.status === 'completed')
       .length;
 
     openCount = $plates.filter(res => res.data.status === 'open').length;
