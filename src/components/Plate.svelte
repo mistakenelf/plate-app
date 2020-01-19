@@ -20,8 +20,8 @@
 <div
   class="plate shadow p-3 bg-white mb-4 border-l-8 rounded border-solid"
   class:border-green-500={status === 'completed'}
-  class:border-yellow-400={status === 'in progress'}
-  class:border-blue-700={status === 'open'}>
+  class:border-orange-500={status === 'in progress'}
+  class:border-blue-500={status === 'open'}>
   <div class="flex items-center justify-between">
     <div class="text-md md:text-xl w-1/2 truncate text-gray-700">{title}</div>
     <div class="items-center flex justify-center">
