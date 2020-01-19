@@ -1,7 +1,6 @@
 <script>
-  import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-
   import Input from '../../../components/Input.svelte';
+  import Checkbox from '../../../components/Checkbox.svelte';
   import plateStore from '../../../store/plate';
 
   export let todos;
@@ -33,8 +32,7 @@
               {todo.title}
             </span>
           </div>
-          <input
-            type="checkbox"
+          <Checkbox
             checked={todo.completed}
             on:click={() => toggleCompleted(todo.id)} />
         </li>
