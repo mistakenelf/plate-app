@@ -5,8 +5,9 @@
   import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt';
   import { faUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
 
-  import NavLink from '../../../components/NavLink.svelte';
   import authStore, { currentUser } from '../../../store/auth';
+
+  import NavLink from './NavLink.svelte';
 
   const handleLogout = () => {
     authStore.logout();

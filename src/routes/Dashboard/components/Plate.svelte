@@ -3,10 +3,10 @@
   import { faFolderOpen } from '@fortawesome/free-solid-svg-icons/faFolderOpen';
   import { faTrashAlt } from '@fortawesome/free-solid-svg-icons/faTrashAlt';
 
-  import plateStore from '../store/plate';
-  import { currentUser } from '../store/auth';
+  import plateStore from '../../../store/plate';
+  import { currentUser } from '../../../store/auth';
 
-  import Icon from './Icon.svelte';
+  import Icon from '../../../components/Icon.svelte';
 
   export let title;
   export let id;

@@ -62,6 +62,7 @@
     "bcrypt": "^3.0.7",
     "dayjs": "^1.8.19",
     "faunadb": "^2.11.1",
+    "flag-icon-css": "^3.4.5",
     "jsonwebtoken": "^8.5.1",
     "page": "^1.11.5"
   }

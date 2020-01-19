@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'flag-icon-css/css/flag-icon.css';
+
 html,
 body,
 main {

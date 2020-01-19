@@ -40,7 +40,7 @@
   class:bg-orange-500={newStatus === 'in progress'}
   class:bg-blue-500={newStatus === 'open'}
   class="rounded text-white shadow bg-white md:h-full flex items-center
-  justify-center mb-6 md:md-0 p-1 text-3xl md:text-5xl relative">
+  justify-center mb-6 md:md-0 p-1 text-3xl md:text-4xl text-center relative">
   {#if editing}
     <Icon
       class="cursor-pointer absolute right-0 top-0 m-2"
