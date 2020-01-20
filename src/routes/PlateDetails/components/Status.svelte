@@ -39,7 +39,7 @@
   class:bg-green-500={newStatus === 'completed'}
   class:bg-orange-500={newStatus === 'in progress'}
   class:bg-blue-500={newStatus === 'open'}
-  class="rounded text-white shadow bg-white md:h-full flex items-center
+  class="rounded-lg text-white shadow bg-white md:h-full flex items-center
   justify-center mb-6 md:md-0 p-1 text-3xl md:text-4xl text-center relative">
   {#if editing}
     <Icon

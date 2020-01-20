@@ -30,8 +30,8 @@
     modalOpen = false;
   };
 
-  const handleLocaleChange = () => {
-    locale.set('fr');
+  const handleLocaleChange = lang => {
+    locale.set(lang);
     closeModal();
   };
 </script>

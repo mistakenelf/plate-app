@@ -20,7 +20,7 @@
 </script>
 
 {#if todos.length > 0}
-  <div class="bg-white rounded shadow p-4">
+  <div class="bg-white rounded-lg shadow p-4">
     <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">Todos</h3>
     <ul class="mt-2 p-2">
       {#each newTodos as todo}

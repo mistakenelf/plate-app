@@ -1,6 +1,7 @@
 <script>
-  import Plate from './Plate.svelte';
   import { getId } from '../../../helpers/getId';
+
+  import Plate from './Plate.svelte';
 
   export let plates;
 </script>

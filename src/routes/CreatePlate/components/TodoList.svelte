@@ -10,9 +10,9 @@
 
   const dispatch = createEventDispatcher();
 
-  let todoItem = '';
-
   export let todos;
+
+  let todoItem = '';
 
   const handleChange = event => {
     todoItem = event.target.value;
@@ -25,6 +25,7 @@
         completed: false,
         id: generateId(),
       });
+
       todoItem = '';
     }
   };
