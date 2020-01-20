@@ -1,5 +1,6 @@
 <script>
   import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
+  import { locale } from 'svelte-i18n';
 
   import ClickOutside from '../../components/ClickOutside.svelte';
   import Icon from '../../components/Icon.svelte';
@@ -28,6 +29,11 @@
   const closeModal = () => {
     modalOpen = false;
   };
+
+  const handleLocaleChange = () => {
+    locale.set('fr');
+    closeModal();
+  };
 </script>
 
 <main>
@@ -38,7 +44,9 @@
     <div class="hidden lg:flex items-center h-full">
       <Navbar />
       <span
-        class="cursor-pointer text-lg flag-icon flag-icon-us mr-4"
+        class:flag-icon-us={$locale === 'en-US'}
+        class:flag-icon-fr={$locale === 'fr'}
+        class="cursor-pointer text-lg flag-icon mr-4"
         on:click={openModal} />
     </div>
     <Modal
@@ -46,13 +54,19 @@
       isOpen={modalOpen}
       on:handleClose={closeModal}>
       <div class="flex flex-row items-center mt-4 mb-4">
-        <span class="mr-4 cursor-pointer text-5xl flag-icon flag-icon-us" />
-        <span class="mr-4 cursor-pointer text-5xl flag-icon flag-icon-fr" />
+        <span
+          class="mr-4 cursor-pointer text-5xl flag-icon flag-icon-us"
+          on:click={() => handleLocaleChange('en-US')} />
+        <span
+          class="mr-4 cursor-pointer text-5xl flag-icon flag-icon-fr"
+          on:click={() => handleLocaleChange('fr')} />
       </div>
     </Modal>
     <div class="lg:hidden flex items-center h-full pr-4">
       <span
-        class="cursor-pointer text-lg flag-icon flag-icon-us"
+        class:flag-icon-us={$locale === 'en-US'}
+        class:flag-icon-fr={$locale === 'fr'}
+        class="cursor-pointer text-lg flag-icon"
         on:click={openModal} />
       <div
         bind:this={triggerEl}

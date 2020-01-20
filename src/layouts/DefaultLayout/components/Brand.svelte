@@ -1,5 +1,7 @@
 <script>
   import page from 'page';
+
+  import { _ } from 'svelte-i18n';
 </script>
 
 <div class="flex items-center h-full">
@@ -12,6 +14,6 @@
   <div
     class="ml-4 text-2xl font-bold cursor-pointer text-white"
     on:click={() => page('/')}>
-    Plate
+    {$_('brand')}
   </div>
 </div>
