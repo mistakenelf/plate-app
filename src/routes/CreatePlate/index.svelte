@@ -1,6 +1,7 @@
 <script>
   import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
   import page from 'page';
+  import dayjs from 'dayjs';
 
   import FAB from '../../components/FAB.svelte';
   import Loader from '../../components/Loader.svelte';
@@ -21,7 +22,7 @@
   const formValues = {
     createdBy: '',
     title: '',
-    dueDate: '',
+    dueDate: new Date(),
     description: '',
     category: '',
     notes: '',
@@ -51,7 +52,7 @@
     formValues.createdBy = $currentUser.id;
     formValues.notes = formValues.notes;
     formValues.description = formValues.description;
-    formValues.dueDate = new Date(formValues.dueDate);
+    formValues.dueDate = dayjs(formValues.dueDate);
 
     await plateStore.createPlate(formValues);
 
@@ -81,7 +82,7 @@
         <Title on:change={handleChange} title={formValues.title} />
       </div>
       <div class="w-full md:w-1/2 px-2 my-2">
-        <DueDate on:change={handleChange} dueDate={formValues.dueDate} />
+        <DueDate bind:dueDate={formValues.dueDate} />
       </div>
     </div>
     <div class="flex flex-wrap mt-2 mx-4">
