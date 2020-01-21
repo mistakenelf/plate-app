@@ -39,13 +39,13 @@
     "last 1 Chrome versions"
   ],
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.0.4",
+    "@fullhuman/postcss-purgecss": "^2.0.5",
     "autoprefixer": "^9.7.4",
     "cross-env": "^6.0.3",
     "eslint": "^6.8.0",
     "eslint-plugin-svelte3": "^2.7.3",
     "husky": "^4.0.10",
-    "lint-staged": "^10.0.0",
+    "lint-staged": "^10.0.1",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-compress": "^1.1.0",
     "parcel-plugin-svelte": "^4.0.5",
