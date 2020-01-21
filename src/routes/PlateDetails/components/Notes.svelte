@@ -29,10 +29,6 @@
 
     updatingNotes = false;
   };
-
-  const handleChange = e => {
-    newNotes = e.target.value;
-  };
 </script>
 
 <div class="shadow bg-white rounded-lg p-4 h-full">
@@ -57,7 +53,7 @@
     {/if}
   </div>
   {#if editing}
-    <Textarea name="notes" rows={7} on:change={handleChange} value={newNotes} />
+    <Textarea name="notes" rows={7} bind:textareaValue={newNotes} />
   {:else if updatingNotes}
     <div class="flex items-center justify-center">
       <Loader />

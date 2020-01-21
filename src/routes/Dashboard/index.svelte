@@ -7,10 +7,11 @@
   import authStore, { currentUser } from '../../store/auth';
   import FAB from '../../components/FAB.svelte';
   import Loader from '../../components/Loader.svelte';
+  import { getId } from '../../helpers/getId';
 
-  import PlateList from './components/PlateList.svelte';
   import NoPlatesFound from './components/NoPlatesFound.svelte';
   import StatCard from './components/StatCard.svelte';
+  import Plate from './components/Plate.svelte';
 
   let completedCount = 0;
   let openCount = 0;
@@ -55,7 +56,14 @@
       <StatCard count={completedCount} label="Completed" />
     </div>
   </div>
-  <PlateList plates={$plates} />
+  <div class="m-4 mb-24">
+    {#each $plates as plate, i}
+      <Plate
+        title={plate.data.title}
+        status={plate.data.status}
+        id={getId(plate)} />
+    {/each}
+  </div>
 {/if}
 
 <FAB icon={faPlus} on:click={() => page('/create-plate')} />

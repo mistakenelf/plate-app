@@ -2,7 +2,7 @@
   export let fullWidth = false;
   export let label = '';
   export let isFormField = false;
-  export let value = '';
+  export let selectValue;
   export let placeholder = '';
   export let required = false;
   export let name = '';
@@ -14,12 +14,11 @@
     {label}
   </label>
   <select
-    {value}
     {name}
     {id}
     {placeholder}
     {required}
-    on:change
+    bind:value={selectValue}
     class:w-full={fullWidth}
     class:mb-8={isFormField}
     class="block appearance-none w-full bg-white border-2 border-gray-400

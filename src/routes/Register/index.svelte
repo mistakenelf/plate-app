@@ -1,7 +1,9 @@
 <script>
   import page from 'page';
 
-  import Input from '../../components/Input.svelte';
+  import TextField from '../../components/TextField.svelte';
+  import PasswordField from '../../components/PasswordField.svelte';
+  import EmailField from '../../components/EmailField.svelte';
   import Button from '../../components/Button.svelte';
   import authStore, { errorMessage } from '../../store/auth';
 
@@ -15,17 +17,10 @@
     password: '',
   };
 
-  const handleChange = e => {
-    formValues[e.target.name] = e.target.value;
-  };
-
   const handleSubmit = async () => {
     submitting = true;
-
     await authStore.register(formValues);
-
     submitting = false;
-
     page('/');
   };
 </script>
@@ -46,61 +41,51 @@
     <h1 class="text-3xl text-gray-800 mb-4 font-bold">Register</h1>
     <div class="flex flex-wrap">
       <div class="w-full md:w-1/2 md:pr-2">
-        <Input
+        <TextField
           required
           isFormField
           name="firstName"
-          type="text"
           label="First Name"
           placeholder="first name"
-          on:change={handleChange}
-          value={formValues.firstName} />
+          bind:textFieldValue={formValues.firstName} />
       </div>
       <div class="w-full md:w-1/2 md:pl-2">
-        <Input
+        <TextField
           required
           isFormField
           name="lastName"
-          type="text"
           label="Last Name"
           placeholder="last name"
-          on:change={handleChange}
-          value={formValues.lastName} />
+          bind:textFieldValue={formValues.lastName} />
       </div>
     </div>
     <div class="flex flex-wrap">
       <div class="w-full md:w-1/2 md:pr-2">
-        <Input
+        <EmailField
           name="email"
-          type="email"
           label="Email"
           isFormField
           required
           placeholder="email address"
-          on:change={handleChange}
-          value={formValues.email} />
+          bind:emailFieldValue={formValues.email} />
       </div>
       <div class="w-full md:w-1/2 md:pr-2">
-        <Input
+        <TextField
           required
           isFormField
           name="username"
-          type="text"
           label="Username"
           placeholder="username"
-          on:change={handleChange}
-          value={formValues.username} />
+          bind:textFieldValue={formValues.username} />
       </div>
     </div>
-    <Input
+    <PasswordField
       name="password"
-      type="password"
       label="Password"
       isFormField
       required
       placeholder="password"
-      on:change={handleChange}
-      value={formValues.password} />
+      bind:passwordFieldValue={formValues.password} />
     <Button type="submit" fullWidth loading={submitting}>Register</Button>
     {#if $errorMessage}
       <div class="mt-4 bg-red-500 rounded p-2 font-bold text-white text-xl">

@@ -9,8 +9,7 @@
   id="category"
   label="Category"
   isFormField
-  value={category}
-  on:change>
+  bind:selectValue={category}>
   <option value="grocery">Groceries</option>
   <option value="work">Work</option>
   <option value="home">Home</option>

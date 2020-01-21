@@ -1,7 +1,6 @@
 <script>
   export let label = undefined;
-  export let type = 'text';
-  export let value = '';
+  export let passwordFieldValue = '';
   export let name = '';
   export let isFormField = false;
   export let fullWidth = false;
@@ -20,14 +19,13 @@
   {/if}
   <input
     {name}
-    {type}
-    {value}
     {placeholder}
     {required}
+    type="password"
+    bind:value={passwordFieldValue}
     class:w-full={fullWidth}
     class:mb-8={isFormField}
     class="block appearance-none w-full bg-white border-2 border-gray-400
     hover:border-gray-500 px-4 py-3 pr-8 rounded leading-tight
-    focus:outline-none focus:shadow-outline"
-    on:change />
+    focus:outline-none focus:shadow-outline" />
 </div>

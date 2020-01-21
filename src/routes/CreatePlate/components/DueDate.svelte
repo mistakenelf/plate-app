@@ -5,7 +5,7 @@
 </script>
 
 <DatePicker
-  bind:dateValue={dueDate}
+  bind:datePickerValue={dueDate}
   name="dueDate"
   label="Due Date"
   isFormField

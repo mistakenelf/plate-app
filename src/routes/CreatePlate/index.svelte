@@ -32,10 +32,6 @@
     sharedWith: [],
   };
 
-  const handleChange = e => {
-    formValues[e.target.name] = e.target.value;
-  };
-
   const addTodo = event => {
     formValues.todos = [...formValues.todos, event.detail];
   };
@@ -79,7 +75,7 @@
     </div>
     <div class="flex flex-wrap mt-2 mx-4">
       <div class="w-full md:w-1/2 px-2 my-2">
-        <Title on:change={handleChange} title={formValues.title} />
+        <Title bind:title={formValues.title} />
       </div>
       <div class="w-full md:w-1/2 px-2 my-2">
         <DueDate bind:dueDate={formValues.dueDate} />
@@ -87,17 +83,15 @@
     </div>
     <div class="flex flex-wrap mt-2 mx-4">
       <div class="w-full md:w-1/2 px-2 my-2">
-        <Category on:change={handleChange} category={formValues.category} />
+        <Category bind:category={formValues.category} />
       </div>
     </div>
     <div class="flex flex-wrap mt-2 mx-4">
       <div class="w-full md:w-1/2 px-2 my-2">
-        <Description
-          on:change={handleChange}
-          description={formValues.description} />
+        <Description bind:description={formValues.description} />
       </div>
       <div class="w-full md:w-1/2 px-2 my-2">
-        <Notes on:change={handleChange} notes={formValues.notes} />
+        <Notes bind:notes={formValues.notes} />
       </div>
     </div>
     <div class="flex flex-wrap mt-2 mx-4">

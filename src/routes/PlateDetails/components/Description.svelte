@@ -29,10 +29,6 @@
 
     updatingDescription = false;
   };
-
-  const handleChange = e => {
-    newDescription = e.target.value;
-  };
 </script>
 
 <div class="shadow bg-white rounded-lg p-4 h-full">
@@ -57,11 +53,7 @@
     {/if}
   </div>
   {#if editing}
-    <Textarea
-      name="description"
-      rows={7}
-      on:change={handleChange}
-      value={newDescription} />
+    <Textarea name="description" rows={7} bind:textareaValue={newDescription} />
   {:else if updatingDescription}
     <div class="flex items-center justify-center">
       <Loader />

@@ -9,5 +9,4 @@
   rows={12}
   label="Description"
   isFormField
-  on:change
-  value={description} />
+  bind:textareaValue={description} />

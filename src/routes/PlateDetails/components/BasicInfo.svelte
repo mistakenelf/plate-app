@@ -5,7 +5,8 @@
 
   import Icon from '../../../components/Icon.svelte';
   import plateStore from '../../../store/plate';
-  import Input from '../../../components/Input.svelte';
+  import TextField from '../../../components/TextField.svelte';
+  import DatePicker from '../../../components/DatePicker.svelte';
   import Loader from '../../../components/Loader.svelte';
 
   export let title;
@@ -19,14 +20,6 @@
 
   const handleEdit = () => {
     editing = true;
-  };
-
-  const handleTitleChange = e => {
-    newTitle = e.target.value;
-  };
-
-  const handleNewDueDateChange = e => {
-    newDueDate = e.target.value;
   };
 
   const handleSave = async () => {
@@ -63,21 +56,17 @@
       on:click={handleEdit} />
   {/if}
   {#if editing}
-    <Input
+    <TextField
       name="title"
-      type="text"
       label="title"
       isFormField
       placeholder="title"
-      on:change={handleTitleChange}
-      value={newTitle} />
-    <Input
+      bind:textFieldValue={newTitle} />
+    <DatePicker
       name="dueDate"
-      type="date"
       label="Due Date"
       fullWidth
-      on:change={handleNewDueDateChange}
-      value={newDueDate} />
+      bind:datePickerValue={newDueDate} />
   {:else if updatingBasicInfo}
     <div class="flex items-center justify-center">
       <Loader />

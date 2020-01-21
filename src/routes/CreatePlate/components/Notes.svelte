@@ -9,5 +9,4 @@
   rows={12}
   label="Notes"
   isFormField
-  on:change
-  value={notes} />
+  bind:textareaValue={notes} />

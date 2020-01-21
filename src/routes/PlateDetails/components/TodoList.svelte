@@ -1,5 +1,4 @@
 <script>
-  import Input from '../../../components/Input.svelte';
   import Checkbox from '../../../components/Checkbox.svelte';
   import plateStore from '../../../store/plate';
 

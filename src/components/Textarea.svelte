@@ -1,9 +1,9 @@
 <script>
   export let label = '';
-  export let value = '';
   export let name = '';
   export let isFormField = false;
   export let rows = 5;
+  export let textareaValue;
 </script>
 
 <div class="flex flex-col">
@@ -12,9 +12,8 @@
   </label>
   <textarea
     {name}
-    {value}
     {rows}
-    on:change
+    bind:value={textareaValue}
     class="block appearance-none w-full bg-white border-2 border-gray-400
     hover:border-gray-500 px-4 py-3 pr-8 rounded leading-tight
     focus:outline-none focus:shadow-outline"

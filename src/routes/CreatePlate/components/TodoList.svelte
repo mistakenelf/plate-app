@@ -4,9 +4,9 @@
   import { createEventDispatcher } from 'svelte';
 
   import { generateId } from '../../../helpers/generateId';
-  import Input from '../../../components/Input.svelte';
   import Icon from '../../../components/Icon.svelte';
   import Button from '../../../components/Button.svelte';
+  import TextField from '../../../components/TextField.svelte';
 
   const dispatch = createEventDispatcher();
 
@@ -34,13 +34,12 @@
 <div class="flex flex-col p-4 rounded bg-white px-4 border-2 border-gray-400">
   <h3 class="text-3xl text-gray-700 mb-4">Todos</h3>
   <div class="flex flex-row items-center mb-4">
-    <Input
+    <TextField
       fullWidth
       name="todoItem"
       type="text"
       placeholder="todo item"
-      value={todoItem}
-      on:change={handleChange} />
+      bind:textFieldValue={todoItem} />
     <Button class="ml-2" on:click={() => handleAddTodo()}>
       <Icon fill="#fff" icon={faPlus} height="1.5rem" width="1.5rem" />
     </Button>

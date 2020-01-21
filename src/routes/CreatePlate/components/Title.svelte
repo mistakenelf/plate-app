@@ -1,15 +1,13 @@
 <script>
-  import Input from '../../../components/Input.svelte';
+  import TextField from '../../../components/TextField.svelte';
 
   export let title;
 </script>
 
-<Input
+<TextField
+  bind:textFieldValue={title}
   name="title"
-  type="text"
   label="title"
   isFormField
   placeholder="title"
-  required
-  on:change
-  value={title} />
+  required />
