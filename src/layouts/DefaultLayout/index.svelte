@@ -6,7 +6,7 @@
   import Icon from '../../components/Icon.svelte';
   import Modal from '../../components/Modal.svelte';
 
-  import Navbar from './components/Navbar.svelte';
+  import DesktopLinks from './components/DesktopLinks.svelte';
   import MobileMenu from './components/MobileMenu.svelte';
   import Brand from './components/Brand.svelte';
 
@@ -42,26 +42,13 @@
     left-0 top-0 bg-teal-600">
     <Brand />
     <div class="hidden lg:flex items-center h-full">
-      <Navbar />
+      <DesktopLinks />
       <span
         class:flag-icon-us={$locale === 'en-US'}
         class:flag-icon-fr={$locale === 'fr'}
         class="cursor-pointer text-lg flag-icon mr-4"
         on:click={openModal} />
     </div>
-    <Modal
-      title="Select Language"
-      isOpen={modalOpen}
-      on:handleClose={closeModal}>
-      <div class="flex flex-row items-center mt-4 mb-4">
-        <span
-          class="mr-4 cursor-pointer text-5xl flag-icon flag-icon-us"
-          on:click={() => handleLocaleChange('en-US')} />
-        <span
-          class="mr-4 cursor-pointer text-5xl flag-icon flag-icon-fr"
-          on:click={() => handleLocaleChange('fr')} />
-      </div>
-    </Modal>
     <div class="lg:hidden flex items-center h-full pr-4">
       <span
         class:flag-icon-us={$locale === 'en-US'}
@@ -86,6 +73,16 @@
       </ClickOutside>
     {/if}
   </nav>
+  <Modal title="Select Language" isOpen={modalOpen} on:handleClose={closeModal}>
+    <div class="flex flex-row items-center mt-4 mb-4">
+      <span
+        class="mr-4 cursor-pointer text-5xl flag-icon flag-icon-us"
+        on:click={() => handleLocaleChange('en-US')} />
+      <span
+        class="mr-4 cursor-pointer text-5xl flag-icon flag-icon-fr"
+        on:click={() => handleLocaleChange('fr')} />
+    </div>
+  </Modal>
   <div class="pt-12 h-full">
     <slot />
   </div>

@@ -13,6 +13,15 @@
 </script>
 
 <style>
+  @keyframes spinAround {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   .spinner {
     pointer-events: none;
   }
@@ -27,15 +36,6 @@
     border-right-color: transparent;
     border-top-color: transparent;
     animation: spinAround 500ms infinite linear;
-  }
-
-  @keyframes spinAround {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
   }
 </style>
 

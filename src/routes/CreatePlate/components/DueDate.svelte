@@ -1,14 +1,12 @@
 <script>
-  import Input from '../../../components/Input.svelte';
+  import DatePicker from '../../../components/DatePicker.svelte';
 
   export let dueDate;
 </script>
 
-<Input
+<DatePicker
+  bind:dateValue={dueDate}
   name="dueDate"
-  type="date"
   label="Due Date"
   isFormField
-  fullWidth
-  on:change
-  value={dueDate} />
+  fullWidth />
