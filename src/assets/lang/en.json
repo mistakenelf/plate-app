@@ -1,3 +1,9 @@
 {
-  "brand": "Plate"
+  "brand": "Plate",
+  "login": {
+    "title": "Login",
+    "username": "Username",
+    "password": "Password",
+    "submitText": "Login"
+  }
 }

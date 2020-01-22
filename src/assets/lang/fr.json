@@ -1,3 +1,9 @@
 {
-  "brand": "Assiette"
+  "brand": "Assiette",
+  "login": {
+    "title": "s'identifier",
+    "username": "Nom d'utilisateur",
+    "password": "mot de passe",
+    "submitText": "s'identifier"
+  }
 }
