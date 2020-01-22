@@ -50,7 +50,9 @@
       required
       placeholder={$_('login.password')}
       bind:passwordFieldValue={formValues.password} />
-    <Button type="submit" fullWidth loading={submitting}>{$_('login.submitText')}</Button>
+    <Button type="submit" fullWidth loading={submitting}>
+      {$_('login.submitText')}
+    </Button>
     {#if $errorMessage}
       <div class="mt-4 bg-red-500 rounded p-2 font-bold text-white text-xl">
         {$errorMessage}
