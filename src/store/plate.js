@@ -38,9 +38,9 @@ const updatePlate = async data => {
   await plateApi.updatePlate(data);
 };
 
-const search = searchText => {
+const search = (searchText, myPlates) => {
   plates.set(
-    $plates.filter(
+    myPlates.filter(
       plate =>
         plate.data.title.toLowerCase().includes(searchText.toLowerCase()) ||
         plate.data.status.toLowerCase().includes(searchText.toLowerCase()),

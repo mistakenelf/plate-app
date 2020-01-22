@@ -40,7 +40,7 @@
     if (e.target.value === '') {
       plates.set(allPlates);
     } else {
-      plateStore.search(e.target.value);
+      plateStore.search(e.target.value, $plates);
     }
   };
 </script>
