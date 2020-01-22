@@ -12,15 +12,20 @@
   import NoPlatesFound from './components/NoPlatesFound.svelte';
   import StatCard from './components/StatCard.svelte';
   import Plate from './components/Plate.svelte';
+  import Search from './components/Search.svelte';
 
   let completedCount = 0;
   let openCount = 0;
   let inProgressCount = 0;
+  let searchText = '';
+  let allPlates = [];
 
   onMount(async () => {
     if ($currentUser) {
       await plateStore.getPlates($currentUser.id);
     }
+
+    allPlates = $plates;
 
     completedCount = $plates.filter(res => res.data.status === 'completed')
       .length;
@@ -30,6 +35,14 @@
     inProgressCount = $plates.filter(res => res.data.status === 'in progress')
       .length;
   });
+
+  const handleChange = e => {
+    if (e.target.value === '') {
+      plates.set(allPlates);
+    } else {
+      plateStore.search(e.target.value);
+    }
+  };
 </script>
 
 <svelte:head>
@@ -57,6 +70,14 @@
     </div>
   </div>
   <div class="m-4 mb-24">
+    <div
+      class="w-full mt-8 mb-8 flex md:flex-row flex-col justify-between
+      items-center">
+      <h3 class="text-gray-700 text-4xl w-full md:w-1/2">My Plates</h3>
+      <div class="w-full md:w-1/2">
+        <Search on:keyup={handleChange} {searchText} />
+      </div>
+    </div>
     {#each $plates as plate, i}
       <Plate
         title={plate.data.title}
