@@ -45,6 +45,7 @@ const me = async () => {
       localStorage.removeItem('token');
       currentUser.set(null);
       fetchingUser.set(false);
+
       return;
     } else {
       currentUser.set(user);
