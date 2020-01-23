@@ -22,6 +22,19 @@
     "prettier": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\"",
     "eslint": "eslint --ext js,svelte ."
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run build"
+    }
+  },
+  "lint-staged": {
+    "*.{svelte,md,js,css,html}": [
+      "prettier --write",
+      "eslint",
+      "git add"
+    ]
+  },
   "browserslist": [
     "last 1 Chrome versions"
   ],
@@ -31,13 +44,15 @@
     "cross-env": "^6.0.3",
     "eslint": "^6.8.0",
     "eslint-plugin-svelte3": "^2.7.3",
+    "husky": "^4.2.1",
+    "lint-staged": "^10.0.2",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-compress": "^1.1.0",
     "parcel-plugin-svelte": "^4.0.5",
     "postcss": "^7.0.26",
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
-    "svelte": "^3.17.2",
+    "svelte": "^3.17.3",
     "tailwindcss": "^1.1.4"
   },
   "dependencies": {
@@ -50,6 +65,6 @@
     "flag-icon-css": "^3.4.5",
     "jsonwebtoken": "^8.5.1",
     "page": "^1.11.5",
-    "svelte-i18n": "^2.2.4"
+    "svelte-i18n": "^2.3.0"
   }
 }

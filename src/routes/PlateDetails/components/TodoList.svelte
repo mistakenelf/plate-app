@@ -68,7 +68,7 @@
     <ul class="mt-2 p-2">
       {#each newTodos as todo}
         <li class="mb-4 flex justify-between items-center">
-          <div class="flex items-center">
+          <div class="flex items-center w-2/3 md:w-auto">
             <span
               class:line-through={todo.completed}
               class="text-gray-700 text-xl">

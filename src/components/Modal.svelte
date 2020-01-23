@@ -15,8 +15,10 @@
 {#if isOpen}
   <div
     class="fixed w-full h-full bottom-0 md:top-0 left-0 flex items-center
-    justify-center">
-    <div class="absolute w-full h-full bg-gray-900 opacity-50" />
+    justify-center z-10">
+    <div
+      class="absolute w-full h-full bg-gray-900 opacity-50"
+      on:click={() => dispatch('handleClose')} />
     <div
       transition:fly={{ y: 400 }}
       class="bg-white w-full absolute bottom-0 md:relative md:w-11/12

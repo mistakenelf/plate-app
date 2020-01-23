@@ -37,7 +37,6 @@
     <TextField
       fullWidth
       name="todoItem"
-      type="text"
       placeholder="todo item"
       bind:textFieldValue={todoItem} />
     <Button class="ml-2" on:click={() => handleAddTodo()}>
