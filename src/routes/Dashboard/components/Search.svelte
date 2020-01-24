@@ -1,6 +1,4 @@
 <script>
-  import TextField from '../../../components/TextField.svelte';
-
   export let searchText;
 </script>
 

@@ -4,7 +4,7 @@
   import { onMount } from 'svelte';
 
   import plateStore, { plates, loadingPlates } from '../../store/plate';
-  import authStore, { currentUser } from '../../store/auth';
+  import { currentUser } from '../../store/auth';
   import FAB from '../../components/FAB.svelte';
   import Loader from '../../components/Loader.svelte';
   import { getId } from '../../helpers/getId';
@@ -17,8 +17,8 @@
   let completedCount = 0;
   let openCount = 0;
   let inProgressCount = 0;
-  let searchText = '';
   let allPlates = [];
+  const searchText = '';
 
   onMount(async () => {
     if ($currentUser) {

@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { addMessages, init, locale } from 'svelte-i18n';
+  import { addMessages, init } from 'svelte-i18n';
 
   import authStore, { fetchingUser } from '../store/auth';
   import Routes from '../routes/index.svelte';

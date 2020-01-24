@@ -6,7 +6,6 @@
   import FAB from '../../components/FAB.svelte';
   import Loader from '../../components/Loader.svelte';
   import { currentUser } from '../../store/auth';
-  import { getId } from '../../helpers/getId';
   import plateStore from '../../store/plate';
 
   import Title from './components/Title.svelte';

@@ -1,6 +1,4 @@
 <script>
-  import Loader from './Loader.svelte';
-
   export let fullWidth = false;
   export let type = 'button';
   export let loading = false;

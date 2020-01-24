@@ -14,10 +14,6 @@
 
   let todoItem = '';
 
-  const handleChange = event => {
-    todoItem = event.target.value;
-  };
-
   const handleAddTodo = () => {
     if (todoItem !== '') {
       dispatch('addTodo', {
