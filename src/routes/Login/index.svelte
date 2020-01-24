@@ -6,6 +6,7 @@
   import TextField from '../../components/TextField.svelte';
   import PasswordField from '../../components/PasswordField.svelte';
   import Button from '../../components/Button.svelte';
+  import Meta from '../../components/Meta.svelte';
 
   let submitting = false;
 
@@ -22,13 +23,10 @@
   };
 </script>
 
-<svelte:head>
-  <title>Plate - Login</title>
-  <meta
-    name="description"
-    content="Welcome to Plate, a place to manage your stuff, login now to get
-    started" />
-</svelte:head>
+<Meta
+  title="Login"
+  description="Welcome to Plate, a place to manage your stuff, login now to get
+  started" />
 
 <div class="w-full h-full flex items-center justify-center p-4">
   <form

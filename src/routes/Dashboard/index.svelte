@@ -8,6 +8,7 @@
   import FAB from '../../components/FAB.svelte';
   import Loader from '../../components/Loader.svelte';
   import { getId } from '../../helpers/getId';
+  import Meta from '../../components/Meta.svelte';
 
   import NoPlatesFound from './components/NoPlatesFound.svelte';
   import StatCard from './components/StatCard.svelte';
@@ -45,13 +46,10 @@
   };
 </script>
 
-<svelte:head>
-  <title>Plate - Dashboard</title>
-  <meta
-    name="description"
-    content="Plate dashboard is where you get an overview of your plates and can
-    start managing them" />
-</svelte:head>
+<Meta
+  title="Dashboard"
+  description="Plate dashboard is where you get an overview of your plates and
+  can start managing them" />
 
 {#if $loadingPlates}
   <Loader fullPage />

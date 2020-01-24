@@ -6,6 +6,7 @@
   import EmailField from '../../components/EmailField.svelte';
   import Button from '../../components/Button.svelte';
   import authStore, { errorMessage } from '../../store/auth';
+  import Meta from '../../components/Meta.svelte';
 
   let submitting = false;
 
@@ -25,13 +26,10 @@
   };
 </script>
 
-<svelte:head>
-  <title>Plate - Register</title>
-  <meta
-    name="description"
-    content="Welcome to Plate, a place to manage your stuff, register now to get
-    started" />
-</svelte:head>
+<Meta
+  title="Register"
+  description="Welcome to Plate, a place to manage your stuff, register now to
+  get started" />
 
 <div class="w-full h-full flex items-center justify-center p-4">
   <form

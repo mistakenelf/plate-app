@@ -7,6 +7,7 @@
   import Loader from '../../components/Loader.svelte';
   import { currentUser } from '../../store/auth';
   import plateStore from '../../store/plate';
+  import Meta from '../../components/Meta.svelte';
 
   import Title from './components/Title.svelte';
   import DueDate from './components/DueDate.svelte';
@@ -15,6 +16,7 @@
   import Description from './components/Description.svelte';
   import Notes from './components/Notes.svelte';
   import TodoList from './components/TodoList.svelte';
+  import ImageUpload from './components/ImageUpload.svelte';
 
   let loading = false;
 
@@ -26,6 +28,7 @@
     category: '',
     notes: '',
     status: 'open',
+    image: '',
     todos: [],
     files: [],
     sharedWith: [],
@@ -39,6 +42,10 @@
     formValues.todos = formValues.todos.filter(
       res => res.id !== event.detail.id,
     );
+  };
+
+  const uploadImage = e => {
+    formValues.image = e.detail.file;
   };
 
   const handleSubmit = async () => {
@@ -57,13 +64,10 @@
   };
 </script>
 
-<svelte:head>
-  <title>Plate - Create Plate</title>
-  <meta
-    name="description"
-    content="Create a plate to get started today, manage your tasks and a simple
-    platform" />
-</svelte:head>
+<Meta
+  title="Create Plate"
+  description="Create a plate to get started today, manage your tasks and a
+  simple platform" />
 
 {#if loading}
   <Loader fullPage />
@@ -99,6 +103,9 @@
           todos={formValues.todos}
           on:addTodo={addTodo}
           on:removeTodo={removeTodo} />
+      </div>
+      <div class="w-full md:w-1/2 px-2 my-2 mb-12 mb:mb-0">
+        <ImageUpload on:uploadImage={uploadImage} />
       </div>
     </div>
     <FAB icon={faSave} />
