@@ -3,8 +3,7 @@
   import { _ } from 'svelte-i18n';
 
   import authStore, { errorMessage } from '../../store/auth';
-  import TextField from '../../components/TextField.svelte';
-  import PasswordField from '../../components/PasswordField.svelte';
+  import Input from '../../components/Input.svelte';
   import Button from '../../components/Button.svelte';
   import Meta from '../../components/Meta.svelte';
 
@@ -13,6 +12,10 @@
   const formValues = {
     username: '',
     password: '',
+  };
+
+  const handleChange = e => {
+    formValues[e.target.name] = e.target.value;
   };
 
   const handleSubmit = async () => {
@@ -34,20 +37,22 @@
     class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 w-full md:w-3/4
     lg:w-1/2 xl:w-1/3">
     <h1 class="text-3xl text-gray-800 mb-4 font-bold">{$_('login.title')}</h1>
-    <TextField
+    <Input
+      isFormField
+      required
+      type="text"
       name="username"
       label={$_('login.username')}
+      placeholder={$_('login.username')}
+      on:change={handleChange} />
+    <Input
       isFormField
       required
-      placeholder={$_('login.username')}
-      bind:textFieldValue={formValues.username} />
-    <PasswordField
+      type="password"
       name="password"
       label={$_('login.password')}
-      isFormField
-      required
       placeholder={$_('login.password')}
-      bind:passwordFieldValue={formValues.password} />
+      on:change={handleChange} />
     <Button type="submit" fullWidth loading={submitting}>
       {$_('login.submitText')}
     </Button>

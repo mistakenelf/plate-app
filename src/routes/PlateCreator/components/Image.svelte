@@ -61,8 +61,8 @@
 </script>
 
 <div
-  class="bg-white rounded-lg shadow md:h-full flex items-center flex-col
-  justify-center mb-6 md:mb-0 p-4 relative">
+  class="bg-white rounded-lg shadow md:h-64 flex items-center flex-col
+  justify-center mb-6 md:mb-0 p-8 relative">
   {#if editing}
     <Icon
       class="cursor-pointer absolute right-0 top-0 m-2"
@@ -108,7 +108,7 @@
     </div>
   {/if}
   {#if newImageSrc && !saving && (!editing || uploadComplete)}
-    <img class="h-48 max-w-full" src={newImageSrc} alt="plate image" />
+    <img src={newImageSrc} alt="plate image" />
   {/if}
   {#if saving}
     <Loader />

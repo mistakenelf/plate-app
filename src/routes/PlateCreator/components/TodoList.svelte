@@ -4,7 +4,7 @@
 
   import Checkbox from '../../../components/Checkbox.svelte';
   import plateStore from '../../../store/plate';
-  import TextField from '../../../components/TextField.svelte';
+  import Input from '../../../components/Input.svelte';
   import Button from '../../../components/Button.svelte';
   import Icon from '../../../components/Icon.svelte';
   import { generateId } from '../../../helpers/generateId';
@@ -14,6 +14,10 @@
 
   let newTodos = todos;
   let todoItem = '';
+
+  const handleChange = e => {
+    todoItem = e.target.value;
+  };
 
   const toggleCompleted = id => {
     const index = newTodos.findIndex(todo => todo.id === id);
@@ -52,14 +56,15 @@
 </script>
 
 {#if todos.length > 0}
-  <div class="bg-white rounded-lg shadow p-4">
+  <div class="bg-white rounded-lg shadow p-4 h-full">
     <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">Todos</h3>
     <div class="flex flex-row items-center mb-4">
-      <TextField
+      <Input
         fullWidth
+        type="text"
         name="todoItem"
         placeholder="todo item"
-        bind:textFieldValue={todoItem} />
+        on:change={handleChange} />
       <Button class="ml-2" on:click={() => handleAddTodo()}>
         <Icon fill="#fff" icon={faPlus} height="1.5rem" width="1.5rem" />
       </Button>

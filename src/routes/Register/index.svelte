@@ -1,9 +1,7 @@
 <script>
   import page from 'page';
 
-  import TextField from '../../components/TextField.svelte';
-  import PasswordField from '../../components/PasswordField.svelte';
-  import EmailField from '../../components/EmailField.svelte';
+  import Input from '../../components/Input.svelte';
   import Button from '../../components/Button.svelte';
   import authStore, { errorMessage } from '../../store/auth';
   import Meta from '../../components/Meta.svelte';
@@ -16,6 +14,10 @@
     email: '',
     username: '',
     password: '',
+  };
+
+  const handleChange = e => {
+    formValues[e.target.name] = e.target.value;
   };
 
   const handleSubmit = async () => {
@@ -39,51 +41,56 @@
     <h1 class="text-3xl text-gray-800 mb-4 font-bold">Register</h1>
     <div class="flex flex-wrap">
       <div class="w-full md:w-1/2 md:pr-2">
-        <TextField
+        <Input
           required
           isFormField
+          type="text"
           name="firstName"
           label="First Name"
           placeholder="first name"
-          bind:textFieldValue={formValues.firstName} />
+          on:change={handleChange} />
       </div>
       <div class="w-full md:w-1/2 md:pl-2">
-        <TextField
+        <Input
           required
           isFormField
+          type="text"
           name="lastName"
           label="Last Name"
           placeholder="last name"
-          bind:textFieldValue={formValues.lastName} />
+          on:change={handleChange} />
       </div>
     </div>
     <div class="flex flex-wrap">
       <div class="w-full md:w-1/2 md:pr-2">
-        <EmailField
+        <Input
+          required
+          isFormField
+          type="email"
           name="email"
           label="Email"
-          isFormField
-          required
           placeholder="email address"
-          bind:emailFieldValue={formValues.email} />
+          on:change={handleChange} />
       </div>
       <div class="w-full md:w-1/2 md:pr-2">
-        <TextField
+        <Input
           required
           isFormField
+          type="text"
           name="username"
           label="Username"
           placeholder="username"
-          bind:textFieldValue={formValues.username} />
+          on:change={handleChange} />
       </div>
     </div>
-    <PasswordField
+    <Input
+      required
+      isFormField
+      type="password"
       name="password"
       label="Password"
-      isFormField
-      required
       placeholder="password"
-      bind:passwordFieldValue={formValues.password} />
+      on:change={handleChange} />
     <Button type="submit" fullWidth loading={submitting}>Register</Button>
     {#if $errorMessage}
       <div class="mt-4 bg-red-500 rounded p-2 font-bold text-white text-xl">

@@ -31,7 +31,7 @@
   };
 </script>
 
-<div class="shadow bg-white rounded-lg p-4 h-full">
+<div class="shadow bg-white rounded-lg p-4 md:h-64">
   <div class="flex flex-row justify-between items-center">
     <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">Description</h3>
     {#if editing}

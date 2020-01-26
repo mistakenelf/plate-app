@@ -1,13 +1,12 @@
 <script>
+  import Input from '../../../components/Input.svelte';
+
   export let searchText;
 </script>
 
-<input
-  value={searchText}
-  on:keyup
+<Input
+  type="text"
   name="search"
   placeholder="search plates"
-  type="text"
-  class="block appearance-none w-full bg-white border-2 border-gray-400
-  hover:border-gray-500 px-4 py-3 pr-8 rounded leading-tight focus:outline-none
-  focus:shadow-outline" />
+  value={searchText}
+  on:keyup />

@@ -29,7 +29,7 @@
   <Loader fullPage />
 {:else}
   <div class="p-4">
-    <div class="flex flex-wrap mt-2 md:h-64 md:mb-6">
+    <div class="flex flex-wrap mt-2">
       <div class="w-full md:w-1/2 px-2">
         <BasicInfo
           title={$plate.data.title}

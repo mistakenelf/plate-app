@@ -5,8 +5,7 @@
 
   import Icon from '../../../components/Icon.svelte';
   import plateStore from '../../../store/plate';
-  import TextField from '../../../components/TextField.svelte';
-  import DatePicker from '../../../components/DatePicker.svelte';
+  import Input from '../../../components/Input.svelte';
   import Loader from '../../../components/Loader.svelte';
 
   export let title;
@@ -20,6 +19,14 @@
 
   const handleEdit = () => {
     editing = true;
+  };
+
+  const handleTitleChange = e => {
+    newTitle = e.target.value;
+  };
+
+  const handleDueDateChange = e => {
+    newDueDate = e.target.value;
   };
 
   const handleSave = async () => {
@@ -36,8 +43,7 @@
   };
 </script>
 
-<div
-  class="text-gray-700 shadow rounded-lg md:h-full p-4 bg-white mb-6 relative">
+<div class="text-gray-700 shadow rounded-lg md:h-64 p-4 bg-white mb-6 relative">
   {#if editing}
     <Icon
       class="cursor-pointer absolute right-0 top-0 m-2"
@@ -56,17 +62,21 @@
       on:click={handleEdit} />
   {/if}
   {#if editing}
-    <TextField
+    <Input
+      isFormField
+      type="text"
       name="title"
       label="title"
-      isFormField
       placeholder="title"
-      bind:textFieldValue={newTitle} />
-    <DatePicker
+      value={newTitle}
+      on:change={handleTitleChange} />
+    <Input
+      fullWidth
+      type="date"
       name="dueDate"
       label="Due Date"
-      fullWidth
-      bind:datePickerValue={newDueDate} />
+      value={newDueDate}
+      on:change={handleDueDateChange} />
   {:else if updatingBasicInfo}
     <div class="flex items-center justify-center">
       <Loader />
