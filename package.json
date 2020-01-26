@@ -41,7 +41,7 @@
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.0.5",
     "autoprefixer": "^9.7.4",
-    "cross-env": "^6.0.3",
+    "cross-env": "^7.0.0",
     "eslint": "^6.8.0",
     "eslint-plugin-svelte3": "^2.7.3",
     "husky": "^4.2.1",
@@ -52,7 +52,7 @@
     "postcss": "^7.0.26",
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
-    "svelte": "^3.17.3",
+    "svelte": "^3.18.0",
     "tailwindcss": "^1.1.4"
   },
   "dependencies": {
