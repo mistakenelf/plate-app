@@ -37,7 +37,7 @@
           {plateId} />
       </div>
       <div class="w-full md:w-1/4 px-2">
-        <Image imageSrc={$plate.data.image} />
+        <Image imageSrc={$plate.data.image} {plateId} />
       </div>
       <div class="w-full md:w-1/4 px-2">
         <Status status={$plate.data.status} {plateId} />
