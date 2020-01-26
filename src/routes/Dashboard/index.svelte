@@ -41,6 +41,7 @@
 
   const createPlate = async () => {
     creatingPlate = true;
+
     const plate = {
       createdBy: $currentUser.id,
       title: 'New Plate',
@@ -61,7 +62,6 @@
     };
 
     const createdPlate = await plateStore.createPlate(plate);
-
     page(`/plate/${getId(createdPlate)}`);
 
     creatingPlate = false;
@@ -88,7 +88,7 @@
 {:else}
   <div class="flex flex-wrap mt-2 mx-2">
     <div class="w-1/3 px-2 my-2">
-      <StatCard count={openCount} label="Open" />
+      <StatCard count={openCount} label="Open" loading={$loadingPlates} />
     </div>
     <div class="w-1/3 px-2 my-2">
       <StatCard count={inProgressCount} label="In Progress" />
