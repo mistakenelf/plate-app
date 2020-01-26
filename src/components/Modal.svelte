@@ -10,6 +10,8 @@
 
   export let isOpen = false;
   export let title = '';
+  export let okText = 'Ok';
+  export let isDialog = false;
 </script>
 
 {#if isOpen}
@@ -35,8 +37,13 @@
             on:click={() => dispatch('handleClose')} />
         </div>
         <slot />
-        <div class="flex justify-end pt-2">
+        <div class="flex justify-end mt-6">
           <Button on:click={() => dispatch('handleClose')}>Close</Button>
+          {#if !isDialog}
+            <Button class="ml-4" on:click={() => dispatch('handleOK')}>
+              {okText}
+            </Button>
+          {/if}
         </div>
       </div>
     </div>

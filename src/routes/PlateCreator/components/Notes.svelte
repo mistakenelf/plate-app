@@ -6,21 +6,25 @@
   import Textarea from '../../../components/Textarea.svelte';
   import plateStore from '../../../store/plate';
   import Loader from '../../../components/Loader.svelte';
+  import Modal from '../../../components/Modal.svelte';
 
   export let notes;
   export let plateId;
 
   let editing = false;
   let updatingNotes = false;
+  let editModalOpen = false;
   let newNotes = notes;
 
   const handleEdit = () => {
     editing = true;
+    editModalOpen = true;
   };
 
   const handleSave = async () => {
     editing = false;
     updatingNotes = true;
+    editModalOpen = false;
 
     await plateStore.updatePlate({
       id: plateId,
@@ -52,13 +56,21 @@
         on:click={handleEdit} />
     {/if}
   </div>
-  {#if editing}
-    <Textarea name="notes" rows={7} bind:textareaValue={newNotes} />
-  {:else if updatingNotes}
+  {#if editModalOpen}
+    <Modal
+      title="Notes"
+      isOpen={editModalOpen}
+      on:handleOK={handleSave}
+      on:handleClose={() => (editModalOpen = false)}>
+      <Textarea name="notes" rows={7} bind:textareaValue={newNotes} />
+    </Modal>
+  {/if}
+  {#if updatingNotes}
     <div class="flex items-center justify-center">
       <Loader />
     </div>
-  {:else}
+  {/if}
+  {#if !updatingNotes}
     <p class="text-gray-700">{newNotes}</p>
   {/if}
 </div>

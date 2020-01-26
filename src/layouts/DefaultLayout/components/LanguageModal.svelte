@@ -15,6 +15,7 @@
 </script>
 
 <Modal
+  isDialog
   title="Select Language"
   isOpen={modalOpen}
   on:handleClose={() => dispatch('closeModal')}>

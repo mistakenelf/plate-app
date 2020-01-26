@@ -7,6 +7,7 @@
   import plateStore from '../../../store/plate';
   import Input from '../../../components/Input.svelte';
   import Loader from '../../../components/Loader.svelte';
+  import Modal from '../../../components/Modal.svelte';
 
   export let title;
   export let dueDate;
@@ -16,9 +17,11 @@
   let updatingBasicInfo = false;
   let newTitle = title;
   let newDueDate = dueDate;
+  let editModalOpen = false;
 
   const handleEdit = () => {
     editing = true;
+    editModalOpen = true;
   };
 
   const handleTitleChange = e => {
@@ -61,27 +64,35 @@
       width="1.2rem"
       on:click={handleEdit} />
   {/if}
-  {#if editing}
-    <Input
-      isFormField
-      type="text"
-      name="title"
-      label="title"
-      placeholder="title"
-      value={newTitle}
-      on:change={handleTitleChange} />
-    <Input
-      fullWidth
-      type="date"
-      name="dueDate"
-      label="Due Date"
-      value={newDueDate}
-      on:change={handleDueDateChange} />
-  {:else if updatingBasicInfo}
+  {#if editModalOpen}
+    <Modal
+      title="Basic Info"
+      isOpen={editing}
+      on:handleOK={handleSave}
+      on:handleClose={() => (editModalOpen = false)}>
+      <Input
+        isFormField
+        type="text"
+        name="title"
+        label="title"
+        placeholder="title"
+        value={newTitle}
+        on:change={handleTitleChange} />
+      <Input
+        fullWidth
+        type="date"
+        name="dueDate"
+        label="Due Date"
+        value={newDueDate}
+        on:change={handleDueDateChange} />
+    </Modal>
+  {/if}
+  {#if updatingBasicInfo}
     <div class="flex items-center justify-center">
       <Loader />
     </div>
-  {:else}
+  {/if}
+  {#if !updatingBasicInfo}
     <h1 class="font-bold text-3xl md:text-5xl mb-3">{newTitle}</h1>
     <div class="mb-3 text-lg md:text-xl">
       Due On: {dayjs(newDueDate).format('MMMM D, YYYY')}
