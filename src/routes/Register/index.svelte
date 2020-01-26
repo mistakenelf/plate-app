@@ -16,15 +16,55 @@
     password: '',
   };
 
+  const errors = {
+    firstName: false,
+    lastName: false,
+    email: false,
+    username: false,
+    password: false,
+  };
+
   const handleChange = e => {
+    if (errors[e.target.name] === true) {
+      errors[e.target.name] = false;
+    }
+
     formValues[e.target.name] = e.target.value;
   };
 
   const handleSubmit = async () => {
-    submitting = true;
-    await authStore.register(formValues);
-    submitting = false;
-    page('/');
+    if (formValues.email === '') {
+      errors.email = true;
+    }
+
+    if (formValues.password === '') {
+      errors.password = true;
+    }
+
+    if (formValues.username === '') {
+      errors.username = true;
+    }
+
+    if (formValues.firstName === '') {
+      errors.firstName = true;
+    }
+
+    if (formValues.lastName === '') {
+      errors.lastName = true;
+    }
+
+    if (
+      formValues.email !== '' &&
+      formValues.password !== '' &&
+      formValues.username !== '' &&
+      formValues.firstName !== '' &&
+      formValues.lastName !== ''
+    ) {
+      submitting = true;
+      await authStore.register(formValues);
+      submitting = false;
+      page('/');
+    }
   };
 </script>
 
@@ -42,54 +82,54 @@
     <div class="flex flex-wrap">
       <div class="w-full md:w-1/2 md:pr-2">
         <Input
-          required
           isFormField
           type="text"
           name="firstName"
           label="First Name"
           placeholder="first name"
+          hasError={errors.firstName}
           on:change={handleChange} />
       </div>
       <div class="w-full md:w-1/2 md:pl-2">
         <Input
-          required
           isFormField
           type="text"
           name="lastName"
           label="Last Name"
           placeholder="last name"
+          hasError={errors.lastName}
           on:change={handleChange} />
       </div>
     </div>
     <div class="flex flex-wrap">
       <div class="w-full md:w-1/2 md:pr-2">
         <Input
-          required
           isFormField
           type="email"
           name="email"
           label="Email"
           placeholder="email address"
+          hasError={errors.email}
           on:change={handleChange} />
       </div>
       <div class="w-full md:w-1/2 md:pr-2">
         <Input
-          required
           isFormField
           type="text"
           name="username"
           label="Username"
           placeholder="username"
+          hasError={errors.username}
           on:change={handleChange} />
       </div>
     </div>
     <Input
-      required
       isFormField
       type="password"
       name="password"
       label="Password"
       placeholder="password"
+      hasError={errors.password}
       on:change={handleChange} />
     <Button type="submit" fullWidth loading={submitting}>Register</Button>
     {#if $errorMessage}
