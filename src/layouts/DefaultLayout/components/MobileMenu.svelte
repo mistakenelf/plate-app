@@ -78,11 +78,6 @@
             label="Dashboard" />
           <NavLink
             isMobile
-            on:click={() => navigate('/create-plate')}
-            icon={faPlusCircle}
-            label="Create Plate" />
-          <NavLink
-            isMobile
             on:click={handleLogout}
             icon={faSignInAlt}
             label="Logout" />

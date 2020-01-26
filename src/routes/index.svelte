@@ -3,10 +3,9 @@
 
   import { currentUser } from '../store/auth';
 
-  import CreatePlate from './CreatePlate/index.svelte';
   import Dashboard from './Dashboard/index.svelte';
   import DefaultLayout from '../layouts/DefaultLayout/index.svelte';
-  import PlateDetails from './PlateDetails/index.svelte';
+  import PlateCreator from './PlateCreator/index.svelte';
   import Login from './Login/index.svelte';
   import Register from './Register/index.svelte';
 
@@ -48,21 +47,10 @@
     }
   });
 
-  page('/create-plate', () => {
-    if ($currentUser) {
-      pageProps = {
-        component: CreatePlate,
-        layout: DefaultLayout,
-      };
-    } else {
-      page.redirect('/login');
-    }
-  });
-
   page('/plate/:id', () => {
     if ($currentUser) {
       pageProps = {
-        component: PlateDetails,
+        component: PlateCreator,
         layout: DefaultLayout,
       };
     } else {

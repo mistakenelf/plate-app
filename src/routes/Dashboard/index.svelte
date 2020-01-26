@@ -8,6 +8,7 @@
   import FAB from '../../components/FAB.svelte';
   import Loader from '../../components/Loader.svelte';
   import { getId } from '../../helpers/getId';
+  import { generateId } from '../../helpers/generateId';
   import Meta from '../../components/Meta.svelte';
 
   import NoPlatesFound from './components/NoPlatesFound.svelte';
@@ -19,6 +20,7 @@
   let openCount = 0;
   let inProgressCount = 0;
   let allPlates = [];
+  let creatingPlate = false;
   const searchText = '';
 
   onMount(async () => {
@@ -36,6 +38,34 @@
     inProgressCount = $plates.filter(res => res.data.status === 'in progress')
       .length;
   });
+
+  const createPlate = async () => {
+    creatingPlate = true;
+    const plate = {
+      createdBy: $currentUser.id,
+      title: 'New Plate',
+      dueDate: new Date(),
+      description: 'Plate Description',
+      notes: 'Some notes',
+      status: 'open',
+      image: '',
+      todos: [
+        {
+          title: 'A todo item',
+          completed: false,
+          id: generateId(),
+        },
+      ],
+      files: [],
+      sharedWith: [],
+    };
+
+    const createdPlate = await plateStore.createPlate(plate);
+
+    page(`/plate/${getId(createdPlate)}`);
+
+    creatingPlate = false;
+  };
 
   const handleChange = e => {
     if (e.target.value === '') {
@@ -85,4 +115,4 @@
   </div>
 {/if}
 
-<FAB icon={faPlus} on:click={() => page('/create-plate')} />
+<FAB icon={faPlus} loading={creatingPlate} on:click={() => createPlate()} />

@@ -29,10 +29,6 @@
       on:click={() => navigate('/')}
       icon={faChartLine}
       label="Dashboard" />
-    <NavLink
-      on:click={() => navigate('/create-plate')}
-      icon={faPlusCircle}
-      label="Create Plate" />
     <NavLink on:click={handleLogout} icon={faSignInAlt} label="Logout" />
   {:else}
     <NavLink

@@ -17,6 +17,7 @@ const getPlates = async userId => {
 const createPlate = async data => {
   const plateData = await plateApi.createPlate(data);
   plate.set(plateData);
+  return plateData;
 };
 
 const getPlate = async id => {
