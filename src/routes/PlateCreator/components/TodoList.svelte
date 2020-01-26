@@ -64,6 +64,7 @@
         type="text"
         name="todoItem"
         placeholder="todo item"
+        value={todoItem}
         on:change={handleChange} />
       <Button class="ml-2" on:click={() => handleAddTodo()}>
         <Icon fill="#fff" icon={faPlus} height="1.5rem" width="1.5rem" />
