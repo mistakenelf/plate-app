@@ -7,6 +7,7 @@
   export let fullWidth = false;
   export let placeholder = '';
   export let required = false;
+  export let hasError = false;
 </script>
 
 <div class:w-full={fullWidth} class="flex flex-col">
@@ -28,6 +29,7 @@
     on:keyup
     class:w-full={fullWidth}
     class:mb-8={isFormField}
+    class:border-red-300={hasError}
     class="block appearance-none w-full bg-white border-2 border-gray-400
     hover:border-gray-500 px-4 py-3 pr-8 rounded leading-tight
     focus:outline-none focus:shadow-outline" />

@@ -8,6 +8,8 @@
   import Meta from '../../components/Meta.svelte';
 
   let submitting = false;
+  let usernameError = false;
+  let passwordError = false;
 
   const formValues = {
     username: '',
@@ -15,14 +17,32 @@
   };
 
   const handleChange = e => {
+    if (e.target.name === 'username') {
+      usernameError = false;
+    }
+
+    if (e.target.name === 'password') {
+      passwordError = false;
+    }
+
     formValues[e.target.name] = e.target.value;
   };
 
   const handleSubmit = async () => {
-    submitting = true;
-    await authStore.login(formValues);
-    page('/');
-    submitting = false;
+    if (formValues.username === '') {
+      usernameError = true;
+    }
+
+    if (formValues.password === '') {
+      passwordError = true;
+    }
+
+    if (formValues.username !== '' && formValues.password !== '') {
+      submitting = true;
+      await authStore.login(formValues);
+      page('/');
+      submitting = false;
+    }
   };
 </script>
 
@@ -39,19 +59,19 @@
     <h1 class="text-3xl text-gray-800 mb-4 font-bold">{$_('login.title')}</h1>
     <Input
       isFormField
-      required
       type="text"
       name="username"
       label={$_('login.username')}
       placeholder={$_('login.username')}
+      hasError={usernameError}
       on:change={handleChange} />
     <Input
       isFormField
-      required
       type="password"
       name="password"
       label={$_('login.password')}
       placeholder={$_('login.password')}
+      hasError={passwordError}
       on:change={handleChange} />
     <Button type="submit" fullWidth loading={submitting}>
       {$_('login.submitText')}
