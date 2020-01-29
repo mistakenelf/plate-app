@@ -1,6 +1,6 @@
 <script>
   import page from 'page';
-  import { faFolderOpen } from '@fortawesome/free-solid-svg-icons/faFolderOpen';
+  import { faShareSquare } from '@fortawesome/free-solid-svg-icons/faShareSquare';
   import { faTrashAlt } from '@fortawesome/free-solid-svg-icons/faTrashAlt';
 
   import plateStore from '../../../store/plate';
@@ -23,22 +23,25 @@
   class:border-orange-500={status === 'in progress'}
   class:border-blue-500={status === 'open'}>
   <div class="flex items-center justify-between">
-    <div class="text-md md:text-xl w-1/2 truncate text-gray-700">{title}</div>
+    <div
+      class="text-md md:text-xl w-1/2 truncate text-gray-700 cursor-pointer"
+      on:click={() => page(`/plate/${id}`)}>
+      {title}
+    </div>
     <div class="items-center flex justify-center">
+    <Icon
+        class="cursor-pointer"
+        fill="#4a5568"
+        icon={faShareSquare}
+        height="1.5rem"
+        width="1.5rem" />
       <Icon
-        class="cursor-pointer mr-4"
+        class="cursor-pointer ml-4"
         fill="#4a5568"
         icon={faTrashAlt}
         height="1.5rem"
         width="1.5rem"
         on:click={() => handleDelete()} />
-      <Icon
-        class="cursor-pointer"
-        fill="#4a5568"
-        icon={faFolderOpen}
-        height="1.5rem"
-        width="1.5rem"
-        on:click={() => page(`/plate/${id}`)} />
     </div>
   </div>
 </div>
