@@ -3,7 +3,6 @@
   import { locale } from 'svelte-i18n';
   import { createEventDispatcher } from 'svelte';
   import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
-  import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
   import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt';
   import { faUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
 

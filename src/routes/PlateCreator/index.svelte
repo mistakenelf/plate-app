@@ -7,8 +7,7 @@
 
   import BasicInfo from './components/BasicInfo.svelte';
   import Notes from './components/Notes.svelte';
-  import Description from './components/Description.svelte';
-  import TodoList from './components/TodoList.svelte';
+  import Tasks from './components/Tasks.svelte';
   import Status from './components/Status.svelte';
   import Image from './components/Image.svelte';
 
@@ -34,6 +33,7 @@
         <BasicInfo
           title={$plate.data.title}
           dueDate={$plate.data.dueDate}
+          description={$plate.data.description}
           {plateId} />
       </div>
       <div class="w-full md:w-1/4 px-2">
@@ -45,15 +45,10 @@
     </div>
     <div class="flex flex-wrap md:h-64">
       <div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
-        <Notes notes={$plate.data.notes} {plateId} />
+        <Tasks tasks={$plate.data.todos} {plateId} />
       </div>
-      <div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
-        <Description description={$plate.data.description} {plateId} />
-      </div>
-    </div>
-    <div class="flex flex-wrap mt-0 md:mt-6">
       <div class="w-full md:w-1/2 px-2">
-        <TodoList todos={$plate.data.todos} {plateId} />
+        <Notes notes={$plate.data.notes} {plateId} />
       </div>
     </div>
   </div>

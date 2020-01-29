@@ -9,88 +9,88 @@
   import Icon from '../../../components/Icon.svelte';
   import { generateId } from '../../../helpers/generateId';
 
-  export let todos;
+  export let tasks;
   export let plateId;
 
-  let newTodos = todos;
-  let todoItem = '';
+  let newTasks = tasks;
+  let taskItem = '';
 
   const handleChange = e => {
-    todoItem = e.target.value;
+    taskItem = e.target.value;
   };
 
   const toggleCompleted = id => {
-    const index = newTodos.findIndex(todo => todo.id === id);
-    newTodos[index].completed = !newTodos[index].completed;
+    const index = newTasks.findIndex(todo => todo.id === id);
+    newTasks[index].completed = !newTasks[index].completed;
 
     plateStore.updatePlate({
       id: plateId,
-      todos: newTodos,
+      todos: newTasks,
     });
   };
 
   const handleAddTodo = () => {
-    if (todoItem !== '') {
-      newTodos = [
-        ...newTodos,
-        { title: todoItem, completed: false, id: generateId() },
+    if (taskItem !== '') {
+      newTasks = [
+        ...newTasks,
+        { title: taskItem, completed: false, id: generateId() },
       ];
 
-      todoItem = '';
+      taskItem = '';
 
       plateStore.updatePlate({
         id: plateId,
-        todos: newTodos,
+        todos: newTasks,
       });
     }
   };
 
   const removeTodo = id => {
-    newTodos = newTodos.filter(res => res.id !== id);
+    newTasks = newTasks.filter(res => res.id !== id);
 
     plateStore.updatePlate({
       id: plateId,
-      todos: newTodos,
+      todos: newTasks,
     });
   };
 </script>
 
-{#if todos.length > 0}
+{#if tasks.length > 0}
   <div class="bg-white rounded-lg shadow p-4 h-full">
-    <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">Todos</h3>
+    <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">Tasks</h3>
     <div class="flex flex-row items-center mb-4">
       <Input
         fullWidth
         type="text"
         name="todoItem"
         placeholder="todo item"
-        value={todoItem}
+        value={taskItem}
         on:change={handleChange} />
       <Button class="ml-2" on:click={() => handleAddTodo()}>
         <Icon fill="#fff" icon={faPlus} height="1.5rem" width="1.5rem" />
       </Button>
     </div>
     <ul class="mt-2 p-2">
-      {#each newTodos as todo}
+      {#each newTasks as task}
         <li class="mb-4 flex justify-between items-center">
           <div class="flex items-center w-2/3 md:w-auto">
             <span
-              class:line-through={todo.completed}
+              class:line-through={task.completed}
               class="text-gray-700 text-xl">
-              {todo.title}
+              {task.title}
             </span>
           </div>
           <div>
             <Checkbox
-              checked={todo.completed}
-              on:click={() => toggleCompleted(todo.id)} />
+              checked={task.completed}
+              on:click={() => toggleCompleted(task.id)} />
             <Icon
               class="cursor-pointer ml-4"
               fill="#F56565"
               icon={faTimes}
               height="1.5rem"
               width="1.5rem"
-              on:click={() => removeTodo(todo.id)} />
+              on:click={() => removeTodo(task.id)} />
           </div>
         </li>
         <hr class="pb-2 mb-2" />

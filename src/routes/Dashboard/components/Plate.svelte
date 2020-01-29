@@ -29,7 +29,7 @@
       {title}
     </div>
     <div class="items-center flex justify-center">
-    <Icon
+      <Icon
         class="cursor-pointer"
         fill="#4a5568"
         icon={faShareSquare}

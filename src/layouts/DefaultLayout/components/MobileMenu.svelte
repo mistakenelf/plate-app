@@ -4,7 +4,6 @@
   import { locale } from 'svelte-i18n';
   import { slide } from 'svelte/transition';
   import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
-  import { faPlusCircle } from '@fortawesome/free-solid-svg-icons/faPlusCircle';
   import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt';
   import { faUserPlus } from '@fortawesome/free-solid-svg-icons/faUserPlus';
   import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';

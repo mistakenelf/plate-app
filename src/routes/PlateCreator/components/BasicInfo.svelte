@@ -8,16 +8,19 @@
   import Input from '../../../components/Input.svelte';
   import Loader from '../../../components/Loader.svelte';
   import Modal from '../../../components/Modal.svelte';
+  import Textarea from '../../../components/Textarea.svelte';
 
   export let title;
   export let dueDate;
+  export let description;
   export let plateId;
 
   let editing = false;
   let updatingBasicInfo = false;
+  let editModalOpen = false;
   let newTitle = title;
   let newDueDate = dueDate;
-  let editModalOpen = false;
+  let newDescription = description;
 
   const handleEdit = () => {
     editing = true;
@@ -40,6 +43,7 @@
       id: plateId,
       title: newTitle,
       dueDate: newDueDate,
+      description: newDescription,
     });
 
     updatingBasicInfo = false;
@@ -79,12 +83,16 @@
         value={newTitle}
         on:change={handleTitleChange} />
       <Input
-        fullWidth
+        isFormField
         type="date"
         name="dueDate"
         label="Due Date"
         value={newDueDate}
         on:change={handleDueDateChange} />
+      <Textarea
+        name="description"
+        rows={3}
+        bind:textareaValue={newDescription} />
     </Modal>
   {/if}
   {#if updatingBasicInfo}
@@ -97,5 +105,6 @@
     <div class="mb-3 text-lg md:text-xl">
       Due On: {dayjs(newDueDate).format('MMMM D, YYYY')}
     </div>
+    <p class="mt-4">{newDescription}</p>
   {/if}
 </div>
