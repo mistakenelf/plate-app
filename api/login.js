@@ -49,6 +49,6 @@ module.exports = async (req, res) => {
 
     res.status(200).json(payload);
   } catch (e) {
-    res.status(500).json({ error: e.message });
+    res.status(401).json({ error: 'Invalid credentials' });
   }
 };
