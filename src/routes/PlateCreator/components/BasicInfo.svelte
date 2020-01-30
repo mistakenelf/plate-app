@@ -35,6 +35,11 @@
     newDueDate = e.target.value;
   };
 
+  const handleModalClose = () => {
+    editModalOpen = false;
+    handleSave();
+  }
+
   const handleSave = async () => {
     editing = false;
     updatingBasicInfo = true;
@@ -73,7 +78,7 @@
       title="Basic Info"
       isOpen={editing}
       on:handleOK={handleSave}
-      on:handleClose={() => (editModalOpen = false)}>
+      on:handleClose={handleModalClose}>
       <Input
         isFormField
         type="text"
@@ -84,6 +89,7 @@
         on:change={handleTitleChange} />
       <Input
         isFormField
+        fullWidth
         type="date"
         name="dueDate"
         label="Due Date"

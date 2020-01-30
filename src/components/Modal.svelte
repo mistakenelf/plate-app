@@ -37,7 +37,7 @@
             on:click={() => dispatch('handleClose')} />
         </div>
         <slot />
-        <div class="flex justify-end mt-6">
+        <div class="flex justify-end mt-8">
           <Button on:click={() => dispatch('handleClose')}>Close</Button>
           {#if !isDialog}
             <Button class="ml-4" on:click={() => dispatch('handleOK')}>

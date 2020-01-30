@@ -21,6 +21,11 @@
     editModalOpen = true;
   };
 
+  const handleModalClose = () => {
+    editModalOpen = false;
+    handleSave();
+  }
+
   const handleSave = async () => {
     editing = false;
     updatingNotes = true;
@@ -61,7 +66,7 @@
       title="Notes"
       isOpen={editModalOpen}
       on:handleOK={handleSave}
-      on:handleClose={() => (editModalOpen = false)}>
+      on:handleClose={handleModalClose}>
       <Textarea name="notes" rows={7} bind:textareaValue={newNotes} />
     </Modal>
   {/if}
