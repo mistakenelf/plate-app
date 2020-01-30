@@ -69,7 +69,7 @@
       <Icon fill="#fff" icon={faPlus} height="1.5rem" width="1.5rem" />
     </Button>
   </div>
-  {#if tasks.length > 0}
+  {#if newTasks.length > 0}
     <ul class="mt-2 p-2">
       {#each newTasks as task}
         <li class="mb-4 flex justify-between items-center">
