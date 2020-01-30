@@ -5,12 +5,22 @@
 
   import plateStore from '../../../store/plate';
   import { currentUser } from '../../../store/auth';
-
+  import Modal from '../../../components/Modal.svelte';
   import Icon from '../../../components/Icon.svelte';
 
   export let title;
   export let id;
   export let status;
+
+  let deleteModalOpen = false;
+
+  const handleModalClose = () => {
+    deleteModalOpen = false;
+  };
+
+  const handleModalOpen = () => {
+    deleteModalOpen = true;
+  };
 
   const handleDelete = async () => {
     await plateStore.deletePlate(id, $currentUser.id);
@@ -41,7 +51,14 @@
         icon={faTrashAlt}
         height="1.5rem"
         width="1.5rem"
-        on:click={() => handleDelete()} />
+        on:click={handleModalOpen} />
     </div>
   </div>
 </div>
+<Modal
+  title="Are you sure?"
+  isOpen={deleteModalOpen}
+  on:handleOK={handleDelete}
+  on:handleClose={handleModalClose}>
+  <p>Are you sure you want to delete this plate?</p>
+</Modal>

@@ -38,7 +38,7 @@
   const handleModalClose = () => {
     editModalOpen = false;
     handleSave();
-  }
+  };
 
   const handleSave = async () => {
     editing = false;
