@@ -55,21 +55,21 @@
   };
 </script>
 
-{#if tasks.length > 0}
-  <div class="bg-white rounded-lg shadow p-4 h-full">
-    <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">Tasks</h3>
-    <div class="flex flex-row items-center mb-4">
-      <Input
-        fullWidth
-        type="text"
-        name="todoItem"
-        placeholder="todo item"
-        value={taskItem}
-        on:change={handleChange} />
-      <Button class="ml-2" on:click={() => handleAddTodo()}>
-        <Icon fill="#fff" icon={faPlus} height="1.5rem" width="1.5rem" />
-      </Button>
-    </div>
+<div class="bg-white rounded-lg shadow p-4 h-full">
+  <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">Tasks</h3>
+  <div class="flex flex-row items-center mb-4">
+    <Input
+      fullWidth
+      type="text"
+      name="todoItem"
+      placeholder="todo item"
+      value={taskItem}
+      on:change={handleChange} />
+    <Button class="ml-2" on:click={() => handleAddTodo()}>
+      <Icon fill="#fff" icon={faPlus} height="1.5rem" width="1.5rem" />
+    </Button>
+  </div>
+  {#if tasks.length > 0}
     <ul class="mt-2 p-2">
       {#each newTasks as task}
         <li class="mb-4 flex justify-between items-center">
@@ -96,5 +96,5 @@
         <hr class="pb-2 mb-2" />
       {/each}
     </ul>
-  </div>
-{/if}
+  {/if}
+</div>

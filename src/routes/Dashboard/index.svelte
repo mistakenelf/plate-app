@@ -50,13 +50,7 @@
       notes: 'Some notes',
       status: 'open',
       image: '',
-      todos: [
-        {
-          title: 'A todo item',
-          completed: false,
-          id: generateId(),
-        },
-      ],
+      todos: [],
       files: [],
       sharedWith: [],
     };
