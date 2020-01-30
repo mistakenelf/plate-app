@@ -5,5 +5,8 @@
     "username": "Username",
     "password": "Password",
     "submitText": "Login"
-  }
+  },
+  "open": "Open",
+  "inProgress": "In Progress",
+  "completed": "Completed"
 }

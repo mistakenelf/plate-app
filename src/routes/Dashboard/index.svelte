@@ -2,6 +2,7 @@
   import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
   import page from 'page';
   import { onMount } from 'svelte';
+  import { _ } from 'svelte-i18n';
 
   import plateStore, { plates, loadingPlates } from '../../store/plate';
   import { currentUser } from '../../store/auth';
@@ -82,13 +83,19 @@
 {:else}
   <div class="flex flex-wrap mt-2 mx-2">
     <div class="w-1/3 px-2 my-2">
-      <StatCard count={openCount} label="Open" />
+      <StatCard count={openCount} status="open" label={$_('open')} />
     </div>
     <div class="w-1/3 px-2 my-2">
-      <StatCard count={inProgressCount} label="In Progress" />
+      <StatCard
+        count={inProgressCount}
+        status="inProgress"
+        label={$_('inProgress')} />
     </div>
     <div class="w-1/3 px-2 my-2">
-      <StatCard count={completedCount} label="Completed" />
+      <StatCard
+        count={completedCount}
+        status="completed"
+        label={$_('completed')} />
     </div>
   </div>
   <div class="m-4 mb-24">
