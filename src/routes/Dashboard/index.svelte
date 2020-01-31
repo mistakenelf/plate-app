@@ -24,20 +24,20 @@
   let creatingPlate = false;
   const searchText = '';
 
+  $: completedCount = $plates.filter(res => res.data.status === 'completed')
+    .length;
+
+  $: openCount = $plates.filter(res => res.data.status === 'open').length;
+
+  $: inProgressCount = $plates.filter(res => res.data.status === 'in progress')
+    .length;
+
   onMount(async () => {
     if ($currentUser) {
       await plateStore.getPlates($currentUser.id);
     }
 
     allPlates = $plates;
-
-    completedCount = $plates.filter(res => res.data.status === 'completed')
-      .length;
-
-    openCount = $plates.filter(res => res.data.status === 'open').length;
-
-    inProgressCount = $plates.filter(res => res.data.status === 'in progress')
-      .length;
   });
 
   const createPlate = async () => {

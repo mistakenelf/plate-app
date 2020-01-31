@@ -23,7 +23,8 @@
   };
 
   const handleDelete = async () => {
-    await plateStore.deletePlate(id, $currentUser.id);
+    handleModalClose();
+    await plateStore.deletePlate(id);
   };
 </script>
 

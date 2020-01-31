@@ -1,6 +1,7 @@
-import { writable } from 'svelte/store';
+import { writable, get } from 'svelte/store';
 
 import plateApi from '../api/plate';
+import { getId } from '../helpers/getId';
 
 export const plates = writable([]);
 export const plate = writable(null);
@@ -28,12 +29,9 @@ const getPlate = async id => {
   plate.set(plateDetails);
 };
 
-const deletePlate = async (id, userId) => {
-  loadingPlates.set(true);
+const deletePlate = async id => {
+  plates.update(allPlates => allPlates.filter(res => getId(res) !== id));
   await plateApi.deletePlate(id);
-  const res = await plateApi.getPlates(userId);
-  plates.set(res);
-  loadingPlates.set(false);
 };
 
 const updatePlate = async data => {
