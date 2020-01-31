@@ -7,12 +7,14 @@
   import { currentUser } from '../../../store/auth';
   import Modal from '../../../components/Modal.svelte';
   import Icon from '../../../components/Icon.svelte';
+  import Input from '../../../components/Input.svelte';
 
   export let title;
   export let id;
   export let status;
 
   let deleteModalOpen = false;
+  let shareModalOpen = false;
 
   const handleModalClose = () => {
     deleteModalOpen = false;
@@ -20,6 +22,14 @@
 
   const handleModalOpen = () => {
     deleteModalOpen = true;
+  };
+
+  const openShareModal = () => {
+    shareModalOpen = true;
+  };
+
+  const closeShareModal = () => {
+    shareModalOpen = false;
   };
 
   const handleDelete = async () => {
@@ -45,7 +55,8 @@
         fill="#4a5568"
         icon={faShareSquare}
         height="1.5rem"
-        width="1.5rem" />
+        width="1.5rem"
+        on:click={openShareModal} />
       <Icon
         class="cursor-pointer ml-4"
         fill="#4a5568"
@@ -62,4 +73,16 @@
   on:handleOK={handleDelete}
   on:handleClose={handleModalClose}>
   <p>Are you sure you want to delete this plate?</p>
+</Modal>
+<Modal
+  isDialog
+  title="Lets share your plate"
+  isOpen={shareModalOpen}
+  on:handleClose={closeShareModal}>
+  <Input
+    isFormField
+    type="text"
+    name="username"
+    class="mt-4"
+    placeholder="Who would you like to share with?" />
 </Modal>
