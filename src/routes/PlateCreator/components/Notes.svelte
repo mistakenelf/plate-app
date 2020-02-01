@@ -5,14 +5,12 @@
   import Icon from '../../../components/Icon.svelte';
   import Textarea from '../../../components/Textarea.svelte';
   import plateStore from '../../../store/plate';
-  import Loader from '../../../components/Loader.svelte';
   import Modal from '../../../components/Modal.svelte';
 
   export let notes;
   export let plateId;
 
   let editing = false;
-  let updatingNotes = false;
   let editModalOpen = false;
   let newNotes = notes;
 
@@ -28,15 +26,12 @@
 
   const handleSave = async () => {
     editing = false;
-    updatingNotes = true;
     editModalOpen = false;
 
     await plateStore.updatePlate({
       id: plateId,
       notes: newNotes,
     });
-
-    updatingNotes = false;
   };
 </script>
 
@@ -70,12 +65,5 @@
       <Textarea name="notes" rows={7} bind:textareaValue={newNotes} />
     </Modal>
   {/if}
-  {#if updatingNotes}
-    <div class="flex items-center justify-center">
-      <Loader />
-    </div>
-  {/if}
-  {#if !updatingNotes}
-    <p class="text-gray-700">{newNotes}</p>
-  {/if}
+  <p class="text-gray-700">{newNotes}</p>
 </div>

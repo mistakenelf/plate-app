@@ -4,13 +4,11 @@
 
   import Icon from '../../../components/Icon.svelte';
   import plateStore from '../../../store/plate';
-  import Loader from '../../../components/Loader.svelte';
 
   export let status;
   export let plateId;
 
   let editing = false;
-  let updatingStatus = false;
   let newStatus = status;
 
   const handleEdit = () => {
@@ -24,14 +22,11 @@
 
   const handleSave = async () => {
     editing = false;
-    updatingStatus = true;
 
     await plateStore.updatePlate({
       id: plateId,
       status: newStatus,
     });
-
-    updatingStatus = false;
   };
 </script>
 
@@ -81,10 +76,6 @@
           class="bg-green-700 border-2 border-white rounded p-4 h-8 w-8 mb-2" />
         <div class="text-sm">Completed</div>
       </div>
-    </div>
-  {:else if updatingStatus}
-    <div class="flex items-center justify-center">
-      <Loader />
     </div>
   {:else}{newStatus}{/if}
 </div>

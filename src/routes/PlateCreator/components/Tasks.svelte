@@ -29,8 +29,8 @@
     });
   };
 
-  const handleAddTodo = () => {
-    if (taskItem !== '') {
+  const handleAddTodo = e => {
+    if (taskItem !== '' && e.keyCode === 13) {
       newTasks = [
         ...newTasks,
         { title: taskItem, completed: false, id: generateId() },
@@ -54,6 +54,8 @@
     });
   };
 </script>
+
+<svelte:window on:keyup={handleAddTodo} />
 
 <div class="bg-white rounded-lg shadow p-4 h-full">
   <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">Tasks</h3>

@@ -4,7 +4,6 @@
   import { faTrashAlt } from '@fortawesome/free-solid-svg-icons/faTrashAlt';
 
   import plateStore from '../../../store/plate';
-  import { currentUser } from '../../../store/auth';
   import Modal from '../../../components/Modal.svelte';
   import Icon from '../../../components/Icon.svelte';
   import Input from '../../../components/Input.svelte';

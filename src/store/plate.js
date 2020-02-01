@@ -1,4 +1,4 @@
-import { writable, get } from 'svelte/store';
+import { writable } from 'svelte/store';
 
 import plateApi from '../api/plate';
 import { getId } from '../helpers/getId';

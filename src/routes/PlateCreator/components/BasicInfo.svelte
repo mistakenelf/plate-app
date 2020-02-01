@@ -6,7 +6,6 @@
   import Icon from '../../../components/Icon.svelte';
   import plateStore from '../../../store/plate';
   import Input from '../../../components/Input.svelte';
-  import Loader from '../../../components/Loader.svelte';
   import Modal from '../../../components/Modal.svelte';
   import Textarea from '../../../components/Textarea.svelte';
 
@@ -16,7 +15,6 @@
   export let plateId;
 
   let editing = false;
-  let updatingBasicInfo = false;
   let editModalOpen = false;
   let newTitle = title;
   let newDueDate = dueDate;
@@ -42,7 +40,6 @@
 
   const handleSave = async () => {
     editing = false;
-    updatingBasicInfo = true;
 
     await plateStore.updatePlate({
       id: plateId,
@@ -50,8 +47,6 @@
       dueDate: newDueDate,
       description: newDescription,
     });
-
-    updatingBasicInfo = false;
   };
 </script>
 
@@ -101,16 +96,9 @@
         bind:textareaValue={newDescription} />
     </Modal>
   {/if}
-  {#if updatingBasicInfo}
-    <div class="flex items-center justify-center">
-      <Loader />
-    </div>
-  {/if}
-  {#if !updatingBasicInfo}
-    <h1 class="font-bold text-3xl md:text-5xl mb-3">{newTitle}</h1>
-    <div class="mb-3 text-lg md:text-xl">
-      Due On: {dayjs(newDueDate).format('MMMM D, YYYY')}
-    </div>
-    <p class="mt-4">{newDescription}</p>
-  {/if}
+  <h1 class="font-bold text-3xl md:text-5xl mb-3">{newTitle}</h1>
+  <div class="mb-3 text-lg md:text-xl">
+    Due On: {dayjs(newDueDate).format('MMMM D, YYYY')}
+  </div>
+  <p class="mt-4">{newDescription}</p>
 </div>

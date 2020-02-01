@@ -9,7 +9,6 @@
   import FAB from '../../components/FAB.svelte';
   import Loader from '../../components/Loader.svelte';
   import { getId } from '../../helpers/getId';
-  import { generateId } from '../../helpers/generateId';
   import Meta from '../../components/Meta.svelte';
 
   import NoPlatesFound from './components/NoPlatesFound.svelte';
