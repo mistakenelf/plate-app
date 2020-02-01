@@ -45,7 +45,7 @@
     "eslint": "^6.8.0",
     "eslint-plugin-svelte3": "^2.7.3",
     "husky": "^4.2.1",
-    "lint-staged": "^10.0.6",
+    "lint-staged": "^10.0.7",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-compress": "^1.1.0",
     "parcel-plugin-svelte": "^4.0.5",
