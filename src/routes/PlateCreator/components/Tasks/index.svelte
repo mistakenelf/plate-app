@@ -2,12 +2,12 @@
   import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
   import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
-  import Checkbox from '../../../components/Checkbox.svelte';
-  import plateStore from '../../../store/plate';
-  import Input from '../../../components/Input.svelte';
-  import Button from '../../../components/Button.svelte';
-  import Icon from '../../../components/Icon.svelte';
-  import { generateId } from '../../../helpers/generateId';
+  import Checkbox from '../../../../components/Checkbox.svelte';
+  import plateStore from '../../../../store/plate';
+  import Input from '../../../../components/Input.svelte';
+  import Button from '../../../../components/Button.svelte';
+  import Icon from '../../../../components/Icon.svelte';
+  import { generateId } from '../../../../helpers/generateId';
 
   export let tasks;
   export let plateId;

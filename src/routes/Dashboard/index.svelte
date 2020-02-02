@@ -11,10 +11,10 @@
   import { getId } from '../../helpers/getId';
   import Meta from '../../components/Meta.svelte';
 
-  import NoPlatesFound from './components/NoPlatesFound.svelte';
-  import StatCard from './components/StatCard.svelte';
-  import Plate from './components/Plate.svelte';
-  import Search from './components/Search.svelte';
+  import NoPlatesFound from './components/NoPlatesFound/index.svelte';
+  import StatCard from './components/StatCard/index.svelte';
+  import Plate from './components/Plate/index.svelte';
+  import Search from './components/Search/index.svelte';
 
   let completedCount = 0;
   let openCount = 0;

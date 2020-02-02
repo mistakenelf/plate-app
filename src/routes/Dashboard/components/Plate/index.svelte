@@ -3,10 +3,10 @@
   import { faShareSquare } from '@fortawesome/free-solid-svg-icons/faShareSquare';
   import { faTrashAlt } from '@fortawesome/free-solid-svg-icons/faTrashAlt';
 
-  import plateStore from '../../../store/plate';
-  import Modal from '../../../components/Modal.svelte';
-  import Icon from '../../../components/Icon.svelte';
-  import Input from '../../../components/Input.svelte';
+  import Icon from '../../../../components/Icon.svelte';
+
+  import SharePlateModal from './SharePlateModal.svelte';
+  import DeletePlateModal from './DeletePlateModal.svelte';
 
   export let title;
   export let id;
@@ -15,11 +15,11 @@
   let deleteModalOpen = false;
   let shareModalOpen = false;
 
-  const handleModalClose = () => {
+  const closeDeleteModal = () => {
     deleteModalOpen = false;
   };
 
-  const handleModalOpen = () => {
+  const openDeleteModal = () => {
     deleteModalOpen = true;
   };
 
@@ -29,11 +29,6 @@
 
   const closeShareModal = () => {
     shareModalOpen = false;
-  };
-
-  const handleDelete = async () => {
-    handleModalClose();
-    await plateStore.deletePlate(id);
   };
 </script>
 
@@ -62,26 +57,12 @@
         icon={faTrashAlt}
         height="1.5rem"
         width="1.5rem"
-        on:click={handleModalOpen} />
+        on:click={openDeleteModal} />
     </div>
   </div>
 </div>
-<Modal
-  title="Are you sure?"
+<DeletePlateModal
+  plateId={id}
   isOpen={deleteModalOpen}
-  on:handleOK={handleDelete}
-  on:handleClose={handleModalClose}>
-  <p>Are you sure you want to delete this plate?</p>
-</Modal>
-<Modal
-  isDialog
-  title="Lets share your plate"
-  isOpen={shareModalOpen}
-  on:handleClose={closeShareModal}>
-  <Input
-    isFormField
-    type="text"
-    name="username"
-    class="mt-4"
-    placeholder="Who would you like to share with?" />
-</Modal>
+  on:handleClose={closeDeleteModal} />
+<SharePlateModal isOpen={shareModalOpen} on:handleClose={closeShareModal} />

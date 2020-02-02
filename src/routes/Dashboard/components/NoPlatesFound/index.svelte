@@ -1,7 +1,7 @@
 <script>
   import { faBatteryEmpty } from '@fortawesome/free-solid-svg-icons/faBatteryEmpty';
 
-  import Icon from '../../../components/Icon.svelte';
+  import Icon from '../../../../components/Icon.svelte';
 </script>
 
 <div class="flex items-center justify-center h-full">

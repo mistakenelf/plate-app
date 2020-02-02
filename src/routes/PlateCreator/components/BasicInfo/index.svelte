@@ -3,11 +3,11 @@
   import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
   import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
 
-  import Icon from '../../../components/Icon.svelte';
-  import plateStore from '../../../store/plate';
-  import Input from '../../../components/Input.svelte';
-  import Modal from '../../../components/Modal.svelte';
-  import Textarea from '../../../components/Textarea.svelte';
+  import Icon from '../../../../components/Icon.svelte';
+  import plateStore from '../../../../store/plate';
+  import Input from '../../../../components/Input.svelte';
+  import Modal from '../../../../components/Modal.svelte';
+  import Textarea from '../../../../components/Textarea.svelte';
 
   export let title;
   export let dueDate;

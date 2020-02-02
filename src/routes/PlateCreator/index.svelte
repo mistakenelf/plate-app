@@ -5,9 +5,9 @@
   import plateStore, { loadingPlateDetails, plate } from '../../store/plate';
   import Meta from '../../components/Meta.svelte';
 
-  import BasicInfo from './components/BasicInfo.svelte';
-  import Notes from './components/Notes.svelte';
-  import Tasks from './components/Tasks.svelte';
+  import BasicInfo from './components/BasicInfo/index.svelte';
+  import Notes from './components/Notes/index.svelte';
+  import Tasks from './components/Tasks/index.svelte';
 
   const urlArray = window.location.href.split('/');
   const plateId = urlArray[urlArray.length - 1];
