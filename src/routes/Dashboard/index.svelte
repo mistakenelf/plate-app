@@ -49,7 +49,6 @@
       description: 'Plate Description',
       notes: 'Some notes',
       status: 'open',
-      image: '',
       todos: [],
       files: [],
       sharedWith: [],
@@ -87,7 +86,7 @@
     <div class="w-1/3 px-2 my-2">
       <StatCard
         count={inProgressCount}
-        status="inProgress"
+        status="in progress"
         label={$_('inProgress')} />
     </div>
     <div class="w-1/3 px-2 my-2">

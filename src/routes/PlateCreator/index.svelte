@@ -8,8 +8,6 @@
   import BasicInfo from './components/BasicInfo.svelte';
   import Notes from './components/Notes.svelte';
   import Tasks from './components/Tasks.svelte';
-  import Status from './components/Status.svelte';
-  import Image from './components/Image.svelte';
 
   const urlArray = window.location.href.split('/');
   const plateId = urlArray[urlArray.length - 1];
@@ -28,19 +26,14 @@
   <Loader fullPage />
 {:else}
   <div class="p-4">
-    <div class="flex flex-wrap mt-2 md:mb-4">
-      <div class="w-full md:w-1/2 px-2">
+    <div class="flex flex-wrap mt-2 mb-4">
+      <div class="w-full px-2">
         <BasicInfo
           title={$plate.data.title}
           dueDate={$plate.data.dueDate}
           description={$plate.data.description}
+          status={$plate.data.status}
           {plateId} />
-      </div>
-      <div class="w-full md:w-1/4 px-2">
-        <Image imageSrc={$plate.data.image} {plateId} />
-      </div>
-      <div class="w-full md:w-1/4 px-2">
-        <Status status={$plate.data.status} {plateId} />
       </div>
     </div>
     <div class="flex flex-wrap">

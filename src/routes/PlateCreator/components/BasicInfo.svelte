@@ -13,12 +13,14 @@
   export let dueDate;
   export let description;
   export let plateId;
+  export let status;
 
   let editing = false;
   let editModalOpen = false;
   let newTitle = title;
   let newDueDate = dueDate;
   let newDescription = description;
+  let newStatus = status;
 
   const handleEdit = () => {
     editing = true;
@@ -31,6 +33,10 @@
 
   const handleDueDateChange = e => {
     newDueDate = e.target.value;
+  };
+
+  const handleStatusChange = e => {
+    newStatus = e.target.value;
   };
 
   const handleModalClose = () => {
@@ -46,11 +52,12 @@
       title: newTitle,
       dueDate: newDueDate,
       description: newDescription,
+      status: newStatus,
     });
   };
 </script>
 
-<div class="text-gray-700 shadow rounded-lg p-4 bg-white mb-6 relative">
+<div class="text-gray-700 shadow rounded-lg p-4 bg-white relative">
   {#if editing}
     <Icon
       class="cursor-pointer absolute right-0 top-0 m-2"
@@ -90,15 +97,57 @@
         label="Due Date"
         value={newDueDate}
         on:change={handleDueDateChange} />
+      <div class="block text-gray-700 font-bold mb-1 uppercase text-sm">
+        Status
+      </div>
+      <div class="flex justify-between flex-row items-center mb-6">
+        <div class="flex items-center">
+          <input
+            type="radio"
+            name="status"
+            value="open"
+            checked={newStatus === 'open'}
+            on:change={handleStatusChange} />
+          <span class="ml-2">Open</span>
+        </div>
+        <div class="flex items-center">
+          <input
+            type="radio"
+            name="status"
+            value="in progress"
+            checked={newStatus === 'in progress'}
+            on:change={handleStatusChange} />
+          <span class="ml-2">In Progress</span>
+        </div>
+        <div class="flex items-center">
+          <input
+            type="radio"
+            name="status"
+            value="completed"
+            checked={newStatus === 'completed'}
+            on:change={handleStatusChange} />
+          <span class="ml-2">Completed</span>
+        </div>
+      </div>
       <Textarea
         name="description"
-        rows={3}
+        label="Description"
+        rows={5}
         bind:textareaValue={newDescription} />
     </Modal>
   {/if}
-  <h1 class="font-bold text-3xl md:text-5xl mb-3">{newTitle}</h1>
-  <div class="mb-3 text-lg md:text-xl">
-    Due On: {dayjs(newDueDate).format('MMMM D, YYYY')}
+  <h1 class="font-bold text-3xl mb-2 md:text-5xl">{newTitle}</h1>
+  <div class="flex items-center mb-4">
+    <div class="text-lg md:text-xl">
+      Due On: {dayjs(newDueDate).format('MMMM D, YYYY')}
+    </div>
+    <div
+      class:bg-green-500={newStatus === 'completed'}
+      class:bg-orange-500={newStatus === 'in progress'}
+      class:bg-blue-500={newStatus === 'open'}
+      class="p-1 text-white text-sm rounded font-bold inline-block ml-4">
+      {newStatus}
+    </div>
   </div>
-  <p class="mt-4">{newDescription}</p>
+  <p>{newDescription}</p>
 </div>
