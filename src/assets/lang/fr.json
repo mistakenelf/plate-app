@@ -1,12 +1,52 @@
 {
-  "brand": "Assiette",
-  "login": {
-    "title": "s'identifier",
-    "username": "Nom d'utilisateur",
-    "password": "mot de passe",
-    "submitText": "s'identifier"
+  "defaultLayout": {
+    "brand": "Assiette",
+    "dashboardLink": "Tableau de bord",
+    "logoutLink": "Se déconnecter",
+    "loginLink": "S'identifier",
+    "registerLink": "S'inscrire",
+    "languageModalTitle": "Choisir la langue"
   },
-  "open": "Ouvert",
-  "inProgress": "En cours",
-  "completed": "Terminé"
+  "login": {
+    "title": "S'identifier",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "submitText": "S'identifier"
+  },
+  "register": {
+    "title": "S'inscrire",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "email": "Email",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "submitText": "S'inscrire"
+  },
+  "dashboard": {
+    "pageHeader": "Tableau de bord",
+    "openStatus": "Ouvert",
+    "inProgressStatus": "En cours",
+    "completedStatus": "Terminé",
+    "searchPlates": "Plaques de recherche",
+    "noPlatesFound": "Vous n'avez actuellement rien dans votre assiette",
+    "noPlatesHelperText": "Cliquez sur le bouton plus en bas à droite de votre écran pour commencer à créer des plaques maintenant",
+    "deletePlateModalTitle": "Supprimer cette plaque?",
+    "deleteModalAreYouSure": "Voulez-vous vraiment supprimer cette plaque?",
+    "sharePlateModalTitle": "Partageons cette assiette",
+    "sharePlateSearchPlaceholder": "Rechercher des utilisateurs par nom d'utilisateur"
+  },
+  "plateCreator": {
+    "basicInfoModalTitle": "Informations de base",
+    "basicInfoTitle": "Titre",
+    "basicInfoDueDate": "Date d'échéance",
+    "basicInfoOpen": "Ouvert",
+    "basicInfoStatus": "Statut",
+    "basicInfoInProgress": "En cours",
+    "basicInfoCompleted": "Terminé",
+    "basicInfoDescription": "La description",
+    "basicInfoDueOn": "Échéance",
+    "notes": "Remarques",
+    "tasks": "Tâches",
+    "newTask": "Nouvelle tâche"
+  }
 }

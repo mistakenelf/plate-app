@@ -12,31 +12,18 @@
   import Meta from '../../components/Meta.svelte';
 
   import NoPlatesFound from './components/NoPlatesFound/index.svelte';
-  import StatCard from './components/StatCard/index.svelte';
   import Plate from './components/Plate/index.svelte';
   import Search from './components/Search/index.svelte';
 
-  let completedCount = 0;
-  let openCount = 0;
-  let inProgressCount = 0;
   let allPlates = [];
   let creatingPlate = false;
   const searchText = '';
 
-  $: completedCount = $plates.filter(res => res.data.status === 'completed')
-    .length;
-
-  $: openCount = $plates.filter(res => res.data.status === 'open').length;
-
-  $: inProgressCount = $plates.filter(res => res.data.status === 'in progress')
-    .length;
-
   onMount(async () => {
     if ($currentUser) {
       await plateStore.getPlates($currentUser.id);
+      allPlates = $plates;
     }
-
-    allPlates = $plates;
   });
 
   const createPlate = async () => {
@@ -74,48 +61,30 @@
   description="Plate dashboard is where you get an overview of your plates and
   can start managing them" />
 
-{#if $loadingPlates}
-  <Loader fullPage />
-{:else if $plates.length === 0}
+{#if !$loadingPlates && $plates.length === 0}
   <NoPlatesFound />
 {:else}
-  <div class="flex flex-wrap mt-2 mx-2">
-    <div class="w-1/3 px-2 my-2">
-      <StatCard
-        count={openCount}
-        status="open"
-        label={$_('dashboard.openStatus')} />
-    </div>
-    <div class="w-1/3 px-2 my-2">
-      <StatCard
-        count={inProgressCount}
-        status="in progress"
-        label={$_('dashboard.inProgressStatus')} />
-    </div>
-    <div class="w-1/3 px-2 my-2">
-      <StatCard
-        count={completedCount}
-        status="completed"
-        label={$_('dashboard.completedStatus')} />
-    </div>
-  </div>
   <div class="m-4 mb-24">
     <div
       class="w-full mt-8 mb-8 flex md:flex-row flex-col justify-between
       items-center">
       <h3 class="text-gray-700 text-4xl w-full md:w-1/2">
-        {$_('dashboard.myPlates')}
+        {$_('dashboard.pageHeader')}
       </h3>
       <div class="w-full md:w-1/2">
         <Search on:keyup={handleChange} {searchText} />
       </div>
     </div>
-    {#each $plates as plate, i}
-      <Plate
-        title={plate.data.title}
-        status={plate.data.status}
-        id={getId(plate)} />
-    {/each}
+    {#if $loadingPlates}
+      <Loader fullPage class="mt-24" />
+    {:else}
+      {#each $plates as plate, i}
+        <Plate
+          title={plate.data.title}
+          status={plate.data.status}
+          id={getId(plate)} />
+      {/each}
+    {/if}
   </div>
 {/if}
 

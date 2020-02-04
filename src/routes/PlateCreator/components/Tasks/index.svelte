@@ -1,6 +1,7 @@
 <script>
   import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
   import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+  import { createEventDispatcher } from 'svelte';
   import { _ } from 'svelte-i18n';
 
   import Checkbox from '../../../../components/Checkbox.svelte';
@@ -9,6 +10,8 @@
   import Button from '../../../../components/Button.svelte';
   import Icon from '../../../../components/Icon.svelte';
   import { generateId } from '../../../../helpers/generateId';
+
+  const dispatch = createEventDispatcher();
 
   export let tasks;
   export let plateId;
@@ -28,6 +31,8 @@
       id: plateId,
       todos: newTasks,
     });
+
+    dispatch('setPlateProgress');
   };
 
   const handleAddTodo = e => {

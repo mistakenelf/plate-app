@@ -16,7 +16,6 @@
   title={$_('dashboard.sharePlateModalTitle')}
   on:handleClose={() => dispatch('handleClose')}>
   <Input
-    isFormField
     type="text"
     name="username"
     class="mt-4"

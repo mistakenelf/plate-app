@@ -23,10 +23,10 @@
     "submitText": "Register"
   },
   "dashboard": {
+    "pageHeader": "Dashboard",
     "openStatus": "Open",
     "inProgressStatus": "In Progress",
     "completedStatus": "Completed",
-    "myPlates": "My Plates",
     "searchPlates": "Search plates",
     "noPlatesFound": "You currently have nothing on your plate",
     "noPlatesHelperText": "Click the plus button in the bottom right of your screen to start creating plates now",
@@ -39,6 +39,7 @@
     "basicInfoModalTitle": "Basic Info",
     "basicInfoTitle": "Title",
     "basicInfoDueDate": "Due Date",
+    "basicInfoStatus": "Status",
     "basicInfoOpen": "Open",
     "basicInfoInProgress": "In Progress",
     "basicInfoCompleted": "Completed",

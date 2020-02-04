@@ -1,5 +1,9 @@
 <script>
   export let fullPage = false;
+
+  let classes = '';
+
+  $: classes = $$props.class ? $$props.class : '';
 </script>
 
 <style>
@@ -48,7 +52,7 @@
   }
 </style>
 
-<div class:full-page={fullPage}>
+<div class:full-page={fullPage} class={classes}>
   <div class="loader">
     <div />
     <div />

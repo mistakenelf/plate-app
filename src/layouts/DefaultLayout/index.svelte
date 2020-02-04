@@ -18,7 +18,7 @@
 <main>
   <nav
     class="flex items-center shadow w-full justify-between h-12 fixed z-10
-    left-0 top-0 bg-teal-600">
+    left-0 top-0 bg-blue-800">
     <Brand />
     <DesktopMenu on:openModal={openModal} />
     <MobileMenu on:openModal={openModal} />

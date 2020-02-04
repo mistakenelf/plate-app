@@ -99,7 +99,7 @@
         value={newDueDate}
         on:change={handleDueDateChange} />
       <div class="block text-gray-700 font-bold mb-1 uppercase text-sm">
-        Status
+        {$_('plateCreator.basicInfoStatus')}
       </div>
       <div class="flex justify-between flex-row items-center mb-6">
         <div class="flex items-center">
