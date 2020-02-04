@@ -38,7 +38,7 @@
     "last 1 Chrome versions"
   ],
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.0.5",
+    "@fullhuman/postcss-purgecss": "^2.0.6",
     "autoprefixer": "^9.7.4",
     "cross-env": "^7.0.0",
     "eslint": "^6.8.0",
@@ -47,7 +47,7 @@
     "lint-staged": "^10.0.7",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-compress": "^1.1.0",
-    "parcel-plugin-svelte": "^4.0.5",
+    "parcel-plugin-svelte": "^4.0.6",
     "postcss": "^7.0.26",
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
@@ -59,11 +59,11 @@
     "@fortawesome/free-regular-svg-icons": "^5.12.0",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "bcrypt": "^3.0.7",
-    "dayjs": "^1.8.19",
+    "dayjs": "^1.8.20",
     "faunadb": "^2.11.1",
     "flag-icon-css": "^3.4.5",
     "jsonwebtoken": "^8.5.1",
     "page": "^1.11.5",
-    "svelte-i18n": "^2.3.1"
+    "svelte-i18n": "^3.0.1"
   }
 }
