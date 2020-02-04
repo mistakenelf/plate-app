@@ -1,5 +1,6 @@
 <script>
   import dayjs from 'dayjs';
+  import { _ } from 'svelte-i18n';
   import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
   import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
 
@@ -77,7 +78,7 @@
   {/if}
   {#if editModalOpen}
     <Modal
-      title="Basic Info"
+      title={$_('plateCreator.basicInfoModalTitle')}
       isOpen={editing}
       on:handleOK={handleSave}
       on:handleClose={handleModalClose}>
@@ -85,8 +86,8 @@
         isFormField
         type="text"
         name="title"
-        label="title"
-        placeholder="title"
+        label={$_('plateCreator.basicInfoTitle')}
+        placeholder={$_('plateCreator.basicInfoTitle')}
         value={newTitle}
         on:change={handleTitleChange} />
       <Input
@@ -94,7 +95,7 @@
         fullWidth
         type="date"
         name="dueDate"
-        label="Due Date"
+        label={$_('plateCreator.basicInfoDueDate')}
         value={newDueDate}
         on:change={handleDueDateChange} />
       <div class="block text-gray-700 font-bold mb-1 uppercase text-sm">
@@ -108,7 +109,7 @@
             value="open"
             checked={newStatus === 'open'}
             on:change={handleStatusChange} />
-          <span class="ml-2">Open</span>
+          <span class="ml-2">{$_('plateCreator.basicInfoOpen')}</span>
         </div>
         <div class="flex items-center">
           <input
@@ -117,7 +118,7 @@
             value="in progress"
             checked={newStatus === 'in progress'}
             on:change={handleStatusChange} />
-          <span class="ml-2">In Progress</span>
+          <span class="ml-2">{$_('plateCreator.basicInfoInProgress')}</span>
         </div>
         <div class="flex items-center">
           <input
@@ -126,12 +127,12 @@
             value="completed"
             checked={newStatus === 'completed'}
             on:change={handleStatusChange} />
-          <span class="ml-2">Completed</span>
+          <span class="ml-2">{$_('plateCreator.basicInfoCompleted')}</span>
         </div>
       </div>
       <Textarea
         name="description"
-        label="Description"
+        label={$_('plateCreator.basicInfoDescription')}
         rows={5}
         bind:textareaValue={newDescription} />
     </Modal>
@@ -139,7 +140,7 @@
   <h1 class="font-bold text-3xl mb-2 md:text-5xl">{newTitle}</h1>
   <div class="flex items-center mb-4">
     <div class="text-lg md:text-xl">
-      Due On: {dayjs(newDueDate).format('MMMM D, YYYY')}
+      {$_('plateCreator.basicInfoDueOn')}: {dayjs(newDueDate).format('MMMM D, YYYY')}
     </div>
     <div
       class:bg-green-500={newStatus === 'completed'}

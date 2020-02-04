@@ -1,6 +1,7 @@
 <script>
   import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
   import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+  import { _ } from 'svelte-i18n';
 
   import Checkbox from '../../../../components/Checkbox.svelte';
   import plateStore from '../../../../store/plate';
@@ -58,13 +59,15 @@
 <svelte:window on:keyup={handleAddTodo} />
 
 <div class="bg-white rounded-lg shadow p-4 h-full">
-  <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">Tasks</h3>
+  <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">
+    {$_('plateCreator.tasks')}
+  </h3>
   <div class="flex flex-row items-center mb-4">
     <Input
       fullWidth
       type="text"
-      name="todoItem"
-      placeholder="todo item"
+      name="newTask"
+      placeholder={$_('plateCreator.newTask')}
       value={taskItem}
       on:change={handleChange} />
     <Button class="ml-2" on:click={() => handleAddTodo()}>

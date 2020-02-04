@@ -1,5 +1,6 @@
 <script>
   import page from 'page';
+  import { _ } from 'svelte-i18n';
 
   import Input from '../../components/Input.svelte';
   import Button from '../../components/Button.svelte';
@@ -78,15 +79,17 @@
     on:submit|preventDefault={handleSubmit}
     class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 w-full md:w-3/4
     lg:w-1/2 xl:w-1/2">
-    <h1 class="text-3xl text-gray-800 mb-4 font-bold">Register</h1>
+    <h1 class="text-3xl text-gray-800 mb-4 font-bold">
+      {$_('register.title')}
+    </h1>
     <div class="flex flex-wrap">
       <div class="w-full md:w-1/2 md:pr-2">
         <Input
           isFormField
           type="text"
           name="firstName"
-          label="First Name"
-          placeholder="first name"
+          label={$_('register.firstName')}
+          placeholder={$_('register.firstName')}
           hasError={errors.firstName}
           on:change={handleChange} />
       </div>
@@ -95,8 +98,8 @@
           isFormField
           type="text"
           name="lastName"
-          label="Last Name"
-          placeholder="last name"
+          label={$_('register.lastName')}
+          placeholder={$_('register.lastName')}
           hasError={errors.lastName}
           on:change={handleChange} />
       </div>
@@ -107,8 +110,8 @@
           isFormField
           type="email"
           name="email"
-          label="Email"
-          placeholder="email address"
+          label={$_('register.email')}
+          placeholder={$_('register.email')}
           hasError={errors.email}
           on:change={handleChange} />
       </div>
@@ -117,8 +120,8 @@
           isFormField
           type="text"
           name="username"
-          label="Username"
-          placeholder="username"
+          label={$_('register.username')}
+          placeholder={$_('register.username')}
           hasError={errors.username}
           on:change={handleChange} />
       </div>
@@ -127,11 +130,13 @@
       isFormField
       type="password"
       name="password"
-      label="Password"
-      placeholder="password"
+      label={$_('register.password')}
+      placeholder={$_('register.password')}
       hasError={errors.password}
       on:change={handleChange} />
-    <Button type="submit" fullWidth loading={submitting}>Register</Button>
+    <Button type="submit" fullWidth loading={submitting}>
+      {$_('register.submitText')}
+    </Button>
     {#if $errorMessage}
       <div class="mt-4 bg-red-500 rounded p-2 font-bold text-white text-xl">
         {$errorMessage}

@@ -1,6 +1,6 @@
 <script>
   import page from 'page';
-  import { locale } from 'svelte-i18n';
+  import { _, locale } from 'svelte-i18n';
   import { createEventDispatcher } from 'svelte';
   import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
   import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt';
@@ -27,17 +27,20 @@
     <NavLink
       on:click={() => navigate('/')}
       icon={faChartLine}
-      label="Dashboard" />
-    <NavLink on:click={handleLogout} icon={faSignInAlt} label="Logout" />
+      label={$_('defaultLayout.dashboardLink')} />
+    <NavLink
+      on:click={handleLogout}
+      icon={faSignInAlt}
+      label={$_('defaultLayout.logoutLink')} />
   {:else}
     <NavLink
       on:click={() => navigate('/login')}
       icon={faSignInAlt}
-      label="Login" />
+      label={$_('defaultLayout.loginLink')} />
     <NavLink
       on:click={() => navigate('/register')}
       icon={faUserPlus}
-      label="Register" />
+      label={$_('defaultLayout.registerLink')} />
   {/if}
   <span
     class:flag-icon-us={$locale === 'en-US'}

@@ -81,26 +81,31 @@
 {:else}
   <div class="flex flex-wrap mt-2 mx-2">
     <div class="w-1/3 px-2 my-2">
-      <StatCard count={openCount} status="open" label={$_('open')} />
+      <StatCard
+        count={openCount}
+        status="open"
+        label={$_('dashboard.openStatus')} />
     </div>
     <div class="w-1/3 px-2 my-2">
       <StatCard
         count={inProgressCount}
         status="in progress"
-        label={$_('inProgress')} />
+        label={$_('dashboard.inProgressStatus')} />
     </div>
     <div class="w-1/3 px-2 my-2">
       <StatCard
         count={completedCount}
         status="completed"
-        label={$_('completed')} />
+        label={$_('dashboard.completedStatus')} />
     </div>
   </div>
   <div class="m-4 mb-24">
     <div
       class="w-full mt-8 mb-8 flex md:flex-row flex-col justify-between
       items-center">
-      <h3 class="text-gray-700 text-4xl w-full md:w-1/2">My Plates</h3>
+      <h3 class="text-gray-700 text-4xl w-full md:w-1/2">
+        {$_('dashboard.myPlates')}
+      </h3>
       <div class="w-full md:w-1/2">
         <Search on:keyup={handleChange} {searchText} />
       </div>

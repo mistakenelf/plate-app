@@ -1,12 +1,51 @@
 {
-  "brand": "Plate",
+  "defaultLayout": {
+    "brand": "Plate",
+    "dashboardLink": "Dashboard",
+    "logoutLink": "Logout",
+    "loginLink": "Login",
+    "registerLink": "Register",
+    "languageModalTitle": "Select Language"
+  },
   "login": {
     "title": "Login",
     "username": "Username",
     "password": "Password",
     "submitText": "Login"
   },
-  "open": "Open",
-  "inProgress": "In Progress",
-  "completed": "Completed"
+  "register": {
+    "title": "Register",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "username": "Username",
+    "password": "Password",
+    "submitText": "Register"
+  },
+  "dashboard": {
+    "openStatus": "Open",
+    "inProgressStatus": "In Progress",
+    "completedStatus": "Completed",
+    "myPlates": "My Plates",
+    "searchPlates": "Search plates",
+    "noPlatesFound": "You currently have nothing on your plate",
+    "noPlatesHelperText": "Click the plus button in the bottom right of your screen to start creating plates now",
+    "deletePlateModalTitle": "Delete this plate?",
+    "deleteModalAreYouSure": "Are you sure you want to delete this plate?",
+    "sharePlateModalTitle": "Lets share this plate",
+    "sharePlateSearchPlaceholder": "Search users by username"
+  },
+  "plateCreator": {
+    "basicInfoModalTitle": "Basic Info",
+    "basicInfoTitle": "Title",
+    "basicInfoDueDate": "Due Date",
+    "basicInfoOpen": "Open",
+    "basicInfoInProgress": "In Progress",
+    "basicInfoCompleted": "Completed",
+    "basicInfoDescription": "Description",
+    "basicInfoDueOn": "Due On",
+    "notes": "Notes",
+    "tasks": "Tasks",
+    "newTask": "New Task"
+  }
 }

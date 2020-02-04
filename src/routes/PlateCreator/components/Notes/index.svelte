@@ -1,6 +1,7 @@
 <script>
   import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
   import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
+  import { _ } from 'svelte-i18n';
 
   import Icon from '../../../../components/Icon.svelte';
   import Textarea from '../../../../components/Textarea.svelte';
@@ -37,7 +38,9 @@
 
 <div class="shadow bg-white rounded-lg p-4">
   <div class="flex flex-row justify-between items-center">
-    <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">Notes</h3>
+    <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">
+      {$_('plateCreator.notes')}
+    </h3>
     {#if editing}
       <Icon
         class="cursor-pointer -mt-2"

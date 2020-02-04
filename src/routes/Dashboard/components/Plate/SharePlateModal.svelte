@@ -1,5 +1,6 @@
 <script>
   import { createEventDispatcher } from 'svelte';
+  import { _ } from 'svelte-i18n';
 
   import Modal from '../../../../components/Modal.svelte';
   import Input from '../../../../components/Input.svelte';
@@ -12,12 +13,12 @@
 <Modal
   {isOpen}
   isDialog
-  title="Lets share your plate"
+  title={$_('dashboard.sharePlateModalTitle')}
   on:handleClose={() => dispatch('handleClose')}>
   <Input
     isFormField
     type="text"
     name="username"
     class="mt-4"
-    placeholder="Who would you like to share with?" />
+    placeholder={$_('dashboard.sharePlateSearchPlaceholder')} />
 </Modal>

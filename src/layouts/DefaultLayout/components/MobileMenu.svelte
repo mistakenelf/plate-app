@@ -1,7 +1,7 @@
 <script>
   import page from 'page';
   import { createEventDispatcher } from 'svelte';
-  import { locale } from 'svelte-i18n';
+  import { _, locale } from 'svelte-i18n';
   import { slide } from 'svelte/transition';
   import { faChartLine } from '@fortawesome/free-solid-svg-icons/faChartLine';
   import { faSignInAlt } from '@fortawesome/free-solid-svg-icons/faSignInAlt';
@@ -74,23 +74,23 @@
             isMobile
             on:click={() => navigate('/')}
             icon={faChartLine}
-            label="Dashboard" />
+            label={$_('defaultLayout.dashboardLink')} />
           <NavLink
             isMobile
             on:click={handleLogout}
             icon={faSignInAlt}
-            label="Logout" />
+            label={$_('defaultLayout.logoutLink')} />
         {:else}
           <NavLink
             on:click={() => navigate('/login')}
             isMobile
             icon={faSignInAlt}
-            label="Login" />
+            label={$_('defaultLayout.loginLink')} />
           <NavLink
             on:click={() => navigate('/register')}
             isMobile
             icon={faUserPlus}
-            label="Register" />
+            label={$_('defaultLayout.registerLink')} />
         {/if}
       </div>
     </div>

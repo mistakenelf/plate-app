@@ -1,6 +1,6 @@
 <script>
   import { createEventDispatcher } from 'svelte';
-  import { locale } from 'svelte-i18n';
+  import { _, locale } from 'svelte-i18n';
 
   import Modal from '../../../components/Modal.svelte';
 
@@ -16,7 +16,7 @@
 
 <Modal
   isDialog
-  title="Select Language"
+  title={$_('defaultLayout.languageModalTitle')}
   isOpen={modalOpen}
   on:handleClose={() => dispatch('closeModal')}>
   <div class="flex flex-row items-center mt-4 mb-4">

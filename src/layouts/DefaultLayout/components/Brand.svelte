@@ -14,6 +14,6 @@
   <div
     class="ml-4 text-2xl font-bold cursor-pointer text-white"
     on:click={() => page('/')}>
-    {$_('brand')}
+    {$_('defaultLayout.brand')}
   </div>
 </div>

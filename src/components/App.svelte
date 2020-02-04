@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte';
-  import { addMessages, init } from 'svelte-i18n';
+  import { addMessages, init, getLocaleFromNavigator } from 'svelte-i18n';
 
   import authStore, { fetchingUser } from '../store/auth';
   import Routes from '../routes/index.svelte';
@@ -14,9 +14,7 @@
 
   init({
     fallbackLocale: 'en',
-    initialLocale: {
-      navigator: true,
-    },
+    initialLocale: getLocaleFromNavigator(),
   });
 
   onMount(async () => {
