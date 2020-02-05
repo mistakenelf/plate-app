@@ -36,7 +36,7 @@
   };
 
   const handleAddTodo = e => {
-    if (taskItem !== '' && e.keyCode === 13) {
+    if (taskItem !== '' || (taskItem !== '' && e.keyCode) === 13) {
       newTasks = [
         ...newTasks,
         { title: taskItem, completed: false, id: generateId() },
@@ -48,6 +48,8 @@
         id: plateId,
         todos: newTasks,
       });
+
+      dispatch('setPlateProgress');
     }
   };
 
@@ -58,6 +60,8 @@
       id: plateId,
       todos: newTasks,
     });
+
+    dispatch('setPlateProgress');
   };
 </script>
 
