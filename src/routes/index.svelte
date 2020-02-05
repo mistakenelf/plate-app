@@ -14,6 +14,8 @@
     layout: DefaultLayout,
   };
 
+  page.base('/#!');
+
   page('/', () => {
     if ($currentUser) {
       pageProps = {
