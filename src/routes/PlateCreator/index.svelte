@@ -25,19 +25,27 @@
   onMount(async () => {
     await plateStore.getPlate(plateId);
 
-    plateProgress =
-      $plate.data.todos.filter(res => res.completed).length /
-      $plate.data.todos.length;
+    if ($plate.data.todos.length > 0) {
+      plateProgress =
+        $plate.data.todos.filter(res => res.completed).length /
+        $plate.data.todos.length;
 
-    progress.set(plateProgress);
+      progress.set(plateProgress);
+    } else {
+      progress.set(0.0);
+    }
   });
 
   const setPlateProgress = () => {
-    plateProgress =
-      $plate.data.todos.filter(res => res.completed).length /
-      $plate.data.todos.length;
+    if ($plate.data.todos.length > 0) {
+      plateProgress =
+        $plate.data.todos.filter(res => res.completed).length /
+        $plate.data.todos.length;
 
-    progress.set(plateProgress);
+      progress.set(plateProgress);
+    } else {
+      progress.set(0.0);
+    }
   };
 </script>
 
