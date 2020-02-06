@@ -52,13 +52,13 @@
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
     "svelte": "^3.18.1",
-    "tailwindcss": "^1.1.4"
+    "tailwindcss": "^1.2.0"
   },
   "dependencies": {
-    "@fortawesome/free-brands-svg-icons": "^5.12.0",
-    "@fortawesome/free-regular-svg-icons": "^5.12.0",
-    "@fortawesome/free-solid-svg-icons": "^5.12.0",
-    "bcrypt": "^3.0.7",
+    "@fortawesome/free-brands-svg-icons": "^5.12.1",
+    "@fortawesome/free-regular-svg-icons": "^5.12.1",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "bcrypt": "^3.0.8",
     "dayjs": "^1.8.20",
     "faunadb": "^2.11.1",
     "flag-icon-css": "^3.4.6",
