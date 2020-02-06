@@ -6,7 +6,7 @@
   let classes = '';
 
   $: classes =
-    'rounded px-4 md:px-5 xl:px-4 py-3 bg-gray-700 hover:bg-gray-800 text-lg uppercase xl:text-base text-white flex justify-center items-center flex-row font-semibold leading-tight shadow-md ' +
+    'rounded py-3 bg-gray-700 hover:bg-gray-800 text-lg uppercase xl:text-base text-white flex justify-center items-center flex-row font-semibold leading-tight shadow-md ' +
     ($$props.class ? $$props.class : '');
 </script>
 
@@ -27,8 +27,8 @@
   .spinner::after {
     content: '';
     display: block;
-    width: 1.2em;
-    height: 1.2em;
+    width: 1em;
+    height: 1em;
     border: 2px solid #fff;
     border-radius: 9999px;
     border-right-color: transparent;
@@ -37,7 +37,15 @@
   }
 </style>
 
-<button {type} on:click class:w-full={fullWidth} class={classes}>
+<button
+  {type}
+  on:click
+  class:w-full={fullWidth}
+  class:px-2={!fullWidth}
+  class={classes}
+  class:px-4={!fullWidth}
+  class:md:px-5={!fullWidth}
+  class:xl:px-4={!fullWidth}>
   {#if loading}
     <div class="spinner" />
   {:else}

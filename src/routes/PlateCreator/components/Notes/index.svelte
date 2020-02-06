@@ -36,7 +36,7 @@
   };
 </script>
 
-<div class="shadow bg-white rounded-lg p-4 h-64">
+<div class="shadow bg-white rounded-lg p-4">
   <div class="flex flex-row justify-between items-center">
     <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">
       {$_('plateCreator.notes')}

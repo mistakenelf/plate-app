@@ -51,7 +51,7 @@
   description="Welcome to Plate, a place to manage your stuff, login now to get
   started" />
 
-<div class="w-full h-full flex items-center justify-center p-4">
+<div class="h-full flex items-center justify-center p-4">
   <form
     on:submit|preventDefault={handleSubmit}
     class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 w-full md:w-3/4

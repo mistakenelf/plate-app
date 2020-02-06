@@ -31,7 +31,6 @@
     {required}
     on:change
     on:keyup
-    class:w-full={fullWidth}
     class:mb-8={isFormField}
     class:border-red-300={hasError}
     class={classes} />
