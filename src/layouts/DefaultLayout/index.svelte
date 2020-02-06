@@ -24,7 +24,7 @@
     <MobileMenu on:openModal={openModal} />
   </nav>
   <LanguageModal {modalOpen} on:closeModal={closeModal} />
-  <div class="pt-12 h-full">
+  <div class="pt-12">
     <slot />
   </div>
 </main>
