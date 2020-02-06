@@ -92,7 +92,6 @@
         on:change={handleTitleChange} />
       <Input
         isFormField
-        fullWidth
         type="date"
         name="dueDate"
         label={$_('plateCreator.basicInfoDueDate')}

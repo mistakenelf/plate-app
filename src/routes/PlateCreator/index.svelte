@@ -71,8 +71,8 @@
           {plateId} />
       </div>
     </div>
-    <div class="flex flex-wrap">
-      <div class="w-full md:w-1/2 px-2 mb-6 md:mb-0">
+    <div class="flex flex-wrap md:flex-no-wrap">
+      <div class="w-full md:w-1/2 px-2 mb-12 md:mb-0">
         <Tasks
           tasks={$plate.data.todos}
           {plateId}
