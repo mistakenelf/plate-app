@@ -22,20 +22,6 @@
     easing: cubicOut,
   });
 
-  onMount(async () => {
-    await plateStore.getPlate(plateId);
-
-    if ($plate.data.todos.length > 0) {
-      plateProgress =
-        $plate.data.todos.filter(res => res.completed).length /
-        $plate.data.todos.length;
-
-      progress.set(plateProgress);
-    } else {
-      progress.set(0.0);
-    }
-  });
-
   const setPlateProgress = () => {
     if ($plate.data.todos.length > 0) {
       plateProgress =
@@ -47,6 +33,12 @@
       progress.set(0.0);
     }
   };
+
+  onMount(async () => {
+    await plateStore.getPlate(plateId);
+
+    setPlateProgress();
+  });
 </script>
 
 <Meta
@@ -57,7 +49,7 @@
 {#if $loadingPlateDetails}
   <Loader fullPage />
 {:else}
-  <div class="p-4">
+  <div class="p-4 pb-12">
     <div class="px-2">
       <Progress plateProgress={progress} />
     </div>
