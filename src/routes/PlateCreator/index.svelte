@@ -50,29 +50,21 @@
   <Loader fullPage />
 {:else}
   <div class="p-4 pb-12">
-    <div class="px-2">
-      <Progress plateProgress={progress} />
+    <Progress plateProgress={progress} />
+    <div class="flex mt-2 mb-4">
+      <BasicInfo
+        title={$plate.data.title}
+        dueDate={$plate.data.dueDate}
+        description={$plate.data.description}
+        status={$plate.data.status}
+        {plateId} />
     </div>
-    <div class="flex flex-wrap mt-2 mb-4">
-      <div class="w-full px-2">
-        <BasicInfo
-          title={$plate.data.title}
-          dueDate={$plate.data.dueDate}
-          description={$plate.data.description}
-          status={$plate.data.status}
-          {plateId} />
-      </div>
-    </div>
-    <div class="flex flex-wrap md:flex-no-wrap">
-      <div class="w-full md:w-1/2 px-2 mb-12 md:mb-0">
-        <Tasks
-          tasks={$plate.data.todos}
-          {plateId}
-          on:setPlateProgress={setPlateProgress} />
-      </div>
-      <div class="w-full md:w-1/2 px-2">
-        <Notes notes={$plate.data.notes} {plateId} />
-      </div>
+    <div class="grid md:grid-flow-col md:grid-cols-2 gap-4">
+      <Tasks
+        tasks={$plate.data.todos}
+        {plateId}
+        on:setPlateProgress={setPlateProgress} />
+      <Notes notes={$plate.data.notes} {plateId} />
     </div>
   </div>
 {/if}

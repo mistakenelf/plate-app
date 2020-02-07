@@ -51,11 +51,11 @@
   description="Welcome to Plate, a place to manage your stuff, login now to get
   started" />
 
-<div class="h-full flex items-center justify-center p-4">
+<div class="flex items-center justify-center h-full">
   <form
     on:submit|preventDefault={handleSubmit}
     class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 w-full md:w-3/4
-    lg:w-1/2 xl:w-1/3">
+    lg:w-1/2 xl:w-1/3 m-4">
     <h1 class="text-3xl text-gray-800 mb-4 font-bold">{$_('login.title')}</h1>
     <Input
       isFormField
@@ -76,6 +76,9 @@
     <Button type="submit" fullWidth loading={submitting}>
       {$_('login.submitText')}
     </Button>
+    <a class="flex justify-end text-blue-700 mt-4" href="/#!/register">
+      Dont have an account?
+    </a>
     {#if $errorMessage}
       <div class="mt-4 bg-red-500 rounded p-2 font-bold text-white text-xl">
         {$errorMessage}

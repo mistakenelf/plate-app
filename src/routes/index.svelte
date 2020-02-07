@@ -8,6 +8,7 @@
   import PlateCreator from './PlateCreator/index.svelte';
   import Login from './Login/index.svelte';
   import Register from './Register/index.svelte';
+  import SimpleLayout from '../layouts/SimpleLayout/index.svelte';
 
   let pageProps = {
     component: Dashboard,
@@ -33,7 +34,7 @@
     } else {
       pageProps = {
         component: Login,
-        layout: DefaultLayout,
+        layout: SimpleLayout,
       };
     }
   });
@@ -44,7 +45,7 @@
     } else {
       pageProps = {
         component: Register,
-        layout: DefaultLayout,
+        layout: SimpleLayout,
       };
     }
   });

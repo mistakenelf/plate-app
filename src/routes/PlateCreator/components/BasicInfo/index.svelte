@@ -58,7 +58,7 @@
   };
 </script>
 
-<div class="text-gray-700 shadow rounded-lg p-4 bg-white relative">
+<div class="text-gray-700 shadow rounded-lg p-4 bg-white relative w-full">
   {#if editing}
     <Icon
       class="cursor-pointer absolute right-0 top-0 m-2"

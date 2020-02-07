@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
   try {
     verifiedToken = await jwt.verify(token, process.env.JWT_SECRET);
   } catch (e) {
-    console.log('error', e);
+    return e;
   }
 
   if (verifiedToken) {
