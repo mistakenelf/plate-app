@@ -65,12 +65,12 @@
   <NoPlatesFound />
 {:else}
   <div class="m-4 mb-24">
+    <h3 class="text-gray-700 font-bold text-4xl w-full md:w-1/2">
+      {$_('dashboard.pageHeader')}
+    </h3>
     <div
       class="w-full mt-8 mb-8 flex md:flex-row flex-col justify-between
       items-center">
-      <h3 class="text-gray-700 text-4xl w-full md:w-1/2">
-        {$_('dashboard.pageHeader')}
-      </h3>
       <div class="w-full md:w-1/2">
         <Search on:keyup={handleChange} {searchText} />
       </div>

@@ -74,57 +74,49 @@
   description="Welcome to Plate, a place to manage your stuff, register now to
   get started" />
 
-<div class="w-full h-full flex items-center justify-center p-4">
+<div class="flex items-center justify-center p-4 h-full">
   <form
     on:submit|preventDefault={handleSubmit}
-    class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4 w-full md:w-3/4
-    lg:w-1/2 xl:w-1/2">
+    class="bg-white shadow-lg rounded px-8 pt-6 pb-8 w-full md:w-3/4 lg:w-1/2
+    xl:w-1/2">
     <h1 class="text-3xl text-gray-800 mb-4 font-bold">
       {$_('register.title')}
     </h1>
-    <div class="flex flex-wrap">
-      <div class="w-full md:w-1/2 md:pr-2">
-        <Input
-          isFormField
-          type="text"
-          name="firstName"
-          label={$_('register.firstName')}
-          placeholder={$_('register.firstName')}
-          hasError={errors.firstName}
-          on:change={handleChange} />
-      </div>
-      <div class="w-full md:w-1/2 md:pl-2">
-        <Input
-          isFormField
-          type="text"
-          name="lastName"
-          label={$_('register.lastName')}
-          placeholder={$_('register.lastName')}
-          hasError={errors.lastName}
-          on:change={handleChange} />
-      </div>
+    <div class="grid md:grid-flow-col md:grid-cols-2 gap-4">
+      <Input
+        isFormField
+        type="text"
+        name="firstName"
+        label={$_('register.firstName')}
+        placeholder={$_('register.firstName')}
+        hasError={errors.firstName}
+        on:change={handleChange} />
+      <Input
+        isFormField
+        type="text"
+        name="lastName"
+        label={$_('register.lastName')}
+        placeholder={$_('register.lastName')}
+        hasError={errors.lastName}
+        on:change={handleChange} />
     </div>
-    <div class="flex flex-wrap">
-      <div class="w-full md:w-1/2 md:pr-2">
-        <Input
-          isFormField
-          type="email"
-          name="email"
-          label={$_('register.email')}
-          placeholder={$_('register.email')}
-          hasError={errors.email}
-          on:change={handleChange} />
-      </div>
-      <div class="w-full md:w-1/2 md:pr-2">
-        <Input
-          isFormField
-          type="text"
-          name="username"
-          label={$_('register.username')}
-          placeholder={$_('register.username')}
-          hasError={errors.username}
-          on:change={handleChange} />
-      </div>
+    <div class="grid md:grid-flow-col md:grid-cols-2 gap-4">
+      <Input
+        isFormField
+        type="email"
+        name="email"
+        label={$_('register.email')}
+        placeholder={$_('register.email')}
+        hasError={errors.email}
+        on:change={handleChange} />
+      <Input
+        isFormField
+        type="text"
+        name="username"
+        label={$_('register.username')}
+        placeholder={$_('register.username')}
+        hasError={errors.username}
+        on:change={handleChange} />
     </div>
     <Input
       isFormField
