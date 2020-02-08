@@ -3,16 +3,16 @@ import { writable } from 'svelte/store';
 import plateApi from '../api/plate';
 import { getId } from '../helpers/getId';
 
-export const plates = writable([]);
+export const myPlates = writable([]);
 export const plate = writable(null);
-export const loadingPlates = writable(true);
+export const loadingMyPlates = writable(true);
 export const loadingPlateDetails = writable(true);
 
-const getPlates = async userId => {
-  loadingPlates.set(true);
-  const res = await plateApi.getPlates(userId);
-  plates.set(res);
-  loadingPlates.set(false);
+const getMyPlates = async userId => {
+  loadingMyPlates.set(true);
+  const res = await plateApi.getMyPlates(userId);
+  myPlates.set(res);
+  loadingMyPlates.set(false);
 };
 
 const createPlate = async data => {
@@ -30,7 +30,7 @@ const getPlate = async id => {
 };
 
 const deletePlate = async id => {
-  plates.update(allPlates => allPlates.filter(res => getId(res) !== id));
+  myPlates.update(allPlates => allPlates.filter(res => getId(res) !== id));
   await plateApi.deletePlate(id);
 };
 
@@ -46,9 +46,9 @@ const updatePlate = async data => {
   await plateApi.updatePlate(data);
 };
 
-const search = (searchText, myPlates) => {
-  plates.set(
-    myPlates.filter(
+const search = (searchText, allMyPlates) => {
+  myPlates.set(
+    allMyPlates.filter(
       plate =>
         plate.data.title.toLowerCase().includes(searchText.toLowerCase()) ||
         plate.data.status.toLowerCase().includes(searchText.toLowerCase()),
@@ -57,7 +57,7 @@ const search = (searchText, myPlates) => {
 };
 
 export default {
-  getPlates,
+  getMyPlates,
   createPlate,
   getPlate,
   deletePlate,

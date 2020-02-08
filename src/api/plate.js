@@ -7,7 +7,7 @@ const createPlate = async data => {
   return await res.json();
 };
 
-const getPlates = async id => {
+const getMyPlates = async id => {
   const res = await fetch('/api/plates', {
     body: JSON.stringify(id),
     method: 'POST',
@@ -45,7 +45,7 @@ const updatePlate = async data => {
 
 export default {
   createPlate,
-  getPlates,
+  getMyPlates,
   getPlate,
   deletePlate,
   updatePlate,
