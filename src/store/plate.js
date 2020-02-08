@@ -4,8 +4,10 @@ import plateApi from '../api/plate';
 import { getId } from '../helpers/getId';
 
 export const myPlates = writable([]);
+export const sharedPlates = writable([]);
 export const plate = writable(null);
 export const loadingMyPlates = writable(true);
+export const loadingSharedPlates = writable(true);
 export const loadingPlateDetails = writable(true);
 
 const getMyPlates = async userId => {
@@ -13,6 +15,13 @@ const getMyPlates = async userId => {
   const res = await plateApi.getMyPlates(userId);
   myPlates.set(res);
   loadingMyPlates.set(false);
+};
+
+const getSharedPlates = async userId => {
+  loadingSharedPlates.set(true);
+  const res = await plateApi.getMyPlates(userId);
+  sharedPlates.set(res);
+  loadingSharedPlates.set(false);
 };
 
 const createPlate = async data => {
@@ -46,9 +55,19 @@ const updatePlate = async data => {
   await plateApi.updatePlate(data);
 };
 
-const search = (searchText, allMyPlates) => {
+const searchMyPlates = (searchText, allMyPlates) => {
   myPlates.set(
     allMyPlates.filter(
+      plate =>
+        plate.data.title.toLowerCase().includes(searchText.toLowerCase()) ||
+        plate.data.status.toLowerCase().includes(searchText.toLowerCase()),
+    ),
+  );
+};
+
+const searchSharedPlates = (searchText, allSharedPlates) => {
+  sharedPlates.set(
+    allSharedPlates.filter(
       plate =>
         plate.data.title.toLowerCase().includes(searchText.toLowerCase()) ||
         plate.data.status.toLowerCase().includes(searchText.toLowerCase()),
@@ -62,5 +81,7 @@ export default {
   getPlate,
   deletePlate,
   updatePlate,
-  search,
+  searchMyPlates,
+  getSharedPlates,
+  searchSharedPlates,
 };

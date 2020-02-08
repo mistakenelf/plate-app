@@ -8,35 +8,37 @@
   import plateStore from '../../../../store/plate';
 
   export let loading;
-  export let myPlates;
-  export let myPlatesSearchText;
-  export let allMyPlates;
+  export let sharedPlates;
+  export let sharedPlatesSearchText;
+  export let allSharedPlates;
 
   const handleSearch = e => {
     if (e.target.value === '') {
-      myPlates.set(allMyPlates);
+      sharedPlates.set(allSharedPlates);
     } else {
-      plateStore.searchMyPlates(e.target.value, $myPlates);
+      plateStore.searchSharedPlates(e.target.value, $sharedPlates);
     }
   };
 </script>
 
 <div class="shadow bg-white rounded-lg p-4">
-  <h3 class="text-xl font-bold text-gray-700 mb-4 uppercase">My Plates</h3>
+  <h3 class="text-xl font-bold text-gray-700 mb-4 uppercase">Shared with me</h3>
   <Input
     class="mb-4"
     type="text"
     name="search"
     placeholder={$_('dashboard.searchPlates')}
-    value={myPlatesSearchText}
+    value={sharedPlatesSearchText}
     on:keyup={handleSearch} />
   {#if loading}
     <Loader />
   {:else}
-    {#each $myPlates as plate}
+    {#each $sharedPlates as plate}
       <Plate
         title={plate.data.title}
         status={plate.data.status}
+        canShare={false}
+        canDelete={false}
         id={getId(plate)} />
     {/each}
   {/if}

@@ -3,24 +3,33 @@
   import page from 'page';
   import { onMount } from 'svelte';
 
-  import plateStore, { myPlates, loadingMyPlates } from '../../store/plate';
   import { currentUser } from '../../store/auth';
   import FAB from '../../components/FAB.svelte';
   import { getId } from '../../helpers/getId';
   import Meta from '../../components/Meta.svelte';
+  import plateStore, {
+    myPlates,
+    loadingMyPlates,
+    sharedPlates,
+    loadingSharedPlates,
+  } from '../../store/plate';
 
-  import NoPlatesFound from './components/NoPlatesFound/index.svelte';
   import MyPlates from './components/MyPlates/index.svelte';
   import Header from './components/Header/index.svelte';
+  import SharedPlates from './components/SharedPlates/index.svelte';
 
   let allMyPlates = [];
+  let allSharedPlates = [];
   let creatingPlate = false;
   const myPlatesSearchText = '';
+  const sharedPlatesSearchText = '';
 
   onMount(async () => {
     if ($currentUser) {
       await plateStore.getMyPlates($currentUser.id);
+      await plateStore.getSharedPlates($currentUser.id);
       allMyPlates = $myPlates;
+      allSharedPlates = $sharedPlates;
     }
   });
 
@@ -61,6 +70,11 @@
       {myPlates}
       {myPlatesSearchText}
       {allMyPlates} />
+    <SharedPlates
+      loading={$loadingSharedPlates}
+      {sharedPlates}
+      {sharedPlatesSearchText}
+      {allSharedPlates} />
   </div>
 </div>
 

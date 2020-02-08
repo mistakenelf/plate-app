@@ -11,6 +11,8 @@
   export let title;
   export let id;
   export let status;
+  export let canShare = true;
+  export let canDelete = true;
 
   let deleteModalOpen = false;
   let shareModalOpen = false;
@@ -43,22 +45,24 @@
       on:click={() => page(`/plate/${id}`)}>
       {title}
     </div>
-    <div class="items-center flex justify-center">
-      <Icon
-        class="cursor-pointer"
-        fill="#4a5568"
-        icon={faShareSquare}
-        height="1.5rem"
-        width="1.5rem"
-        on:click={openShareModal} />
-      <Icon
-        class="cursor-pointer ml-4"
-        fill="#4a5568"
-        icon={faTrashAlt}
-        height="1.5rem"
-        width="1.5rem"
-        on:click={openDeleteModal} />
-    </div>
+    {#if canShare && canDelete}
+      <div class="items-center flex justify-center">
+        <Icon
+          class="cursor-pointer"
+          fill="#4a5568"
+          icon={faShareSquare}
+          height="1.5rem"
+          width="1.5rem"
+          on:click={openShareModal} />
+        <Icon
+          class="cursor-pointer ml-4"
+          fill="#4a5568"
+          icon={faTrashAlt}
+          height="1.5rem"
+          width="1.5rem"
+          on:click={openDeleteModal} />
+      </div>
+    {/if}
   </div>
 </div>
 <DeletePlateModal
