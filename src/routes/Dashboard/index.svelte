@@ -26,8 +26,11 @@
 
   onMount(async () => {
     if ($currentUser) {
-      await plateStore.getMyPlates($currentUser.id);
-      await plateStore.getSharedPlates($currentUser.id);
+      Promise.all([
+        await plateStore.getMyPlates($currentUser.id),
+        await plateStore.getSharedPlates($currentUser.id),
+      ]);
+
       allMyPlates = $myPlates;
       allSharedPlates = $sharedPlates;
     }
