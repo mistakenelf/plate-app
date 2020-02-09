@@ -13,6 +13,6 @@ module.exports = async (req, res) => {
     const dbs = await client.query(q.Delete(q.Ref(`classes/plates/${id}`)));
     res.status(200).json(dbs);
   } catch (e) {
-    res.status(500).json({ error: e.message });
+    res.status(e.requestResult.statusCode).json({ error: e.message });
   }
 };

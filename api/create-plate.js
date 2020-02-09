@@ -17,6 +17,6 @@ module.exports = async (req, res) => {
     const dbs = await client.query(q.Create(q.Collection('plates'), todoItem));
     res.status(200).json(dbs);
   } catch (e) {
-    res.status(500).json({ error: e.message });
+    res.status(e.requestResult.statusCode).json({ error: e.message });
   }
 };
