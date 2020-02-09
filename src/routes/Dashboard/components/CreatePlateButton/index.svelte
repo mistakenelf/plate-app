@@ -21,7 +21,7 @@
       status: 'open',
       todos: [],
       files: [],
-      sharedWith: [],
+      sharedWith: '',
     };
 
     const createdPlate = await plateStore.createPlate(plate);

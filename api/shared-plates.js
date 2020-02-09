@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
 
   try {
     const dbs = await client.query(
-      q.Map(q.Paginate(q.Match(q.Index('plates_createdby'), id)), ref =>
+      q.Map(q.Paginate(q.Match(q.Index('plates_sharedWith'), id)), ref =>
         q.Get(ref),
       ),
     );

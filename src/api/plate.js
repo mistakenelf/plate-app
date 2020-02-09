@@ -16,6 +16,15 @@ const getMyPlates = async id => {
   return await res.json();
 };
 
+const getSharedplates = async id => {
+  const res = await fetch('/api/shared-plates', {
+    body: JSON.stringify(id),
+    method: 'POST',
+  });
+
+  return await res.json();
+};
+
 const getPlate = async id => {
   const res = await fetch('/api/plate', {
     body: JSON.stringify(id),
@@ -49,4 +58,5 @@ export default {
   getPlate,
   deletePlate,
   updatePlate,
+  getSharedplates,
 };

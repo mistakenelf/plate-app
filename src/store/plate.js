@@ -19,7 +19,7 @@ const getMyPlates = async userId => {
 
 const getSharedPlates = async userId => {
   loadingSharedPlates.set(true);
-  const res = await plateApi.getMyPlates(userId);
+  const res = await plateApi.getSharedplates(userId);
   sharedPlates.set(res);
   loadingSharedPlates.set(false);
 };
@@ -44,6 +44,18 @@ const deletePlate = async id => {
 };
 
 const updatePlate = async data => {
+  plate.update(res => ({
+    ...res,
+    data: {
+      ...res.data,
+      ...data,
+    },
+  }));
+
+  await plateApi.updatePlate(data);
+};
+
+const sharePlate = async data => {
   await plateApi.updatePlate(data);
 };
 
@@ -76,4 +88,5 @@ export default {
   searchMyPlates,
   getSharedPlates,
   searchSharedPlates,
+  sharePlate,
 };
