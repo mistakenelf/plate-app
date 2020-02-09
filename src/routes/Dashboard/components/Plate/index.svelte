@@ -35,7 +35,7 @@
 </script>
 
 <div
-  class="plate shadow p-3 bg-gray-200 mb-4 border-l-8 rounded border-solid"
+  class="p-3 mb-4 border-l-8 bg-gray-200 rounded border-solid"
   class:border-green-500={status === 'completed'}
   class:border-orange-500={status === 'in progress'}
   class:border-blue-500={status === 'open'}>
