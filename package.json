@@ -51,7 +51,7 @@
     "postcss": "^7.0.26",
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
-    "svelte": "^3.18.1",
+    "svelte": "^3.18.2",
     "tailwindcss": "^1.2.0"
   },
   "dependencies": {
