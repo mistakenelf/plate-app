@@ -69,4 +69,7 @@
   plateId={id}
   isOpen={deleteModalOpen}
   on:handleClose={closeDeleteModal} />
-<SharePlateModal isOpen={shareModalOpen} on:handleClose={closeShareModal} />
+<SharePlateModal
+  plateId={id}
+  isOpen={shareModalOpen}
+  on:handleClose={closeShareModal} />

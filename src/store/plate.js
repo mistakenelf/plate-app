@@ -44,14 +44,6 @@ const deletePlate = async id => {
 };
 
 const updatePlate = async data => {
-  plate.update(res => ({
-    ...res,
-    data: {
-      ...res.data,
-      ...data,
-    },
-  }));
-
   await plateApi.updatePlate(data);
 };
 

@@ -25,8 +25,18 @@ const me = async token => {
   return await res.json();
 };
 
+const userSearch = async username => {
+  const res = await fetch('/api/user-search', {
+    body: JSON.stringify(username),
+    method: 'POST',
+  });
+
+  return await res.json();
+};
+
 export default {
   register,
   login,
   me,
+  userSearch,
 };

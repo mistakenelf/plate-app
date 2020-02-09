@@ -57,9 +57,16 @@ const me = async () => {
   }
 };
 
+const userSearch = async username => {
+  const res = await authApi.userSearch(username);
+
+  return res;
+};
+
 export default {
   login,
   register,
   logout,
   me,
+  userSearch,
 };
