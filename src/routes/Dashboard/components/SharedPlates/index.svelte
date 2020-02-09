@@ -12,6 +12,8 @@
   export let sharedPlatesSearchText;
   export let allSharedPlates;
 
+  const loadingSteps = [1, 2, 3, 4];
+
   const handleSearch = e => {
     if (e.target.value === '') {
       sharedPlates.set(allSharedPlates);
@@ -31,7 +33,9 @@
     value={sharedPlatesSearchText}
     on:keyup={handleSearch} />
   {#if loading}
-    <Loader />
+    {#each loadingSteps as step}
+      <div class="p-3 mb-4 h-8 bg-gray-200 rounded" />
+    {/each}
   {:else}
     {#each $sharedPlates as plate}
       <Plate

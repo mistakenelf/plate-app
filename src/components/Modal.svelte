@@ -23,7 +23,7 @@
       on:click={() => dispatch('handleClose')} />
     <div
       transition:fly={{ y: 400 }}
-      class="bg-white w-full absolute bottom-0 md:relative md:w-11/12
+      class="top-0 bg-white w-full absolute bottom-0 md:relative md:w-11/12
       md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
       <div class="py-4 text-left px-6">
         <div class="flex justify-between items-center pb-3">

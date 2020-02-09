@@ -59,14 +59,12 @@
         on:click={handleEdit} />
     {/if}
   </div>
-  {#if editModalOpen}
-    <Modal
-      title={$_('plateCreator.notes')}
-      isOpen={editModalOpen}
-      on:handleOK={handleSave}
-      on:handleClose={handleModalClose}>
-      <Textarea name="notes" rows={7} bind:textareaValue={newNotes} />
-    </Modal>
-  {/if}
+  <Modal
+    title={$_('plateCreator.notes')}
+    isOpen={editModalOpen}
+    on:handleOK={handleSave}
+    on:handleClose={handleModalClose}>
+    <Textarea name="notes" rows={7} bind:textareaValue={newNotes} />
+  </Modal>
   <p class="text-gray-700">{newNotes}</p>
 </div>

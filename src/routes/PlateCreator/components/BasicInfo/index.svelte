@@ -24,6 +24,9 @@
   let newStatus = status;
 
   const handleEdit = () => {
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${window.scrollY}px`;
+
     editing = true;
     editModalOpen = true;
   };
@@ -41,6 +44,8 @@
   };
 
   const handleModalClose = () => {
+    document.body.style.position = '';
+    document.body.style.top = '';
     editModalOpen = false;
     handleSave();
   };

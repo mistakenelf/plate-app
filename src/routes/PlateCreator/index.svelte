@@ -35,7 +35,7 @@
   };
 
   onMount(async () => {
-    await plateStore.getPlate(plateId);
+    await plateStore.getPlateDetails(plateId);
 
     setPlateProgress();
   });
@@ -59,7 +59,7 @@
         status={$plate.data.status}
         {plateId} />
     </div>
-    <div class="grid md:grid-flow-col md:grid-cols-2 gap-4">
+    <div class="grid md:grid-flow-col lg:grid-cols-2 gap-4">
       <Tasks
         tasks={$plate.data.todos}
         {plateId}

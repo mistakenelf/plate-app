@@ -4,10 +4,12 @@ import plateApi from '../api/plate';
 import { getId } from '../helpers/getId';
 
 export const myPlates = writable([]);
-export const sharedPlates = writable([]);
-export const plate = writable(null);
 export const loadingMyPlates = writable(true);
+
+export const sharedPlates = writable([]);
 export const loadingSharedPlates = writable(true);
+
+export const plate = writable(null);
 export const loadingPlateDetails = writable(true);
 
 const getMyPlates = async userId => {
@@ -31,9 +33,9 @@ const createPlate = async data => {
   return plateData;
 };
 
-const getPlate = async id => {
+const getPlateDetails = async id => {
   loadingPlateDetails.set(true);
-  const plateDetails = await plateApi.getPlate(id);
+  const plateDetails = await plateApi.getPlateDetails(id);
   loadingPlateDetails.set(false);
   plate.set(plateDetails);
 };
@@ -82,7 +84,7 @@ const searchSharedPlates = (searchText, allSharedPlates) => {
 export default {
   getMyPlates,
   createPlate,
-  getPlate,
+  getPlateDetails,
   deletePlate,
   updatePlate,
   searchMyPlates,

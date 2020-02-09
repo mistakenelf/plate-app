@@ -1,6 +1,5 @@
 <script>
   import page from 'page';
-
   import { _ } from 'svelte-i18n';
 </script>
 
