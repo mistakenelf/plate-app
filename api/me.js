@@ -31,6 +31,6 @@ module.exports = async (req, res) => {
       res.status(e.requestResult.statusCode).json({ error: e.message });
     }
   } else {
-    res.status(e.requestResult.statusCode).json({ error: 'unauthorized user' });
+    res.status(401).json({ error: 'unauthorized user' });
   }
 };

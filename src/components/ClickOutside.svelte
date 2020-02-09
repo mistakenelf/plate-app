@@ -2,8 +2,8 @@
   import { createEventDispatcher } from 'svelte';
 
   export let exclude = [];
-  let classes = '';
 
+  let classes = '';
   let child;
 
   $: classes = $$props.class ? $$props.class : '';

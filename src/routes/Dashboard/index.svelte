@@ -1,11 +1,7 @@
 <script>
-  import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
-  import page from 'page';
   import { onMount } from 'svelte';
 
   import { currentUser } from '../../store/auth';
-  import FAB from '../../components/FAB.svelte';
-  import { getId } from '../../helpers/getId';
   import Meta from '../../components/Meta.svelte';
   import plateStore, {
     myPlates,
@@ -17,10 +13,10 @@
   import MyPlates from './components/MyPlates/index.svelte';
   import Header from './components/Header/index.svelte';
   import SharedPlates from './components/SharedPlates/index.svelte';
+  import CreatePlateButton from './components/CreatePlateButton/index.svelte';
 
   let allMyPlates = [];
   let allSharedPlates = [];
-  let creatingPlate = false;
   const myPlatesSearchText = '';
   const sharedPlatesSearchText = '';
 
@@ -35,27 +31,6 @@
       allSharedPlates = $sharedPlates;
     }
   });
-
-  const createPlate = async () => {
-    creatingPlate = true;
-
-    const plate = {
-      createdBy: $currentUser.id,
-      title: 'New Plate',
-      dueDate: new Date(),
-      description: 'Plate Description',
-      notes: 'Some notes',
-      status: 'open',
-      todos: [],
-      files: [],
-      sharedWith: [],
-    };
-
-    const createdPlate = await plateStore.createPlate(plate);
-    page(`/plate/${getId(createdPlate)}`);
-
-    creatingPlate = false;
-  };
 </script>
 
 <Meta
@@ -80,5 +55,4 @@
       {allSharedPlates} />
   </div>
 </div>
-
-<FAB icon={faPlus} loading={creatingPlate} on:click={() => createPlate()} />
+<CreatePlateButton />
