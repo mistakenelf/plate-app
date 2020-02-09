@@ -8,7 +8,6 @@ const client = new faunadb.Client({
 
 module.exports = async (req, res) => {
   const username = JSON.parse(req.body);
-  console.log(username);
 
   try {
     const dbs = await client.query(

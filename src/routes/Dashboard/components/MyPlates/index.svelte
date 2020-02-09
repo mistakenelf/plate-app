@@ -3,7 +3,6 @@
 
   import Plate from '../Plate/index.svelte';
   import { getId } from '../../../../helpers/getId';
-  import Loader from '../../../../components/Loader.svelte';
   import Input from '../../../../components/Input.svelte';
   import plateStore from '../../../../store/plate';
 
