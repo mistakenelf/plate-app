@@ -1,12 +1,11 @@
 <script>
-  import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
-  import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
   import { _ } from 'svelte-i18n';
 
-  import Icon from '../../../../components/Icon.svelte';
   import Textarea from '../../../../components/Textarea.svelte';
   import plateStore from '../../../../store/plate';
   import Modal from '../../../../components/Modal.svelte';
+
+  import EditToggle from './EditToggle.svelte';
 
   export let notes;
   export let plateId;
@@ -41,23 +40,10 @@
     <h3 class="text-xl font-bold text-gray-700 mb-2 uppercase">
       {$_('plateCreator.notes')}
     </h3>
-    {#if editing}
-      <Icon
-        class="cursor-pointer -mt-2"
-        fill="#4a5568"
-        icon={faSave}
-        height="1.2rem"
-        width="1.2rem"
-        on:click={handleSave} />
-    {:else}
-      <Icon
-        class="cursor-pointer -mt-2"
-        fill="#4a5568"
-        icon={faEdit}
-        height="1.2rem"
-        width="1.2rem"
-        on:click={handleEdit} />
-    {/if}
+    <EditToggle
+      {editing}
+      on:handleSave={handleSave}
+      on:handleEdit={handleEdit} />
   </div>
   <Modal
     title={$_('plateCreator.notes')}

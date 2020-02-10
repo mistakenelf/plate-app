@@ -1,26 +1,32 @@
 <script>
+  import { faEdit } from '@fortawesome/free-solid-svg-icons/faEdit';
+  import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
   import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
-  import { createEventDispatcher } from 'svelte';
   import { _ } from 'svelte-i18n';
 
+  import Icon from '../../../../components/Icon.svelte';
+  import plateStore from '../../../../store/plate';
+  import authStore from '../../../../store/auth';
   import Modal from '../../../../components/Modal.svelte';
   import Input from '../../../../components/Input.svelte';
   import Button from '../../../../components/Button.svelte';
-  import Icon from '../../../../components/Icon.svelte';
-  import authStore from '../../../../store/auth';
-  import plateStore from '../../../../store/plate';
-  import { getId } from '../../../../helpers/getId';
 
-  const dispatch = createEventDispatcher();
-
-  export let isOpen;
-  export let plateId;
-
+  let editing = false;
+  let editModalOpen = false;
   let searchText = '';
   let foundUser = null;
 
+  const handleModalClose = () => {
+    editModalOpen = false;
+  };
+
   const handleChange = e => {
     searchText = e.target.value;
+  };
+
+  const handleEdit = () => {
+    editing = true;
+    editModalOpen = true;
   };
 
   const findUser = async () => {
@@ -33,15 +39,37 @@
       sharedWith: getId(foundUser),
     });
 
-    dispatch('handleClose');
+    handleModalClose();
   };
 </script>
 
+<div class="rounded bg-white shadow p-4">
+  <div class="flex items-center justify-between">
+    <h3 class="text-xl font-bold text-gray-700 uppercase">Share Plate</h3>
+    {#if editing}
+      <Icon
+        class="cursor-pointer -mt-2"
+        fill="#4a5568"
+        icon={faSave}
+        height="1.2rem"
+        width="1.2rem"
+        on:click={handleShare} />
+    {:else}
+      <Icon
+        class="cursor-pointer -mt-2"
+        fill="#4a5568"
+        icon={faEdit}
+        height="1.2rem"
+        width="1.2rem"
+        on:click={handleEdit} />
+    {/if}
+  </div>
+</div>
 <Modal
-  {isOpen}
+  isOpen={editModalOpen}
   isDialog
-  title={$_('dashboard.sharePlateModalTitle')}
-  on:handleClose={() => dispatch('handleClose')}>
+  title="Share Plate"
+  on:handleClose={handleModalClose}>
   <div class="flex flex-row items-center mb-4 mt-6">
     <Input
       fullWidth

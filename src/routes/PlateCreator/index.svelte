@@ -11,6 +11,7 @@
   import Notes from './components/Notes/index.svelte';
   import Tasks from './components/Tasks/index.svelte';
   import Progress from './components/Progress/index.svelte';
+  import SharePlate from './components/SharePlate/index.svelte';
 
   const urlArray = window.location.href.split('/');
   const plateId = urlArray[urlArray.length - 1];
@@ -51,15 +52,16 @@
 {:else}
   <div class="p-4 pb-12">
     <Progress plateProgress={progress} />
-    <div class="flex mt-2 mb-4">
+    <div class="grid md:grid-flow-col md:grid-cols-2 gap-4 mb-4">
       <BasicInfo
         title={$plate.data.title}
         dueDate={$plate.data.dueDate}
         description={$plate.data.description}
         status={$plate.data.status}
         {plateId} />
+      <SharePlate />
     </div>
-    <div class="grid md:grid-flow-col lg:grid-cols-2 gap-4">
+    <div class="grid md:grid-flow-col md:grid-cols-2 gap-4">
       <Tasks
         tasks={$plate.data.todos}
         {plateId}

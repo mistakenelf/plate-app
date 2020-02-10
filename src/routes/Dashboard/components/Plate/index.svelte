@@ -1,21 +1,17 @@
 <script>
   import page from 'page';
-  import { faShareSquare } from '@fortawesome/free-solid-svg-icons/faShareSquare';
   import { faTrashAlt } from '@fortawesome/free-solid-svg-icons/faTrashAlt';
 
   import Icon from '../../../../components/Icon.svelte';
 
-  import SharePlateModal from './SharePlateModal.svelte';
   import DeletePlateModal from './DeletePlateModal.svelte';
 
   export let title;
   export let id;
   export let status;
-  export let canShare = true;
   export let canDelete = true;
 
   let deleteModalOpen = false;
-  let shareModalOpen = false;
 
   const closeDeleteModal = () => {
     deleteModalOpen = false;
@@ -23,14 +19,6 @@
 
   const openDeleteModal = () => {
     deleteModalOpen = true;
-  };
-
-  const openShareModal = () => {
-    shareModalOpen = true;
-  };
-
-  const closeShareModal = () => {
-    shareModalOpen = false;
   };
 </script>
 
@@ -45,15 +33,8 @@
       on:click={() => page(`/plate/${id}`)}>
       {title}
     </div>
-    {#if canShare && canDelete}
+    {#if canDelete}
       <div class="items-center flex justify-center">
-        <Icon
-          class="cursor-pointer"
-          fill="#4a5568"
-          icon={faShareSquare}
-          height="1.5rem"
-          width="1.5rem"
-          on:click={openShareModal} />
         <Icon
           class="cursor-pointer ml-4"
           fill="#4a5568"
@@ -69,7 +50,3 @@
   plateId={id}
   isOpen={deleteModalOpen}
   on:handleClose={closeDeleteModal} />
-<SharePlateModal
-  plateId={id}
-  isOpen={shareModalOpen}
-  on:handleClose={closeShareModal} />

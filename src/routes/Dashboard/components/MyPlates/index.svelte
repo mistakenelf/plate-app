@@ -11,8 +11,6 @@
   export let myPlatesSearchText;
   export let allMyPlates;
 
-  const loadingSteps = [1, 2, 3, 4];
-
   const handleSearch = e => {
     if (e.target.value === '') {
       myPlates.set(allMyPlates);
@@ -32,7 +30,7 @@
     value={myPlatesSearchText}
     on:keyup={handleSearch} />
   {#if loading}
-    {#each loadingSteps as step}
+    {#each [1, 2, 3, 4] as step}
       <div class="p-3 mb-4 h-8 bg-gray-200 rounded" />
     {/each}
   {:else}
