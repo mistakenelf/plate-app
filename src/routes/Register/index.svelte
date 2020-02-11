@@ -130,7 +130,7 @@
       {$_('register.submitText')}
     </Button>
     <a class="flex justify-end text-blue-700 mt-4" href="/#!/login">
-      Already have an account?
+      {$_('register.alreadyHaveAnAccount')}
     </a>
     {#if $errorMessage}
       <div class="mt-4 bg-red-500 rounded p-2 font-bold text-white text-xl">

@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
         id: dbs.ref.value.id,
       });
     } catch (e) {
-      res.status(e.requestResult.statusCode).json({ error: e.message });
+      res.status(401).json({ error: e.message });
     }
   } else {
     res.status(401).json({ error: 'unauthorized user' });

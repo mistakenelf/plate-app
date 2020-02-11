@@ -77,7 +77,7 @@
       {$_('login.submitText')}
     </Button>
     <a class="flex justify-end text-blue-700 mt-4" href="/#!/register">
-      Dont have an account?
+      {$_('login.dontHaveAnAccount')}
     </a>
     {#if $errorMessage}
       <div class="mt-4 bg-red-500 rounded p-2 font-bold text-white text-xl">

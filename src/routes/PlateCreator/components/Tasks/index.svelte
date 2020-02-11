@@ -68,7 +68,7 @@
 <svelte:window on:keyup={handleAddTodo} />
 
 <div class="bg-white rounded-lg shadow p-4">
-  <h3 class="text-xl font-bold text-gray-700 mb-2 ml-2 mt-4 uppercase">
+  <h3 class="text-xl font-bold text-gray-700 mb-2 ml-2 uppercase">
     {$_('plateCreator.tasks')}
   </h3>
   <div class="flex flex-row items-center mb-4">

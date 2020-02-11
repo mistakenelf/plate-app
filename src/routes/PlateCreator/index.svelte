@@ -51,9 +51,6 @@
   <Loader fullPage />
 {:else}
   <div class="p-4 pb-12">
-    <div class="mb-4">
-      <Settings />
-    </div>
     <Progress plateProgress={progress} />
     <div class="grid grid-cols-1 mb-4">
       <BasicInfo
@@ -63,12 +60,15 @@
         status={$plate.data.status}
         {plateId} />
     </div>
-    <div class="grid md:grid-flow-col md:grid-cols-2 gap-4">
+    <div class="grid md:grid-flow-col md:grid-cols-2 gap-4 mb-4">
       <Tasks
         tasks={$plate.data.todos}
         {plateId}
         on:setPlateProgress={setPlateProgress} />
       <Notes notes={$plate.data.notes} {plateId} />
+    </div>
+    <div class="grid md:grid-flow-col md:grid-cols-2 gap-4">
+      <Settings {plateId} />
     </div>
   </div>
 {/if}

@@ -11,7 +11,8 @@
     "title": "Login",
     "username": "Username",
     "password": "Password",
-    "submitText": "Login"
+    "submitText": "Login",
+    "dontHaveAnAccount": "Dont have an account?"
   },
   "register": {
     "title": "Register",
@@ -20,7 +21,8 @@
     "email": "Email",
     "username": "Username",
     "password": "Password",
-    "submitText": "Register"
+    "submitText": "Register",
+    "alreadyHaveAnAccount": "Already have an account?"
   },
   "dashboard": {
     "pageHeader": "Dashboard",
@@ -33,7 +35,9 @@
     "deletePlateModalTitle": "Delete this plate?",
     "deleteModalAreYouSure": "Are you sure you want to delete this plate?",
     "sharePlateModalTitle": "Lets share this plate",
-    "sharePlateSearchPlaceholder": "Search users by username"
+    "sharePlateSearchPlaceholder": "Search users by username",
+    "myPlates": "My Plates",
+    "sharedWithMe": "Shared with me"
   },
   "plateCreator": {
     "basicInfoModalTitle": "Basic Info",

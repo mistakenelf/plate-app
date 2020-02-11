@@ -21,7 +21,9 @@
 </script>
 
 <div class="shadow bg-white rounded-lg p-4">
-  <h3 class="text-xl font-bold text-gray-700 mb-4 uppercase">My Plates</h3>
+  <h3 class="text-xl font-bold text-gray-700 mb-4 uppercase">
+    {$_('dashboard.myPlates')}
+  </h3>
   <Input
     class="mb-4"
     type="text"
