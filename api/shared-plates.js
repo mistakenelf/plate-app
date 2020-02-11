@@ -15,8 +15,9 @@ module.exports = async (req, res) => {
         q.Get(ref),
       ),
     );
-    res.status(200).json(dbs.data);
+
+    return res.status(200).json(dbs.data);
   } catch (e) {
-    res.status(e.requestResult.statusCode).json({ error: e.message });
+    return res.status(e.requestResult.statusCode).json({ error: e.message });
   }
 };

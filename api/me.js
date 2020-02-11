@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
   try {
     verifiedToken = await jwt.verify(token, process.env.JWT_SECRET);
   } catch (e) {
-    return e;
+    return res.status(401).json({ error: 'unauthorized' });
   }
 
   if (verifiedToken) {
@@ -28,9 +28,9 @@ module.exports = async (req, res) => {
         id: dbs.ref.value.id,
       });
     } catch (e) {
-      res.status(401).json({ error: e.message });
+      return res.status(401).json({ error: e.message });
     }
   } else {
-    res.status(401).json({ error: 'unauthorized user' });
+    return res.status(401).json({ error: 'unauthorized' });
   }
 };

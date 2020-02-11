@@ -13,8 +13,9 @@ module.exports = async (req, res) => {
     const dbs = await client.query(
       q.Update(q.Ref(q.Collection('plates'), data.id), { data }),
     );
-    res.status(200).json(dbs);
+
+    return res.status(200).json(dbs);
   } catch (e) {
-    res.status(e.requestResult.statusCode).json({ error: e.message });
+    return res.status(e.requestResult.statusCode).json({ error: e.message });
   }
 };

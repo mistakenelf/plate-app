@@ -11,8 +11,9 @@ module.exports = async (req, res) => {
 
   try {
     const dbs = await client.query(q.Delete(q.Ref(`classes/plates/${id}`)));
-    res.status(200).json(dbs);
+
+    return res.status(200).json(dbs);
   } catch (e) {
-    res.status(e.requestResult.statusCode).json({ error: e.message });
+    return res.status(e.requestResult.statusCode).json({ error: e.message });
   }
 };

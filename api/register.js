@@ -41,8 +41,8 @@ module.exports = async (req, res) => {
       },
     };
 
-    res.status(200).json(result);
+    return res.status(200).json(result);
   } catch (e) {
-    res.status(401).json({ error: e.message });
+    return res.status(401).json({ error: e.message });
   }
 };

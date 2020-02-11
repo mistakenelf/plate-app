@@ -14,8 +14,8 @@ module.exports = async (req, res) => {
       q.Get(q.Match(q.Index('users_by_username'), username)),
     );
 
-    res.status(200).json(dbs);
+    return res.status(200).json(dbs);
   } catch (e) {
-    res.status(e.requestResult.statusCode).json({ error: e.message });
+    return res.status(e.requestResult.statusCode).json({ error: e.message });
   }
 };
