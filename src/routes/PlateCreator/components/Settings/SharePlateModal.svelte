@@ -12,7 +12,7 @@
 
   const dispatch = createEventDispatcher();
 
-  export let editModalOpen;
+  export let sharePlateModalOpen;
   export let plateId;
 
   let foundUser = null;
@@ -37,7 +37,7 @@
 </script>
 
 <Modal
-  isOpen={editModalOpen}
+  isOpen={sharePlateModalOpen}
   isDialog
   title="Share Plate"
   on:handleClose={() => dispatch('handleModalClose')}>

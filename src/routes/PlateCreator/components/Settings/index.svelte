@@ -1,28 +1,31 @@
 <script>
-  import page from 'page';
   import { faTrashAlt } from '@fortawesome/free-solid-svg-icons/faTrashAlt';
   import { faShare } from '@fortawesome/free-solid-svg-icons/faShare';
 
   import Icon from '../../../../components/Icon.svelte';
-  import plateStore from '../../../../store/plate';
 
   import SharePlateModal from './SharePlateModal.svelte';
+  import DeletePlateModal from './DeletePlateModal.svelte';
 
   export let plateId;
 
-  let editModalOpen = false;
+  let sharePlateModalOpen = false;
+  let deletePlateModalOpen = false;
 
-  const handleDelete = async () => {
-    await plateStore.deletePlate(plateId);
-    page('/');
+  const openDeleteModal = () => {
+    deletePlateModalOpen = true;
+  };
+
+  const closeDeleteModal = () => {
+    deletePlateModalOpen = false;
   };
 
   const openShareModal = () => {
-    editModalOpen = true;
+    sharePlateModalOpen = true;
   };
 
   const closeShareModal = () => {
-    editModalOpen = false;
+    sharePlateModalOpen = false;
   };
 </script>
 
@@ -42,7 +45,14 @@
       icon={faTrashAlt}
       height="2.5rem"
       width="2.5rem"
-      on:click={handleDelete} />
+      on:click={openDeleteModal} />
   </div>
 </div>
-<SharePlateModal {editModalOpen} on:handleModalClose={closeShareModal} />
+<SharePlateModal
+  {plateId}
+  {sharePlateModalOpen}
+  on:handleModalClose={closeShareModal} />
+<DeletePlateModal
+  {plateId}
+  {deletePlateModalOpen}
+  on:handleModalClose={closeDeleteModal} />
