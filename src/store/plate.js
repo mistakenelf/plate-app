@@ -41,7 +41,9 @@ const getPlateDetails = async id => {
 };
 
 const deletePlate = async id => {
-  myPlates.update(allPlates => allPlates.filter(res => getId(res) !== id));
+  myPlates.update(allPlates =>
+    allPlates.filter(res => getId(res.object) !== id),
+  );
   await plateApi.deletePlate(id);
 };
 

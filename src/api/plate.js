@@ -13,7 +13,9 @@ const getMyPlates = async id => {
     method: 'POST',
   });
 
-  return await res.json();
+  const myPlatesArray = await res.json();
+
+  return myPlatesArray.object.data;
 };
 
 const getSharedplates = async id => {
@@ -22,7 +24,9 @@ const getSharedplates = async id => {
     method: 'POST',
   });
 
-  return await res.json();
+  const sharedPlatesArray = await res.json();
+
+  return sharedPlatesArray.object.data;
 };
 
 const getPlateDetails = async id => {

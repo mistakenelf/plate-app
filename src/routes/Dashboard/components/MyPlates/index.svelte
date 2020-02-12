@@ -2,9 +2,9 @@
   import { _ } from 'svelte-i18n';
 
   import Plate from '../Plate/index.svelte';
-  import { getId } from '../../../../helpers/getId';
   import Input from '../../../../components/Input.svelte';
   import plateStore from '../../../../store/plate';
+  import { getId } from '../../../../helpers/getId';
 
   export let loading;
   export let myPlates;
@@ -38,9 +38,9 @@
   {:else}
     {#each $myPlates as plate}
       <Plate
-        title={plate.data.title}
-        status={plate.data.status}
-        id={getId(plate)} />
+        title={plate.object.data.object.title}
+        status={plate.object.data.object.status}
+        id={getId(plate.object)} />
     {/each}
   {/if}
 </div>

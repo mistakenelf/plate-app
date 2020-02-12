@@ -38,10 +38,10 @@
   {:else}
     {#each $sharedPlates as plate}
       <Plate
-        title={plate.data.title}
-        status={plate.data.status}
+        title={plate.object.data.object.title}
+        status={plate.object.data.object.status}
         canDelete={false}
-        id={getId(plate)} />
+        id={getId(plate.object)} />
     {/each}
   {/if}
 </div>
