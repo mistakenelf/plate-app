@@ -7,7 +7,7 @@
   import Button from '../../../../components/Button.svelte';
   import Icon from '../../../../components/Icon.svelte';
   import authStore from '../../../../store/auth';
-  import plateStore from '../../../../store/plate';
+  import plateStore, { plate } from '../../../../store/plate';
   import { getId } from '../../../../helpers/getId';
 
   const dispatch = createEventDispatcher();
@@ -29,7 +29,14 @@
   const handleShare = async () => {
     await plateStore.sharePlate({
       id: plateId,
-      sharedWith: getId(foundUser),
+      sharedWith: [
+        ...$plate.data.sharedWith,
+        {
+          id: getId(foundUser),
+          firstName: foundUser.data.firstName,
+          lastName: foundUser.data.lastName,
+        },
+      ],
     });
 
     dispatch('handleModalClose');

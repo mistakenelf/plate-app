@@ -36,8 +36,8 @@ const createPlate = async data => {
 const getPlateDetails = async id => {
   loadingPlateDetails.set(true);
   const plateDetails = await plateApi.getPlateDetails(id);
-  loadingPlateDetails.set(false);
   plate.set(plateDetails);
+  loadingPlateDetails.set(false);
 };
 
 const deletePlate = async id => {
