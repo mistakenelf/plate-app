@@ -1,15 +1,15 @@
 <script>
   import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
-  import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
   import { createEventDispatcher } from 'svelte';
   import { _ } from 'svelte-i18n';
 
-  import Checkbox from '../../../../components/Checkbox.svelte';
   import plateStore from '../../../../store/plate';
   import Input from '../../../../components/Input.svelte';
   import Button from '../../../../components/Button.svelte';
   import Icon from '../../../../components/Icon.svelte';
   import { generateId } from '../../../../helpers/generateId';
+
+  import Renderer from './Renderer.svelte';
 
   const dispatch = createEventDispatcher();
 
@@ -23,8 +23,8 @@
     taskItem = e.target.value;
   };
 
-  const toggleCompleted = id => {
-    const index = newTasks.findIndex(todo => todo.id === id);
+  const toggleCompleted = e => {
+    const index = newTasks.findIndex(todo => todo.id === e.detail.id);
     newTasks[index].completed = !newTasks[index].completed;
 
     plateStore.updatePlate({
@@ -35,7 +35,7 @@
     dispatch('setPlateProgress');
   };
 
-  const handleAddTodo = e => {
+  const handleAddTask = e => {
     if (taskItem !== '' || (taskItem !== '' && e.keyCode) === 13) {
       newTasks = [
         ...newTasks,
@@ -53,8 +53,8 @@
     }
   };
 
-  const removeTodo = id => {
-    newTasks = newTasks.filter(res => res.id !== id);
+  const removeTask = e => {
+    newTasks = newTasks.filter(res => res.id !== e.detail.id);
 
     plateStore.updatePlate({
       id: plateId,
@@ -65,7 +65,7 @@
   };
 </script>
 
-<svelte:window on:keyup={handleAddTodo} />
+<svelte:window on:keyup={handleAddTask} />
 
 <div class="bg-white rounded-lg shadow p-4">
   <h3 class="text-xl font-bold text-gray-700 mb-2 ml-2 uppercase">
@@ -79,36 +79,12 @@
       placeholder={$_('plateCreator.newTask')}
       value={taskItem}
       on:change={handleChange} />
-    <Button class="ml-2" on:click={() => handleAddTodo()}>
+    <Button class="ml-2" on:click={() => handleAddTask()}>
       <Icon fill="#fff" icon={faPlus} height="1.5rem" width="1.5rem" />
     </Button>
   </div>
-  {#if newTasks.length > 0}
-    <ul class="mt-2 p-2">
-      {#each newTasks as task}
-        <li class="mb-4 flex justify-between items-center">
-          <div class="flex items-center w-2/3 md:w-auto">
-            <span
-              class:line-through={task.completed}
-              class="text-gray-700 text-xl">
-              {task.title}
-            </span>
-          </div>
-          <div>
-            <Checkbox
-              checked={task.completed}
-              on:click={() => toggleCompleted(task.id)} />
-            <Icon
-              class="cursor-pointer ml-4"
-              fill="#F56565"
-              icon={faTimes}
-              height="1.5rem"
-              width="1.5rem"
-              on:click={() => removeTodo(task.id)} />
-          </div>
-        </li>
-        <hr class="pb-2 mb-2" />
-      {/each}
-    </ul>
-  {/if}
+  <Renderer
+    {newTasks}
+    on:toggleCompleted={toggleCompleted}
+    on:removeTask={removeTask} />
 </div>
