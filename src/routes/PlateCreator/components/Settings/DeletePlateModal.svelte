@@ -1,6 +1,7 @@
 <script>
   import { createEventDispatcher } from 'svelte';
   import page from 'page';
+  import { _ } from 'svelte-i18n';
 
   import Modal from '../../../../components/Modal.svelte';
   import plateStore from '../../../../store/plate';
@@ -19,8 +20,8 @@
 
 <Modal
   isOpen={deletePlateModalOpen}
-  title="Delete Plate?"
+  title={$_('plateCreator.deletePlateModalTitle')}
   on:handleOK={handleDelete}
   on:handleClose={() => dispatch('handleModalClose')}>
-  <p>Are you sure you want to delete this plate?</p>
+  <p>{$_('plateCreator.deleteModalAreYouSure')}</p>
 </Modal>

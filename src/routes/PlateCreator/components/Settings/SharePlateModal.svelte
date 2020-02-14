@@ -35,6 +35,7 @@
           id: getId(foundUser),
           firstName: foundUser.data.firstName,
           lastName: foundUser.data.lastName,
+          username: foundUser.data.username,
         },
       ],
     });

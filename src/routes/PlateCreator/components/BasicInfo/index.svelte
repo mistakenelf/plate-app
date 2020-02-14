@@ -8,6 +8,7 @@
 
   import InfoRenderer from './InfoRenderer.svelte';
   import EditToggle from './EditToggle.svelte';
+  import EditModal from './EditModal.svelte';
 
   export let title;
   export let dueDate;
@@ -31,20 +32,25 @@
   };
 
   const handleTitleChange = e => {
-    newTitle = e.target.value;
+    newTitle = e.detail.event.target.value;
   };
 
   const handleDueDateChange = e => {
-    newDueDate = e.target.value;
+    newDueDate = e.detail.event.target.value;
   };
 
   const handleStatusChange = e => {
-    newStatus = e.target.value;
+    newStatus = e.detail.event.target.value;
+  };
+
+  const handleDescriptionChange = e => {
+    newDescription = e.detail.event.target.value;
   };
 
   const handleModalClose = () => {
     document.body.style.position = '';
     document.body.style.top = '';
+
     editModalOpen = false;
     handleSave();
   };
@@ -64,63 +70,17 @@
 
 <div class="text-gray-700 shadow rounded-lg p-4 bg-white relative">
   <EditToggle {editing} on:handleSave={handleSave} on:handleEdit={handleEdit} />
-  <Modal
-    title={$_('plateCreator.basicInfoModalTitle')}
-    isOpen={editing}
-    on:handleOK={handleSave}
-    on:handleClose={handleModalClose}>
-    <Input
-      isFormField
-      type="text"
-      name="title"
-      label={$_('plateCreator.basicInfoTitle')}
-      placeholder={$_('plateCreator.basicInfoTitle')}
-      value={newTitle}
-      on:change={handleTitleChange} />
-    <Input
-      isFormField
-      type="date"
-      name="dueDate"
-      label={$_('plateCreator.basicInfoDueDate')}
-      value={newDueDate}
-      on:change={handleDueDateChange} />
-    <div class="block text-gray-700 font-bold mb-1 uppercase text-sm">
-      {$_('plateCreator.basicInfoStatus')}
-    </div>
-    <div class="flex justify-between flex-row items-center mb-6">
-      <div class="flex items-center">
-        <input
-          type="radio"
-          name="status"
-          value="open"
-          checked={newStatus === 'open'}
-          on:change={handleStatusChange} />
-        <span class="ml-2">{$_('plateCreator.basicInfoOpen')}</span>
-      </div>
-      <div class="flex items-center">
-        <input
-          type="radio"
-          name="status"
-          value="in progress"
-          checked={newStatus === 'in progress'}
-          on:change={handleStatusChange} />
-        <span class="ml-2">{$_('plateCreator.basicInfoInProgress')}</span>
-      </div>
-      <div class="flex items-center">
-        <input
-          type="radio"
-          name="status"
-          value="completed"
-          checked={newStatus === 'completed'}
-          on:change={handleStatusChange} />
-        <span class="ml-2">{$_('plateCreator.basicInfoCompleted')}</span>
-      </div>
-    </div>
-    <Textarea
-      name="description"
-      label={$_('plateCreator.basicInfoDescription')}
-      rows={5}
-      bind:textareaValue={newDescription} />
-  </Modal>
+  <EditModal
+    {newDescription}
+    {editing}
+    {newTitle}
+    {newStatus}
+    {newDueDate}
+    on:handleModalClose={handleModalClose}
+    on:handleSave={handleSave}
+    on:handleTitleChange={handleTitleChange}
+    on:handleDescriptionChange={handleDescriptionChange}
+    on:handleDueDateChange={handleDueDateChange}
+    on:handleStatusChange={handleStatusChange} />
   <InfoRenderer {newTitle} {newDueDate} {newStatus} {newDescription} />
 </div>

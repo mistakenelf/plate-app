@@ -24,6 +24,10 @@
     handleSave();
   };
 
+  const handleChange = e => {
+    newNotes = e.target.value;
+  };
+
   const handleSave = async () => {
     editing = false;
     editModalOpen = false;
@@ -50,7 +54,7 @@
     isOpen={editModalOpen}
     on:handleOK={handleSave}
     on:handleClose={handleModalClose}>
-    <Textarea name="notes" rows={7} bind:textareaValue={newNotes} />
+    <Textarea name="notes" rows={7} value={newNotes} on:keyup={handleChange} />
   </Modal>
   <p class="text-gray-700">{newNotes}</p>
 </div>
