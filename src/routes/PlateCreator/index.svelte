@@ -56,7 +56,6 @@
       <BasicInfo
         title={$plate.data.title}
         dueDate={$plate.data.dueDate}
-        description={$plate.data.description}
         status={$plate.data.status}
         {plateId} />
     </div>

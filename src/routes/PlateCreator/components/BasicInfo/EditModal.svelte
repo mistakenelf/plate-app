@@ -4,11 +4,9 @@
 
   import Modal from '../../../../components/Modal.svelte';
   import Input from '../../../../components/Input.svelte';
-  import Textarea from '../../../../components/Textarea.svelte';
 
   const dispatch = createEventDispatcher();
 
-  export let newDescription;
   export let editing;
   export let newTitle;
   export let newStatus;
@@ -67,10 +65,4 @@
       <span class="ml-2">{$_('plateCreator.basicInfoCompleted')}</span>
     </div>
   </div>
-  <Textarea
-    name="description"
-    label={$_('plateCreator.basicInfoDescription')}
-    rows={5}
-    value={newDescription}
-    on:change={e => dispatch('handleDescriptionChange', { event: e })} />
 </Modal>

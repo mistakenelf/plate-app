@@ -16,11 +16,9 @@
       createdBy: $currentUser.id,
       title: 'New Plate',
       dueDate: new Date(),
-      description: 'Plate Description',
       notes: 'Some notes',
       status: 'open',
       todos: [],
-      files: [],
       sharedWith: [],
     };
 

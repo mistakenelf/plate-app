@@ -5,7 +5,6 @@
   export let newTitle;
   export let newDueDate;
   export let newStatus;
-  export let newDescription;
 </script>
 
 <h1 class="font-bold text-3xl mb-2 md:text-5xl">{newTitle}</h1>
@@ -21,4 +20,3 @@
     {newStatus}
   </div>
 </div>
-<p>{newDescription}</p>
