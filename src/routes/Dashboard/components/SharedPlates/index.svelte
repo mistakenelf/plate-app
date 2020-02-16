@@ -3,9 +3,9 @@
 
   import Plate from '../Plate/index.svelte';
   import { getId } from '../../../../helpers/getId';
-  import Input from '../../../../components/Input.svelte';
+  import Input from '../../../../components/Input/index.svelte';
   import plateStore from '../../../../store/plate';
-  import NoPlatesFound from '../NoPlatesFound/index.svelte';
+  import NoPlatesFound from '../../../../components/NoPlatesFound/index.svelte';
 
   export let loading;
   export let sharedPlates;
@@ -36,11 +36,13 @@
     {#each [1, 2, 3, 4] as step}
       <div class="p-3 mb-4 h-8 bg-gray-200 rounded" />
     {/each}
-  {:else if !$sharedPlates}
+  {/if}
+  {#if (!$sharedPlates || $sharedPlates.length === 0) && !loading}
     <div class="mt-4">
       <NoPlatesFound notFoundText={$_('dashboard.sharedPlatesNotFound')} />
     </div>
-  {:else}
+  {/if}
+  {#if $sharedPlates && !loading}
     {#each $sharedPlates as plate}
       <Plate
         title={plate.object.data.object.title}

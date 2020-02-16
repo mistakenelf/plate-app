@@ -3,9 +3,9 @@
   import { _ } from 'svelte-i18n';
 
   import authStore, { errorMessage } from '../../store/auth';
-  import Input from '../../components/Input.svelte';
-  import Button from '../../components/Button.svelte';
-  import Meta from '../../components/Meta.svelte';
+  import Input from '../../components/Input/index.svelte';
+  import Button from '../../components/Button/index.svelte';
+  import Meta from '../../components/Meta/index.svelte';
 
   let submitting = false;
   let usernameError = false;

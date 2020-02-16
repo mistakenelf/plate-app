@@ -2,7 +2,7 @@
   import { onMount } from 'svelte';
 
   import { currentUser } from '../../store/auth';
-  import Meta from '../../components/Meta.svelte';
+  import Meta from '../../components/Meta/index.svelte';
   import plateStore, {
     myPlates,
     loadingMyPlates,

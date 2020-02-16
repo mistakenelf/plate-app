@@ -2,10 +2,10 @@
   import { createEventDispatcher } from 'svelte';
   import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 
-  import Modal from '../../../../components/Modal.svelte';
-  import Input from '../../../../components/Input.svelte';
-  import Button from '../../../../components/Button.svelte';
-  import Icon from '../../../../components/Icon.svelte';
+  import Modal from '../../../../components/Modal/index.svelte';
+  import Input from '../../../../components/Input/index.svelte';
+  import Button from '../../../../components/Button/index.svelte';
+  import Icon from '../../../../components/Icon/index.svelte';
   import authStore from '../../../../store/auth';
   import plateStore, { plate } from '../../../../store/plate';
   import { getId } from '../../../../helpers/getId';

@@ -2,8 +2,8 @@
   import { createEventDispatcher } from 'svelte';
   import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
-  import Checkbox from '../../../../components/Checkbox.svelte';
-  import Icon from '../../../../components/Icon.svelte';
+  import Checkbox from '../../../../components/Checkbox/index.svelte';
+  import Icon from '../../../../components/Icon/index.svelte';
 
   const dispatch = createEventDispatcher();
 

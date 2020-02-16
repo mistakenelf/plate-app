@@ -3,7 +3,7 @@
   import { faSave } from '@fortawesome/free-solid-svg-icons/faSave';
   import { createEventDispatcher } from 'svelte';
 
-  import Icon from '../../../../components/Icon.svelte';
+  import Icon from '../../../../components/Icon/index.svelte';
 
   const dispatch = createEventDispatcher();
 

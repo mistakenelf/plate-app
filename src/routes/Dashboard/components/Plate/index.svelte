@@ -2,7 +2,7 @@
   import page from 'page';
   import { faTrashAlt } from '@fortawesome/free-solid-svg-icons/faTrashAlt';
 
-  import Icon from '../../../../components/Icon.svelte';
+  import Icon from '../../../../components/Icon/index.svelte';
 
   import DeletePlateModal from './DeletePlateModal.svelte';
 

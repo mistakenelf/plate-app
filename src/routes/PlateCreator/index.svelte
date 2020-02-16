@@ -3,9 +3,9 @@
   import { tweened } from 'svelte/motion';
   import { cubicOut } from 'svelte/easing';
 
-  import Loader from '../../components/Loader.svelte';
+  import Loader from '../../components/Loader/index.svelte';
   import plateStore, { loadingPlateDetails, plate } from '../../store/plate';
-  import Meta from '../../components/Meta.svelte';
+  import Meta from '../../components/Meta/index.svelte';
 
   import BasicInfo from './components/BasicInfo/index.svelte';
   import Notes from './components/Notes/index.svelte';

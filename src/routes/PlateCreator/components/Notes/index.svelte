@@ -1,9 +1,9 @@
 <script>
   import { _ } from 'svelte-i18n';
 
-  import Textarea from '../../../../components/Textarea.svelte';
+  import Textarea from '../../../../components/Textarea/index.svelte';
   import plateStore from '../../../../store/plate';
-  import Modal from '../../../../components/Modal.svelte';
+  import Modal from '../../../../components/Modal/index.svelte';
 
   import EditToggle from './EditToggle.svelte';
 

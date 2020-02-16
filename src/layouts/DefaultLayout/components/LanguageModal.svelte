@@ -2,7 +2,7 @@
   import { createEventDispatcher } from 'svelte';
   import { _, locale } from 'svelte-i18n';
 
-  import Modal from '../../../components/Modal.svelte';
+  import Modal from '../../../components/Modal/index.svelte';
 
   export let modalOpen;
 

@@ -2,7 +2,7 @@
   import { createEventDispatcher } from 'svelte';
   import { _ } from 'svelte-i18n';
 
-  import Modal from '../../../../components/Modal.svelte';
+  import Modal from '../../../../components/Modal/index.svelte';
   import plateStore from '../../../../store/plate';
 
   const dispatch = createEventDispatcher();

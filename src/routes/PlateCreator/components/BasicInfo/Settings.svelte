@@ -2,7 +2,7 @@
   import { faTrashAlt } from '@fortawesome/free-solid-svg-icons/faTrashAlt';
   import { faShare } from '@fortawesome/free-solid-svg-icons/faShare';
 
-  import Icon from '../../../../components/Icon.svelte';
+  import Icon from '../../../../components/Icon/index.svelte';
 
   import SharePlateModal from './SharePlateModal.svelte';
   import DeletePlateModal from './DeletePlateModal.svelte';

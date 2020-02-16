@@ -2,8 +2,8 @@
   import { _ } from 'svelte-i18n';
   import { createEventDispatcher } from 'svelte';
 
-  import Modal from '../../../../components/Modal.svelte';
-  import Input from '../../../../components/Input.svelte';
+  import Modal from '../../../../components/Modal/index.svelte';
+  import Input from '../../../../components/Input/index.svelte';
 
   const dispatch = createEventDispatcher();
 

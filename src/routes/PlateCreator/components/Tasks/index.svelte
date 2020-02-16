@@ -4,9 +4,9 @@
   import { _ } from 'svelte-i18n';
 
   import plateStore from '../../../../store/plate';
-  import Input from '../../../../components/Input.svelte';
-  import Button from '../../../../components/Button.svelte';
-  import Icon from '../../../../components/Icon.svelte';
+  import Input from '../../../../components/Input/index.svelte';
+  import Button from '../../../../components/Button/index.svelte';
+  import Icon from '../../../../components/Icon/index.svelte';
   import { generateId } from '../../../../helpers/generateId';
 
   import Renderer from './Renderer.svelte';

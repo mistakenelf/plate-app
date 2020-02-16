@@ -1,7 +1,4 @@
 <script>
-  import dayjs from 'dayjs';
-  import { _ } from 'svelte-i18n';
-
   export let newTitle;
   export let newStatus;
 </script>

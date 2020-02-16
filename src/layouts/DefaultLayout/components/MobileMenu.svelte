@@ -9,8 +9,8 @@
   import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 
   import authStore, { currentUser } from '../../../store/auth';
-  import ClickOutside from '../../../components/ClickOutside.svelte';
-  import Icon from '../../../components/Icon.svelte';
+  import ClickOutside from '../../../components/ClickOutside/index.svelte';
+  import Icon from '../../../components/Icon/index.svelte';
 
   import NavLink from './NavLink.svelte';
 

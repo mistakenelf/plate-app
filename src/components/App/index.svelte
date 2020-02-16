@@ -2,12 +2,11 @@
   import { onMount } from 'svelte';
   import { addMessages, init, getLocaleFromNavigator } from 'svelte-i18n';
 
-  import authStore, { fetchingUser } from '../store/auth';
-  import Routes from '../routes/index.svelte';
-  import en from '../assets/lang/en.json';
-  import fr from '../assets/lang/fr.json';
-
-  import Loader from './Loader.svelte';
+  import authStore, { fetchingUser } from '../../store/auth';
+  import Routes from '../../routes/index.svelte';
+  import en from '../../assets/lang/en.json';
+  import fr from '../../assets/lang/fr.json';
+  import Loader from '../Loader/index.svelte';
 
   addMessages('en', en);
   addMessages('fr', fr);

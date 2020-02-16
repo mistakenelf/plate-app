@@ -2,10 +2,10 @@
   import page from 'page';
   import { _ } from 'svelte-i18n';
 
-  import Input from '../../components/Input.svelte';
-  import Button from '../../components/Button.svelte';
+  import Input from '../../components/Input/index.svelte';
+  import Button from '../../components/Button/index.svelte';
   import authStore, { errorMessage } from '../../store/auth';
-  import Meta from '../../components/Meta.svelte';
+  import Meta from '../../components/Meta/index.svelte';
 
   let submitting = false;
 

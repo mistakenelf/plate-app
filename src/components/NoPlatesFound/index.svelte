@@ -1,8 +1,7 @@
 <script>
-  import { _ } from 'svelte-i18n';
   import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExclamationTriangle';
 
-  import Icon from '../../../../components/Icon.svelte';
+  import Icon from '../Icon/index.svelte';
 
   export let notFoundText;
 </script>

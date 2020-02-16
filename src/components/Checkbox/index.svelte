@@ -2,7 +2,7 @@
   import { faSquare } from '@fortawesome/free-regular-svg-icons/faSquare';
   import { faCheckSquare } from '@fortawesome/free-solid-svg-icons/faCheckSquare';
 
-  import Icon from './Icon.svelte';
+  import Icon from '../Icon/index.svelte';
 
   export let checked = false;
 </script>

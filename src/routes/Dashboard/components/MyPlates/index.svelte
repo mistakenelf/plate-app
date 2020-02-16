@@ -2,10 +2,10 @@
   import { _ } from 'svelte-i18n';
 
   import Plate from '../Plate/index.svelte';
-  import Input from '../../../../components/Input.svelte';
+  import Input from '../../../../components/Input/index.svelte';
   import plateStore from '../../../../store/plate';
   import { getId } from '../../../../helpers/getId';
-  import NoPlatesFound from '../NoPlatesFound/index.svelte';
+  import NoPlatesFound from '../../../../components/NoPlatesFound/index.svelte';
 
   export let loading;
   export let myPlates;
@@ -37,7 +37,7 @@
       <div class="p-3 mb-4 h-8 bg-gray-200 rounded" />
     {/each}
   {/if}
-  {#if !$myPlates && !loading}
+  {#if (!$myPlates || $myPlates.length === 0) && !loading}
     <div class="mt-4">
       <NoPlatesFound notFoundText={$_('dashboard.myPlatesNotFound')} />
     </div>
