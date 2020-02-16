@@ -5,6 +5,7 @@
   import Input from '../../../../components/Input.svelte';
   import plateStore from '../../../../store/plate';
   import { getId } from '../../../../helpers/getId';
+  import NoPlatesFound from '../NoPlatesFound/index.svelte';
 
   export let loading;
   export let myPlates;
@@ -35,7 +36,13 @@
     {#each [1, 2, 3, 4] as step}
       <div class="p-3 mb-4 h-8 bg-gray-200 rounded" />
     {/each}
-  {:else}
+  {/if}
+  {#if !$myPlates && !loading}
+    <div class="mt-4">
+      <NoPlatesFound notFoundText={$_('dashboard.myPlatesNotFound')} />
+    </div>
+  {/if}
+  {#if $myPlates && !loading}
     {#each $myPlates as plate}
       <Plate
         title={plate.object.data.object.title}

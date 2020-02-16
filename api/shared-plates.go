@@ -28,7 +28,7 @@ func SharedPlatesHandler(w http.ResponseWriter, r *http.Request) {
 	var id string
 	err := json.NewDecoder(r.Body).Decode(&id)
 
-	result, _ := client.Query(f.Map(f.Paginate(f.MatchTerm(f.Index("plates_sharedWith"), id)), f.Lambda("x", f.Get(f.Var("x")))))
+	result, _ := client.Query(f.Map(f.Paginate(f.MatchTerm(f.Index("shared_plates"), id)), f.Lambda("x", f.Get(f.Var("x")))))
 
 	if err != nil {
 		panic(err)

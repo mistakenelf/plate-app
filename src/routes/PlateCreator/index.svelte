@@ -11,7 +11,7 @@
   import Notes from './components/Notes/index.svelte';
   import Tasks from './components/Tasks/index.svelte';
   import Progress from './components/Progress/index.svelte';
-  import Settings from './components/Settings/index.svelte';
+  import SharedWith from './components/SharedWith/index.svelte';
 
   const urlArray = window.location.href.split('/');
   const plateId = urlArray[urlArray.length - 1];
@@ -55,7 +55,6 @@
     <div class="grid grid-cols-1 mb-4">
       <BasicInfo
         title={$plate.data.title}
-        dueDate={$plate.data.dueDate}
         status={$plate.data.status}
         {plateId} />
     </div>
@@ -67,7 +66,7 @@
       <Notes notes={$plate.data.notes} {plateId} />
     </div>
     <div class="grid md:grid-flow-col md:grid-cols-2 gap-4">
-      <Settings {plateId} />
+      <SharedWith {plateId} sharedWith={$plate.data.sharedWith} />
     </div>
   </div>
 {/if}

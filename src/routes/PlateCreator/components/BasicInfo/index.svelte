@@ -4,15 +4,14 @@
   import InfoRenderer from './InfoRenderer.svelte';
   import EditToggle from './EditToggle.svelte';
   import EditModal from './EditModal.svelte';
+  import Settings from './Settings.svelte';
 
   export let title;
-  export let dueDate;
   export let plateId;
   export let status;
 
   let editing = false;
   let newTitle = title;
-  let newDueDate = dueDate;
   let newStatus = status;
 
   const handleEdit = () => {
@@ -24,10 +23,6 @@
 
   const handleTitleChange = e => {
     newTitle = e.detail.event.target.value;
-  };
-
-  const handleDueDateChange = e => {
-    newDueDate = e.detail.event.target.value;
   };
 
   const handleStatusChange = e => {
@@ -47,7 +42,6 @@
     await plateStore.updatePlate({
       id: plateId,
       title: newTitle,
-      dueDate: newDueDate,
       status: newStatus,
     });
   };
@@ -59,11 +53,12 @@
     {editing}
     {newTitle}
     {newStatus}
-    {newDueDate}
     on:handleModalClose={handleModalClose}
     on:handleSave={handleSave}
     on:handleTitleChange={handleTitleChange}
-    on:handleDueDateChange={handleDueDateChange}
     on:handleStatusChange={handleStatusChange} />
-  <InfoRenderer {newTitle} {newDueDate} {newStatus} />
+  <div class="flex justify-between md:flex-row flex-col mt-4">
+    <InfoRenderer {newTitle} {newStatus} />
+    <Settings {plateId} />
+  </div>
 </div>

@@ -67,8 +67,12 @@ const searchMyPlates = (searchText, allMyPlates) => {
   myPlates.set(
     allMyPlates.filter(
       plate =>
-        plate.data.title.toLowerCase().includes(searchText.toLowerCase()) ||
-        plate.data.status.toLowerCase().includes(searchText.toLowerCase()),
+        plate.object.data.object.title
+          .toLowerCase()
+          .includes(searchText.toLowerCase()) ||
+        plate.object.data.object.status
+          .toLowerCase()
+          .includes(searchText.toLowerCase()),
     ),
   );
 };
@@ -77,8 +81,12 @@ const searchSharedPlates = (searchText, allSharedPlates) => {
   sharedPlates.set(
     allSharedPlates.filter(
       plate =>
-        plate.data.title.toLowerCase().includes(searchText.toLowerCase()) ||
-        plate.data.status.toLowerCase().includes(searchText.toLowerCase()),
+        plate.object.data.object.title
+          .toLowerCase()
+          .includes(searchText.toLowerCase()) ||
+        plate.object.data.object.status
+          .toLowerCase()
+          .includes(searchText.toLowerCase()),
     ),
   );
 };

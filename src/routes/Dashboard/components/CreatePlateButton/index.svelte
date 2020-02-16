@@ -1,21 +1,34 @@
 <script>
   import { faPlus } from '@fortawesome/free-solid-svg-icons/faPlus';
   import page from 'page';
+  import { _ } from 'svelte-i18n';
 
   import FAB from '../../../../components/FAB.svelte';
   import { currentUser } from '../../../../store/auth';
   import plateStore from '../../../../store/plate';
   import { getId } from '../../../../helpers/getId';
+  import Modal from '../../../../components/Modal.svelte';
+  import Input from '../../../../components/Input.svelte';
 
-  let creatingPlate = false;
+  let createPlateModalOpen = false;
+  let plateTitle = '';
+
+  const openNewPlateModal = () => {
+    createPlateModalOpen = true;
+  };
+
+  const closeNewPlateModal = () => {
+    createPlateModalOpen = false;
+  };
+
+  const handleChange = e => {
+    plateTitle = e.target.value;
+  };
 
   const createPlate = async () => {
-    creatingPlate = true;
-
     const plate = {
       createdBy: $currentUser.id,
-      title: 'New Plate',
-      dueDate: new Date(),
+      title: plateTitle,
       notes: 'Some notes',
       status: 'open',
       todos: [],
@@ -24,9 +37,19 @@
 
     const createdPlate = await plateStore.createPlate(plate);
     page(`/plate/${getId(createdPlate)}`);
-
-    creatingPlate = false;
   };
 </script>
 
-<FAB icon={faPlus} loading={creatingPlate} on:click={() => createPlate()} />
+<Modal
+  title={$_('dashboard.createPlateModalTitle')}
+  isOpen={createPlateModalOpen}
+  on:handleOK={createPlate}
+  on:handleClose={closeNewPlateModal}>
+  <Input
+    type="text"
+    name="plateTitle"
+    placeholder={$_('dashboard.plateTitle')}
+    value={plateTitle}
+    on:keyup={handleChange} />
+</Modal>
+<FAB icon={faPlus} on:click={openNewPlateModal} />

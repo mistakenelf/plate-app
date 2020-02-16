@@ -30,19 +30,20 @@
     "inProgressStatus": "In Progress",
     "completedStatus": "Completed",
     "searchPlates": "Search plates",
-    "noPlatesFound": "You currently have nothing on your plate",
-    "noPlatesHelperText": "Click the plus button in the bottom right of your screen to start creating plates now",
     "deletePlateModalTitle": "Delete this plate?",
     "deleteModalAreYouSure": "Are you sure you want to delete this plate?",
     "sharePlateModalTitle": "Lets share this plate",
     "sharePlateSearchPlaceholder": "Search users by username",
     "myPlates": "My Plates",
-    "sharedWithMe": "Shared with me"
+    "sharedWithMe": "Shared with me",
+    "createPlateModalTitle": "Create A Plate",
+    "plateTitle": "Plate title",
+    "myPlatesNotFound": "You currently have no plates created",
+    "sharedPlatesNotFound": "You current have no plates shared with you"
   },
   "plateCreator": {
     "basicInfoModalTitle": "Basic Info",
     "basicInfoTitle": "Title",
-    "basicInfoDueDate": "Due Date",
     "basicInfoStatus": "Status",
     "basicInfoOpen": "Open",
     "basicInfoInProgress": "In Progress",
@@ -54,5 +55,10 @@
     "newTask": "New Task",
     "deleteModalAreYouSure": "Are you sure you want to delete this plate?",
     "deletePlateModalTitle": "Delete this plate?"
+  },
+  "components": {
+    "modal": {
+      "closeButton": "Close"
+    }
   }
 }

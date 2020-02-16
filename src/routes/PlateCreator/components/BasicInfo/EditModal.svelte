@@ -10,7 +10,6 @@
   export let editing;
   export let newTitle;
   export let newStatus;
-  export let newDueDate;
 </script>
 
 <Modal
@@ -26,13 +25,6 @@
     placeholder={$_('plateCreator.basicInfoTitle')}
     value={newTitle}
     on:change={e => dispatch('handleTitleChange', { event: e })} />
-  <Input
-    isFormField
-    type="date"
-    name="dueDate"
-    label={$_('plateCreator.basicInfoDueDate')}
-    value={newDueDate}
-    on:change={e => dispatch('handleDueDateChange', { event: e })} />
   <div class="block text-gray-700 font-bold mb-1 uppercase text-sm">
     {$_('plateCreator.basicInfoStatus')}
   </div>

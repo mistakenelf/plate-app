@@ -28,17 +28,18 @@
     "inProgressStatus": "En cours",
     "completedStatus": "Terminé",
     "searchPlates": "Plaques de recherche",
-    "noPlatesFound": "Vous n'avez actuellement rien dans votre assiette",
-    "noPlatesHelperText": "Cliquez sur le bouton plus en bas à droite de votre écran pour commencer à créer des plaques maintenant",
     "deletePlateModalTitle": "Supprimer cette plaque?",
     "deleteModalAreYouSure": "Voulez-vous vraiment supprimer cette plaque?",
     "sharePlateModalTitle": "Partageons cette assiette",
-    "sharePlateSearchPlaceholder": "Rechercher des utilisateurs par nom d'utilisateur"
+    "sharePlateSearchPlaceholder": "Rechercher des utilisateurs par nom d'utilisateur",
+    "createPlateModalTitle": "Create A Plate",
+    "plateTitle": "Plate title",
+    "myPlatesNotFound": "You currently have no plates created",
+    "sharedPlatesNotFound": "You current have no plates shared with you"
   },
   "plateCreator": {
     "basicInfoModalTitle": "Informations de base",
     "basicInfoTitle": "Titre",
-    "basicInfoDueDate": "Date d'échéance",
     "basicInfoOpen": "Ouvert",
     "basicInfoStatus": "Statut",
     "basicInfoInProgress": "En cours",
@@ -48,5 +49,10 @@
     "notes": "Remarques",
     "tasks": "Tâches",
     "newTask": "Nouvelle tâche"
+  },
+  "components": {
+    "modal": {
+      "closeButton": "Close"
+    }
   }
 }

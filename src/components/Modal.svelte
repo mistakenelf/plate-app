@@ -1,5 +1,6 @@
 <script>
   import { createEventDispatcher } from 'svelte';
+  import { _ } from 'svelte-i18n';
   import { fly } from 'svelte/transition';
   import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
@@ -38,7 +39,9 @@
         </div>
         <slot />
         <div class="flex justify-end mt-8">
-          <Button on:click={() => dispatch('handleClose')}>Close</Button>
+          <Button on:click={() => dispatch('handleClose')}>
+            {$_('components.modal.closeButton')}
+          </Button>
           {#if !isDialog}
             <Button class="ml-4" on:click={() => dispatch('handleOK')}>
               {okText}
