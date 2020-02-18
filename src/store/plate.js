@@ -60,10 +60,6 @@ const updatePlate = async data => {
   await plateApi.updatePlate(data);
 };
 
-const sharePlate = async data => {
-  await plateApi.updatePlate(data);
-};
-
 const searchMyPlates = (searchText, allMyPlates) => {
   myPlates.set(
     allMyPlates.filter(
@@ -101,5 +97,4 @@ export default {
   searchMyPlates,
   getSharedPlates,
   searchSharedPlates,
-  sharePlate,
 };

@@ -48,7 +48,8 @@
     "basicInfoDueOn": "Échéance",
     "notes": "Remarques",
     "tasks": "Tâches",
-    "newTask": "Nouvelle tâche"
+    "newTask": "Nouvelle tâche",
+    "settings": "Settings"
   },
   "components": {
     "modal": {

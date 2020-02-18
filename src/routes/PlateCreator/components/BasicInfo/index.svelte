@@ -4,7 +4,6 @@
   import InfoRenderer from './InfoRenderer.svelte';
   import EditToggle from './EditToggle.svelte';
   import EditModal from './EditModal.svelte';
-  import Settings from './Settings.svelte';
 
   export let title;
   export let plateId;
@@ -44,6 +43,9 @@
       title: newTitle,
       status: newStatus,
     });
+
+    document.body.style.position = '';
+    document.body.style.top = '';
   };
 </script>
 
@@ -59,6 +61,5 @@
     on:handleStatusChange={handleStatusChange} />
   <div class="flex justify-between md:flex-row flex-col mt-4">
     <InfoRenderer {newTitle} {newStatus} />
-    <Settings {plateId} />
   </div>
 </div>

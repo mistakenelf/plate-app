@@ -27,7 +27,7 @@
   };
 
   const handleShare = async () => {
-    await plateStore.sharePlate({
+    await plateStore.updatePlate({
       id: plateId,
       sharedWith: [
         ...$plate.data.sharedWith,
