@@ -2,11 +2,9 @@
   import { onMount } from 'svelte';
   import { addMessages, init, getLocaleFromNavigator } from 'svelte-i18n';
 
-  import authStore, { fetchingUser } from '../../store/auth';
   import Routes from '../../routes/index.svelte';
   import en from '../../assets/lang/en.json';
   import fr from '../../assets/lang/fr.json';
-  import Loader from '../Loader/index.svelte';
 
   addMessages('en', en);
   addMessages('fr', fr);
@@ -16,13 +14,19 @@
     initialLocale: getLocaleFromNavigator(),
   });
 
-  onMount(async () => {
-    await authStore.me();
+  onMount(() => {
+    fetch('/__/firebase/init.json').then(async response => {
+      window.firebase.initializeApp(await response.json());
+    });
   });
 </script>
 
-{#if $fetchingUser}
-  <Loader fullPage />
-{:else}
-  <Routes />
-{/if}
+<style>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @import '../../assets/styles/index.css';
+</style>
+
+<Routes />

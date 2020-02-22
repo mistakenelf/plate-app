@@ -1,8 +1,5 @@
 .DS_Store
 node_modules/
 .env
-.cache/
 dist/
-public/
-
-.now
+.firebase/

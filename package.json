@@ -17,14 +17,18 @@
     "social"
   ],
   "scripts": {
-    "build": "parcel build src/index.html --out-dir public",
-    "dev": "parcel src/index.html",
+    "start": "run-p webpack:dev firebase:dev",
+    "firebase:dev": "firebase serve",
+    "webpack:dev": "cross-env NODE_ENV=development webpack-dev-server",
+    "build": "cross-env NODE_ENV=production webpack",
+    "deploy": "npm run build && firebase deploy",
     "prettier": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\"",
     "eslint": "eslint --ext js,svelte ."
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run build"
     }
   },
   "lint-staged": {
@@ -34,35 +38,47 @@
       "git add"
     ]
   },
-  "browserslist": [
-    "last 1 Chrome versions"
-  ],
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.0.6",
     "autoprefixer": "^9.7.4",
+    "clean-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "^3.1.0",
     "cross-env": "^7.0.0",
+    "css-loader": "^3.4.2",
+    "dotenv": "^8.2.0",
+    "dotenv-webpack": "^1.7.0",
+    "error-overlay-webpack-plugin": "^0.4.1",
     "eslint": "^6.8.0",
+    "eslint-loader": "^3.0.3",
     "eslint-plugin-svelte3": "^2.7.3",
+    "file-loader": "^5.1.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.7",
-    "parcel-bundler": "^1.12.4",
-    "parcel-plugin-compress": "^1.1.0",
-    "parcel-plugin-svelte": "^4.0.6",
-    "postcss": "^7.0.26",
+    "mini-css-extract-plugin": "^0.9.0",
+    "npm-run-all": "^4.1.5",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss": "^7.0.27",
+    "postcss-loader": "^3.0.0",
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
+    "style-loader": "^1.1.3",
     "svelte": "^3.18.2",
-    "tailwindcss": "^1.2.0"
+    "svelte-loader": "^2.13.6",
+    "tailwindcss": "^1.2.0",
+    "terser-webpack-plugin": "^2.3.5",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "workbox-webpack-plugin": "^5.0.0"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^5.12.1",
     "@fortawesome/free-regular-svg-icons": "^5.12.1",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
-    "bcrypt": "^3.0.8",
     "dayjs": "^1.8.20",
-    "faunadb": "^2.11.1",
-    "flag-icon-css": "^3.4.6",
-    "jsonwebtoken": "^8.5.1",
     "page": "^1.11.5",
     "svelte-i18n": "^3.0.1"
   }
