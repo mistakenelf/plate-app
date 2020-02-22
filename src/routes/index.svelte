@@ -1,8 +1,8 @@
 <script>
   import page from 'page';
 
-  import Dashboard from './Dashboard/index.svelte';
-  import DefaultLayout from '../layouts/DefaultLayout/index.svelte';
+  import Dashboard from './Dashboard';
+  import DefaultLayout from '../layouts/DefaultLayout';
 
   let pageProps = {
     component: Dashboard,

@@ -4,8 +4,8 @@
   import { fly } from 'svelte/transition';
   import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
-  import Icon from '../Icon/index.svelte';
-  import Button from '../Button/index.svelte';
+  import Icon from '../Icon';
+  import Button from '../Button';
 
   const dispatch = createEventDispatcher();
 

@@ -1,6 +1,5 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
@@ -8,12 +7,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
-const webpack = require('webpack');
-
-const env = require('dotenv').config({ path: __dirname + '/.env.example' });
+const WebpackBar = require('webpackbar');
 
 const mode = process.env.NODE_ENV || 'development';
-
 const prod = mode === 'production';
 
 module.exports = {
@@ -124,6 +120,7 @@ module.exports = {
   mode,
   plugins: [
     new CleanWebpackPlugin(),
+    new WebpackBar(),
     new FriendlyErrorsPlugin({
       compilationSuccessInfo: {
         messages: ['You application is running on http://localhost:3000'],
@@ -143,11 +140,6 @@ module.exports = {
       filename: !prod ? '[name].css' : '[name].[hash].css',
     }),
     new OptimizeCSSAssetsPlugin({}),
-    new Dotenv({
-      silent: true,
-      safe: false,
-    }),
     new ErrorOverlayPlugin(),
-    new webpack.EnvironmentPlugin(Object.keys(env.parsed)),
   ],
 };

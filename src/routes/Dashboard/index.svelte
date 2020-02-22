@@ -1,5 +1,7 @@
 <script>
-  import Meta from '../../components/Meta/index.svelte';
+  import Meta from '../../components/Meta';
+
+  import Welcome from './components/Welcome';
 </script>
 
 <Meta
@@ -7,4 +9,6 @@
   description="Plate dashboard is where you get an overview of your plates and
   can start managing them" />
 
-<h1>Dashboard</h1>
+<div class="m-8">
+  <Welcome />
+</div>
