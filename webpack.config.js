@@ -103,18 +103,6 @@ module.exports = {
         test: /\.(png|svg|jpg|gif)$/,
         use: ['file-loader'],
       },
-      {
-        test: /\.(gif|png|jpe?g|svg|woff|ttf)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 4000,
-              name: '[path][name].[ext]',
-            },
-          },
-        ],
-      },
     ],
   },
   mode,

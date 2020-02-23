@@ -7,6 +7,7 @@
   </div>
   <div class="mt-8 flex justify-center flex-col items-center">
     <a class="text-white text-xl mb-4" href="/">Dashboard</a>
-    <a class="text-white text-xl" href="/create-project">Create Project</a>
+    <a class="text-white text-xl mb-4" href="/create-project">Create Project</a>
+    <a class="text-white text-xl mb-4" href="/login">Login</a>
   </div>
 </div>

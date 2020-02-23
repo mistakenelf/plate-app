@@ -5,6 +5,7 @@
 
   import Dashboard from './Dashboard';
   import CreateProject from './CreateProject';
+  import Login from './Login';
 
   let pageProps = {
     component: Dashboard,
@@ -21,6 +22,13 @@
   page('/create-project', () => {
     pageProps = {
       component: CreateProject,
+      layout: DefaultLayout,
+    };
+  });
+
+  page('/login', () => {
+    pageProps = {
+      component: Login,
       layout: DefaultLayout,
     };
   });

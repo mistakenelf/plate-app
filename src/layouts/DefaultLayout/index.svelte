@@ -4,7 +4,7 @@
 
 <main>
   <Sidebar />
-  <div class="md:ml-48">
+  <div class="md:ml-48 h-full">
     <slot />
   </div>
 </main>
