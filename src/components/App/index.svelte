@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from 'svelte';
   import { addMessages, init, getLocaleFromNavigator } from 'svelte-i18n';
 
   import Routes from '../../routes/index.svelte';
@@ -12,12 +11,6 @@
   init({
     fallbackLocale: 'en',
     initialLocale: getLocaleFromNavigator(),
-  });
-
-  onMount(() => {
-    fetch('/__/firebase/init.json').then(async response => {
-      window.firebase.initializeApp(await response.json());
-    });
   });
 </script>
 

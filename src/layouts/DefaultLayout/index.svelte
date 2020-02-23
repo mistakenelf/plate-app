@@ -6,7 +6,7 @@
 <main>
   <Navbar />
   <Sidebar />
-  <div class="ml-16">
+  <div class="md:ml-16">
     <slot />
   </div>
 </main>
