@@ -1,29 +1,29 @@
-[debug] [2020-02-23T02:11:07.111Z] ----------------------------------------------------------------------
-[debug] [2020-02-23T02:11:07.113Z] Command:       /home/knipferrc/.config/nvm/versions/node/v13.8.0/bin/node /home/knipferrc/.config/nvm/versions/node/v13.8.0/bin/firebase serve
-[debug] [2020-02-23T02:11:07.113Z] CLI Version:   7.13.1
-[debug] [2020-02-23T02:11:07.113Z] Platform:      linux
-[debug] [2020-02-23T02:11:07.113Z] Node Version:  v13.8.0
-[debug] [2020-02-23T02:11:07.113Z] Time:          Sat Feb 22 2020 21:11:07 GMT-0500 (Eastern Standard Time)
-[debug] [2020-02-23T02:11:07.113Z] ----------------------------------------------------------------------
-[debug] [2020-02-23T02:11:07.113Z] 
-[debug] [2020-02-23T02:11:07.119Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2020-02-23T02:11:07.119Z] > authorizing via signed-in user
-[debug] [2020-02-23T02:11:07.119Z] [iam] checking project plate-fd64a for permissions ["firebase.projects.get"]
-[debug] [2020-02-23T02:11:07.120Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2020-02-23T02:11:07.120Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+[debug] [2020-02-23T14:29:09.075Z] ----------------------------------------------------------------------
+[debug] [2020-02-23T14:29:09.087Z] Command:       /home/knipferrc/.config/nvm/versions/node/v13.8.0/bin/node /home/knipferrc/.config/nvm/versions/node/v13.8.0/bin/firebase serve
+[debug] [2020-02-23T14:29:09.087Z] CLI Version:   7.13.1
+[debug] [2020-02-23T14:29:09.087Z] Platform:      linux
+[debug] [2020-02-23T14:29:09.087Z] Node Version:  v13.8.0
+[debug] [2020-02-23T14:29:09.088Z] Time:          Sun Feb 23 2020 09:29:09 GMT-0500 (Eastern Standard Time)
+[debug] [2020-02-23T14:29:09.088Z] ----------------------------------------------------------------------
+[debug] [2020-02-23T14:29:09.088Z] 
+[debug] [2020-02-23T14:29:09.116Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-02-23T14:29:09.116Z] > authorizing via signed-in user
+[debug] [2020-02-23T14:29:09.116Z] [iam] checking project plate-fd64a for permissions ["firebase.projects.get"]
+[debug] [2020-02-23T14:29:09.119Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-02-23T14:29:09.119Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
  <request body omitted>
-[debug] [2020-02-23T02:11:07.250Z] <<< HTTP RESPONSE 200
-[debug] [2020-02-23T02:11:07.284Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/plate-fd64a:testIamPermissions  
+[debug] [2020-02-23T14:29:09.308Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-23T14:29:09.338Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/plate-fd64a:testIamPermissions  
 
-[debug] [2020-02-23T02:11:07.481Z] <<< HTTP RESPONSE 200
-[debug] [2020-02-23T02:11:07.483Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/plate-fd64a  
+[debug] [2020-02-23T14:29:09.573Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-23T14:29:09.580Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/plate-fd64a  
  
-[debug] [2020-02-23T02:11:07.685Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-23T14:29:09.805Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/home/knipferrc/git/plate-app'...
 [info] 
-[debug] [2020-02-23T02:11:07.687Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/plate-fd64a/webApps/-/config  
+[debug] [2020-02-23T14:29:09.813Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/plate-fd64a/webApps/-/config  
  
-[debug] [2020-02-23T02:11:08.204Z] <<< HTTP RESPONSE 200
+[debug] [2020-02-23T14:29:10.435Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: dist
 [info] ✔  hosting: Local server: http://localhost:5000

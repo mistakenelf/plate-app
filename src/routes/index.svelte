@@ -1,8 +1,10 @@
 <script>
   import page from 'page';
 
-  import Dashboard from './Dashboard';
   import DefaultLayout from '../layouts/DefaultLayout';
+
+  import Dashboard from './Dashboard';
+  import CreateProject from './CreateProject';
 
   let pageProps = {
     component: Dashboard,
@@ -12,6 +14,13 @@
   page('/', () => {
     pageProps = {
       component: Dashboard,
+      layout: DefaultLayout,
+    };
+  });
+
+  page('/create-project', () => {
+    pageProps = {
+      component: CreateProject,
       layout: DefaultLayout,
     };
   });

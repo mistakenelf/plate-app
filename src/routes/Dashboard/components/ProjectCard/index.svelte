@@ -13,7 +13,7 @@
   </p>
   <hr class="mb-4" />
   <div class="flex flex-row items-center mb-2">
-    <div class="bg-green-200 rounded text-xs px-1 text-green-900">
+    <div class="bg-green-200 rounded text-xs px-2 py-1 text-green-900">
       In Progress
     </div>
   </div>
