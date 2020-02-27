@@ -8,6 +8,8 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const WebpackBar = require('webpackbar');
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
@@ -129,5 +131,18 @@ module.exports = {
     }),
     new OptimizeCSSAssetsPlugin({}),
     new ErrorOverlayPlugin(),
+    new WebpackPwaManifest({
+      name: 'Plate',
+      short_name: 'plate',
+      description: 'Whats on your plate?',
+      background_color: '#ffffff',
+      theme_color: '#2196F3',
+      crossorigin: 'use-credentials',
+      ios: true,
+    }),
+    new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
   ],
 };
