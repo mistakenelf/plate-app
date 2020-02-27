@@ -14,7 +14,7 @@
     ($$props.class ? $$props.class : '');
 </script>
 
-<div class:w-full={fullWidth} class="flex flex-col">
+<div class:w-full={fullWidth}>
   {#if label}
     <label class="block text-gray-700 font-bold mb-1 uppercase text-sm">
       {label}
