@@ -17,10 +17,8 @@
     "social"
   ],
   "scripts": {
-    "start": "run-p webpack:dev firebase:dev",
-    "firebase:dev": "firebase serve",
-    "webpack:dev": "cross-env NODE_ENV=development webpack-dev-server",
-    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "svelvet",
+    "build": "cross-env NODE_ENV=production svelvet",
     "deploy": "npm run build && firebase deploy",
     "prettier": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\"",
     "eslint": "eslint --ext js,svelte ."
@@ -39,43 +37,19 @@
     ]
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.1.0",
-    "autoprefixer": "^9.7.4",
-    "clean-webpack-plugin": "^3.0.0",
-    "compression-webpack-plugin": "^3.1.0",
     "cross-env": "^7.0.0",
-    "css-loader": "^3.4.2",
-    "error-overlay-webpack-plugin": "^0.4.1",
     "eslint": "^6.8.0",
-    "eslint-loader": "^3.0.3",
     "eslint-plugin-svelte3": "^2.7.3",
-    "file-loader": "^5.1.0",
-    "friendly-errors-webpack-plugin": "^1.7.0",
-    "html-webpack-plugin": "^3.2.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
-    "mini-css-extract-plugin": "^0.9.0",
-    "npm-run-all": "^4.1.5",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "postcss": "^7.0.27",
-    "postcss-loader": "^3.0.0",
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
-    "style-loader": "^1.1.3",
     "svelte": "^3.19.1",
-    "svelte-loader": "^2.13.6",
-    "tailwindcss": "^1.2.0",
-    "terser-webpack-plugin": "^2.3.5",
-    "url-loader": "^3.0.0",
-    "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3",
-    "webpack-pwa-manifest": "^4.2.0",
-    "webpackbar": "^4.0.0",
-    "workbox-webpack-plugin": "^5.0.0"
+    "svelvet": "^0.3.4"
   },
   "dependencies": {
     "dayjs": "^1.8.21",
+    "firebase": "^7.9.3",
     "page": "^1.11.5",
     "svelte-i18n": "^3.0.1"
   }

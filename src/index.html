@@ -22,17 +22,19 @@
     <meta property="og:url" content="" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="plate" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="/main.css" />
     <title>Plate</title>
   </head>
 
   <body>
-    <script src="/__/firebase/7.9.1/firebase-app.js"></script>
+    <div id="app"></div>
+    <script type="module">
+      import App from './App.js';
 
-    <!-- Add Firebase products that you want to use -->
-    <script src="/__/firebase/7.9.1/firebase-auth.js"></script>
-    <script src="/__/firebase/7.9.1/firebase-firestore.js"></script>
-    <script src="/__/firebase/7.9.1/firebase-analytics.js"></script>
-    <script src="/__/firebase/7.9.1/firebase-storage.js"></script>
-    <script src="/__/firebase/init.js"></script>
+      new App({
+        target: document.querySelector('#app'),
+      });
+    </script>
   </body>
 </html>
