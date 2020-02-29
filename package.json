@@ -32,7 +32,6 @@
   "lint-staged": {
     "*.{svelte,md,js,css,html}": [
       "prettier --write",
-      "eslint",
       "git add"
     ]
   },
