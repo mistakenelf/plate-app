@@ -50,7 +50,6 @@
   "dependencies": {
     "dayjs": "^1.8.21",
     "firebase": "^7.9.3",
-    "page": "^1.11.5",
-    "svelte-i18n": "^3.0.1"
+    "page": "^1.11.5"
   }
 }
