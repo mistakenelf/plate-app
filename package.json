@@ -21,7 +21,8 @@
     "build": "cross-env NODE_ENV=production svelvet",
     "deploy": "npm run build && firebase deploy",
     "prettier": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\"",
-    "eslint": "eslint --ext js,svelte ."
+    "eslint": "eslint --ext js,svelte .",
+    "tailwind": "npx tailwind build src/assets/styles/tailwind.css -o src/assets/styles/tailwind.css"
   },
   "husky": {
     "hooks": {
@@ -43,7 +44,8 @@
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
     "svelte": "^3.19.1",
-    "svelvet": "^0.3.4"
+    "svelvet": "^0.3.4",
+    "tailwindcss": "^1.2.0"
   },
   "dependencies": {
     "dayjs": "^1.8.21",
