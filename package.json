@@ -19,10 +19,11 @@
   "scripts": {
     "dev": "svelvet",
     "build": "cross-env NODE_ENV=production svelvet",
-    "deploy": "npm run build && firebase deploy",
+    "deploy": "npm run build && npm run workbox && firebase deploy",
     "prettier": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\"",
     "eslint": "eslint --ext js,svelte .",
-    "tailwind": "npx tailwind build src/assets/styles/tailwind.css -o src/assets/styles/tailwind.css"
+    "tailwind": "npx tailwind build src/assets/styles/tailwind.css -o src/assets/styles/tailwind.css",
+    "workbox": "workbox generateSW workbox-config.js"
   },
   "husky": {
     "hooks": {
@@ -45,7 +46,8 @@
     "prettier-plugin-svelte": "^0.7.0",
     "svelte": "^3.19.1",
     "svelvet": "^0.3.4",
-    "tailwindcss": "^1.2.0"
+    "tailwindcss": "^1.2.0",
+    "workbox-cli": "^5.0.0"
   },
   "dependencies": {
     "dayjs": "^1.8.21",
