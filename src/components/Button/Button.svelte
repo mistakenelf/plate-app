@@ -1,9 +1,11 @@
 <script>
   export let label = '';
   export let fullWidth = false;
+  export let type = 'button';
 </script>
 
 <button
+  {type}
   on:click
   class:w-full={fullWidth}
   class="bg-teal-500 hover:bg-teal-400 text-white font-bold py-2 px-4 border-b-4

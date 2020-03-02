@@ -5,6 +5,7 @@
 
   import Dashboard from './Dashboard/Dashboard';
   import Login from './Login/Login';
+  import Register from './Register/Register';
 
   let pageProps = {
     component: Dashboard,
@@ -21,6 +22,13 @@
   page('/login', () => {
     pageProps = {
       component: Login,
+      layout: DefaultLayout,
+    };
+  });
+
+  page('/register', () => {
+    pageProps = {
+      component: Register,
       layout: DefaultLayout,
     };
   });

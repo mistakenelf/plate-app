@@ -8,14 +8,8 @@
   let email = '';
   let password = '';
 
-  const handleLogin = async e => {
+  const handleRegister = async e => {
     try {
-      await firebase
-        .auth()
-        .signInWithEmailAndPassword(
-          e.target.email.value,
-          e.target.password.value,
-        );
       page('/');
     } catch (e) {
       return e;
@@ -25,11 +19,11 @@
 
 <div class="flex items-center justify-center h-full">
   <div class="rounded-lg bg-white shadow p-4">
-    <div class="text-3xl mb-4">Login</div>
-    <form on:submit|preventDefault={handleLogin}>
+    <div class="text-3xl mb-4">Register</div>
+    <form on:submit|preventDefault={handleRegister}>
       <Input isFormField label="Email" id="email" type="email" />
       <Input isFormField label="Password" id="password" type="password" />
-      <Button fullWidth label="Login" type="submit" />
+      <Button fullWidth label="Register" type="submit" />
     </form>
   </div>
 </div>

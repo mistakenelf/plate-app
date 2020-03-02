@@ -1,6 +1,7 @@
 <script>
   export let label = undefined;
   export let type = 'text';
+  export let id = undefined;
   export let value = '';
   export let name = '';
   export let isFormField = false;
@@ -23,6 +24,7 @@
     </label>
   {/if}
   <input
+    {id}
     {name}
     {type}
     {value}
