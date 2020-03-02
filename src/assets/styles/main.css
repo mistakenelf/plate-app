@@ -1,7 +1,10 @@
 html,
 body,
-main {
+main,
+#app {
   height: 100%;
   width: 100%;
-  background: #f5f5f5;
+  background: #efecec;
+  margin: 0;
+  padding: 0;
 }

@@ -5,7 +5,6 @@
   import 'firebase/performance';
   import 'firebase/storage';
 
-  import { FirebaseApp } from 'sveltefire';
   import firebase from 'firebase/app';
   import { onMount } from 'svelte';
 
@@ -22,9 +21,10 @@
     measurementId: 'G-FZ24SC2Z26',
   };
 
-  firebase.initializeApp(firebaseConfig);
-
   onMount(() => {
+    firebase.initializeApp(firebaseConfig);
+    firebase.performance();
+
     if (process.env.NODE_ENV === 'production') {
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
@@ -38,6 +38,4 @@
   });
 </script>
 
-<FirebaseApp {firebase} analytics perf>
-  <Pages />
-</FirebaseApp>
+<Pages />
