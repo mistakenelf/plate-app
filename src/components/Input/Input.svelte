@@ -10,7 +10,7 @@
   export let required = false;
   export let hasError = false;
   $: classes =
-    'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500 ' +
+    'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-teal-500 ' +
     ($$props.class ? $$props.class : '');
 </script>
 

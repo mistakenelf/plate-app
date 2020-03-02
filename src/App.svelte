@@ -20,9 +20,9 @@
     appId: '1:816045518067:web:11e6b1c965e9f586d35b86',
     measurementId: 'G-FZ24SC2Z26',
   };
+  firebase.initializeApp(firebaseConfig);
 
   onMount(() => {
-    firebase.initializeApp(firebaseConfig);
     firebase.performance();
 
     if (process.env.NODE_ENV === 'production') {

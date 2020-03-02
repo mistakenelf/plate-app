@@ -12,6 +12,9 @@
     try {
       await firebase
         .auth()
+        .setPersistence(firebase.auth.Auth.Persistence.SESSION);
+      await firebase
+        .auth()
         .signInWithEmailAndPassword(
           e.target.email.value,
           e.target.password.value,
@@ -27,8 +30,13 @@
   <div class="rounded-lg bg-white shadow p-4">
     <div class="text-3xl mb-4">Login</div>
     <form on:submit|preventDefault={handleLogin}>
-      <Input isFormField label="Email" id="email" type="email" />
-      <Input isFormField label="Password" id="password" type="password" />
+      <Input isFormField required label="Email" id="email" type="email" />
+      <Input
+        isFormField
+        required
+        label="Password"
+        id="password"
+        type="password" />
       <Button fullWidth label="Login" type="submit" />
     </form>
   </div>
