@@ -2,10 +2,14 @@
   import 'firebase/analytics';
   import 'firebase/auth';
   import 'firebase/firestore';
+  import 'firebase/performance';
+  import 'firebase/storage';
+
+  import { FirebaseApp } from 'sveltefire';
   import firebase from 'firebase/app';
   import { onMount } from 'svelte';
 
-  import Routes from './routes/Routes';
+  import Pages from './pages/Pages';
 
   const firebaseConfig = {
     apiKey: 'AIzaSyCcv615ya9Uor9uK1MhIvZOqzqVhy-vzmQ',
@@ -18,18 +22,22 @@
     measurementId: 'G-FZ24SC2Z26',
   };
 
-  onMount(() => {
-    firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
 
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker
-          .register('/sw.js')
-          .then()
-          .catch();
-      });
+  onMount(() => {
+    if (process.env.NODE_ENV === 'production') {
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker
+            .register('/sw.js')
+            .then()
+            .catch();
+        });
+      }
     }
   });
 </script>
 
-<Routes />
+<FirebaseApp {firebase} analytics perf>
+  <Pages />
+</FirebaseApp>

@@ -4,6 +4,7 @@
   import DefaultLayout from '../layouts/DefaultLayout/DefaultLayout';
 
   import Dashboard from './Dashboard/Dashboard';
+  import Login from './Login/Login';
 
   let pageProps = {
     component: Dashboard,
@@ -13,6 +14,13 @@
   page('/', () => {
     pageProps = {
       component: Dashboard,
+      layout: DefaultLayout,
+    };
+  });
+
+  page('/login', () => {
+    pageProps = {
+      component: Login,
       layout: DefaultLayout,
     };
   });
