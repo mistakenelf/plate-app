@@ -1,5 +1,7 @@
 <script>
   import Meta from '../../components/Meta/Meta';
+
+  import Plate from './components/Plate/Plate';
 </script>
 
 <Meta
@@ -8,5 +10,11 @@
   can start managing them" />
 
 <div class="p-4">
-  <div class="bg-white rounded shadow h-32">Some Content</div>
+  <div class="grid md:grid-flow-row md:grid-cols-3 gap-4">
+    <Plate />
+    <Plate />
+    <Plate />
+    <Plate />
+    <Plate />
+  </div>
 </div>

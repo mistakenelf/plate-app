@@ -12,7 +12,7 @@
     try {
       await firebase
         .auth()
-        .setPersistence(firebase.auth.Auth.Persistence.SESSION);
+        .setPersistence(firebase.auth.Auth.Persistence.LOCAL);
       await firebase
         .auth()
         .createUserWithEmailAndPassword(

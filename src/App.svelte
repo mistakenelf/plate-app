@@ -10,6 +10,8 @@
 
   import Pages from './pages/Pages';
 
+  let loading = true;
+
   const firebaseConfig = {
     apiKey: 'AIzaSyCcv615ya9Uor9uK1MhIvZOqzqVhy-vzmQ',
     authDomain: 'plate-fd64a.firebaseapp.com',
@@ -20,10 +22,19 @@
     appId: '1:816045518067:web:11e6b1c965e9f586d35b86',
     measurementId: 'G-FZ24SC2Z26',
   };
+
   firebase.initializeApp(firebaseConfig);
 
   onMount(() => {
     firebase.performance();
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        loading = false;
+      } else {
+        loading = true;
+      }
+    });
 
     if (process.env.NODE_ENV === 'production') {
       if ('serviceWorker' in navigator) {
@@ -38,4 +49,8 @@
   });
 </script>
 
-<Pages />
+{#if loading}
+  <p>loading...</p>
+{:else}
+  <Pages />
+{/if}
