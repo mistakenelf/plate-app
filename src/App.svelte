@@ -32,7 +32,7 @@
       if (user) {
         loading = false;
       } else {
-        loading = true;
+        loading = false;
       }
     });
 
