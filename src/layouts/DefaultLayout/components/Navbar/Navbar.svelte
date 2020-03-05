@@ -1,6 +1,13 @@
+<script>
+  import firebase from 'firebase/app';
+
+  let user = firebase.auth().currentUser;
+</script>
+
 <nav class="flex bg-gray-800 justify-between pr-4 pl-4 h-12 items-center">
   <div class="flex items-center">
     <svg
+      class="cursor-pointer"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -27,7 +34,7 @@
   </ul>
   <div class="flex flex-row">
     <div class="rounded-full bg-white flex items-center justify-center h-8 w-8">
-      TK
+      {user.displayName[0]}
     </div>
   </div>
 </nav>

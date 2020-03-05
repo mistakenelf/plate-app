@@ -17,7 +17,7 @@
     "social"
   ],
   "scripts": {
-    "dev": "cross-env NODE_ENV=development svelvet",
+    "start": "cross-env NODE_ENV=development svelvet",
     "build": "cross-env NODE_ENV=production svelvet",
     "deploy": "npm run tailwind && npm run build && npm run workbox && firebase deploy",
     "prettier": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\"",
