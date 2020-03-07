@@ -38,21 +38,21 @@
   },
   "devDependencies": {
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
-    "cross-env": "^7.0.1",
+    "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-plugin-svelte3": "^2.7.3",
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
-    "svelte": "^3.19.1",
+    "svelte": "^3.19.2",
     "svelvet": "^0.3.6",
     "tailwindcss": "^1.2.0",
     "workbox-cli": "^5.0.0"
   },
   "dependencies": {
     "dayjs": "^1.8.21",
-    "firebase": "^7.9.3",
+    "firebase": "^7.10.0",
     "page": "^1.11.5"
   }
 }
