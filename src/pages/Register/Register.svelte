@@ -9,20 +9,12 @@
     try {
       await firebase
         .auth()
-        .setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-
-      await firebase
-        .auth()
         .createUserWithEmailAndPassword(
           e.target.email.value,
           e.target.password.value,
         );
 
-      const user = firebase.auth().currentUser;
-
-      console.log(user);
-
-      user.updateProfile({
+      firebase.auth().currentUser.updateProfile({
         displayName: `${e.target.firstName.value} ${e.target.lastName.value}`,
       });
 

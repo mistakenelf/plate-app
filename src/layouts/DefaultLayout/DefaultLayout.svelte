@@ -4,5 +4,7 @@
 
 <main>
   <Navbar />
-  <slot />
+  <div class="mt-12">
+    <slot />
+  </div>
 </main>

@@ -2,7 +2,7 @@
   import dayjs from 'dayjs';
 </script>
 
-<div class="bg-white rounded p-2">
+<div class="bg-white rounded-lg shadow p-2">
   <div class="flex flex-row items-center justify-between mb-6">
     <div class="text-sm text-gray-600">Development</div>
     <div class="text-sm text-gray-600">{dayjs().format('MMMM DD, YYYY')}</div>

@@ -51,7 +51,7 @@
     "workbox-cli": "^5.0.0"
   },
   "dependencies": {
-    "dayjs": "^1.8.21",
+    "dayjs": "^1.8.22",
     "firebase": "^7.10.0",
     "page": "^1.11.5"
   }

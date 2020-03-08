@@ -37,5 +37,5 @@
 </script>
 
 <svelte:component this={pageProps.layout}>
-  <svelte:component this={pageProps.component} {...pageProps} />
+  <svelte:component this={pageProps.component} />
 </svelte:component>

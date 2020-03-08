@@ -12,9 +12,6 @@
     try {
       await firebase
         .auth()
-        .setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-      await firebase
-        .auth()
         .signInWithEmailAndPassword(
           e.target.email.value,
           e.target.password.value,
