@@ -1,5 +1,6 @@
 <script>
   import Meta from '../../components/Meta/Meta';
+  import FAB from '../../components/FAB/FAB';
 
   import Plate from './components/Plate/Plate';
 </script>
@@ -17,4 +18,5 @@
     <Plate />
     <Plate />
   </div>
+  <FAB />
 </div>
