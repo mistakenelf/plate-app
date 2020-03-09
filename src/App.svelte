@@ -8,6 +8,8 @@
   import firebase from 'firebase/app';
   import { onMount } from 'svelte';
 
+  import { user } from './store/user';
+
   import Pages from './pages/Pages';
 
   let loading = true;
@@ -28,13 +30,21 @@
   onMount(() => {
     firebase.performance();
 
-    firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        loading = false;
-      } else {
-        loading = false;
-      }
-    });
+    if (
+      window.location.pathname === '/login' ||
+      window.location.pathname === '/register'
+    ) {
+      loading = false;
+    } else {
+      firebase.auth().onAuthStateChanged(res => {
+        if (res) {
+          loading = false;
+          user.set(res);
+        } else {
+          loading = false;
+        }
+      });
+    }
 
     if (process.env.NODE_ENV === 'production') {
       if ('serviceWorker' in navigator) {

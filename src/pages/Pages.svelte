@@ -2,6 +2,7 @@
   import page from 'page';
 
   import DefaultLayout from '../layouts/DefaultLayout/DefaultLayout';
+  import { user } from '../store/user';
 
   import Dashboard from './Dashboard/Dashboard';
   import Login from './Login/Login';
@@ -13,24 +14,36 @@
   };
 
   page('/', () => {
-    pageProps = {
-      component: Dashboard,
-      layout: DefaultLayout,
-    };
+    if ($user) {
+      pageProps = {
+        component: Dashboard,
+        layout: DefaultLayout,
+      };
+    } else {
+      page.redirect('/login');
+    }
   });
 
   page('/login', () => {
-    pageProps = {
-      component: Login,
-      layout: DefaultLayout,
-    };
+    if ($user) {
+      page.redirect('/');
+    } else {
+      pageProps = {
+        component: Login,
+        layout: DefaultLayout,
+      };
+    }
   });
 
   page('/register', () => {
-    pageProps = {
-      component: Register,
-      layout: DefaultLayout,
-    };
+    if ($user) {
+      page.redirect('/');
+    } else {
+      pageProps = {
+        component: Register,
+        layout: DefaultLayout,
+      };
+    }
   });
 
   page.start();

@@ -4,18 +4,22 @@
 
   import Input from '../../components/Input/Input';
   import Button from '../../components/Button/Button';
+  import { user } from '../../store/user';
 
   let email = '';
   let password = '';
 
   const handleLogin = async e => {
     try {
-      await firebase
+      const res = await firebase
         .auth()
         .signInWithEmailAndPassword(
           e.target.email.value,
           e.target.password.value,
         );
+
+      user.set(res.user);
+
       page('/');
     } catch (e) {
       return e;

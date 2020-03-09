@@ -4,10 +4,11 @@
 
   import Input from '../../components/Input/Input';
   import Button from '../../components/Button/Button';
+  import { user } from '../../store/user';
 
   const handleRegister = async e => {
     try {
-      await firebase
+      const res = await firebase
         .auth()
         .createUserWithEmailAndPassword(
           e.target.email.value,
@@ -17,6 +18,8 @@
       firebase.auth().currentUser.updateProfile({
         displayName: `${e.target.firstName.value} ${e.target.lastName.value}`,
       });
+
+      user.set(res);
 
       page('/');
     } catch (e) {
