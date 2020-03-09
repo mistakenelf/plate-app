@@ -3,6 +3,17 @@
   import FAB from '../../components/FAB/FAB';
 
   import Plate from './components/Plate/Plate';
+  import CreatePlateModal from './components/CreatePlateModal/CreatePlateModal';
+
+  let createPlateModalOpen = false;
+
+  const openCreatePlateModal = () => {
+    createPlateModalOpen = true;
+  };
+
+  const closeCreatePlateModal = () => {
+    createPlateModalOpen = false;
+  };
 </script>
 
 <Meta
@@ -18,5 +29,8 @@
     <Plate />
     <Plate />
   </div>
-  <FAB />
+  <CreatePlateModal
+    isOpen={createPlateModalOpen}
+    closeModal={closeCreatePlateModal} />
+  <FAB on:click={openCreatePlateModal} />
 </div>

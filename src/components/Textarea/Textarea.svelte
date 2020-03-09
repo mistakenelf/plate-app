@@ -1,6 +1,5 @@
 <script>
   export let label = undefined;
-  export let type = 'text';
   export let id = undefined;
   export let value = '';
   export let name = '';
@@ -9,6 +8,8 @@
   export let placeholder = '';
   export let required = false;
   export let hasError = false;
+  export let rows = 4;
+
   $: classes =
     'bg-white appearance-none border-2 border-gray-300 rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-teal-500 ' +
     ($$props.class ? $$props.class : '');
@@ -23,13 +24,13 @@
       {/if}
     </label>
   {/if}
-  <input
+  <textarea
     {id}
     {name}
-    {type}
     {value}
     {placeholder}
     {required}
+    {rows}
     on:change
     on:keyup
     class:mb-8={isFormField}
