@@ -1,6 +1,7 @@
 <script>
   import Meta from '../../components/Meta/Meta';
   import FAB from '../../components/FAB/FAB';
+  import { freezeScroll, unfreezeScroll } from '../../helpers/scroll';
 
   import Plate from './components/Plate/Plate';
   import CreatePlateModal from './components/CreatePlateModal/CreatePlateModal';
@@ -8,10 +9,14 @@
   let createPlateModalOpen = false;
 
   const openCreatePlateModal = () => {
+    freezeScroll();
+
     createPlateModalOpen = true;
   };
 
   const closeCreatePlateModal = () => {
+    unfreezeScroll();
+
     createPlateModalOpen = false;
   };
 </script>
