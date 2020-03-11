@@ -1,6 +1,6 @@
 <script>
   import firebase from 'firebase/app';
-  import { slide } from 'svelte/transition';
+  import { slide, fade } from 'svelte/transition';
   import page from 'page';
 
   import { user } from '../../../../store/user';
@@ -16,7 +16,7 @@
 
 <style>
   .mobile-menu {
-    top: 49px;
+    top: 48px;
   }
 </style>
 
@@ -85,22 +85,22 @@
   </div>
   {#if menuOpen}
     <div
-      class="bg-white w-full absolute mobile-menu left-0 p-4"
+      class="bg-gray-800 w-full absolute mobile-menu left-0 p-4 rounded-b-lg"
       transition:slide>
       <ul>
         {#if $user}
-          <li class="font-bold mb-4">
+          <li class="text-white font-bold mb-4" transition:fade>
             <a href="/">Dashboard</a>
           </li>
-          <li class="font-bold">
+          <li class="text-white font-bold" transition:fade>
             <div class="cursor-pointer" on:click={logout}>Logout</div>
           </li>
         {/if}
         {#if !$user}
-          <li class="font-bold mb-4">
+          <li class="text-white font-bold mb-4" transition:fade>
             <a href="/login">Login</a>
           </li>
-          <li class="font-bold">
+          <li class="text-white font-bold" transition:fade>
             <a href="/register">Register</a>
           </li>
         {/if}
