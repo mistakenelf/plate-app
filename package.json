@@ -45,7 +45,7 @@
     "lint-staged": "^10.0.8",
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
-    "svelte": "^3.19.2",
+    "svelte": "^3.20.0",
     "svelvet": "^0.3.6",
     "tailwindcss": "^1.2.0",
     "workbox-cli": "^5.0.0"
