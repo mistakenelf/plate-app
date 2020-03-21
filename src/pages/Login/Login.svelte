@@ -4,7 +4,7 @@
 
   import Input from '../../components/Input/Input';
   import Button from '../../components/Button/Button';
-  import { user } from '../../store/user';
+  import { currentUser } from '../../store/auth';
 
   let email = '';
   let password = '';
@@ -18,7 +18,7 @@
           e.target.password.value,
         );
 
-      user.set(res.user);
+      currentUser.set(res.user);
 
       page('/');
     } catch (e) {

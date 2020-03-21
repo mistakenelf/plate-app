@@ -8,8 +8,8 @@
   import firebase from 'firebase/app';
   import { onMount } from 'svelte';
 
-  import { user } from './store/user';
-
+  import Loader from './components/Loader/Loader';
+  import { currentUser } from './store/auth';
   import Pages from './pages/Pages';
 
   let loading = true;
@@ -29,6 +29,7 @@
 
   onMount(() => {
     firebase.performance();
+    firebase.analytics();
 
     if (
       window.location.pathname === '/login' ||
@@ -39,7 +40,7 @@
       firebase.auth().onAuthStateChanged(res => {
         if (res) {
           loading = false;
-          user.set(res);
+          currentUser.set(res);
         } else {
           loading = false;
         }
@@ -60,7 +61,7 @@
 </script>
 
 {#if loading}
-  <p>loading...</p>
+  <Loader fullPage />
 {:else}
   <Pages />
 {/if}

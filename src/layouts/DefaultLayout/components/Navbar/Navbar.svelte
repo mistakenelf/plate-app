@@ -3,13 +3,13 @@
   import { slide, fade } from 'svelte/transition';
   import page from 'page';
 
-  import { user } from '../../../../store/user';
+  import { currentUser } from '../../../../store/auth';
 
   let menuOpen = false;
 
   const logout = async () => {
     await firebase.auth().signOut();
-    user.set(null);
+    currentUser.set(null);
     page('/login');
   };
 </script>
@@ -56,7 +56,7 @@
     <div class="text-white text-3xl font-bold ml-2 md:ml-0">Plate</div>
   </div>
   <ul class="hidden md:flex flex-row">
-    {#if $user}
+    {#if $currentUser}
       <li class="text-white ml-4 font-bold">
         <a href="/">Dashboard</a>
       </li>
@@ -64,7 +64,7 @@
         <div class="cursor-pointer" on:click={logout}>Logout</div>
       </li>
     {/if}
-    {#if !$user}
+    {#if !$currentUser}
       <li class="text-white ml-4 font-bold">
         <a href="/login">Login</a>
       </li>
@@ -88,7 +88,7 @@
       class="bg-gray-800 w-full absolute mobile-menu left-0 p-4 rounded-b-lg"
       transition:slide>
       <ul>
-        {#if $user}
+        {#if $currentUser}
           <li class="text-white font-bold mb-4" transition:fade>
             <a href="/">Dashboard</a>
           </li>
@@ -96,7 +96,7 @@
             <div class="cursor-pointer" on:click={logout}>Logout</div>
           </li>
         {/if}
-        {#if !$user}
+        {#if !$currentUser}
           <li class="text-white font-bold mb-4" transition:fade>
             <a href="/login">Login</a>
           </li>

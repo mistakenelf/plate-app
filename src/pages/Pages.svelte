@@ -2,7 +2,7 @@
   import page from 'page';
 
   import DefaultLayout from '../layouts/DefaultLayout/DefaultLayout';
-  import { user } from '../store/user';
+  import { currentUser } from '../store/auth';
 
   import Dashboard from './Dashboard/Dashboard';
   import Login from './Login/Login';
@@ -14,7 +14,7 @@
   };
 
   page('/', () => {
-    if ($user) {
+    if ($currentUser) {
       pageProps = {
         component: Dashboard,
         layout: DefaultLayout,
@@ -25,7 +25,7 @@
   });
 
   page('/login', () => {
-    if ($user) {
+    if ($currentUser) {
       page.redirect('/');
     } else {
       pageProps = {
@@ -36,7 +36,7 @@
   });
 
   page('/register', () => {
-    if ($user) {
+    if ($currentUser) {
       page.redirect('/');
     } else {
       pageProps = {

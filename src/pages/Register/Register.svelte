@@ -4,7 +4,7 @@
 
   import Input from '../../components/Input/Input';
   import Button from '../../components/Button/Button';
-  import { user } from '../../store/user';
+  import { currentUser } from '../../store/auth';
 
   const handleRegister = async e => {
     try {
@@ -19,7 +19,7 @@
         displayName: `${e.target.firstName.value} ${e.target.lastName.value}`,
       });
 
-      user.set(res);
+      currentUser.set(res);
 
       page('/');
     } catch (e) {

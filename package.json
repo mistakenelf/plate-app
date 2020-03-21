@@ -46,13 +46,13 @@
     "prettier": "^1.19.1",
     "prettier-plugin-svelte": "^0.7.0",
     "svelte": "^3.20.1",
-    "svelvet": "^0.3.6",
+    "svelvet": "^0.4.0",
     "tailwindcss": "^1.2.0",
-    "workbox-cli": "^5.0.0"
+    "workbox-cli": "^5.1.1"
   },
   "dependencies": {
     "dayjs": "^1.8.23",
-    "firebase": "^7.11.0",
+    "firebase": "^7.12.0",
     "page": "^1.11.5"
   }
 }
