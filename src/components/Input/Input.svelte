@@ -9,6 +9,7 @@
   export let placeholder = '';
   export let required = false;
   export let hasError = false;
+
   $: classes =
     'bg-white appearance-none border-2 border-gray-300 rounded w-full py-2 md:py-3 px-2 md:px-4 text-gray-700 leading-tight focus:outline-none focus:border-teal-500 ' +
     ($$props.class ? $$props.class : '');
