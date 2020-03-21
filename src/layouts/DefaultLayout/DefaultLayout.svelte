@@ -4,7 +4,7 @@
 
 <main>
   <Navbar />
-  <div class="mt-12">
+  <div class="mt-12 h-full">
     <slot />
   </div>
 </main>
