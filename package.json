@@ -22,7 +22,7 @@
     "deploy": "npm run tailwind && npm run build && npm run workbox && firebase deploy",
     "prettier": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\"",
     "eslint": "eslint --ext js,svelte .",
-    "tailwind": "npx tailwind build public/assets/styles/tailwind.css -o public/assets/styles/tailwind.css",
+    "tailwind": "npx tailwind build public/styles/tailwind.css -o public/styles/tailwind.css",
     "workbox": "workbox generateSW workbox-config.js"
   },
   "husky": {
