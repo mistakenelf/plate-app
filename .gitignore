@@ -1,6 +1,6 @@
 .DS_Store
 node_modules/
 .env
-dist/
+public/dist/
 .firebase/
 firebase-debug.log
