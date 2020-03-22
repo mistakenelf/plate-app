@@ -2,7 +2,7 @@
   import page from 'page';
 
   import DefaultLayout from '../layouts/DefaultLayout/DefaultLayout';
-  import { currentUser } from '../store/auth';
+  import { firebaseUser } from '../store/firebase';
 
   import Dashboard from './Dashboard/Dashboard';
   import Login from './Login/Login';
@@ -14,7 +14,7 @@
   };
 
   page('/', () => {
-    if ($currentUser) {
+    if ($firebaseUser) {
       pageProps = {
         component: Dashboard,
         layout: DefaultLayout,
@@ -25,7 +25,7 @@
   });
 
   page('/login', () => {
-    if ($currentUser) {
+    if ($firebaseUser) {
       page.redirect('/');
     } else {
       pageProps = {
@@ -36,7 +36,7 @@
   });
 
   page('/register', () => {
-    if ($currentUser) {
+    if ($firebaseUser) {
       page.redirect('/');
     } else {
       pageProps = {

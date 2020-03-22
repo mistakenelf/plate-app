@@ -4,7 +4,7 @@
 
   import Input from '../../components/Input/Input';
   import Button from '../../components/Button/Button';
-  import { currentUser } from '../../store/auth';
+  import { firebaseUser } from '../../store/firebase';
 
   const handleRegister = async e => {
     try {
@@ -19,7 +19,7 @@
         displayName: `${e.target.firstName.value} ${e.target.lastName.value}`,
       });
 
-      currentUser.set(res);
+      firebaseUser.set(res);
 
       page('/');
     } catch (e) {

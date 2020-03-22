@@ -4,7 +4,7 @@
 
   import Input from '../../components/Input/Input';
   import Button from '../../components/Button/Button';
-  import { currentUser } from '../../store/auth';
+  import { firebaseUser } from '../../store/firebase';
 
   let email = '';
   let password = '';
@@ -18,7 +18,7 @@
           e.target.password.value,
         );
 
-      currentUser.set(res.user);
+      firebaseUser.set(res.user);
 
       page('/');
     } catch (e) {

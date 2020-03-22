@@ -1,51 +1,17 @@
 <script>
-  import 'firebase/analytics';
-  import 'firebase/auth';
-  import 'firebase/firestore';
-  import 'firebase/performance';
-  import 'firebase/storage';
-
-  import firebase from 'firebase/app';
   import { onMount } from 'svelte';
 
   import Loader from './components/Loader/Loader';
-  import { currentUser } from './store/auth';
+  import { firebaseUser } from './store/firebase';
   import Pages from './pages/Pages';
-
-  let loading = true;
-
-  const firebaseConfig = {
-    apiKey: 'AIzaSyCcv615ya9Uor9uK1MhIvZOqzqVhy-vzmQ',
-    authDomain: 'plate-fd64a.firebaseapp.com',
-    databaseURL: 'https://plate-fd64a.firebaseio.com',
-    projectId: 'plate-fd64a',
-    storageBucket: 'plate-fd64a.appspot.com',
-    messagingSenderId: '816045518067',
-    appId: '1:816045518067:web:11e6b1c965e9f586d35b86',
-    measurementId: 'G-FZ24SC2Z26',
-  };
-
-  firebase.initializeApp(firebaseConfig);
+  import {
+    initializeFirebase,
+    firebaseConfig,
+    firebaseLoading,
+  } from './store/firebase';
 
   onMount(() => {
-    firebase.performance();
-    firebase.analytics();
-
-    if (
-      window.location.pathname === '/login' ||
-      window.location.pathname === '/register'
-    ) {
-      loading = false;
-    } else {
-      firebase.auth().onAuthStateChanged(res => {
-        if (res) {
-          loading = false;
-          currentUser.set(res);
-        } else {
-          loading = false;
-        }
-      });
-    }
+    initializeFirebase();
 
     if (process.env.NODE_ENV === 'production') {
       if ('serviceWorker' in navigator) {
@@ -60,7 +26,7 @@
   });
 </script>
 
-{#if loading}
+{#if $firebaseLoading}
   <Loader fullPage />
 {:else}
   <Pages />
