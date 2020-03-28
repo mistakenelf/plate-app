@@ -17,12 +17,12 @@
     "social"
   ],
   "scripts": {
-    "start": "cross-env NODE_ENV=development svelvet",
+    "start": "npm run tailwind && cross-env NODE_ENV=development svelvet",
     "build": "cross-env NODE_ENV=production svelvet",
     "deploy": "npm run tailwind && npm run build && npm run workbox && firebase deploy",
     "prettier": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\"",
     "eslint": "eslint --ext js,svelte .",
-    "tailwind": "npx tailwind build public/styles/tailwind.css -o public/styles/tailwind.css",
+    "tailwind": "npx tailwind build public/styles/tailwind.css -o public/styles/tailwindcss.css",
     "workbox": "workbox generateSW workbox-config.js"
   },
   "husky": {
@@ -42,17 +42,17 @@
     "eslint": "^6.8.0",
     "eslint-plugin-svelte3": "^2.7.3",
     "husky": "^4.2.3",
-    "lint-staged": "^10.0.8",
-    "prettier": "^2.0.1",
+    "lint-staged": "^10.0.9",
+    "prettier": "^2.0.2",
     "prettier-plugin-svelte": "^0.7.0",
     "svelte": "^3.20.1",
     "svelvet": "^0.4.0",
     "tailwindcss": "^1.2.0",
-    "workbox-cli": "^5.1.1"
+    "workbox-cli": "^5.1.2"
   },
   "dependencies": {
     "dayjs": "^1.8.23",
-    "firebase": "^7.12.0",
+    "firebase": "^7.13.1",
     "page": "^1.11.5"
   }
 }

@@ -7,3 +7,4 @@ firebase-debug.log
 public/sw.js
 public/sw.js.map
 public/workbox-*
+public/styles/tailwindcss.css
