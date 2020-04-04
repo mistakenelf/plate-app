@@ -25,24 +25,11 @@
     "tailwind": "npx tailwind build public/styles/tailwind.css -o public/styles/tailwindcss.css",
     "workbox": "workbox generateSW workbox-config.js"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run deploy"
-    }
-  },
-  "lint-staged": {
-    "*.{svelte,md,js,css,html}": [
-      "prettier --write"
-    ]
-  },
   "devDependencies": {
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-plugin-svelte3": "^2.7.3",
-    "husky": "^4.2.3",
-    "lint-staged": "^10.0.9",
     "prettier": "^2.0.2",
     "prettier-plugin-svelte": "^0.7.0",
     "svelte": "^3.20.1",

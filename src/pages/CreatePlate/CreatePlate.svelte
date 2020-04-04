@@ -1,24 +1,22 @@
 <script>
   import firebase from 'firebase/app';
   import dayjs from 'dayjs';
+  import page from 'page';
 
-  import Modal from '../../../../components/Modal/Modal';
-  import Input from '../../../../components/Input/Input';
-  import Textarea from '../../../../components/Textarea/Textarea';
-  import Select from '../../../../components/Select/Select';
-  import { db, firebaseUser } from '../../../../store/firebase';
+  import Button from '../../components/Button/Button';
+  import Input from '../../components/Input/Input';
+  import Textarea from '../../components/Textarea/Textarea';
+  import Select from '../../components/Select/Select';
+  import { db, firebaseUser } from '../../store/firebase';
 
   let title = '';
   let dueDate = dayjs().format();
   let description = '';
   let category = '';
 
-  export let isOpen;
-  export let closeModal;
-
-  const createPlate = () => {
+  const createPlate = async () => {
     if (title !== '' && description !== '') {
-      db.collection('plates').add({
+      await db.collection('plates').add({
         createdBy: $firebaseUser.uid,
         title,
         dueDate: dayjs(dueDate).format(),
@@ -26,17 +24,12 @@
         category: 'Development',
       });
 
-      closeModal();
+      page('/');
     }
   };
 </script>
 
-<Modal
-  title="Create Plate"
-  {isOpen}
-  on:handleClose={closeModal}
-  on:handleOK={createPlate}>
-  <form>
+  <form class="p-4" on:submit|preventDefault={createPlate}>
     <Input
       isFormField
       type="text"
@@ -63,5 +56,5 @@
       <option>Management</option>
       <option>Home</option>
     </Select>
+    <Button type="submit" label="Create Plate" />
   </form>
-</Modal>

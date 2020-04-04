@@ -7,6 +7,7 @@
   import Dashboard from './Dashboard/Dashboard';
   import Login from './Login/Login';
   import Register from './Register/Register';
+  import CreatePlate from './CreatePlate/CreatePlate';
 
   let pageProps = {
     component: Dashboard,
@@ -17,6 +18,17 @@
     if ($firebaseUser) {
       pageProps = {
         component: Dashboard,
+        layout: DefaultLayout,
+      };
+    } else {
+      page.redirect('/login');
+    }
+  });
+
+  page('/create-plate', () => {
+    if ($firebaseUser) {
+      pageProps = {
+        component: CreatePlate,
         layout: DefaultLayout,
       };
     } else {
