@@ -10,7 +10,7 @@
 </script>
 
 <div class:w-full={fullWidth} class="flex flex-col">
-  <label class="block text-gray-700 font-bold mb-1 uppercase text-sm">
+  <label class="block text-gray-300 font-bold mb-1 uppercase text-sm">
     {label}
   </label>
   <select
@@ -21,9 +21,7 @@
     bind:value={selectValue}
     class:w-full={fullWidth}
     class:mb-8={isFormField}
-    class="block w-full bg-white border-2 border-gray-300
-    hover:border-gray-400 px-4 py-3 rounded leading-tight
-    focus:outline-none focus:shadow-outline">
+    class="bg-gray-600 appearance-none rounded w-full px-4 py-3 text-gray-300 leading-tight focus:outline-none focus:border-gray-400">
     <slot />
   </select>
 </div>

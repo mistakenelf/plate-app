@@ -29,8 +29,8 @@
 </script>
 
 <div class="flex items-center justify-center h-full">
-  <div class="rounded-lg bg-white shadow p-4">
-    <div class="text-3xl mb-4">Register</div>
+  <div class="rounded-lg bg-gray-700 shadow p-4">
+    <div class="text-3xl mb-4 text-gray-300">Register</div>
     <form on:submit|preventDefault={handleRegister}>
       <div class="grid md:grid-flow-row md:grid-cols-2 gap-4 mb-6">
         <Input required label="First Name" id="firstName" type="text" />

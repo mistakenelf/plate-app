@@ -5,17 +5,21 @@
   import Meta from '../../components/Meta/Meta';
   import FAB from '../../components/FAB/FAB';
   import { firebaseUser, db } from '../../store/firebase';
+  import Loader from '../../components/Loader/Loader';
 
   import Plate from './components/Plate/Plate';
 
   let plates = [];
+  let loading = true;
 
   const createPlate = () => {
     page('/create-plate');
   }
 
-  onMount(() => {
-    db.collection('plates')
+  onMount(async () => {
+    loading = true;
+
+    await db.collection('plates')
       .where('createdBy', '==', $firebaseUser.uid)
       .onSnapshot(querySnapshot => {
         plates = [];
@@ -23,6 +27,8 @@
         querySnapshot.forEach(doc => {
           plates = [...plates, doc.data()];
         });
+
+        loading = false;
       });
   });
 </script>
@@ -31,9 +37,11 @@
   title="Dashboard"
   description="Plate dashboard is where you get an overview of your plates and
   can start managing them" />
-
+{#if loading}
+  <Loader fullPage />
+{/if}
 <div class="p-4">
-  <div class="grid md:grid-flow-row md:grid-cols-3 gap-4">
+  <div class="grid md:grid-flow-row md:grid-cols-2 lg:grid-cols-3 gap-4">
     {#each plates as plate}
       <Plate
         title={plate.title}

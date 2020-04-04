@@ -21,7 +21,7 @@
 </style>
 
 <nav
-  class="fixed top-0 w-full flex bg-gray-800 justify-between pr-4 pl-4 h-12
+  class="fixed top-0 w-full flex bg-teal-600 justify-between pr-4 pl-4 h-12
   items-center shadow">
   <div class="flex items-center">
     {#if menuOpen}
@@ -85,7 +85,7 @@
   </div>
   {#if menuOpen}
     <div
-      class="bg-gray-800 w-full absolute mobile-menu left-0 p-4 rounded-b-lg"
+      class="bg-gray-900 w-full absolute mobile-menu left-0 p-4 rounded-b-lg"
       transition:slide>
       <ul>
         {#if $firebaseUser}

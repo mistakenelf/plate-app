@@ -11,13 +11,13 @@
   export let rows = 4;
 
   $: classes =
-    'bg-white appearance-none border-2 border-gray-300 rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-teal-500 ' +
+    'bg-gray-600 appearance-none rounded w-full px-4 py-3 text-gray-200 leading-tight focus:outline-none focus:border-gray-400  ' +
     ($$props.class ? $$props.class : '');
 </script>
 
 <div class:w-full={fullWidth} class="flex flex-col">
   {#if label}
-    <label class="block text-gray-700 font-bold mb-1 uppercase text-sm">
+    <label class="block text-gray-300 font-bold mb-1 uppercase text-sm">
       {label}
       {#if required}
         <span class="text-red-500">*</span>

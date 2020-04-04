@@ -28,8 +28,8 @@
 </script>
 
 <div class="flex items-center justify-center h-full">
-  <div class="rounded-lg bg-white shadow p-4">
-    <div class="text-3xl mb-4">Login</div>
+  <div class="rounded-lg bg-gray-700 shadow p-4">
+    <div class="text-3xl mb-4 text-gray-300">Login</div>
     <form on:submit|preventDefault={handleLogin}>
       <Input isFormField required label="Email" id="email" type="email" />
       <Input
