@@ -85,7 +85,7 @@
   </div>
   {#if menuOpen}
     <div
-      class="bg-gray-900 w-full absolute mobile-menu left-0 p-4 rounded-b-lg"
+      class="bg-teal-600 w-full absolute mobile-menu left-0 p-4 rounded-b-lg"
       transition:slide>
       <ul>
         {#if $firebaseUser}
