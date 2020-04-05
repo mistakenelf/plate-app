@@ -1,6 +1,6 @@
 <script>
   import page from 'page';
-  import { onMount } from 'svelte';
+  import { onMount, onDestroy } from 'svelte';
 
   import Meta from '../../components/Meta/Meta';
   import FAB from '../../components/FAB/FAB';
@@ -11,6 +11,7 @@
 
   let plates = [];
   let loading = true;
+  let unsubscribe;
 
   const createPlate = () => {
     page('/create-plate');
@@ -19,7 +20,7 @@
   onMount(async () => {
     loading = true;
 
-    await db.collection('plates')
+    unsubscribe =  await db.collection('plates')
       .where('createdBy', '==', $firebaseUser.uid)
       .onSnapshot(querySnapshot => {
         plates = [];
@@ -35,6 +36,10 @@
 
         loading = false;
       });
+  });
+
+  onDestroy(() => {
+    unsubscribe();
   });
 </script>
 
