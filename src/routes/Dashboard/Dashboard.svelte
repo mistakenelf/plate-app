@@ -1,6 +1,6 @@
 <script>
-  import page from 'page';
   import { onMount, onDestroy } from 'svelte';
+  import { navigateTo } from 'svelte-router-spa';
 
   import Meta from '../../components/Meta/Meta';
   import FAB from '../../components/FAB/FAB';
@@ -14,7 +14,7 @@
   let unsubscribe;
 
   const createPlate = () => {
-    page('/create-plate');
+    navigateTo('/create-plate');
   }
 
   onMount(async () => {

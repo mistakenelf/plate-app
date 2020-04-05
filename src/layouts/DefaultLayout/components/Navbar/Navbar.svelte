@@ -1,7 +1,7 @@
 <script>
   import firebase from 'firebase/app';
   import { slide, fade } from 'svelte/transition';
-  import page from 'page';
+  import { Navigate, navigateTo } from 'svelte-router-spa';
 
   import { firebaseUser } from '../../../../store/firebase';
 
@@ -10,7 +10,7 @@
   const logout = async () => {
     await firebase.auth().signOut();
     firebaseUser.set(null);
-    page('/login');
+    navigateTo('/login');
   };
 </script>
 
@@ -53,7 +53,7 @@
           stroke-linejoin="round" />
       </svg>
     {/if}
-    <div class="text-white text-3xl font-bold ml-2 md:ml-0 cursor-pointer" on:click={() => page('/')}>Plate</div>
+    <div class="text-white text-3xl font-bold ml-2 md:ml-0 cursor-pointer" on:click={() => navigateTo('/')}>Plate</div>
   </div>
   <ul class="hidden md:flex flex-row">
     {#if $firebaseUser}
@@ -90,7 +90,7 @@
       <ul>
         {#if $firebaseUser}
           <li class="text-white font-bold mb-4" transition:fade>
-            <a href="/">Dashboard</a>
+            <Navigate to="/">Dashboard</Navigate>
           </li>
           <li class="text-white font-bold" transition:fade>
             <div class="cursor-pointer" on:click={logout}>Logout</div>
@@ -98,10 +98,10 @@
         {/if}
         {#if !$firebaseUser}
           <li class="text-white font-bold mb-4" transition:fade>
-            <a href="/login">Login</a>
+            <Navigate to="/login">Login</Navigate>
           </li>
           <li class="text-white font-bold" transition:fade>
-            <a href="/register">Register</a>
+            <Navigate to="register">Register</Navigate>
           </li>
         {/if}
       </ul>

@@ -1,9 +1,10 @@
 <script>
   import { onMount } from 'svelte';
+  import { Router } from 'svelte-router-spa';
 
   import Loader from './components/Loader/Loader';
   import { firebaseUser } from './store/firebase';
-  import Pages from './pages/Pages';
+  import { routes } from './routes/routes';
   import {
     initializeFirebase,
     firebaseConfig,
@@ -29,5 +30,5 @@
 {#if $firebaseLoading}
   <Loader fullPage />
 {:else}
-  <Pages />
+  <Router {routes} />
 {/if}

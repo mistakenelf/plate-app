@@ -1,11 +1,10 @@
 <script>
   import { onMount } from 'svelte';
-  import page from 'page';
 
   import { db } from '../../store/firebase';
   import Loader from '../../components/Loader/Loader';
 
-  export let id;
+  export let currentRoute;
 
   let plate = {};
   let loading = true;
@@ -13,7 +12,7 @@
   onMount(async () => {
     loading = true;
 
-    const docRef = db.collection('plates').doc(id);
+    const docRef = db.collection('plates').doc(currentRoute.queryParams.id);
 
     try {
       const doc = await docRef.get();

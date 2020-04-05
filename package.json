@@ -32,14 +32,15 @@
     "eslint-plugin-svelte3": "^2.7.3",
     "prettier": "^2.0.2",
     "prettier-plugin-svelte": "^0.7.0",
+    "rollup-plugin-svelte": "^5.2.1",
     "svelte": "^3.20.1",
-    "svelvet": "^0.4.0",
+    "svelvet": "^0.4.1",
     "tailwindcss": "^1.2.0",
     "workbox-cli": "^5.1.2"
   },
   "dependencies": {
     "dayjs": "^1.8.23",
-    "firebase": "^7.13.1",
-    "page": "^1.11.5"
+    "firebase": "^7.13.2",
+    "svelte-router-spa": "^5.5.0"
   }
 }

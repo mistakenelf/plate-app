@@ -1,5 +1,5 @@
 <script>
-  import page from 'page';
+  import { navigateTo } from 'svelte-router-spa';
 
   export let id;
   export let category;
@@ -8,7 +8,7 @@
   export let description;
 </script>
 
-<div class="bg-gray-700 rounded-lg shadow p-2 cursor-pointer" on:click={() => page(`/plate/${id}`)}>
+<div class="bg-gray-700 rounded-lg shadow p-2 cursor-pointer" on:click={() => navigateTo(`plate/?id=${id}`)}>
   <div class="flex flex-row items-center justify-between mb-6">
     <div class="text-sm text-gray-300">{category}</div>
     <div class="text-sm text-gray-300">{dueDate}</div>

@@ -1,7 +1,7 @@
 <script>
   import firebase from 'firebase/app';
   import dayjs from 'dayjs';
-  import page from 'page';
+  import { navigateTo } from 'svelte-router-spa';
 
   import Button from '../../components/Button/Button';
   import Input from '../../components/Input/Input';
@@ -24,7 +24,7 @@
         category: 'Development',
       });
 
-      page('/');
+      navigateTo('/');
     }
   };
 </script>
