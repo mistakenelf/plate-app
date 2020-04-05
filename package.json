@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "start": "npm run tailwind && cross-env NODE_ENV=development svelvet",
-    "build": "cross-env NODE_ENV=production svelvet",
+    "build": "npm run tailwind && cross-env NODE_ENV=production svelvet && npm run workbox",
     "deploy": "npm run tailwind && npm run build && npm run workbox && firebase deploy",
     "prettier": "prettier --write \"**/*.{tsx,ts,css,md,svelte,js,vue,html}\"",
     "eslint": "eslint --ext js,svelte .",
