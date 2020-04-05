@@ -29,32 +29,33 @@
   };
 </script>
 
-  <form class="p-4" on:submit|preventDefault={createPlate}>
-    <Input
-      isFormField
-      type="text"
-      id="title"
-      label="Title"
-      value={title}
-      on:change={e => (title = e.target.value)} />
-    <Input
-      isFormField
-      type="date"
-      id="dueDate"
-      label="Due Date"
-      value={dueDate}
-      on:change={e => (dueDate = e.target.value)} />
-    <Textarea
-      isFormField
-      id="description"
-      label="Description"
-      value={description}
-      on:change={e => (description = e.target.value)} />
-    <Select id="category" label="Category">
-      <option>Development</option>
-      <option>Project Management</option>
-      <option>Management</option>
-      <option>Home</option>
-    </Select>
-    <Button type="submit" label="Create Plate" />
-  </form>
+<h1 class="p-4 text-3xl text-gray-300">Create a plate</h1>
+<form class="p-4" on:submit|preventDefault={createPlate}>
+  <Input
+    isFormField
+    type="text"
+    id="title"
+    label="Title"
+    value={title}
+    on:change={e => (title = e.target.value)} />
+  <Input
+    isFormField
+    type="date"
+    id="dueDate"
+  label="Due Date"
+  value={dueDate}
+    on:change={e => (dueDate = e.target.value)} />
+  <Textarea
+    isFormField
+    id="description"
+    label="Description"
+    value={description}
+    on:change={e => (description = e.target.value)} />
+  <Select id="category" label="Category">
+    <option>Development</option>
+    <option>Project Management</option>
+    <option>Management</option>
+    <option>Home</option>
+  </Select>
+  <Button class="mt-4" type="submit" label="Create Plate" />
+</form>

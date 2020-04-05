@@ -53,7 +53,7 @@
           stroke-linejoin="round" />
       </svg>
     {/if}
-    <div class="text-white text-3xl font-bold ml-2 md:ml-0">Plate</div>
+    <div class="text-white text-3xl font-bold ml-2 md:ml-0 cursor-pointer" on:click={() => page('/')}>Plate</div>
   </div>
   <ul class="hidden md:flex flex-row">
     {#if $firebaseUser}

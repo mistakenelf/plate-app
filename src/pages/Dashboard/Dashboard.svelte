@@ -25,7 +25,12 @@
         plates = [];
 
         querySnapshot.forEach(doc => {
-          plates = [...plates, doc.data()];
+          const plate = {
+            ...doc.data(),
+            id: doc.id
+          }
+
+          plates = [...plates, plate];
         });
 
         loading = false;
@@ -44,6 +49,7 @@
   <div class="grid md:grid-flow-row md:grid-cols-2 lg:grid-cols-3 gap-4">
     {#each plates as plate}
       <Plate
+        id={plate.id}
         title={plate.title}
         description={plate.description}
         dueDate={plate.dueDate}

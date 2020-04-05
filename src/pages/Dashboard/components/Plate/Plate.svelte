@@ -1,11 +1,14 @@
 <script>
+  import page from 'page';
+
+  export let id;
   export let category;
   export let dueDate;
   export let title;
   export let description;
 </script>
 
-<div class="bg-gray-700 rounded-lg shadow p-2">
+<div class="bg-gray-700 rounded-lg shadow p-2 cursor-pointer" on:click={() => page(`/plate/${id}`)}>
   <div class="flex flex-row items-center justify-between mb-6">
     <div class="text-sm text-gray-300">{category}</div>
     <div class="text-sm text-gray-300">{dueDate}</div>

@@ -8,6 +8,7 @@
   import Login from './Login/Login';
   import Register from './Register/Register';
   import CreatePlate from './CreatePlate/CreatePlate';
+  import PlateDetails from './PlateDetails/PlateDetails';
 
   let pageProps = {
     component: Dashboard,
@@ -31,6 +32,18 @@
         component: CreatePlate,
         layout: DefaultLayout,
       };
+    } else {
+      page.redirect('/login');
+    }
+  });
+
+  page('/plate/:id', (ctx) => {
+    if ($firebaseUser) {
+      pageProps = {
+        component: PlateDetails,
+        layout: DefaultLayout,
+        params: ctx.params,
+      }
     } else {
       page.redirect('/login');
     }
@@ -62,5 +75,5 @@
 </script>
 
 <svelte:component this={pageProps.layout}>
-  <svelte:component this={pageProps.component} />
+  <svelte:component this={pageProps.component} {...pageProps.params} />
 </svelte:component>
