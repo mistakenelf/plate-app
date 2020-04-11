@@ -30,7 +30,7 @@
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-plugin-svelte3": "^2.7.3",
-    "prettier": "^2.0.2",
+    "prettier": "^2.0.4",
     "prettier-plugin-svelte": "^0.7.0",
     "rollup-plugin-svelte": "^5.2.1",
     "svelte": "^3.20.1",
@@ -39,8 +39,8 @@
     "workbox-cli": "^5.1.2"
   },
   "dependencies": {
-    "dayjs": "^1.8.23",
-    "firebase": "^7.13.2",
+    "dayjs": "^1.8.24",
+    "firebase": "^7.14.0",
     "svelte-router-spa": "^5.5.0"
   }
 }
