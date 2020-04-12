@@ -9,6 +9,9 @@
 
   import Plate from './components/Plate/Plate';
 
+  export let currentRoute;
+  export let params;
+
   let plates = [];
   let loading = true;
   let unsubscribe;

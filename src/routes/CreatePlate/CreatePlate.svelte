@@ -9,6 +9,8 @@
   import Select from '../../components/Select/Select';
   import { db, firebaseUser } from '../../store/firebase';
 
+  import Todos from './components/Todos';
+
   let title = '';
   let dueDate = dayjs().format();
   let description = '';
@@ -57,5 +59,8 @@
     <option>Management</option>
     <option>Home</option>
   </Select>
+  <div class="mt-6 w-full md:w-1/2">
+    <Todos />
+  </div>
   <Button class="mt-4" type="submit" label="Create Plate" />
 </form>

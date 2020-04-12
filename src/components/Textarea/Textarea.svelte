@@ -11,7 +11,7 @@
   export let rows = 4;
 
   $: classes =
-    'bg-gray-600 appearance-none rounded w-full px-4 py-3 text-gray-200 leading-tight focus:outline-none focus:border-gray-400  ' +
+    'bg-gray-700 appearance-none rounded w-full px-4 py-3 text-gray-200 leading-tight focus:outline-none focus:border-gray-400  ' +
     ($$props.class ? $$props.class : '');
 </script>
 

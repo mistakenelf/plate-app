@@ -4,8 +4,7 @@
   import Navbar from './components/Navbar/Navbar';
 
   export let currentRoute;
-
-  const params = {};
+  export let params;
 </script>
 
 <main>

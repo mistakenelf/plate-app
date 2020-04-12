@@ -21,7 +21,7 @@
     bind:value={selectValue}
     class:w-full={fullWidth}
     class:mb-8={isFormField}
-    class="bg-gray-600 appearance-none rounded w-full px-4 py-3 text-gray-300 leading-tight focus:outline-none focus:border-gray-400">
+    class="bg-gray-700 appearance-none rounded w-full px-4 py-3 text-gray-300 leading-tight focus:outline-none focus:border-gray-400">
     <slot />
   </select>
 </div>
