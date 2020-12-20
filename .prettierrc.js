@@ -1,6 +1,6 @@
 module.exports = {
-  trailingComma: 'all',
+  trailingComma: "all",
   singleQuote: true,
   semi: true,
-  plugins: ['svelte'],
+  endOfLine: "auto",
 };
