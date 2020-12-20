@@ -8,6 +8,7 @@ main,
   padding: 0;
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
+  background: #eee;
 }
 
 h1,
