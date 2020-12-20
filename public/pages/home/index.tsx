@@ -72,7 +72,7 @@ const Home: FunctionComponent = () => {
                 </button>
                 <span
                   style={{
-                    textDecoration: item.completed ? 'line-through' : 'normal',
+                    textDecoration: item.completed ? 'line-through' : 'unset',
                   }}
                   class={styles['item-text']}
                 >
