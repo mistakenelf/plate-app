@@ -40,6 +40,11 @@
   list-style-position: inside;
 }
 
+.text-container {
+  display: flex;
+  align-items: center;
+}
+
 .item {
   font-size: 1.3em;
   margin-bottom: 15px;
@@ -49,13 +54,14 @@
   justify-content: space-between;
 }
 
-.action-container {
-  display: flex;
-  justify-content: space-between;
-  width: 60px;
+.complete-button {
+  border: none;
+  padding: 0;
+  margin: 0;
+  margin-right: 10px;
 }
 
-.action-button {
+.delete-button {
   border: none;
   padding: 0;
   margin: 0;
