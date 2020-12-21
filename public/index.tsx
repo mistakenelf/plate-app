@@ -9,14 +9,12 @@ import { NotFound } from './pages/_404';
 export const App: FunctionComponent = () => {
   return (
     <LocationProvider>
-      <div class="app">
-        <ErrorBoundary>
-          <Router>
-            <Home path="/" />
-            <NotFound default />
-          </Router>
-        </ErrorBoundary>
-      </div>
+      <ErrorBoundary>
+        <Router>
+          <Home path="/" />
+          <NotFound default />
+        </Router>
+      </ErrorBoundary>
     </LocationProvider>
   );
 };
@@ -25,5 +23,6 @@ hydrate(<App />);
 
 export async function prerender(data: any) {
   const { default: prerender } = await import('preact-iso/prerender');
+
   return await prerender(<App {...data} />);
 }

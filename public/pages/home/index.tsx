@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'preact';
 import { useEffect } from 'preact/hooks';
+import classnames from 'classnames/bind';
 
 import { generateId } from '../../helpers/generateId';
 import useInputState from '../../hooks/useInputState';
@@ -7,6 +8,8 @@ import useTodoState from '../../hooks/useTodoState';
 import { Item } from '../../models/item';
 
 import styles from './style.module.css';
+
+const cx = classnames.bind(styles);
 
 const Home: FunctionComponent = () => {
   const { value, onChange, reset } = useInputState('');
@@ -39,24 +42,24 @@ const Home: FunctionComponent = () => {
   }, [setTodos]);
 
   return (
-    <section class={styles.container}>
+    <section class={cx('container')}>
       <div>
-        <h1 class={styles.header}>Whats on your Plate?</h1>
+        <h1 class={cx('header')}>Whats on your Plate?</h1>
         <form onSubmit={handleSubmit}>
           <input
-            class={styles['item-input']}
+            class={cx('item-input')}
             type="text"
             value={value}
             onChange={onChange}
             placeholder="Enter an item to add"
           />
         </form>
-        <ul class={styles['items-container']}>
+        <ul class={cx('items-container')}>
           {todos.map((item) => (
-            <li class={styles.item}>
-              <div class={styles['text-container']}>
+            <li class={cx('item')}>
+              <div class={cx('text-container')}>
                 <button
-                  class={styles['complete-button']}
+                  class={cx('complete-button')}
                   onClick={() => completeTodo(item)}
                 >
                   <svg
@@ -74,13 +77,13 @@ const Home: FunctionComponent = () => {
                   style={{
                     textDecoration: item.completed ? 'line-through' : 'unset',
                   }}
-                  class={styles['item-text']}
+                  class={cx('item-text', { completed: item.completed })}
                 >
                   {item.text}
                 </span>
               </div>
               <button
-                class={styles['delete-button']}
+                class={cx('delete-button')}
                 onClick={() => deleteTodo(item.id)}
               >
                 <svg
