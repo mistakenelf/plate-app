@@ -1,17 +1,17 @@
 import { useState } from 'preact/hooks';
 
 export default (initialValue: string) => {
-  const [value, setValue] = useState(initialValue);
+  const [inputValue, setInputValue] = useState(initialValue);
 
   return {
-    value,
+    inputValue,
     onChange: (e: Event) => {
       if (e.target instanceof HTMLInputElement) {
         const text = e.target?.value.trim();
 
-        setValue(text);
+        setInputValue(text);
       }
     },
-    reset: () => setValue(''),
+    reset: () => setInputValue(''),
   };
 };

@@ -1,14 +1,14 @@
 import { useState } from 'preact/hooks';
 
-import { Item } from '../models/item';
+import { Todo } from '../models/todo';
 
-export default (initialValue: Item[]) => {
+export default (initialValue: Todo[]) => {
   const [todos, setTodos] = useState(initialValue);
 
   return {
     todos,
     setTodos,
-    addTodo: (todoText: Item) => {
+    addTodo: (todoText: Todo) => {
       const currentTodos = [...todos, todoText];
       localStorage.setItem('todos', JSON.stringify(currentTodos));
 
@@ -20,7 +20,7 @@ export default (initialValue: Item[]) => {
 
       setTodos(newTodos);
     },
-    completeTodo: (todo: Item) => {
+    completeTodo: (todo: Todo) => {
       const todoToComplete = todos.indexOf(todo);
       const newTodos = [...todos];
       newTodos[todoToComplete].completed = !todo.completed;
