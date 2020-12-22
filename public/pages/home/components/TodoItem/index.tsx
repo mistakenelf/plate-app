@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'preact';
 import { useState } from 'preact/hooks';
 import classnames from 'classnames/bind';
+import feather from 'feather-icons';
 
 import { Todo } from '../../../../models/todo';
 import useInputState from '../../../../hooks/useInputState';
@@ -37,6 +38,12 @@ export const TodoItem: FunctionComponent<TodoItemProps> = ({
     completeTodo(todo);
   };
 
+  const cancelEdit = () => {
+    updateTodoText(todo, inputValue);
+
+    setIsEditing(false);
+  };
+
   const handleSubmit = (e: Event) => {
     e.preventDefault();
 
@@ -49,16 +56,25 @@ export const TodoItem: FunctionComponent<TodoItemProps> = ({
     <li class={cx('todo-container')}>
       <div class={cx('text-container')}>
         <button class={cx('complete-button')} onClick={handleComplete}>
-          <svg
-            fill={todo.completed ? '#10B981' : ''}
-            xmlns="http://www.w3.org/2000/svg"
-            height="24"
-            viewBox="0 0 24 24"
-            width="24"
-          >
-            <path d="M0 0h24v24H0V0zm0 0h24v24H0V0z" fill="none" />
-            <path d="M16.59 7.58L10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
-          </svg>
+          {!todo.completed ? (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: feather.icons.square.toSvg({
+                  'stroke-width': 2,
+                  color: '#333',
+                }),
+              }}
+            />
+          ) : (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: feather.icons['check-square'].toSvg({
+                  'stroke-width': 2,
+                  color: '#059669',
+                }),
+              }}
+            />
+          )}
         </button>
         {!isEditing ? (
           <button class={cx('todo-text-button')} onClick={handleEdit}>
@@ -68,27 +84,39 @@ export const TodoItem: FunctionComponent<TodoItemProps> = ({
           </button>
         ) : (
           <form onSubmit={handleSubmit}>
-            <input
-              class={cx('edit-todo-input')}
-              type="text"
-              value={inputValue}
-              onChange={onChange}
-              placeholder="Enter an item to add"
-            />
+            <div class={cx('input-container')}>
+              <input
+                class={cx('edit-todo-input')}
+                type="text"
+                value={inputValue}
+                onChange={onChange}
+                placeholder="Enter an item to add"
+              />
+              {inputValue !== '' && (
+                <button
+                  class={cx('clear-edit-button')}
+                  onClick={cancelEdit}
+                  dangerouslySetInnerHTML={{
+                    __html: feather.icons.x.toSvg({
+                      'stroke-width': 2,
+                      color: '#EF4444',
+                    }),
+                  }}
+                />
+              )}
+            </div>
           </form>
         )}
       </div>
       <button class={cx('delete-button')} onClick={handleDelete}>
-        <svg
-          fill="#EF4444"
-          xmlns="http://www.w3.org/2000/svg"
-          height="24"
-          viewBox="0 0 24 24"
-          width="24"
-        >
-          <path d="M0 0h24v24H0z" fill="none" />
-          <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z" />
-        </svg>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: feather.icons['trash-2'].toSvg({
+              'stroke-width': 2,
+              color: '#EF4444',
+            }),
+          }}
+        />
       </button>
     </li>
   );

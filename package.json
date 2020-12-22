@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "feather-icons": "^4.28.0",
     "preact": "^10.5.7",
     "preact-iso": "^0.2.0"
   },
