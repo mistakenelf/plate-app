@@ -29,5 +29,14 @@ export default (initialValue: Todo[]) => {
 
       setTodos(newTodos);
     },
+    updateTodoText: (todo: Todo, updatedText: string) => {
+      const todoToUpdate = todos.indexOf(todo);
+      const newTodos = [...todos];
+      newTodos[todoToUpdate].text = updatedText;
+
+      localStorage.setItem('todos', JSON.stringify(newTodos));
+
+      setTodos(newTodos);
+    },
   };
 };

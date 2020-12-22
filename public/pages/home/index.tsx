@@ -16,9 +16,14 @@ const cx = classnames.bind(styles);
 
 const Home: FunctionComponent = () => {
   const { inputValue, onChange, reset } = useInputState('');
-  const { todos, addTodo, deleteTodo, completeTodo, setTodos } = useTodoState(
-    [],
-  );
+  const {
+    todos,
+    addTodo,
+    deleteTodo,
+    completeTodo,
+    updateTodoText,
+    setTodos,
+  } = useTodoState([]);
 
   const handleSubmit = (e: Event) => {
     e.preventDefault();
@@ -56,6 +61,7 @@ const Home: FunctionComponent = () => {
             todo={todo}
             deleteTodo={deleteTodo}
             completeTodo={completeTodo}
+            updateTodoText={updateTodoText}
           />
         ))}
       </ul>

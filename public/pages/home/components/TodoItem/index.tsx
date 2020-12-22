@@ -1,7 +1,9 @@
 import { FunctionComponent } from 'preact';
+import { useState } from 'preact/hooks';
 import classnames from 'classnames/bind';
 
 import { Todo } from '../../../../models/todo';
+import useInputState from '../../../../hooks/useInputState';
 
 import styles from './style.module.css';
 
@@ -11,20 +13,42 @@ interface TodoItemProps {
   todo: Todo;
   completeTodo: (todo: Todo) => void;
   deleteTodo: (todoId: string) => void;
+  updateTodoText: (todo: Todo, newText: string) => void;
 }
 
 export const TodoItem: FunctionComponent<TodoItemProps> = ({
   todo,
   completeTodo,
   deleteTodo,
+  updateTodoText,
 }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const { inputValue, onChange } = useInputState(todo.text);
+
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+
+  const handleDelete = () => {
+    deleteTodo(todo.id);
+  };
+
+  const handleComplete = () => {
+    completeTodo(todo);
+  };
+
+  const handleSubmit = (e: Event) => {
+    e.preventDefault();
+
+    updateTodoText(todo, inputValue);
+
+    setIsEditing(false);
+  };
+
   return (
     <li class={cx('todo-container')}>
       <div class={cx('text-container')}>
-        <button
-          class={cx('complete-button')}
-          onClick={() => completeTodo(todo)}
-        >
+        <button class={cx('complete-button')} onClick={handleComplete}>
           <svg
             fill={todo.completed ? '#10B981' : ''}
             xmlns="http://www.w3.org/2000/svg"
@@ -36,16 +60,25 @@ export const TodoItem: FunctionComponent<TodoItemProps> = ({
             <path d="M16.59 7.58L10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
           </svg>
         </button>
-        <span
-          style={{
-            textDecoration: todo.completed ? 'line-through' : 'unset',
-          }}
-          class={cx('item-text', { completed: todo.completed })}
-        >
-          {todo.text}
-        </span>
+        {!isEditing ? (
+          <button class={cx('todo-text-button')} onClick={handleEdit}>
+            <span class={cx('todo-text', { completed: todo.completed })}>
+              {todo.text}
+            </span>
+          </button>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <input
+              class={cx('edit-todo-input')}
+              type="text"
+              value={inputValue}
+              onChange={onChange}
+              placeholder="Enter an item to add"
+            />
+          </form>
+        )}
       </div>
-      <button class={cx('delete-button')} onClick={() => deleteTodo(todo.id)}>
+      <button class={cx('delete-button')} onClick={handleDelete}>
         <svg
           fill="#EF4444"
           xmlns="http://www.w3.org/2000/svg"
