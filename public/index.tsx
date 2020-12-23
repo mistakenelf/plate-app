@@ -1,4 +1,4 @@
-import { FunctionComponent, render } from 'preact';
+import { FunctionComponent } from 'preact';
 import hydrate from 'preact-iso/hydrate';
 import { LocationProvider, Router } from 'preact-iso/router';
 import lazy, { ErrorBoundary } from 'preact-iso/lazy';
@@ -25,7 +25,7 @@ export const App: FunctionComponent = () => {
   );
 };
 
-render(<App />, document.body);
+hydrate(<App />);
 
 export async function prerender(data: any) {
   const { default: prerender } = await import('preact-iso/prerender');
