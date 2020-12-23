@@ -7,8 +7,8 @@ body[data-theme='light'] {
   --header-text: #333;
   --todo-item-text: #333;
   --empty-text: #333;
-  --toggle-activated: #00d795;
-  --toggle-inactive: #c1c1c1;
+  --switch-activated: #00d795;
+  --switch-inactive: #c1c1c1;
   --body-text: #333;
   --settings-button-border: #333;
 }
@@ -22,8 +22,8 @@ body[data-theme='dark'] {
   --header-text: #fff;
   --todo-item-text: #fff;
   --empty-text: #fff;
-  --toggle-activated: #00d795;
-  --toggle-inactive: #666666;
+  --switch-activated: #00d795;
+  --switch-inactive: #666666;
   --body-text: #fff;
   --settings-button-border: #fff;
 }
