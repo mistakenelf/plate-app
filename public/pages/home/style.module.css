@@ -15,17 +15,3 @@
   margin-top: 20px;
   list-style-position: inside;
 }
-
-.empty-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 30px;
-}
-
-.empty-text {
-  font-size: 1.2em;
-  color: var(--empty-text);
-  font-weight: bold;
-}
