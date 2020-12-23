@@ -91,7 +91,7 @@ export const TodoItem: FunctionComponent<TodoItemProps> = ({
                 class={cx('edit-todo-input')}
                 type="text"
                 value={inputValue}
-                onChange={onChange}
+                onInput={onChange}
                 placeholder="Enter an item to add"
               />
               {inputValue !== '' && (

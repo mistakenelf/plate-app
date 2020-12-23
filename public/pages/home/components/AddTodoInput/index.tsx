@@ -19,7 +19,7 @@ export const AddTodoInput: FunctionComponent<AddTodoInputProps> = ({
       class={cx('input')}
       type="text"
       value={inputValue}
-      onChange={onChange}
+      onInput={onChange}
       placeholder="Enter an item to add"
     />
   );
