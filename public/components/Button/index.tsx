@@ -2,12 +2,11 @@ import { FunctionComponent } from 'preact';
 
 interface ButtonProps {
   text: string;
-  onClick: () => void;
 }
 
-export const Button: FunctionComponent<ButtonProps> = ({ text, onClick }) => {
+export const Button: FunctionComponent<ButtonProps> = ({ text, ...props }) => {
   return (
-    <button onClick={onClick} type="button">
+    <button type="button" {...props}>
       {text}
     </button>
   );
