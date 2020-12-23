@@ -29,7 +29,7 @@ export const Switch: FunctionComponent<SwitchProps> = ({
         id={id}
         type="checkbox"
         checked={isOn}
-        onChange={toggleHandler}
+        onClick={toggleHandler}
       />
       <label
         className={cx(['switch-label', { activated: isOn, inactive: !isOn }])}
