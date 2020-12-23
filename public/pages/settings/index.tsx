@@ -15,7 +15,9 @@ const Settings: FunctionComponent = () => {
   const { theme, setCurrentTheme } = useTheme();
   const [darkMode, setDarkMode] = useState(theme === 'dark');
 
-  const handleDarkModeToggle = () => {
+  const handleDarkModeToggle = (e: Event) => {
+    e.preventDefault();
+
     if (theme === 'dark') {
       setCurrentTheme('light');
       setDarkMode(false);
