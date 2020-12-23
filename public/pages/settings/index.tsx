@@ -5,6 +5,7 @@ import feather from 'feather-icons';
 
 import plate from '../../assets/images/plate.png';
 import { useTheme } from '../../hooks/useTheme';
+import { Switch } from '../../components/Switch';
 
 import styles from './style.module.css';
 
@@ -45,22 +46,11 @@ const Settings: FunctionComponent = () => {
         <div class={cx('settings-item')}>
           <span class={cx('settings-text')}>Dark Mode?</span>
           <form>
-            <input
-              className={cx('switch-checkbox')}
+            <Switch
               id="darkModeToggle"
-              type="checkbox"
-              checked={darkMode}
-              onClick={handleDarkModeToggle}
+              isOn={darkMode}
+              handleToggle={handleDarkModeToggle}
             />
-            <label
-              className={cx([
-                'switch-label',
-                { activated: darkMode, inactive: !darkMode },
-              ])}
-              htmlFor="darkModeToggle"
-            >
-              <span className={cx('switch-button')} />
-            </label>
           </form>
         </div>
       </section>
