@@ -53,37 +53,41 @@ const Home: FunctionComponent = () => {
   }, [setTodos]);
 
   return (
-    <section class={cx('container')}>
+    <section>
       <Header />
-      <form class={cx('add-todo-form')} onSubmit={handleSubmit}>
-        <AddTodoInput inputValue={inputValue} onChange={onChange} />
-      </form>
-      {todos.length > 0 ? (
-        <ul class={cx('items-container')}>
-          {todos.map((todo) => (
-            <TodoItem
-              todo={todo}
-              deleteTodo={deleteTodo}
-              completeTodo={completeTodo}
-              updateTodoText={updateTodoText}
+      <div class={cx('container')}>
+        <form class={cx('add-todo-form')} onSubmit={handleSubmit}>
+          <AddTodoInput inputValue={inputValue} onChange={onChange} />
+        </form>
+        {todos.length > 0 ? (
+          <ul class={cx('items-container')}>
+            {todos.map((todo) => (
+              <TodoItem
+                todo={todo}
+                deleteTodo={deleteTodo}
+                completeTodo={completeTodo}
+                updateTodoText={updateTodoText}
+              />
+            ))}
+          </ul>
+        ) : (
+          <div class={cx('empty-container')}>
+            <div
+              dangerouslySetInnerHTML={{
+                __html: feather.icons['alert-triangle'].toSvg({
+                  'stroke-width': 1,
+                  color: theme === 'light' ? '#333' : '#fff',
+                  height: 100,
+                  width: 100,
+                }),
+              }}
             />
-          ))}
-        </ul>
-      ) : (
-        <div class={cx('empty-container')}>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: feather.icons['alert-triangle'].toSvg({
-                'stroke-width': 1,
-                color: theme === 'light' ? '#333' : '#fff',
-                height: 100,
-                width: 100,
-              }),
-            }}
-          />
-          <p class={cx('empty-text')}>Your plate is empty, lets fill it up!</p>
-        </div>
-      )}
+            <p class={cx('empty-text')}>
+              Your plate is empty, lets fill it up!
+            </p>
+          </div>
+        )}
+      </div>
     </section>
   );
 };

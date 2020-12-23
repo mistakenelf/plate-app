@@ -1,11 +1,13 @@
 import { FunctionComponent } from 'preact';
 import hydrate from 'preact-iso/hydrate';
 import { LocationProvider, Router } from 'preact-iso/router';
-import { ErrorBoundary } from 'preact-iso/lazy';
+import lazy, { ErrorBoundary } from 'preact-iso/lazy';
 
-import Home from './pages/home/index';
+import Home from './pages/home';
 import { NotFound } from './pages/_404';
 import { ThemeProvider } from './context/theme';
+
+const Settings = lazy(() => import('./pages/settings'));
 
 export const App: FunctionComponent = () => {
   return (
@@ -14,6 +16,7 @@ export const App: FunctionComponent = () => {
         <ErrorBoundary>
           <Router>
             <Home path="/" />
+            <Settings path="/settings" />
             <NotFound default />
           </Router>
         </ErrorBoundary>

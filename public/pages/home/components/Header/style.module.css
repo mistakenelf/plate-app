@@ -1,4 +1,28 @@
-.header {
+.container {
+  padding-left: 30px;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
+.action-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 40px;
+}
+
+.settings-link {
+  font-size: 0.8em;
+  padding: 3px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2px solid #333;
+  color: #333;
+  outline: none;
+}
+
+.header-text {
   margin-bottom: 20px;
   font-size: 1.8em;
   color: var(--header-text);
