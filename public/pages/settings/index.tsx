@@ -8,6 +8,7 @@ import { useTheme } from '../../hooks/useTheme';
 import { Switch } from '../../components/Switch';
 
 import styles from './style.module.css';
+import { Button } from '../../components/Button';
 
 const cx = classnames.bind(styles);
 
@@ -15,8 +16,7 @@ const Settings: FunctionComponent = () => {
   const { theme, setCurrentTheme } = useTheme();
   const [darkMode, setDarkMode] = useState(theme === 'dark');
 
-  const handleDarkModeToggle = (e: Event) => {
-    console.log(e);
+  const handleDarkModeToggle = () => {
     if (theme === 'dark') {
       setCurrentTheme('light');
       setDarkMode(false);
@@ -46,6 +46,7 @@ const Settings: FunctionComponent = () => {
         <h1 class={cx('heading-text')}>Settings</h1>
         <div class={cx('settings-item')}>
           <span class={cx('settings-text')}>Dark Mode?</span>
+          <Button onClick={handleDarkModeToggle} text="Toggle Theme" />
           <Switch
             id="darkModeToggle"
             isOn={darkMode}

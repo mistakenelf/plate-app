@@ -8,7 +8,7 @@ const cx = classnames.bind(styles);
 interface SwitchProps {
   id: string;
   isOn: boolean;
-  handleToggle: (e: Event) => void;
+  handleToggle: () => void;
 }
 
 export const Switch: FunctionComponent<SwitchProps> = ({
@@ -16,8 +16,6 @@ export const Switch: FunctionComponent<SwitchProps> = ({
   isOn,
   handleToggle,
 }) => {
-  console.log(handleToggle);
-
   return (
     <>
       <input
