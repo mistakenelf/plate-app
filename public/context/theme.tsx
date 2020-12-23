@@ -13,10 +13,18 @@ export const ThemeProvider: FunctionComponent = ({ children }) => {
 
   const setCurrentTheme = (theme: string) => {
     setTheme(theme);
+    localStorage.setItem('theme', theme);
   };
 
   useEffect(() => {
-    document.body.dataset.theme = theme;
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme) {
+      setTheme(currentTheme);
+      document.body.dataset.theme = currentTheme;
+    } else {
+      document.body.dataset.theme = theme;
+    }
   }, [theme]);
 
   return (

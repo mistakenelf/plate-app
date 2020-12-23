@@ -1,0 +1,33 @@
+.back-arrow {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.heading-text {
+  font-size: 2em;
+  color: var(--header-text);
+  margin-bottom: 30px;
+}
+
+.settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 185px;
+  height: 30px;
+}
+
+.settings-text {
+  font-size: 1.2em;
+  color: var(--body-text);
+  font-weight: bold;
+}
