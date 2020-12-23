@@ -46,11 +46,7 @@ const Settings: FunctionComponent = () => {
         <div class={cx('settings-item')}>
           <span class={cx('settings-text')}>Dark Mode?</span>
           <form>
-            <Switch
-              id="darkModeToggle"
-              isOn={darkMode}
-              handleToggle={handleDarkModeToggle}
-            />
+            <Switch isOn={darkMode} handleToggle={handleDarkModeToggle} />
           </form>
         </div>
       </section>
