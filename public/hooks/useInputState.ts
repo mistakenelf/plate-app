@@ -1,6 +1,6 @@
 import { useState } from 'preact/hooks';
 
-export default (initialValue: string) => {
+export const useInputState = (initialValue: string) => {
   const [inputValue, setInputValue] = useState(initialValue);
 
   return {

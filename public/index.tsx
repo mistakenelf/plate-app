@@ -5,17 +5,20 @@ import { ErrorBoundary } from 'preact-iso/lazy';
 
 import Home from './pages/home/index';
 import { NotFound } from './pages/_404';
+import { ThemeProvider } from './context/theme';
 
 export const App: FunctionComponent = () => {
   return (
-    <LocationProvider>
-      <ErrorBoundary>
-        <Router>
-          <Home path="/" />
-          <NotFound default />
-        </Router>
-      </ErrorBoundary>
-    </LocationProvider>
+    <ThemeProvider>
+      <LocationProvider>
+        <ErrorBoundary>
+          <Router>
+            <Home path="/" />
+            <NotFound default />
+          </Router>
+        </ErrorBoundary>
+      </LocationProvider>
+    </ThemeProvider>
   );
 };
 

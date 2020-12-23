@@ -2,7 +2,7 @@ import { useState } from 'preact/hooks';
 
 import { Todo } from '../models/todo';
 
-export default (initialValue: Todo[]) => {
+export const useTodoState = (initialValue: Todo[]) => {
   const [todos, setTodos] = useState(initialValue);
 
   return {

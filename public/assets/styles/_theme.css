@@ -1,0 +1,21 @@
+body[data-theme='light'] {
+  --colors-background: #eee;
+  --input-background: #fff;
+  --input-text: #333;
+  --input-border: #a5a5a5;
+  --input-placeholder: #333;
+  --header-text: #333;
+  --todo-item-text: #333;
+  --empty-text: #333;
+}
+
+body[data-theme='dark'] {
+  --colors-background: #333;
+  --input-background: rgb(119, 119, 119);
+  --input-text: #fff;
+  --input-border: #a5a5a5;
+  --input-placeholder: #fff;
+  --header-text: #fff;
+  --todo-item-text: #fff;
+  --empty-text: #fff;
+}

@@ -4,7 +4,8 @@ import classnames from 'classnames/bind';
 import feather from 'feather-icons';
 
 import { Todo } from '../../../../models/todo';
-import useInputState from '../../../../hooks/useInputState';
+import { useInputState } from '../../../../hooks/useInputState';
+import { useTheme } from '../../../../hooks/useTheme';
 
 import styles from './style.module.css';
 
@@ -25,6 +26,7 @@ export const TodoItem: FunctionComponent<TodoItemProps> = ({
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const { inputValue, onChange } = useInputState(todo.text);
+  const { theme } = useTheme();
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -61,7 +63,7 @@ export const TodoItem: FunctionComponent<TodoItemProps> = ({
               dangerouslySetInnerHTML={{
                 __html: feather.icons.square.toSvg({
                   'stroke-width': 2,
-                  color: '#333',
+                  color: theme === 'dark' ? '#fff' : '#333',
                 }),
               }}
             />

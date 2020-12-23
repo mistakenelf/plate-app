@@ -7,7 +7,7 @@ main {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
-  background: #eee;
+  background: var(--colors-background);
 }
 
 h1,
