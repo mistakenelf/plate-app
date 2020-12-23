@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "start": "wmr",
-    "build": "wmr build",
+    "build": "wmr build --prerender",
     "serve": "wmr serve"
   },
   "eslintConfig": {
