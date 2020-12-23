@@ -15,9 +15,7 @@ const Settings: FunctionComponent = () => {
   const { theme, setCurrentTheme } = useTheme();
   const [darkMode, setDarkMode] = useState(theme === 'dark');
 
-  const handleDarkModeToggle = (e: Event) => {
-    e.preventDefault();
-
+  const handleDarkModeToggle = () => {
     if (theme === 'dark') {
       setCurrentTheme('light');
       setDarkMode(false);
@@ -47,11 +45,13 @@ const Settings: FunctionComponent = () => {
         <h1 class={cx('heading-text')}>Settings</h1>
         <div class={cx('settings-item')}>
           <span class={cx('settings-text')}>Dark Mode?</span>
-          <Switch
-            id="darkModeToggle"
-            isOn={darkMode}
-            handleToggle={handleDarkModeToggle}
-          />
+          <form>
+            <Switch
+              id="darkModeToggle"
+              isOn={darkMode}
+              handleToggle={handleDarkModeToggle}
+            />
+          </form>
         </div>
       </section>
     </>

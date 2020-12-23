@@ -8,7 +8,7 @@ const cx = classnames.bind(styles);
 interface SwitchProps {
   id: string;
   isOn: boolean;
-  handleToggle: (e: Event) => void;
+  handleToggle: () => void;
 }
 
 export const Switch: FunctionComponent<SwitchProps> = ({
@@ -16,6 +16,12 @@ export const Switch: FunctionComponent<SwitchProps> = ({
   isOn,
   handleToggle,
 }) => {
+  const toggleHandler = (e: Event) => {
+    e.preventDefault();
+
+    handleToggle();
+  };
+
   return (
     <>
       <input
@@ -23,7 +29,7 @@ export const Switch: FunctionComponent<SwitchProps> = ({
         id={id}
         type="checkbox"
         checked={isOn}
-        onChange={handleToggle}
+        onChange={toggleHandler}
       />
       <label
         className={cx(['switch-label', { activated: isOn, inactive: !isOn }])}
