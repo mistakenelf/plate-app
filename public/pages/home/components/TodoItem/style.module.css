@@ -46,6 +46,11 @@
   border: 2px solid var(--input-border);
   width: 100%;
   font-weight: bold;
+  background: var(--input-background);
+}
+
+.edit-todo-input::placeholder {
+  color: var(--input-placeholder);
 }
 
 .completed {
