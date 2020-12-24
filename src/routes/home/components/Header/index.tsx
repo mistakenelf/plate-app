@@ -2,11 +2,15 @@ import React from 'react';
 import classnames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 
+import { useI18n } from '../../../../hooks/useI18n';
+
 import styles from './style.module.css';
 
 const cx = classnames.bind(styles);
 
 export const Header: React.FC = () => {
+  const { translate } = useI18n();
+
   return (
     <div className={cx('container')}>
       <div className={cx('action-row')}>
@@ -14,7 +18,9 @@ export const Header: React.FC = () => {
           Settings
         </Link>
       </div>
-      <h1 className={cx('header-text')}>Whats on your Plate?</h1>
+      <h1 className={cx('header-text')}>
+        {translate('home.whatsOnYourPlate')}
+      </h1>
     </div>
   );
 };
