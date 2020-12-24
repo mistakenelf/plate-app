@@ -1,0 +1,13 @@
+.settings-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 185px;
+  height: 30px;
+}
+
+.settings-text {
+  font-size: 1.2em;
+  color: var(--body-text);
+  font-weight: bold;
+}
