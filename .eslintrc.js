@@ -1,8 +1,8 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   extends: [
-    'preact',
     'eslint:recommended',
+    'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
     'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
@@ -11,7 +11,7 @@ module.exports = {
   ],
   plugins: [
     '@typescript-eslint',
-    'preact',
+    'react',
     'prettier',
     'react-hooks',
     'jsx-a11y',
@@ -23,7 +23,7 @@ module.exports = {
     es6: true,
   },
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 2018,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
@@ -38,7 +38,6 @@ module.exports = {
     'react/no-direct-mutation-state': 'off',
     'react/no-deprecated': 'off',
     'react/no-string-refs': 'off',
-    'react/no-danger': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'react/require-render-return': 'off',
     'react/jsx-filename-extension': [
@@ -56,5 +55,10 @@ module.exports = {
     'prefer-const': 'warn',
     'no-console': ['warn', { allow: ['warn', 'error'] }],
     'prettier/prettier': 'warn',
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
   },
 };

@@ -1,22 +1,20 @@
 {
-	"compileOnSave": false,
-	"compilerOptions": {
-		"jsx": "preserve",
-    "jsxFactory": "preact.h",
-		"jsxFragmentFactory": "preact.Fragment",
-    "types": ["preact/jsx-runtime"],
-		"allowJs": true,
-		"checkJs": true,
-		"strict": true,
-		"noEmit": true,
-		"moduleResolution": "node",
-		"target": "ESNext",
-		"module": "esnext",
-		"resolveJsonModule": true,
-		"allowSyntheticDefaultImports": true,
-		"downlevelIteration": true
-	},
-	"typeAcquisition": {
-		"enable": true
-	}
+  "include": ["src", "types"],
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "baseUrl": "./",
+    /* paths - If you configure Snowpack import aliases, add them here. */
+    "paths": {},
+    /* noEmit - Snowpack builds (emits) files, not tsc. */
+    "noEmit": true,
+    /* Additional Options */
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+  }
 }
