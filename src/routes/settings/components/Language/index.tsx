@@ -16,10 +16,15 @@ export const Language: React.FC = () => {
   return (
     <div className={cx('settings-item')}>
       <span className={cx('settings-text')}>{t('settings.languageLabel')}</span>
-      <select onBlur={handleLanguageChange} defaultValue={i18n.language}>
+      <select
+        className={cx('language-select')}
+        onBlur={handleLanguageChange}
+        defaultValue={i18n.language}
+      >
         <option value="en">{t('settings.languages.english')}</option>
         <option value="es">{t('settings.languages.spanish')}</option>
       </select>
+      <div className={cx('caret')} />
     </div>
   );
 };

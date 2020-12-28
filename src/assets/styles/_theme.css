@@ -11,6 +11,10 @@ body[data-theme='light'] {
   --switch-inactive: #c1c1c1;
   --body-text: #333;
   --settings-button-border: #333;
+  --language-selector-background: #fff;
+  --language-selector-text: #333;
+  --language-selector-border: #333;
+  --language-selector-arrow: #333;
 }
 
 body[data-theme='dark'] {
@@ -26,4 +30,8 @@ body[data-theme='dark'] {
   --switch-inactive: #666666;
   --body-text: #fff;
   --settings-button-border: #fff;
+  --language-selector-background: #333;
+  --language-selector-text: #fff;
+  --language-selector-border: #fff;
+  --language-selector-arrow: #fff;
 }
