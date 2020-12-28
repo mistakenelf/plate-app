@@ -6,8 +6,9 @@ import { Link } from 'react-router-dom';
 import plate from '../../assets/images/plate.png';
 import { useTheme } from '../../hooks/useTheme';
 
-import styles from './style.module.css';
 import { DarkTheme } from './components/DarkTheme';
+import { Language } from './components/Language';
+import styles from './style.module.css';
 
 const cx = classnames.bind(styles);
 
@@ -33,6 +34,7 @@ export const Settings: React.FC = () => {
         <img src={plate} alt="plate" />
         <h1 className={cx('heading-text')}>Settings</h1>
         <DarkTheme />
+        <Language />
       </section>
     </>
   );
