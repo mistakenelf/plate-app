@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { Home } from './home';
-import Settings from './settings';
+
+const Settings = lazy(() => import('./settings'));
 
 export const Routes: React.FC = () => {
   return (
