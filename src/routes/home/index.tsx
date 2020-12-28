@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import classnames from 'classnames/bind';
 
 import { generateId } from '../../helpers/generateId';
 import { useInputState } from '../../hooks/useInputState';
 import { useTodoState } from '../../hooks/useTodoState';
-import { Todo } from '../../models/todo';
 
 import { AddTodoInput } from './components/AddTodoInput';
 import { Header } from './components/Header';
@@ -22,7 +21,6 @@ export const Home: React.FC = () => {
     deleteTodo,
     completeTodo,
     updateTodoText,
-    setTodos,
   } = useTodoState([]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -38,16 +36,6 @@ export const Home: React.FC = () => {
       reset();
     }
   };
-
-  useEffect(() => {
-    const todos = localStorage.getItem('todos');
-
-    if (todos) {
-      const todosJson: Todo[] = JSON.parse(todos);
-
-      setTodos(todosJson);
-    }
-  }, [setTodos]);
 
   return (
     <section>

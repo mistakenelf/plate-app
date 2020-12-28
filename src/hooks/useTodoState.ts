@@ -1,9 +1,19 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { Todo } from '../models/todo';
 
 export const useTodoState = (initialValue: Todo[]) => {
   const [todos, setTodos] = useState(initialValue);
+
+  useEffect(() => {
+    const todos = localStorage.getItem('todos');
+
+    if (todos) {
+      const todosJson: Todo[] = JSON.parse(todos);
+
+      setTodos(todosJson);
+    }
+  }, []);
 
   return {
     todos,
