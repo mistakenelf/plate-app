@@ -14,7 +14,7 @@ export const Header: React.FC = () => {
     <div className={cx('container')}>
       <div className={cx('action-row')}>
         <Link to="/settings" className={cx('settings-link')}>
-          Settings
+          {t('home.settingsLink')}
         </Link>
       </div>
       <h1 className={cx('header-text')}>{t('home.whatsOnYourPlate')}</h1>

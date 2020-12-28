@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classnames from 'classnames/bind';
 import feather from 'feather-icons';
+import { useTranslation } from 'react-i18next';
 
 import { Todo } from '../../../../models/todo';
 import { useInputState } from '../../../../hooks/useInputState';
@@ -26,6 +27,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({
   const [isEditing, setIsEditing] = useState(false);
   const { inputValue, onChange } = useInputState(todo.text);
   const { theme } = useTheme();
+  const { t } = useTranslation();
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -84,14 +86,14 @@ export const TodoItem: React.FC<TodoItemProps> = ({
             </span>
           </button>
         ) : (
-          <form onSubmit={handleSubmit}>
+          <form className={cx('edit-form')} onSubmit={handleSubmit}>
             <div className={cx('input-container')}>
               <input
                 className={cx('edit-todo-input')}
                 type="text"
                 value={inputValue}
                 onChange={onChange}
-                placeholder="Enter an item to add"
+                placeholder={t('home.todoInputPlaceholder')}
               />
               {inputValue !== '' && (
                 <button

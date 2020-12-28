@@ -1,5 +1,17 @@
 {
   "home": {
-    "whatsOnYourPlate": "Whats on your Plate?"
+    "whatsOnYourPlate": "Whats on your Plate?",
+    "settingsLink": "Settings",
+    "emptyPlate": "Your plate is empty, lets fill it up!",
+    "todoInputPlaceholder": "Enter an item to add"
+  },
+  "settings": {
+    "header": "Settings",
+    "languageLabel": "Language",
+    "languages": {
+      "english": "English",
+      "spanish": "Spanish"
+    },
+    "darkModeLabel": "Dark mode?"
   }
 }

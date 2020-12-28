@@ -1,6 +1,7 @@
 .text-container {
   display: flex;
   align-items: flex-end;
+  width: 100%;
 }
 
 .todo-container {
@@ -19,6 +20,10 @@
   font-size: 1.2em;
   background: transparent;
   color: var(--todo-item-text);
+}
+
+.edit-form {
+  width: 100%;
 }
 
 .input-container {
@@ -72,4 +77,5 @@
   margin: 0;
   cursor: pointer;
   background: transparent;
+  margin-left: 10px;
 }

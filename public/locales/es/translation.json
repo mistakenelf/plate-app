@@ -1,5 +1,17 @@
 {
   "home": {
-    "whatsOnYourPlate": "¿Qué hay en tu plato?"
+    "whatsOnYourPlate": "¿Qué hay en tu plato?",
+    "settingsLink": "Ajustes",
+    "emptyPlate": "Tu plato está vacío, ¡llenémoslo!",
+    "todoInputPlaceholder": "Ingrese un elemento para agregar"
+  },
+  "settings": {
+    "header": "Ajustes",
+    "languageLabel": "Idioma",
+    "languages": {
+      "english": "Inglés",
+      "spanish": "Español"
+    },
+    "darkModeLabel": "¿Modo oscuro?"
   }
 }

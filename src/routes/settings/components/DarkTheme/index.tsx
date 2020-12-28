@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import classnames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import { useTheme } from '../../../../hooks/useTheme';
 import { Switch } from '../../../../components/Switch';
@@ -9,6 +10,7 @@ import styles from './style.module.css';
 const cx = classnames.bind(styles);
 
 export const DarkTheme: React.FC = () => {
+  const { t } = useTranslation();
   const { theme, setCurrentTheme } = useTheme();
   const [darkMode, setDarkMode] = useState(theme === 'dark');
 
@@ -24,7 +26,7 @@ export const DarkTheme: React.FC = () => {
 
   return (
     <div className={cx('settings-item')}>
-      <span className={cx('settings-text')}>Dark Mode?</span>
+      <span className={cx('settings-text')}>{t('settings.darkModeLabel')}</span>
       <Switch
         id="darkModeToggle"
         isOn={darkMode}

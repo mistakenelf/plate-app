@@ -1,6 +1,7 @@
 import React from 'react';
 import feather from 'feather-icons';
 import classnames from 'classnames/bind';
+import { useTranslation } from 'react-i18next';
 
 import { useTheme } from '../../../../hooks/useTheme';
 
@@ -10,6 +11,7 @@ const cx = classnames.bind(styles);
 
 export const EmptyPlate: React.FC = () => {
   const { theme } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <div className={cx('empty-container')}>
@@ -23,7 +25,7 @@ export const EmptyPlate: React.FC = () => {
           }),
         }}
       />
-      <p className={cx('empty-text')}>Your plate is empty, lets fill it up!</p>
+      <p className={cx('empty-text')}>{t('home.emptyPlate')}</p>
     </div>
   );
 };
