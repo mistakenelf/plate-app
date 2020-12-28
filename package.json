@@ -18,10 +18,11 @@
   ],
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build",
+    "build": "npm run workbox && snowpack build",
     "test": "web-test-runner \"src/**/*.test.tsx\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
-    "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\""
+    "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
+    "workbox": "workbox generateSW workbox-config.js"
   },
   "dependencies": {
     "classnames": "^2.2.6",
@@ -55,6 +56,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.2.1",
     "snowpack": "^2.18.5",
-    "typescript": "^4.1.3"
+    "typescript": "^4.1.3",
+    "workbox-cli": "^6.0.2"
   }
 }

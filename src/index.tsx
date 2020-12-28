@@ -3,11 +3,11 @@ import './assets/styles/_global.css';
 import './helpers/i18n';
 
 import React, { Suspense } from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 
 import { App } from './components/App';
 
-ReactDOM.render(
+render(
   <React.StrictMode>
     <Suspense fallback={<div>Loading...</div>}>
       <App />
