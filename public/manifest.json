@@ -1,0 +1,8 @@
+{
+  "name": "Plate",
+  "short_name": "Plate",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#2c5282",
+  "description": "Whats on your plate?"
+}
