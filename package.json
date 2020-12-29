@@ -25,6 +25,7 @@
     "workbox": "workbox generateSW workbox-config.js"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^1.1.2",
     "classnames": "^2.2.6",
     "feather-icons": "^4.28.0",
     "i18next": "^19.8.4",
