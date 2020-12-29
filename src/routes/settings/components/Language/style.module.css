@@ -23,6 +23,7 @@
   border: 2px solid var(--language-selector-border);
   appearance: none;
   width: 120px;
+  font-size: 16px;
   -webkit-appearance: none;
 }
 
