@@ -2,7 +2,7 @@
   "home": {
     "whatsOnYourPlate": "¿Qué hay en tu plato?",
     "settingsLink": "Ajustes",
-    "login": "Iniciar sesión",
+    "loginLink": "Iniciar sesión",
     "emptyPlate": "Tu plato está vacío, ¡llenémoslo!",
     "todoInputPlaceholder": "Ingrese un elemento para agregar"
   },
