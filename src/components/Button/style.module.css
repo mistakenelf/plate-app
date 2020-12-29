@@ -1,0 +1,29 @@
+.button {
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--button-background);
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  color: var(--button-text);
+}
+
+.block {
+  width: 100%;
+}
+
+.normal {
+  height: 50px;
+  padding: 14px 30px;
+}
+
+.small {
+  height: 33px;
+  padding: 0px 15px;
+}

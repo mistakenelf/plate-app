@@ -4,6 +4,8 @@ import * as yup from 'yup';
 import { useFormik } from 'formik';
 
 import { supabase } from '../../helpers/supabase';
+import { Input } from '../../components/Input';
+import { Button } from '../../components/Button';
 
 import styles from './style.module.css';
 
@@ -48,21 +50,29 @@ const Login: React.FC = () => {
   return (
     <div className={cx('container')}>
       <form className={cx('login-form')} onSubmit={handleSubmit}>
-        <input
+        <Input
+          inputLabel="Email"
           type="email"
+          placeholder="Email address"
           id="email"
           name="email"
           value={values.email}
           onChange={handleChange}
         />
-        <input
+        <div className={cx('separator')} />
+        <Input
+          inputLabel="Password"
           type="password"
+          placeholder="Password"
           id="password"
           name="password"
           value={values.password}
           onChange={handleChange}
         />
-        <button type="submit">Login</button>
+        <div className={cx('separator')} />
+        <Button type="submit" block>
+          Login
+        </Button>
       </form>
     </div>
   );

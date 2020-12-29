@@ -15,6 +15,11 @@ body[data-theme='light'] {
   --language-selector-text: #333;
   --language-selector-border: #333;
   --language-selector-arrow: #333;
+  --input-background: #fff;
+  --input-label-text: #333;
+  --input-text: #333;
+  --button-background: #dadada;
+  --button-text: #333;
 }
 
 body[data-theme='dark'] {
@@ -34,4 +39,9 @@ body[data-theme='dark'] {
   --language-selector-text: #fff;
   --language-selector-border: #fff;
   --language-selector-arrow: #fff;
+  --input-background: rgba(57, 63, 84, 0.8);
+  --input-label-text: #fff;
+  --input-text: #fff;
+  --button-background: #5f5f5f;
+  --button-text: #fff;
 }

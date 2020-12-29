@@ -4,9 +4,16 @@
   justify-content: center;
   flex-direction: column;
   height: 100%;
+  width: 100%;
+  padding: 20px;
 }
 
 .login-form {
   display: flex;
+  width: 100%;
   flex-direction: column;
+}
+
+.separator {
+  height: 20px;
 }
