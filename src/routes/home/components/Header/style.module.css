@@ -20,6 +20,7 @@
   border: 2px solid var(--settings-button-border);
   color: var(--body-text);
   outline: none;
+  margin-left: 10px;
 }
 
 .header-text {

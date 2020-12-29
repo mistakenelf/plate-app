@@ -16,6 +16,9 @@ export const Header: React.FC = () => {
         <Link to="/settings" className={cx('settings-link')}>
           {t('home.settingsLink')}
         </Link>
+        <Link to="/login" className={cx('settings-link')}>
+          {t('home.loginLink')}
+        </Link>
       </div>
       <h1 className={cx('header-text')}>{t('home.whatsOnYourPlate')}</h1>
     </div>
