@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Todo } from '../../../../models/todo';
 import { useInputState } from '../../../../hooks/useInputState';
 import { useTheme } from '../../../../hooks/useTheme';
+import { Input } from '../../../../components/Input';
 
 import styles from './style.module.css';
 
@@ -87,27 +88,26 @@ export const TodoItem: React.FC<TodoItemProps> = ({
           </button>
         ) : (
           <form className={cx('edit-form')} onSubmit={handleSubmit}>
-            <div className={cx('input-container')}>
-              <input
-                className={cx('edit-todo-input')}
-                type="text"
-                value={inputValue}
-                onChange={onChange}
-                placeholder={t('home.todoInputPlaceholder')}
-              />
-              {inputValue !== '' && (
-                <button
-                  className={cx('clear-edit-button')}
-                  onClick={cancelEdit}
-                  dangerouslySetInnerHTML={{
-                    __html: feather.icons.x.toSvg({
-                      'stroke-width': 2,
-                      color: '#EF4444',
-                    }),
-                  }}
-                />
-              )}
-            </div>
+            <Input
+              type="text"
+              value={inputValue}
+              onChange={onChange}
+              placeholder={t('home.todoInputPlaceholder')}
+              inputAdornment={
+                inputValue !== '' && (
+                  <button
+                    className={cx('clear-edit-button')}
+                    onClick={cancelEdit}
+                    dangerouslySetInnerHTML={{
+                      __html: feather.icons.x.toSvg({
+                        'stroke-width': 2,
+                        color: '#EF4444',
+                      }),
+                    }}
+                  />
+                )
+              }
+            />
           </form>
         )}
       </div>

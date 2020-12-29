@@ -1,6 +1,6 @@
 .text-container {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   width: 100%;
 }
 
