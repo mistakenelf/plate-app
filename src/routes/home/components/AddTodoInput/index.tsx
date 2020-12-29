@@ -2,6 +2,8 @@ import React from 'react';
 import classnames from 'classnames/bind';
 import { useTranslation } from 'react-i18next';
 
+import { Input } from '../../../../components/Input';
+
 import styles from './style.module.css';
 
 const cx = classnames.bind(styles);
@@ -18,8 +20,7 @@ export const AddTodoInput: React.FC<AddTodoInputProps> = ({
   const { t } = useTranslation();
 
   return (
-    <input
-      className={cx('input')}
+    <Input
       type="text"
       value={inputValue}
       onChange={onChange}

@@ -6,7 +6,7 @@ export const useInputState = (initialValue: string) => {
   return {
     inputValue,
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
-      const text = e.target?.value.trim();
+      const text = e.target?.value;
       setInputValue(text);
     },
     reset: () => setInputValue(''),

@@ -18,8 +18,13 @@ export const useTodoState = (initialValue: Todo[]) => {
   return {
     todos,
     setTodos,
-    addTodo: (todoText: Todo) => {
-      const currentTodos = [...todos, todoText];
+    addTodo: (todo: Todo) => {
+      const newTodoItem = {
+        ...todo,
+        text: todo.text.trim(),
+      };
+
+      const currentTodos = [...todos, newTodoItem];
       localStorage.setItem('todos', JSON.stringify(currentTodos));
 
       setTodos(currentTodos);

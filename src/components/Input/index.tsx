@@ -6,7 +6,7 @@ import styles from './style.module.css';
 const cx = classnames.bind(styles);
 
 interface CustomInputProps {
-  inputLabel: React.ReactNode;
+  inputLabel?: React.ReactNode;
   error?: string;
   ref?: any;
   isLoading?: boolean;
