@@ -22,42 +22,6 @@
   color: var(--todo-item-text);
 }
 
-.edit-form {
-  width: 100%;
-}
-
-.input-container {
-  position: relative;
-}
-
-.clear-edit-button {
-  position: absolute;
-  right: 8px;
-  border: none;
-  outline: none;
-  height: 25px;
-  width: 25px;
-  background: transparent;
-  top: 3px;
-}
-
-.edit-todo-input {
-  padding: 6px;
-  background: #fff;
-  border-radius: 5px;
-  font-size: 0.7em;
-  color: var(--input-text);
-  outline: none;
-  border: 2px solid var(--input-border);
-  width: 100%;
-  font-weight: bold;
-  background: var(--input-background);
-}
-
-.edit-todo-input::placeholder {
-  color: var(--input-placeholder);
-}
-
 .completed {
   text-decoration: line-through;
 }

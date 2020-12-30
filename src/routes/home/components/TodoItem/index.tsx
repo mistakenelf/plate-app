@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classnames from 'classnames/bind';
 import feather from 'feather-icons';
 import { useTranslation } from 'react-i18next';
 
 import { Todo } from '../../../../models/todo';
-import { useInputState } from '../../../../hooks/useInputState';
 import { useTheme } from '../../../../hooks/useTheme';
-import { Input } from '../../../../components/Input';
 
 import styles from './style.module.css';
 
@@ -23,16 +21,8 @@ export const TodoItem: React.FC<TodoItemProps> = ({
   todo,
   completeTodo,
   deleteTodo,
-  updateTodoText,
 }) => {
-  const [isEditing, setIsEditing] = useState(false);
-  const { inputValue, onChange } = useInputState(todo.text);
   const { theme } = useTheme();
-  const { t } = useTranslation();
-
-  const handleEdit = () => {
-    setIsEditing(true);
-  };
 
   const handleDelete = () => {
     deleteTodo(todo.id);
@@ -40,20 +30,6 @@ export const TodoItem: React.FC<TodoItemProps> = ({
 
   const handleComplete = () => {
     completeTodo(todo);
-  };
-
-  const cancelEdit = () => {
-    updateTodoText(todo, inputValue);
-
-    setIsEditing(false);
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    updateTodoText(todo, inputValue);
-
-    setIsEditing(false);
   };
 
   return (
@@ -80,36 +56,9 @@ export const TodoItem: React.FC<TodoItemProps> = ({
             />
           )}
         </button>
-        {!isEditing ? (
-          <button className={cx('todo-text-button')} onClick={handleEdit}>
-            <span className={cx('todo-text', { completed: todo.completed })}>
-              {todo.text}
-            </span>
-          </button>
-        ) : (
-          <form className={cx('edit-form')} onSubmit={handleSubmit}>
-            <Input
-              type="text"
-              value={inputValue}
-              onChange={onChange}
-              placeholder={t('home.todoInputPlaceholder')}
-              inputAdornment={
-                inputValue !== '' && (
-                  <button
-                    className={cx('clear-edit-button')}
-                    onClick={cancelEdit}
-                    dangerouslySetInnerHTML={{
-                      __html: feather.icons.x.toSvg({
-                        'stroke-width': 2,
-                        color: '#EF4444',
-                      }),
-                    }}
-                  />
-                )
-              }
-            />
-          </form>
-        )}
+        <span className={cx('todo-text', { completed: todo.completed })}>
+          {todo.text}
+        </span>
       </div>
       <button className={cx('delete-button')} onClick={handleDelete}>
         <div
