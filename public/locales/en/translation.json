@@ -14,5 +14,11 @@
       "spanish": "Spanish"
     },
     "darkModeLabel": "Dark mode?"
+  },
+  "login": {
+    "headerText": "Login",
+    "emailInputLabel": "Email",
+    "emailInputPlaceholder": "Email address",
+    "submitButton": "Login"
   }
 }

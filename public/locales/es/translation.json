@@ -14,5 +14,11 @@
       "spanish": "Español"
     },
     "darkModeLabel": "¿Modo oscuro?"
+  },
+  "login": {
+    "headerText": "Iniciar sesión",
+    "emailInputLabel": "Email",
+    "emailInputPlaceholder": "Dirección de correo electrónico",
+    "submitButton": "Iniciar sesión"
   }
 }

@@ -4,6 +4,7 @@ import * as yup from 'yup';
 import { useFormik } from 'formik';
 import feather from 'feather-icons';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { supabase } from '../../helpers/supabase';
 import { Input } from '../../components/Input';
@@ -24,6 +25,7 @@ const validationSchema = yup.object().shape({
 
 const Login: React.FC = () => {
   const { theme } = useTheme();
+  const { t } = useTranslation();
   const { values, handleChange, handleSubmit } = useFormik({
     validationSchema,
     initialErrors: {
@@ -63,11 +65,12 @@ const Login: React.FC = () => {
         />
       </Link>
       <div className={cx('container')}>
+        <h1 className={cx('header-text')}>{t('login.headerText')}</h1>
         <form className={cx('login-form')} onSubmit={handleSubmit}>
           <Input
-            inputLabel="Email"
+            inputLabel={t('login.emailInputLabel')}
             type="email"
-            placeholder="Email address"
+            placeholder={t('login.emailInputPlaceholder')}
             id="email"
             name="email"
             value={values.email}
@@ -75,7 +78,7 @@ const Login: React.FC = () => {
           />
           <div className={cx('separator')} />
           <Button type="submit" block>
-            Login
+            {t('login.submitButton')}
           </Button>
         </form>
       </div>
