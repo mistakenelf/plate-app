@@ -17,7 +17,6 @@ const validationSchema = yup.object().shape({
     .trim()
     .email('Email is invalid')
     .required('Email is required'),
-  password: yup.string().trim().required('Password is required'),
 });
 
 const Login: React.FC = () => {
@@ -25,17 +24,14 @@ const Login: React.FC = () => {
     validationSchema,
     initialErrors: {
       email: '',
-      password: '',
     },
     initialValues: {
       email: '',
-      password: '',
     },
-    onSubmit: async ({ email, password }) => {
+    onSubmit: async ({ email }) => {
       try {
         const result = await supabase.auth.signIn({
           email,
-          password,
         });
 
         if (result.error) {
@@ -57,16 +53,6 @@ const Login: React.FC = () => {
           id="email"
           name="email"
           value={values.email}
-          onChange={handleChange}
-        />
-        <div className={cx('separator')} />
-        <Input
-          inputLabel="Password"
-          type="password"
-          placeholder="Password"
-          id="password"
-          name="password"
-          value={values.password}
           onChange={handleChange}
         />
         <div className={cx('separator')} />
