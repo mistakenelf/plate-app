@@ -7,13 +7,17 @@
 .todo-container {
   font-size: 1.3em;
   margin-bottom: 15px;
-  border-bottom: 2px solid var(--input-border);
-  padding-bottom: 15px;
+  border: 2px solid var(--todo-item-border);
   display: flex;
   justify-content: space-between;
+  height: 60px;
+  align-items: center;
+  border-radius: 5px;
+  padding: 10px;
+  background: var(--todo-item-background);
 }
 
-.todo-text-button {
+.todo-text {
   border: none;
   outline: none;
   cursor: pointer;

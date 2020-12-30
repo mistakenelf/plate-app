@@ -1,9 +1,5 @@
 body[data-theme='light'] {
   --colors-background: #eee;
-  --input-background: #fff;
-  --input-text: #333;
-  --input-border: #a5a5a5;
-  --input-placeholder: #333;
   --header-text: #333;
   --todo-item-text: #333;
   --empty-text: #333;
@@ -20,14 +16,12 @@ body[data-theme='light'] {
   --input-text: #333;
   --button-background: #dadada;
   --button-text: #333;
+  --todo-item-border: #333;
+  --todo-item-background: #fff;
 }
 
 body[data-theme='dark'] {
   --colors-background: #333;
-  --input-background: rgb(119, 119, 119);
-  --input-text: #fff;
-  --input-border: #a5a5a5;
-  --input-placeholder: #fff;
   --header-text: #fff;
   --todo-item-text: #fff;
   --empty-text: #fff;
@@ -44,4 +38,6 @@ body[data-theme='dark'] {
   --input-text: #fff;
   --button-background: #5f5f5f;
   --button-text: #fff;
+  --todo-item-border: #fff;
+  --todo-item-background: rgba(57, 63, 84, 0.8);
 }

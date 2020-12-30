@@ -1,12 +1,7 @@
 import React from 'react';
-import classnames from 'classnames/bind';
 import { useTranslation } from 'react-i18next';
 
 import { Input } from '../../../../components/Input';
-
-import styles from './style.module.css';
-
-const cx = classnames.bind(styles);
 
 interface AddTodoInputProps {
   inputValue: string;
