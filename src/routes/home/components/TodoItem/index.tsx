@@ -1,7 +1,6 @@
 import React from 'react';
 import classnames from 'classnames/bind';
 import feather from 'feather-icons';
-import { useTranslation } from 'react-i18next';
 
 import { Todo } from '../../../../models/todo';
 import { useTheme } from '../../../../hooks/useTheme';
@@ -14,7 +13,6 @@ interface TodoItemProps {
   todo: Todo;
   completeTodo: (todo: Todo) => void;
   deleteTodo: (todoId: string) => void;
-  updateTodoText: (todo: Todo, newText: string) => void;
 }
 
 export const TodoItem: React.FC<TodoItemProps> = ({

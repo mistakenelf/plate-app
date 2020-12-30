@@ -15,13 +15,7 @@ const cx = classnames.bind(styles);
 
 export const Home: React.FC = () => {
   const { inputValue, onChange, reset } = useInputState('');
-  const {
-    todos,
-    addTodo,
-    deleteTodo,
-    completeTodo,
-    updateTodoText,
-  } = useTodoState([]);
+  const { todos, addTodo, deleteTodo, completeTodo } = useTodoState([]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -52,7 +46,6 @@ export const Home: React.FC = () => {
                 todo={todo}
                 deleteTodo={deleteTodo}
                 completeTodo={completeTodo}
-                updateTodoText={updateTodoText}
               />
             ))}
           </ul>
