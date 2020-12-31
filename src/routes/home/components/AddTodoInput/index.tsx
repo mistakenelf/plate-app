@@ -1,7 +1,7 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { Input } from '../../../../components/Input';
+import { useI18n } from '../../../../hooks/useI18n';
 
 interface AddTodoInputProps {
   inputValue: string;
@@ -12,14 +12,14 @@ export const AddTodoInput: React.FC<AddTodoInputProps> = ({
   inputValue,
   onChange,
 }) => {
-  const { t } = useTranslation();
+  const { i18n } = useI18n();
 
   return (
     <Input
       type="text"
       value={inputValue}
       onChange={onChange}
-      placeholder={t('home.todoInputPlaceholder')}
+      placeholder={i18n.t('home.todoInputPlaceholder')}
     />
   );
 };

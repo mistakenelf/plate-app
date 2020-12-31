@@ -2,10 +2,10 @@ import React from 'react';
 import classnames from 'classnames/bind';
 import feather from 'feather-icons';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 
 import plate from '../../assets/images/plate.png';
 import { useTheme } from '../../hooks/useTheme';
+import { useI18n } from '../../hooks/useI18n';
 
 import { DarkTheme } from './components/DarkTheme';
 import { Language } from './components/Language';
@@ -15,7 +15,7 @@ const cx = classnames.bind(styles);
 
 export const Settings: React.FC = () => {
   const { theme } = useTheme();
-  const { t } = useTranslation();
+  const { i18n } = useI18n();
 
   return (
     <>
@@ -34,7 +34,7 @@ export const Settings: React.FC = () => {
       </Link>
       <section className={cx('container')}>
         <img src={plate} alt="plate" />
-        <h1 className={cx('heading-text')}>{t('settings.header')}</h1>
+        <h1 className={cx('heading-text')}>{i18n.t('settings.header')}</h1>
         <DarkTheme />
         <Language />
       </section>

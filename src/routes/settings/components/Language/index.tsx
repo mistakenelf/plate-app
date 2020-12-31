@@ -1,28 +1,31 @@
 import React from 'react';
 import classnames from 'classnames/bind';
-import { useTranslation } from 'react-i18next';
+
+import { useI18n } from '../../../../hooks/useI18n';
 
 import styles from './style.module.css';
 
 const cx = classnames.bind(styles);
 
 export const Language: React.FC = () => {
-  const { t, i18n } = useTranslation();
+  const { i18n, changeLanguage } = useI18n();
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    i18n.changeLanguage(e.target.value);
+    changeLanguage(e.target.value);
   };
 
   return (
     <div className={cx('settings-item')}>
-      <span className={cx('settings-text')}>{t('settings.languageLabel')}</span>
+      <span className={cx('settings-text')}>
+        {i18n.t('settings.languageLabel')}
+      </span>
       <select
         className={cx('language-select')}
         onBlur={handleLanguageChange}
-        defaultValue={i18n.language}
+        defaultValue={i18n.locale()}
       >
-        <option value="en">{t('settings.languages.english')}</option>
-        <option value="es">{t('settings.languages.spanish')}</option>
+        <option value="en">{i18n.t('settings.languages.english')}</option>
+        <option value="es">{i18n.t('settings.languages.spanish')}</option>
       </select>
       <div className={cx('caret')} />
     </div>
