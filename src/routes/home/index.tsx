@@ -1,8 +1,9 @@
 import React from 'react';
 import classnames from 'classnames/bind';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 
 import { generateId } from '../../helpers/generateId';
-import { useInputState } from '../../hooks/useInputState';
 import { useTodoState } from '../../hooks/useTodoState';
 
 import { AddTodoInput } from './components/AddTodoInput';
@@ -13,30 +14,38 @@ import styles from './style.module.css';
 
 const cx = classnames.bind(styles);
 
+const validationSchema = yup.object().shape({
+  todoItem: yup.string().trim().required('Todo item is required'),
+});
+
 export const Home: React.FC = () => {
-  const { inputValue, onChange, reset } = useInputState('');
   const { todos, addTodo, deleteTodo, completeTodo } = useTodoState([]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    if (inputValue) {
+  const { values, handleChange, handleSubmit, setFieldValue } = useFormik({
+    validationSchema,
+    initialErrors: {
+      todoItem: '',
+    },
+    initialValues: {
+      todoItem: '',
+    },
+    onSubmit: async ({ todoItem }) => {
       addTodo({
         id: generateId(),
-        text: inputValue,
+        text: todoItem,
         completed: false,
       });
 
-      reset();
-    }
-  };
+      setFieldValue('todoItem', '');
+    },
+  });
 
   return (
     <section>
       <Header />
       <div className={cx('container')}>
         <form className={cx('add-todo-form')} onSubmit={handleSubmit}>
-          <AddTodoInput inputValue={inputValue} onChange={onChange} />
+          <AddTodoInput inputValue={values.todoItem} onChange={handleChange} />
         </form>
         {todos.length > 0 ? (
           <ul className={cx('items-container')}>

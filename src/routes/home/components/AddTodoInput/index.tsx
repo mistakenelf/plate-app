@@ -16,6 +16,8 @@ export const AddTodoInput: React.FC<AddTodoInputProps> = ({
 
   return (
     <Input
+      id="todoItem"
+      name="todoItem"
       type="text"
       value={inputValue}
       onChange={onChange}
