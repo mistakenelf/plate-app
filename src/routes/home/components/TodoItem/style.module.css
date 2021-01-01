@@ -47,3 +47,8 @@
   background: transparent;
   margin-left: 10px;
 }
+
+.todo-item-icon {
+  height: 30px;
+  width: 30px;
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames/bind';
 import { Link } from 'react-router-dom';
-import feather from 'feather-icons';
+import { FiArrowLeft } from 'react-icons/fi';
 
 import { useTheme } from '../../hooks/useTheme';
 
@@ -18,16 +18,9 @@ export const BackArrow: React.FC<BackArrowProps> = ({ path = '/' }) => {
 
   return (
     <Link to={path}>
-      <div
+      <FiArrowLeft
         className={cx('back-arrow')}
-        dangerouslySetInnerHTML={{
-          __html: feather.icons['arrow-left'].toSvg({
-            'stroke-width': 2,
-            color: theme === 'dark' ? '#fff' : '#333',
-            height: 30,
-            width: 30,
-          }),
-        }}
+        color={theme === 'dark' ? '#fff' : '#333'}
       />
     </Link>
   );

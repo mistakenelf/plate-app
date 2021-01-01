@@ -11,3 +11,8 @@
   color: var(--empty-text);
   font-weight: bold;
 }
+
+.alert-icon {
+  height: 100px;
+  width: 100px;
+}

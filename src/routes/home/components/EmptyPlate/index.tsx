@@ -1,6 +1,6 @@
 import React from 'react';
-import feather from 'feather-icons';
 import classnames from 'classnames/bind';
+import { FiAlertTriangle } from 'react-icons/fi';
 
 import { useTheme } from '../../../../hooks/useTheme';
 import { useI18n } from '../../../../hooks/useI18n';
@@ -15,15 +15,10 @@ export const EmptyPlate: React.FC = () => {
 
   return (
     <div className={cx('empty-container')}>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: feather.icons['alert-triangle'].toSvg({
-            'stroke-width': 1,
-            color: theme === 'light' ? '#333' : '#fff',
-            height: 100,
-            width: 100,
-          }),
-        }}
+      <FiAlertTriangle
+        className={cx('alert-icon')}
+        color={theme === 'light' ? '#333' : '#fff'}
+        strokeWidth={1}
       />
       <p className={cx('empty-text')}>{i18n.t('home.emptyPlate')}</p>
     </div>

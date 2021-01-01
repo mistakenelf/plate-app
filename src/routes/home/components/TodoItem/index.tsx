@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames/bind';
-import feather from 'feather-icons';
+import { FiSquare, FiCheckSquare, FiTrash2 } from 'react-icons/fi';
 
 import { Todo } from '../../../../models/todo';
 import { useTheme } from '../../../../hooks/useTheme';
@@ -35,22 +35,16 @@ export const TodoItem: React.FC<TodoItemProps> = ({
       <div className={cx('text-container')}>
         <button className={cx('complete-button')} onClick={handleComplete}>
           {!todo.completed ? (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: feather.icons.square.toSvg({
-                  'stroke-width': 2,
-                  color: theme === 'dark' ? '#fff' : '#333',
-                }),
-              }}
+            <FiSquare
+              className={cx('todo-item-icon')}
+              strokeWidth={2}
+              color={theme === 'dark' ? '#fff' : '#333'}
             />
           ) : (
-            <div
-              dangerouslySetInnerHTML={{
-                __html: feather.icons['check-square'].toSvg({
-                  'stroke-width': 2,
-                  color: '#059669',
-                }),
-              }}
+            <FiCheckSquare
+              className={cx('todo-item-icon')}
+              strokeWidth={2}
+              color="#059699"
             />
           )}
         </button>
@@ -59,13 +53,10 @@ export const TodoItem: React.FC<TodoItemProps> = ({
         </span>
       </div>
       <button className={cx('delete-button')} onClick={handleDelete}>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: feather.icons['trash-2'].toSvg({
-              'stroke-width': 2,
-              color: '#EF4444',
-            }),
-          }}
+        <FiTrash2
+          className={cx('todo-item-icon')}
+          strokeWidth={2}
+          color="#ef4444"
         />
       </button>
     </li>

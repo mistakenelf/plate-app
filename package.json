@@ -27,10 +27,10 @@
   "dependencies": {
     "@supabase/supabase-js": "^1.1.2",
     "classnames": "^2.2.6",
-    "feather-icons": "^4.28.0",
     "formik": "^2.2.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-icons": "^4.1.0",
     "react-router-dom": "^5.2.0",
     "rosetta": "^1.1.0",
     "yup": "^0.32.8"
@@ -41,7 +41,6 @@
     "@snowpack/plugin-react-refresh": "^2.3.9",
     "@snowpack/plugin-typescript": "^1.1.1",
     "@types/classnames": "^2.2.11",
-    "@types/feather-icons": "^4.7.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-router-dom": "^5.1.7",
