@@ -1,0 +1,40 @@
+@keyframes load {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  border-radius: 50%;
+  transform: translateZ(0);
+  animation: load 1.1s infinite linear;
+  border-top: 2px solid var(--spinner-secondary);
+  border-right: 2px solid var(--spinner-secondary);
+  border-bottom: 2px solid var(--spinner-secondary);
+  border-left: 2px solid var(--spinner-primary);
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}

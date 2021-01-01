@@ -18,6 +18,8 @@ body[data-theme='light'] {
   --button-text: #333;
   --todo-item-border: #333;
   --todo-item-background: #fff;
+  --spinner-primary: #333;
+  --spinner-secondary: #dadada;
 }
 
 body[data-theme='dark'] {
@@ -40,4 +42,6 @@ body[data-theme='dark'] {
   --button-text: #fff;
   --todo-item-border: #fff;
   --todo-item-background: rgba(57, 63, 84, 0.8);
+  --spinner-primary: #fff;
+  --spinner-secondary: #5f5f5f;
 }
