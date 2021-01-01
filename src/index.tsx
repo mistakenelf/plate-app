@@ -1,5 +1,4 @@
-import './assets/styles/_theme.css';
-import './assets/styles/_global.css';
+import './assets/styles/main.css';
 
 import React from 'react';
 import { render } from 'react-dom';
