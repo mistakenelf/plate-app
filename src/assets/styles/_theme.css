@@ -1,5 +1,5 @@
 body[data-theme='light'] {
-  --colors-background: #eee;
+  --background-color: #eee;
   --header-text: #333;
   --todo-item-text: #333;
   --empty-text: #333;
@@ -23,7 +23,7 @@ body[data-theme='light'] {
 }
 
 body[data-theme='dark'] {
-  --colors-background: #333;
+  --background-color: #333;
   --header-text: #fff;
   --todo-item-text: #fff;
   --empty-text: #fff;
