@@ -15,7 +15,7 @@
   margin-bottom: 20px;
 }
 
-.login-form {
+.register-form {
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -29,11 +29,4 @@
   position: absolute;
   top: 10px;
   left: 10px;
-}
-
-.no-account-link {
-  color: var(--body-text);
-  font-size: 16px;
-  text-align: right;
-  margin-top: 20px;
 }

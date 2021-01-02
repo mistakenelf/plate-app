@@ -19,6 +19,16 @@
     "headerText": "Login",
     "emailInputLabel": "Email",
     "emailInputPlaceholder": "Email address",
+    "passwordInputLabel": "Password",
+    "passwordInputPlaceholder": "Password",
     "submitButton": "Login"
+  },
+  "register": {
+    "headerText": "Register",
+    "emailInputLabel": "Email",
+    "emailInputPlaceholder": "Email address",
+    "passwordInputLabel": "Password",
+    "passwordInputPlaceholder": "Password",
+    "submitButton": "Register"
   }
 }

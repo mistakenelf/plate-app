@@ -2,7 +2,6 @@ import React from 'react';
 import classnames from 'classnames/bind';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
-import { Link } from 'react-router-dom';
 
 import { supabase } from '../../helpers/supabase';
 import { Input } from '../../components/Input';
@@ -23,15 +22,9 @@ const validationSchema = yup.object().shape({
   password: yup.string().trim().required('Password is required'),
 });
 
-const Login: React.FC = () => {
+const Register: React.FC = () => {
   const { i18n } = useI18n();
-  const {
-    values,
-    handleChange,
-    handleSubmit,
-    isSubmitting,
-    errors,
-  } = useFormik({
+  const { values, handleChange, handleSubmit, isSubmitting } = useFormik({
     validationSchema,
     initialErrors: {
       email: '',
@@ -43,7 +36,7 @@ const Login: React.FC = () => {
     },
     onSubmit: async ({ email, password }) => {
       try {
-        const result = await supabase.auth.signIn({
+        const result = await supabase.auth.signUp({
           email,
           password,
         });
@@ -61,35 +54,30 @@ const Login: React.FC = () => {
     <>
       <BackArrow />
       <section className={cx('container')}>
-        <h1 className={cx('header-text')}>{i18n.t('login.headerText')}</h1>
-        <form className={cx('login-form')} onSubmit={handleSubmit}>
+        <h1 className={cx('header-text')}>{i18n.t('register.headerText')}</h1>
+        <form className={cx('register-form')} onSubmit={handleSubmit}>
           <Input
-            inputLabel={i18n.t('login.emailInputLabel')}
+            inputLabel={i18n.t('register.emailInputLabel')}
             type="email"
-            placeholder={i18n.t('login.emailInputPlaceholder')}
+            placeholder={i18n.t('register.emailInputPlaceholder')}
             id="email"
             name="email"
-            error={errors.email}
             value={values.email}
             onChange={handleChange}
           />
           <div className={cx('separator')} />
           <Input
-            inputLabel={i18n.t('login.passwordInputLabel')}
+            inputLabel={i18n.t('register.passwordInputLabel')}
             type="password"
-            placeholder={i18n.t('login.passwordInputPlaceholder')}
+            placeholder={i18n.t('register.passwordInputPlaceholder')}
             id="password"
             name="password"
-            error={errors.password}
             value={values.password}
             onChange={handleChange}
           />
-          <Link className={cx('no-account-link')} to="/register">
-            Dont have an account?
-          </Link>
           <div className={cx('separator')} />
           <Button type="submit" block isLoading={isSubmitting}>
-            {i18n.t('login.submitButton')}
+            {i18n.t('register.submitButton')}
           </Button>
         </form>
       </section>
@@ -97,4 +85,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Register;
