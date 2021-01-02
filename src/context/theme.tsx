@@ -23,11 +23,8 @@ export const ThemeProvider: React.FC = ({ children }) => {
     if (currentTheme) {
       setTheme(currentTheme);
       document.body.dataset.theme = currentTheme;
-      document.body.style.backgroundColor =
-        currentTheme === 'dark' ? '#333' : '#eee';
     } else {
       document.body.dataset.theme = theme;
-      document.body.style.backgroundColor = theme === 'dark' ? '#333' : '#eee';
     }
   }, [theme]);
 
