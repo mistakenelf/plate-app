@@ -18,7 +18,7 @@
   ],
   "scripts": {
     "start": "snowpack dev",
-    "build": "npm run workbox && snowpack build",
+    "build": "snowpack build && npm run workbox",
     "test": "web-test-runner \"src/**/*.test.tsx\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\"",
@@ -57,6 +57,7 @@
     "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "postcss-import": "^14.0.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.2.1",
     "snowpack": "^2.18.5",
