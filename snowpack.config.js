@@ -12,7 +12,6 @@ module.exports = {
   ],
   experiments: {
     optimize: {
-      preload: true,
       bundle: true,
       minify: true,
       target: 'es2018',
