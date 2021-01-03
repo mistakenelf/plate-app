@@ -20,6 +20,7 @@ body[data-theme='light'] {
   --todo-item-background: #fff;
   --spinner-primary: #333;
   --spinner-secondary: #dadada;
+  --error-text: #dc2626;
 }
 
 body[data-theme='dark'] {
@@ -44,4 +45,5 @@ body[data-theme='dark'] {
   --todo-item-background: rgba(57, 63, 84, 0.8);
   --spinner-primary: #fff;
   --spinner-secondary: #5f5f5f;
+  --error-text: #dc2626;
 }

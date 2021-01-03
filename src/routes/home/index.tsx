@@ -20,7 +20,6 @@ const validationSchema = yup.object().shape({
 
 export const Home: React.FC = () => {
   const { todos, addTodo, deleteTodo, completeTodo } = useTodoState([]);
-
   const { values, handleChange, handleSubmit, setFieldValue } = useFormik({
     validationSchema,
     initialErrors: {
