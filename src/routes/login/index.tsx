@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames/bind';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { supabase } from '../../helpers/supabase';
 import { Input } from '../../components/Input';
@@ -25,6 +25,7 @@ const validationSchema = yup.object().shape({
 
 const Login: React.FC = () => {
   const { i18n } = useI18n();
+  const history = useHistory();
   const {
     values,
     handleChange,
@@ -43,16 +44,21 @@ const Login: React.FC = () => {
     },
     onSubmit: async ({ email, password }) => {
       try {
-        const result = await supabase.auth.signIn({
+        const { error, user } = await supabase.auth.signIn({
           email,
           password,
         });
 
-        if (result.error) {
-          alert(result.error.message);
+        if (error) {
+          alert('Error logging in: ' + error.message);
+        } else if (!error && !user) {
+          alert('Check your email for the login link!');
+        } else {
+          history.push('/');
         }
       } catch (error) {
-        console.error(error);
+        console.error('Error thrown:', error.message);
+        alert(error.error_description || error);
       }
     },
   });

@@ -1,29 +1,26 @@
 import React, { createContext, useEffect, useState } from 'react';
+import { Session } from '@supabase/supabase-js';
+
+import { supabase } from '../helpers/supabase';
 
 interface AuthContextProps {
-  loggedIn: boolean;
+  userSession: Session | null;
 }
 
 export const AuthContext = createContext({} as AuthContextProps);
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  const hashParams = window.location.hash.substring(1);
-  const params: any = {};
-  hashParams.split('&').map((hk) => {
-    const temp = hk.split('=');
-    params[temp[0]] = temp[1];
-  });
+  const [userSession, setUserSession] = useState<Session | null>(null);
 
   useEffect(() => {
-    if (params.access_token) {
-      setLoggedIn(true);
-      localStorage.setItem('token', params.access_token);
-    }
-  }, [params.access_token]);
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setUserSession(session);
+    });
+  }, []);
 
   return (
-    <AuthContext.Provider value={{ loggedIn }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ userSession }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
