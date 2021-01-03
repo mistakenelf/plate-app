@@ -4,5 +4,5 @@ const cssnano = require('cssnano');
 const atImport = require('postcss-import');
 
 module.exports = {
-  plugins: [atImport(), cssnano(), autoprefixer(), postcssPresetEnv()],
+  plugins: [require('autoprefixer')],
 };
