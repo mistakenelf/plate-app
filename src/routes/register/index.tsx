@@ -3,7 +3,6 @@ import classnames from 'classnames/bind';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 
-import { supabase } from '../../helpers/supabase';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { useI18n } from '../../hooks/useI18n';
@@ -35,18 +34,7 @@ const Register: React.FC = () => {
       password: '',
     },
     onSubmit: async ({ email, password }) => {
-      try {
-        const result = await supabase.auth.signUp({
-          email,
-          password,
-        });
-
-        if (result.error) {
-          alert(result.error.message);
-        }
-      } catch (error) {
-        console.error(error);
-      }
+      console.log('handle register');
     },
   });
 

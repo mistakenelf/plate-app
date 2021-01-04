@@ -4,7 +4,6 @@ import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { Link, useHistory } from 'react-router-dom';
 
-import { supabase } from '../../helpers/supabase';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { useI18n } from '../../hooks/useI18n';
@@ -43,23 +42,7 @@ const Login: React.FC = () => {
       password: '',
     },
     onSubmit: async ({ email, password }) => {
-      try {
-        const { error, user } = await supabase.auth.signIn({
-          email,
-          password,
-        });
-
-        if (error) {
-          alert('Error logging in: ' + error.message);
-        } else if (!error && !user) {
-          alert('Check your email for the login link!');
-        } else {
-          history.push('/');
-        }
-      } catch (error) {
-        console.error('Error thrown:', error.message);
-        alert(error.error_description || error);
-      }
+      console.log('handle login');
     },
   });
 
