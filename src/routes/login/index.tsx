@@ -2,12 +2,13 @@ import React from 'react';
 import classnames from 'classnames/bind';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { useI18n } from '../../hooks/useI18n';
 import { BackArrow } from '../../components/BackArrow';
+import { login } from '../../helpers/magic';
 
 import styles from './style.module.css';
 
@@ -19,7 +20,6 @@ const validationSchema = yup.object().shape({
     .trim()
     .email('Email is invalid')
     .required('Email is required'),
-  password: yup.string().trim().required('Password is required'),
 });
 
 const Login: React.FC = () => {
@@ -35,14 +35,17 @@ const Login: React.FC = () => {
     validationSchema,
     initialErrors: {
       email: '',
-      password: '',
     },
     initialValues: {
       email: '',
-      password: '',
     },
-    onSubmit: async ({ email, password }) => {
-      console.log('handle login');
+    onSubmit: ({ email }) => {
+      try {
+        login(email);
+        history.push('/');
+      } catch (e) {
+        console.error(e.message);
+      }
     },
   });
 
@@ -62,20 +65,6 @@ const Login: React.FC = () => {
             value={values.email}
             onChange={handleChange}
           />
-          <div className={cx('separator')} />
-          <Input
-            inputLabel={i18n.t('login.passwordInputLabel')}
-            type="password"
-            placeholder={i18n.t('login.passwordInputPlaceholder')}
-            id="password"
-            name="password"
-            error={errors.password}
-            value={values.password}
-            onChange={handleChange}
-          />
-          <Link className={cx('no-account-link')} to="/register">
-            Dont have an account?
-          </Link>
           <div className={cx('separator')} />
           <Button type="submit" block isLoading={isSubmitting}>
             {i18n.t('login.submitButton')}
