@@ -3,6 +3,7 @@
     "whatsOnYourPlate": "Whats on your Plate?",
     "settingsLink": "Settings",
     "loginLink": "Login",
+    "logoutButton": "Logout",
     "emptyPlate": "Your plate is empty, lets fill it up!",
     "todoInputPlaceholder": "Enter an item to add"
   },

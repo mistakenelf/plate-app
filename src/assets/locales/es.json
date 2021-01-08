@@ -3,6 +3,7 @@
     "whatsOnYourPlate": "¿Qué hay en tu plato?",
     "settingsLink": "Ajustes",
     "loginLink": "Iniciar sesión",
+    "logoutButton": "Cerrar sesión",
     "emptyPlate": "Tu plato está vacío, ¡llenémoslo!",
     "todoInputPlaceholder": "Ingrese un elemento para agregar"
   },
