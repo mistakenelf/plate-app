@@ -3,9 +3,11 @@ import { useContext } from 'react';
 import { AuthContext } from '../context/auth';
 
 export const useAuth = () => {
-  const { loggedIn } = useContext(AuthContext);
+  const { isLoggedIn, login, logout } = useContext(AuthContext);
 
   return {
-    loggedIn,
+    isLoggedIn,
+    login,
+    logout,
   };
 };

@@ -21,6 +21,8 @@
   color: var(--body-text);
   outline: none;
   margin-left: 10px;
+  background: none;
+  outline: none;
 }
 
 .header-text {

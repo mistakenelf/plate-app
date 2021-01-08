@@ -8,7 +8,7 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { useI18n } from '../../hooks/useI18n';
 import { BackArrow } from '../../components/BackArrow';
-import { login } from '../../helpers/magic';
+import { useAuth } from '../../hooks/useAuth';
 
 import styles from './style.module.css';
 
@@ -25,6 +25,7 @@ const validationSchema = yup.object().shape({
 const Login: React.FC = () => {
   const { i18n } = useI18n();
   const history = useHistory();
+  const { login } = useAuth();
   const {
     values,
     handleChange,
