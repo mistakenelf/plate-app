@@ -17,7 +17,7 @@
     "social"
   ],
   "scripts": {
-    "start": "snowpack dev",
+    "dev": "snowpack dev -p $PORT",
     "build": "snowpack build && npm run workbox",
     "test": "web-test-runner \"src/**/*.test.tsx\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
@@ -48,6 +48,7 @@
     "@types/yup": "^0.29.11",
     "@typescript-eslint/eslint-plugin": "^4.12.0",
     "@typescript-eslint/parser": "^4.12.0",
+    "@vercel/node": "^1.8.5",
     "autoprefixer": "^10.2.1",
     "cssnano": "^4.1.10",
     "eslint": "^7.17.0",
