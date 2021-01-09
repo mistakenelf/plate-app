@@ -10,7 +10,7 @@
   border: 2px solid var(--todo-item-border);
   display: flex;
   justify-content: space-between;
-  height: 60px;
+  min-height: 60px;
   align-items: center;
   border-radius: 5px;
   padding: 10px;
