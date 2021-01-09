@@ -1,14 +1,24 @@
 .container {
   padding-left: 30px;
-  padding-top: 10px;
+  padding-top: 15px;
   padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.user-email {
+  color: var(--body-text);
+  font-size: 16px;
 }
 
 .action-row {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  margin-bottom: 40px;
+  margin-left: auto;
 }
 
 .settings-link {
@@ -29,4 +39,5 @@
   margin-bottom: 20px;
   font-size: 1.8em;
   color: var(--header-text);
+  padding-left: 30px;
 }

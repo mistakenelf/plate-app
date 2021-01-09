@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classnames from 'classnames/bind';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -38,6 +38,17 @@ export const Home: React.FC = () => {
       setFieldValue('todoItem', '');
     },
   });
+
+  useEffect(() => {
+    const checkHealth = async () => {
+      const res = await fetch('/api/health');
+      const json = await res.text();
+
+      console.log(json);
+    };
+
+    checkHealth();
+  }, []);
 
   return (
     <section>
