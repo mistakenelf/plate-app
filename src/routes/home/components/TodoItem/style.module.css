@@ -20,7 +20,6 @@
 .todo-text {
   border: none;
   outline: none;
-  cursor: pointer;
   font-size: 1.2em;
   background: transparent;
   color: var(--todo-item-text);
