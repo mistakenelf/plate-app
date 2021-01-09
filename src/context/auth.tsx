@@ -22,7 +22,10 @@ export const AuthProvider: React.FC = ({ children }) => {
   const login = async (email: string) => {
     try {
       await magic.auth.loginWithMagicLink({ email });
+      const userMetadata = await magic.user.getMetadata();
+
       setIsLoggedIn(true);
+      setUserMetadata(userMetadata);
     } catch (e) {
       console.error(e.message);
     }
@@ -40,6 +43,8 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     const checkUser = async () => {
+      await magic.preload();
+
       try {
         setLoading(true);
 
