@@ -21,6 +21,7 @@ body[data-theme='light'] {
   --spinner-primary: #333;
   --spinner-secondary: #dadada;
   --error-text: #dc2626;
+  --bottom-nav-background: #eee;
 }
 
 body[data-theme='dark'] {
@@ -46,4 +47,5 @@ body[data-theme='dark'] {
   --spinner-primary: #fff;
   --spinner-secondary: #5f5f5f;
   --error-text: #dc2626;
+  --bottom-nav-background: #333;
 }

@@ -1,0 +1,28 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  position: fixed;
+  bottom: 0;
+  background: var(--bottom-nav-background);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+}
+
+.nav-icon {
+  height: 30px;
+  width: 30px;
+}
+
+.nav-text {
+  color: var(--body-text);
+  font-weight: bold;
+}

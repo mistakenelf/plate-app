@@ -32,15 +32,7 @@ export const Routes: React.FC = () => {
             </DefaultLayout>
           )}
         />
-        <Route
-          exact
-          path={RoutePaths.LOGIN}
-          render={() => (
-            <DefaultLayout>
-              <Login />
-            </DefaultLayout>
-          )}
-        />
+        <Route exact path={RoutePaths.LOGIN} component={Login} />
       </Switch>
     </Suspense>
   );
