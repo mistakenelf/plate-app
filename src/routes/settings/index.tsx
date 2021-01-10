@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames/bind';
 
 import plate from '../../assets/images/plate.png';
-import { useI18n } from '../../hooks/useI18n';
+import { useI18n } from '../../lib/hooks/useI18n';
 import { BackArrow } from '../../components/BackArrow';
 
 import { DarkTheme } from './components/DarkTheme';

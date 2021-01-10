@@ -3,8 +3,8 @@ import classnames from 'classnames/bind';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
-import { generateId } from '../../helpers/generateId';
-import { useTodoState } from '../../hooks/useTodoState';
+import { generateId } from '../../lib/helpers/generateId';
+import { useTodoState } from '../../lib/hooks/useTodoState';
 
 import { AddTodoInput } from './components/AddTodoInput';
 import { Header } from './components/Header';

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import { ThemeProvider } from '../../context/theme';
-import { AuthProvider } from '../../context/auth';
+import { ThemeProvider } from '../../lib/context/theme';
+import { AuthProvider } from '../../lib/context/auth';
 import { Routes } from '../../routes';
-import { I18nProvider } from '../../context/i18n';
+import { I18nProvider } from '../../lib/context/i18n';
 
 export const App: React.FC = () => {
   useEffect(() => {

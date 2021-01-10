@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { Magic, MagicUserMetadata } from 'magic-sdk';
 
-import { Spinner } from '../components/Spinner';
+import { Spinner } from '../../components/Spinner';
 
 const magic = new Magic(import.meta.env.SNOWPACK_PUBLIC_MAGIC_KEY);
 

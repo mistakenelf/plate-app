@@ -1,8 +1,8 @@
 import React, { createContext, useState } from 'react';
 import rosetta, { Rosetta } from 'rosetta';
 
-import en from '../assets/locales/en.json';
-import es from '../assets/locales/es.json';
+import en from '../../assets/locales/en.json';
+import es from '../../assets/locales/es.json';
 
 interface I18nContextProps {
   i18n: Rosetta<any>;

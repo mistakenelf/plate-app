@@ -3,7 +3,7 @@ import classnames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 
-import { useTheme } from '../../hooks/useTheme';
+import { useTheme } from '../../lib/hooks/useTheme';
 
 import styles from './style.module.css';
 

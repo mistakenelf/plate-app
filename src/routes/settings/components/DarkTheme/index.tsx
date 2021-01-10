@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import classnames from 'classnames/bind';
 
-import { useTheme } from '../../../../hooks/useTheme';
-import { useI18n } from '../../../../hooks/useI18n';
+import { useTheme } from '../../../../lib/hooks/useTheme';
+import { useI18n } from '../../../../lib/hooks/useI18n';
 import { Switch } from '../../../../components/Switch';
 
 import styles from './style.module.css';

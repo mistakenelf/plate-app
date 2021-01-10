@@ -3,7 +3,7 @@ import classnames from 'classnames/bind';
 import { FiSquare, FiCheckSquare, FiTrash2 } from 'react-icons/fi';
 
 import { Todo } from '../../../../models/todo';
-import { useTheme } from '../../../../hooks/useTheme';
+import { useTheme } from '../../../../lib/hooks/useTheme';
 
 import styles from './style.module.css';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames/bind';
 
-import { useI18n } from '../../../../hooks/useI18n';
+import { useI18n } from '../../../../lib/hooks/useI18n';
 
 import styles from './style.module.css';
 

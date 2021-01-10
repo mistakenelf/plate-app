@@ -6,9 +6,10 @@ import { useHistory } from 'react-router-dom';
 
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
-import { useI18n } from '../../hooks/useI18n';
+import { useI18n } from '../../lib/hooks/useI18n';
 import { BackArrow } from '../../components/BackArrow';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth } from '../../lib/hooks/useAuth';
+import { RoutePaths } from '../../lib/constants';
 
 import styles from './style.module.css';
 
@@ -43,7 +44,7 @@ const Login: React.FC = () => {
     onSubmit: ({ email }) => {
       try {
         login(email);
-        history.push('/');
+        history.push(RoutePaths.HOME);
       } catch (e) {
         console.error(e.message);
       }

@@ -2,8 +2,9 @@ import React from 'react';
 import classnames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 
-import { useI18n } from '../../../../hooks/useI18n';
-import { useAuth } from '../../../../hooks/useAuth';
+import { useI18n } from '../../../../lib/hooks/useI18n';
+import { useAuth } from '../../../../lib/hooks/useAuth';
+import { RoutePaths } from '../../../../lib/constants';
 
 import styles from './style.module.css';
 
@@ -20,11 +21,11 @@ export const Header: React.FC = () => {
           <div className={cx('user-email')}>{userMetadata.email}</div>
         )}
         <div className={cx('action-row')}>
-          <Link to="/settings" className={cx('settings-link')}>
+          <Link to={RoutePaths.SETTINGS} className={cx('settings-link')}>
             {i18n.t('home.settingsLink')}
           </Link>
           {!isLoggedIn ? (
-            <Link to="/login" className={cx('settings-link')}>
+            <Link to={RoutePaths.LOGIN} className={cx('settings-link')}>
               {i18n.t('home.loginLink')}
             </Link>
           ) : (

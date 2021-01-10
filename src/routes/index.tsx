@@ -2,6 +2,8 @@ import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import { Spinner } from '../components/Spinner';
+import { RoutePaths } from '../lib/constants';
+import { DefaultLayout } from '../layouts/DefaultLayout';
 
 import { Home } from './home';
 
@@ -12,9 +14,33 @@ export const Routes: React.FC = () => {
   return (
     <Suspense fallback={<Spinner isOverlay />}>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/settings" component={Settings} />
-        <Route exact path="/login" component={Login} />
+        <Route
+          exact
+          path={RoutePaths.HOME}
+          render={() => (
+            <DefaultLayout>
+              <Home />
+            </DefaultLayout>
+          )}
+        />
+        <Route
+          exact
+          path={RoutePaths.SETTINGS}
+          render={() => (
+            <DefaultLayout>
+              <Settings />
+            </DefaultLayout>
+          )}
+        />
+        <Route
+          exact
+          path={RoutePaths.LOGIN}
+          render={() => (
+            <DefaultLayout>
+              <Login />
+            </DefaultLayout>
+          )}
+        />
       </Switch>
     </Suspense>
   );

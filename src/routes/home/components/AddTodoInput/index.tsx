@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Input } from '../../../../components/Input';
-import { useI18n } from '../../../../hooks/useI18n';
+import { useI18n } from '../../../../lib/hooks/useI18n';
 
 interface AddTodoInputProps {
   inputValue: string;
