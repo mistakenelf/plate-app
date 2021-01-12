@@ -9,6 +9,27 @@ import { Home } from './home';
 
 const Settings = lazy(() => import('./settings'));
 const Login = lazy(() => import('./login'));
+const Plates = lazy(() => import('./plates'));
+const Profile = lazy(() => import('./profile'));
+
+export const prefetchMap = [
+  {
+    path: RoutePaths.SETTINGS,
+    prefetchComponents: [Settings],
+  },
+  {
+    path: RoutePaths.LOGIN,
+    prefetchComponents: [Login],
+  },
+  {
+    path: RoutePaths.PLATES,
+    prefetchComponents: [Plates],
+  },
+  {
+    path: RoutePaths.PROFILE,
+    prefetchComponents: [Profile],
+  },
+];
 
 export const Routes: React.FC = () => {
   return (
@@ -29,6 +50,24 @@ export const Routes: React.FC = () => {
           render={() => (
             <DefaultLayout>
               <Settings />
+            </DefaultLayout>
+          )}
+        />
+        <Route
+          exact
+          path={RoutePaths.PLATES}
+          render={() => (
+            <DefaultLayout>
+              <Plates />
+            </DefaultLayout>
+          )}
+        />
+        <Route
+          exact
+          path={RoutePaths.PROFILE}
+          render={() => (
+            <DefaultLayout>
+              <Profile />
             </DefaultLayout>
           )}
         />

@@ -72,6 +72,12 @@ const Login: React.FC = () => {
             {i18n.t('login.submitButton')}
           </Button>
         </form>
+        <p className={cx('login-info')}>
+          Once you enter your email, we will send you a magic link. Once you
+          click sign in through the magic link, come back to the app and you
+          will be logged in. If you dont have an account, this will create one
+          for you
+        </p>
       </section>
     </>
   );

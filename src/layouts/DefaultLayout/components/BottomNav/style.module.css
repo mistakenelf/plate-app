@@ -2,10 +2,11 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  height: 70px;
+  height: 60px;
   position: fixed;
   bottom: 0;
   background: var(--bottom-nav-background);
+  border-top: 2px solid var(--bottom-nav-border);
 }
 
 .nav-item {
@@ -15,6 +16,7 @@
   align-items: center;
   width: 100%;
   text-decoration: none;
+  color: var(--body-text);
 }
 
 .nav-icon {
@@ -22,7 +24,14 @@
   width: 30px;
 }
 
+.nav-active {
+  color: var(--bottom-nav-active);
+  background: var(--bottom-nav-active-background);
+}
+
 .nav-text {
-  color: var(--body-text);
   font-weight: bold;
+  font-size: 12px;
+  margin-top: 3px;
+  text-transform: uppercase;
 }
