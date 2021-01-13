@@ -35,9 +35,8 @@
   outline: none;
 }
 
-.header-text {
-  margin-bottom: 20px;
+.welcome-text {
   font-size: 1.8em;
   color: var(--header-text);
-  padding-left: 30px;
+  text-align: center;
 }

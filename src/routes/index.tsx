@@ -4,13 +4,14 @@ import { Switch, Route } from 'react-router-dom';
 import { Spinner } from '../components/Spinner';
 import { RoutePaths } from '../lib/constants';
 import { DefaultLayout } from '../layouts/DefaultLayout';
+import { AuthenticatedRoute } from '../components/AuthenticatedRoute';
 
-import { Home } from './home';
+import { Home } from './Home';
 
-const Settings = lazy(() => import('./settings'));
-const Login = lazy(() => import('./login'));
-const Plates = lazy(() => import('./plates'));
-const Profile = lazy(() => import('./profile'));
+const Settings = lazy(() => import('./Settings'));
+const Login = lazy(() => import('./Login'));
+const Plates = lazy(() => import('./Plates'));
+const Profile = lazy(() => import('./Profile'));
 
 export const prefetchMap = [
   {
@@ -44,34 +45,25 @@ export const Routes: React.FC = () => {
             </DefaultLayout>
           )}
         />
+        <Route exact path={RoutePaths.LOGIN} component={Login} />
         <Route
           exact
           path={RoutePaths.SETTINGS}
-          render={() => (
-            <DefaultLayout>
-              <Settings />
-            </DefaultLayout>
-          )}
+          layoutComponent={DefaultLayout}
+          component={Settings}
         />
-        <Route
+        <AuthenticatedRoute
           exact
           path={RoutePaths.PLATES}
-          render={() => (
-            <DefaultLayout>
-              <Plates />
-            </DefaultLayout>
-          )}
+          layoutComponent={DefaultLayout}
+          component={Plates}
         />
-        <Route
+        <AuthenticatedRoute
           exact
           path={RoutePaths.PROFILE}
-          render={() => (
-            <DefaultLayout>
-              <Profile />
-            </DefaultLayout>
-          )}
+          layoutComponent={DefaultLayout}
+          component={Profile}
         />
-        <Route exact path={RoutePaths.LOGIN} component={Login} />
       </Switch>
     </Suspense>
   );

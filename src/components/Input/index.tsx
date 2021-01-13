@@ -12,6 +12,7 @@ interface CustomInputProps {
   isLoading?: boolean;
   subtext?: string;
   inputAdornment?: React.ReactNode;
+  labelHidden?: boolean;
 }
 
 type InputProps = CustomInputProps & React.HTMLProps<HTMLInputElement>;
@@ -22,7 +23,12 @@ export const Input: React.FC<InputProps> = React.forwardRef<
 >((props, ref) => {
   return (
     <>
-      <label htmlFor={props.id}>{props.inputLabel}</label>
+      <label
+        htmlFor={props.id}
+        className={cx({ 'sr-only': props.labelHidden })}
+      >
+        {props.inputLabel}
+      </label>
       <div className={cx('input-container')}>
         <input
           type={props.type || 'text'}

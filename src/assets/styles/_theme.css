@@ -40,7 +40,7 @@ body[data-theme='dark'] {
   --language-selector-text: #fff;
   --language-selector-border: #fff;
   --language-selector-arrow: #fff;
-  --input-background: rgba(57, 63, 84, 0.8);
+  --input-background: #191919;
   --input-label-text: #fff;
   --input-text: #fff;
   --button-background: #5f5f5f;

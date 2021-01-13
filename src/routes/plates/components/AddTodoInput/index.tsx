@@ -16,8 +16,10 @@ export const AddTodoInput: React.FC<AddTodoInputProps> = ({
 
   return (
     <Input
+      labelHidden
       id="todoItem"
       name="todoItem"
+      inputLabel="Todo"
       type="text"
       value={inputValue}
       onChange={onChange}

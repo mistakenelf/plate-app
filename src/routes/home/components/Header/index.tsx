@@ -35,7 +35,7 @@ export const Header: React.FC = () => {
           )}
         </div>
       </div>
-      <h1 className={cx('header-text')}>{i18n.t('home.whatsOnYourPlate')}</h1>
+      <h1 className={cx('welcome-text')}>{i18n.t('home.welcomeText')}</h1>
     </>
   );
 };

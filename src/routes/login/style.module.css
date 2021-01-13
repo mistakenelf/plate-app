@@ -19,6 +19,7 @@
   font-size: 14px;
   margin-top: 25px;
   font-weight: bold;
+  color: var(--body-text);
 }
 
 .login-form {
