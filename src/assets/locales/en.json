@@ -1,6 +1,11 @@
 {
+  "bottomNav": {
+    "homeLink": "Home",
+    "platesLink": "Plates",
+    "profileLink": "Profile"
+  },
   "home": {
-    "whatsOnYourPlate": "Whats on your Plate?",
+    "welcomeText": "Welcome to Plate!",
     "settingsLink": "Settings",
     "loginLink": "Login",
     "logoutButton": "Logout",
