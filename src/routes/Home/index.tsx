@@ -3,7 +3,7 @@ import classnames from 'classnames/bind';
 
 import { Header } from './components/Header';
 import { WelcomeText } from './components/WelcomeText';
-import { MainMenu } from './components/MainMenu';
+import { Stats } from './components/Stats';
 import styles from './style.module.css';
 
 const cx = classnames.bind(styles);
@@ -14,7 +14,7 @@ export const Home: React.FC = () => {
       <Header />
       <section className={cx('container')}>
         <WelcomeText />
-        <MainMenu />
+        <Stats />
       </section>
     </>
   );

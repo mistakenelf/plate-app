@@ -1,0 +1,45 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  columns: 2;
+  column-gap: 20px;
+}
+
+.card {
+  border: 3px solid var(--primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+.card::after {
+  padding-bottom: 100%;
+  display: block;
+  content: '';
+}
+
+.content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+.count {
+  font-size: 5rem;
+  color: var(--primary);
+}
+
+.title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--primary);
+}

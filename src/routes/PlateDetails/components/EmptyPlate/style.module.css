@@ -8,7 +8,7 @@
 
 .empty-text {
   font-size: 1.2em;
-  color: var(--empty-text);
+  color: var(--primary);
   font-weight: bold;
 }
 

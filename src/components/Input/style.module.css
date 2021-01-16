@@ -44,7 +44,7 @@
 
 .app-input {
   flex-grow: 1;
-  color: var(--input-text);
+  color: var(--primary);
   background: transparent;
   border: none;
   font-size: 16px;
@@ -57,7 +57,7 @@ label {
   font-size: 14px;
   font-weight: bold;
   line-height: 22px;
-  color: var(--input-label-text);
+  color: var(--primary);
 }
 
 .input-subtext {

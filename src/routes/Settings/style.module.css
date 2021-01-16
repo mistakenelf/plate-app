@@ -8,6 +8,6 @@
 
 .heading-text {
   font-size: 2em;
-  color: var(--header-text);
+  color: var(--primary);
   margin-bottom: 30px;
 }

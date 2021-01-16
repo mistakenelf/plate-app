@@ -10,17 +10,17 @@
 
 .settings-text {
   font-size: 1.2em;
-  color: var(--body-text);
+  color: var(--primary);
   font-weight: bold;
 }
 
 .language-select {
-  background: var(--language-selector-background);
+  background: var(--secondary);
   padding: 5px 13px;
   border-radius: 8px;
-  color: var(--language-selector-text);
+  color: var(--primary);
   font-weight: bold;
-  border: 2px solid var(--language-selector-border);
+  border: 2px solid var(--primary);
   appearance: none;
   width: 120px;
   font-size: 16px;
@@ -35,7 +35,7 @@
   margin-top: -1px;
   width: 0;
   height: 0;
-  border-top: 5px solid var(--language-selector-arrow);
+  border-top: 5px solid var(--primary);
   border-right: 5px solid transparent;
   border-left: 5px solid transparent;
 }

@@ -14,7 +14,7 @@
   border-top: 2px solid var(--spinner-secondary);
   border-right: 2px solid var(--spinner-secondary);
   border-bottom: 2px solid var(--spinner-secondary);
-  border-left: 2px solid var(--spinner-primary);
+  border-left: 2px solid var(--primary);
 }
 
 .overlay {

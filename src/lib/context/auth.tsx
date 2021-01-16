@@ -43,8 +43,6 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     const checkUser = async () => {
-      await magic.preload();
-
       try {
         setLoading(true);
 

@@ -12,6 +12,7 @@ const Settings = lazy(() => import('./Settings'));
 const Login = lazy(() => import('./Login'));
 const Plates = lazy(() => import('./Plates'));
 const Profile = lazy(() => import('./Profile'));
+const PlateDetails = lazy(() => import('./PlateDetails'));
 
 export const prefetchMap = [
   {
@@ -57,6 +58,12 @@ export const Routes: React.FC = () => {
           path={RoutePaths.PLATES}
           layoutComponent={DefaultLayout}
           component={Plates}
+        />
+        <AuthenticatedRoute
+          exact
+          path={`${RoutePaths.PLATE_DETAILS}/:id`}
+          layoutComponent={DefaultLayout}
+          component={PlateDetails}
         />
         <AuthenticatedRoute
           exact

@@ -4,4 +4,5 @@ export enum RoutePaths {
   LOGIN = '/login',
   PLATES = '/plates',
   PROFILE = '/profile',
+  PLATE_DETAILS = '/plate-details',
 }
