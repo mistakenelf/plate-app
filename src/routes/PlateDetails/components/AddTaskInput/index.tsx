@@ -3,12 +3,12 @@ import React from 'react';
 import { Input } from '../../../../components/Input';
 import { useI18n } from '../../../../lib/hooks/useI18n';
 
-interface AddTodoInputProps {
+interface AddTaskInputProps {
   inputValue: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const AddTodoInput: React.FC<AddTodoInputProps> = ({
+export const AddTaskInput: React.FC<AddTaskInputProps> = ({
   inputValue,
   onChange,
 }) => {
@@ -17,9 +17,9 @@ export const AddTodoInput: React.FC<AddTodoInputProps> = ({
   return (
     <Input
       labelHidden
-      id="todoItem"
-      name="todoItem"
-      inputLabel="Todo"
+      id="task"
+      name="task"
+      inputLabel="Task"
       type="text"
       value={inputValue}
       onChange={onChange}

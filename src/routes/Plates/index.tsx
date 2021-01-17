@@ -10,7 +10,7 @@ import styles from './style.module.css';
 const cx = classnames.bind(styles);
 
 const validationSchema = yup.object().shape({
-  plate: yup.string().trim().required('Todo item is required'),
+  plate: yup.string().trim().required('Name for plate is required'),
 });
 
 const Plates: React.FC = () => {

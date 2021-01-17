@@ -2,59 +2,59 @@ import React from 'react';
 import classnames from 'classnames/bind';
 import { FiSquare, FiCheckSquare, FiTrash2 } from 'react-icons/fi';
 
-import { Todo } from '../../../../models/todo';
+import { Task } from '../../../../models/Task';
 import { useTheme } from '../../../../lib/hooks/useTheme';
 
 import styles from './style.module.css';
 
 const cx = classnames.bind(styles);
 
-interface TodoItemProps {
-  todo: Todo;
-  completeTodo: (todo: Todo) => void;
-  deleteTodo: (todoId: string) => void;
+interface TaskItemProps {
+  task: Task;
+  completeTask: (task: Task) => void;
+  deleteTask: (taskId: string) => void;
 }
 
-export const TodoItem: React.FC<TodoItemProps> = ({
-  todo,
-  completeTodo,
-  deleteTodo,
+export const TaskItem: React.FC<TaskItemProps> = ({
+  task,
+  completeTask,
+  deleteTask,
 }) => {
   const { theme } = useTheme();
 
   const handleDelete = () => {
-    deleteTodo(todo.id);
+    deleteTask(task.id);
   };
 
   const handleComplete = () => {
-    completeTodo(todo);
+    completeTask(task);
   };
 
   return (
-    <li className={cx('todo-container')}>
+    <li className={cx('task-container')}>
       <div className={cx('text-container')}>
         <button className={cx('complete-button')} onClick={handleComplete}>
-          {!todo.completed ? (
+          {!task.completed ? (
             <FiSquare
-              className={cx('todo-item-icon')}
+              className={cx('task-item-icon')}
               strokeWidth={2}
               color={theme === 'dark' ? '#fff' : '#333'}
             />
           ) : (
             <FiCheckSquare
-              className={cx('todo-item-icon')}
+              className={cx('task-item-icon')}
               strokeWidth={2}
               color="#059699"
             />
           )}
         </button>
-        <span className={cx('todo-text', { completed: todo.completed })}>
-          {todo.text}
+        <span className={cx('task-text', { completed: task.completed })}>
+          {task.text}
         </span>
       </div>
       <button className={cx('delete-button')} onClick={handleDelete}>
         <FiTrash2
-          className={cx('todo-item-icon')}
+          className={cx('task-item-icon')}
           strokeWidth={2}
           color="#ef4444"
         />

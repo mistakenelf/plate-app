@@ -21,7 +21,6 @@ body[data-theme='dark'] {
   --switch-inactive: #666666;
   --input-background: #191919;
   --button-background: #5f5f5f;
-  --todo-item-background: rgba(57, 63, 84, 0.8);
   --spinner-secondary: #5f5f5f;
   --error-text: #dc2626;
   --bottom-nav-background: #333;

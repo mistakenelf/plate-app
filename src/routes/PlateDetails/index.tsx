@@ -4,53 +4,53 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 
 import { generateId } from '../../lib/helpers/generateId';
-import { useTodoState } from '../../lib/hooks/useTodoState';
+import { useTaskState } from '../../lib/hooks/useTaskState';
 
-import { AddTodoInput } from './components/AddTodoInput';
-import { TodoItem } from './components/TodoItem';
+import { AddTaskInput } from './components/AddTaskInput';
+import { TaskItem } from './components/TaskItem';
 import { EmptyPlate } from './components/EmptyPlate';
 import styles from './style.module.css';
 
 const cx = classnames.bind(styles);
 
 const validationSchema = yup.object().shape({
-  todoItem: yup.string().trim().required('Todo item is required'),
+  task: yup.string().trim().required('Todo item is required'),
 });
 
 const PlateDetails: React.FC = () => {
-  const { todos, addTodo, deleteTodo, completeTodo } = useTodoState([]);
+  const { tasks, addTask, deleteTask, completeTask } = useTaskState([]);
   const { values, handleChange, handleSubmit, setFieldValue } = useFormik({
     validationSchema,
     initialErrors: {
-      todoItem: '',
+      task: '',
     },
     initialValues: {
-      todoItem: '',
+      task: '',
     },
-    onSubmit: async ({ todoItem }) => {
-      addTodo({
+    onSubmit: async ({ task }) => {
+      addTask({
         id: generateId(),
-        text: todoItem,
+        text: task,
         completed: false,
       });
 
-      setFieldValue('todoItem', '');
+      setFieldValue('task', '');
     },
   });
 
   return (
     <section className={cx('container')}>
-      <form className={cx('add-todo-form')} onSubmit={handleSubmit}>
-        <AddTodoInput inputValue={values.todoItem} onChange={handleChange} />
+      <form className={cx('add-task-form')} onSubmit={handleSubmit}>
+        <AddTaskInput inputValue={values.task} onChange={handleChange} />
       </form>
-      {todos.length > 0 ? (
+      {tasks.length > 0 ? (
         <ul className={cx('items-container')}>
-          {todos.map((todo) => (
-            <TodoItem
-              key={todo.id}
-              todo={todo}
-              deleteTodo={deleteTodo}
-              completeTodo={completeTodo}
+          {tasks.map((task) => (
+            <TaskItem
+              key={task.id}
+              task={task}
+              deleteTask={deleteTask}
+              completeTask={completeTask}
             />
           ))}
         </ul>
