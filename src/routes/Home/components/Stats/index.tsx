@@ -24,7 +24,7 @@ export const Stats: React.FC = () => {
             <div className={cx('card')}>
               <div className={cx('content')}>
                 <div className={cx('count')}>32</div>
-                <div className={cx('title')}>Completed</div>
+                <div className={cx('title')}>Completed Tasks</div>
               </div>
             </div>
           </div>
@@ -32,7 +32,7 @@ export const Stats: React.FC = () => {
             <div className={cx('card')}>
               <div className={cx('content')}>
                 <div className={cx('count')}>12</div>
-                <div className={cx('title')}>Incomplete</div>
+                <div className={cx('title')}>Incomplete Tasks</div>
               </div>
             </div>
           </div>
