@@ -1,2 +1,17 @@
 .container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.add-plate-form {
+  margin-bottom: 30px;
+}
+
+.plates-container {
+  margin-top: 20px;
+  list-style-position: inside;
 }

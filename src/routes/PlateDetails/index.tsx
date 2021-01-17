@@ -39,26 +39,24 @@ const PlateDetails: React.FC = () => {
   });
 
   return (
-    <section>
-      <div className={cx('container')}>
-        <form className={cx('add-todo-form')} onSubmit={handleSubmit}>
-          <AddTodoInput inputValue={values.todoItem} onChange={handleChange} />
-        </form>
-        {todos.length > 0 ? (
-          <ul className={cx('items-container')}>
-            {todos.map((todo) => (
-              <TodoItem
-                key={todo.id}
-                todo={todo}
-                deleteTodo={deleteTodo}
-                completeTodo={completeTodo}
-              />
-            ))}
-          </ul>
-        ) : (
-          <EmptyPlate />
-        )}
-      </div>
+    <section className={cx('container')}>
+      <form className={cx('add-todo-form')} onSubmit={handleSubmit}>
+        <AddTodoInput inputValue={values.todoItem} onChange={handleChange} />
+      </form>
+      {todos.length > 0 ? (
+        <ul className={cx('items-container')}>
+          {todos.map((todo) => (
+            <TodoItem
+              key={todo.id}
+              todo={todo}
+              deleteTodo={deleteTodo}
+              completeTodo={completeTodo}
+            />
+          ))}
+        </ul>
+      ) : (
+        <EmptyPlate />
+      )}
     </section>
   );
 };
