@@ -14,25 +14,6 @@ const Plates = lazy(() => import('./Plates'));
 const Profile = lazy(() => import('./Profile'));
 const PlateDetails = lazy(() => import('./PlateDetails'));
 
-export const prefetchMap = [
-  {
-    path: RoutePaths.SETTINGS,
-    prefetchComponents: [Settings],
-  },
-  {
-    path: RoutePaths.LOGIN,
-    prefetchComponents: [Login],
-  },
-  {
-    path: RoutePaths.PLATES,
-    prefetchComponents: [Plates],
-  },
-  {
-    path: RoutePaths.PROFILE,
-    prefetchComponents: [Profile],
-  },
-];
-
 export const Routes: React.FC = () => {
   return (
     <Suspense fallback={<Spinner isOverlay />}>
