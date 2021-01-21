@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Input } from '../../../../components/Input';
-import { useI18n } from '../../../../lib/hooks/useI18n';
+import { useTranslation } from '../../../../lib/hooks/useTranslation';
 
 interface AddPlateInputProps {
   inputValue: string;
@@ -12,18 +12,18 @@ export const AddPlateInput: React.FC<AddPlateInputProps> = ({
   inputValue,
   onChange,
 }) => {
-  const { i18n } = useI18n();
+  const { t } = useTranslation();
 
   return (
     <Input
       labelHidden
       id="plate"
       name="plate"
-      inputLabel="Plate Name"
+      inputLabel={t('plates.plateInputLabel')}
       type="text"
       value={inputValue}
       onChange={onChange}
-      placeholder={i18n.t('home.todoInputPlaceholder')}
+      placeholder={t('plates.plateInputPlaceholder')}
     />
   );
 };

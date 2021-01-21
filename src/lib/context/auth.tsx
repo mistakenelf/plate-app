@@ -27,6 +27,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       setIsLoggedIn(true);
       setUserMetadata(userMetadata);
     } catch (e) {
+      setIsLoggedIn(false);
       console.error(e.message);
     }
   };
@@ -47,10 +48,10 @@ export const AuthProvider: React.FC = ({ children }) => {
         setLoading(true);
 
         const loggedIn = await magic.user.isLoggedIn();
-        const userMetadata = await magic.user.getMetadata();
 
         if (loggedIn) {
           setIsLoggedIn(true);
+          const userMetadata = await magic.user.getMetadata();
           setUserMetadata(userMetadata);
         } else {
           setIsLoggedIn(false);

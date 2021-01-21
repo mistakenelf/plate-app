@@ -1,16 +1,17 @@
 import React, { createContext, useState } from 'react';
-import rosetta, { Rosetta } from 'rosetta';
+import rosetta from 'rosetta';
 
 import en from '../../assets/locales/en.json';
 import es from '../../assets/locales/es.json';
 
-interface I18nContextProps {
-  i18n: Rosetta<any>;
+interface TranslationContextProps {
+  locale: string;
   currentLanguage: string;
+  t: (key: string) => string;
   changeLanguage: (lang: string) => void;
 }
 
-export const I18nContext = createContext({} as I18nContextProps);
+export const TranslationContext = createContext({} as TranslationContextProps);
 
 const i18n = rosetta({
   en,
@@ -19,7 +20,7 @@ const i18n = rosetta({
 
 i18n.locale('en');
 
-export const I18nProvider: React.FC = ({ children }) => {
+export const TranslationProvider: React.FC = ({ children }) => {
   const [currentLanguage, setCurrentLanguage] = useState('en');
 
   const changeLanguage = (lang: string) => {
@@ -28,8 +29,15 @@ export const I18nProvider: React.FC = ({ children }) => {
   };
 
   return (
-    <I18nContext.Provider value={{ i18n, currentLanguage, changeLanguage }}>
+    <TranslationContext.Provider
+      value={{
+        t: i18n.t,
+        locale: i18n.locale(),
+        currentLanguage,
+        changeLanguage,
+      }}
+    >
       {children}
-    </I18nContext.Provider>
+    </TranslationContext.Provider>
   );
 };

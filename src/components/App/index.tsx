@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider } from '../../lib/context/theme';
 import { AuthProvider } from '../../lib/context/auth';
 import { Routes } from '../../routes';
-import { I18nProvider } from '../../lib/context/i18n';
+import { TranslationProvider } from '../../lib/context/translation';
 
 export const App: React.FC = () => {
   useEffect(() => {
@@ -20,11 +20,11 @@ export const App: React.FC = () => {
   return (
     <BrowserRouter>
       <ThemeProvider>
-        <I18nProvider>
+        <TranslationProvider>
           <AuthProvider>
             <Routes />
           </AuthProvider>
-        </I18nProvider>
+        </TranslationProvider>
       </ThemeProvider>
     </BrowserRouter>
   );

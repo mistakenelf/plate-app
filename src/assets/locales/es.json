@@ -1,16 +1,26 @@
 {
-  "bottomNav": {
-    "homeLink": "Casa",
-    "platesLink": "Platos",
-    "profileLink": "Perfil"
+  "components": {
+    "button": {
+      "loading": "loading..."
+    }
+  },
+  "layouts": {
+    "defaultLayout": {
+      "bottomNav": {
+        "homeLink": "Home",
+        "platesLink": "Plates",
+        "profileLink": "Profile"
+      }
+    }
   },
   "home": {
-    "welcomeText": "¡Bienvenido a Plate!",
+    "header": "¡Bienvenido a Plate!",
     "settingsLink": "Ajustes",
     "loginLink": "Iniciar sesión",
     "logoutButton": "Cerrar sesión",
-    "emptyPlate": "Tu plato está vacío, ¡llenémoslo!",
-    "todoInputPlaceholder": "Ingrese un elemento para agregar"
+    "welcomePartOne": "Welcome, it seems you have not yet logged in. In order to get started please",
+    "welcomeLoginLink": "login",
+    "welcomePartTwo": ". If you dont have an account yet, dont worry, logging in will create an account for you if you dont have one."
   },
   "settings": {
     "header": "Ajustes",
@@ -27,7 +37,8 @@
     "emailInputPlaceholder": "Dirección de correo electrónico",
     "passwordInputLabel": "Contraseña",
     "passwordInputPlaceholder": "Contraseña    ",
-    "submitButton": "Iniciar sesión"
+    "submitButton": "Iniciar sesión",
+    "moreInfo": "Once you enter your email, we will send you a magic link. Once you click sign in through the magic link, come back to the app and you will be logged in. If you dont have an account, this will create one for you"
   },
   "register": {
     "headerText": "Registrarse",
@@ -36,5 +47,15 @@
     "passwordInputLabel": "Password",
     "passwordInputPlaceholder": "Password",
     "submitButton": "Registrarse"
+  },
+  "plateDetails": {
+    "emptyPlate": "Tu plato está vacío, ¡llenémoslo!",
+    "taskInputPlaceholder": "Ingrese un elemento para agregar",
+    "taskInputLabel": "Task"
+  },
+  "plates": {
+    "header": "My Plates",
+    "plateInputPlaceholder": "Enter a plate name",
+    "plateInputLabel": "Plate Name"
   }
 }

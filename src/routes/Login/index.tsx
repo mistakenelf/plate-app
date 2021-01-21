@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
-import { useI18n } from '../../lib/hooks/useI18n';
+import { useTranslation } from '../../lib/hooks/useTranslation';
 import { BackArrow } from '../../components/BackArrow';
 import { useAuth } from '../../lib/hooks/useAuth';
 import { RoutePaths } from '../../lib/constants';
@@ -24,7 +24,7 @@ const validationSchema = yup.object().shape({
 });
 
 const Login: React.FC = () => {
-  const { i18n } = useI18n();
+  const { t } = useTranslation();
   const history = useHistory();
   const { login } = useAuth();
   const {
@@ -41,7 +41,7 @@ const Login: React.FC = () => {
     initialValues: {
       email: '',
     },
-    onSubmit: ({ email }) => {
+    onSubmit: async ({ email }) => {
       try {
         login(email);
         history.push(RoutePaths.HOME);
@@ -55,12 +55,12 @@ const Login: React.FC = () => {
     <>
       <BackArrow />
       <section className={cx('container')}>
-        <h1 className={cx('header-text')}>{i18n.t('login.headerText')}</h1>
+        <h1 className={cx('header-text')}>{t('login.headerText')}</h1>
         <form className={cx('login-form')} onSubmit={handleSubmit}>
           <Input
-            inputLabel={i18n.t('login.emailInputLabel')}
+            inputLabel={t('login.emailInputLabel')}
             type="email"
-            placeholder={i18n.t('login.emailInputPlaceholder')}
+            placeholder={t('login.emailInputPlaceholder')}
             id="email"
             name="email"
             error={errors.email}
@@ -69,15 +69,10 @@ const Login: React.FC = () => {
           />
           <div className={cx('separator')} />
           <Button type="submit" block isLoading={isSubmitting}>
-            {i18n.t('login.submitButton')}
+            {t('login.submitButton')}
           </Button>
         </form>
-        <p className={cx('login-info')}>
-          Once you enter your email, we will send you a magic link. Once you
-          click sign in through the magic link, come back to the app and you
-          will be logged in. If you dont have an account, this will create one
-          for you
-        </p>
+        <p className={cx('login-info')}>{t('login.moreInfo')}</p>
       </section>
     </>
   );
