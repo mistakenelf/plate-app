@@ -27,7 +27,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "formik": "^2.2.6",
-    "magic-sdk": "^4.0.2",
+    "magic-sdk": "^4.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^4.1.0",
