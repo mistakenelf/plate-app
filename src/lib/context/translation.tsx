@@ -16,6 +16,7 @@ export const TranslationContext = createContext({} as TranslationContextProps);
 const i18n = rosetta({
   en,
   es,
+  de,
 });
 
 i18n.locale('en');
