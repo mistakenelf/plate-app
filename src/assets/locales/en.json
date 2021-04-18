@@ -27,7 +27,8 @@
     "languageLabel": "Language",
     "languages": {
       "english": "English",
-      "spanish": "Spanish"
+      "spanish": "Spanish",
+      "german": "German"
     },
     "darkModeLabel": "Dark mode?"
   },

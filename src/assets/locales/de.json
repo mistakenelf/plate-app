@@ -1,0 +1,62 @@
+{
+  "components": {
+    "button": {
+      "loading": "Laden..."
+    }
+  },
+  "layouts": {
+    "defaultLayout": {
+      "bottomNav": {
+        "homeLink": "Home",
+        "platesLink": "Plates",
+        "profileLink": "Profile"
+      }
+    }
+  },
+  "home": {
+    "header": "Wilkommen zu Plate!",
+    "settingsLink": "Einstellungen",
+    "loginLink": "Login",
+    "logoutButton": "Logout",
+    "welcomePartOne": "Willkommen, es scheint als ob Du dich noch nicht angemeldet hast. Um loszulegen",
+    "welcomeLoginLink": "melde dich an",
+    "welcomePartTwo": ". Wenn Du noch kein Konto hast, machen Dir keine Sorgen. Wenn Du dich anmeldest, wird ein Konto für Dich erstellt, falls Du noch keines hast."
+  },
+  "settings": {
+    "header": "Einstellungen",
+    "languageLabel": "Sprachen",
+    "languages": {
+      "english": "Englisch",
+      "spanish": "Spanisch",
+      "german": "Deutsch"
+    },
+    "darkModeLabel": "Dark mode?"
+  },
+  "login": {
+    "headerText": "Login",
+    "emailInputLabel": "Email",
+    "emailInputPlaceholder": "Email Addresse",
+    "passwordInputLabel": "Passwort",
+    "passwordInputPlaceholder": "Passwort",
+    "submitButton": "Login",
+    "moreInfo": "Sobald Du deine E-Mail eingiebst, senden wir Dir einen magischen Link. Sobald Du dich über den magischen Link anmeldest, kommst Du zurück zur App und wirst angemeldet. Wenn Du kein Konto hast, wird dies für Dich erstellt"
+  },
+  "register": {
+    "headerText": "Registrieren",
+    "emailInputLabel": "Email",
+    "emailInputPlaceholder": "Email Adresse",
+    "passwordInputLabel": "Passwort",
+    "passwordInputPlaceholder": "Passwort",
+    "submitButton": "Registrieren"
+  },
+  "plateDetails": {
+    "emptyPlate": "Deine Plate ist leer, füll sie doch auf!",
+    "taskInputPlaceholder": "Ein Element zum Hinzufügen eingeben",
+    "taskInputLabel": "Aufgabe"
+  },
+  "plates": {
+    "header": "Meine Plates",
+    "plateInputPlaceholder": "Plate-Name eingeben",
+    "plateInputLabel": "Plate Name"
+  }
+}

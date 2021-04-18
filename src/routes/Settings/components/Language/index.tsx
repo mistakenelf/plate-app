@@ -24,6 +24,7 @@ export const Language: React.FC = () => {
       >
         <option value="en">{t('settings.languages.english')}</option>
         <option value="es">{t('settings.languages.spanish')}</option>
+        <option value="de">{t('settings.languages.german')}</option>
       </select>
       <div className={cx('caret')} />
     </div>
